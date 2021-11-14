@@ -13,7 +13,6 @@ version: _1.0.0_
 latest change: _14.11.2021_
 
 ## Documentation
-This documentation contains a brief explaination of every method, that is included in this api.
-<details><summary>Click to expand</summary>
+<details><summary>This documentation contains a brief explaination of every method, that is included in this api</summary>
 There's a text following here
 </details>
