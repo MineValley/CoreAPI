@@ -14,3 +14,6 @@ latest change: _14.11.2021_
 
 ## Documentation
 This documentation contains a brief explaination of every method, that is included in this api.
+<details><summary>Click to expand</summary>
+There's a text following here
+</details>
