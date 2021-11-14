@@ -5,16 +5,21 @@ This README.md is ment to help you with your daily issues or questions referring
 
 We do our best to update this documentary. There's no other source of information, that is more up-to-date, than this one.
 
-**README.md**:
-latest change: _14.11.2021_
+> **README.md**:
+> latest change: _14.11.2021_
 
-**Core API**:
-version: _1.0.0_
-latest change: _14.11.2021_
+> **Core API**:
+> version: _1.0.0_
+> latest change: _14.11.2021_
+
+## Changelog (v_1.0.0)
+Here you can find the newest updates to this api.
+- added this README.md
+- inital commit
 
 ## Documentation
-This documentation contains a brief explaination of every method, that is included in this api
+This documentation contains a brief explaination of every method, that is included in this api.
 
-<details><summary>expand</summary>
+<details><summary>expand...</summary>
 There's a text following here
 </details>
