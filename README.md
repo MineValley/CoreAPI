@@ -18,7 +18,7 @@ Here you can find the newest updates to this api.
 - added this README.md
 - inital commit
 
-## Documentation
+# Documentation
 This documentation contains a brief explaination of every method, that is included in this api.
 
 ### PlayerData
