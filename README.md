@@ -6,10 +6,13 @@ This README.md is ment to help you with your daily issues or questions referring
 We do our best to update this documentary. There's no other source of information, that is more up-to-date, than this one.
 
 > **README.md**:
+>
 > latest change: _15.11.2021_
 
 > **Core API**:
+>
 > version: _1.0.0_
+>
 > latest change: _14.11.2021_
 
 ## Changelog (v_1.0.0)
@@ -40,7 +43,6 @@ This api provides the possibility to **get**, **change**, **add** and **remove**
 
 <details>
 <summary>conventions regarding the database structure</summary>
-
 The conventions for our database are not as strict as our code conventions, but we recommend that you adhere to them in order to be able to work together with other developers...
 
 - Column- and tablenames should be written in english and should be understandable without further knowledge about the module. Please only use lowercase letters and underscores. You can separate multiple words with underscores: 'company_name', 'unique_id'.
