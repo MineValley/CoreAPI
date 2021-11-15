@@ -3,7 +3,7 @@ This api grants important features and access to the internal server-core of Min
 
 This README.md is ment to help you with your daily issues or questions referring to our core and its components. It should offer you the most important information and give you answers to your upcoming questions. If this isn't the case sometimes, feel free to contact us on Discord.
 
-We do our best to update this documentary. There's no other source of information, that is more up-to-date, than this one.
+We do our best to update this documentary. There's no other source of information, that is more up-to-date, than this one. If there is any missing information or mistake in this README or if you should have any suggestions, please create a new issue, thank you!
 
 > **README.md**:
 >
