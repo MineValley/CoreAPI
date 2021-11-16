@@ -60,16 +60,6 @@ Locations are often converted to Strings using custom hashing-methods, which is 
 There's text following here...
 </details>
 
-### ItemBuilder
-<details><summary>Show more</summary>
-There's text following here...
-</details>
-
-### GuiBuilder
-<details><summary>Show more</summary>
-There's text following here...
-</details>
-
 ### BankAccount
 <details><summary>Show more</summary>
 There's text following here...
@@ -98,6 +88,21 @@ There's text following here...
 </details>
 
 ### MetaData
+<details><summary>Show more</summary>
+There's text following here...
+</details>
+
+### NPC
+<details><summary>Show more</summary>
+There's text following here...
+</details>
+
+### ItemBuilder
+<details><summary>Show more</summary>
+There's text following here...
+</details>
+
+### GuiBuilder
 <details><summary>Show more</summary>
 There's text following here...
 </details>
