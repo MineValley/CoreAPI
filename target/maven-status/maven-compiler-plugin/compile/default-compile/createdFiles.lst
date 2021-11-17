@@ -1,0 +1,7 @@
+eu\minevalley\core\api\CoreServer.class
+eu\minevalley\core\api\database\DatabaseTable.class
+eu\minevalley\core\api\CoreModule$Description.class
+eu\minevalley\core\api\CoreModule.class
+eu\minevalley\core\api\database\DatabaseEntry.class
+eu\minevalley\core\api\database\Value.class
+eu\minevalley\core\api\database\DatabaseEntryCollection.class

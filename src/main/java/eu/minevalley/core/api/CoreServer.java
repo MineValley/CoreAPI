@@ -4,9 +4,13 @@ import eu.minevalley.core.api.database.DatabaseEntry;
 import eu.minevalley.core.api.database.DatabaseEntryCollection;
 import eu.minevalley.core.api.database.DatabaseTable;
 import eu.minevalley.core.api.database.Value;
+import eu.minevalley.core.api.misc.ItemBuilder;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
 
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.UUID;
 
 public interface CoreServer {
 
@@ -21,4 +25,15 @@ public interface CoreServer {
 
 
     DatabaseTable databaseTable(String tableName);
+
+
+    ItemBuilder createItem(Material material);
+
+    ItemBuilder createItem(Material material, short data);
+
+    ItemBuilder createItem(Player player);
+
+    ItemBuilder createItem(UUID uniqueId);
+
+    ItemBuilder createItem(String url);
 }
