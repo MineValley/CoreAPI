@@ -1,4 +1,4 @@
-package eu.minevalley.core.api.misc;
+package eu.minevalley.core.api.utils;
 
 public interface Countdown {
 
