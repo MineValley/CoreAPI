@@ -1,5 +1,6 @@
 package eu.minevalley.core.api;
 
+import com.google.gson.Gson;
 import eu.minevalley.core.api.database.*;
 import eu.minevalley.core.api.helpers.*;
 import eu.minevalley.core.api.utils.*;
@@ -90,6 +91,10 @@ public interface CoreServer {
 
     DatabaseTable databaseTable(String tableName);
 
+
+    //
+
+    Gson getGson();
 
     //
 
