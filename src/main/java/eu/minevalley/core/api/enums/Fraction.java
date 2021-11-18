@@ -5,7 +5,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public enum FractionEnum {
+public enum Fraction {
 
     NONE(0),
     POLICE(1),
@@ -16,10 +16,10 @@ public enum FractionEnum {
     @Getter
     private final int value;
 
-    public static FractionEnum getFraction(@NonNull final int value) {
-        for (FractionEnum fractionEnum : values())
-            if (fractionEnum.getValue() == value)
-                return fractionEnum;
+    public static Fraction getFraction(@NonNull final int value) {
+        for (Fraction fraction : values())
+            if (fraction.getValue() == value)
+                return fraction;
             return null;
     }
 }

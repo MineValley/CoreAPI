@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public enum NPCAnimationEnum {
+public enum NPCAnimation {
 
     SWING_MAIN_HAND(0),
     TAKE_DAMAGE(1),
