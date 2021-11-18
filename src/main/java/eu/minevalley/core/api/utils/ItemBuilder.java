@@ -1,4 +1,4 @@
-package eu.minevalley.core.api.misc;
+package eu.minevalley.core.api.utils;
 
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -12,6 +12,8 @@ public interface ItemBuilder {
     ItemBuilder setDurability(short durability);
 
     ItemBuilder setAmount(int amount);
+
+    ItemBuilder hideDurability();
 
     ItemStack getItemStack();
 
