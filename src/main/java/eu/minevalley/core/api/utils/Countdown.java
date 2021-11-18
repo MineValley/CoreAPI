@@ -18,6 +18,8 @@ public interface Countdown {
 
     Countdown stop();
 
+    void performTick();
+
     long getLeft();
 
     long getPeriod();
@@ -29,6 +31,4 @@ public interface Countdown {
     void setLeft(long left);
 
     boolean isStarted();
-
-    void performTick();
 }
