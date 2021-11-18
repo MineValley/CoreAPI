@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.Metadatable;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -92,7 +93,16 @@ public interface CoreServer {
     DatabaseTable databaseTable(String tableName);
 
 
+    User getUser(Player player);
+
+
     //
+
+    void setMetadata(Metadatable metadatable, String key, Object value);
+
+    void removeMetadata(Metadatable metadatable, String key);
+
+    Object getMetadata(Metadatable metadatable, String key);
 
     Gson getGson();
 
