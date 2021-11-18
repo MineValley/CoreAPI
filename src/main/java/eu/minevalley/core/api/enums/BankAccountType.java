@@ -5,7 +5,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public enum BankAccountEnum {
+public enum BankAccountType {
 
     PERSONAL("DE 00"),
     SECONDARY("DE 01"),
@@ -16,10 +16,10 @@ public enum BankAccountEnum {
     @Getter
     private final String bankIdentification;
 
-    public static BankAccountEnum getBankAccount(@NonNull final String bankIdentification) {
-        for (BankAccountEnum bankAccountEnum : values())
-            if (bankAccountEnum.getBankIdentification() == bankIdentification)
-                return bankAccountEnum;
+    public static BankAccountType getBankAccount(@NonNull final String bankIdentification) {
+        for (BankAccountType bankAccount : values())
+            if (bankAccount.getBankIdentification().equals(bankIdentification))
+                return bankAccount;
             return null;
     }
 }

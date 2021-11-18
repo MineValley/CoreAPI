@@ -11,7 +11,7 @@ import java.util.Objects;
 @Getter
 public abstract class CoreModule {
 
-    private CoreServer server;
+    private final CoreServer server;
     private final Description description;
     private final File configPath;
 
@@ -29,7 +29,6 @@ public abstract class CoreModule {
     public abstract void onEnable();
 
     public abstract void onDisable();
-
 
 
     @Retention(RetentionPolicy.RUNTIME)
