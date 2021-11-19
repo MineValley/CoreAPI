@@ -57,8 +57,6 @@ public interface User {
 
     boolean isKnockedOut();
 
-    ChatInterface getChatInterface();
-
     ItemStack getPlayerHead();
 
     String getUniqueId();
@@ -76,4 +74,6 @@ public interface User {
     TeamRank getTeamRank();
 
     PlayerRank getPlayerRank();
+
+    ChatInterface getChatInterface();
 }
