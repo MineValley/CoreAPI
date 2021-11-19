@@ -9,11 +9,15 @@ import eu.minevalley.core.api.helpers.CountdownHelper;
 import eu.minevalley.core.api.helpers.EventHelper;
 import eu.minevalley.core.api.helpers.RabbitHelper;
 import eu.minevalley.core.api.utils.Countdown;
+import eu.minevalley.core.api.utils.EventListener;
 import eu.minevalley.core.api.utils.ItemBuilder;
+import eu.minevalley.core.api.utils.command.PlayerCommand;
 import eu.minevalley.core.api.utils.gui.GuiBuilder;
 import eu.minevalley.core.api.utils.gui.GuiItem;
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -124,8 +128,28 @@ public final class Core {
         server.cancelTask(taskId);
     }
 
+    public static void registerEvent(Class<? extends Event> cls, EventListener listener) {
+        server.registerEvent(cls, listener);
+    }
+
+    public static void unregisterEvent(Class<? extends Event> cls, EventListener listener) {
+        server.unregisterEvent(cls, listener);
+    }
+
     public static void registerListeners(Listener listener) {
         server.registerListeners(listener);
+    }
+
+    public static void registerCommand(PlayerCommand command) {
+        server.registerCommand(command);
+    }
+
+    public static void sendTeamChatMessage(String message) {
+        server.sendTeamChatMessage(message);
+    }
+
+    public static void sendTeamChatMessage(BaseComponent message) {
+        server.sendTeamChatMessage(message);
     }
 
     //

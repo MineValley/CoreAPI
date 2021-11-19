@@ -4,7 +4,6 @@ import eu.minevalley.core.api.enums.Fraction;
 import eu.minevalley.core.api.enums.MessageType;
 import eu.minevalley.core.api.enums.PlayerRank;
 import eu.minevalley.core.api.enums.TeamRank;
-import eu.minevalley.core.api.utils.ChatInterface;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -27,7 +26,7 @@ public interface User {
 
     void sendError();
 
-    void input(String message, Consumer<String> consumer);
+    void input(String message, Consumer<String> callback);
 
     void leaveInterface();
 
@@ -74,6 +73,4 @@ public interface User {
     TeamRank getTeamRank();
 
     PlayerRank getPlayerRank();
-
-    ChatInterface getChatInterface();
 }
