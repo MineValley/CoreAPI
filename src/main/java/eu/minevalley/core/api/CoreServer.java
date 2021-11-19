@@ -4,9 +4,12 @@ import com.google.gson.Gson;
 import eu.minevalley.core.api.database.*;
 import eu.minevalley.core.api.helpers.*;
 import eu.minevalley.core.api.utils.*;
+import eu.minevalley.core.api.utils.command.PlayerCommand;
 import eu.minevalley.core.api.utils.gui.*;
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -68,9 +71,17 @@ public interface CoreServer {
 
     void cancelTask(int taskId);
 
+    void registerEvent(Class<? extends Event> cls, EventListener listener);
 
+    void unregisterEvent(Class<? extends Event> cls, EventListener listener);
 
     void registerListeners(Listener listener);
+
+    void registerCommand(PlayerCommand command);
+
+    void sendTeamChatMessage(String message);
+
+    void sendTeamChatMessage(BaseComponent message);
 
     //
 

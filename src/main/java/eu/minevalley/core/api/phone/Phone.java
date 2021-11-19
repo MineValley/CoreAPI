@@ -1,8 +1,6 @@
 package eu.minevalley.core.api.phone;
 
 import eu.minevalley.core.api.User;
-import net.md_5.bungee.api.chat.ComponentBuilder;
-import org.bukkit.entity.Player;
 
 public interface Phone {
 
@@ -23,6 +21,8 @@ public interface Phone {
      */
     void call(Phone phone);
 
+    void acceptCall();
+
     /**
      * Activates the player's phone
      */
@@ -32,18 +32,6 @@ public interface Phone {
      * Deactivates the player's phone
      */
     void deactivate();
-
-    /**
-     * Defines the target-phone that this phone is calling
-     * @param phone new target phone
-     */
-    void setOutGoingCallTarget(Phone phone);
-
-    /**
-     * Defines the phone that is calling this phone
-     * @param phone the calling phone
-     */
-    void setInComingCaller(Phone phone);
 
     /**
      * Gets the target-phone that this phone is calling
