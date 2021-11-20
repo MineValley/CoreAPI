@@ -4,6 +4,7 @@ import eu.minevalley.core.api.enums.Fraction;
 import eu.minevalley.core.api.enums.MessageType;
 import eu.minevalley.core.api.enums.PlayerRank;
 import eu.minevalley.core.api.enums.TeamRank;
+import eu.minevalley.core.api.phone.Phone;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -64,7 +65,7 @@ public interface User {
 
     Player getPlayer();
 
-    // Phone getPhone(); ?!
+    Phone getPhone();
 
     // BankAccount getBankAccount(); !?
 
