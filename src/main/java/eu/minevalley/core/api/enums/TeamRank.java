@@ -8,14 +8,14 @@ import lombok.RequiredArgsConstructor;
 public enum TeamRank {
 
     NONE(0, false),
-    SONSTIGES(10, false),
+    MISCELLANEOUS(10, false),
     BUILDING(11, false),
-    TSUPPORT(1, true),
+    T_SUPPORT(1, true),
     SUPPORT(2, true),
     MODERATION(11, true),
-    ENTWICKLUNG(20, false),
+    DEVELOPMENT(20, false),
     ADMINISTRATION(30, true),
-    SERVERLEITUNG(100, true);
+    SERVER_LEAD(100, true);
 
     private final int value;
 
