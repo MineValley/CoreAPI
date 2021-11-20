@@ -189,8 +189,6 @@ public final class Core {
         server.sendTeamChatMessage(message);
     }
 
-    //
-
     public static CountdownHelper getCountdownHelper() {
         return server.getCountdownHelper();
     }
@@ -202,8 +200,6 @@ public final class Core {
     public static RabbitHelper getRabbitHelper() {
         return server.getRabbitHelper();
     }
-
-    //
 
     public static DatabaseEntry databaseEntry(String tableName, ResultSet resultSet, int index) {
         return server.databaseEntry(tableName, resultSet, index);
