@@ -58,11 +58,6 @@ public interface Countdown {
     Countdown stop();
 
     /**
-     * Performs new tick
-     */
-    void performTick();
-
-    /**
      * Gets the duration left
      * @return duration left as long
      */
