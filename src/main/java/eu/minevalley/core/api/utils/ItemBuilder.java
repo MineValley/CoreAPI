@@ -40,12 +40,6 @@ public interface ItemBuilder {
     ItemBuilder hideDurability();
 
     /**
-     * Gets the item-meta of this builder
-     * @return item-meta of this builder
-     */
-    ItemMeta getItemMeta();
-
-    /**
      * Converts this builder with its parameters into an itemstack
      * @return built itemstack
      */
