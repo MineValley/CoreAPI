@@ -6,6 +6,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerEvent;
 
+/**
+ * This event gets called, when a player interacts with an NPC. It's the equivalent to the PlayerInteractAtEntity-event.
+ */
 @Getter
 public final class PlayerInteractNPCEvent extends PlayerEvent {
 
