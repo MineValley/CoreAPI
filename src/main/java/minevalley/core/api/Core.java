@@ -22,6 +22,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.Metadatable;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -38,20 +39,56 @@ public final class Core {
         Core.server = server;
     }
 
-
+    /**
+     * @deprecated Use {@link  BukkitTask runTaskTimer(long period, long delay, Runnable runnable)}
+     * @param period Period in server ticks of the task
+     * @param delay Delay in server ticks before executing first repeat
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     */
+    @Deprecated
     public static int scheduleSyncRepeatingTask(long period, long delay, BukkitRunnable runnable) {
         return server.scheduleSyncRepeatingTask(period, delay, runnable);
     }
 
+    /**
+     * Schedules a repeating task.
+     *
+     * This task will be executed by the main server thread.
+     * @param period Period in server ticks of the task
+     * @param delay Delay in server ticks before executing first repeat
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     */
     public static int scheduleSyncRepeatingTask(long period, long delay, Runnable runnable) {
         return server.scheduleSyncRepeatingTask(period, delay, runnable);
     }
 
+    /**
+     * <b>Asynchronous tasks should never access any API in Bukkit. Great care
+     * should be taken to assure the thread-safety of asynchronous tasks.</b>
+     * <p>
+     * Schedules a repeating task. This task will be executed by a thread
+     * managed by the scheduler.
+     *
+     * @param period Period in server ticks of the task
+     * @param delay Delay in server ticks before executing first repeat
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     * @deprecated This name is misleading, as it does not schedule "a sync"
+     *     task, but rather, "an async" task
+     */
     public static int scheduleAsyncRepeatingTask(long period, long delay, Runnable runnable) {
         return server.scheduleAsyncRepeatingTask(period, delay, runnable);
     }
 
-
+    /**
+     * @deprecated Use {@link BukkitTask runTaskLater(long delay, Runnable runnable)}
+     * @param delay Delay in server ticks before executing task
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     */
+    @Deprecated
     public static int scheduleSyncDelayedTask(long delay, BukkitRunnable runnable) {
         return server.scheduleSyncDelayedTask(delay, runnable);
     }
