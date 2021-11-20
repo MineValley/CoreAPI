@@ -10,5 +10,9 @@ public interface EventHelper {
 
     void unregisterEvent(Class<? extends Event> cls, EventListener listener);
 
+    /**
+     * Registers new command
+     * @param command playercommand-object of command to register
+     */
     void registerCommand(PlayerCommand command);
 }

@@ -21,6 +21,9 @@ public interface Phone {
      */
     void call(Phone phone);
 
+    /**
+     * Accepts the incoming call
+     */
     void acceptCall();
 
     /**
