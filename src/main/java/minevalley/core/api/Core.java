@@ -40,13 +40,11 @@ public final class Core {
     }
 
     /**
-     * @deprecated Use {@link  BukkitTask runTaskTimer(long period, long delay, Runnable runnable)}
      * @param period Period in server ticks of the task
      * @param delay Delay in server ticks before executing first repeat
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
-    @Deprecated
     public static int scheduleSyncRepeatingTask(long period, long delay, BukkitRunnable runnable) {
         return server.scheduleSyncRepeatingTask(period, delay, runnable);
     }
@@ -83,84 +81,240 @@ public final class Core {
     }
 
     /**
-     * @deprecated Use {@link BukkitTask runTaskLater(long delay, Runnable runnable)}
      * @param delay Delay in server ticks before executing task
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
-    @Deprecated
     public static int scheduleSyncDelayedTask(long delay, BukkitRunnable runnable) {
         return server.scheduleSyncDelayedTask(delay, runnable);
     }
 
+    /**
+     * Schedules a once off task to occur after a delay.
+     * <p>
+     * This task will be executed by the main server thread.
+     *
+     * @param delay Delay in server ticks before executing task
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     */
     public static int scheduleSyncDelayedTask(long delay, Runnable runnable) {
         return server.scheduleSyncDelayedTask(delay, runnable);
     }
 
+    /**
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     */
     public static int scheduleSyncDelayedTask(BukkitRunnable runnable) {
         return server.scheduleSyncDelayedTask(runnable);
     }
 
+    /**
+     * Schedules a once off task to occur as soon as possible.
+     * <p>
+     * This task will be executed by the main server thread.
+     *
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     */
     public static int scheduleSyncDelayedTask(Runnable runnable) {
         return server.scheduleSyncDelayedTask(runnable);
     }
 
+    /**
+     * <b>Asynchronous tasks should never access any API in Bukkit. Great care
+     * should be taken to assure the thread-safety of asynchronous tasks.</b>
+     * <p>
+     * Schedules a once off task to occur after a delay. This task will be
+     * executed by a thread managed by the scheduler.
+     *
+     * @param delay Delay in server ticks before executing task
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     * @deprecated This name is misleading, as it does not schedule "a sync"
+     *     task, but rather, "an async" task
+     */
     public static int scheduleAsyncDelayedTask(long delay, Runnable runnable) {
         return server.scheduleAsyncDelayedTask(delay, runnable);
     }
 
+    /**
+     * <b>Asynchronous tasks should never access any API in Bukkit. Great care
+     * should be taken to assure the thread-safety of asynchronous tasks.</b>
+     * <p>
+     * Schedules a once off task to occur as soon as possible. This task will
+     * be executed by a thread managed by the scheduler.
+     *
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     * @deprecated This name is misleading, as it does not schedule "a sync"
+     *     task, but rather, "an async" task
+     */
     public static int scheduleAsyncDelayedTask(Runnable runnable) {
         return server.scheduleAsyncDelayedTask(runnable);
     }
 
-
+    /**
+     * Returns a task that will run on the next server tick.
+     *
+     * @param runnable the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     public static BukkitTask runTask(Runnable runnable) {
         return server.runTask(runnable);
     }
 
+
+    /**
+     * <b>Asynchronous tasks should never access any API in Bukkit. Great care
+     * should be taken to assure the thread-safety of asynchronous tasks.</b>
+     * <p>
+     * Returns a task that will run asynchronously.
+     *
+     * @param runnable the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     public static BukkitTask runTaskAsync(Runnable runnable) {
         return server.runTaskAsync(runnable);
     }
 
-
+    /**
+     * @param runnable the task to be run
+     * @param delay the ticks to wait before running the task
+     * @param period the ticks to wait between runs
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     public static BukkitTask runTaskTimer(long period, long delay, BukkitRunnable runnable) {
         return server.runTaskTimer(period, delay, runnable);
     }
 
+    /**
+     * Returns a task that will repeatedly run until cancelled, starting after
+     * the specified number of server ticks.
+     *
+     * @param period the ticks to wait between runs
+     * @param delay the ticks to wait before running the task
+     * @param runnable the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     public static BukkitTask runTaskTimer(long period, long delay, Runnable runnable) {
         return server.runTaskTimer(period, delay, runnable);
     }
 
+    /**
+     * @param period the ticks to wait between runs
+     * @param delay the ticks to wait before running the task for the first time
+     * @param runnable the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     public static BukkitTask runTaskTimerAsync(long period, long delay, BukkitRunnable runnable) {
         return server.runTaskTimerAsync(period, delay, runnable);
     }
 
+    /**
+     * <b>Asynchronous tasks should never access any API in Bukkit. Great care
+     * should be taken to assure the thread-safety of asynchronous tasks.</b>
+     * <p>
+     * Returns a task that will repeatedly run asynchronously until cancelled,
+     * starting after the specified number of server ticks.
+     * @param period the ticks to wait between runs
+     * @param delay the ticks to wait before running the task for the first time
+     * @param runnable the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     public static BukkitTask runTaskTimerAsync(long period, long delay, Runnable runnable) {
         return server.runTaskTimerAsync(period, delay, runnable);
     }
 
-
+    /**
+     * @param delay the ticks to wait before running the task
+     * @param runnable the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     public static BukkitTask runTaskLater(long delay, BukkitRunnable runnable) {
         return server.runTaskLater(delay, runnable);
     }
 
+    /**
+     * Returns a task that will run after the specified number of server
+     * ticks.
+     *
+     * @param delay the ticks to wait before running the task
+     * @param runnable the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     public static BukkitTask runTaskLater(long delay, Runnable runnable) {
         return server.runTaskLater(delay, runnable);
     }
 
+    /**
+     * @param delay the ticks to wait before running the task
+     * @param runnable the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     public static BukkitTask runTaskLaterAsync(long delay, BukkitRunnable runnable) {
         return server.runTaskLaterAsync(delay, runnable);
     }
 
+    /**
+     * <b>Asynchronous tasks should never access any API in Bukkit. Great care
+     * should be taken to assure the thread-safety of asynchronous tasks.</b>
+     * <p>
+     * Returns a task that will run asynchronously after the specified number
+     * of server ticks.
+     *
+     * @param delay the ticks to wait before running the task
+     * @param runnable the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     public static BukkitTask runTaskLaterAsync(long delay, Runnable runnable) {
         return server.runTaskLaterAsync(delay, runnable);
     }
 
-
+    /**
+     * Check if the task currently running.
+     * <p>
+     * A repeating task might not be running currently, but will be running in
+     * the future. A task that has finished, and does not repeat, will not be
+     * running ever again.
+     * <p>
+     * Explicitly, a task is running if there exists a thread for it, and that
+     * thread is alive.
+     *
+     * @param taskId The task to check.
+     * <p>
+     * @return If the task is currently running.
+     */
     public static boolean isCurrentlyRunning(int taskId) {
         return server.isCurrentlyRunning(taskId);
     }
 
+    /**
+     * Removes task from scheduler.
+     *
+     * @param taskId Id number of task to be removed
+     */
     public static void cancelTask(int taskId) {
         server.cancelTask(taskId);
     }
@@ -223,10 +377,21 @@ public final class Core {
 
     //
 
+    /**
+     * Adds this object as a metadata to the metadatable object.
+     * @param metadatable object to which the metadata should be added
+     * @param key key under which the metadata can be found
+     * @param value object to be added as metadata
+     */
     public static void setMetadata(Metadatable metadatable, String key, Object value) {
         server.setMetadata(metadatable, key, value);
     }
 
+    /**
+     * Removes all metadata-objects with the given key from the specifiy metadatable object.
+     * @param metadatable object from which the metadata should be removed
+     * @param key object
+     */
     public static void removeMetadata(Metadatable metadatable, String key) {
         server.removeMetadata(metadatable, key);
     }
