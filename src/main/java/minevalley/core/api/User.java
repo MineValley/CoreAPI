@@ -109,6 +109,12 @@ public interface User {
     int getWantedLevel();
 
     /**
+     * Sets the wanted-level of the user
+     * @param level new wanted-level
+     */
+    void setWantedLevel(int level);
+
+    /**
      * Gets whether the user is allowed to use a general-key
      * @return true, if the player is allowed to use a general-key
      */
