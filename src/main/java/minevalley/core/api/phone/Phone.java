@@ -1,6 +1,8 @@
 package minevalley.core.api.phone;
 
 import minevalley.core.api.User;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public interface Phone {
 
@@ -8,12 +10,6 @@ public interface Phone {
      * This method isn't useable yet.
      */
     void sendNotification();
-
-    /**
-     * Defines the call, this phone is in.
-     * @param call new call for this phone
-     */
-    void setCall(Call call);
 
     /**
      * Calls the given phone.
@@ -56,6 +52,7 @@ public interface Phone {
 
     /**
      * Gets the current call of the selected phone.
+     * Note: Even though the {@link Phone#isInCall()}-method returns true if the phone receives or starts a call, which isn't yet picked up, this object is null as there is no active call in which both phones are involved.
      * @return call-object of current call (null, if there is no call)
      */
     Call getCall();
