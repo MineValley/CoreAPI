@@ -20,6 +20,6 @@ public enum Fraction {
         for (Fraction fraction : values())
             if (fraction.getValue() == value)
                 return fraction;
-            return null;
+        return null;
     }
 }

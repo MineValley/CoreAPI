@@ -1,7 +1,7 @@
 package minevalley.core.api.utils.command;
 
-import minevalley.core.api.Core;
 import lombok.Getter;
+import minevalley.core.api.Core;
 
 import java.util.Objects;
 
@@ -12,8 +12,7 @@ public abstract class PlayerCommand implements Command {
 
     public PlayerCommand() {
         this.description = Objects.requireNonNull(
-            getClass().getAnnotation(CommandOptions.class), "Descriptions is null"
-        );
+                getClass().getAnnotation(CommandOptions.class), "Descriptions is null");
 
         Core.getEventHelper().registerCommand(this);
     }

@@ -1,8 +1,8 @@
 package minevalley.core.api.enums;
 
+import lombok.RequiredArgsConstructor;
 import minevalley.core.api.Core;
 import minevalley.core.api.utils.ItemBuilder;
-import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -53,6 +53,7 @@ public enum InterfaceItem {
 
     /**
      * Gets the interface-item as an item-builder.
+     *
      * @return interface-item as item-builder
      */
     public ItemBuilder getBuilder() {
@@ -62,6 +63,7 @@ public enum InterfaceItem {
 
     /**
      * Gets the itemstack of the interface-item.
+     *
      * @return interface-item as itemstack
      */
     public ItemStack toItemStack() {

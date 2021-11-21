@@ -6,6 +6,7 @@ public interface DatabaseEntryCollection {
 
     /**
      * Gets a list of all entries in this collection.
+     *
      * @return list of database-entries
      */
     List<DatabaseEntry> getEntries();

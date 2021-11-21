@@ -16,7 +16,7 @@ public abstract class CoreModule {
         this.server = server;
 
         this.description = Objects.requireNonNull(
-            getClass().getAnnotation(Description.class), "Description can not be null"
+                getClass().getAnnotation(Description.class), "Description can not be null"
         );
         new Core(server);
     }

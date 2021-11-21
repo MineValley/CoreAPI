@@ -1,7 +1,7 @@
 package minevalley.core.api.events;
 
-import minevalley.core.api.utils.NPC;
 import lombok.Getter;
+import minevalley.core.api.utils.NPC;
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerEvent;

@@ -6,6 +6,7 @@ public interface DatabaseTable {
 
     /**
      * Gets all entries in the table
+     *
      * @return list of all database-entries
      */
     List<DatabaseEntry> getEntries();
@@ -17,6 +18,7 @@ public interface DatabaseTable {
 
     /**
      * Adds a new entry with the given values into the table
+     *
      * @param entries values and their target column
      */
     void addEntry(Value... entries);

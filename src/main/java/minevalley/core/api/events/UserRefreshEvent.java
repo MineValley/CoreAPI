@@ -1,8 +1,8 @@
 package minevalley.core.api.events;
 
-import minevalley.core.api.User;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import minevalley.core.api.User;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
@@ -11,7 +11,8 @@ import org.bukkit.event.HandlerList;
  * It is used to change user-dependent data in modules when that user's data has been updated.
  * You can update a user manually by calling the refresh()-method.
  */
-@RequiredArgsConstructor @Getter
+@RequiredArgsConstructor
+@Getter
 public final class UserRefreshEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();

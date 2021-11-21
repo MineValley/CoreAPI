@@ -64,6 +64,7 @@ public enum TeamRank {
 
     /**
      * Gets the rank by giving the identification-number of the rank.
+     *
      * @param value identification-number of the searched rank
      * @return the maching team-rank
      */
@@ -71,6 +72,6 @@ public enum TeamRank {
         for (TeamRank teamRank : values())
             if (teamRank.getValue() == value)
                 return teamRank;
-            return null;
+        return null;
     }
 }

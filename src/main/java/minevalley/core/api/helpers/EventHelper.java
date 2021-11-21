@@ -12,6 +12,7 @@ public interface EventHelper {
 
     /**
      * Registers new command
+     *
      * @param command playercommand-object of command to register
      */
     void registerCommand(PlayerCommand command);

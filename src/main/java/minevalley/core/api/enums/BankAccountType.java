@@ -20,6 +20,6 @@ public enum BankAccountType {
         for (BankAccountType bankAccount : values())
             if (bankAccount.getBankIdentification().equals(bankIdentification))
                 return bankAccount;
-            return null;
+        return null;
     }
 }

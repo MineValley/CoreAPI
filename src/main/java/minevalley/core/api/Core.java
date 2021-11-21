@@ -22,7 +22,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.Metadatable;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -40,8 +39,8 @@ public final class Core {
     }
 
     /**
-     * @param period Period in server ticks of the task
-     * @param delay Delay in server ticks before executing first repeat
+     * @param period   Period in server ticks of the task
+     * @param delay    Delay in server ticks before executing first repeat
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
@@ -51,10 +50,11 @@ public final class Core {
 
     /**
      * Schedules a repeating task.
-     *
+     * <p>
      * This task will be executed by the main server thread.
-     * @param period Period in server ticks of the task
-     * @param delay Delay in server ticks before executing first repeat
+     *
+     * @param period   Period in server ticks of the task
+     * @param delay    Delay in server ticks before executing first repeat
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
@@ -69,19 +69,19 @@ public final class Core {
      * Schedules a repeating task. This task will be executed by a thread
      * managed by the scheduler.
      *
-     * @param period Period in server ticks of the task
-     * @param delay Delay in server ticks before executing first repeat
+     * @param period   Period in server ticks of the task
+     * @param delay    Delay in server ticks before executing first repeat
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      * @deprecated This name is misleading, as it does not schedule "a sync"
-     *     task, but rather, "an async" task
+     * task, but rather, "an async" task
      */
     public static int scheduleAsyncRepeatingTask(long period, long delay, Runnable runnable) {
         return server.scheduleAsyncRepeatingTask(period, delay, runnable);
     }
 
     /**
-     * @param delay Delay in server ticks before executing task
+     * @param delay    Delay in server ticks before executing task
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
@@ -94,7 +94,7 @@ public final class Core {
      * <p>
      * This task will be executed by the main server thread.
      *
-     * @param delay Delay in server ticks before executing task
+     * @param delay    Delay in server ticks before executing task
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
@@ -129,11 +129,11 @@ public final class Core {
      * Schedules a once off task to occur after a delay. This task will be
      * executed by a thread managed by the scheduler.
      *
-     * @param delay Delay in server ticks before executing task
+     * @param delay    Delay in server ticks before executing task
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      * @deprecated This name is misleading, as it does not schedule "a sync"
-     *     task, but rather, "an async" task
+     * task, but rather, "an async" task
      */
     public static int scheduleAsyncDelayedTask(long delay, Runnable runnable) {
         return server.scheduleAsyncDelayedTask(delay, runnable);
@@ -149,7 +149,7 @@ public final class Core {
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      * @deprecated This name is misleading, as it does not schedule "a sync"
-     *     task, but rather, "an async" task
+     * task, but rather, "an async" task
      */
     public static int scheduleAsyncDelayedTask(Runnable runnable) {
         return server.scheduleAsyncDelayedTask(runnable);
@@ -185,8 +185,8 @@ public final class Core {
 
     /**
      * @param runnable the task to be run
-     * @param delay the ticks to wait before running the task
-     * @param period the ticks to wait between runs
+     * @param delay    the ticks to wait before running the task
+     * @param period   the ticks to wait between runs
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
@@ -199,8 +199,8 @@ public final class Core {
      * Returns a task that will repeatedly run until cancelled, starting after
      * the specified number of server ticks.
      *
-     * @param period the ticks to wait between runs
-     * @param delay the ticks to wait before running the task
+     * @param period   the ticks to wait between runs
+     * @param delay    the ticks to wait before running the task
      * @param runnable the task to be run
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
@@ -211,8 +211,8 @@ public final class Core {
     }
 
     /**
-     * @param period the ticks to wait between runs
-     * @param delay the ticks to wait before running the task for the first time
+     * @param period   the ticks to wait between runs
+     * @param delay    the ticks to wait before running the task for the first time
      * @param runnable the task to be run
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
@@ -228,8 +228,9 @@ public final class Core {
      * <p>
      * Returns a task that will repeatedly run asynchronously until cancelled,
      * starting after the specified number of server ticks.
-     * @param period the ticks to wait between runs
-     * @param delay the ticks to wait before running the task for the first time
+     *
+     * @param period   the ticks to wait between runs
+     * @param delay    the ticks to wait before running the task for the first time
      * @param runnable the task to be run
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
@@ -240,7 +241,7 @@ public final class Core {
     }
 
     /**
-     * @param delay the ticks to wait before running the task
+     * @param delay    the ticks to wait before running the task
      * @param runnable the task to be run
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
@@ -254,7 +255,7 @@ public final class Core {
      * Returns a task that will run after the specified number of server
      * ticks.
      *
-     * @param delay the ticks to wait before running the task
+     * @param delay    the ticks to wait before running the task
      * @param runnable the task to be run
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
@@ -265,7 +266,7 @@ public final class Core {
     }
 
     /**
-     * @param delay the ticks to wait before running the task
+     * @param delay    the ticks to wait before running the task
      * @param runnable the task to be run
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
@@ -282,7 +283,7 @@ public final class Core {
      * Returns a task that will run asynchronously after the specified number
      * of server ticks.
      *
-     * @param delay the ticks to wait before running the task
+     * @param delay    the ticks to wait before running the task
      * @param runnable the task to be run
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
@@ -303,7 +304,7 @@ public final class Core {
      * thread is alive.
      *
      * @param taskId The task to check.
-     * <p>
+     *               <p>
      * @return If the task is currently running.
      */
     public static boolean isCurrentlyRunning(int taskId) {
@@ -379,9 +380,10 @@ public final class Core {
 
     /**
      * Adds this object as a metadata to the metadatable object.
+     *
      * @param metadatable object to which the metadata should be added
-     * @param key key under which the metadata can be found
-     * @param value object to be added as metadata
+     * @param key         key under which the metadata can be found
+     * @param value       object to be added as metadata
      */
     public static void setMetadata(Metadatable metadatable, String key, Object value) {
         server.setMetadata(metadatable, key, value);
@@ -389,8 +391,9 @@ public final class Core {
 
     /**
      * Removes all metadata-objects with the given key from the specifiy metadatable object.
+     *
      * @param metadatable object from which the metadata should be removed
-     * @param key object
+     * @param key         object
      */
     public static void removeMetadata(Metadatable metadatable, String key) {
         server.removeMetadata(metadatable, key);
