@@ -6,6 +6,7 @@ public interface ItemBuilder {
 
     /**
      * Defines the item's display-name
+     *
      * @param displayName name of the item as string
      * @return this item-builder
      */
@@ -13,6 +14,7 @@ public interface ItemBuilder {
 
     /**
      * Defines the item's lore
+     *
      * @param lore lore of the item as string(s)
      * @return this item-builder
      */
@@ -20,6 +22,7 @@ public interface ItemBuilder {
 
     /**
      * Defines the item's durability
+     *
      * @param durability durability of the item as short
      * @return this item-builder
      */
@@ -27,6 +30,7 @@ public interface ItemBuilder {
 
     /**
      * Defines the item's amount
+     *
      * @param amount amount of the item as integer
      * @return this item-builder
      */
@@ -34,12 +38,14 @@ public interface ItemBuilder {
 
     /**
      * Hides the durability-bar in the players inventory
+     *
      * @return this item-builder
      */
     ItemBuilder hideDurability();
 
     /**
      * Converts this builder with its parameters into an itemstack
+     *
      * @return built itemstack
      */
     ItemStack build();
