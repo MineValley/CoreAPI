@@ -29,6 +29,16 @@ public interface User {
     void leaveTeamService();
 
     /**
+     * Lets the user enter the support-service. If the user isn't allowed to, nothing happens.
+     */
+    void joinSupportService();
+
+    /**
+     * Lets the user leave the support-service.
+     */
+    void leaveSupportService();
+
+    /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
      * @param message message to be send as string
      */
@@ -175,7 +185,7 @@ public interface User {
      */
     Phone getPhone();
 
-    // BankAccount getBankAccount(); !?
+    //TODO: BankAccount getBankAccount();
 
     /**
      * Gets the users fraction.
