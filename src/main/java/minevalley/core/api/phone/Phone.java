@@ -46,7 +46,7 @@ public interface Phone {
      * Gets the phone that is calling this phone.
      * @return the calling phone
      */
-    Phone getInComingCaller();
+    Phone getIncomingCaller();
 
     /**
      * Gets the phone's owner.
