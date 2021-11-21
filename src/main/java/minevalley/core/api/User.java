@@ -136,7 +136,7 @@ public interface User {
      * Gets whether the user is in support-service
      * @return true, if the user is in support-service
      */
-    boolean isSupportService();
+    boolean isInSupportService();
 
     /**
      * Gets whether the user is knocked out.
