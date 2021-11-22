@@ -4,7 +4,10 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Arrays;
+
 @RequiredArgsConstructor
+@Getter
 public enum BankAccountType {
 
     PERSONAL("DE 00"),
@@ -13,13 +16,10 @@ public enum BankAccountType {
     ORGANISATION("DE 03"),
     STATE("DE 04");
 
-    @Getter
     private final String bankIdentification;
 
     public static BankAccountType getBankAccount(@NonNull final String bankIdentification) {
-        for (BankAccountType bankAccount : values())
-            if (bankAccount.getBankIdentification().equals(bankIdentification))
-                return bankAccount;
-        return null;
+        return Arrays.stream(values()).filter(bankAccount -> bankAccount.getBankIdentification()
+                .equals(bankIdentification)).findFirst().orElse(null);
     }
 }

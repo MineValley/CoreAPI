@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Arrays;
+
 @RequiredArgsConstructor
 public enum Fraction {
 
@@ -17,9 +19,6 @@ public enum Fraction {
     private final int value;
 
     public static Fraction getFraction(@NonNull final int value) {
-        for (Fraction fraction : values())
-            if (fraction.getValue() == value)
-                return fraction;
-        return null;
+        return Arrays.stream(values()).filter(fraction -> fraction.getValue() == value).findFirst().orElse(null);
     }
 }

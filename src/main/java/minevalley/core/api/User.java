@@ -1,5 +1,6 @@
 package minevalley.core.api;
 
+import lombok.NonNull;
 import minevalley.core.api.enums.Fraction;
 import minevalley.core.api.enums.MessageType;
 import minevalley.core.api.enums.PlayerRank;
@@ -43,7 +44,7 @@ public interface User {
      *
      * @param message message to be send as string
      */
-    void sendMessage(String message);
+    void sendMessage(@NonNull String message);
 
     /**
      * Sends a message to this user with a specific prefix.
@@ -51,14 +52,14 @@ public interface User {
      * @param messageType type of prefix to be displayed in front of the message
      * @param message     message to be send as string
      */
-    void sendMessage(MessageType messageType, String message);
+    void sendMessage(@NonNull MessageType messageType, @NonNull String message);
 
     /**
      * Sends a message to this user, with using ComponentBuilders. This way you can use hover and clickevents and can take advantage of the clickable messages.
      *
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
      */
-    void sendMessage(BaseComponent baseComponent);
+    void sendMessage(@NonNull BaseComponent baseComponent);
 
     /**
      * Sends the usual "Unbekannter Befehl!"-error to the user. Mostly used when a player is trying to execute an command that they are not allowed to do.
@@ -71,7 +72,7 @@ public interface User {
      * @param message  the message to be send to the player. Normally containing a question or a request to put in any data
      * @param callback the callback that is called when the player makes an entry in the chat-interface. The consumer contains a string of the sent message.
      */
-    void input(String message, Consumer<String> callback);
+    void input(@NonNull String message, @NonNull Consumer<String> callback);
 
     /**
      * Lets the user leave his current interface
@@ -89,7 +90,7 @@ public interface User {
      * @param ranks list of player-ranks to be checked for
      * @return is true, if the user has one of the ranks
      */
-    boolean hasPlayerRank(PlayerRank... ranks);
+    boolean hasPlayerRank(@NonNull PlayerRank... ranks);
 
     /**
      * Gets whether the user has any of the listed team-ranks.
@@ -97,7 +98,7 @@ public interface User {
      * @param ranks list of team-ranks to be checked for
      * @return is true, if the user has one of the ranks
      */
-    boolean hasTeamRank(TeamRank... ranks);
+    boolean hasTeamRank(@NonNull TeamRank... ranks);
 
     /**
      * Gets if the player has any type of team-rank.

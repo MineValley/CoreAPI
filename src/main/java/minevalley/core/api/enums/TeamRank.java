@@ -3,6 +3,8 @@ package minevalley.core.api.enums;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Arrays;
+
 @RequiredArgsConstructor
 @Getter
 public enum TeamRank {
@@ -69,9 +71,6 @@ public enum TeamRank {
      * @return the maching team-rank
      */
     public static TeamRank getRank(int value) {
-        for (TeamRank teamRank : values())
-            if (teamRank.getValue() == value)
-                return teamRank;
-        return null;
+        return Arrays.stream(values()).filter(teamRank -> teamRank.getValue() == value).findFirst().orElse(null);
     }
 }

@@ -1,5 +1,6 @@
 package minevalley.core.api.utils.command;
 
+import lombok.NonNull;
 import minevalley.core.api.User;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public interface Command {
      * @param args array of arguments
      * @return response-enum that decides what is sent to the user
      */
+    @NonNull
     CommandResponse onCommand(User user, String[] args);
 
     /**
