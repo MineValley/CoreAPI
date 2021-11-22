@@ -14,6 +14,6 @@ public abstract class PlayerCommand implements Command {
         this.description = Objects.requireNonNull(
                 getClass().getAnnotation(CommandOptions.class), "Descriptions is null");
 
-        Core.getEventHelper().registerCommand(this);
+        Core.registerCommand(this);
     }
 }
