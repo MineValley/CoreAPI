@@ -5,9 +5,6 @@ import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
-import minevalley.core.api.helpers.CountdownHelper;
-import minevalley.core.api.helpers.EventHelper;
-import minevalley.core.api.helpers.RabbitHelper;
 import minevalley.core.api.utils.Countdown;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.ItemBuilder;
@@ -92,16 +89,6 @@ public interface CoreServer {
 
     void sendTeamChatMessage(BaseComponent message);
 
-    //
-
-    CountdownHelper getCountdownHelper();
-
-    EventHelper getEventHelper();
-
-    RabbitHelper getRabbitHelper();
-
-    //
-
     DatabaseEntry databaseEntry(String tableName, ResultSet resultSet, int index);
 
     DatabaseEntry databaseEntry(String tableName, Value searchValue);
@@ -135,6 +122,10 @@ public interface CoreServer {
     GuiItem guiItem(ItemStack itemStack, Consumer<Player> consumer);
 
     Countdown createCountdown();
+
+    void startCountdown(Countdown countdown);
+
+    void stopCountdown(Countdown countdown);
 
     ItemBuilder createItem(Material material);
 
