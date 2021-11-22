@@ -36,7 +36,6 @@ public interface CoreServer {
 
     int scheduleAsyncRepeatingTask(long period, long delay, Runnable runnable);
 
-
     int scheduleSyncDelayedTask(long delay, BukkitRunnable runnable);
 
     int scheduleSyncDelayedTask(long delay, Runnable runnable);
@@ -99,9 +98,7 @@ public interface CoreServer {
 
     DatabaseTable databaseTable(String tableName);
 
-
     User getUser(Player player);
-
 
     //
 
