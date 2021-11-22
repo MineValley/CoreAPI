@@ -5,9 +5,6 @@ import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
-import minevalley.core.api.helpers.CountdownHelper;
-import minevalley.core.api.helpers.EventHelper;
-import minevalley.core.api.helpers.RabbitHelper;
 import minevalley.core.api.utils.Countdown;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.ItemBuilder;
@@ -355,18 +352,6 @@ public final class Core {
         server.sendTeamChatMessage(message);
     }
 
-    public static CountdownHelper getCountdownHelper() {
-        return server.getCountdownHelper();
-    }
-
-    public static EventHelper getEventHelper() {
-        return server.getEventHelper();
-    }
-
-    public static RabbitHelper getRabbitHelper() {
-        return server.getRabbitHelper();
-    }
-
     public static DatabaseEntry databaseEntry(String tableName, ResultSet resultSet, int index) {
         return server.databaseEntry(tableName, resultSet, index);
     }
@@ -514,6 +499,14 @@ public final class Core {
      */
     public static Countdown createCountdown() {
         return server.createCountdown();
+    }
+
+    public static void startCountdown(Countdown countdown) {
+        server.startCountdown(countdown);
+    }
+
+    public static void stopCountdown(Countdown countdown) {
+        server.stopCountdown(countdown);
     }
 
     /**
