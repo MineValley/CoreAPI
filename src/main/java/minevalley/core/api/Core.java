@@ -21,6 +21,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.MetadataValue;
 import org.bukkit.metadata.Metadatable;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
@@ -336,10 +337,20 @@ public final class Core {
         server.registerCommand(command);
     }
 
+    /**
+     * Sends a message to all online team-members
+     *
+     * @param message message as string
+     */
     public static void sendTeamChatMessage(String message) {
         server.sendTeamChatMessage(message);
     }
 
+    /**
+     * Sends a message to all online team-members
+     *
+     * @param message message as base-component (useful for clickable messages)
+     */
     public static void sendTeamChatMessage(BaseComponent message) {
         server.sendTeamChatMessage(message);
     }
@@ -360,18 +371,48 @@ public final class Core {
         return server.databaseEntry(tableName, resultSet, index);
     }
 
+    /**
+     * Gets the specific database-entry from the specified table with the specified value in the column.
+     * If there are more than one entries, that math the given description, this gets the first one.
+     * If you want to get multiple entries, use database-collection, or database-table!
+     *
+     * @param tableName   name of the table as string
+     * @param searchValue value according to which the entries are filtered in a specific column
+     * @return the first database-entry that matches the given description
+     */
     public static DatabaseEntry databaseEntry(String tableName, Value searchValue) {
         return server.databaseEntry(tableName, searchValue);
     }
 
+    /**
+     * Creates a database-collection with the given entries.
+     *
+     * @param tableName name of the table as string
+     * @param entries   list of entries
+     * @return collection of the given entries
+     */
     public static DatabaseEntryCollection databaseEntryCollection(String tableName, List<DatabaseEntry> entries) {
         return server.databaseEntryCollection(tableName, entries);
     }
 
+    /**
+     * Gets a database-collection from the specified table with the specified value in the column.
+     * This gets all of the entries that match the description. If you're searching for one single entry, use database-entry!
+     *
+     * @param tableName   name of the table as string
+     * @param searchValue value according to which the entries are filtered in a specific column
+     * @return a collection of all database-entries in this table, that matches the given description
+     */
     public static DatabaseEntryCollection databaseEntryCollection(String tableName, Value searchValue) {
         return server.databaseEntryCollection(tableName, searchValue);
     }
 
+    /**
+     * Gets the database-table with the specific name.
+     *
+     * @param tableName name of the database-table
+     * @return database-table with specific name
+     */
     public static DatabaseTable databaseTable(String tableName) {
         return server.databaseTable(tableName);
     }
@@ -399,48 +440,137 @@ public final class Core {
         server.removeMetadata(metadatable, key);
     }
 
-    public static Object getMetadata(Metadatable metadatable, String key) {
+    /**
+     * Gets a list of all metadata-values in link to the object.
+     *
+     * @param metadatable object to get linked data from
+     * @param key         key of the metadata
+     * @return list of all metadata-values
+     */
+    public static List<MetadataValue> getMetadata(Metadatable metadatable, String key) {
         return server.getMetadata(metadatable, key);
     }
 
+    /**
+     * Creates a {@link Gson} instance that fits in a page for pretty printing.
+     * Use this, to convert json-strings to specific objects and vice versa.
+     *
+     * @return an instance of Gson configured that fits in a page for pretty printing
+     */
     public static Gson getGson() {
         return server.getGson();
     }
 
     //
 
+    /**
+     * Creates new gui-builder based on a existing inventory.
+     *
+     * @param inventory inventory on which the gui-builder should base on
+     * @return new gui-builder
+     */
     public static GuiBuilder gui(Inventory inventory) {
         return server.gui(inventory);
     }
 
+    /**
+     * Creates new gui-builder with the specific size.
+     *
+     * @param size size of the inventory (has to be a multiple of 9)
+     * @return new gui-builder
+     */
     public static GuiBuilder gui(int size) {
         return server.gui(size);
     }
 
+    /**
+     * Creates new gui-item, based on a specific itemstack with a specific callback.
+     * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
+     *
+     * @param itemStack item which should be displayed in the inventory (use item-builder to create this item)
+     * @param consumer  consumer which gets calles if a player clicks the item
+     * @return gui-item-object to add to the gui-builder
+     */
     public static GuiItem guiItem(ItemStack itemStack, Consumer<Player> consumer) {
         return server.guiItem(itemStack, consumer);
     }
 
+    /**
+     * Creates new gui-item, based on a specific itemstack without any callback.
+     * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
+     *
+     * @param itemStack item which should be displayed in the inventory (use item-builder to create this item)
+     * @return gui-item-object to add to the gui-builder
+     */
+    public static GuiItem guiItem(ItemStack itemStack) {
+        return server.guiItem(itemStack, null);
+    }
+
+    /**
+     * Creates new countdown-object.
+     * Note: Don't use this method to realize cooldowns for player-actions. Use schedulers instead!
+     *
+     * @return new countdown-object
+     */
     public static Countdown createCountdown() {
         return server.createCountdown();
     }
 
+    /**
+     * Creates a new item-builder based on a specific material.
+     *
+     * @param material material of the item to create
+     * @return new item-builder
+     */
     public static ItemBuilder createItem(Material material) {
         return server.createItem(material);
     }
 
+    /**
+     * Creates a new item-builder based on a specific material and data.
+     *
+     * @param material material of the item to create
+     * @param data     specific data for the item as short
+     * @return new item-builder
+     */
     public static ItemBuilder createItem(Material material, short data) {
         return server.createItem(material, data);
     }
 
+    /**
+     * Creates a new item-builder from the players head.
+     *
+     * @param player player whose head is wanted
+     * @return new item-builder
+     */
     public static ItemBuilder createItem(Player player) {
         return server.createItem(player);
     }
 
+    /**
+     * Creates a new item-builder from the players head based on its unique id.
+     *
+     * @param uniqueId unique id of the player whose head is wanted
+     * @return new item-builder
+     */
     public static ItemBuilder createItem(UUID uniqueId) {
         return server.createItem(uniqueId);
     }
 
+    /**
+     * Creates new item-builder out of a custom head, based on its link.
+     * <p>
+     * Example - head from <a href="https://minecraft-heads.com/custom-heads">head-database</a>:
+     * The url to the head is:
+     * 68c2f1f7e8cd6b00d30f0edaeefce38e889173c30c701fac0da860e0a2125ec8
+     * <p>
+     * You can use this url to get the head. It doesn't matter whether you're using the whole link (starting with "textures.minecraft.net") or just using the number, as shown above.
+     * <p>
+     * Note: Always cache heads you already created! Getting/creating new heads can be a waste of server-performance. A simple way to cash all heads used in inventories, is to load the with the onEnable()-method.
+     *
+     * @param url link to <span style="text-decoration:underline;">or</span></span> the id of the specific head
+     * @return item-builder based on the chosen head
+     */
     public static ItemBuilder createItem(String url) {
         return server.createItem(url);
     }
