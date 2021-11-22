@@ -436,6 +436,22 @@ public final class Core {
         return server.getMetadata(metadatable, key);
     }
 
+    public static String getName(String uniqueId) {
+        return server.getName(uniqueId);
+    }
+
+    public static String getUniqueId(String name) {
+        return server.getUniqueId(name);
+    }
+
+    public static String removeColorCodes(String text) {
+        return server.removeColorCodes(text);
+    }
+
+    public static String convertColorCodes(String text) {
+        return server.convertColorCodes(text);
+    }
+
     /**
      * Creates a {@link Gson} instance that fits in a page for pretty printing.
      * Use this, to convert json-strings to specific objects and vice versa.

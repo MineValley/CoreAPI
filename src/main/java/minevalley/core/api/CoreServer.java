@@ -110,6 +110,14 @@ public interface CoreServer {
 
     Gson getGson();
 
+    String getName(String uniqueId);
+
+    String getUniqueId(String name);
+
+    String removeColorCodes(String text);
+
+    String convertColorCodes(String text);
+
     //
 
     GuiBuilder gui(Inventory inventory);
