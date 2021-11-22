@@ -21,6 +21,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.MetadataValue;
 import org.bukkit.metadata.Metadatable;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
@@ -121,7 +122,7 @@ public interface CoreServer {
 
     void removeMetadata(Metadatable metadatable, String key);
 
-    Object getMetadata(Metadatable metadatable, String key);
+    List<MetadataValue> getMetadata(Metadatable metadatable, String key);
 
     Gson getGson();
 
