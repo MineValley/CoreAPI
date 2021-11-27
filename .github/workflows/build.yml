@@ -26,4 +26,4 @@ jobs:
           java-version: 1.8
       
       - name: Build the Maven Project
-        run: mvn -B package --file pom.xml
+        run: mvn deploy
