@@ -6,7 +6,7 @@
 
     <groupId>eu.minevalley</groupId>
     <artifactId>Core-API</artifactId>
-    <version>1.0-develop</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <distributionManagement>
