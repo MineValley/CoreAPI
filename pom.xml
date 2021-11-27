@@ -9,6 +9,14 @@
     <version>1.0-develop</version>
     <packaging>jar</packaging>
 
+    <distributionManagement>
+        <repository>
+            <id>core</id>
+            <name>Core-API</name>
+            <url>https://maven.pkg.github.com/Snabeldier/Core-API</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
