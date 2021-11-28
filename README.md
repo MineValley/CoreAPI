@@ -13,7 +13,7 @@ We do our best to update this documentary. There's no other source of informatio
 >
 > version: _1.0.0_
 >
-> latest change: _14.11.2021_
+> latest change: _28.11.2021_
 
 ## Changelog (v_1.0.0)
 Here you can find the newest updates to this api.
