@@ -25,6 +25,9 @@ jobs:
       # Deletes the latest version of the package
       - name: Delete old package-version
         uses: actions/delete-package-versions@v2
+        with:
+          package-name: $(git remote get-url origin)
+          num-old-versions-to-delete: 1
       
       # Deploys a maven-build as a new package to be accessed with any pom.xml.
       - name: Deploy to GitHub
