@@ -22,6 +22,10 @@ jobs:
         with:
           java-version: 1.8
       
+      # Deletes the latest version of the package
+      - name: Delete old package-version
+        uses: actions/delete-package-versions@v2
+      
       # Deploys a maven-build as a new package to be accessed with any pom.xml.
       - name: Deploy to GitHub
         run: mvn deploy
