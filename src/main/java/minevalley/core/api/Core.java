@@ -352,7 +352,7 @@ public final class Core {
         server.sendTeamChatMessage(message);
     }
 
-    public static DatabaseEntry databaseEntry(String tableName, ResultSet resultSet, int index) {
+    public static DatabaseEntry getDatabaseEntry(String tableName, ResultSet resultSet, int index) {
         return server.databaseEntry(tableName, resultSet, index);
     }
 
@@ -365,7 +365,7 @@ public final class Core {
      * @param searchValue value according to which the entries are filtered in a specific column
      * @return the first database-entry that matches the given description
      */
-    public static DatabaseEntry databaseEntry(String tableName, Value searchValue) {
+    public static DatabaseEntry getDatabaseEntry(String tableName, Value searchValue) {
         return server.databaseEntry(tableName, searchValue);
     }
 
@@ -376,7 +376,7 @@ public final class Core {
      * @param entries   list of entries
      * @return collection of the given entries
      */
-    public static DatabaseEntryCollection databaseEntryCollection(String tableName, List<DatabaseEntry> entries) {
+    public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, List<DatabaseEntry> entries) {
         return server.databaseEntryCollection(tableName, entries);
     }
 
@@ -388,7 +388,7 @@ public final class Core {
      * @param searchValue value according to which the entries are filtered in a specific column
      * @return a collection of all database-entries in this table, that matches the given description
      */
-    public static DatabaseEntryCollection databaseEntryCollection(String tableName, Value searchValue) {
+    public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue) {
         return server.databaseEntryCollection(tableName, searchValue);
     }
 
@@ -398,7 +398,7 @@ public final class Core {
      * @param tableName name of the database-table
      * @return database-table with specific name
      */
-    public static DatabaseTable databaseTable(String tableName) {
+    public static DatabaseTable getDatabaseTable(String tableName) {
         return server.databaseTable(tableName);
     }
 
@@ -479,7 +479,7 @@ public final class Core {
      * @param inventory inventory on which the gui-builder should base on
      * @return new gui-builder
      */
-    public static GuiBuilder gui(Inventory inventory) {
+    public static GuiBuilder createGui(Inventory inventory) {
         return server.gui(inventory);
     }
 
@@ -489,7 +489,7 @@ public final class Core {
      * @param size size of the inventory (has to be a multiple of 9)
      * @return new gui-builder
      */
-    public static GuiBuilder gui(int size) {
+    public static GuiBuilder createGui(int size) {
         return server.gui(size);
     }
 
@@ -512,7 +512,7 @@ public final class Core {
      * @param itemStack item which should be displayed in the inventory (use item-builder to create this item)
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem guiItem(ItemStack itemStack) {
+    public static GuiItem createGuiItem(ItemStack itemStack) {
         return server.guiItem(itemStack, null);
     }
 
