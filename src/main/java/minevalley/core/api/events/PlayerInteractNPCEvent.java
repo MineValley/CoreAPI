@@ -20,7 +20,6 @@ public final class PlayerInteractNPCEvent extends PlayerEvent {
 
     public PlayerInteractNPCEvent(Player who, NPC npc, ClickEnum clickEnum) {
         super(who);
-
         this.npc = npc;
         this.clickEnum = clickEnum;
     }
