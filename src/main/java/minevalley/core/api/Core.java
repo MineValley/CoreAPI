@@ -436,6 +436,15 @@ public final class Core {
         return server.getMetadata(metadatable, key);
     }
 
+    /**
+     * Gets a players user object
+     * @param player player object to get user from
+     * @return user object of the given player
+     */
+    public static User getUser(Player player) {
+        return server.getUser(player);
+    }
+
     public static String getName(String uniqueId) {
         return server.getName(uniqueId);
     }
