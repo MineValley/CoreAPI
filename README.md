@@ -7,11 +7,11 @@ We do our best to update this documentary. There's no other source of informatio
 
 > **README.md**:
 >
-> latest change: _15.11.2021_
+> latest change: _28.11.2021_
 
 > **Core API**:
 >
-> version: _1.0.0_
+> version: _1.0_
 >
 > latest change: _28.11.2021_
 
@@ -24,7 +24,7 @@ Here you can find the newest updates to this api.
 # Documentation
 This documentation contains a brief explaination of every method, that is included in this api.
 
-## PlayerData
+## User
 <details><summary>Show more</summary>
 There's text following here...
 </details>
