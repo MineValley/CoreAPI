@@ -25,12 +25,6 @@ jobs:
         with:
           java-version: 1.8
           
-      - name: Remove package versions
-        id: remove-package-versions
-        uses: epitomeglobal/remove-package-versions@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.REMOVE_PACKAGE_TOKEN }}
-          
       - name: Deploy to GitHub
         run: mvn deploy
         env:
