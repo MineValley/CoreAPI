@@ -501,7 +501,7 @@ public final class Core {
      * @param consumer  consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(ItemStack itemStack, Consumer<Player> consumer) {
+    public static GuiItem createGuiItem(ItemStack itemStack, Consumer<User> consumer) {
         return server.guiItem(itemStack, consumer);
     }
 

@@ -1,5 +1,6 @@
 package minevalley.core.api.utils.gui;
 
+import minevalley.core.api.User;
 import minevalley.core.api.enums.InterfaceItem;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -28,7 +29,7 @@ public interface GuiBuilder {
 
     GuiBuilder addCloser();
 
-    GuiBuilder onClose(Consumer<Player> callback);
+    GuiBuilder onClose(Consumer<User> callback);
 
     GuiItem getItem(int slot);
 

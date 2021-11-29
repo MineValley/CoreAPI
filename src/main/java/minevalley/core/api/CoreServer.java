@@ -124,7 +124,7 @@ public interface CoreServer {
 
     GuiBuilder gui(int size);
 
-    GuiItem guiItem(ItemStack itemStack, Consumer<Player> consumer);
+    GuiItem guiItem(ItemStack itemStack, Consumer<User> consumer);
 
     Countdown createCountdown();
 
