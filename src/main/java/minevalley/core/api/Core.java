@@ -402,8 +402,6 @@ public final class Core {
         return server.databaseTable(tableName);
     }
 
-    //
-
     /**
      * Adds this object as a metadata to the metadatable object.
      *
@@ -445,18 +443,38 @@ public final class Core {
         return server.getUser(player);
     }
 
+    /**
+     * Gets the name of the player with the specifc unique id
+     * @param uniqueId unique id of the player
+     * @return name of the player
+     */
     public static String getName(String uniqueId) {
         return server.getName(uniqueId);
     }
 
+    /**
+     * Gets the unique id of the player with the specific name
+     * @param name name of the player
+     * @return unique id of the player
+     */
     public static String getUniqueId(String name) {
         return server.getUniqueId(name);
     }
 
+    /**
+     * Removes the color-codes from a given string
+     * @param text string which could contain color-codes
+     * @return string without any color-codes
+     */
     public static String removeColorCodes(String text) {
         return server.removeColorCodes(text);
     }
 
+    /**
+     * Converts chat-color-codes to normal color-codes (& -> §)
+     * @param text string which could contain chat-color-codes
+     * @return string with converted color-codes
+     */
     public static String convertColorCodes(String text) {
         return server.convertColorCodes(text);
     }
@@ -470,8 +488,6 @@ public final class Core {
     public static Gson getGson() {
         return server.getGson();
     }
-
-    //
 
     /**
      * Creates new gui-builder based on a existing inventory.
