@@ -31,6 +31,7 @@ public interface Command {
         SUCCESS,
         ABUSE_WARNING,
         WRONG_SYNTAX,
-        NO_PERMISSIONS
+        NO_PERMISSIONS,
+        NONE
     }
 }
