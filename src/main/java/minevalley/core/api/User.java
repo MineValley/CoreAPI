@@ -158,6 +158,12 @@ public interface User {
     boolean canEnterSupportService();
 
     /**
+     * Gets whether the user is marked as server-operator (!= OP-permission)
+     * @return true, if the user is marked as server-operator
+     */
+    boolean isOperator();
+
+    /**
      * Gets whether the user is in support-service
      *
      * @return true, if the user is in support-service
