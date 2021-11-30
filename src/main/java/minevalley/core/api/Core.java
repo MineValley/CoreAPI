@@ -608,4 +608,22 @@ public final class Core {
     public static ItemBuilder createItem(String url) {
         return server.createItem(url);
     }
+
+    /**
+     * Converts an inventory that is converted to a string back into the usual inventory object.
+     * @param inventory string to convert to inventory
+     * @return inventory object
+     */
+    public static Inventory getInventoryFromString(String inventory) {
+        return server.getInventoryFromString(inventory);
+    }
+
+    /**
+     * Converts an inventory and its contents into a string. This method is used to save inventories to the database.
+     * @param inventory inventory to convert
+     * @return inventory from string
+     */
+    public static String getStringFromInventory(Inventory inventory) {
+        return server.getStringFromInventory(inventory);
+    }
 }

@@ -141,4 +141,8 @@ public interface CoreServer {
     ItemBuilder createItem(UUID uniqueId);
 
     ItemBuilder createItem(String url);
+
+    Inventory getInventoryFromString(String inventory);
+
+    String getStringFromInventory(Inventory inventory);
 }
