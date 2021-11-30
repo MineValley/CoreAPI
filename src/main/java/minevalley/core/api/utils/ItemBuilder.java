@@ -26,7 +26,7 @@ public interface ItemBuilder {
      * @param durability durability of the item as short
      * @return this item-builder
      */
-    ItemBuilder setDurability(short durability);
+    ItemBuilder setDurability(int durability);
 
     /**
      * Defines the item's amount
