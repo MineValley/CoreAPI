@@ -62,4 +62,10 @@ public @interface CommandOptions {
      * The return of ABUSE_WARNING in the onCommand method is not related to this setting and can also be carried out if nothing (or false) is specified here
      */
     boolean abuseWarning() default false;
+
+    /**
+     * If a value is specified here, the user must execute the command with the specified number of arguments.
+     * Otherwise the command will not be invoked and the user will receive a syntax error.
+     */
+    int correctSyntaxLength() default -1;
 }
