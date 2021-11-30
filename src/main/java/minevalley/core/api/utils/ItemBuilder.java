@@ -28,6 +28,8 @@ public interface ItemBuilder {
      */
     ItemBuilder setDurability(int durability);
 
+    ItemBuilder setData(int data);
+
     /**
      * Defines the item's amount
      *

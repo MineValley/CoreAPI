@@ -134,7 +134,7 @@ public interface CoreServer {
 
     ItemBuilder createItem(Material material);
 
-    ItemBuilder createItem(Material material, short data);
+    ItemBuilder createItem(Material material, int data);
 
     ItemBuilder createItem(Player player);
 

@@ -567,7 +567,7 @@ public final class Core {
      * @param data     specific data for the item as short
      * @return new item-builder
      */
-    public static ItemBuilder createItem(Material material, short data) {
+    public static ItemBuilder createItem(Material material, int data) {
         return server.createItem(material, data);
     }
 
