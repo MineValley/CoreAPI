@@ -75,6 +75,12 @@ public interface User {
     void input(@NonNull String message, @NonNull Consumer<String> callback);
 
     /**
+     * Gets whether the user is currently in a chat-interface.
+     * @return true, if the user is in a chat-interface
+     */
+    boolean isInChatInterface();
+
+    /**
      * Lets the user leave his current interface
      */
     void leaveInterface();
