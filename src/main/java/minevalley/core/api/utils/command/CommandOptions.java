@@ -64,6 +64,11 @@ public @interface CommandOptions {
     boolean abuseWarning() default false;
 
     /**
+     * If this is enabled, users (in this case only teammembers) aren't allowed to use this command, if they aren't in support service.
+     */
+    boolean requireSupportService() default false;
+
+    /**
      * If a value is specified here, the user must execute the command with the specified number of arguments.
      * Otherwise the command will not be invoked and the user will receive a syntax error.
      */
