@@ -352,6 +352,13 @@ public final class Core {
         server.sendTeamChatMessage(message);
     }
 
+    /**
+     * Gets the specific database-entry from the given ResultSet, the tablename and the entrys index.
+     * @param tableName name of the table as string
+     * @param resultSet resultset
+     * @param index index of the entry
+     * @return DatabaseEntry from the given parameters
+     */
     public static DatabaseEntry getDatabaseEntry(String tableName, ResultSet resultSet, int index) {
         return server.databaseEntry(tableName, resultSet, index);
     }
@@ -400,6 +407,26 @@ public final class Core {
      */
     public static DatabaseTable getDatabaseTable(String tableName) {
         return server.databaseTable(tableName);
+    }
+
+    /**
+     * Sets the setting with the given key.
+     * <p>
+     * <b>Note:</b> When using the settings-method, do never change the settings manually via database!
+     * @param key string of the key
+     * @param value string of the (new) value
+     */
+    public static void setSetting(String key, String value) {
+        server.setSetting(key, value);
+    }
+
+    /**
+     * Gets the settings with the specific key.
+     * @param key string of the key with which the setting is saved
+     * @return setting as string from the specific key
+     */
+    public static String getSetting(String key) {
+        return server.getSetting(key);
     }
 
     /**

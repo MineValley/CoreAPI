@@ -98,6 +98,10 @@ public interface CoreServer {
 
     DatabaseTable databaseTable(String tableName);
 
+    void setSetting(String key, String value);
+
+    String getSetting(String key);
+
     User getUser(Player player);
 
     //
