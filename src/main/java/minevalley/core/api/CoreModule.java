@@ -25,15 +25,4 @@ public abstract class CoreModule {
     public abstract void onEnable();
 
     public abstract void onDisable();
-
-
-    @Retention(RetentionPolicy.RUNTIME)
-    public @interface Description {
-
-        String name();
-
-        String version() default "1.0";
-
-        String[] authors();
-    }
 }

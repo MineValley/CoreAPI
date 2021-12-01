@@ -59,7 +59,7 @@ public interface User {
      *
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
      */
-    void sendMessage(@NonNull BaseComponent baseComponent);
+    void sendMessage(@NonNull BaseComponent[] baseComponent);
 
     /**
      * Sends the usual "Unbekannter Befehl!"-error to the user. Mostly used when a player is trying to execute an command that they are not allowed to do.
