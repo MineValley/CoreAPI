@@ -5,6 +5,7 @@ import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
+import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.ItemBuilder;
@@ -643,6 +644,33 @@ public final class Core {
      */
     public static ItemBuilder createItem(String url) {
         return server.createItem(url);
+    }
+
+    /**
+     * Creates a clickable message without any specifications.
+     * @return new clickable message
+     */
+    public static ClickableMessage createClickableMessage() {
+        return server.createClickableMessage();
+    }
+
+    /**
+     * Creates a clickable message that executes the given callback.
+     * @param callback callback to be executed if player clicks the message
+     * @return new clickable message
+     */
+    public static ClickableMessage createClickableMessage(Consumer<User> callback) {
+        return server.createClickableMessage(callback);
+    }
+
+    /**
+     * Creates a clickable message that executes the given callback, and is only clickable once (if selfCanselling is true)
+     * @param callback callbacl to be executed if player clicks the message
+     * @param selfCancelling defines if the message is clickable multiple times
+     * @return new clickable message
+     */
+    public static ClickableMessage createClickableMessage(Consumer<User> callback, boolean selfCancelling) {
+        return server.createClickableMessage(callback, selfCancelling);
     }
 
     /**
