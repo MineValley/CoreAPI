@@ -5,6 +5,7 @@ import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
+import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.ItemBuilder;
@@ -104,7 +105,11 @@ public interface CoreServer {
 
     User getUser(Player player);
 
-    //
+    ClickableMessage createClickableMessage();
+
+    ClickableMessage createClickableMessage(Consumer<User> callback);
+
+    ClickableMessage createClickableMessage(Consumer<User> callback, boolean selfCancelling);
 
     void setMetadata(Metadatable metadatable, String key, Object value);
 
@@ -122,7 +127,9 @@ public interface CoreServer {
 
     String convertColorCodes(String text);
 
-    //
+    int randomInteger(int chars);
+
+
 
     GuiBuilder gui(Inventory inventory);
 

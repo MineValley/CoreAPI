@@ -517,6 +517,15 @@ public final class Core {
     }
 
     /**
+     * Gets an random integer with the given length.
+     * @param chars number of chars
+     * @return random integer
+     */
+    int randomInteger(int chars) {
+        return server.randomInteger(chars);
+    }
+
+    /**
      * Creates new gui-builder based on a existing inventory.
      *
      * @param inventory inventory on which the gui-builder should base on

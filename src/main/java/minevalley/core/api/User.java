@@ -55,6 +55,14 @@ public interface User {
     void sendMessage(@NonNull MessageType messageType, @NonNull String message);
 
     /**
+     * Sends a message to this user with a specific prefix, using ComponentBuilders.
+     *
+     * @param messageType type of prefix to be displayed in front of the message
+     * @param baseComponent message to be send as string
+     */
+    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent);
+
+    /**
      * Sends a message to this user, with using ComponentBuilders. This way you can use hover and clickevents and can take advantage of the clickable messages.
      *
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
