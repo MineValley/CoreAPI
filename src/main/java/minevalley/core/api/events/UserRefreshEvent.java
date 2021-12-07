@@ -15,13 +15,16 @@ import org.bukkit.event.HandlerList;
 @Getter
 public final class UserRefreshEvent extends Event {
 
-    @Getter
     public static final HandlerList HANDLER_LIST = new HandlerList();
 
     private final User user;
 
     @Override
     public HandlerList getHandlers() {
+        return HANDLER_LIST;
+    }
+
+    public static HandlerList getHandlerList() {
         return HANDLER_LIST;
     }
 }
