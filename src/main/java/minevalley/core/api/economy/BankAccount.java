@@ -57,4 +57,9 @@ public interface BankAccount {
      * @return true, if the transfer was successful (false, if account does not have enough money)
      */
     boolean transfer(BankAccount target, double amount, String usage);
+
+    enum TransferType {
+        INCOMING,
+        OUTGOING
+    }
 }
