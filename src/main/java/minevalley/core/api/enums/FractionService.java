@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Arrays;
 
 @RequiredArgsConstructor
-public enum Fraction {
+public enum FractionService {
 
     NONE(0),
     POLICE(1),
@@ -18,7 +18,7 @@ public enum Fraction {
     @Getter
     private final int value;
 
-    public static Fraction getFraction(@NonNull final int value) {
+    public static FractionService getFraction(@NonNull final int value) {
         return Arrays.stream(values()).filter(fraction -> fraction.getValue() == value).findFirst().orElse(null);
     }
 }

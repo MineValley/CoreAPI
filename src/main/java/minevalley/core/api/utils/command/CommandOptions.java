@@ -1,7 +1,7 @@
 package minevalley.core.api.utils.command;
 
 import lombok.NonNull;
-import minevalley.core.api.enums.Fraction;
+import minevalley.core.api.enums.FractionService;
 import minevalley.core.api.enums.PlayerRank;
 import minevalley.core.api.enums.TeamRank;
 
@@ -48,7 +48,7 @@ public @interface CommandOptions {
      * If everybody is allowed to use this command, add all existing values of this enum.
      * If nobody is allowed to use this command, return an empty list (or don't use this setting).
      */
-    Fraction[] fractions() default {};
+    FractionService[] fractions() default {};
 
     /**
      * Every player who has one of the team-ranks listed here is able to execute this command

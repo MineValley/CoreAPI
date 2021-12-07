@@ -1,10 +1,9 @@
 package minevalley.core.api;
 
 import lombok.NonNull;
-import minevalley.core.api.enums.Fraction;
-import minevalley.core.api.enums.MessageType;
-import minevalley.core.api.enums.PlayerRank;
-import minevalley.core.api.enums.TeamRank;
+import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.economy.Holder;
+import minevalley.core.api.enums.*;
 import minevalley.core.api.phone.Phone;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.entity.Player;
@@ -12,32 +11,49 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.function.Consumer;
 
-public interface User {
+public interface User extends Holder {
+
+    /**
+     * Gets the player-object of this user.
+     * Note: The player may be offline
+     *
+     * @return player-object of this user
+     */
+    Player getPlayer();
+
+    /**
+     * Gets the unique id of this user.
+     *
+     * @return unique id as string
+     */
+    String getUniqueId();
+
+    /**
+     * Gets the id of this user.
+     *
+     * @return id as string
+     */
+    String getId();
+
+    /**
+     * Gets the id of the users address.
+     * @return id of users address
+     */
+    int address();
+
+    /**
+     * Gets the head of this user.
+     *
+     * @return player-head as itemstack
+     */
+    ItemStack getPlayerHead();
 
     /**
      * Removes the whole user-object and loads it again from the database.
      */
     void refresh();
 
-    /**
-     * Lets the user enter the team-service. If the user isn't teamler, nothing happens.
-     */
-    void joinTeamService();
-
-    /**
-     * Lets the user leave the team-service.
-     */
-    void leaveTeamService();
-
-    /**
-     * Lets the user enter the support-service. If the user isn't allowed to, nothing happens.
-     */
-    void joinSupportService();
-
-    /**
-     * Lets the user leave the support-service.
-     */
-    void leaveSupportService();
+    // Messages
 
     /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
@@ -74,6 +90,7 @@ public interface User {
      */
     void sendError();
 
+    // ChatInterface
     /**
      * Asks the player for any type of input via a chat-interface. The player can leave this interface. If he writes something into this interface, the callback gets called.
      *
@@ -93,10 +110,47 @@ public interface User {
      */
     void leaveInterface();
 
+    // Accounts and socials
+
     /**
-     * Updates the users cash from the database
+     * Gets the users phone
+     *
+     * @return phone of this user
      */
-    void updateCash();
+    Phone getPhone();
+
+    /**
+     * Gets the users bank account.
+     * @return users bank account
+     */
+    BankAccount getBankAccount();
+
+    /**
+     * Gets a list of the users friends unique ids
+     * @return list of the users friends unique ids as strings
+     */
+    String[] getFriends();
+
+    /**
+     * Gets a list of the unique ids of this users spouses
+     * @return list of the users spouses unique ids as strings
+     */
+    String[] getMarriage();
+
+    /**
+     * Gets a list of the blocked users unique ids
+     * @return list of the users unique ids, which were blocked at this users bell, as strings
+     */
+    String[] getBellBlacklist();
+
+    // PlayerRank
+
+    /**
+     * Gets the player-rank of this user.
+     *
+     * @return users player-rank
+     */
+    PlayerRank getPlayerRank();
 
     /**
      * Gets whether the user has any of the listed player-ranks
@@ -106,13 +160,17 @@ public interface User {
      */
     boolean hasPlayerRank(@NonNull PlayerRank... ranks);
 
+    // FractionService
+
     /**
-     * Gets whether the user has any of the listed team-ranks.
+     * Gets the users fraction.
+     * Note: The user must be in fraction-service, otherwise this is NONE
      *
-     * @param ranks list of team-ranks to be checked for
-     * @return is true, if the user has one of the ranks
+     * @return users fraction
      */
-    boolean hasTeamRank(@NonNull TeamRank... ranks);
+    FractionService getFractionService();
+
+    // TeamRank
 
     /**
      * Gets if the player has any type of team-rank.
@@ -122,33 +180,19 @@ public interface User {
     boolean isTeamler();
 
     /**
-     * Removes a certain amount of cash of the users wallet.
+     * Gets the team-rank of this user.
      *
-     * @param amount amout to remove
-     * @return true, if the transaction was successful. If the user doesn't have enough money, this is false
+     * @return users team-rank
      */
-    boolean payCash(double amount);
+    TeamRank getTeamRank();
 
     /**
-     * Gets the current amount of cash in the users wallet.
+     * Gets whether the user has any of the listed team-ranks.
      *
-     * @return
+     * @param ranks list of team-ranks to be checked for
+     * @return is true, if the user has one of the ranks
      */
-    double getCash();
-
-    /**
-     * Gets the wanted-level of the user.
-     *
-     * @return wanted-level of the user. 0 if the player isn't wanted
-     */
-    int getWantedLevel();
-
-    /**
-     * Sets the wanted-level of the user
-     *
-     * @param level new wanted-level
-     */
-    void setWantedLevel(int level);
+    boolean hasTeamRank(@NonNull TeamRank... ranks);
 
     /**
      * Gets whether the user is allowed to use a general-key
@@ -165,11 +209,31 @@ public interface User {
     boolean isUsingGeneralKey();
 
     /**
+     * Lets the user enter the team-service. If the user isn't teamler, nothing happens.
+     */
+    void joinTeamService();
+
+    /**
+     * Lets the user leave the team-service.
+     */
+    void leaveTeamService();
+
+    /**
      * Gets whether the user is allowed to enter the support-service.
      *
      * @return true, if the user is allowed to enter the support-service
      */
     boolean canEnterSupportService();
+
+    /**
+     * Lets the user enter the support-service. If the user isn't allowed to, nothing happens.
+     */
+    void joinSupportService();
+
+    /**
+     * Lets the user leave the support-service.
+     */
+    void leaveSupportService();
 
     /**
      * Gets whether the user is marked as server-operator (!= OP-permission)
@@ -184,70 +248,73 @@ public interface User {
      */
     boolean isInSupportService();
 
+    // Education
+
+    /**
+     * Gets a list of the users education.
+     * @return list of users education
+     */
+    Education[] getEducation();
+
+    /**
+     * Gets whether the user has the specific education.
+     * @return true, if the user has the specific education
+     */
+    boolean hasEducation(Education education);
+
+    /**
+     * Gets whether the user has a drivers license.
+     * @return true, if the user has a drivers license
+     */
+    boolean hasDriversLicense();
+
+    /**
+     * Gets the level of the users gun license.
+     * @return level of users gun license (0 -> no license)
+     */
+    int getGunLicense();
+
+    // Cash
+
+    /**
+     * Gets the current amount of cash in the users wallet.
+     *
+     * @return
+     */
+    double getCash();
+    /**
+     * Removes a certain amount of cash of the users wallet.
+     *
+     * @param amount amout to remove
+     * @return true, if the transaction was successful. If the user doesn't have enough money, this is false
+     */
+    boolean payCash(double amount);
+
+    /**
+     * Updates the users cash from the database
+     */
+    void updateCash();
+
+    // WantedLevel & KnockOut
+
+    /**
+     * Gets the wanted-level of the user.
+     *
+     * @return wanted-level of the user. 0 if the player isn't wanted
+     */
+    int getWantedLevel();
+
+    /**
+     * Sets the wanted-level of the user
+     *
+     * @param level new wanted-level
+     */
+    void setWantedLevel(int level);
+
     /**
      * Gets whether the user is knocked out.
      *
      * @return true, if the user is knocked out
      */
     boolean isKnockedOut();
-
-    /**
-     * Gets the head of this user.
-     *
-     * @return player-head as itemstack
-     */
-    ItemStack getPlayerHead();
-
-    /**
-     * Gets the unique id of this user.
-     *
-     * @return unique id as string
-     */
-    String getUniqueId();
-
-    /**
-     * Gets the id of this user.
-     *
-     * @return id as string
-     */
-    String getId();
-
-    /**
-     * Gets the player-object of this user.
-     * Note: The player may be offline
-     *
-     * @return player-object of this user
-     */
-    Player getPlayer();
-
-    /**
-     * Gets the users phone
-     *
-     * @return phone of this user
-     */
-    Phone getPhone();
-
-    //TODO: BankAccount getBankAccount();
-
-    /**
-     * Gets the users fraction.
-     * Note: The user must be in fraction-service, otherwise this is NONE
-     *
-     * @return users fraction
-     */
-    Fraction getFraction();
-
-    /**
-     * Gets the team-rank of this user.
-     *
-     * @return users team-rank
-     */
-    TeamRank getTeamRank();
-
-    /**
-     * Gets the player-rank of this user.
-     *
-     * @return users player-rank
-     */
-    PlayerRank getPlayerRank();
 }
