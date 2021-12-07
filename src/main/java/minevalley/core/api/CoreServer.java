@@ -5,6 +5,7 @@ import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
+import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
 import minevalley.core.api.utils.EventListener;
@@ -156,4 +157,6 @@ public interface CoreServer {
     Inventory getInventoryFromString(String inventory);
 
     String getStringFromInventory(Inventory inventory);
+
+    BankAccount getBankAccount(String iban);
 }

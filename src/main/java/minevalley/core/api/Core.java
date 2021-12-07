@@ -5,6 +5,7 @@ import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
+import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
 import minevalley.core.api.utils.EventListener;
@@ -355,9 +356,10 @@ public final class Core {
 
     /**
      * Gets the specific database-entry from the given ResultSet, the tablename and the entrys index.
+     *
      * @param tableName name of the table as string
      * @param resultSet resultset
-     * @param index index of the entry
+     * @param index     index of the entry
      * @return DatabaseEntry from the given parameters
      */
     public static DatabaseEntry getDatabaseEntry(String tableName, ResultSet resultSet, int index) {
@@ -414,7 +416,8 @@ public final class Core {
      * Sets the setting with the given key.
      * <p>
      * <b>Note:</b> When using the settings-method, do never change the settings manually via database!
-     * @param key string of the key
+     *
+     * @param key   string of the key
      * @param value string of the (new) value
      */
     public static void setSetting(String key, String value) {
@@ -423,6 +426,7 @@ public final class Core {
 
     /**
      * Gets the settings with the specific key.
+     *
      * @param key string of the key with which the setting is saved
      * @return setting as string from the specific key
      */
@@ -464,6 +468,7 @@ public final class Core {
 
     /**
      * Gets a players user object
+     *
      * @param player player object to get user from
      * @return user object of the given player
      */
@@ -473,6 +478,7 @@ public final class Core {
 
     /**
      * Gets the name of the player with the specifc unique id
+     *
      * @param uniqueId unique id of the player
      * @return name of the player
      */
@@ -482,6 +488,7 @@ public final class Core {
 
     /**
      * Gets the unique id of the player with the specific name
+     *
      * @param name name of the player
      * @return unique id of the player
      */
@@ -491,6 +498,7 @@ public final class Core {
 
     /**
      * Removes the color-codes from a given string
+     *
      * @param text string which could contain color-codes
      * @return string without any color-codes
      */
@@ -500,6 +508,7 @@ public final class Core {
 
     /**
      * Converts chat-color-codes to normal color-codes (& -> §)
+     *
      * @param text string which could contain chat-color-codes
      * @return string with converted color-codes
      */
@@ -519,6 +528,7 @@ public final class Core {
 
     /**
      * Gets an random integer with the given length.
+     *
      * @param chars number of chars
      * @return random integer
      */
@@ -648,6 +658,7 @@ public final class Core {
 
     /**
      * Creates a clickable message without any specifications.
+     *
      * @return new clickable message
      */
     public static ClickableMessage createClickableMessage() {
@@ -656,6 +667,7 @@ public final class Core {
 
     /**
      * Creates a clickable message that executes the given callback.
+     *
      * @param callback callback to be executed if player clicks the message
      * @return new clickable message
      */
@@ -665,7 +677,8 @@ public final class Core {
 
     /**
      * Creates a clickable message that executes the given callback, and is only clickable once (if selfCanselling is true)
-     * @param callback callbacl to be executed if player clicks the message
+     *
+     * @param callback       callbacl to be executed if player clicks the message
      * @param selfCancelling defines if the message is clickable multiple times
      * @return new clickable message
      */
@@ -675,6 +688,7 @@ public final class Core {
 
     /**
      * Converts an inventory that is converted to a string back into the usual inventory object.
+     *
      * @param inventory string to convert to inventory
      * @return inventory object
      */
@@ -684,10 +698,21 @@ public final class Core {
 
     /**
      * Converts an inventory and its contents into a string. This method is used to save inventories to the database.
+     *
      * @param inventory inventory to convert
      * @return inventory from string
      */
     public static String getStringFromInventory(Inventory inventory) {
         return server.getStringFromInventory(inventory);
+    }
+
+    /**
+     * Gets the bank account with the specific iban.
+     *
+     * @param iban iban as string
+     * @return bank account
+     */
+    public static BankAccount getBankAccount(String iban) {
+        return server.getBankAccount(iban);
     }
 }
