@@ -9,12 +9,12 @@ public enum MessageType {
     /**
      * Used to signal the success of a process or action.
      */
-    SUCCESS("§a✔ §8- §7"),
+    SUCCESS("§a✔§8 ━ §7"),
 
     /**
      * Used to signal the failure of a process or a action.
      */
-    ERROR(" §c§l! §8- §7"),
+    ERROR(" §c§l!§8 ━ §7"),
 
     /**
      * Used to signal a misspelled command.
@@ -54,12 +54,12 @@ public enum MessageType {
     /**
      * Used to signal the success of a process or action, by using the action-bar.
      */
-    ACTION_BAR_SUCCESS("§2✔ §8- §a"),
+    ACTION_BAR_SUCCESS("§2✔§8 ━ §a"),
 
     /**
      * Used to signal the failure of a process or action, by using the action-bar.
      */
-    ACTION_BAR_ERROR("§4✘ §8- §c");
+    ACTION_BAR_ERROR("§4✘§8 ━ §c");
 
     @Getter
     private final String value;
