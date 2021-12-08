@@ -58,7 +58,7 @@ public enum InterfaceItem {
      */
     public ItemBuilder getBuilder() {
         return (object instanceof ItemBuilder) ? (ItemBuilder) object : Core.createItem(Material.WOOD_SWORD)
-                .setDurability((short) object).hideDurability().setDisplayName(" ");
+                .setDurability((int) object).hideDurability().setDisplayName(" ");
     }
 
     /**
