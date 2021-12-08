@@ -1,5 +1,7 @@
 package minevalley.core.api.database;
 
+import org.bukkit.Location;
+
 public interface DatabaseEntry {
 
     /**
@@ -52,4 +54,11 @@ public interface DatabaseEntry {
      * @return double at given column from the selected database-entry
      */
     Double getDouble(String column);
+
+    /**
+     * Gets the location at the given column (with pitch & yaw)
+     * @param column name of the column
+     * @return location at given column from the selected database-entry
+     */
+    Location getLocation(String column);
 }
