@@ -1,6 +1,9 @@
 package minevalley.core.api;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.economy.Holder;
 import minevalley.core.api.enums.*;
@@ -37,6 +40,7 @@ public interface User extends Holder {
 
     /**
      * Gets the id of the users address.
+     *
      * @return id of users address
      */
     int address();
@@ -63,6 +67,14 @@ public interface User extends Holder {
     void sendMessage(@NonNull String message);
 
     /**
+     * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
+     * The message includes a notice that the user can click to get more information about the message.
+     *
+     * @param message message to be send as string
+     */
+    void sendMessage(@NonNull String message, @NonNull Notice notice);
+
+    /**
      * Sends a message to this user with a specific prefix.
      *
      * @param messageType type of prefix to be displayed in front of the message
@@ -71,12 +83,30 @@ public interface User extends Holder {
     void sendMessage(@NonNull MessageType messageType, @NonNull String message);
 
     /**
-     * Sends a message to this user with a specific prefix, using ComponentBuilders.
+     * Sends a message to this user with a specific prefix.
+     * The message includes a notice that the user can click to get more information about the message.
      *
      * @param messageType type of prefix to be displayed in front of the message
+     * @param message     message to be send as string
+     */
+    void sendMessage(@NonNull MessageType messageType, @NonNull String message, @NonNull Notice notice);
+
+    /**
+     * Sends a message to this user with a specific prefix, using ComponentBuilders.
+     *
+     * @param messageType   type of prefix to be displayed in front of the message
      * @param baseComponent message to be send as string
      */
     void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent);
+
+    /**
+     * Sends a message to this user with a specific prefix, using ComponentBuilders.
+     * The message includes a notice that the user can click to get more information about the message.
+     *
+     * @param messageType   type of prefix to be displayed in front of the message
+     * @param baseComponent message to be send as string
+     */
+    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, @NonNull Notice notice);
 
     /**
      * Sends a message to this user, with using ComponentBuilders. This way you can use hover and clickevents and can take advantage of the clickable messages.
@@ -86,11 +116,20 @@ public interface User extends Holder {
     void sendMessage(@NonNull BaseComponent[] baseComponent);
 
     /**
+     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and clickevents and can take advantage of the clickable messages.
+     * The message includes a notice that the user can click to get more information about the message.
+     *
+     * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
+     */
+    void sendMessage(@NonNull BaseComponent[] baseComponent, @NonNull Notice notice);
+
+    /**
      * Sends the usual "Unbekannter Befehl!"-error to the user. Mostly used when a player is trying to execute an command that they are not allowed to do.
      */
     void sendError();
 
     // ChatInterface
+
     /**
      * Asks the player for any type of input via a chat-interface. The player can leave this interface. If he writes something into this interface, the callback gets called.
      *
@@ -101,6 +140,7 @@ public interface User extends Holder {
 
     /**
      * Gets whether the user is currently in a chat-interface.
+     *
      * @return true, if the user is in a chat-interface
      */
     boolean isInChatInterface();
@@ -121,24 +161,28 @@ public interface User extends Holder {
 
     /**
      * Gets the users bank account.
+     *
      * @return users bank account
      */
     BankAccount getBankAccount();
 
     /**
      * Gets a list of the users friends unique ids
+     *
      * @return list of the users friends unique ids as strings
      */
     String[] getFriends();
 
     /**
      * Gets a list of the unique ids of this users spouses
+     *
      * @return list of the users spouses unique ids as strings
      */
     String[] getMarriage();
 
     /**
      * Gets a list of the blocked users unique ids
+     *
      * @return list of the users unique ids, which were blocked at this users bell, as strings
      */
     String[] getBellBlacklist();
@@ -237,6 +281,7 @@ public interface User extends Holder {
 
     /**
      * Gets whether the user is marked as server-operator (!= OP-permission)
+     *
      * @return true, if the user is marked as server-operator
      */
     boolean isOperator();
@@ -252,24 +297,28 @@ public interface User extends Holder {
 
     /**
      * Gets a list of the users education.
+     *
      * @return list of users education
      */
     Education[] getEducation();
 
     /**
      * Gets whether the user has the specific education.
+     *
      * @return true, if the user has the specific education
      */
     boolean hasEducation(Education education);
 
     /**
      * Gets whether the user has a drivers license.
+     *
      * @return true, if the user has a drivers license
      */
     boolean hasDriversLicense();
 
     /**
      * Gets the level of the users gun license.
+     *
      * @return level of users gun license (0 -> no license)
      */
     int getGunLicense();
@@ -282,6 +331,7 @@ public interface User extends Holder {
      * @return
      */
     double getCash();
+
     /**
      * Removes a certain amount of cash of the users wallet.
      *
@@ -317,4 +367,11 @@ public interface User extends Holder {
      * @return true, if the user is knocked out
      */
     boolean isKnockedOut();
+
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    class Notice {
+        String id, message;
+    }
 }
