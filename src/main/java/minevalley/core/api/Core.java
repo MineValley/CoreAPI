@@ -350,7 +350,7 @@ public final class Core {
      *
      * @param message message as base-component (useful for clickable messages)
      */
-    public static void sendTeamChatMessage(BaseComponent message) {
+    public static void sendTeamChatMessage(BaseComponent[] message) {
         server.sendTeamChatMessage(message);
     }
 

@@ -88,7 +88,7 @@ public interface CoreServer {
 
     void sendTeamChatMessage(String message);
 
-    void sendTeamChatMessage(BaseComponent message);
+    void sendTeamChatMessage(BaseComponent[] message);
 
     DatabaseEntry databaseEntry(String tableName, ResultSet resultSet, int index);
 
