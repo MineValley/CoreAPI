@@ -15,7 +15,7 @@ public enum Education {
 
     private final int value;
 
-    private static Education getEducation(int value) {
+    public static Education getEducation(int value) {
         return Arrays.stream(values()).filter(education -> education.getValue() == value).findFirst().orElse(null);
     }
 }

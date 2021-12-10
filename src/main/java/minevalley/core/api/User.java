@@ -200,7 +200,7 @@ public interface User extends Holder {
      * Gets whether the user has any of the listed player-ranks
      *
      * @param ranks list of player-ranks to be checked for
-     * @return is true, if the user has one of the ranks
+     * @return true, if the user has one of the ranks
      */
     boolean hasPlayerRank(@NonNull PlayerRank... ranks);
 
@@ -219,9 +219,15 @@ public interface User extends Holder {
     /**
      * Gets if the player has any type of team-rank.
      *
-     * @return is true, if the user is part of the server-team (and in team-service)
+     * @return true, if the user is part of the server-team (and in team-service)
      */
     boolean isTeamler();
+
+    /**
+     * Gets whether the player is team-member with the plus-rank.
+     * @return true, if the user is teamplus-member
+     */
+    boolean isTeamPlus();
 
     /**
      * Gets the team-rank of this user.
@@ -234,7 +240,7 @@ public interface User extends Holder {
      * Gets whether the user has any of the listed team-ranks.
      *
      * @param ranks list of team-ranks to be checked for
-     * @return is true, if the user has one of the ranks
+     * @return true, if the user has one of the ranks
      */
     boolean hasTeamRank(@NonNull TeamRank... ranks);
 
