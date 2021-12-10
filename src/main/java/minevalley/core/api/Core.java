@@ -532,7 +532,7 @@ public final class Core {
      * @param chars number of chars
      * @return random integer
      */
-    int randomInteger(int chars) {
+    public int getRandomInteger(int chars) {
         return server.randomInteger(chars);
     }
 
