@@ -10,19 +10,34 @@ import org.bukkit.inventory.ItemStack;
 public enum InterfaceItem {
 
     /**
+     * Hides the selected slot.
+     */
+    SPACER(1),
+
+    /**
+     * Hides the selected slot and the one underneath.
+     */
+    DOUBLE_SPACER(2),
+
+    /**
+     * Hides the selected slot and highlights the item underneath.
+     */
+    HIGHLIGHTED_SPACER(3),
+
+    /**
      * Hides the selected slot and the one underneath, but highlights the item under the selected slot.
      */
-    HIGHLIGHTED_DOUBLE_SPACER(1),
+    HIGHLIGHTED_DOUBLE_SPACER(4),
 
     /**
      * Hides the selected slot and displays a green hook.
      */
-    HOOK(2),
+    HOOK(5),
 
     /**
      * Hides the selected slot and displays a red cross.
      */
-    CROSS(3),
+    CROSS(6),
 
     /**
      * Hides the selected slot and displays a red cross. Mostly used on the eighth slot of an inventory to symbolize a close-button.
@@ -30,24 +45,35 @@ public enum InterfaceItem {
     CLOSE(CROSS.getBuilder().setDisplayName("§c§lSchließen")),
 
     /**
-     * Hides the selected slot and the one underneath.
+     * Is used to scroll back a page in an inventory.
      */
-    DOUBLE_SPACER(4),
+    PREVIOUS(7),
+
+    /**
+     * Is used to scroll forward a page in an inventory.
+     */
+    NEXT(8),
+
+    /**
+     * Is used to signalize an empty power slot.
+     */
+    INACTIVE_CELL(9),
+
+    /**
+     * Is used to signalize a full power slot.
+     */
+    ACTIVE_CELL(10),
 
     /**
      * Hides the selected slot and displays two small arrows pointing to the right side.
      */
-    ARROWS(5),
+    ARROWS(11),
 
     /**
-     * Hides the selected slot and highlights the item underneath.
+     * Hides the selected slot and displays the background of an button underneath.
      */
-    HIGHLIGHTED_SPACER(6),
+    BUTTON(12);
 
-    /**
-     * Hides the selected slot.
-     */
-    SPACER(7);
 
     private final Object object;
 
