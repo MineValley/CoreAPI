@@ -11,15 +11,13 @@ We do our best to update this documentary. There's no other source of informatio
 
 > **Core API**:
 >
-> version: _1.0_
+> version: _1.36_
 >
-> latest change: _28.11.2021_
+> latest change: _13.12.2021_
 
-## Changelog (v_1.0)
+## Changelog (v_1.36)
 Here you can find the newest updates to this api.
-- added database-utils
-- added this README.md
-- inital commit
+- added many methods around the user object
 
 # Documentation
 This documentation contains a brief explaination of every method, that is included in this api.
