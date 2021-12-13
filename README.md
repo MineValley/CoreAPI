@@ -7,7 +7,7 @@ We do our best to update this documentary. There's no other source of informatio
 
 > **README.md**:
 >
-> latest change: _28.11.2021_
+> latest change: _13.12.2021_
 
 > **Core API**:
 >
@@ -15,7 +15,7 @@ We do our best to update this documentary. There's no other source of informatio
 >
 > latest change: _13.12.2021_
 
-## Changelog (v_1.36)
+## Changelog (v1.36)
 Here you can find the newest updates to this api.
 - added many methods around the user object
 
