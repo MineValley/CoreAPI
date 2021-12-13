@@ -124,6 +124,13 @@ public interface User extends Holder {
     void sendMessage(@NonNull BaseComponent[] baseComponent, @NonNull Notice notice);
 
     /**
+     * Sends a message to the user providing useful side information. The user can click a button so that the message will not be sent the next time.
+     *
+     * @param notice notice that is sent to the user
+     */
+    void sendMessage(@NonNull Notice notice);
+
+    /**
      * Sends the usual "Unbekannter Befehl!"-error to the user. Mostly used when a player is trying to execute an command that they are not allowed to do.
      */
     void sendError();
@@ -186,6 +193,24 @@ public interface User extends Holder {
      * @return list of the users unique ids, which were blocked at this users bell, as strings
      */
     String[] getBellBlacklist();
+
+    /**
+     * Gets a specific setting that the user can change.
+     * <p>
+     * <b>Note:</b> If the user did not provide a value, this will return null!
+     * @param key key of the setting
+     * @return value of the setting
+     */
+    String getPlayerSetting(String key);
+
+    /**
+     * Updates the value of a specific setting.
+     * <p>
+     * <b>Note:</b> Neither the key nor the value must not contain non alphabetic characters! Otherwise the this method will not work properly...
+     * @param key key of the setting
+     * @param newValue new value of the setting
+     */
+    void changePlayerSetting(String key, String newValue);
 
     // PlayerRank
 
@@ -334,7 +359,7 @@ public interface User extends Holder {
     /**
      * Gets the current amount of cash in the users wallet.
      *
-     * @return
+     * @return the current amount of cash in the users wallet
      */
     double getCash();
 
@@ -373,6 +398,18 @@ public interface User extends Holder {
      * @return true, if the user is knocked out
      */
     boolean isKnockedOut();
+
+    /**
+     * Gets whether the user has reached the maximum idle time and is marked as afk.
+     * @return true, if the user reached the maximum idle time
+     */
+    boolean isIdle();
+
+    /**
+     * Gets whether the user is locked up in one of the state prisons.
+     * @return true, if the user is locked up in prison
+     */
+    boolean isImprisoned();
 
     @Getter
     @Setter
