@@ -198,6 +198,7 @@ public interface User extends Holder {
      * Gets a specific setting that the user can change.
      * <p>
      * <b>Note:</b> If the user did not provide a value, this will return null!
+     *
      * @param key key of the setting
      * @return value of the setting
      */
@@ -207,7 +208,8 @@ public interface User extends Holder {
      * Updates the value of a specific setting.
      * <p>
      * <b>Note:</b> Neither the key nor the value must not contain non alphabetic characters! Otherwise the this method will not work properly...
-     * @param key key of the setting
+     *
+     * @param key      key of the setting
      * @param newValue new value of the setting
      */
     void changePlayerSetting(String key, String newValue);
@@ -250,6 +252,7 @@ public interface User extends Holder {
 
     /**
      * Gets whether the player is team-member with the plus-rank.
+     *
      * @return true, if the user is teamplus-member
      */
     boolean isTeamPlus();
@@ -260,6 +263,13 @@ public interface User extends Holder {
      * @return users team-rank
      */
     TeamRank getTeamRank();
+
+    /**
+     * Gets the custom team rank name.
+     * If no custom name is defined, this returns the name of the users team rank
+     * @return [custom] team rank name
+     */
+    String getCustomTeamRankName();
 
     /**
      * Gets whether the user has any of the listed team-ranks.
@@ -401,15 +411,24 @@ public interface User extends Holder {
 
     /**
      * Gets whether the user has reached the maximum idle time and is marked as afk.
+     *
      * @return true, if the user reached the maximum idle time
      */
     boolean isIdle();
 
     /**
      * Gets whether the user is locked up in one of the state prisons.
+     *
      * @return true, if the user is locked up in prison
      */
     boolean isImprisoned();
+
+    /**
+     * Gets whether the user has completed registration on our network.
+     *
+     * @return true, if the user is registered
+     */
+    boolean isRegistered();
 
     @Getter
     @Setter
