@@ -14,6 +14,7 @@ import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
 import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ClickEvent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -105,6 +106,8 @@ public interface CoreServer {
     String getSetting(String key);
 
     User getUser(Player player);
+
+    ClickEvent createClickEvent(boolean selfCancelling, Consumer<User> callback);
 
     ClickableMessage createClickableMessage();
 

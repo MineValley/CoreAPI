@@ -13,7 +13,11 @@ import minevalley.core.api.utils.ItemBuilder;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -654,6 +658,36 @@ public final class Core {
      */
     public static ItemBuilder createItem(String url) {
         return server.createItem(url);
+    }
+
+    /**
+     * Creates the often used gray hover text to display a clickable message in chat.
+     * @param text text to be displayed
+     * @return HoverEvent object to be put into .event()
+     */
+    public static HoverEvent createHoverTest(String text) {
+        return new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(text).color(ChatColor.GRAY).create());
+    }
+
+    /**
+     * Creates a click event consisting of a clickable message.
+     * @param selfCancelling defines whether the message is clickable multiple times
+     * @param callback is called if the player clicks the message
+     * @return ClickEvent object to be put into .event()
+     */
+    public static ClickEvent createClickEvent(boolean selfCancelling, Consumer<User> callback) {
+        return server.createClickEvent(selfCancelling, callback);
+    }
+
+    /**
+     * Creates a click event consisting of a clickable message.
+     * <p>
+     * <b>Note:</b> This clickable message is only clickable once! Use createClickEvent(boolean, Consumer) if you want to create it for multiple use.
+     * @param callback is called if the player clicks the message
+     * @return ClickEvent object to be put into .event()
+     */
+    public static ClickEvent createClickEvent(Consumer<User> callback) {
+        return server.createClickEvent(true, callback);
     }
 
     /**
