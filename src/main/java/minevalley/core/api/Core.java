@@ -593,10 +593,20 @@ public final class Core {
         return server.createCountdown();
     }
 
+    /**
+     * Starts the specific countdown.
+     *
+     * @param countdown countdown to start
+     */
     public static void startCountdown(Countdown countdown) {
         server.startCountdown(countdown);
     }
 
+    /**
+     * Stops the specific countdown.
+     *
+     * @param countdown countdown to stop
+     */
     public static void stopCountdown(Countdown countdown) {
         server.stopCountdown(countdown);
     }
@@ -662,6 +672,7 @@ public final class Core {
 
     /**
      * Creates the often used gray hover text to display a clickable message in chat.
+     *
      * @param text text to be displayed
      * @return HoverEvent object to be put into .event()
      */
@@ -671,8 +682,9 @@ public final class Core {
 
     /**
      * Creates a click event consisting of a clickable message.
+     *
      * @param selfCancelling defines whether the message is clickable multiple times
-     * @param callback is called if the player clicks the message
+     * @param callback       is called if the player clicks the message
      * @return ClickEvent object to be put into .event()
      */
     public static ClickEvent createClickEvent(boolean selfCancelling, Consumer<User> callback) {
@@ -683,6 +695,7 @@ public final class Core {
      * Creates a click event consisting of a clickable message.
      * <p>
      * <b>Note:</b> This clickable message is only clickable once! Use createClickEvent(boolean, Consumer) if you want to create it for multiple use.
+     *
      * @param callback is called if the player clicks the message
      * @return ClickEvent object to be put into .event()
      */

@@ -60,6 +60,13 @@ public interface User extends Holder {
     // Messages
 
     /**
+     * Plays a sound to signalize an event.
+     *
+     * @param sound sound to be played
+     */
+    void playSound(NotificationSound sound);
+
+    /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
      *
      * @param message message to be send as string
@@ -267,6 +274,7 @@ public interface User extends Holder {
     /**
      * Gets the custom team rank name.
      * If no custom name is defined, this returns the name of the users team rank
+     *
      * @return [custom] team rank name
      */
     String getCustomTeamRankName();
