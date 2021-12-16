@@ -676,7 +676,7 @@ public final class Core {
      * @param text text to be displayed
      * @return HoverEvent object to be put into .event()
      */
-    public static HoverEvent createHoverTest(String text) {
+    public static HoverEvent createHoverText(String text) {
         return new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(text).color(ChatColor.GRAY).create());
     }
 
