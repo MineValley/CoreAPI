@@ -133,7 +133,7 @@ public interface CoreServer {
 
     int randomInteger(int chars);
 
-
+    boolean isNumeric(String string);
 
     GuiBuilder gui(Inventory inventory);
 

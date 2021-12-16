@@ -541,6 +541,17 @@ public final class Core {
     }
 
     /**
+     * Verifies that the given string is numeric and can be converted to an integer.
+     * <p>
+     * <b>Note:</b> This method also checks whether the integer exceeds the maximum value for integers.
+     * @param string string to verify
+     * @return true, if the given string is numeric
+     */
+    public static boolean isNumeric(String string) {
+        return server.isNumeric(string);
+    }
+
+    /**
      * Creates new gui-builder based on a existing inventory.
      *
      * @param inventory inventory on which the gui-builder should base on
