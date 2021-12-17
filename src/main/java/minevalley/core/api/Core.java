@@ -622,6 +622,17 @@ public final class Core {
         server.stopCountdown(countdown);
     }
 
+
+    /**
+     * Creates a new item-builder based on a specific material.
+     *
+     * @param itemStack itemstack the item-builder will base on
+     * @return new item-builder
+     */
+    public static ItemBuilder createItem(ItemStack itemStack) {
+        return server.createItem(itemStack);
+    }
+
     /**
      * Creates a new item-builder based on a specific material.
      *

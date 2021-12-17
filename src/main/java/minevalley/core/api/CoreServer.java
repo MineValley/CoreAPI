@@ -147,6 +147,8 @@ public interface CoreServer {
 
     void stopCountdown(Countdown countdown);
 
+    ItemBuilder createItem(ItemStack itemStack);
+
     ItemBuilder createItem(Material material);
 
     ItemBuilder createItem(Material material, int data);
