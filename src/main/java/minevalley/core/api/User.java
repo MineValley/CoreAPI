@@ -302,6 +302,12 @@ public interface User extends Holder {
     boolean isUsingGeneralKey();
 
     /**
+     * Gets whether the user is allowed to join team service.
+     * @return true, if the user is allowed to join team service
+     */
+    boolean isTeamAuth();
+
+    /**
      * Lets the user enter the team-service. If the user isn't teamler, nothing happens.
      */
     void joinTeamService();
