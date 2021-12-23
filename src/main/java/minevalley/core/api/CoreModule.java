@@ -1,9 +1,8 @@
 package minevalley.core.api;
 
 import lombok.Getter;
+import minevalley.core.api.regions.RegionManager;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.util.Objects;
 
 @Getter
@@ -19,6 +18,7 @@ public abstract class CoreModule {
                 getClass().getAnnotation(Description.class), "Description can not be null"
         );
         new Core(server);
+        new RegionManager(server);
     }
 
 

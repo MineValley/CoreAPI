@@ -6,6 +6,8 @@ import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.regions.Cuboid;
+import minevalley.core.api.regions.Region;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
 import minevalley.core.api.utils.EventListener;
@@ -15,6 +17,8 @@ import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
+import org.bukkit.Chunk;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -164,4 +168,8 @@ public interface CoreServer {
     String getStringFromInventory(Inventory inventory);
 
     BankAccount getBankAccount(String iban);
+
+    Region getRegion(Location location);
+
+    Cuboid getCuboid(Chunk chunk);
 }

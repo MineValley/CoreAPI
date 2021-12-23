@@ -11,7 +11,7 @@ public interface Region {
      * Gets a list of the areas that define this region.
      * @return list of areas
      */
-    List<Area> getAreas();
+    Area[] getAreas();
 
     /**
      * Gets this regions id.
