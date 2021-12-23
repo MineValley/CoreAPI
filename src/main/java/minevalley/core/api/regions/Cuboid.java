@@ -18,6 +18,14 @@ public interface Cuboid {
     Player[] getPlayers();
 
     /**
+     * Gets a list of the regions that a located in this cuboid.
+     * <p>
+     * <b>Note:</b> most of the regions are located over multiple cuboids!
+     * @return list of regions
+     */
+    Region[] getRegions();
+
+    /**
      * Gets the locality that this cuboid belongs to.
      * @return locality that this cuboid belongs to
      */
