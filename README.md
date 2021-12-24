@@ -5,15 +5,17 @@ This README.md is ment to help you with your daily issues or questions referring
 
 We do our best to update this documentary. There's no other source of information, that is more up-to-date, than this one. If there is any missing information or mistake in this README or if you should have any suggestions, please create a new issue, thank you!
 
+### At Christmas time, work on this README is paused and will not resume until the New Year
+
 > **README.md**:
 >
-> latest change: _13.12.2021_
+> latest change: _24.12.2021_
 
 > **Core API**:
 >
-> version: _1.36_
+> version: _1.46_
 >
-> latest change: _13.12.2021_
+> latest change: _24.12.2021_
 
 ## Changelog (v1.36)
 Here you can find the newest updates to this api.
