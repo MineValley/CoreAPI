@@ -1,7 +1,5 @@
 package minevalley.core.api.regions;
 
-import org.bukkit.entity.Player;
-
 public interface Region {
 
     /**
@@ -19,11 +17,10 @@ public interface Region {
     int getId();
 
     /**
-     * Gets a list with the players that are currently in this region.
-     *
-     * @return list of players
+     * Gets this regions priority.
+     * @return priority as integer
      */
-    Player[] getPlayers();
+    int getPriority();
 
     /**
      * Gets a list with the cuboids that this region lies on.
