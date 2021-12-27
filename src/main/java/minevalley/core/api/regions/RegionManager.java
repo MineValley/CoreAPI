@@ -1,6 +1,7 @@
 package minevalley.core.api.regions;
 
 
+import jdk.nashorn.internal.ir.Block;
 import minevalley.core.api.CoreServer;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -42,11 +43,11 @@ public final class RegionManager {
 
     /**
      * Gets an area object with the given locations.
-     * @param loc1 first location
-     * @param loc2 second location
+     * @param loc1 first location as block
+     * @param loc2 second location as block
      * @return area with the given locations
      */
-    public static Area getArea(Location loc1, Location loc2) {
+    public static Area getArea(Block loc1, Block loc2) {
         return server.getArea(loc1, loc2);
     }
 }

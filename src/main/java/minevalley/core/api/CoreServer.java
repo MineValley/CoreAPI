@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
+import jdk.nashorn.internal.ir.Block;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
@@ -174,5 +175,5 @@ public interface CoreServer {
 
     Cuboid getCuboid(Chunk chunk);
 
-    Area getArea(Location loc1, Location loc2);
+    Area getArea(Block loc1, Block loc2);
 }
