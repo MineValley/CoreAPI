@@ -6,6 +6,7 @@ import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.regions.Area;
 import minevalley.core.api.regions.Cuboid;
 import minevalley.core.api.regions.Region;
 import minevalley.core.api.utils.ClickableMessage;
@@ -172,4 +173,6 @@ public interface CoreServer {
     Region getRegion(Location location);
 
     Cuboid getCuboid(Chunk chunk);
+
+    Area getArea(Location loc1, Location loc2);
 }

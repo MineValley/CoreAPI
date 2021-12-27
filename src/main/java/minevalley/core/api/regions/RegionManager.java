@@ -39,4 +39,14 @@ public final class RegionManager {
     public static Cuboid getCuboid(Chunk chunk) {
         return server.getCuboid(chunk);
     }
+
+    /**
+     * Gets an area object with the given locations.
+     * @param loc1 first location
+     * @param loc2 second location
+     * @return area with the given locations
+     */
+    public static Area getArea(Location loc1, Location loc2) {
+        return server.getArea(loc1, loc2);
+    }
 }
