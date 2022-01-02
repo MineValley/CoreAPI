@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 import minevalley.core.api.economy.BankAccount;
-import minevalley.core.api.economy.Holder;
 import minevalley.core.api.enums.*;
 import minevalley.core.api.phone.Phone;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -14,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.function.Consumer;
 
-public interface User extends Holder {
+public interface User extends Registered {
 
     /**
      * Gets the player-object of this user.

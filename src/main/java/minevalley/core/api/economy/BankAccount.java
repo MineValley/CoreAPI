@@ -1,5 +1,6 @@
 package minevalley.core.api.economy;
 
+import minevalley.core.api.Registered;
 import minevalley.core.api.User;
 import minevalley.core.api.enums.BankAccountType;
 
@@ -10,7 +11,7 @@ public interface BankAccount {
      *
      * @return holder of this bank account
      */
-    Holder getHolder();
+    Registered getHolder();
 
     /**
      * Gets this accounts banking id.

@@ -10,7 +10,7 @@ public interface Department {
      * Gets the holder of this department.
      * @return holder of this department (company/organization)
      */
-    Registered getHolder();
+    Group getHolder();
 
     /**
      * Gets this departments banking account.

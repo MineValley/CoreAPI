@@ -1,9 +1,9 @@
-package minevalley.core.api.economy;
+package minevalley.core.api;
 
-public interface Holder {
+public interface Registered {
 
     /**
-     * Gets the registerNumber of this holder.
+     * Gets the registerNumber of this registered.
      * <p>
      * <b>User:</b> users unique id
      * <p>
