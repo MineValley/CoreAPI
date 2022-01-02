@@ -15,6 +15,15 @@ public final class RegionManager {
     }
 
     /**
+     * Gets the region with the specific id.
+     * @param id regions id
+     * @return region with specific id
+     */
+    public static Region getRegion(int id) {
+        return server.getRegion(id);
+    }
+
+    /**
      * Gets the region in which this location lies in.
      * @param location location to get region
      * @return region in which this location lies in

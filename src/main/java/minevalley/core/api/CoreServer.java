@@ -171,6 +171,8 @@ public interface CoreServer {
 
     BankAccount getBankAccount(String iban);
 
+    Region getRegion(int id);
+
     Region getRegion(Location location);
 
     Cuboid getCuboid(Chunk chunk);
