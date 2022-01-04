@@ -8,6 +8,7 @@ import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.regions.Area;
 import minevalley.core.api.regions.Cuboid;
+import minevalley.core.api.regions.FakeBlock;
 import minevalley.core.api.regions.Region;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
@@ -178,4 +179,6 @@ public interface CoreServer {
     Cuboid getCuboid(Chunk chunk);
 
     Area getArea(Block loc1, Block loc2);
+
+    FakeBlock createFakeBlock(Block block, Material material, boolean solid);
 }

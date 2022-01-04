@@ -6,6 +6,7 @@ import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.regions.FakeBlock;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
 import minevalley.core.api.utils.EventListener;
@@ -21,6 +22,7 @@ import net.md_5.bungee.api.chat.HoverEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
@@ -646,6 +648,17 @@ public final class Core {
      */
     public static World getShadowMap() {
         return null; // TODO
+    }
+
+    /**
+     * Creates a block which is only visible to specific players.
+     * @param block block where the fake block is placed
+     * @param material fake block's material
+     * @param solid defines whether players can collide with the fake block
+     * @return fake block with the specific parameters
+     */
+    public static FakeBlock createFakeBlock(Block block, Material material, boolean solid) {
+        return server.createFakeBlock(block, material, solid);
     }
 
     /**
