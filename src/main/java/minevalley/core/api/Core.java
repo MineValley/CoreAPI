@@ -18,7 +18,9 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
@@ -622,6 +624,29 @@ public final class Core {
         server.stopCountdown(countdown);
     }
 
+    /**
+     * Gets the servers main map.
+     * @return main map
+     */
+    public static World getMainWorld() {
+        return Bukkit.getWorld("world");
+    }
+
+    /**
+     * Gets the building map.
+     * @return building map
+     */
+    public static World getBuildingWorld() {
+        return Bukkit.getWorld("bauteam");
+    }
+
+    /**
+     * Gets the shadow map.
+     * @return shadow map
+     */
+    public static World getShadowMap() {
+        return null; // TODO
+    }
 
     /**
      * Creates a new item-builder based on a specific material.
