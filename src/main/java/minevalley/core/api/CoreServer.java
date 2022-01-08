@@ -180,5 +180,5 @@ public interface CoreServer {
 
     Area getArea(Block loc1, Block loc2);
 
-    FakeBlock createFakeBlock(Block block, Material material, boolean solid);
+    FakeBlock createFakeBlock(Block block, Material material, int data);
 }

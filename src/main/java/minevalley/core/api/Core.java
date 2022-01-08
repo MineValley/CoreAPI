@@ -654,11 +654,21 @@ public final class Core {
      * Creates a block which is only visible to specific players.
      * @param block block where the fake block is placed
      * @param material fake block's material
-     * @param solid defines whether players can collide with the fake block
+     * @param data defines the special data for this block
      * @return fake block with the specific parameters
      */
-    public static FakeBlock createFakeBlock(Block block, Material material, boolean solid) {
-        return server.createFakeBlock(block, material, solid);
+    public static FakeBlock createFakeBlock(Block block, Material material, int data) {
+        return server.createFakeBlock(block, material, data);
+    }
+
+    /**
+     * Creates a block which is only visible to specific players.
+     * @param block block where the fake block is placed
+     * @param material fake block's material
+     * @return fake block with the specific parameters
+     */
+    public static FakeBlock createFakeBlock(Block block, Material material) {
+        return server.createFakeBlock(block, material, 0);
     }
 
     /**
