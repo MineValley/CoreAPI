@@ -63,7 +63,7 @@ public interface User extends Registered {
      *
      * @param sound sound to be played
      */
-    void playSound(NotificationSound sound);
+    void playSound(Sound sound);
 
     /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
