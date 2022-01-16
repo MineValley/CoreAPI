@@ -20,12 +20,12 @@ public class UserEnterCuboidEvent extends Event {
     private final User user;
     private final Cuboid from, to;
 
-    @Override
-    public HandlerList getHandlers() {
+    public static HandlerList getHandlerList() {
         return HANDLER_LIST;
     }
 
-    public static HandlerList getHandlerList() {
+    @Override
+    public HandlerList getHandlers() {
         return HANDLER_LIST;
     }
 }
