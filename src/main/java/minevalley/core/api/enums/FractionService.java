@@ -1,12 +1,12 @@
 package minevalley.core.api.enums;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
 @RequiredArgsConstructor
+@Getter
 public enum FractionService {
 
     NONE(0),
@@ -15,10 +15,9 @@ public enum FractionService {
     MAIL(-2),
     DISPOSAL(-1);
 
-    @Getter
     private final int value;
 
-    public static FractionService getFraction(@NonNull final int value) {
+    public static FractionService getFraction(int value) {
         return Arrays.stream(values()).filter(fraction -> fraction.getValue() == value).findFirst().orElse(null);
     }
 }
