@@ -39,7 +39,7 @@ public interface Group {
      *
      * @return members as list
      */
-    List<Member> getMembers();
+    Member[] getMembers();
 
     /**
      * Removes the member with the specific unique id from this group.
