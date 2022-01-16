@@ -42,13 +42,6 @@ public interface Group {
     List<Member> getMembers();
 
     /**
-     * Removes the specific member from this group.
-     *
-     * @param member member to remove
-     */
-    void removeMember(Member member);
-
-    /**
      * Removes the member with the specific unique id from this group.
      *
      * @param uniqueId member to remove
