@@ -5,13 +5,13 @@ public interface Registered {
     /**
      * Gets the registerNumber of this registered.
      * <p>
-     * <b>User:</b> users unique id
+     * <b>User:</b> user's unique id
      * <p>
-     * <b>Company:</b> companies id
+     * <b>Company:</b> company's id
      * <p>
-     * <b>Organization:</b> organisations id
+     * <b>Organization:</b> organisation's id
      * <p>
-     * <b>Department (of company/organization):</b> id of company/organisation : id of department
+     * <b>Department (of company/organization):</b> department's id
      */
     String getRegisterNumber();
 }
