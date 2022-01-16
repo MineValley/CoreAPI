@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
+import minevalley.core.api.commerce.Group;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
@@ -859,5 +860,25 @@ public final class Core {
      */
     public static BankAccount getBankAccount(String iban) {
         return server.getBankAccount(iban);
+    }
+
+    /**
+     * Gets the group (organization/company) with the specific id.
+     *
+     * @param id id as integer
+     * @return group with the specific id
+     */
+    public static Group getGroup(int id) {
+        return server.getGroup(id);
+    }
+
+    /**
+     * Gets the group (organization/company) with the specific name.
+     *
+     * @param name name as string
+     * @return group with the specifc name
+     */
+    public static Group getGroup(String name) {
+        return server.getGroup(name);
     }
 }

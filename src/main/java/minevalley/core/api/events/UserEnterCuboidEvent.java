@@ -37,5 +37,6 @@ public class UserEnterCuboidEvent extends Event implements Cancellable {
     public void setCancelled(boolean cancel) {
         this.cancelled = true;
         event.setCancelled(true);
+        user.getPlayer().setVelocity(event.getFrom().toVector().subtract(event.getTo().toVector()));
     }
 }

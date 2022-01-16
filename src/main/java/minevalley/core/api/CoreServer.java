@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
+import minevalley.core.api.commerce.Group;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
@@ -175,6 +176,10 @@ public interface CoreServer {
     String getStringFromInventory(Inventory inventory);
 
     BankAccount getBankAccount(String iban);
+
+    Group getGroup(int id);
+
+    Group getGroup(String name);
 
     Region getRegion(int id);
 
