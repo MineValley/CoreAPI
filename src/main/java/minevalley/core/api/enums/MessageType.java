@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Getter
 public enum MessageType {
 
     /**
@@ -61,6 +62,5 @@ public enum MessageType {
      */
     ACTION_BAR_ERROR("§4✘§8 ━ §c");
 
-    @Getter
     private final String value;
 }
