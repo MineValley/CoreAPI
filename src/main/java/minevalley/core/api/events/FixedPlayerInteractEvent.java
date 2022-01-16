@@ -134,10 +134,7 @@ public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable
      * @return boolean true if the item in hand was a block
      */
     public boolean isBlockInHand() {
-        if (!hasItem()) {
-            return false;
-        }
-
+        if (!hasItem()) return false;
         return item.getType().isBlock();
     }
 
