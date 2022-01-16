@@ -4,11 +4,11 @@ import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
@@ -18,6 +18,8 @@ import org.bukkit.inventory.ItemStack;
  * Things we changed:
  * <p>- Event is only called when a player also has the permission to interact (knocked out; freezed by team)</p>
  * - Event is only called once, even though the player uses two hands as in the PlayerInteractEvent</p>
+ * <p>
+ * <i>Credits: This class consists largely of Spigot's PlayerInteractEvent class.</i>
  */
 @Getter
 public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable {
@@ -28,24 +30,18 @@ public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable
     protected BlockFace blockFace;
     private Result useClickedBlock;
     private Result useItemInHand;
-    private EquipmentSlot hand;
+    private final EquipmentSlot hand;
 
-    public FixedPlayerInteractEvent(final Player who, final Action action, final ItemStack item,
-                                    final Block clickedBlock, final BlockFace clickedFace) {
-        this(who, action, item, clickedBlock, clickedFace, EquipmentSlot.HAND);
-    }
-
-    public FixedPlayerInteractEvent(final Player who, final Action action, final ItemStack item,
-                                    final Block clickedBlock, final BlockFace clickedFace, final EquipmentSlot hand) {
-        super(who);
-        this.action = action;
-        this.item = item;
-        this.blockClicked = clickedBlock;
-        this.blockFace = clickedFace;
-        this.hand = hand;
+    public FixedPlayerInteractEvent(PlayerInteractEvent e) {
+        super(e.getPlayer());
+        this.action = e.getAction();
+        this.item = e.getItem();
+        this.blockClicked = e.getClickedBlock();
+        this.blockFace = e.getBlockFace();
+        this.hand = e.getHand();
 
         useItemInHand = Result.DEFAULT;
-        useClickedBlock = clickedBlock == null ? Result.DENY : Result.ALLOW;
+        useClickedBlock = e.getClickedBlock() == null ? Result.DENY : Result.ALLOW;
     }
 
     public static HandlerList getHandlerList() {
