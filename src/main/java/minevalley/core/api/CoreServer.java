@@ -112,6 +112,10 @@ public interface CoreServer {
 
     String getSetting(String key);
 
+    void updateStatistic(String key, double value);
+
+    double getStatistic(String key);
+
     User getUser(Player player);
 
     ClickEvent createClickEvent(boolean selfCancelling, Consumer<User> callback);

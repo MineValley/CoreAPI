@@ -437,6 +437,22 @@ public interface User extends Registered {
     boolean isImprisoned();
 
     /**
+     * Players can be freezed by a team member. This method gets wether this user is freezed.
+     * @return true, if the user is currently freezed
+     */
+    boolean isFrozen();
+
+    /**
+     * Freezes this user.
+     */
+    void freeze();
+
+    /**
+     * Unfreezes this user.
+     */
+    void unfreeze();
+
+    /**
      * Gets whether the user has completed registration on our network.
      *
      * @return true, if the user is registered

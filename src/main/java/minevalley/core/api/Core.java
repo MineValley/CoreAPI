@@ -443,6 +443,28 @@ public final class Core {
     }
 
     /**
+     * Updates a statistic with the given key.
+     * <p>
+     * <b>Note:</b> When using the stats-method, do never change the settings manually via database!
+     *
+     * @param key   string of the key
+     * @param value double of the (new) value
+     */
+    public static void updateStatistic(String key, double value) {
+        server.updateStatistic(key, value);
+    }
+
+    /**
+     * Gets the statistic with the specific key.
+     *
+     * @param key string of the key with which the statistic is saved
+     * @return statistic as double from the specific key
+     */
+    public static double getStatistic(String key) {
+        return server.getStatistic(key);
+    }
+
+    /**
      * Adds this object as a metadata to the metadatable object.
      *
      * @param metadatable object to which the metadata should be added
@@ -548,6 +570,7 @@ public final class Core {
      * Verifies that the given string is numeric and can be converted to an integer.
      * <p>
      * <b>Note:</b> This method also checks whether the integer exceeds the maximum value for integers.
+     *
      * @param string string to verify
      * @return true, if the given string is numeric
      */
@@ -628,6 +651,7 @@ public final class Core {
 
     /**
      * Gets the servers main map.
+     *
      * @return main map
      */
     public static World getMainWorld() {
@@ -636,6 +660,7 @@ public final class Core {
 
     /**
      * Gets the building map.
+     *
      * @return building map
      */
     public static World getBuildingWorld() {
@@ -644,6 +669,7 @@ public final class Core {
 
     /**
      * Gets the shadow map.
+     *
      * @return shadow map
      */
     public static World getShadowMap() {
@@ -652,9 +678,10 @@ public final class Core {
 
     /**
      * Creates a block which is only visible to specific players.
-     * @param block block where the fake block is placed
+     *
+     * @param block    block where the fake block is placed
      * @param material fake block's material
-     * @param data defines the special data for this block
+     * @param data     defines the special data for this block
      * @return fake block with the specific parameters
      */
     public static FakeBlock createFakeBlock(Block block, Material material, int data) {
@@ -663,7 +690,8 @@ public final class Core {
 
     /**
      * Creates a block which is only visible to specific players.
-     * @param block block where the fake block is placed
+     *
+     * @param block    block where the fake block is placed
      * @param material fake block's material
      * @return fake block with the specific parameters
      */
