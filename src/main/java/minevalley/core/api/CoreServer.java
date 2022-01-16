@@ -181,6 +181,8 @@ public interface CoreServer {
 
     Group getGroup(String name);
 
+    Group createGroup(String name, boolean company);
+
     Region getRegion(int id);
 
     Region getRegion(Location location);
@@ -190,4 +192,6 @@ public interface CoreServer {
     Area getArea(Block loc1, Block loc2);
 
     FakeBlock createFakeBlock(Block block, Material material, int data);
+
+    boolean containsForForbiddenWords(String string);
 }

@@ -548,6 +548,15 @@ public final class Core {
     }
 
     /**
+     * Checks whether the given string contains a forbidden word.
+     * @param text text to check
+     * @return true, if string contains forbidden words
+     */
+    public static boolean containsForbiddenWords(String text) {
+        return server.containsForForbiddenWords(text);
+    }
+
+    /**
      * Creates a {@link Gson} instance that fits in a page for pretty printing.
      * Use this, to convert json-strings to specific objects and vice versa.
      *
@@ -880,5 +889,15 @@ public final class Core {
      */
     public static Group getGroup(String name) {
         return server.getGroup(name);
+    }
+
+    /**
+     * Creates a new group.
+     * @param name name of the group
+     * @param company true -> company; false -> organization
+     * @return new generated group
+     */
+    public static Group createGroup(String name, boolean company) {
+        return server.createGroup(name, company);
     }
 }

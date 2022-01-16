@@ -11,7 +11,7 @@ public interface Group {
      *
      * @return id of group
      */
-    String getId();
+    int getId();
 
     /**
      * Gets the name of this group.
