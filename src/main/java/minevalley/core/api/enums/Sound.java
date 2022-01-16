@@ -1,8 +1,10 @@
 package minevalley.core.api.enums;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @AllArgsConstructor
+@Getter
 public enum Sound {
 
     /**
