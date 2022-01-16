@@ -7,6 +7,13 @@ import java.util.List;
 public interface Group {
 
     /**
+     * Gets the id of this group.
+     *
+     * @return id of group
+     */
+    String getId();
+
+    /**
      * Gets the name of this group.
      *
      * @return name of group
@@ -14,18 +21,17 @@ public interface Group {
     String getName();
 
     /**
+     * Gets whether this group is a company (otherwise: organisation).
+     * @return true, if group is company
+     */
+    boolean isCompany();
+
+    /**
      * Sets the name of this group.
      *
      * @return Result of the rename
      */
     RenameFeedback setName();
-
-    /**
-     * Gets the id of this group.
-     *
-     * @return id of group
-     */
-    String getId();
 
     /**
      * Gets the bank account of this group.
@@ -39,7 +45,7 @@ public interface Group {
      *
      * @return members as list
      */
-    Member[] getMembers();
+    List<Member> getMembers();
 
     /**
      * Removes the member with the specific unique id from this group.
