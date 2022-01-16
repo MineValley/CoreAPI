@@ -7,6 +7,12 @@ import java.util.List;
 public interface Department {
 
     /**
+     * Gets this department's id.
+     * @return id as int
+     */
+    int getId();
+
+    /**
      * Gets the holder of this department.
      * @return holder of this department (company/organization)
      */
