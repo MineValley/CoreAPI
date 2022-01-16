@@ -22,7 +22,7 @@ public interface Member {
      * Gets this members permissions.
      * @return list of members permissions
      */
-    MemberPermission[] getPermissions();
+    List<MemberPermission> getPermissions();
 
     /**
      * Gets whether this member is its departments head.
