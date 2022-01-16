@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Getter
 public enum NPCAnimation {
 
     SWING_MAIN_HAND(0),
@@ -13,6 +14,5 @@ public enum NPCAnimation {
     CRITICAL_EFFECT(4),
     MAGIC_CRITICAL_EFFECT(5);
 
-    @Getter
     private final int id;
 }
