@@ -31,7 +31,7 @@ public interface Group {
      *
      * @return Result of the rename
      */
-    RenameFeedback setName();
+    RenameFeedback setName(String name);
 
     /**
      * Gets the bank account of this group.
