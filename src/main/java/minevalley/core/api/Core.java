@@ -647,7 +647,7 @@ public final class Core {
      * @return shadow map
      */
     public static World getShadowMap() {
-        return null; // TODO
+        return Bukkit.getWorld("shadow");
     }
 
     /**
