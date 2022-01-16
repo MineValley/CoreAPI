@@ -19,12 +19,12 @@ public class UserEnterRegionEvent extends Event {
     private final User user;
     private final Region region;
 
-    @Override
-    public HandlerList getHandlers() {
+    public static HandlerList getHandlerList() {
         return HANDLER_LIST;
     }
 
-    public static HandlerList getHandlerList() {
+    @Override
+    public HandlerList getHandlers() {
         return HANDLER_LIST;
     }
 }
