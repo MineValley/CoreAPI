@@ -1,6 +1,7 @@
 package minevalley.core.api.corporations;
 
 import minevalley.core.api.User;
+import org.bukkit.Location;
 
 public interface Task {
 
@@ -67,6 +68,13 @@ public interface Task {
      * @param user user to leave this task
      */
     void leave(User user);
+
+    /**
+     * Gets the location, this task will take place.
+     *
+     * @return this task's location
+     */
+    Location getLocation();
 
     /**
      * Deletes this task.
