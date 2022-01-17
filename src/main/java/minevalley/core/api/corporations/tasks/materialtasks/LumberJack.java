@@ -4,5 +4,6 @@ import minevalley.core.api.corporations.tasks.MaterialTask;
 
 public interface LumberJack extends MaterialTask {
 
+    // TODO
 
 }
