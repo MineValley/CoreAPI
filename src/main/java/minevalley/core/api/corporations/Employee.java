@@ -1,4 +1,4 @@
-package minevalley.core.api.corporate;
+package minevalley.core.api.corporations;
 
 import java.util.List;
 
