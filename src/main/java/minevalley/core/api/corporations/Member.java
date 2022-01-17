@@ -37,6 +37,7 @@ public interface Member {
 
     /**
      * Defines this member's base wage. (-1 to set the base wage to 'undefined')
+     *
      * @param baseWage member's base wage
      */
     void setBaseWage(double baseWage);
@@ -51,6 +52,7 @@ public interface Member {
 
     /**
      * Defines this member's service wage. (-1 to set the service wage to 'undefined')
+     *
      * @param serviceWage member's service wage
      */
     void setServiceWage(double serviceWage);
