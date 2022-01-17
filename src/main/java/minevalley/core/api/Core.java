@@ -1,7 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import minevalley.core.api.commerce.Group;
+import minevalley.core.api.corporate.Group;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;

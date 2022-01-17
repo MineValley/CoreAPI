@@ -1,4 +1,4 @@
-package minevalley.core.api.commerce;
+package minevalley.core.api.corporate;
 
 public interface Task {
 

@@ -1,6 +1,6 @@
-package minevalley.core.api.commerce;
+package minevalley.core.api.corporate;
 
-import minevalley.core.api.enums.MemberPermission;
+import minevalley.core.api.enums.CorporatePermission;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public interface Member {
      * Gets this members permissions.
      * @return list of members permissions
      */
-    List<MemberPermission> getPermissions();
+    List<CorporatePermission> getPermissions();
 
     /**
      * Gets whether this member is its departments head.
