@@ -22,11 +22,11 @@ public interface Group {
     String getName();
 
     /**
-     * Gets whether this group is a company (otherwise: organization).
+     * Sets the name of this group.
      *
-     * @return true, if group is company
+     * @return Result of the rename
      */
-    boolean isCompany();
+    RenameFeedback changeName(String name);
 
     /**
      * Gets this group's description
@@ -34,6 +34,21 @@ public interface Group {
      * @return description as string
      */
     String getDescription();
+
+    /**
+     * Changes the description of this group. Max. length = 150 chars; Min. length = 15 chars
+     *
+     * @param description description as string
+     * @return result of the description change
+     */
+    RenameFeedback changeDescription(String description);
+
+    /**
+     * Gets whether this group is a company (otherwise: organization).
+     *
+     * @return true, if group is company
+     */
+    boolean isCompany();
 
     /**
      * Gets this group's owner.
@@ -77,12 +92,6 @@ public interface Group {
      */
     void addMember(String uniqueId);
 
-    /**
-     * Sets the name of this group.
-     *
-     * @return Result of the rename
-     */
-    RenameFeedback changeName(String name);
 
     /**
      * Gets the bank account of this group.
