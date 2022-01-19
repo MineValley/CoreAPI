@@ -36,6 +36,12 @@ public @interface CommandOptions {
     String successMessage() default "";
 
     /**
+     * If this is true, the parameters playerrank, fractions and teamranks are ignored. Every user is able to execute the command.
+     * <b>Note: </b> This doesn't affect the requireSupportService()-parameter.
+     */
+    boolean ignoreRanks() default false;
+
+    /**
      * Every player who has one of the player-ranks listed here is able to execute this command
      * Note: The ranks are not staggered. The PREMIUM does not have the authorization just because ORDINARY has them
      * If everybody is allowed to use this command, add all existing values of this enum.
