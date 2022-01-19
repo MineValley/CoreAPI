@@ -302,6 +302,7 @@ public interface User extends Registered {
 
     /**
      * Gets whether the user is allowed to join team service.
+     *
      * @return true, if the user is allowed to join team service
      */
     boolean isTeamAuth();
@@ -438,6 +439,7 @@ public interface User extends Registered {
 
     /**
      * Players can be freezed by a team member. This method gets wether this user is freezed.
+     *
      * @return true, if the user is currently freezed
      */
     boolean isFrozen();
@@ -458,6 +460,16 @@ public interface User extends Registered {
      * @return true, if the user is registered
      */
     boolean isRegistered();
+
+    /**
+     * Asks the user which bank account he wants to use (e. g. to pay sth)
+     * He can choose from every bank account he's permissioned to transfer money from.
+     * If he chooses nothing, the callback isn't called.
+     * If he's only permissioned to transfer money from one account, he will not be asked (The callback will be called immediately with the account).
+     *
+     * @param callback callback with the chosen bank account
+     */
+    void askForBankAccount(Consumer<BankAccount> callback);
 
     @Getter
     @Setter
