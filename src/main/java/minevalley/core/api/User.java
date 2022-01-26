@@ -52,6 +52,14 @@ public interface User extends Registered {
     ItemStack getPlayerHead();
 
     /**
+     * Gets whether this user is currently logged in via labymod.
+     * <b>Note:</b> When joining, this boolean isn't set immediately. Make sure to use a delay, when using this method in a PlayerJoinListener!
+     *
+     * @return true, if this user is using labymod
+     */
+    boolean isUsingLabyMod();
+
+    /**
      * Removes the whole user-object and loads it again from the database.
      */
     void refresh();
