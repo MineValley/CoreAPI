@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
+import minevalley.core.api.corporations.Department;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
@@ -899,5 +900,32 @@ public final class Core {
      */
     public static Group createGroup(String name, boolean company) {
         return server.createGroup(name, company);
+    }
+
+    /**
+     * Gets the registered object of a user.
+     * @param user user to get registered object from
+     * @return registered object of user
+     */
+    public static Registered getRegistered(User user) {
+        return server.getRegistered(user);
+    }
+
+    /**
+     * Gets the registered object of a group.
+     * @param group group to get registered object from
+     * @return registered object of group
+     */
+    public static Registered getRegistered(Group group) {
+        return server.getRegistered(group);
+    }
+
+    /**
+     * Gets the registered object of a department.
+     * @param department department to get registered object from
+     * @return registered object of department
+     */
+    public static Registered getRegistered(Department department) {
+        return server.getRegistered(department);
     }
 }
