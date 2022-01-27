@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
+import minevalley.core.api.corporations.Department;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
@@ -194,4 +195,10 @@ public interface CoreServer {
     FakeBlock createFakeBlock(Block block, Material material, int data);
 
     boolean containsForForbiddenWords(String string);
+
+    Registered getRegistered(User user);
+
+    Registered getRegistered(Group group);
+
+    Registered getRegistered(Department department);
 }
