@@ -29,5 +29,18 @@ public interface Registered {
      * <p>
      * <b>Note:</b> department names may be longer than 16 characters and can therefore not been put onto signs!
      */
-    String getDisplayName();
+    String getRegisterName();
+
+    /**
+     * Gets the type of this registered.
+     *
+     * @return registered's type
+     */
+    Type getType();
+
+    enum Type {
+        USER,
+        GROUP,
+        DEPARTMENT
+    }
 }

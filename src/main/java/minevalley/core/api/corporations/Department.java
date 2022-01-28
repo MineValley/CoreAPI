@@ -16,6 +16,13 @@ public interface Department extends Registered {
     int getId();
 
     /**
+     * Gets this department's name.
+     *
+     * @return name as string
+     */
+    String getName();
+
+    /**
      * Gets the holder of this department.
      *
      * @return holder of this department (company/organization)
