@@ -2,7 +2,6 @@ package minevalley.core.api.corporations;
 
 import minevalley.core.api.Registered;
 import minevalley.core.api.economy.BankAccount;
-import minevalley.core.api.phone.Phone;
 
 import java.util.List;
 
@@ -35,6 +34,13 @@ public interface Group extends Registered {
      * @return description as string
      */
     String getDescription();
+
+    /**
+     * Sets the description of this group.
+     *
+     * @param description description as string
+     */
+    void setDescription(String description);
 
     /**
      * Changes the description of this group. Max. length = 150 chars; Min. length = 15 chars
@@ -93,7 +99,6 @@ public interface Group extends Registered {
      */
     void addMember(String uniqueId);
 
-
     /**
      * Gets the bank account of this group.
      *
@@ -102,11 +107,11 @@ public interface Group extends Registered {
     BankAccount getBankAccount();
 
     /**
-     * Gets this group's telephone.
+     * Gets this group's telephone number.
      *
-     * @return group's telephone
+     * @return phone number as string
      */
-    Phone getPhone();
+    String getPhoneNumber();
 
 
     enum RenameFeedback {

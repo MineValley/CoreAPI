@@ -23,6 +23,27 @@ public interface Department extends Registered {
     String getName();
 
     /**
+     * Sets this departments name.
+     *
+     * @param name name as string
+     */
+    void setName(String name);
+
+    /**
+     * Gets this department's description.
+     *
+     * @return description as string
+     */
+    String getDescription();
+
+    /**
+     * Sets this departments description.
+     *
+     * @param description description as string
+     */
+    void setDescription(String description);
+
+    /**
      * Gets the holder of this department.
      *
      * @return holder of this department (company/organization)
@@ -35,6 +56,13 @@ public interface Department extends Registered {
      * @return departments banking account
      */
     BankAccount getBankAccount();
+
+    /**
+     * Gets this departments phone number.
+     *
+     * @return phone number as string
+     */
+    String getPhoneNumber();
 
     /**
      * Gets whether this department is the default department of the organization / company. The main department is the department, new members will be put into.
@@ -53,6 +81,13 @@ public interface Department extends Registered {
     double getBaseWage();
 
     /**
+     * Sets this departments base wage.
+     *
+     * @param baseWage base wage as double
+     */
+    void setBaseWage(double baseWage);
+
+    /**
      * Gets the service wage this departments members get. If a different service wage is specified in the member object, this is used.
      * <p>
      * <b>Note:</b> This is only usable for company-departments!
@@ -62,11 +97,25 @@ public interface Department extends Registered {
     double getServiceWage();
 
     /**
+     * Sets this departments service wage.
+     *
+     * @param serviceWage service wage as double
+     */
+    void setServiceWage(double serviceWage);
+
+    /**
      * Gets the permissions that are automatically granted to all members of this department.
      *
      * @return permissions as list
      */
     List<CorporatePermission> getPermissions();
+
+    /**
+     * Gets the members of this department.
+     *
+     * @return list with all members of this department
+     */
+    List<Member> getMembers();
 
     /**
      * Gets the tasks the members of this department are allowed to handle.
