@@ -44,14 +44,4 @@ public final class RegionManager {
     public static Area getArea(Block loc1, Block loc2) {
         return server.getArea(loc1, loc2);
     }
-
-    /**
-     * Gets the locality connected with the specific chunk.
-     *
-     * @param chunk chunk to get locality from
-     * @return specific chunk's locality
-     */
-    public static Locality getLocality(Chunk chunk) {
-        return server.getLocality(chunk);
-    }
 }
