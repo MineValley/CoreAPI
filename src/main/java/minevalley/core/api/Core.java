@@ -550,6 +550,7 @@ public final class Core {
 
     /**
      * Checks whether the given string contains a forbidden word.
+     *
      * @param text text to check
      * @return true, if string contains forbidden words
      */
@@ -894,7 +895,8 @@ public final class Core {
 
     /**
      * Creates a new group.
-     * @param name name of the group
+     *
+     * @param name    name of the group
      * @param company true -> company; false -> organization
      * @return new generated group
      */
@@ -904,6 +906,7 @@ public final class Core {
 
     /**
      * Gets the registered object of a user.
+     *
      * @param user user to get registered object from
      * @return registered object of user
      */
@@ -913,6 +916,7 @@ public final class Core {
 
     /**
      * Gets the registered object of a group.
+     *
      * @param group group to get registered object from
      * @return registered object of group
      */
@@ -922,6 +926,7 @@ public final class Core {
 
     /**
      * Gets the registered object of a department.
+     *
      * @param department department to get registered object from
      * @return registered object of department
      */

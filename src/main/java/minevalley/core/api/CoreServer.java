@@ -10,6 +10,7 @@ import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.regions.Area;
 import minevalley.core.api.regions.FakeBlock;
+import minevalley.core.api.regions.Locality;
 import minevalley.core.api.regions.Region;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
@@ -188,6 +189,8 @@ public interface CoreServer {
     Region getRegion(Location location);
 
     Area getArea(Block loc1, Block loc2);
+
+    Locality getLocality(Chunk chunk);
 
     FakeBlock createFakeBlock(Block block, Material material, int data);
 

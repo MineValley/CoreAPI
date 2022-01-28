@@ -1,7 +1,5 @@
 package minevalley.core.api.regions;
 
-import org.bukkit.Chunk;
-
 public interface Locality {
 
     /**
@@ -24,12 +22,4 @@ public interface Locality {
      * @return descripton as string
      */
     String getDescription();
-
-    /**
-     * Gets the locality connected with the specific chunk.
-     *
-     * @param chunk chunk to get locality from
-     * @return specific chunk's locality
-     */
-    Locality getLocality(Chunk chunk);
 }
