@@ -1,5 +1,7 @@
 package minevalley.core.api.regions;
 
+import org.bukkit.Chunk;
+
 public interface Region {
 
     /**
@@ -27,5 +29,5 @@ public interface Region {
      *
      * @return list of cuboids
      */
-    Cuboid[] getCuboids();
+    Chunk[] getChunks();
 }

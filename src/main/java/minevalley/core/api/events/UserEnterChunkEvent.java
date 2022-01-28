@@ -3,7 +3,7 @@ package minevalley.core.api.events;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.User;
-import minevalley.core.api.regions.Cuboid;
+import org.bukkit.Chunk;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
@@ -15,12 +15,12 @@ import org.bukkit.event.player.PlayerMoveEvent;
  */
 @RequiredArgsConstructor
 @Getter
-public class UserEnterCuboidEvent extends Event implements Cancellable {
+public class UserEnterChunkEvent extends Event implements Cancellable {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
 
     private final User user;
-    private final Cuboid from, to;
+    private final Chunk from, to;
     private final PlayerMoveEvent event;
     private boolean cancelled = false;
 
