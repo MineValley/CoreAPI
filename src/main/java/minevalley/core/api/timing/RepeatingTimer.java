@@ -13,11 +13,4 @@ public interface RepeatingTimer extends Timer {
      * @return period as int
      */
     int getPeriod();
-
-    /**
-     * Gets the duration until the next call.
-     *
-     * @return duration in seconds
-     */
-    int getNextCall();
 }

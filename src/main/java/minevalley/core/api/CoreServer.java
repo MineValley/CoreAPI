@@ -40,6 +40,7 @@ import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 import java.sql.ResultSet;
+import java.time.DayOfWeek;
 import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
@@ -214,7 +215,7 @@ public interface CoreServer {
 
     RepeatingTimer startRepeatingTimer(int delay, int period, @NonNull Runnable callback);
 
-    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, Reminder.Weekday... weekdays);
+    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, DayOfWeek... weekdays);
 
-    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<Reminder.Weekday> weekdays);
+    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<DayOfWeek> weekdays);
 }

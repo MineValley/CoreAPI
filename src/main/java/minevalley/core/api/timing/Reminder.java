@@ -2,6 +2,7 @@ package minevalley.core.api.timing;
 
 import lombok.NonNull;
 
+import java.time.DayOfWeek;
 import java.util.List;
 
 /**
@@ -15,28 +16,28 @@ public interface Reminder {
      *
      * @return list of all selected weekdays
      */
-    Weekday[] getWeekdays();
+    DayOfWeek[] getWeekdays();
 
     /**
      * Sets the weekdays, this reminder is called on.
      *
      * @param weekdays weekdays, to call the callback on
      */
-    void setWeekdays(List<Weekday> weekdays);
+    void setWeekdays(List<DayOfWeek> weekdays);
 
     /**
      * Sets the weekdays, this reminder is called on.
      *
      * @param weekdays weekdays, to call the callback on
      */
-    void setWeekdays(Weekday... weekdays);
+    void setWeekdays(DayOfWeek... weekdays);
 
     /**
      * Sets the weekdays, this reminder is called on.
      *
      * @param weekdays weekdays, to call the callback on
      */
-    void addWeekdays(Weekday... weekdays);
+    void addWeekdays(DayOfWeek... weekdays);
 
     /**
      * Gets the hour, this reminder is called on.
@@ -84,14 +85,4 @@ public interface Reminder {
      * Deletes this callback from the queue.
      */
     void delete();
-
-    enum Weekday {
-        MONDAY,
-        TUESDAY,
-        WEDNESDAY,
-        THURSDAY,
-        FRIDAY,
-        SATURDAY,
-        SUNDAY
-    }
 }

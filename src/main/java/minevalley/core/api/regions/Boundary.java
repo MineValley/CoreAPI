@@ -3,6 +3,7 @@ package minevalley.core.api.regions;
 import lombok.NonNull;
 import minevalley.core.api.User;
 import org.bukkit.Location;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
 import java.util.function.Consumer;
@@ -62,17 +63,10 @@ public interface Boundary {
     void activate();
 
     /**
-     * Imitates a click by the given user and calls the callback.
-     *
-     * @param user user to call the callback with
-     */
-    void call(@NonNull User user);
-
-    /**
      * Defines the callback, that is called, if a player clicks the boundary.
      * @param callback
      */
-    void onCall(@NonNull Consumer<User> callback);
+    void onCall(@NonNull Consumer<PlayerInteractEvent> callback);
 
     /**
      * Gets whether this boundary is activated.
