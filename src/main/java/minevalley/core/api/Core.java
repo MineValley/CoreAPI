@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
+import lombok.NonNull;
 import minevalley.core.api.corporations.Department;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.database.DatabaseEntry;
@@ -8,6 +9,7 @@ import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
@@ -22,6 +24,7 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -34,6 +37,8 @@ import org.bukkit.metadata.MetadataValue;
 import org.bukkit.metadata.Metadatable;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import org.bukkit.util.Vector;
+import sun.java2d.cmm.lcms.LcmsServiceProvider;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -932,5 +937,39 @@ public final class Core {
      */
     public static Registered getRegistered(Department department) {
         return server.getRegistered(department);
+    }
+
+    /**
+     * Creates a boundary with the specific parameters.
+     * @param anchorPoint anchorPoint which is used to move the boundary
+     * @param pullPoint pullpoint which is used to form the cuboid with the anchorpoint
+     * @param callback callback that is called if a player clicks this boundary
+     * @return boundary with given parameters
+     */
+    public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<User> callback) {
+        return server.createBoundary(anchorPoint, pullPoint, callback);
+    }
+
+    /**
+     * Creates a boundary with the specific parameters.
+     * @param anchorPoint anchorPoint which is used to move the boundary
+     * @param vector vector from anchor- to pullpoint to form the cuboid
+     * @param callback callback that is called if a player clicks this boundary
+     * @return boundary with given parameters
+     */
+    public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<User> callback) {
+        return server.createBoundary(anchorPoint, vector, callback);
+    }
+
+    /**
+     * Creates a boundary with the specific parameters.
+     * @param anchorPoint anchorPoint, which is used to move the boundary
+     * @param height height as double
+     * @param width width as double
+     * @param callback callback that is called if a player clicks this boundary
+     * @return boundary with given parameters
+     */
+    public static Boundary createBoundary(@NonNull Location anchorPoint, double height, double width, @NonNull Consumer<User> callback) {
+        return server.createBoundary(anchorPoint, height, width, callback);
     }
 }

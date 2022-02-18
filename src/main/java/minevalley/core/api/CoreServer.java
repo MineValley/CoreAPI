@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
+import lombok.NonNull;
 import minevalley.core.api.corporations.Department;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.database.DatabaseEntry;
@@ -9,6 +10,7 @@ import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.regions.Area;
+import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
 import minevalley.core.api.regions.Region;
 import minevalley.core.api.utils.ClickableMessage;
@@ -33,6 +35,7 @@ import org.bukkit.metadata.MetadataValue;
 import org.bukkit.metadata.Metadatable;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import org.bukkit.util.Vector;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -198,4 +201,10 @@ public interface CoreServer {
     Registered getRegistered(Group group);
 
     Registered getRegistered(Department department);
+
+    Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<User> callback);
+
+    Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<User> callback);
+
+    Boundary createBoundary(@NonNull Location anchorPoint, double height, double width, @NonNull Consumer<User> callback);
 }
