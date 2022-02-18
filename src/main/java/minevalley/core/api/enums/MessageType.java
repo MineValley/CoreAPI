@@ -55,12 +55,12 @@ public enum MessageType {
     /**
      * Used to signal the success of a process or action, by using the action-bar.
      */
-    ACTION_BAR_SUCCESS("§2✔§8 ━ §a"),
+    ACTION_BAR_SUCCESS("§a✔§8 ━ §7"),
 
     /**
      * Used to signal the failure of a process or action, by using the action-bar.
      */
-    ACTION_BAR_ERROR("§4✘§8 ━ §c");
+    ACTION_BAR_ERROR("§c✘§8 ━ §7");
 
     private final String value;
 }
