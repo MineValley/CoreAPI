@@ -13,6 +13,9 @@ import minevalley.core.api.regions.Area;
 import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
 import minevalley.core.api.regions.Region;
+import minevalley.core.api.timing.Reminder;
+import minevalley.core.api.timing.RepeatingTimer;
+import minevalley.core.api.timing.Timer;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
 import minevalley.core.api.utils.EventListener;
@@ -22,7 +25,6 @@ import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
-import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -207,4 +209,12 @@ public interface CoreServer {
     Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<User> callback);
 
     Boundary createBoundary(@NonNull Location anchorPoint, double height, double width, @NonNull Consumer<User> callback);
+
+    Timer startTimer(int delay, @NonNull Runnable callback);
+
+    RepeatingTimer startRepeatingTimer(int delay, int period, @NonNull Runnable callback);
+
+    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, Reminder.Weekday... weekdays);
+
+    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<Reminder.Weekday> weekdays);
 }

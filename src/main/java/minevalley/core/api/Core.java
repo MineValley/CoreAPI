@@ -11,6 +11,9 @@ import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
+import minevalley.core.api.timing.Reminder;
+import minevalley.core.api.timing.RepeatingTimer;
+import minevalley.core.api.timing.Timer;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.utils.Countdown;
 import minevalley.core.api.utils.EventListener;
@@ -38,7 +41,6 @@ import org.bukkit.metadata.Metadatable;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
-import sun.java2d.cmm.lcms.LcmsServiceProvider;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -941,9 +943,10 @@ public final class Core {
 
     /**
      * Creates a boundary with the specific parameters.
+     *
      * @param anchorPoint anchorPoint which is used to move the boundary
-     * @param pullPoint pullpoint which is used to form the cuboid with the anchorpoint
-     * @param callback callback that is called if a player clicks this boundary
+     * @param pullPoint   pullpoint which is used to form the cuboid with the anchorpoint
+     * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
      */
     public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<User> callback) {
@@ -952,9 +955,10 @@ public final class Core {
 
     /**
      * Creates a boundary with the specific parameters.
+     *
      * @param anchorPoint anchorPoint which is used to move the boundary
-     * @param vector vector from anchor- to pullpoint to form the cuboid
-     * @param callback callback that is called if a player clicks this boundary
+     * @param vector      vector from anchor- to pullpoint to form the cuboid
+     * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
      */
     public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<User> callback) {
@@ -963,13 +967,59 @@ public final class Core {
 
     /**
      * Creates a boundary with the specific parameters.
+     *
      * @param anchorPoint anchorPoint, which is used to move the boundary
-     * @param height height as double
-     * @param width width as double
-     * @param callback callback that is called if a player clicks this boundary
+     * @param height      height as double
+     * @param width       width as double
+     * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
      */
     public static Boundary createBoundary(@NonNull Location anchorPoint, double height, double width, @NonNull Consumer<User> callback) {
         return server.createBoundary(anchorPoint, height, width, callback);
+    }
+
+    /**
+     * Starts a timer with the specific parameters.
+     * @param delay delay after which this timer terminates
+     * @param callback callback that is called when this timer terminates
+     * @return timer with the specific parameters
+     */
+    Timer startTimer(int delay, @NonNull Runnable callback) {
+        return server.startTimer(delay, callback);
+    }
+
+    /**
+     * Starts a repeating timer with the specific parameters.
+     * @param delay seconds to wait before the first period
+     * @param period period in which this repeating timer is called
+     * @param callback callback that is called when this repeating timer reaches a period
+     * @return repeating timer with the specific parameters.
+     */
+    RepeatingTimer startRepeatingTimer(int delay, int period, @NonNull Runnable callback) {
+        return server.startRepeatingTimer(delay, period, callback);
+    }
+
+    /**
+     * Creates a reminder with the specific parameters.
+     * @param hours hours on which this reminder is called
+     * @param minutes minutes on which this reminder is called
+     * @param callback callback that is called when the given date/time is reached
+     * @param weekdays weekdays on which this reminder is active
+     * @return reminder with the specific parameters.
+     */
+    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, Reminder.Weekday... weekdays) {
+        return server.createReminder(hours, minutes, callback, weekdays);
+    }
+
+    /**
+     * Creates a reminder with the specific parameters.
+     * @param hours hours on which this reminder is called
+     * @param minutes minutes on which this reminder is called
+     * @param callback callback that is called when the given date/time is reached
+     * @param weekdays weekdays on which this reminder is active
+     * @return reminder with the specific parameters.
+     */
+    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<Reminder.Weekday> weekdays) {
+        return server.createReminder(hours, minutes, callback, weekdays);
     }
 }
