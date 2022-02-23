@@ -2,7 +2,6 @@ package minevalley.core.api.economy;
 
 import minevalley.core.api.Registered;
 import minevalley.core.api.User;
-import minevalley.core.api.enums.BankAccountType;
 
 public interface BankAccount {
 
@@ -19,12 +18,6 @@ public interface BankAccount {
      * @return this accounts banking id
      */
     String getIban();
-
-    /**
-     * Gets the type of this bank account.
-     * @return type of this bank account
-     */
-    BankAccountType getType();
 
     /**
      * Gets the amount of money in this bank account.
