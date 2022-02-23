@@ -1,5 +1,8 @@
 package minevalley.core.api;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 public interface Registered {
 
     /**
@@ -38,9 +41,20 @@ public interface Registered {
      */
     Type getType();
 
+    /**
+     * Converts this registered to a string.
+     *
+     * @return registered as string
+     */
+    String toString();
+
+    @AllArgsConstructor
+    @Getter
     enum Type {
-        USER,
-        GROUP,
-        DEPARTMENT
+        USER("U"),
+        GROUP("G"),
+        DEPARTMENT("D");
+
+        private final String mark;
     }
 }

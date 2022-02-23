@@ -943,6 +943,16 @@ public final class Core {
     }
 
     /**
+     * Gets the registered object that is represented by the specific string.
+     *
+     * @param rawRegistered registered as string
+     * @return represented registered
+     */
+    public static Registered getRegistered(String rawRegistered) {
+        return server.getRegistered(rawRegistered);
+    }
+
+    /**
      * Creates a boundary with the specific parameters.
      *
      * @param anchorPoint anchorPoint which is used to move the boundary
@@ -981,7 +991,8 @@ public final class Core {
 
     /**
      * Starts a timer with the specific parameters.
-     * @param delay delay after which this timer terminates
+     *
+     * @param delay    delay after which this timer terminates
      * @param callback callback that is called when this timer terminates
      * @return timer with the specific parameters
      */
@@ -991,8 +1002,9 @@ public final class Core {
 
     /**
      * Starts a repeating timer with the specific parameters.
-     * @param delay seconds to wait before the first period
-     * @param period period in which this repeating timer is called
+     *
+     * @param delay    seconds to wait before the first period
+     * @param period   period in which this repeating timer is called
      * @param callback callback that is called when this repeating timer reaches a period
      * @return repeating timer with the specific parameters.
      */
@@ -1002,8 +1014,9 @@ public final class Core {
 
     /**
      * Creates a reminder with the specific parameters.
-     * @param hours hours on which this reminder is called
-     * @param minutes minutes on which this reminder is called
+     *
+     * @param hours    hours on which this reminder is called
+     * @param minutes  minutes on which this reminder is called
      * @param callback callback that is called when the given date/time is reached
      * @param weekdays weekdays on which this reminder is active
      * @return reminder with the specific parameters.
@@ -1014,8 +1027,9 @@ public final class Core {
 
     /**
      * Creates a reminder with the specific parameters.
-     * @param hours hours on which this reminder is called
-     * @param minutes minutes on which this reminder is called
+     *
+     * @param hours    hours on which this reminder is called
+     * @param minutes  minutes on which this reminder is called
      * @param callback callback that is called when the given date/time is reached
      * @param weekdays weekdays on which this reminder is active
      * @return reminder with the specific parameters.

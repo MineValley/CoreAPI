@@ -207,6 +207,8 @@ public interface CoreServer {
 
     Registered getRegistered(Department department);
 
+    Registered getRegistered(String string);
+
     Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<User> callback);
 
     Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<User> callback);
