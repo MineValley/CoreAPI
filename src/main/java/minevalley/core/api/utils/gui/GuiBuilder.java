@@ -31,6 +31,8 @@ public interface GuiBuilder {
 
     GuiBuilder onClose(Consumer<User> callback);
 
+    GuiBuilder onCloseButton(Consumer<User> callback);
+
     GuiItem getItem(int slot);
 
     int getSize();
