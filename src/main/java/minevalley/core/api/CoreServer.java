@@ -193,6 +193,8 @@ public interface CoreServer {
 
     Region getRegion(Location location);
 
+    Area getAreaFromString(String rawArea);
+
     Area getArea(Block loc1, Block loc2);
 
     FakeBlock createFakeBlock(Block block, Material material, int data);

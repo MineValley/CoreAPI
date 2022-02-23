@@ -44,4 +44,13 @@ public final class RegionManager {
     public static Area getArea(Block loc1, Block loc2) {
         return server.getArea(loc1, loc2);
     }
+
+    /**
+     * Gets the area that is represented by a specific string.
+     * @param rawArea area as string
+     * @return area that is represented by the specific string
+     */
+    public static Area getAreaFromString(String rawArea) {
+        return server.getAreaFromString(rawArea);
+    }
 }

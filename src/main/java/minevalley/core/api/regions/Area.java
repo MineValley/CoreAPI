@@ -19,13 +19,6 @@ public interface Area {
     Block getSecondLocation();
 
     /**
-     * Gets the area that is represented by a specific string.
-     * @param rawArea area as string
-     * @return area that is represented by the specific string
-     */
-    Area fromString(String rawArea);
-
-    /**
      * Converts this area to a string
      * @return string that represents this area
      */
