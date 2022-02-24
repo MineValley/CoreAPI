@@ -35,6 +35,15 @@ public interface Registered {
     String getRegisterName();
 
     /**
+     * Checks whether a user is represented by this registered (in case it represents only one user),
+     * or whether the user is part of the group / department, that this registered represents.
+     *
+     * @param user user to check
+     * @return true, if the user is represented by this registered or is a part of the group / department that this registered represents
+     */
+    boolean contains(User user);
+
+    /**
      * Gets the type of this registered.
      *
      * @return registered's type

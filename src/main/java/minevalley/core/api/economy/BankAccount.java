@@ -3,6 +3,8 @@ package minevalley.core.api.economy;
 import minevalley.core.api.Registered;
 import minevalley.core.api.User;
 
+import java.util.List;
+
 public interface BankAccount {
 
     /**
@@ -14,7 +16,7 @@ public interface BankAccount {
 
     /**
      * Gets this accounts banking id.
-     *
+     * <b>Note:</b> the IBAN already contains the prefix (DE00/01/02/03)
      * @return this accounts banking id
      */
     String getIban();
@@ -27,14 +29,15 @@ public interface BankAccount {
     double getAmount();
 
     /**
-     * Gets a list of the players unique ids that are permissioned to use this bank account.
+     * Gets a list of the registered that are permissioned to use this bank account.
      *
-     * @return list of permissioned users unique ids
+     * @return list of registered
      */
-    String[] getPermissionedUsers();
+    List<Registered> getPermissioned();
 
     /**
      * Gets whether the specific user is permissioned to use this bank account.
+     *
      * @param user user who could be permissioned
      * @return true, if the specific user is permissioned to use this bank account
      */
