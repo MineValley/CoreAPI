@@ -17,6 +17,7 @@ public interface BankAccount {
     /**
      * Gets this accounts banking id.
      * <b>Note:</b> the IBAN already contains the prefix (DE00/01/02/03)
+     *
      * @return this accounts banking id
      */
     String getIban();
@@ -36,12 +37,27 @@ public interface BankAccount {
     List<Registered> getPermissioned();
 
     /**
+     * Removes a specific permissioned registered.
+     *
+     * @param registered registered to remove
+     */
+    void removeFromPermissioned(Registered registered);
+
+    /**
      * Gets whether the specific user is permissioned to use this bank account.
      *
      * @param user user who could be permissioned
      * @return true, if the specific user is permissioned to use this bank account
      */
     boolean isPermissioned(User user);
+
+    /**
+     * Checks if this bank account is government owned.
+     * Government bank accounts have no amount and can send or receive unlimited funds.
+     *
+     * @return true, if this account is government owned
+     */
+    boolean isState();
 
     /**
      * Transfers an amount to another bank account.
