@@ -922,18 +922,16 @@ public final class Core {
      * @param options clickable options (message and clickable)
      * @return new chat menu
      */
-    public static ChatMenu createChatMenu(String message, ChatMenu.Option... options) {
-        return server.createChatMenu(message, options);
+    public static ChatMenu createChatMenu(ChatMenu.Option... options) {
+        return server.createChatMenu(options);
     }
 
     /**
      * Creates a menu which can be send to users chat.
-     *
-     * @param message message that will be sent on top of the clickables
      * @return new chat menu
      */
-    public static ChatMenu createChatMenu(String message) {
-        return server.createChatMenu(message);
+    public static ChatMenu createChatMenu() {
+        return server.createChatMenu();
     }
 
     /**

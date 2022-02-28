@@ -16,7 +16,7 @@ public interface ChatMenu {
      *
      * @param option option to add
      */
-    void addClickableMessage(Option option);
+    void addOption(Option option);
 
     /**
      * Disables a specific clickable message.

@@ -99,6 +99,7 @@ public interface User extends Registered {
      * The message includes a notice that the user can click to get more information about the message.
      *
      * @param message message to be send as string
+     * @param notice  notice that is sent to the user
      */
     void sendMessage(@NonNull String message, @NonNull Notice notice);
 
@@ -116,6 +117,7 @@ public interface User extends Registered {
      *
      * @param messageType type of prefix to be displayed in front of the message
      * @param message     message to be send as string
+     * @param notice      notice that is sent to the user
      */
     void sendMessage(@NonNull MessageType messageType, @NonNull String message, @NonNull Notice notice);
 
@@ -133,6 +135,7 @@ public interface User extends Registered {
      *
      * @param messageType   type of prefix to be displayed in front of the message
      * @param baseComponent message to be send as string
+     * @param notice        notice that is sent to the user
      */
     void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, @NonNull Notice notice);
 
@@ -148,8 +151,86 @@ public interface User extends Registered {
      * The message includes a notice that the user can click to get more information about the message.
      *
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
+     * @param notice        notice that is sent to the user
      */
     void sendMessage(@NonNull BaseComponent[] baseComponent, @NonNull Notice notice);
+
+
+    /**
+     * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
+     *
+     * @param message  message to be send as string
+     * @param chatMenu menu to attach underneath the message
+     */
+    void sendMessage(@NonNull String message, ChatMenu chatMenu);
+
+    /**
+     * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
+     * The message includes a notice that the user can click to get more information about the message.
+     *
+     * @param message  message to be send as string
+     * @param chatMenu menu to attach underneath the message
+     * @param notice   notice that is sent to the user
+     */
+    void sendMessage(@NonNull String message, ChatMenu chatMenu, @NonNull Notice notice);
+
+    /**
+     * Sends a message to this user with a specific prefix.
+     *
+     * @param messageType type of prefix to be displayed in front of the message
+     * @param message     message to be send as string
+     * @param chatMenu    menu to attach underneath the message
+     */
+    void sendMessage(@NonNull MessageType messageType, @NonNull String message, ChatMenu chatMenu);
+
+    /**
+     * Sends a message to this user with a specific prefix.
+     * The message includes a notice that the user can click to get more information about the message.
+     *
+     * @param messageType type of prefix to be displayed in front of the message
+     * @param message     message to be send as string
+     * @param chatMenu    menu to attach underneath the message
+     * @param notice      notice that is sent to the user
+     */
+    void sendMessage(@NonNull MessageType messageType, @NonNull String message, ChatMenu chatMenu, @NonNull Notice notice);
+
+    /**
+     * Sends a message to this user with a specific prefix, using ComponentBuilders.
+     *
+     * @param messageType   type of prefix to be displayed in front of the message
+     * @param baseComponent message to be send as string
+     * @param chatMenu      menu to attach underneath the message
+     */
+    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, ChatMenu chatMenu);
+
+    /**
+     * Sends a message to this user with a specific prefix, using ComponentBuilders.
+     * The message includes a notice that the user can click to get more information about the message.
+     *
+     * @param messageType   type of prefix to be displayed in front of the message
+     * @param baseComponent message to be send as string
+     * @param chatMenu      menu to attach underneath the message
+     * @param notice        notice that is sent to the user
+     */
+    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, ChatMenu chatMenu, @NonNull Notice notice);
+
+    /**
+     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and clickevents and can take advantage of the clickable messages.
+     *
+     * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
+     * @param chatMenu      menu to attach underneath the message
+     */
+    void sendMessage(@NonNull BaseComponent[] baseComponent, ChatMenu chatMenu);
+
+    /**
+     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and clickevents and can take advantage of the clickable messages.
+     * The message includes a notice that the user can click to get more information about the message.
+     *
+     * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
+     * @param chatMenu      menu to attach underneath the message
+     * @param notice        notice that is sent to the user
+     */
+    void sendMessage(@NonNull BaseComponent[] baseComponent, ChatMenu chatMenu, @NonNull Notice notice);
 
     /**
      * Sends a message to the user providing useful side information. The user can click a button so that the message will not be sent the next time.
