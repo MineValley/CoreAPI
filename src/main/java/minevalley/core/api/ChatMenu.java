@@ -29,7 +29,7 @@ public interface ChatMenu {
     @Getter
     class Option {
 
-        final String name;
+        final String name, hover;
         final ClickableMessage clickableMessage;
     }
 }
