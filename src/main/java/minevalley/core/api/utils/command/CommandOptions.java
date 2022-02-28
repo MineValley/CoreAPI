@@ -74,6 +74,13 @@ public @interface CommandOptions {
      */
     boolean requireSupportService() default false;
 
+
+    /**
+     * If this is enabled, users aren't allowed to use this command, if they aren't in team service.
+     * This is used for commands, that are only accessible for teammembers. Use this instead of adding every possible team rank into the teamRanks-option!
+     */
+    boolean requireTeamService() default false;
+
     /**
      * If a value is specified here, the user must execute the command with the specified number of arguments.
      * Otherwise the command will not be invoked and the user will receive a syntax error.
