@@ -31,6 +31,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.MetadataValue;
@@ -43,6 +44,7 @@ import java.sql.ResultSet;
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public interface CoreServer {
@@ -158,6 +160,8 @@ public interface CoreServer {
     GuiBuilder gui(int size);
 
     GuiItem guiItem(ItemStack itemStack, Consumer<User> consumer);
+
+    GuiItem advancedGuiItem(ItemStack itemStack, BiConsumer<User, ClickType> consumer);
 
     Countdown createCountdown();
 
