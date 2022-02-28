@@ -1,5 +1,6 @@
 package minevalley.core.api.enums;
 
+@Deprecated
 public enum PlayerRank {
 
     /**

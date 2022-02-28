@@ -47,6 +47,7 @@ public @interface CommandOptions {
      * If everybody is allowed to use this command, add all existing values of this enum.
      * If nobody is allowed to use this command, return an empty list (or don't use this setting).
      */
+    @Deprecated
     PlayerRank[] playerRank() default {};
 
     /**

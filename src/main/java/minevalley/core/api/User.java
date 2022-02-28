@@ -235,6 +235,7 @@ public interface User extends Registered {
      *
      * @return users player-rank
      */
+    @Deprecated
     PlayerRank getPlayerRank();
 
     /**
@@ -243,6 +244,7 @@ public interface User extends Registered {
      * @param ranks list of player-ranks to be checked for
      * @return true, if the user has one of the ranks
      */
+    @Deprecated
     boolean hasPlayerRank(@NonNull PlayerRank... ranks);
 
     // FractionService
