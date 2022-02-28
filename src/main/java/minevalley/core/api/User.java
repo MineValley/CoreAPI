@@ -240,13 +240,6 @@ public interface User extends Registered {
     void sendMessage(@NonNull Notice notice);
 
     /**
-     * Sends a chat menu to this user.
-     *
-     * @param chatMenu chatmenu to send to the user
-     */
-    void sendMessage(ChatMenu chatMenu);
-
-    /**
      * Sends the usual "Unbekannter Befehl!"-error to the user. Mostly used when a player is trying to execute an command that they are not allowed to do.
      */
     void sendError();
