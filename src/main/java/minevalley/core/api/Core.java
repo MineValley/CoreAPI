@@ -1,7 +1,6 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import com.sun.tools.javac.util.Pair;
 import lombok.NonNull;
 import minevalley.core.api.corporations.Department;
 import minevalley.core.api.corporations.Group;
@@ -639,7 +638,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param itemBuilder item which should be displayed in the inventory
-     * @param consumer  consumer which gets calles if a player clicks the item
+     * @param consumer    consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemBuilder itemBuilder, Consumer<User> consumer) {
@@ -650,8 +649,8 @@ public final class Core {
      * Creates new gui-item, based on a specific itemstack with a specific callback.
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
-     * @param item item which should be displayed in the inventory
-     * @param consumer  consumer which gets calles if a player clicks the item
+     * @param item     item which should be displayed in the inventory
+     * @param consumer consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(InterfaceItem item, Consumer<User> consumer) {
@@ -676,7 +675,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param itemBuilder item which should be displayed in the inventory
-     * @param consumer  consumer which gets calles if a player clicks the item
+     * @param consumer    consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemBuilder itemBuilder, BiConsumer<User, ClickType> consumer) {
@@ -687,8 +686,8 @@ public final class Core {
      * Creates new gui-item, based on a specific itemstack with a specific callback.
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
-     * @param item item which should be displayed in the inventory
-     * @param consumer  consumer which gets calles if a player clicks the item
+     * @param item     item which should be displayed in the inventory
+     * @param consumer consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(InterfaceItem item, BiConsumer<User, ClickType> consumer) {
@@ -918,16 +917,18 @@ public final class Core {
 
     /**
      * Creates a menu which can be send to users chat.
+     *
      * @param message message that will be sent on top of the clickables
      * @param options clickable options (message and clickable)
      * @return new chat menu
      */
-    public static ChatMenu createChatMenu(String message, Pair<String, ClickableMessage>... options) {
+    public static ChatMenu createChatMenu(String message, ChatMenu.Option... options) {
         return server.createChatMenu(message, options);
     }
 
     /**
      * Creates a menu which can be send to users chat.
+     *
      * @param message message that will be sent on top of the clickables
      * @return new chat menu
      */

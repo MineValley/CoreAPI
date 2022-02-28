@@ -1,5 +1,7 @@
 package minevalley.core.api;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import minevalley.core.api.utils.ClickableMessage;
 
 public interface ChatMenu {
@@ -10,14 +12,22 @@ public interface ChatMenu {
     void disable();
 
     /**
-     * Adds a new clickable message.
-     * @param clickableMessage clickable message to add
+     * Adds a new option.
+     * @param option option to add
      */
-    void addClickableMessage(ClickableMessage clickableMessage);
+    void addClickableMessage(Option option);
 
     /**
      * Disables a specific clickable message.
      * @param index index of the clickable message to disable (counted from 0)
      */
     void disable(int index);
+
+    @AllArgsConstructor
+    @Getter
+    class Option {
+
+        final String name;
+        final ClickableMessage clickableMessage;
+    }
 }

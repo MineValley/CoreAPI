@@ -136,7 +136,7 @@ public interface CoreServer {
 
     ClickableMessage createClickableMessage(Consumer<User> callback, boolean selfCancelling);
 
-    ChatMenu createChatMenu(String message, Pair<String, ClickableMessage>... clickableMessages);
+    ChatMenu createChatMenu(String message, ChatMenu.Option... options);
 
     ChatMenu createChatMenu(String message);
 
