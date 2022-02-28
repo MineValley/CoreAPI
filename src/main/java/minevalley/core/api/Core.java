@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
+import com.sun.tools.javac.util.Pair;
 import lombok.NonNull;
 import minevalley.core.api.corporations.Department;
 import minevalley.core.api.corporations.Group;
@@ -918,11 +919,11 @@ public final class Core {
     /**
      * Creates a menu which can be send to users chat.
      * @param message message that will be sent on top of the clickables
-     * @param clickableMessages clickable messages
+     * @param options clickable options (message and clickable)
      * @return new chat menu
      */
-    public static ChatMenu createChatMenu(String message, ClickableMessage... clickableMessages) {
-        return server.createChatMenu(message, clickableMessages);
+    public static ChatMenu createChatMenu(String message, Pair<String, ClickableMessage>... options) {
+        return server.createChatMenu(message, options);
     }
 
     /**
