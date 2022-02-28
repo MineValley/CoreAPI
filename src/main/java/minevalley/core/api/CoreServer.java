@@ -1,7 +1,6 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import com.sun.tools.javac.util.Pair;
 import lombok.NonNull;
 import minevalley.core.api.corporations.Department;
 import minevalley.core.api.corporations.Group;
