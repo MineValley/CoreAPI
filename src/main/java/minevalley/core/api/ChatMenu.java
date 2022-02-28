@@ -13,12 +13,14 @@ public interface ChatMenu {
 
     /**
      * Adds a new option.
+     *
      * @param option option to add
      */
     void addClickableMessage(Option option);
 
     /**
      * Disables a specific clickable message.
+     *
      * @param index index of the clickable message to disable (counted from 0)
      */
     void disable(int index);
