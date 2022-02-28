@@ -135,6 +135,10 @@ public interface CoreServer {
 
     ClickableMessage createClickableMessage(Consumer<User> callback, boolean selfCancelling);
 
+    ChatMenu createChatMenu(String message, ClickableMessage... clickableMessages);
+
+    ChatMenu createChatMenu(String message);
+
     void setMetadata(Metadatable metadatable, String key, Object value);
 
     void removeMetadata(Metadatable metadatable, String key);

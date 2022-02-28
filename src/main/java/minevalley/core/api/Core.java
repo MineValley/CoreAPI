@@ -905,7 +905,7 @@ public final class Core {
     }
 
     /**
-     * Creates a clickable message that executes the given callback, and is only clickable once (if selfCanselling is true)
+     * Creates a clickable message that executes the given callback, and is only clickable once (if selfCanselling is true).
      *
      * @param callback       callbacl to be executed if player clicks the message
      * @param selfCancelling defines if the message is clickable multiple times
@@ -913,6 +913,25 @@ public final class Core {
      */
     public static ClickableMessage createClickableMessage(Consumer<User> callback, boolean selfCancelling) {
         return server.createClickableMessage(callback, selfCancelling);
+    }
+
+    /**
+     * Creates a menu which can be send to users chat.
+     * @param message message that will be sent on top of the clickables
+     * @param clickableMessages clickable messages
+     * @return new chat menu
+     */
+    public static ChatMenu createChatMenu(String message, ClickableMessage... clickableMessages) {
+        return server.createChatMenu(message, clickableMessages);
+    }
+
+    /**
+     * Creates a menu which can be send to users chat.
+     * @param message message that will be sent on top of the clickables
+     * @return new chat menu
+     */
+    public static ChatMenu createChatMenu(String message) {
+        return server.createChatMenu(message);
     }
 
     /**
