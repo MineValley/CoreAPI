@@ -74,6 +74,20 @@ public interface User extends Registered {
     void playSound(Sound sound);
 
     /**
+     * Gets the ambient this user is currently hearing
+     *
+     * @return ambient this user is hearing
+     */
+    AmbientSound getAmbient();
+
+    /**
+     * Sets the current ambient, the user will hear
+     *
+     * @param ambient ambient for the user to hear
+     */
+    void setAmbient(AmbientSound ambient);
+
+    /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
      *
      * @param message message to be send as string
