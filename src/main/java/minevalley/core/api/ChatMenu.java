@@ -10,11 +10,6 @@ public interface ChatMenu {
     void disable();
 
     /**
-     * Enables every clickable message.
-     */
-    void enable();
-
-    /**
      * Adds a new clickable message.
      * @param clickableMessage clickable message to add
      */
@@ -25,10 +20,4 @@ public interface ChatMenu {
      * @param index index of the clickable message to disable (counted from 0)
      */
     void disable(int index);
-
-    /**
-     * Enables a specific clickable message.
-     * @param index index of the clickable message to enable (counted from 0)
-     */
-    void enable(int index);
 }
