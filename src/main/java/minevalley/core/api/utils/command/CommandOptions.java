@@ -75,6 +75,11 @@ public @interface CommandOptions {
      */
     boolean requireSupportService() default false;
 
+    /**
+     * If this is enabled, users that are allowed to use this command are also allowed to tab it.
+     * Disable this if you want to make custom permission-checks beyond the commandoptions!
+     */
+    boolean allowTabbing() default true;
 
     /**
      * If this is enabled, users aren't allowed to use this command, if they aren't in team service.
