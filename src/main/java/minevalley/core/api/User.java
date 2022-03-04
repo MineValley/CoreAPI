@@ -6,6 +6,8 @@ import lombok.NonNull;
 import lombok.Setter;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.*;
+import minevalley.core.api.enums.sounds.AmbientSound;
+import minevalley.core.api.enums.sounds.Sound;
 import minevalley.core.api.phone.Phone;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.block.Block;

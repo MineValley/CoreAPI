@@ -1,4 +1,4 @@
-package minevalley.core.api.enums;
+package minevalley.core.api.enums.sounds;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
