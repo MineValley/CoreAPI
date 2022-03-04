@@ -27,6 +27,17 @@ public interface Command {
      */
     List<String> onTabComplete(User user, String[] args);
 
+    /**
+     * This method is used to define whether a user is permissioned to execute/tab this command more precisly than the CommandOptions-Annotation is able to.
+     * This is checked, when a user tabs or executes the command. This check will only be called, if the user has the permissions given by the CommandOptions-Annotation.
+     * <p>
+     * <b>Note:</b> This method should not have any side effects!
+     *
+     * @param user user who tries to execute/tab the command
+     * @return true, if the user is permissioned - false, if he isn't (error-message will be sent automatically)
+     */
+    boolean isPermissioned(User user);
+
     enum CommandResponse {
         SUCCESS,
         ABUSE_WARNING,
