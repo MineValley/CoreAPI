@@ -65,10 +65,10 @@ public @interface CommandOptions {
     TeamRank[] teamRanks() default {};
 
     /**
-     * If abuseWarning() is true, the team will be notified if a player tries to execute this command without permission
-     * The return of ABUSE_WARNING in the onCommand method is not related to this setting and can also be carried out if nothing (or false) is specified here
+     * If this is enabled, users aren't allowed to use this command, if they aren't in team service.
+     * This is used for commands, that are only accessible for teammembers. Use this instead of adding every possible team rank into the teamRanks-option!
      */
-    boolean abuseWarning() default false;
+    boolean requireTeamService() default false;
 
     /**
      * If this is enabled, users (in this case only teammembers) aren't allowed to use this command, if they aren't in support service.
@@ -82,10 +82,10 @@ public @interface CommandOptions {
     boolean allowTabbing() default true;
 
     /**
-     * If this is enabled, users aren't allowed to use this command, if they aren't in team service.
-     * This is used for commands, that are only accessible for teammembers. Use this instead of adding every possible team rank into the teamRanks-option!
+     * If abuseWarning() is true, the team will be notified if a player tries to execute this command without permission
+     * The return of ABUSE_WARNING in the onCommand method is not related to this setting and can also be carried out if nothing (or false) is specified here
      */
-    boolean requireTeamService() default false;
+    boolean abuseWarning() default false;
 
     /**
      * If a value is specified here, the user must execute the command with the specified number of arguments.
