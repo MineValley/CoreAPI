@@ -8,6 +8,7 @@ import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.*;
 import minevalley.core.api.phone.Phone;
 import net.md_5.bungee.api.chat.BaseComponent;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -565,6 +566,14 @@ public interface User extends Registered {
      * @return true, if the user is registered
      */
     boolean isRegistered();
+
+    /**
+     * Gets whether this user is allowed to break/place/use a block at the given position regarding to the regions-system.
+     *
+     * @param block block to check
+     * @return true, if this user is allowed to break/place/use a block here
+     */
+    boolean isAllowedToUse(Block block);
 
     /**
      * Asks the user which bank account he wants to use (e. g. to pay sth)
