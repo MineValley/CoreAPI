@@ -13,9 +13,8 @@ public abstract class CoreModule {
 
     public CoreModule(CoreServer server) {
         this.server = server;
-
         this.description = Objects.requireNonNull(getClass().getAnnotation(Description.class),
-                "Description can not be null");
+                "Description-Annotation nicht vorhanden!");
         new Core(server);
         new RegionManager(server);
     }
@@ -23,5 +22,7 @@ public abstract class CoreModule {
 
     public abstract void onEnable();
 
-    public abstract void onDisable();
+    public void onDisable() {
+
+    };
 }
