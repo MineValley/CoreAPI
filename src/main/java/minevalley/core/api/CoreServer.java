@@ -159,6 +159,8 @@ public interface CoreServer {
 
     boolean isNumeric(String string);
 
+    String formatMoney(double amount);
+
     GuiBuilder gui(Inventory inventory);
 
     GuiBuilder gui(int size);

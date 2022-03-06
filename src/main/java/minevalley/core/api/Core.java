@@ -602,6 +602,16 @@ public final class Core {
     }
 
     /**
+     * Creates a readable string of the specific amount of money.
+     *
+     * @param amount amount to convert
+     * @return amount as x.xxx.xxx,xx€
+     */
+    public static String formatMoney(double amount) {
+        return server.formatMoney(amount);
+    }
+
+    /**
      * Creates new gui-builder based on a existing inventory.
      *
      * @param inventory inventory on which the gui-builder should base on
@@ -918,7 +928,6 @@ public final class Core {
     /**
      * Creates a menu which can be send to users chat.
      *
-     * @param message message that will be sent on top of the clickables
      * @param options clickable options (message and clickable)
      * @return new chat menu
      */
@@ -928,6 +937,7 @@ public final class Core {
 
     /**
      * Creates a menu which can be send to users chat.
+     *
      * @return new chat menu
      */
     public static ChatMenu createChatMenu() {
