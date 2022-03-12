@@ -84,6 +84,11 @@ public interface User extends Registered {
     AmbientSound getAmbient();
 
     /**
+     * Starts the credits sequence.
+     */
+    void sendCredits();
+
+    /**
      * Sets the current ambient, the user will hear
      *
      * @param ambient ambient for the user to hear
