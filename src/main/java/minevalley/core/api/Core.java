@@ -455,6 +455,19 @@ public final class Core {
         return server.getSetting(key);
     }
 
+
+    /**
+     * Gets the settings with the specific key.
+     *
+     * @param key          string of the key with which the setting is saved
+     * @param defaultValue value that is returned, if the setting is null
+     * @return setting as string from the specific key
+     */
+    public static String getSetting(String key, String defaultValue) {
+        final String result = server.getSetting(key);
+        return result == null ? defaultValue : result;
+    }
+
     /**
      * Updates a statistic with the given key.
      * <p>

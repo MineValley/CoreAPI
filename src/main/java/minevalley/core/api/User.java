@@ -45,7 +45,7 @@ public interface User extends Registered {
      *
      * @return id of users address
      */
-    int address();
+    int getAddress();
 
     /**
      * Gets the head of this user.
@@ -291,6 +291,16 @@ public interface User extends Registered {
     BankAccount getBankAccount();
 
     /**
+     * Asks the user which bank account he wants to use (e. g. to pay sth)
+     * He can choose from every bank account he's permissioned to transfer money from.
+     * If he chooses nothing, the callback isn't called.
+     * If he's only permissioned to transfer money from one account, he will not be asked (The callback will be called immediately with the account).
+     *
+     * @param callback callback with the chosen bank account
+     */
+    void askForBankAccount(Consumer<BankAccount> callback);
+
+    /**
      * Gets a list of the users friends unique ids
      *
      * @return list of the users friends unique ids as strings
@@ -320,6 +330,15 @@ public interface User extends Registered {
      * @return value of the setting
      */
     String getPlayerSetting(String key);
+
+    /**
+     * Gets a specific setting that the user can change.
+     *
+     * @param key key of the setting
+     * @param defaultValue value that is returned, if the setting is null
+     * @return value of the setting
+     */
+    String getPlayerSetting(String key, String defaultValue);
 
     /**
      * Updates the value of a specific setting.
@@ -385,7 +404,7 @@ public interface User extends Registered {
 
     /**
      * Gets the custom team rank name.
-     * If no custom name is defined, this returns the name of the users team rank
+     * If no custom name is defined, this returns the name of the users team rank.
      *
      * @return [custom] team rank name
      */
@@ -581,16 +600,6 @@ public interface User extends Registered {
      * @return true, if this user is allowed to break/place/use a block here
      */
     boolean isAllowedToUse(Block block);
-
-    /**
-     * Asks the user which bank account he wants to use (e. g. to pay sth)
-     * He can choose from every bank account he's permissioned to transfer money from.
-     * If he chooses nothing, the callback isn't called.
-     * If he's only permissioned to transfer money from one account, he will not be asked (The callback will be called immediately with the account).
-     *
-     * @param callback callback with the chosen bank account
-     */
-    void askForBankAccount(Consumer<BankAccount> callback);
 
     @Getter
     @Setter
