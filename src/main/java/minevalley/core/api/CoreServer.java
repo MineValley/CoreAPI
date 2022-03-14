@@ -232,4 +232,8 @@ public interface CoreServer {
     Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, DayOfWeek... weekdays);
 
     Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<DayOfWeek> weekdays);
+
+    Webhook createWebhook(String url);
+
+    Webhook.EmbeddedMessage createEmbeddedMessage();
 }

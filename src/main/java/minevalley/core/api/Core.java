@@ -1143,4 +1143,12 @@ public final class Core {
     Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<DayOfWeek> weekdays) {
         return server.createReminder(hours, minutes, callback, weekdays);
     }
+
+    Webhook createWebhook(String url) {
+        return server.createWebhook(url);
+    }
+
+    Webhook.EmbeddedMessage createEmbeddedMessage() {
+        return server.createEmbeddedMessage();
+    }
 }
