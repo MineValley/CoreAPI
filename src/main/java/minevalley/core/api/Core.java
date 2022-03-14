@@ -1102,7 +1102,7 @@ public final class Core {
      * @param callback callback that is called when this timer terminates
      * @return timer with the specific parameters
      */
-    Timer startTimer(int delay, @NonNull Runnable callback) {
+    public static Timer startTimer(int delay, @NonNull Runnable callback) {
         return server.startTimer(delay, callback);
     }
 
@@ -1114,7 +1114,7 @@ public final class Core {
      * @param callback callback that is called when this repeating timer reaches a period
      * @return repeating timer with the specific parameters.
      */
-    RepeatingTimer startRepeatingTimer(int delay, int period, @NonNull Runnable callback) {
+    public static RepeatingTimer startRepeatingTimer(int delay, int period, @NonNull Runnable callback) {
         return server.startRepeatingTimer(delay, period, callback);
     }
 
@@ -1127,7 +1127,7 @@ public final class Core {
      * @param weekdays weekdays on which this reminder is active
      * @return reminder with the specific parameters.
      */
-    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, DayOfWeek... weekdays) {
+    public static Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, DayOfWeek... weekdays) {
         return server.createReminder(hours, minutes, callback, weekdays);
     }
 
@@ -1140,15 +1140,15 @@ public final class Core {
      * @param weekdays weekdays on which this reminder is active
      * @return reminder with the specific parameters.
      */
-    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<DayOfWeek> weekdays) {
+    public static Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<DayOfWeek> weekdays) {
         return server.createReminder(hours, minutes, callback, weekdays);
     }
 
-    Webhook createWebhook(String url) {
+    public static Webhook createWebhook(String url) {
         return server.createWebhook(url);
     }
 
-    Webhook.EmbeddedMessage createEmbeddedMessage() {
+    public static Webhook.EmbeddedMessage createEmbeddedMessage() {
         return server.createEmbeddedMessage();
     }
 }

@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * This Webhook-builder is ment to help you creating discord-webhooks.
@@ -12,7 +13,7 @@ public interface Webhook {
 
     Webhook setAvatar(String url);
 
-    void send(EmbeddedMessage... message);
+    void send(EmbeddedMessage... message) throws IOException;
 
     interface EmbeddedMessage {
 
