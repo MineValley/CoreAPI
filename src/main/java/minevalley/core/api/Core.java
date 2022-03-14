@@ -45,8 +45,11 @@ import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -622,6 +625,14 @@ public final class Core {
      */
     public static String formatMoney(double amount) {
         return server.formatMoney(amount);
+    }
+
+    public static String getFormattedDate(long time) {
+        return new SimpleDateFormat("dd. MMMM yyyy - HH:mm", Locale.GERMANY).format(new Date(time)) + " Uhr";
+    }
+
+    public static String getCurrentTimeFormatted() {
+        return getFormattedDate(System.currentTimeMillis());
     }
 
     /**
