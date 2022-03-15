@@ -32,5 +32,7 @@ public interface Webhook {
         EmbeddedMessage setImage(String url);
 
         EmbeddedMessage setFooter(String footer, String iconUrl);
+
+        EmbeddedMessage setFooter(String footer);
     }
 }
