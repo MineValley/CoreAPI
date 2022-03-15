@@ -13,9 +13,9 @@ We do our best to update this documentary. There's no other source of informatio
 
 > **Core API**:
 >
-> version: _1.92_
+> version: _1.93_
 >
-> latest change: _14.03.2022_
+> latest change: _15.03.2022_
 
 ## Changelog (v1.36)
 Here you can find the newest updates to this api.
