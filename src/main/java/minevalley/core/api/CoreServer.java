@@ -165,6 +165,8 @@ public interface CoreServer {
 
     GuiBuilder gui(int size);
 
+    GuiBuilder gui(List<GuiItem> items, int size, Core.PosItem... posItems);
+
     GuiItem guiItem(ItemStack itemStack, Consumer<User> consumer);
 
     GuiItem advancedGuiItem(ItemStack itemStack, BiConsumer<User, ClickType> consumer);
