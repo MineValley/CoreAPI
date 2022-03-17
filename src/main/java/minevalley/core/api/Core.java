@@ -1178,7 +1178,7 @@ public final class Core {
 
     @AllArgsConstructor
     @Getter
-    static class PosItem {
+    public static class PosItem {
         private final int position;
         private final GuiItem guiItem;
     }
