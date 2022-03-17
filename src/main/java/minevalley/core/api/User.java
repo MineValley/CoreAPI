@@ -84,16 +84,16 @@ public interface User extends Registered {
     AmbientSound getAmbient();
 
     /**
-     * Starts the credits sequence.
-     */
-    void sendCredits();
-
-    /**
      * Sets the current ambient, the user will hear
      *
      * @param ambient ambient for the user to hear
      */
     void setAmbient(AmbientSound ambient);
+
+    /**
+     * Starts the credits sequence.
+     */
+    void sendCredits();
 
     /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
@@ -322,6 +322,20 @@ public interface User extends Registered {
     String[] getBellBlacklist();
 
     /**
+     * Adds the user with the specific unique id to this users bellblacklist
+     *
+     * @param uniqueId unique id of the user to block
+     */
+    void removeFromBellBlacklist(String uniqueId);
+
+    /**
+     * Removes the user with the specific unique id from this users bellblacklist
+     *
+     * @param uniqueId unique id of the user to block
+     */
+    void addToBellBlacklist(String uniqueId);
+
+    /**
      * Gets a specific setting that the user can change.
      * <p>
      * <b>Note:</b> If the user did not provide a value, this will return null!
@@ -334,7 +348,7 @@ public interface User extends Registered {
     /**
      * Gets a specific setting that the user can change.
      *
-     * @param key key of the setting
+     * @param key          key of the setting
      * @param defaultValue value that is returned, if the setting is null
      * @return value of the setting
      */
