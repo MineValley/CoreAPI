@@ -665,8 +665,8 @@ public final class Core {
      * @param posItems items to be placed on specific slots on every inventory
      * @return new gui-builder
      */
-    public static GuiBuilder createGui(List<GuiItem> items, int size, PosItem... posItems) {
-        return server.gui(items, size, posItems);
+    public static GuiBuilder createGui(List<GuiItem> items, int size, String title, PosItem... posItems) {
+        return server.gui(items, size, title, posItems);
     }
 
     /**
