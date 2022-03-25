@@ -31,6 +31,13 @@ public interface Telephone {
     List<Registered> getPermissioned();
 
     /**
+     * Gets this telephones owner
+     *
+     * @return owner as registered
+     */
+    Registered getOwner();
+
+    /**
      * Accepts the incoming call.
      */
     void acceptCall();

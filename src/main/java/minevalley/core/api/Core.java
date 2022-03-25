@@ -12,6 +12,7 @@ import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.InterfaceItem;
+import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
 import minevalley.core.api.timing.Reminder;
@@ -1050,6 +1051,26 @@ public final class Core {
      */
     public static Group createGroup(String owner, boolean company) {
         return server.createGroup(owner, company);
+    }
+
+    /**
+     * Creates a new telephone with the given owner. The owner should be the registered id.
+     *
+     * @param owner owner's registered id
+     * @return new telephone with the specific owner
+     */
+    public static Telephone createTelephone(String owner) {
+        return server.createTelephone(owner);
+    }
+
+    /**
+     * Gets the telephone with the specific telephone number.
+     *
+     * @param telephoneNumber telephone number to get telephone from
+     * @return telephone with the specific telephone number
+     */
+    public static Telephone getTelephone(String telephoneNumber) {
+        return server.getTelephone(telephoneNumber);
     }
 
     /**

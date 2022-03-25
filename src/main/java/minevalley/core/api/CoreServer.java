@@ -9,6 +9,7 @@ import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.Area;
 import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
@@ -214,6 +215,10 @@ public interface CoreServer {
     FakeBlock createFakeBlock(Block block, Material material, int data);
 
     boolean containsForForbiddenWords(String string);
+
+    Telephone createTelephone(String owner);
+
+    Telephone getTelephone(String telephoneNumber);
 
     Registered getRegistered(User user);
 

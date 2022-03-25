@@ -20,13 +20,6 @@ public interface Phone extends Telephone {
     void deactivate();
 
     /**
-     * Gets the phone's owner.
-     *
-     * @return the user-object of the phone's owner
-     */
-    User getOwner();
-
-    /**
      * Gets whether the phone is activated.
      *
      * @return true, if phone is activated
