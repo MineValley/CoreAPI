@@ -107,17 +107,9 @@ public interface Group extends Registered {
     BankAccount getBankAccount();
 
     /**
-     * Gets this group's telephone number.
-     *
-     * @return phone number as string
-     */
-    String getPhoneNumber();
-
-    /**
      * Deletes this group.
      */
     void delete();
-
 
     enum RenameFeedback {
         FORBIDDEN_CHARACTERS,
