@@ -13,7 +13,7 @@ We do our best to update this documentary. There's no other source of informatio
 
 > **Core API**:
 >
-> version: _1.99_
+> version: _1.100_
 >
 > latest change: _25.03.2022_
 
