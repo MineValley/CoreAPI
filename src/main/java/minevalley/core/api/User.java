@@ -364,25 +364,6 @@ public interface User extends Registered {
      */
     void changePlayerSetting(String key, String newValue);
 
-    // PlayerRank
-
-    /**
-     * Gets the player-rank of this user.
-     *
-     * @return users player-rank
-     */
-    @Deprecated
-    PlayerRank getPlayerRank();
-
-    /**
-     * Gets whether the user has any of the listed player-ranks
-     *
-     * @param ranks list of player-ranks to be checked for
-     * @return true, if the user has one of the ranks
-     */
-    @Deprecated
-    boolean hasPlayerRank(@NonNull PlayerRank... ranks);
-
     // FractionService
 
     /**
