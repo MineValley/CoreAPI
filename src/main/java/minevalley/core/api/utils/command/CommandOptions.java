@@ -41,15 +41,6 @@ public @interface CommandOptions {
     boolean ignoreRanks() default false;
 
     /**
-     * Every player who has one of the player-ranks listed here is able to execute this command
-     * Note: The ranks are not staggered. The PREMIUM does not have the authorization just because ORDINARY has them
-     * If everybody is allowed to use this command, add all existing values of this enum.
-     * If nobody is allowed to use this command, return an empty list (or don't use this setting).
-     */
-    @Deprecated
-    PlayerRank[] playerRank() default {};
-
-    /**
      * Every player who is in service of one of the fractions listed here is able to execute this command
      * If everybody is allowed to use this command, add all existing values of this enum.
      * If nobody is allowed to use this command, return an empty list (or don't use this setting).
