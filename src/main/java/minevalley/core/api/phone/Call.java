@@ -10,18 +10,18 @@ public interface Call {
     void end();
 
     /**
-     * Gets the phone, that started the call.
+     * Gets the telephone, that started the call.
      *
-     * @return phone-object of caller
+     * @return thelephone that called the partner
      */
-    Phone getCaller();
+    Telephone getCaller();
 
     /**
-     * Gets the phone, that got called.
+     * Gets the telephone, that got called.
      *
-     * @return phone-object of called player
+     * @return telephone that was called by caller
      */
-    Phone getPartner();
+    Telephone getPartner();
 
     /**
      * Gets the time at which the call was started.
