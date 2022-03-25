@@ -195,11 +195,13 @@ public interface CoreServer {
 
     BankAccount getBankAccount(String iban);
 
+    BankAccount createBankAccount(Registered holder);
+
     Group getGroup(int id);
 
     Group getGroup(String name);
 
-    Group createGroup(String name, boolean company);
+    Group createGroup(String owner, boolean company);
 
     Region getRegion(int id);
 

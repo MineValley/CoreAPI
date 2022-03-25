@@ -1012,6 +1012,16 @@ public final class Core {
     }
 
     /**
+     * Creates a new bank account with the given holder.
+     *
+     * @param holder holder of this bank account
+     * @return new bank account
+     */
+    public static BankAccount createBankAccount(Registered holder) {
+        return server.createBankAccount(holder);
+    }
+
+    /**
      * Gets the group (organization/company) with the specific id.
      *
      * @param id id as integer
@@ -1034,12 +1044,12 @@ public final class Core {
     /**
      * Creates a new group.
      *
-     * @param name    name of the group
+     * @param owner   registered id of the owner (alternative: STATE:[category])
      * @param company true -> company; false -> organization
      * @return new generated group
      */
-    public static Group createGroup(String name, boolean company) {
-        return server.createGroup(name, company);
+    public static Group createGroup(String owner, boolean company) {
+        return server.createGroup(owner, company);
     }
 
     /**

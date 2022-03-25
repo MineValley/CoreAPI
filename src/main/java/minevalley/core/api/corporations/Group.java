@@ -113,6 +113,11 @@ public interface Group extends Registered {
      */
     String getPhoneNumber();
 
+    /**
+     * Deletes this group.
+     */
+    void delete();
+
 
     enum RenameFeedback {
         FORBIDDEN_CHARACTERS,
