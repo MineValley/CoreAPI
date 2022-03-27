@@ -485,6 +485,13 @@ public interface User extends Registered {
     Education[] getEducation();
 
     /**
+     * Gets a list of the active products, that this user bought.
+     *
+     * @return list of purchases
+     */
+    Purchase[] getPurchased();
+
+    /**
      * Gets whether the user has the specific education.
      *
      * @return true, if the user has the specific education
