@@ -1,12 +1,13 @@
 package minevalley.core.api.enums;
 
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.Core;
 import minevalley.core.api.utils.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum InterfaceItem {
 
     /**

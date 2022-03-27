@@ -1,10 +1,11 @@
 package minevalley.core.api.enums;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Getter
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum NPCAnimation {
 
     SWING_MAIN_HAND(0),

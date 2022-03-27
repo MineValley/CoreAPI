@@ -1,10 +1,11 @@
 package minevalley.core.api.enums;
 
-import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum CorporatePermission {
     USE_CARS("use_cars"),
     CAN_BUILD("can_build"),

@@ -1,12 +1,13 @@
 package minevalley.core.api.enums;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
-@RequiredArgsConstructor
 @Getter
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum Education {
 
     NONE(0),

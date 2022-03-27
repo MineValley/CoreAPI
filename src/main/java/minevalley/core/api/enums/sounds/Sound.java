@@ -1,10 +1,11 @@
 package minevalley.core.api.enums.sounds;
 
-import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
 @Getter
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum Sound {
 
     /**
