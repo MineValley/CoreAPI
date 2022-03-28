@@ -37,6 +37,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.metadata.Metadatable;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
@@ -50,11 +51,11 @@ import java.util.function.Consumer;
 
 public interface CoreServer {
 
-    int scheduleSyncRepeatingTask(long period, long delay, BukkitRunnable runnable);
+    int scheduleSyncRepeatingTask(long delay, long period, BukkitRunnable runnable);
 
-    int scheduleSyncRepeatingTask(long period, long delay, Runnable runnable);
+    int scheduleSyncRepeatingTask(long delay, long period, Runnable runnable);
 
-    int scheduleAsyncRepeatingTask(long period, long delay, Runnable runnable);
+    int scheduleAsyncRepeatingTask(long delay, long period, Runnable runnable);
 
     int scheduleSyncDelayedTask(long delay, BukkitRunnable runnable);
 
@@ -74,13 +75,13 @@ public interface CoreServer {
     BukkitTask runTaskAsync(Runnable runnable);
 
 
-    BukkitTask runTaskTimer(long period, long delay, BukkitRunnable runnable);
+    BukkitTask runTaskTimer(long delay, long period, BukkitRunnable runnable);
 
-    BukkitTask runTaskTimer(long period, long delay, Runnable runnable);
+    BukkitTask runTaskTimer(long delay, long period, Runnable runnable);
 
-    BukkitTask runTaskTimerAsync(long period, long delay, BukkitRunnable runnable);
+    BukkitTask runTaskTimerAsync(long delay, long period, BukkitRunnable runnable);
 
-    BukkitTask runTaskTimerAsync(long period, long delay, Runnable runnable);
+    BukkitTask runTaskTimerAsync(long delay, long period, Runnable runnable);
 
 
     BukkitTask runTaskLater(long delay, BukkitRunnable runnable);
@@ -95,6 +96,8 @@ public interface CoreServer {
     boolean isCurrentlyRunning(int taskId);
 
     void cancelTask(int taskId);
+
+    JavaPlugin getInstance();
 
     void registerEvent(Class<? extends Event> cls, EventListener listener);
 

@@ -43,6 +43,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.metadata.Metadatable;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
@@ -345,6 +346,10 @@ public final class Core {
      */
     public static void cancelTask(int taskId) {
         server.cancelTask(taskId);
+    }
+
+    public static JavaPlugin getInstance() {
+        return server.getInstance();
     }
 
     public static void registerEvent(Class<? extends Event> cls, EventListener listener) {
