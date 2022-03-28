@@ -63,6 +63,13 @@ public interface User extends Registered {
     boolean isUsingLabyMod();
 
     /**
+     * Gets the version this user is currently playing with.
+     *
+     * @return current version
+     */
+    McVersion getVersion();
+
+    /**
      * Removes the whole user-object and loads it again from the database.
      */
     void refresh();
