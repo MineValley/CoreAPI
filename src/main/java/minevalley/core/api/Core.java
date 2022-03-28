@@ -71,8 +71,8 @@ public final class Core {
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
-    public static int scheduleSyncRepeatingTask(long period, long delay, BukkitRunnable runnable) {
-        return server.scheduleSyncRepeatingTask(period, delay, runnable);
+    public static int scheduleSyncRepeatingTask(long delay, long period, BukkitRunnable runnable) {
+        return server.scheduleSyncRepeatingTask(delay, period, runnable);
     }
 
     /**
@@ -85,8 +85,8 @@ public final class Core {
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
-    public static int scheduleSyncRepeatingTask(long period, long delay, Runnable runnable) {
-        return server.scheduleSyncRepeatingTask(period, delay, runnable);
+    public static int scheduleSyncRepeatingTask(long delay, long period, Runnable runnable) {
+        return server.scheduleSyncRepeatingTask(delay, period, runnable);
     }
 
     /**
@@ -103,8 +103,8 @@ public final class Core {
      * @deprecated This name is misleading, as it does not schedule "a sync"
      * task, but rather, "an async" task
      */
-    public static int scheduleAsyncRepeatingTask(long period, long delay, Runnable runnable) {
-        return server.scheduleAsyncRepeatingTask(period, delay, runnable);
+    public static int scheduleAsyncRepeatingTask(long delay, long period, Runnable runnable) {
+        return server.scheduleAsyncRepeatingTask(delay, period, runnable);
     }
 
     /**
@@ -218,8 +218,8 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
-    public static BukkitTask runTaskTimer(long period, long delay, BukkitRunnable runnable) {
-        return server.runTaskTimer(period, delay, runnable);
+    public static BukkitTask runTaskTimer(long delay, long period, BukkitRunnable runnable) {
+        return server.runTaskTimer(delay, period, runnable);
     }
 
     /**
@@ -233,8 +233,8 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
-    public static BukkitTask runTaskTimer(long period, long delay, Runnable runnable) {
-        return server.runTaskTimer(period, delay, runnable);
+    public static BukkitTask runTaskTimer(long delay, long period, Runnable runnable) {
+        return server.runTaskTimer(delay, period, runnable);
     }
 
     /**
@@ -245,8 +245,8 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
-    public static BukkitTask runTaskTimerAsync(long period, long delay, BukkitRunnable runnable) {
-        return server.runTaskTimerAsync(period, delay, runnable);
+    public static BukkitTask runTaskTimerAsync(long delay, long period, BukkitRunnable runnable) {
+        return server.runTaskTimerAsync(delay, period, runnable);
     }
 
     /**
@@ -263,8 +263,8 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
-    public static BukkitTask runTaskTimerAsync(long period, long delay, Runnable runnable) {
-        return server.runTaskTimerAsync(period, delay, runnable);
+    public static BukkitTask runTaskTimerAsync(long delay, long period, Runnable runnable) {
+        return server.runTaskTimerAsync(delay, period, runnable);
     }
 
     /**
