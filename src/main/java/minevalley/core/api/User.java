@@ -617,6 +617,10 @@ public interface User extends Registered {
      */
     boolean isAllowedToUse(Block block);
 
+    void changeSign(Block block, final String line1, final String line2, final String line3, final String line4);
+
+    void resetSign(Block block);
+
     @Getter
     @Setter
     @AllArgsConstructor
