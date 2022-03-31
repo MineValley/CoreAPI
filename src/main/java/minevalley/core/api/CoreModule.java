@@ -8,15 +8,14 @@ import java.util.Objects;
 @Getter
 public abstract class CoreModule {
 
-    private final CoreServer server;
+    @Getter
+    private static CoreServer server;
     private final Description description;
 
-    public CoreModule(CoreServer server) {
-        this.server = server;
+    public CoreModule(CoreServer coreServer) {
+        server = coreServer;
         this.description = Objects.requireNonNull(getClass().getAnnotation(Description.class),
                 "Description-Annotation nicht vorhanden!");
-        new Core(server);
-        new RegionManager(server);
     }
 
     /**

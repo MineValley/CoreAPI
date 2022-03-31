@@ -248,4 +248,6 @@ public interface CoreServer {
     Webhook createWebhook(String url);
 
     Webhook.EmbeddedMessage createEmbeddedMessage();
+
+    boolean isMaintenance();
 }
