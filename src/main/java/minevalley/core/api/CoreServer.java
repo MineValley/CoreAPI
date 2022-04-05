@@ -236,8 +236,6 @@ public interface CoreServer {
 
     Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<PlayerInteractEvent> callback);
 
-    Boundary createBoundary(@NonNull Location anchorPoint, double height, double width, @NonNull Consumer<PlayerInteractEvent> callback);
-
     Timer startTimer(int delay, @NonNull Runnable callback);
 
     RepeatingTimer startRepeatingTimer(int delay, int period, @NonNull Runnable callback);

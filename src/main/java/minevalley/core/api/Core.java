@@ -1138,19 +1138,6 @@ public final class Core {
     }
 
     /**
-     * Creates a boundary with the specific parameters.
-     *
-     * @param anchorPoint anchorPoint, which is used to move the boundary
-     * @param height      height as double
-     * @param width       width as double
-     * @param callback    callback that is called if a player clicks this boundary
-     * @return boundary with given parameters
-     */
-    public static Boundary createBoundary(@NonNull Location anchorPoint, double height, double width, @NonNull Consumer<PlayerInteractEvent> callback) {
-        return CoreModule.getServer().createBoundary(anchorPoint, height, width, callback);
-    }
-
-    /**
      * Starts a timer with the specific parameters.
      *
      * @param delay    delay after which this timer terminates
