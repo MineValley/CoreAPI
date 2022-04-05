@@ -39,6 +39,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.MetadataValue;
@@ -1120,7 +1121,7 @@ public final class Core {
      * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
      */
-    public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<User> callback) {
+    public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<PlayerInteractEvent> callback) {
         return CoreModule.getServer().createBoundary(anchorPoint, pullPoint, callback);
     }
 
@@ -1132,7 +1133,7 @@ public final class Core {
      * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
      */
-    public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<User> callback) {
+    public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<PlayerInteractEvent> callback) {
         return CoreModule.getServer().createBoundary(anchorPoint, vector, callback);
     }
 
@@ -1145,7 +1146,7 @@ public final class Core {
      * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
      */
-    public static Boundary createBoundary(@NonNull Location anchorPoint, double height, double width, @NonNull Consumer<User> callback) {
+    public static Boundary createBoundary(@NonNull Location anchorPoint, double height, double width, @NonNull Consumer<PlayerInteractEvent> callback) {
         return CoreModule.getServer().createBoundary(anchorPoint, height, width, callback);
     }
 

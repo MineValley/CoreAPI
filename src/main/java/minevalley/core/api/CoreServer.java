@@ -33,6 +33,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.MetadataValue;
@@ -231,11 +232,11 @@ public interface CoreServer {
 
     Registered getRegistered(String string);
 
-    Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<User> callback);
+    Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<PlayerInteractEvent> callback);
 
-    Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<User> callback);
+    Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<PlayerInteractEvent> callback);
 
-    Boundary createBoundary(@NonNull Location anchorPoint, double height, double width, @NonNull Consumer<User> callback);
+    Boundary createBoundary(@NonNull Location anchorPoint, double height, double width, @NonNull Consumer<PlayerInteractEvent> callback);
 
     Timer startTimer(int delay, @NonNull Runnable callback);
 
