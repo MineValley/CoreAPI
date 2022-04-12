@@ -1,11 +1,17 @@
 package minevalley.core.api.regions;
 
 
-import minevalley.core.api.CoreModule;
+import minevalley.core.api.CoreServer;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 
 public final class RegionManager {
+
+    public static CoreServer server;
+
+    public RegionManager(CoreServer coreServer) {
+        server = coreServer;
+    }
 
     /**
      * Gets the region with the specific id.
@@ -14,7 +20,7 @@ public final class RegionManager {
      * @return region with specific id
      */
     public static Region getRegion(int id) {
-        return CoreModule.getServer().getRegion(id);
+        return server.getRegion(id);
     }
 
     /**
@@ -24,7 +30,7 @@ public final class RegionManager {
      * @return region in which this location lies in
      */
     public static Region getRegion(Location location) {
-        return CoreModule.getServer().getRegion(location);
+        return server.getRegion(location);
     }
 
     /**
@@ -35,7 +41,7 @@ public final class RegionManager {
      * @return area with the given locations
      */
     public static Area getArea(Block loc1, Block loc2) {
-        return CoreModule.getServer().getArea(loc1, loc2);
+        return server.getArea(loc1, loc2);
     }
 
     /**
@@ -45,6 +51,6 @@ public final class RegionManager {
      * @return area that is represented by the specific string
      */
     public static Area getAreaFromString(String rawArea) {
-        return CoreModule.getServer().getAreaFromString(rawArea);
+        return server.getAreaFromString(rawArea);
     }
 }

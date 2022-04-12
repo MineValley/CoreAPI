@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import lombok.Getter;
+import minevalley.core.api.regions.RegionManager;
 
 import java.util.Objects;
 
@@ -15,6 +16,8 @@ public abstract class CoreModule {
         server = coreServer;
         this.description = Objects.requireNonNull(getClass().getAnnotation(Description.class),
                 "Description-Annotation nicht vorhanden!");
+        new Core(server);
+        new RegionManager(server);
     }
 
     /**
