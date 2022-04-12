@@ -61,6 +61,12 @@ import java.util.function.Consumer;
 
 public final class Core {
 
+    private static CoreServer server;
+
+    public Core(CoreServer server) {
+        Core.server = server;
+    }
+
     /**
      * @param period   Period in server ticks of the task
      * @param delay    Delay in server ticks before executing first repeat
@@ -68,7 +74,7 @@ public final class Core {
      * @return Task id number (-1 if scheduling failed)
      */
     public static int scheduleSyncRepeatingTask(long delay, long period, BukkitRunnable runnable) {
-        return CoreModule.getServer().scheduleSyncRepeatingTask(delay, period, runnable);
+        return server.scheduleSyncRepeatingTask(delay, period, runnable);
     }
 
     /**
@@ -82,7 +88,7 @@ public final class Core {
      * @return Task id number (-1 if scheduling failed)
      */
     public static int scheduleSyncRepeatingTask(long delay, long period, Runnable runnable) {
-        return CoreModule.getServer().scheduleSyncRepeatingTask(delay, period, runnable);
+        return server.scheduleSyncRepeatingTask(delay, period, runnable);
     }
 
     /**
@@ -100,7 +106,7 @@ public final class Core {
      * task, but rather, "an async" task
      */
     public static int scheduleAsyncRepeatingTask(long delay, long period, Runnable runnable) {
-        return CoreModule.getServer().scheduleAsyncRepeatingTask(delay, period, runnable);
+        return server.scheduleAsyncRepeatingTask(delay, period, runnable);
     }
 
     /**
@@ -109,7 +115,7 @@ public final class Core {
      * @return Task id number (-1 if scheduling failed)
      */
     public static int scheduleSyncDelayedTask(long delay, BukkitRunnable runnable) {
-        return CoreModule.getServer().scheduleSyncDelayedTask(delay, runnable);
+        return server.scheduleSyncDelayedTask(delay, runnable);
     }
 
     /**
@@ -122,7 +128,7 @@ public final class Core {
      * @return Task id number (-1 if scheduling failed)
      */
     public static int scheduleSyncDelayedTask(long delay, Runnable runnable) {
-        return CoreModule.getServer().scheduleSyncDelayedTask(delay, runnable);
+        return server.scheduleSyncDelayedTask(delay, runnable);
     }
 
     /**
@@ -130,7 +136,7 @@ public final class Core {
      * @return Task id number (-1 if scheduling failed)
      */
     public static int scheduleSyncDelayedTask(BukkitRunnable runnable) {
-        return CoreModule.getServer().scheduleSyncDelayedTask(runnable);
+        return server.scheduleSyncDelayedTask(runnable);
     }
 
     /**
@@ -142,7 +148,7 @@ public final class Core {
      * @return Task id number (-1 if scheduling failed)
      */
     public static int scheduleSyncDelayedTask(Runnable runnable) {
-        return CoreModule.getServer().scheduleSyncDelayedTask(runnable);
+        return server.scheduleSyncDelayedTask(runnable);
     }
 
     /**
@@ -159,7 +165,7 @@ public final class Core {
      * task, but rather, "an async" task
      */
     public static int scheduleAsyncDelayedTask(long delay, Runnable runnable) {
-        return CoreModule.getServer().scheduleAsyncDelayedTask(delay, runnable);
+        return server.scheduleAsyncDelayedTask(delay, runnable);
     }
 
     /**
@@ -175,7 +181,7 @@ public final class Core {
      * task, but rather, "an async" task
      */
     public static int scheduleAsyncDelayedTask(Runnable runnable) {
-        return CoreModule.getServer().scheduleAsyncDelayedTask(runnable);
+        return server.scheduleAsyncDelayedTask(runnable);
     }
 
     /**
@@ -187,7 +193,7 @@ public final class Core {
      * @throws IllegalArgumentException if task is null
      */
     public static BukkitTask runTask(Runnable runnable) {
-        return CoreModule.getServer().runTask(runnable);
+        return server.runTask(runnable);
     }
 
 
@@ -203,7 +209,7 @@ public final class Core {
      * @throws IllegalArgumentException if task is null
      */
     public static BukkitTask runTaskAsync(Runnable runnable) {
-        return CoreModule.getServer().runTaskAsync(runnable);
+        return server.runTaskAsync(runnable);
     }
 
     /**
@@ -215,7 +221,7 @@ public final class Core {
      * @throws IllegalArgumentException if task is null
      */
     public static BukkitTask runTaskTimer(long delay, long period, BukkitRunnable runnable) {
-        return CoreModule.getServer().runTaskTimer(delay, period, runnable);
+        return server.runTaskTimer(delay, period, runnable);
     }
 
     /**
@@ -230,7 +236,7 @@ public final class Core {
      * @throws IllegalArgumentException if task is null
      */
     public static BukkitTask runTaskTimer(long delay, long period, Runnable runnable) {
-        return CoreModule.getServer().runTaskTimer(delay, period, runnable);
+        return server.runTaskTimer(delay, period, runnable);
     }
 
     /**
@@ -242,7 +248,7 @@ public final class Core {
      * @throws IllegalArgumentException if task is null
      */
     public static BukkitTask runTaskTimerAsync(long delay, long period, BukkitRunnable runnable) {
-        return CoreModule.getServer().runTaskTimerAsync(delay, period, runnable);
+        return server.runTaskTimerAsync(delay, period, runnable);
     }
 
     /**
@@ -260,7 +266,7 @@ public final class Core {
      * @throws IllegalArgumentException if task is null
      */
     public static BukkitTask runTaskTimerAsync(long delay, long period, Runnable runnable) {
-        return CoreModule.getServer().runTaskTimerAsync(delay, period, runnable);
+        return server.runTaskTimerAsync(delay, period, runnable);
     }
 
     /**
@@ -271,7 +277,7 @@ public final class Core {
      * @throws IllegalArgumentException if task is null
      */
     public static BukkitTask runTaskLater(long delay, BukkitRunnable runnable) {
-        return CoreModule.getServer().runTaskLater(delay, runnable);
+        return server.runTaskLater(delay, runnable);
     }
 
     /**
@@ -285,7 +291,7 @@ public final class Core {
      * @throws IllegalArgumentException if task is null
      */
     public static BukkitTask runTaskLater(long delay, Runnable runnable) {
-        return CoreModule.getServer().runTaskLater(delay, runnable);
+        return server.runTaskLater(delay, runnable);
     }
 
     /**
@@ -296,7 +302,7 @@ public final class Core {
      * @throws IllegalArgumentException if task is null
      */
     public static BukkitTask runTaskLaterAsync(long delay, BukkitRunnable runnable) {
-        return CoreModule.getServer().runTaskLaterAsync(delay, runnable);
+        return server.runTaskLaterAsync(delay, runnable);
     }
 
     /**
@@ -313,7 +319,7 @@ public final class Core {
      * @throws IllegalArgumentException if task is null
      */
     public static BukkitTask runTaskLaterAsync(long delay, Runnable runnable) {
-        return CoreModule.getServer().runTaskLaterAsync(delay, runnable);
+        return server.runTaskLaterAsync(delay, runnable);
     }
 
     /**
@@ -331,7 +337,7 @@ public final class Core {
      * @return If the task is currently running.
      */
     public static boolean isCurrentlyRunning(int taskId) {
-        return CoreModule.getServer().isCurrentlyRunning(taskId);
+        return server.isCurrentlyRunning(taskId);
     }
 
     /**
@@ -340,27 +346,27 @@ public final class Core {
      * @param taskId Id number of task to be removed
      */
     public static void cancelTask(int taskId) {
-        CoreModule.getServer().cancelTask(taskId);
+        server.cancelTask(taskId);
     }
 
     public static JavaPlugin getInstance() {
-        return CoreModule.getServer().getInstance();
+        return server.getInstance();
     }
 
     public static void registerEvent(Class<? extends Event> cls, EventListener listener) {
-        CoreModule.getServer().registerEvent(cls, listener);
+        server.registerEvent(cls, listener);
     }
 
     public static void unregisterEvent(Class<? extends Event> cls, EventListener listener) {
-        CoreModule.getServer().unregisterEvent(cls, listener);
+        server.unregisterEvent(cls, listener);
     }
 
     public static void registerListeners(Listener listener) {
-        CoreModule.getServer().registerListeners(listener);
+        server.registerListeners(listener);
     }
 
     public static void registerCommand(PlayerCommand command) {
-        CoreModule.getServer().registerCommand(command);
+        server.registerCommand(command);
     }
 
     /**
@@ -369,7 +375,7 @@ public final class Core {
      * @param message message as string
      */
     public static void sendTeamChatMessage(String message) {
-        CoreModule.getServer().sendTeamChatMessage(message);
+        server.sendTeamChatMessage(message);
     }
 
     /**
@@ -378,7 +384,7 @@ public final class Core {
      * @param message message as base-component (useful for clickable messages)
      */
     public static void sendTeamChatMessage(BaseComponent[] message) {
-        CoreModule.getServer().sendTeamChatMessage(message);
+        server.sendTeamChatMessage(message);
     }
 
     /**
@@ -390,7 +396,7 @@ public final class Core {
      * @return DatabaseEntry from the given parameters
      */
     public static DatabaseEntry getDatabaseEntry(String tableName, ResultSet resultSet, int index) {
-        return CoreModule.getServer().databaseEntry(tableName, resultSet, index);
+        return server.databaseEntry(tableName, resultSet, index);
     }
 
     /**
@@ -403,7 +409,7 @@ public final class Core {
      * @return the first database-entry that matches the given description
      */
     public static DatabaseEntry getDatabaseEntry(String tableName, Value searchValue) {
-        return CoreModule.getServer().databaseEntry(tableName, searchValue);
+        return server.databaseEntry(tableName, searchValue);
     }
 
     /**
@@ -414,7 +420,7 @@ public final class Core {
      * @return collection of the given entries
      */
     public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, List<DatabaseEntry> entries) {
-        return CoreModule.getServer().databaseEntryCollection(tableName, entries);
+        return server.databaseEntryCollection(tableName, entries);
     }
 
     /**
@@ -426,7 +432,7 @@ public final class Core {
      * @return a collection of all database-entries in this table, that matches the given description
      */
     public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue) {
-        return CoreModule.getServer().databaseEntryCollection(tableName, searchValue);
+        return server.databaseEntryCollection(tableName, searchValue);
     }
 
     /**
@@ -436,7 +442,7 @@ public final class Core {
      * @return database-table with specific name
      */
     public static DatabaseTable getDatabaseTable(String tableName) {
-        return CoreModule.getServer().databaseTable(tableName);
+        return server.databaseTable(tableName);
     }
 
     /**
@@ -448,7 +454,7 @@ public final class Core {
      * @param value string of the (new) value
      */
     public static void setSetting(String key, String value) {
-        CoreModule.getServer().setSetting(key, value);
+        server.setSetting(key, value);
     }
 
     /**
@@ -458,7 +464,7 @@ public final class Core {
      * @return setting as string from the specific key
      */
     public static String getSetting(String key) {
-        return CoreModule.getServer().getSetting(key);
+        return server.getSetting(key);
     }
 
 
@@ -470,7 +476,7 @@ public final class Core {
      * @return setting as string from the specific key
      */
     public static String getSetting(String key, String defaultValue) {
-        final String result = CoreModule.getServer().getSetting(key);
+        final String result = server.getSetting(key);
         return result == null ? defaultValue : result;
     }
 
@@ -483,7 +489,7 @@ public final class Core {
      * @param value double of the (new) value
      */
     public static void updateStatistic(String key, double value) {
-        CoreModule.getServer().updateStatistic(key, value);
+        server.updateStatistic(key, value);
     }
 
     /**
@@ -493,7 +499,7 @@ public final class Core {
      * @return statistic as double from the specific key
      */
     public static double getStatistic(String key) {
-        return CoreModule.getServer().getStatistic(key);
+        return server.getStatistic(key);
     }
 
     /**
@@ -504,7 +510,7 @@ public final class Core {
      * @param value       object to be added as metadata
      */
     public static void setMetadata(Metadatable metadatable, String key, Object value) {
-        CoreModule.getServer().setMetadata(metadatable, key, value);
+        server.setMetadata(metadatable, key, value);
     }
 
     /**
@@ -514,7 +520,7 @@ public final class Core {
      * @param key         object
      */
     public static void removeMetadata(Metadatable metadatable, String key) {
-        CoreModule.getServer().removeMetadata(metadatable, key);
+        server.removeMetadata(metadatable, key);
     }
 
     /**
@@ -525,7 +531,7 @@ public final class Core {
      * @return list of all metadata-values
      */
     public static List<MetadataValue> getMetadata(Metadatable metadatable, String key) {
-        return CoreModule.getServer().getMetadata(metadatable, key);
+        return server.getMetadata(metadatable, key);
     }
 
     /**
@@ -535,7 +541,7 @@ public final class Core {
      * @return user object of the given player
      */
     public static User getUser(Player player) {
-        return CoreModule.getServer().getUser(player);
+        return server.getUser(player);
     }
 
     /**
@@ -545,7 +551,7 @@ public final class Core {
      * @return name of the player
      */
     public static String getName(String uniqueId) {
-        return CoreModule.getServer().getName(uniqueId);
+        return server.getName(uniqueId);
     }
 
     /**
@@ -555,7 +561,7 @@ public final class Core {
      * @return unique id of the player
      */
     public static String getUniqueId(String name) {
-        return CoreModule.getServer().getUniqueId(name);
+        return server.getUniqueId(name);
     }
 
     /**
@@ -565,7 +571,7 @@ public final class Core {
      * @return string without any color-codes
      */
     public static String removeColorCodes(String text) {
-        return CoreModule.getServer().removeColorCodes(text);
+        return server.removeColorCodes(text);
     }
 
     /**
@@ -575,7 +581,7 @@ public final class Core {
      * @return string with converted color-codes
      */
     public static String convertColorCodes(String text) {
-        return CoreModule.getServer().convertColorCodes(text);
+        return server.convertColorCodes(text);
     }
 
     /**
@@ -585,7 +591,7 @@ public final class Core {
      * @return true, if string contains forbidden words
      */
     public static boolean containsForbiddenWords(String text) {
-        return CoreModule.getServer().containsForForbiddenWords(text);
+        return server.containsForForbiddenWords(text);
     }
 
     /**
@@ -595,7 +601,7 @@ public final class Core {
      * @return an instance of Gson configured that fits in a page for pretty printing
      */
     public static Gson getGson() {
-        return CoreModule.getServer().getGson();
+        return server.getGson();
     }
 
     /**
@@ -605,7 +611,7 @@ public final class Core {
      * @return random integer
      */
     public static int getRandomInteger(int chars) {
-        return CoreModule.getServer().randomInteger(chars);
+        return server.randomInteger(chars);
     }
 
     /**
@@ -617,7 +623,7 @@ public final class Core {
      * @return true, if the given string is numeric
      */
     public static boolean isNumeric(String string) {
-        return CoreModule.getServer().isNumeric(string);
+        return server.isNumeric(string);
     }
 
     /**
@@ -627,7 +633,7 @@ public final class Core {
      * @return amount as x.xxx.xxx,xx€
      */
     public static String formatMoney(double amount) {
-        return CoreModule.getServer().formatMoney(amount);
+        return server.formatMoney(amount);
     }
 
     public static String getFormattedDate(long time) {
@@ -645,7 +651,7 @@ public final class Core {
      * @return new gui-builder
      */
     public static GuiBuilder createGui(Inventory inventory) {
-        return CoreModule.getServer().gui(inventory);
+        return server.gui(inventory);
     }
 
     /**
@@ -655,7 +661,7 @@ public final class Core {
      * @return new gui-builder
      */
     public static GuiBuilder createGui(int size) {
-        return CoreModule.getServer().gui(size);
+        return server.gui(size);
     }
 
     /**
@@ -667,7 +673,7 @@ public final class Core {
      * @return new gui-builder
      */
     public static GuiBuilder createGui(List<GuiItem> items, int size, String title, PosItem... posItems) {
-        return CoreModule.getServer().gui(items, size, title, posItems);
+        return server.gui(items, size, title, posItems);
     }
 
     /**
@@ -679,7 +685,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemStack itemStack, Consumer<User> consumer) {
-        return CoreModule.getServer().guiItem(itemStack, consumer);
+        return server.guiItem(itemStack, consumer);
     }
 
     /**
@@ -691,7 +697,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemBuilder itemBuilder, Consumer<User> consumer) {
-        return CoreModule.getServer().guiItem(itemBuilder.build(), consumer);
+        return server.guiItem(itemBuilder.build(), consumer);
     }
 
     /**
@@ -703,7 +709,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(InterfaceItem item, Consumer<User> consumer) {
-        return CoreModule.getServer().guiItem(item.toItemStack(), consumer);
+        return server.guiItem(item.toItemStack(), consumer);
     }
 
     /**
@@ -715,7 +721,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemStack itemStack, BiConsumer<User, ClickType> consumer) {
-        return CoreModule.getServer().advancedGuiItem(itemStack, consumer);
+        return server.advancedGuiItem(itemStack, consumer);
     }
 
     /**
@@ -727,7 +733,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemBuilder itemBuilder, BiConsumer<User, ClickType> consumer) {
-        return CoreModule.getServer().advancedGuiItem(itemBuilder.build(), consumer);
+        return server.advancedGuiItem(itemBuilder.build(), consumer);
     }
 
     /**
@@ -739,7 +745,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(InterfaceItem item, BiConsumer<User, ClickType> consumer) {
-        return CoreModule.getServer().advancedGuiItem(item.toItemStack(), consumer);
+        return server.advancedGuiItem(item.toItemStack(), consumer);
     }
 
     /**
@@ -750,7 +756,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemStack itemStack) {
-        return CoreModule.getServer().guiItem(itemStack, null);
+        return server.guiItem(itemStack, null);
     }
 
     /**
@@ -760,7 +766,7 @@ public final class Core {
      * @return new countdown-object
      */
     public static Countdown createCountdown() {
-        return CoreModule.getServer().createCountdown();
+        return server.createCountdown();
     }
 
     /**
@@ -769,7 +775,7 @@ public final class Core {
      * @param countdown countdown to start
      */
     public static void startCountdown(Countdown countdown) {
-        CoreModule.getServer().startCountdown(countdown);
+        server.startCountdown(countdown);
     }
 
     /**
@@ -778,7 +784,7 @@ public final class Core {
      * @param countdown countdown to stop
      */
     public static void stopCountdown(Countdown countdown) {
-        CoreModule.getServer().stopCountdown(countdown);
+        server.stopCountdown(countdown);
     }
 
     /**
@@ -817,7 +823,7 @@ public final class Core {
      * @return fake block with the specific parameters
      */
     public static FakeBlock createFakeBlock(Block block, Material material, int data) {
-        return CoreModule.getServer().createFakeBlock(block, material, data);
+        return server.createFakeBlock(block, material, data);
     }
 
     /**
@@ -828,7 +834,7 @@ public final class Core {
      * @return fake block with the specific parameters
      */
     public static FakeBlock createFakeBlock(Block block, Material material) {
-        return CoreModule.getServer().createFakeBlock(block, material, 0);
+        return server.createFakeBlock(block, material, 0);
     }
 
     /**
@@ -838,7 +844,7 @@ public final class Core {
      * @return new item-builder
      */
     public static ItemBuilder createItem(ItemStack itemStack) {
-        return CoreModule.getServer().createItem(itemStack);
+        return server.createItem(itemStack);
     }
 
     /**
@@ -848,7 +854,7 @@ public final class Core {
      * @return new item-builder
      */
     public static ItemBuilder createItem(Material material) {
-        return CoreModule.getServer().createItem(material);
+        return server.createItem(material);
     }
 
     /**
@@ -859,7 +865,7 @@ public final class Core {
      * @return new item-builder
      */
     public static ItemBuilder createItem(Material material, int data) {
-        return CoreModule.getServer().createItem(material, data);
+        return server.createItem(material, data);
     }
 
     /**
@@ -869,7 +875,7 @@ public final class Core {
      * @return new item-builder
      */
     public static ItemBuilder createItem(Player player) {
-        return CoreModule.getServer().createItem(player);
+        return server.createItem(player);
     }
 
     /**
@@ -879,7 +885,7 @@ public final class Core {
      * @return new item-builder
      */
     public static ItemBuilder createItem(UUID uniqueId) {
-        return CoreModule.getServer().createItem(uniqueId);
+        return server.createItem(uniqueId);
     }
 
     /**
@@ -897,7 +903,7 @@ public final class Core {
      * @return item-builder based on the chosen head
      */
     public static ItemBuilder createItem(String url) {
-        return CoreModule.getServer().createItem(url);
+        return server.createItem(url);
     }
 
     /**
@@ -918,7 +924,7 @@ public final class Core {
      * @return ClickEvent object to be put into .event()
      */
     public static ClickEvent createClickEvent(boolean selfCancelling, Consumer<User> callback) {
-        return CoreModule.getServer().createClickEvent(selfCancelling, callback);
+        return server.createClickEvent(selfCancelling, callback);
     }
 
     /**
@@ -930,7 +936,7 @@ public final class Core {
      * @return ClickEvent object to be put into .event()
      */
     public static ClickEvent createClickEvent(Consumer<User> callback) {
-        return CoreModule.getServer().createClickEvent(true, callback);
+        return server.createClickEvent(true, callback);
     }
 
     /**
@@ -939,7 +945,7 @@ public final class Core {
      * @return new clickable message
      */
     public static ClickableMessage createClickableMessage() {
-        return CoreModule.getServer().createClickableMessage();
+        return server.createClickableMessage();
     }
 
     /**
@@ -949,7 +955,7 @@ public final class Core {
      * @return new clickable message
      */
     public static ClickableMessage createClickableMessage(Consumer<User> callback) {
-        return CoreModule.getServer().createClickableMessage(callback);
+        return server.createClickableMessage(callback);
     }
 
     /**
@@ -960,7 +966,7 @@ public final class Core {
      * @return new clickable message
      */
     public static ClickableMessage createClickableMessage(Consumer<User> callback, boolean selfCancelling) {
-        return CoreModule.getServer().createClickableMessage(callback, selfCancelling);
+        return server.createClickableMessage(callback, selfCancelling);
     }
 
     /**
@@ -970,7 +976,7 @@ public final class Core {
      * @return new chat menu
      */
     public static ChatMenu createChatMenu(ChatMenu.Option... options) {
-        return CoreModule.getServer().createChatMenu(options);
+        return server.createChatMenu(options);
     }
 
     /**
@@ -979,7 +985,7 @@ public final class Core {
      * @return new chat menu
      */
     public static ChatMenu createChatMenu() {
-        return CoreModule.getServer().createChatMenu();
+        return server.createChatMenu();
     }
 
     /**
@@ -989,7 +995,7 @@ public final class Core {
      * @return inventory object
      */
     public static Inventory getInventoryFromString(String inventory) {
-        return CoreModule.getServer().getInventoryFromString(inventory);
+        return server.getInventoryFromString(inventory);
     }
 
     /**
@@ -999,7 +1005,7 @@ public final class Core {
      * @return inventory from string
      */
     public static String getStringFromInventory(Inventory inventory) {
-        return CoreModule.getServer().getStringFromInventory(inventory);
+        return server.getStringFromInventory(inventory);
     }
 
     /**
@@ -1009,7 +1015,7 @@ public final class Core {
      * @return bank account
      */
     public static BankAccount getBankAccount(String iban) {
-        return CoreModule.getServer().getBankAccount(iban);
+        return server.getBankAccount(iban);
     }
 
     /**
@@ -1019,7 +1025,7 @@ public final class Core {
      * @return new bank account
      */
     public static BankAccount createBankAccount(Registered holder) {
-        return CoreModule.getServer().createBankAccount(holder);
+        return server.createBankAccount(holder);
     }
 
     /**
@@ -1029,7 +1035,7 @@ public final class Core {
      * @return group with the specific id
      */
     public static Group getGroup(int id) {
-        return CoreModule.getServer().getGroup(id);
+        return server.getGroup(id);
     }
 
     /**
@@ -1039,7 +1045,7 @@ public final class Core {
      * @return group with the specifc name
      */
     public static Group getGroup(String name) {
-        return CoreModule.getServer().getGroup(name);
+        return server.getGroup(name);
     }
 
     /**
@@ -1050,7 +1056,7 @@ public final class Core {
      * @return new generated group
      */
     public static Group createGroup(String owner, boolean company) {
-        return CoreModule.getServer().createGroup(owner, company);
+        return server.createGroup(owner, company);
     }
 
     /**
@@ -1060,7 +1066,7 @@ public final class Core {
      * @return new telephone with the specific owner
      */
     public static Telephone createTelephone(String owner) {
-        return CoreModule.getServer().createTelephone(owner);
+        return server.createTelephone(owner);
     }
 
     /**
@@ -1070,7 +1076,7 @@ public final class Core {
      * @return telephone with the specific telephone number
      */
     public static Telephone getTelephone(String telephoneNumber) {
-        return CoreModule.getServer().getTelephone(telephoneNumber);
+        return server.getTelephone(telephoneNumber);
     }
 
     /**
@@ -1080,7 +1086,7 @@ public final class Core {
      * @return registered object of user
      */
     public static Registered getRegistered(User user) {
-        return CoreModule.getServer().getRegistered(user);
+        return server.getRegistered(user);
     }
 
     /**
@@ -1090,7 +1096,7 @@ public final class Core {
      * @return registered object of group
      */
     public static Registered getRegistered(Group group) {
-        return CoreModule.getServer().getRegistered(group);
+        return server.getRegistered(group);
     }
 
     /**
@@ -1100,7 +1106,7 @@ public final class Core {
      * @return registered object of department
      */
     public static Registered getRegistered(Department department) {
-        return CoreModule.getServer().getRegistered(department);
+        return server.getRegistered(department);
     }
 
     /**
@@ -1110,7 +1116,7 @@ public final class Core {
      * @return represented registered
      */
     public static Registered getRegistered(String rawRegistered) {
-        return CoreModule.getServer().getRegistered(rawRegistered);
+        return server.getRegistered(rawRegistered);
     }
 
     /**
@@ -1122,7 +1128,7 @@ public final class Core {
      * @return boundary with given parameters
      */
     public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<PlayerInteractEvent> callback) {
-        return CoreModule.getServer().createBoundary(anchorPoint, pullPoint, callback);
+        return server.createBoundary(anchorPoint, pullPoint, callback);
     }
 
     /**
@@ -1134,7 +1140,7 @@ public final class Core {
      * @return boundary with given parameters
      */
     public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<PlayerInteractEvent> callback) {
-        return CoreModule.getServer().createBoundary(anchorPoint, vector, callback);
+        return server.createBoundary(anchorPoint, vector, callback);
     }
 
     /**
@@ -1145,7 +1151,7 @@ public final class Core {
      * @return timer with the specific parameters
      */
     public static Timer startTimer(int delay, @NonNull Runnable callback) {
-        return CoreModule.getServer().startTimer(delay, callback);
+        return server.startTimer(delay, callback);
     }
 
     /**
@@ -1157,7 +1163,7 @@ public final class Core {
      * @return repeating timer with the specific parameters.
      */
     public static RepeatingTimer startRepeatingTimer(int delay, int period, @NonNull Runnable callback) {
-        return CoreModule.getServer().startRepeatingTimer(delay, period, callback);
+        return server.startRepeatingTimer(delay, period, callback);
     }
 
     /**
@@ -1170,7 +1176,7 @@ public final class Core {
      * @return reminder with the specific parameters.
      */
     public static Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, DayOfWeek... weekdays) {
-        return CoreModule.getServer().createReminder(hours, minutes, callback, weekdays);
+        return server.createReminder(hours, minutes, callback, weekdays);
     }
 
     /**
@@ -1183,7 +1189,7 @@ public final class Core {
      * @return reminder with the specific parameters.
      */
     public static Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<DayOfWeek> weekdays) {
-        return CoreModule.getServer().createReminder(hours, minutes, callback, weekdays);
+        return server.createReminder(hours, minutes, callback, weekdays);
     }
 
     /**
@@ -1193,7 +1199,7 @@ public final class Core {
      * @return Webhook with given URL
      */
     public static Webhook createWebhook(String url) {
-        return CoreModule.getServer().createWebhook(url);
+        return server.createWebhook(url);
     }
 
     /**
@@ -1202,7 +1208,7 @@ public final class Core {
      * @return embedded message
      */
     public static Webhook.EmbeddedMessage createEmbeddedMessage() {
-        return CoreModule.getServer().createEmbeddedMessage();
+        return server.createEmbeddedMessage();
     }
 
     /**
@@ -1211,7 +1217,7 @@ public final class Core {
      * @return true, if the server is in maintenance
      */
     public static boolean isMaintenance() {
-        return CoreModule.getServer().isMaintenance();
+        return server.isMaintenance();
     }
 
     @Getter
