@@ -1,4 +1,4 @@
-# ![Logo](http://minevalley.eu/images/style-12/favicon.ico) - Core API 
+# ![Logo](https://cdn.minevalley.eu/branding/logo_64px_cropped.png) - Core API 
 This api grants important features and access to the internal server-core of MineValleyEU, that is used in any module.
 
 This README.md is intended to help you with your daily issues or questions referring to our core and its components. It should offer you the most important information and give you answers to your upcoming questions. If this isn't the case sometimes, feel free to contact us on Discord.
