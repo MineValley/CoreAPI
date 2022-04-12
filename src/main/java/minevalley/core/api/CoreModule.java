@@ -36,6 +36,7 @@ public abstract class CoreModule {
      *
      * @return string with a message that explains the conflict. null if there isn't a conflict.
      */
+    @Deprecated
     public String onLeaveMaintenance() {
         return null;
     }
