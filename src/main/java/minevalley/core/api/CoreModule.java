@@ -35,7 +35,7 @@ public abstract class CoreModule {
      * If there should be a conflict with leaving the maintenance-mode just return a string with a message that explains the issue.
      *
      * @return string with a message that explains the conflict. null if there isn't a conflict.
-     * @deprecated Will be removed in upcoming versions! Use SwitchMaintenanceModeEvent instead!
+     * @deprecated Will be removed in upcoming versions! Use MaintenanceSwitchEvent instead!
      */
     @Deprecated
     public String onLeaveMaintenance() {

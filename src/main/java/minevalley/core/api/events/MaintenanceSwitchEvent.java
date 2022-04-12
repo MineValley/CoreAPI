@@ -8,7 +8,7 @@ import org.bukkit.event.HandlerList;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class SwitchMaintenanceEvent extends Event {
+public class MaintenanceSwitchEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
     private final boolean enabling;
