@@ -580,13 +580,6 @@ public interface User extends Registered {
     boolean isIdle();
 
     /**
-     * Sets this users idle state.
-     *
-     * @param idle true, if this users idle
-     */
-    void setIdle(boolean idle);
-
-    /**
      * Gets whether the user is locked up in one of the state prisons.
      *
      * @return true, if the user is locked up in prison
