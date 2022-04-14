@@ -14,7 +14,7 @@ import org.bukkit.event.HandlerList;
 public class UserIdleEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
-    private static User user;
+    private final User user;
 
     @Override
     public HandlerList getHandlers() {
