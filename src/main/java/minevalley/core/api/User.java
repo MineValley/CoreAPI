@@ -499,6 +499,14 @@ public interface User extends Registered {
     Purchase[] getPurchased();
 
     /**
+     * Checks whether this user purchases the specific product.
+     *
+     * @param purchase product to check
+     * @return true, if this user purchases the specific product.
+     */
+    boolean purchased(Purchase purchase);
+
+    /**
      * Gets whether the user has the specific education.
      *
      * @return true, if the user has the specific education
