@@ -7,11 +7,12 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.util.Consumer;
 import org.bukkit.util.Vector;
 
 import java.util.List;
+import java.util.function.BiConsumer;
 
 public interface NPC {
 
@@ -51,7 +52,7 @@ public interface NPC {
 
     void setSneaking(boolean sneaking);
 
-    NPC onClick(Consumer<PlayerInteractEvent> callback);
+    NPC onClick(BiConsumer<User, Click> callback);
 
     NPC onComingClose(Consumer<User> callback);
 
@@ -86,4 +87,9 @@ public interface NPC {
     Location getLocation();
 
     void remove();
+
+    enum Click {
+        RIGHT_CLICK,
+        LEFT_CLICK
+    }
 }
