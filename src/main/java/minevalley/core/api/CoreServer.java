@@ -17,10 +17,7 @@ import minevalley.core.api.regions.Region;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
-import minevalley.core.api.utils.ClickableMessage;
-import minevalley.core.api.utils.Countdown;
-import minevalley.core.api.utils.EventListener;
-import minevalley.core.api.utils.ItemBuilder;
+import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
@@ -249,4 +246,6 @@ public interface CoreServer {
     Webhook.EmbeddedMessage createEmbeddedMessage();
 
     boolean isMaintenance();
+
+    NPC createNPC(String skinUniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
 }

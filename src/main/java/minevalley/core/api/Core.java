@@ -18,10 +18,7 @@ import minevalley.core.api.regions.FakeBlock;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
-import minevalley.core.api.utils.ClickableMessage;
-import minevalley.core.api.utils.Countdown;
-import minevalley.core.api.utils.EventListener;
-import minevalley.core.api.utils.ItemBuilder;
+import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
@@ -1218,6 +1215,42 @@ public final class Core {
      */
     public static boolean isMaintenance() {
         return server.isMaintenance();
+    }
+
+    /**
+     * Creates a NPC with the specific parameters.
+     * @param skinUniqueId unique id of the player that this npc adapts the skin from.
+     * @param name name that will be displayed above the head
+     * @param location location to spawn this npc to
+     * @param focusNearPlayers if true, this npc looks at nearby players
+     * @param visibleToEveryone if true, this npc is visible to every player (you can't hide this npc from specific players when choosing this option!)
+     * @return npc with specific parameters
+     */
+    public static NPC createNPC(String skinUniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone) {
+        return server.createNPC(skinUniqueId, name, location, focusNearPlayers, visibleToEveryone);
+    }
+
+    /**
+     * Creates a NPC with the specific parameters.
+     * @param skinUniqueId unique id of the player that this npc adapts the skin from.
+     * @param name name that will be displayed above the head
+     * @param location location to spawn this npc to
+     * @param focusNearPlayers if true, this npc looks at nearby players
+     * @return npc with specific parameters
+     */
+    public static NPC createNPC(String skinUniqueId, String name, Location location, boolean focusNearPlayers) {
+        return server.createNPC(skinUniqueId, name, location, focusNearPlayers, false);
+    }
+
+    /**
+     * Creates a NPC with the specific parameters.
+     * @param skinUniqueId unique id of the player that this npc adapts the skin from.
+     * @param location location to spawn this npc to
+     * @param focusNearPlayers if true, this npc looks at nearby players
+     * @return npc with specific parameters
+     */
+    public static NPC createNPC(String skinUniqueId, Location location, boolean focusNearPlayers) {
+        return server.createNPC(skinUniqueId, null, location, focusNearPlayers, false);
     }
 
     @Getter
