@@ -24,6 +24,9 @@ jobs:
       
       # Deploys a maven-build as a new package to be accessed with any pom.xml.
       - name: Deploy to GitHub
-        run: mvn deploy
+        run: |
+          mvn clean
+          mvn install
+          mvn package
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
