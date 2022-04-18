@@ -56,11 +56,11 @@ public interface NPC {
 
     NPC onComingClose(Consumer<User> callback);
 
-    NPC setChatName();
+    NPC setChatName(String chatName);
 
     String getChatName();
 
-    NPC setChatPrefix();
+    NPC setChatPrefix(String prefix);
 
     String getChatPrefix();
 
