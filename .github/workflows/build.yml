@@ -5,7 +5,7 @@ name: Core-API | Maven-deployer
 
 on:
   release: # Triggers this workflow whenever a new release is created.
-    type: [published]
+    type: [ published ]
 
 jobs:
   build:
@@ -22,12 +22,11 @@ jobs:
         with:
           java-version: 1.8.0
 
-      - name: Build with Maven
-          run: mvn -B package --file pom.xml
-
       - name: Build source files
-          run: mvn source:jar
-      
+          run: |
+          mvn package
+          mvn source:jar
+
       # Deploys a maven-build as a new package to be accessed with any pom.xml.
       - name: Deploy to GitHub
         run: mvn deploy
