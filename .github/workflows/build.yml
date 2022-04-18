@@ -5,7 +5,7 @@ name: Core-API | Maven-deployer
 
 on:
   release: # Triggers this workflow whenever a new release is created.
-    type: [ published ]
+    type: [published]
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
       # Deploys a maven-build as a new package to be accessed with any pom.xml.
       - name: Deploy to GitHub
         run: |
-        mvn source:jar
-        mvn deploy
+          mvn source:jar
+          mvn deploy
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
