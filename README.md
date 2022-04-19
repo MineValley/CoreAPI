@@ -11,16 +11,16 @@ We do our best to update this documentary. There's no other source of informatio
 
 > **Core API**:
 >
-> version: _1.120_
+> version: _1.121
 >
-> latest change: _18.04.2022_
+> latest change: _19.04.2022_
 
 ## Changelog (v1.36)
 Here you can find the newest updates to this api.
 - added many methods around the user object
 
 # Documentation
-This documentation contains a brief explaination of every method, that is included in this api.
+This documentation contains a brief explanation of every method, that is included in this api.
 
 ## User
 The user object is usually used as a substitute for the conventional player object. It contains some methods which on the one hand to obtain information, but also to carry out   actions around the player.
