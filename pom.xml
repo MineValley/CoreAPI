@@ -61,5 +61,11 @@
             <version>${dep.lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.8.1</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

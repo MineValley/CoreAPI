@@ -4,6 +4,7 @@ import minevalley.core.api.ChatMenu;
 import minevalley.core.api.User;
 import minevalley.core.api.enums.NPCAnimation;
 import net.md_5.bungee.api.chat.BaseComponent;
+import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -52,9 +53,9 @@ public interface NPC {
 
     void setSneaking(boolean sneaking);
 
-    NPC onClick(BiConsumer<User, Click> callback);
+    NPC onClick(TriConsumer<User, Click, NPC> callback);
 
-    NPC onComingClose(Consumer<User> callback);
+    NPC onComingClose(BiConsumer<User, NPC> callback);
 
     NPC setChatName(String chatName);
 
