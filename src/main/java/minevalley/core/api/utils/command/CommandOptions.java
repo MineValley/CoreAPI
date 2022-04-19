@@ -26,7 +26,7 @@ public @interface CommandOptions {
      * arguments that are not required are marked with "[< >]"
      */
     @NonNull
-    String syntax();
+    String syntax() default "<command>";
 
     /**
      * This message defined here will be sent, when the onCommand-method returns SUCCESS.
