@@ -580,6 +580,13 @@ public interface User extends Registered {
     boolean isIdle();
 
     /**
+     * Gets whether this user is vanished (only team members can be vanished).
+     *
+     * @return true, if this user is vanished
+     */
+    boolean isVanish();
+
+    /**
      * Gets whether the user is locked up in one of the state prisons.
      *
      * @return true, if the user is locked up in prison
