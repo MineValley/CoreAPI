@@ -587,11 +587,26 @@ public interface User extends Registered {
     boolean isVanish();
 
     /**
+     * Defines whether this user is vanished.
+     * <b>Note:</b> this method only changes the state (The user is still visible)
+     *
+     * @param vanish vanish state
+     */
+    void setVanish(boolean vanish);
+
+    /**
      * Gets whether the user is locked up in one of the state prisons.
      *
      * @return true, if the user is locked up in prison
      */
     boolean isImprisoned();
+
+    /**
+     * Imprisons this user.
+     *
+     * @param duration duration in minutes
+     */
+    void imprison(int duration);
 
     /**
      * Players can be freezed by a team member. This method gets wether this user is freezed.
