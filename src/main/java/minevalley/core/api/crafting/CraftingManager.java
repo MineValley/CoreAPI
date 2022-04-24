@@ -15,4 +15,8 @@ public class CraftingManager {
     void registerShapelessRecipe(Recipe recipe) {
         craftingManager.registerShapelessRecipe(recipe);
     }
+
+    void registerCrafting(Crafting crafting) {
+        craftingManager.registerCrafting(crafting);
+    }
 }
