@@ -9,6 +9,7 @@ import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.modulepipeline.PipeLineManager;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.Area;
 import minevalley.core.api.regions.Boundary;
@@ -102,6 +103,8 @@ public interface CoreServer {
     void unregisterEvent(Class<? extends Event> cls, EventListener listener);
 
     void registerListeners(Listener listener);
+
+    void registerPipelineManager(PipeLineManager pipeLineManager);
 
     void registerCommand(PlayerCommand command);
 
@@ -248,4 +251,6 @@ public interface CoreServer {
     boolean isMaintenance();
 
     NPC createNPC(String skinUniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
+
+    NPC createNPC(String skinUniqueId, String uniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
 }
