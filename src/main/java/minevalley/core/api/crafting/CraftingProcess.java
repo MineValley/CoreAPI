@@ -14,5 +14,5 @@ public class CraftingProcess {
     private final Recipe recipe;
 
     @Setter
-    private ItemStack result = recipe.getResult();
+    private ItemStack result;
 }
