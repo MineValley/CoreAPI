@@ -1,7 +1,5 @@
 package minevalley.core.api.tickets;
 
-import net.md_5.bungee.api.chat.BaseComponent;
-
 public class TicketManager {
 
     private static TicketManagerInterface ticketManager;
@@ -10,11 +8,11 @@ public class TicketManager {
         ticketManager = ticketManagerInterface;
     }
 
-    public static SystemTicket createSystemTicket(BaseComponent[] baseComponents, TicketTarget target) {
-        return ticketManager.createSystemTicket(baseComponents, target);
+    public static SystemTicket createSystemTicket(String text, TicketTarget target, TicketCommand... commands) {
+        return ticketManager.createSystemTicket(text, target);
     }
 
-    public static SystemTicket createSystemTicket(BaseComponent[] baseComponents) {
-        return ticketManager.createSystemTicket(baseComponents, TicketTarget.EVERYONE);
+    public static SystemTicket createSystemTicket(String text, TicketCommand... commands) {
+        return ticketManager.createSystemTicket(text, TicketTarget.EVERYONE);
     }
 }

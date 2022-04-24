@@ -1258,6 +1258,8 @@ public final class Core {
         return server.createNPC(skinUniqueId, null, location, focusNearPlayers, false);
     }
 
+
+
     @Getter
     @AllArgsConstructor
     public static class PosItem {
