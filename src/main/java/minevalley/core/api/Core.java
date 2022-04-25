@@ -12,7 +12,8 @@ import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.InterfaceItem;
-import minevalley.core.api.modulepipeline.PipelineManager;
+import minevalley.core.api.modulepipeline.Container;
+import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
@@ -363,8 +364,12 @@ public final class Core {
         server.registerListeners(listener);
     }
 
-    public static void registerPipeline(PipelineManager pipeLineManager) {
-        server.registerPipelineManager(pipeLineManager);
+    public static void registerPipeline(PipelineReceiver pipelineReceiver) {
+        server.registerPipelineReceiver(pipelineReceiver);
+    }
+
+    public static void sendPipelineContainer(String pipelineName, Container container) {
+        server.sendPipelineContainer(pipelineName, container);
     }
 
     public static void registerCommand(PlayerCommand command) {

@@ -9,7 +9,8 @@ import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
-import minevalley.core.api.modulepipeline.PipelineManager;
+import minevalley.core.api.modulepipeline.Container;
+import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.Area;
 import minevalley.core.api.regions.Boundary;
@@ -104,7 +105,9 @@ public interface CoreServer {
 
     void registerListeners(Listener listener);
 
-    void registerPipelineManager(PipelineManager pipeLineManager);
+    void registerPipelineReceiver(PipelineReceiver pipeLineManager);
+
+    void sendPipelineContainer(String pipelineName, Container container);
 
     void registerCommand(PlayerCommand command);
 
