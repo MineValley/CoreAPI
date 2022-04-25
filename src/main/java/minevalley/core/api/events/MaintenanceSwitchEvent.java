@@ -12,8 +12,8 @@ public class MaintenanceSwitchEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
     private final boolean enabling;
-    private final List<Runnable> callbacks = Lists.newArrayList();
-    private String interruptMessage;
+    public final List<Runnable> callbacks = Lists.newArrayList();
+    public String interruptMessage;
 
     public static HandlerList getHandlerList() {
         return HANDLER_LIST;
