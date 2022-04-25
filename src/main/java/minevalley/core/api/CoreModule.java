@@ -31,17 +31,4 @@ public abstract class CoreModule {
     public void onDisable() {
 
     }
-
-    /**
-     * This method is called when someone tries to deactivate the maintenance mode.
-     * Sometimes modules have special modes which should be deactivated, when players are able to join.
-     * If there should be a conflict with leaving the maintenance-mode just return a string with a message that explains the issue.
-     *
-     * @return string with a message that explains the conflict. null if there isn't a conflict.
-     * @deprecated Will be removed in upcoming versions! Use MaintenanceSwitchEvent instead!
-     */
-    @Deprecated
-    public String onLeaveMaintenance() {
-        return null;
-    }
 }
