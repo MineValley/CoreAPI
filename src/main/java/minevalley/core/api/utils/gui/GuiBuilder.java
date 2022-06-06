@@ -27,6 +27,8 @@ public interface GuiBuilder {
 
     GuiBuilder addInterfaceItemsInRange(InterfaceItem item, int from, int to);
 
+    GuiBuilder unlockSlot(int slot);
+
     GuiBuilder addCloser();
 
     GuiBuilder onClose(Consumer<User> callback);

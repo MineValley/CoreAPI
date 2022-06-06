@@ -16,6 +16,8 @@ public interface InventoryGui {
 
     InventoryGui updateItem(GuiItem guiItem, GuiItem updateItem);
 
+    InventoryGui unlockSlot(int slot);
+
     void clear();
 
     void fix();
