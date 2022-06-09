@@ -42,6 +42,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
+import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.time.DayOfWeek;
 import java.util.List;
@@ -256,4 +257,6 @@ public interface CoreServer {
     NPC createNPC(String skinUniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
 
     NPC createNPC(String skinUniqueId, String uniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
+
+    void registerSmartApp(Method onEnable, String name, String... authors);
 }

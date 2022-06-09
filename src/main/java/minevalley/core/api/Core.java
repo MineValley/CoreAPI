@@ -48,6 +48,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
+import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -1263,7 +1264,9 @@ public final class Core {
         return server.createNPC(skinUniqueId, null, location, focusNearPlayers, false);
     }
 
-
+    public static void registerSmartApp(Method onEnable, String name, String... authors) {
+        server.registerSmartApp(onEnable, name, authors);
+    }
 
     @Getter
     @AllArgsConstructor
