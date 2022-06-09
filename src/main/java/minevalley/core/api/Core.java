@@ -17,6 +17,7 @@ import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
+import minevalley.core.api.smart.AppHandler;
 import minevalley.core.api.smart.SmartApp;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
@@ -1265,8 +1266,8 @@ public final class Core {
         return server.createNPC(skinUniqueId, null, location, focusNearPlayers, false);
     }
 
-    public static void registerSmartApp(Method onEnable, String name, String... authors) {
-        server.registerSmartApp(onEnable, name, authors);
+    public static void registerSmartApp(AppHandler handler, String name, String... authors) {
+        server.registerSmartApp(handler, name, authors);
     }
 
     public static List<SmartApp> getSmartApps() {
