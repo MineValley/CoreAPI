@@ -17,6 +17,7 @@ import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
+import minevalley.core.api.smart.SmartApp;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
@@ -1266,6 +1267,10 @@ public final class Core {
 
     public static void registerSmartApp(Method onEnable, String name, String... authors) {
         server.registerSmartApp(onEnable, name, authors);
+    }
+
+    public static List<SmartApp> getSmartApps() {
+        return server.getSmartApps();
     }
 
     @Getter
