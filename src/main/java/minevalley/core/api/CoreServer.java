@@ -16,8 +16,6 @@ import minevalley.core.api.regions.Area;
 import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
 import minevalley.core.api.regions.Region;
-import minevalley.core.api.smart.AppHandler;
-import minevalley.core.api.smart.SmartApp;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
@@ -25,6 +23,7 @@ import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
+import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import org.bukkit.Location;
@@ -44,7 +43,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
-import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.time.DayOfWeek;
 import java.util.List;
@@ -260,7 +258,7 @@ public interface CoreServer {
 
     NPC createNPC(String skinUniqueId, String uniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
 
-    void registerSmartApp(AppHandler handler, String name, String... authors);
+    void registerSmartApp(SmartApp app);
 
     List<SmartApp> getSmartApps();
 }

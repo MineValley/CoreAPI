@@ -17,8 +17,6 @@ import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
-import minevalley.core.api.smart.AppHandler;
-import minevalley.core.api.smart.SmartApp;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
@@ -26,6 +24,7 @@ import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
+import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -50,7 +49,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
-import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -1232,10 +1230,11 @@ public final class Core {
 
     /**
      * Creates a NPC with the specific parameters.
-     * @param skinUniqueId unique id of the player that this npc adapts the skin from.
-     * @param name name that will be displayed above the head
-     * @param location location to spawn this npc to
-     * @param focusNearPlayers if true, this npc looks at nearby players
+     *
+     * @param skinUniqueId      unique id of the player that this npc adapts the skin from.
+     * @param name              name that will be displayed above the head
+     * @param location          location to spawn this npc to
+     * @param focusNearPlayers  if true, this npc looks at nearby players
      * @param visibleToEveryone if true, this npc is visible to every player (you can't hide this npc from specific players when choosing this option!)
      * @return npc with specific parameters
      */
@@ -1245,9 +1244,10 @@ public final class Core {
 
     /**
      * Creates a NPC with the specific parameters.
-     * @param skinUniqueId unique id of the player that this npc adapts the skin from.
-     * @param name name that will be displayed above the head
-     * @param location location to spawn this npc to
+     *
+     * @param skinUniqueId     unique id of the player that this npc adapts the skin from.
+     * @param name             name that will be displayed above the head
+     * @param location         location to spawn this npc to
      * @param focusNearPlayers if true, this npc looks at nearby players
      * @return npc with specific parameters
      */
@@ -1257,8 +1257,9 @@ public final class Core {
 
     /**
      * Creates a NPC with the specific parameters.
-     * @param skinUniqueId unique id of the player that this npc adapts the skin from.
-     * @param location location to spawn this npc to
+     *
+     * @param skinUniqueId     unique id of the player that this npc adapts the skin from.
+     * @param location         location to spawn this npc to
      * @param focusNearPlayers if true, this npc looks at nearby players
      * @return npc with specific parameters
      */
@@ -1266,8 +1267,8 @@ public final class Core {
         return server.createNPC(skinUniqueId, null, location, focusNearPlayers, false);
     }
 
-    public static void registerSmartApp(AppHandler handler, String name, String... authors) {
-        server.registerSmartApp(handler, name, authors);
+    public static void registerSmartApp(SmartApp app) {
+        server.registerSmartApp(app);
     }
 
     public static List<SmartApp> getSmartApps() {
