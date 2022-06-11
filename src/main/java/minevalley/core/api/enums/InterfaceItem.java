@@ -32,8 +32,17 @@ public enum InterfaceItem {
 
     /**
      * Hides the selected slot and displays a green hook.
+     * <p>
+     * <b>Deprecated!</b> use CHECKMARK instead!
+     * </p>
      */
+    @Deprecated
     HOOK(5),
+
+    /**
+     * Hides the selected slot and displays a green hook.
+     */
+    CHECKMARK(5),
 
     /**
      * Hides the selected slot and displays a red cross.
