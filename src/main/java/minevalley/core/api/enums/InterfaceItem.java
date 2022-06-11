@@ -82,7 +82,12 @@ public enum InterfaceItem {
     /**
      * Hides the selected slot and displays the background of an button underneath.
      */
-    BUTTON(12);
+    BUTTON(12),
+
+    /**
+     * Hides the selected slot and displays a blue return button.
+     */
+    RETURN(15);
 
 
     private final Object object;
