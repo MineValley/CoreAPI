@@ -381,6 +381,10 @@ public interface User extends Registered {
      */
     FractionService getFractionService();
 
+    void enterFractionService(FractionService service);
+
+    void leaveFractionService();
+
     // TeamRank
 
     /**
