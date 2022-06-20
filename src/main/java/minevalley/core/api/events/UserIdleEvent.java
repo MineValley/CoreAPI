@@ -16,6 +16,10 @@ public class UserIdleEvent extends Event {
     public static final HandlerList HANDLER_LIST = new HandlerList();
     private final User user;
 
+    public static HandlerList getHandlerList() {
+        return HANDLER_LIST;
+    }
+
     @Override
     public HandlerList getHandlers() {
         return HANDLER_LIST;

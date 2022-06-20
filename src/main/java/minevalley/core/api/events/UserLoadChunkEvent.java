@@ -15,6 +15,10 @@ public class UserLoadChunkEvent extends Event {
     private final User user;
     private final Chunk chunk;
 
+    public static HandlerList getHandlerList() {
+        return HANDLER_LIST;
+    }
+
     @Override
     public HandlerList getHandlers() {
         return HANDLER_LIST;
