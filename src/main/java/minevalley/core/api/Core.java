@@ -652,6 +652,14 @@ public final class Core {
         return getFormattedDate(System.currentTimeMillis());
     }
 
+    public static String getCurrentDayTimeFormatted() {
+        return getFormattedTime(System.currentTimeMillis());
+    }
+
+    public static String getFormattedTime(long time) {
+        return new SimpleDateFormat("HH:mm", Locale.GERMANY).format(new Date(time)) + " Uhr";
+    }
+
     /**
      * Creates new gui-builder based on a existing inventory.
      *
