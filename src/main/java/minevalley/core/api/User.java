@@ -10,6 +10,7 @@ import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
 import minevalley.core.api.phone.Phone;
 import net.md_5.bungee.api.chat.BaseComponent;
+import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -77,11 +78,37 @@ public interface User extends Registered {
     // Messages
 
     /**
-     * Plays a sound to signalize an event.
+     * Plays a specific sound.
      *
      * @param sound sound to be played
      */
     void playSound(Sound sound);
+
+    /**
+     * Plays a specific sound.
+     *
+     * @param sound sound to be played
+     */
+    void playSound(String sound);
+
+    /**
+     * Plays a specific sound.
+     *
+     * @param sound    sound to be played
+     * @param location location where the sound will be played
+     * @param spatial  defines whether the sound should be spatial
+     */
+    void playSound(Sound sound, Location location, boolean spatial);
+
+
+    /**
+     * Plays a specific sound.
+     *
+     * @param sound    sound to be played
+     * @param location location where the sound will be played
+     * @param spatial  defines whether the sound should be spatial
+     */
+    void playSound(String sound, Location location, boolean spatial);
 
     /**
      * Gets the ambient this user is currently hearing
