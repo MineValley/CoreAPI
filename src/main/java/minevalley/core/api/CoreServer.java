@@ -171,8 +171,6 @@ public interface CoreServer {
 
     String formatMoney(double amount);
 
-    int getTemperature();
-
     Weather getWeather();
 
     Weather[] getUpcomingWeather();
