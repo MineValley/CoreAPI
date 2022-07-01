@@ -9,6 +9,7 @@ import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.misc.Weather;
 import minevalley.core.api.modulepipeline.Container;
 import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
@@ -169,6 +170,12 @@ public interface CoreServer {
     boolean isNumeric(String string);
 
     String formatMoney(double amount);
+
+    int getTemperature();
+
+    Weather getWeather();
+
+    Weather[] getUpcomingWeather();
 
     GuiBuilder gui(Inventory inventory);
 

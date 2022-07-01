@@ -12,6 +12,7 @@ import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.InterfaceItem;
+import minevalley.core.api.misc.Weather;
 import minevalley.core.api.modulepipeline.Container;
 import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
@@ -658,6 +659,14 @@ public final class Core {
 
     public static String getFormattedTime(long time) {
         return new SimpleDateFormat("HH:mm", Locale.GERMANY).format(new Date(time)) + " Uhr";
+    }
+
+    public static Weather getWeather() {
+        return server.getWeather();
+    }
+
+    public static Weather[] getUpcomingWeather() {
+        return server.getUpcomingWeather();
     }
 
     /**
