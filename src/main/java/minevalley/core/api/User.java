@@ -676,20 +676,6 @@ public interface User extends Registered {
 
     void resetSign(Block block);
 
-    List<Property> getProperties();
-
-    List<Property> getProperties(Property.Type type);
-
-    boolean ownsProperty(String propertyCode);
-
-    boolean ownsProperty(Property property);
-
-    void addProperty(Property property);
-
-    void removeProperty(String propertyCode);
-
-    void removeProperty(Property property);
-
     @Getter
     @Setter
     @AllArgsConstructor

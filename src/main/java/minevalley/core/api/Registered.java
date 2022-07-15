@@ -3,6 +3,8 @@ package minevalley.core.api;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.List;
+
 public interface Registered {
 
     /**
@@ -49,6 +51,20 @@ public interface Registered {
      * @return registered's type
      */
     Type getType();
+
+    List<Property> getProperties();
+
+    List<Property> getProperties(Property.Type type);
+
+    boolean ownsProperty(int id, Property.Type type);
+
+    boolean ownsProperty(Property property);
+
+    void addProperty(Property property);
+
+    void removeProperty(int id, Property.Type type);
+
+    void removeProperty(Property property);
 
     /**
      * Converts this registered to a string.
