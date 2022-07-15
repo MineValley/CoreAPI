@@ -15,6 +15,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 public interface User extends Registered {
@@ -674,6 +675,20 @@ public interface User extends Registered {
     void changeSign(Block block, final String line1, final String line2, final String line3, final String line4);
 
     void resetSign(Block block);
+
+    List<Property> getProperties();
+
+    List<Property> getProperties(Property.Type type);
+
+    boolean ownsProperty(String propertyCode);
+
+    boolean ownsProperty(Property property);
+
+    void addProperty(Property property);
+
+    void removeProperty(String propertyCode);
+
+    void removeProperty(Property property);
 
     @Getter
     @Setter
