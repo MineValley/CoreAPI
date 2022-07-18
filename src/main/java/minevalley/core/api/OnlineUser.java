@@ -475,13 +475,6 @@ public interface OnlineUser {
     boolean isUsingGeneralKey();
 
     /**
-     * Gets whether the user is allowed to join team service.
-     *
-     * @return true, if the user is allowed to join team service
-     */
-    boolean isTeamAuth();
-
-    /**
      * Lets the user enter the team-service. If the user isn't teamler, nothing happens.
      */
     void joinTeamService();
@@ -647,23 +640,6 @@ public interface OnlineUser {
      * @param duration duration in minutes
      */
     void imprison(int duration);
-
-    /**
-     * Players can be freezed by a team member. This method gets wether this user is freezed.
-     *
-     * @return true, if the user is currently freezed
-     */
-    boolean isFrozen();
-
-    /**
-     * Freezes this user.
-     */
-    void freeze();
-
-    /**
-     * Unfreezes this user.
-     */
-    void unfreeze();
 
     /**
      * Gets whether the user has completed registration on our network.

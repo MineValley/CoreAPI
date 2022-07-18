@@ -248,4 +248,21 @@ public interface User extends Registered {
      * @return true, if this user is allowed to break/place/use a block here
      */
     boolean isAllowedToUse(Block block);
+
+    /**
+     * Players can be freezed by a team member. This method gets wether this user is freezed.
+     *
+     * @return true, if the user is currently freezed
+     */
+    boolean isFrozen();
+
+    /**
+     * Freezes this user.
+     */
+    void freeze();
+
+    /**
+     * Unfreezes this user.
+     */
+    void unfreeze();
 }
