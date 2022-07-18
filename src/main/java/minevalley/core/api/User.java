@@ -107,7 +107,7 @@ public interface User extends Registered {
      * @param key key of the setting
      * @return value of the setting
      */
-    String getPlayerSetting(String key);
+    String getUserSetting(String key);
 
     /**
      * Gets a specific setting that the user can change.
@@ -116,7 +116,7 @@ public interface User extends Registered {
      * @param defaultValue value that is returned, if the setting is null
      * @return value of the setting
      */
-    String getPlayerSetting(String key, String defaultValue);
+    String getUserSetting(String key, String defaultValue);
 
     /**
      * Updates the value of a specific setting.
@@ -126,7 +126,7 @@ public interface User extends Registered {
      * @param key      key of the setting
      * @param newValue new value of the setting
      */
-    void changePlayerSetting(String key, String newValue);
+    void changeUserSetting(String key, String newValue);
 
     // TeamRank
 
