@@ -141,13 +141,13 @@ public interface CoreServer {
 
     OnlineUser getOnlineUser(Player player);
 
-    ClickEvent createClickEvent(boolean selfCancelling, Consumer<User> callback);
+    ClickEvent createClickEvent(boolean selfCancelling, Consumer<OnlineUser> callback);
 
     ClickableMessage createClickableMessage();
 
-    ClickableMessage createClickableMessage(Consumer<User> callback);
+    ClickableMessage createClickableMessage(Consumer<OnlineUser> callback);
 
-    ClickableMessage createClickableMessage(Consumer<User> callback, boolean selfCancelling);
+    ClickableMessage createClickableMessage(Consumer<OnlineUser> callback, boolean selfCancelling);
 
     ChatMenu createChatMenu(ChatMenu.Option... options);
 
@@ -185,9 +185,9 @@ public interface CoreServer {
 
     GuiBuilder createGui(List<GuiItem> items, int size, String title, Core.PosItem... posItems);
 
-    GuiItem createGuiItem(ItemStack itemStack, Consumer<User> consumer);
+    GuiItem createGuiItem(ItemStack itemStack, Consumer<OnlineUser> consumer);
 
-    GuiItem createAdvancedGuiItem(ItemStack itemStack, BiConsumer<User, ClickType> consumer);
+    GuiItem createAdvancedGuiItem(ItemStack itemStack, BiConsumer<OnlineUser, ClickType> consumer);
 
     Countdown createCountdown();
 
@@ -236,12 +236,6 @@ public interface CoreServer {
     Telephone createTelephone(String owner);
 
     Telephone getTelephone(String telephoneNumber);
-
-    Registered getRegistered(User user);
-
-    Registered getRegistered(Group group);
-
-    Registered getRegistered(Department department);
 
     Registered getRegistered(String string);
 

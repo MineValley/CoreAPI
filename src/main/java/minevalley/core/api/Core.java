@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
-import minevalley.core.api.corporations.Department;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
@@ -723,7 +722,7 @@ public final class Core {
      * @param consumer  consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(ItemStack itemStack, Consumer<User> consumer) {
+    public static GuiItem createGuiItem(ItemStack itemStack, Consumer<OnlineUser> consumer) {
         return server.createGuiItem(itemStack, consumer);
     }
 
@@ -735,7 +734,7 @@ public final class Core {
      * @param consumer    consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(ItemBuilder itemBuilder, Consumer<User> consumer) {
+    public static GuiItem createGuiItem(ItemBuilder itemBuilder, Consumer<OnlineUser> consumer) {
         return server.createGuiItem(itemBuilder.build(), consumer);
     }
 
@@ -747,7 +746,7 @@ public final class Core {
      * @param consumer consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(InterfaceItem item, Consumer<User> consumer) {
+    public static GuiItem createGuiItem(InterfaceItem item, Consumer<OnlineUser> consumer) {
         return server.createGuiItem(item.toItemStack(), consumer);
     }
 
@@ -759,7 +758,7 @@ public final class Core {
      * @param consumer  consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(ItemStack itemStack, BiConsumer<User, ClickType> consumer) {
+    public static GuiItem createGuiItem(ItemStack itemStack, BiConsumer<OnlineUser, ClickType> consumer) {
         return server.createAdvancedGuiItem(itemStack, consumer);
     }
 
@@ -771,7 +770,7 @@ public final class Core {
      * @param consumer    consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(ItemBuilder itemBuilder, BiConsumer<User, ClickType> consumer) {
+    public static GuiItem createGuiItem(ItemBuilder itemBuilder, BiConsumer<OnlineUser, ClickType> consumer) {
         return server.createAdvancedGuiItem(itemBuilder.build(), consumer);
     }
 
@@ -783,7 +782,7 @@ public final class Core {
      * @param consumer consumer which gets calles if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(InterfaceItem item, BiConsumer<User, ClickType> consumer) {
+    public static GuiItem createGuiItem(InterfaceItem item, BiConsumer<OnlineUser, ClickType> consumer) {
         return server.createAdvancedGuiItem(item.toItemStack(), consumer);
     }
 
@@ -982,7 +981,7 @@ public final class Core {
      * @param callback       is called if the player clicks the message
      * @return ClickEvent object to be put into .event()
      */
-    public static ClickEvent createClickEvent(boolean selfCancelling, Consumer<User> callback) {
+    public static ClickEvent createClickEvent(boolean selfCancelling, Consumer<OnlineUser> callback) {
         return server.createClickEvent(selfCancelling, callback);
     }
 
@@ -994,7 +993,7 @@ public final class Core {
      * @param callback is called if the player clicks the message
      * @return ClickEvent object to be put into .event()
      */
-    public static ClickEvent createClickEvent(Consumer<User> callback) {
+    public static ClickEvent createClickEvent(Consumer<OnlineUser> callback) {
         return server.createClickEvent(true, callback);
     }
 
@@ -1013,7 +1012,7 @@ public final class Core {
      * @param callback callback to be executed if player clicks the message
      * @return new clickable message
      */
-    public static ClickableMessage createClickableMessage(Consumer<User> callback) {
+    public static ClickableMessage createClickableMessage(Consumer<OnlineUser> callback) {
         return server.createClickableMessage(callback);
     }
 
@@ -1024,7 +1023,7 @@ public final class Core {
      * @param selfCancelling defines if the message is clickable multiple times
      * @return new clickable message
      */
-    public static ClickableMessage createClickableMessage(Consumer<User> callback, boolean selfCancelling) {
+    public static ClickableMessage createClickableMessage(Consumer<OnlineUser> callback, boolean selfCancelling) {
         return server.createClickableMessage(callback, selfCancelling);
     }
 
@@ -1136,36 +1135,6 @@ public final class Core {
      */
     public static Telephone getTelephone(String telephoneNumber) {
         return server.getTelephone(telephoneNumber);
-    }
-
-    /**
-     * Gets the registered object of a user.
-     *
-     * @param user user to get registered object from
-     * @return registered object of user
-     */
-    public static Registered getRegistered(User user) {
-        return server.getRegistered(user);
-    }
-
-    /**
-     * Gets the registered object of a group.
-     *
-     * @param group group to get registered object from
-     * @return registered object of group
-     */
-    public static Registered getRegistered(Group group) {
-        return server.getRegistered(group);
-    }
-
-    /**
-     * Gets the registered object of a department.
-     *
-     * @param department department to get registered object from
-     * @return registered object of department
-     */
-    public static Registered getRegistered(Department department) {
-        return server.getRegistered(department);
     }
 
     /**
