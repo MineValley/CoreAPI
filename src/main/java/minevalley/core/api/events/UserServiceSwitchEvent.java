@@ -2,7 +2,7 @@ package minevalley.core.api.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.User;
+import minevalley.core.api.OnlineUser;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
@@ -12,7 +12,7 @@ public final class UserServiceSwitchEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
 
-    private final User user;
+    private final OnlineUser user;
     private final ServiceSwitch serviceSwitch;
 
     public static HandlerList getHandlerList() {

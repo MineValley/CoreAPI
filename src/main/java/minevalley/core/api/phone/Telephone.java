@@ -6,6 +6,29 @@ import java.util.List;
 
 public interface Telephone {
 
+    /**
+     * Activates this telephone.
+     */
+    void activate();
+
+    /**
+     * Deactivates this telephone.
+     */
+    void deactivate();
+
+    /**
+     * Gets whether this telephone is activated.
+     *
+     * @return true, if telephone is activated
+     */
+    boolean isActivated();
+
+    /**
+     * Gets whether the telephone is connected to the network.
+     *
+     * @return true, if telephone is connected to the network
+     */
+    boolean isConnected();
 
     /**
      * Gets the target-telephone that this telephone is calling.

@@ -117,15 +117,15 @@ public interface CoreServer {
 
     void sendTeamChatMessage(BaseComponent[] message);
 
-    DatabaseEntry databaseEntry(String tableName, ResultSet resultSet, int index);
+    DatabaseEntry getDatabaseEntry(String tableName, ResultSet resultSet, int index);
 
-    DatabaseEntry databaseEntry(String tableName, Value searchValue);
+    DatabaseEntry getDatabaseEntry(String tableName, Value searchValue);
 
-    DatabaseEntryCollection databaseEntryCollection(String tableName, List<DatabaseEntry> entries);
+    DatabaseEntryCollection getDatabaseEntryCollection(String tableName, List<DatabaseEntry> entries);
 
-    DatabaseEntryCollection databaseEntryCollection(String tableName, Value searchValue);
+    DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue);
 
-    DatabaseTable databaseTable(String tableName);
+    DatabaseTable getDatabaseTable(String tableName);
 
     void setSetting(String key, String value);
 
@@ -135,7 +135,11 @@ public interface CoreServer {
 
     double getStatistic(String key);
 
-    User getUser(Player player);
+    User getUser(String uuid);
+
+    User getUserById(String id);
+
+    OnlineUser getOnlineUser(Player player);
 
     ClickEvent createClickEvent(boolean selfCancelling, Consumer<User> callback);
 
@@ -175,15 +179,15 @@ public interface CoreServer {
 
     Weather[] getUpcomingWeather();
 
-    GuiBuilder gui(Inventory inventory);
+    GuiBuilder createGui(Inventory inventory);
 
-    GuiBuilder gui(int size);
+    GuiBuilder createGui(int size);
 
-    GuiBuilder gui(List<GuiItem> items, int size, String title, Core.PosItem... posItems);
+    GuiBuilder createGui(List<GuiItem> items, int size, String title, Core.PosItem... posItems);
 
-    GuiItem guiItem(ItemStack itemStack, Consumer<User> consumer);
+    GuiItem createGuiItem(ItemStack itemStack, Consumer<User> consumer);
 
-    GuiItem advancedGuiItem(ItemStack itemStack, BiConsumer<User, ClickType> consumer);
+    GuiItem createAdvancedGuiItem(ItemStack itemStack, BiConsumer<User, ClickType> consumer);
 
     Countdown createCountdown();
 

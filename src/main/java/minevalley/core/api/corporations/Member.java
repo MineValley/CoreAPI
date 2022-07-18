@@ -1,5 +1,6 @@
 package minevalley.core.api.corporations;
 
+import minevalley.core.api.User;
 import minevalley.core.api.enums.CorporatePermission;
 
 import java.util.List;
@@ -7,11 +8,11 @@ import java.util.List;
 public interface Member {
 
     /**
-     * Gets this members unique id.
+     * Gets this member's user object.
      *
-     * @return unique id of this member
+     * @return user object
      */
-    String getUniqueId();
+    User getUser();
 
     /**
      * Gets the department this member is currently in.

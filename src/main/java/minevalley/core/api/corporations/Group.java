@@ -1,6 +1,7 @@
 package minevalley.core.api.corporations;
 
 import minevalley.core.api.Registered;
+import minevalley.core.api.User;
 import minevalley.core.api.economy.BankAccount;
 
 import java.util.List;
@@ -90,14 +91,14 @@ public interface Group extends Registered {
      *
      * @param uniqueId member to remove
      */
-    void removeMember(String uniqueId);
+    void removeMember(User user);
 
     /**
      * Adds a member with the specific unique id to this group.
      *
      * @param uniqueId member to add
      */
-    void addMember(String uniqueId);
+    void addMember(User user);
 
     /**
      * Gets the bank account of this group.

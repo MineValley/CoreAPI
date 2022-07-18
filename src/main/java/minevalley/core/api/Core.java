@@ -405,7 +405,7 @@ public final class Core {
      * @return DatabaseEntry from the given parameters
      */
     public static DatabaseEntry getDatabaseEntry(String tableName, ResultSet resultSet, int index) {
-        return server.databaseEntry(tableName, resultSet, index);
+        return server.getDatabaseEntry(tableName, resultSet, index);
     }
 
     /**
@@ -418,7 +418,7 @@ public final class Core {
      * @return the first database-entry that matches the given description
      */
     public static DatabaseEntry getDatabaseEntry(String tableName, Value searchValue) {
-        return server.databaseEntry(tableName, searchValue);
+        return server.getDatabaseEntry(tableName, searchValue);
     }
 
     /**
@@ -429,7 +429,7 @@ public final class Core {
      * @return collection of the given entries
      */
     public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, List<DatabaseEntry> entries) {
-        return server.databaseEntryCollection(tableName, entries);
+        return server.getDatabaseEntryCollection(tableName, entries);
     }
 
     /**
@@ -441,7 +441,7 @@ public final class Core {
      * @return a collection of all database-entries in this table, that matches the given description
      */
     public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue) {
-        return server.databaseEntryCollection(tableName, searchValue);
+        return server.getDatabaseEntryCollection(tableName, searchValue);
     }
 
     /**
@@ -451,7 +451,7 @@ public final class Core {
      * @return database-table with specific name
      */
     public static DatabaseTable getDatabaseTable(String tableName) {
-        return server.databaseTable(tableName);
+        return server.getDatabaseTable(tableName);
     }
 
     /**
@@ -546,15 +546,29 @@ public final class Core {
     /**
      * Gets a players user object
      *
-     * @param player player object to get user from
-     * @return user object of the given player
+     * @param uniqueId uniqueId to get user from
+     * @return user object of the given uniqueId
      */
-    public static User getUser(Player player) {
-        return server.getUser(player);
+    public static User getUser(String uniqueId) {
+        return server.getUser(uniqueId);
     }
 
     /**
-     * Gets the name of the player with the specifc unique id
+     * Gets a players user object
+     *
+     * @param id id to get user from
+     * @return user object of the given uniqueId
+     */
+    public static User getUserById(String id) {
+        return server.getUserById(id);
+    }
+
+    public static OnlineUser getOnlineUser(Player player) {
+        return server.getOnlineUser(player);
+    }
+
+    /**
+     * Gets the name of the player with the specific unique id
      *
      * @param uniqueId unique id of the player
      * @return name of the player
@@ -676,7 +690,7 @@ public final class Core {
      * @return new gui-builder
      */
     public static GuiBuilder createGui(Inventory inventory) {
-        return server.gui(inventory);
+        return server.createGui(inventory);
     }
 
     /**
@@ -686,7 +700,7 @@ public final class Core {
      * @return new gui-builder
      */
     public static GuiBuilder createGui(int size) {
-        return server.gui(size);
+        return server.createGui(size);
     }
 
     /**
@@ -698,7 +712,7 @@ public final class Core {
      * @return new gui-builder
      */
     public static GuiBuilder createGui(List<GuiItem> items, int size, String title, PosItem... posItems) {
-        return server.gui(items, size, title, posItems);
+        return server.createGui(items, size, title, posItems);
     }
 
     /**
@@ -710,7 +724,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemStack itemStack, Consumer<User> consumer) {
-        return server.guiItem(itemStack, consumer);
+        return server.createGuiItem(itemStack, consumer);
     }
 
     /**
@@ -722,7 +736,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemBuilder itemBuilder, Consumer<User> consumer) {
-        return server.guiItem(itemBuilder.build(), consumer);
+        return server.createGuiItem(itemBuilder.build(), consumer);
     }
 
     /**
@@ -734,7 +748,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(InterfaceItem item, Consumer<User> consumer) {
-        return server.guiItem(item.toItemStack(), consumer);
+        return server.createGuiItem(item.toItemStack(), consumer);
     }
 
     /**
@@ -746,7 +760,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemStack itemStack, BiConsumer<User, ClickType> consumer) {
-        return server.advancedGuiItem(itemStack, consumer);
+        return server.createAdvancedGuiItem(itemStack, consumer);
     }
 
     /**
@@ -758,7 +772,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemBuilder itemBuilder, BiConsumer<User, ClickType> consumer) {
-        return server.advancedGuiItem(itemBuilder.build(), consumer);
+        return server.createAdvancedGuiItem(itemBuilder.build(), consumer);
     }
 
     /**
@@ -770,7 +784,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(InterfaceItem item, BiConsumer<User, ClickType> consumer) {
-        return server.advancedGuiItem(item.toItemStack(), consumer);
+        return server.createAdvancedGuiItem(item.toItemStack(), consumer);
     }
 
     /**
@@ -781,7 +795,7 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemStack itemStack) {
-        return server.guiItem(itemStack, null);
+        return server.createGuiItem(itemStack, null);
     }
 
     /**
@@ -901,6 +915,26 @@ public final class Core {
      */
     public static ItemBuilder createItem(Player player) {
         return server.createItem(player);
+    }
+
+    /**
+     * Creates a new item-builder from the players head.
+     *
+     * @param user user whose head is wanted
+     * @return new item-builder
+     */
+    public static ItemBuilder createItem(OnlineUser user) {
+        return server.createItem(user.getPlayer());
+    }
+
+    /**
+     * Creates a new item-builder from the players head.
+     *
+     * @param user user whose head is wanted
+     * @return new item-builder
+     */
+    public static ItemBuilder createItem(User user) {
+        return server.createItem(user.getPlayerHead());
     }
 
     /**

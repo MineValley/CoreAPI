@@ -1,5 +1,6 @@
 package minevalley.core.api.regions;
 
+import minevalley.core.api.OnlineUser;
 import minevalley.core.api.User;
 import org.bukkit.entity.Player;
 
@@ -25,12 +26,12 @@ public interface FakeBlock {
      *
      * @param users Users to whom the block is shown
      */
-    void show(User... users);
+    void show(OnlineUser... users);
 
     /**
      * Hides the block from specific users.
      *
      * @param users USers from whom the block is hidden
      */
-    void hide(User... users);
+    void hide(OnlineUser... users);
 }

@@ -3,7 +3,7 @@ package minevalley.core.api.events;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.User;
+import minevalley.core.api.OnlineUser;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
@@ -13,7 +13,7 @@ public class PlaySoundEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
 
-    private final User user;
+    private final OnlineUser user;
     private final String sound;
 
     @Getter(AccessLevel.NONE)

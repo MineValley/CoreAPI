@@ -2,7 +2,7 @@ package minevalley.core.api.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.User;
+import minevalley.core.api.OnlineUser;
 import org.bukkit.Chunk;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
@@ -19,7 +19,7 @@ public class UserEnterChunkEvent extends Event implements Cancellable {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
 
-    private final User user;
+    private final OnlineUser user;
     private final Chunk from, to;
     private final PlayerMoveEvent event;
     private boolean cancelled = false;

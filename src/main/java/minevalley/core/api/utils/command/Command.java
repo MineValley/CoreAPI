@@ -1,6 +1,6 @@
 package minevalley.core.api.utils.command;
 
-import minevalley.core.api.User;
+import minevalley.core.api.OnlineUser;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public interface Command {
      * @param args array of arguments
      * @return response-enum that decides what is sent to the user
      */
-    CommandResponse onCommand(User user, String[] args);
+    CommandResponse onCommand(OnlineUser user, String[] args);
 
     /**
      * This method is used to define the completions displayed when the player presses TAB.
@@ -25,7 +25,7 @@ public interface Command {
      * @param args array of the arguments
      * @return list of the completions to display
      */
-    List<String> onTabComplete(User user, String[] args);
+    List<String> onTabComplete(OnlineUser user, String[] args);
 
     /**
      * This method is used to define whether a user is permissioned to execute/tab this command more precisly than the CommandOptions-Annotation is able to.
@@ -36,7 +36,7 @@ public interface Command {
      * @param user user who tries to execute/tab the command
      * @return true, if the user is permissioned - false, if he isn't (error-message will be sent automatically)
      */
-    boolean isPermissioned(User user);
+    boolean isPermissioned(OnlineUser user);
 
     enum CommandResponse {
         SUCCESS,

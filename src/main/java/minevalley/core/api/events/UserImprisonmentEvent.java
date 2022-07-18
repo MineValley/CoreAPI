@@ -7,7 +7,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 /**
- * This event gets called when a user is marked as idle (afk).
+ * This event gets called when a user is getting imprisoned.
  */
 @Getter
 @RequiredArgsConstructor

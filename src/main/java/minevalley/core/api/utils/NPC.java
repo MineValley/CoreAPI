@@ -1,15 +1,13 @@
 package minevalley.core.api.utils;
 
 import minevalley.core.api.ChatMenu;
-import minevalley.core.api.User;
+import minevalley.core.api.OnlineUser;
 import minevalley.core.api.enums.NPCAnimation;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.ClickType;
-import org.bukkit.util.Consumer;
 import org.bukkit.util.Vector;
 
 import java.util.List;
@@ -23,15 +21,15 @@ public interface NPC {
 
     void show(Player player);
 
-    void show(User user);
+    void show(OnlineUser user);
 
     void hide(Player player);
 
-    void hide(User user);
+    void hide(OnlineUser user);
 
     boolean canSee(Player player);
 
-    boolean canSee(User user);
+    boolean canSee(OnlineUser user);
 
     boolean focusNearPlayers();
 
@@ -53,35 +51,35 @@ public interface NPC {
 
     void setSneaking(boolean sneaking);
 
-    NPC onClick(TriConsumer<User, Click, NPC> callback);
+    NPC onClick(TriConsumer<OnlineUser, Click, NPC> callback);
 
-    NPC onComingClose(BiConsumer<User, NPC> callback);
-
-    NPC setChatName(String chatName);
+    NPC onComingClose(BiConsumer<OnlineUser, NPC> callback);
 
     String getChatName();
 
-    NPC setChatPrefix(String prefix);
+    NPC setChatName(String chatName);
 
     String getChatPrefix();
 
-    void say(User user, String text);
+    NPC setChatPrefix(String prefix);
 
-    void say(User user, BaseComponent[] baseComponent);
+    void say(OnlineUser user, String text);
 
-    void say(User user, String text, ChatMenu chatMenu);
+    void say(OnlineUser user, BaseComponent[] baseComponent);
 
-    void say(User user, BaseComponent[] baseComponent, ChatMenu chatMenu);
+    void say(OnlineUser user, String text, ChatMenu chatMenu);
 
-    void say(User user, String text, User.Notice notice);
+    void say(OnlineUser user, BaseComponent[] baseComponent, ChatMenu chatMenu);
 
-    void say(User user, BaseComponent[] baseComponent, User.Notice notice);
+    void say(OnlineUser user, String text, OnlineUser.Notice notice);
 
-    void say(User user, String text, ChatMenu chatMenu, User.Notice notice);
+    void say(OnlineUser user, BaseComponent[] baseComponent, OnlineUser.Notice notice);
 
-    void say(User user, BaseComponent[] baseComponent, ChatMenu chatMenu, User.Notice notice);
+    void say(OnlineUser user, String text, ChatMenu chatMenu, OnlineUser.Notice notice);
 
-    User.Notice getTalkWithMeNotice();
+    void say(OnlineUser user, BaseComponent[] baseComponent, ChatMenu chatMenu, OnlineUser.Notice notice);
+
+    OnlineUser.Notice getTalkWithMeNotice();
 
     List<Player> getSeeingPlayers();
 
