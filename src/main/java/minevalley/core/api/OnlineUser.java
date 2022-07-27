@@ -322,7 +322,7 @@ public interface OnlineUser {
      *
      * @return telephone of this user
      */
-    Telephone getPhone();
+    Telephone getTelephone();
 
     /**
      * Gets the users bank account.
@@ -403,7 +403,7 @@ public interface OnlineUser {
      * @param key      key of the setting
      * @param newValue new value of the setting
      */
-    void changePlayerSetting(String key, String newValue);
+    void changeUserSetting(String key, String newValue);
 
     // FractionService
 
@@ -659,6 +659,23 @@ public interface OnlineUser {
     void changeSign(Block block, final String line1, final String line2, final String line3, final String line4);
 
     void resetSign(Block block);
+
+    /**
+     * Players can be freezed by a team member. This method gets wether this user is freezed.
+     *
+     * @return true, if the user is currently freezed
+     */
+    boolean isFrozen();
+
+    /**
+     * Freezes this user.
+     */
+    void freeze();
+
+    /**
+     * Unfreezes this user.
+     */
+    void unfreeze();
 
     @Getter
     @Setter
