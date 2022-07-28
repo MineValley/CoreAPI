@@ -17,8 +17,6 @@ public interface NPC {
 
     String getName();
 
-    String getSkinUniqueId();
-
     void show(Player player);
 
     void show(OnlineUser user);

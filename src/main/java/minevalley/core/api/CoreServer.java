@@ -2,7 +2,6 @@ package minevalley.core.api;
 
 import com.google.gson.Gson;
 import lombok.NonNull;
-import minevalley.core.api.corporations.Department;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
@@ -257,9 +256,11 @@ public interface CoreServer {
 
     boolean isMaintenance();
 
-    NPC createNPC(String skinUniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
+    NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
 
-    NPC createNPC(String skinUniqueId, String uniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
+    NPC createNPC(UUID skinUniqueId, UUID uniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
+
+    NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
 
     void registerSmartApp(SmartApp app);
 

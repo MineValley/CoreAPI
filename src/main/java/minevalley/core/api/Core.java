@@ -1258,33 +1258,16 @@ public final class Core {
      * @param visibleToEveryone if true, this npc is visible to every player (you can't hide this npc from specific players when choosing this option!)
      * @return npc with specific parameters
      */
-    public static NPC createNPC(String skinUniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone) {
+    public static NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone) {
         return server.createNPC(skinUniqueId, name, location, focusNearPlayers, visibleToEveryone);
     }
 
-    /**
-     * Creates a NPC with the specific parameters.
-     *
-     * @param skinUniqueId     unique id of the player that this npc adapts the skin from.
-     * @param name             name that will be displayed above the head
-     * @param location         location to spawn this npc to
-     * @param focusNearPlayers if true, this npc looks at nearby players
-     * @return npc with specific parameters
-     */
-    public static NPC createNPC(String skinUniqueId, String name, Location location, boolean focusNearPlayers) {
-        return server.createNPC(skinUniqueId, name, location, focusNearPlayers, false);
+    public static NPC createNPC(UUID skinUniqueId, UUID uniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone) {
+        return server.createNPC(skinUniqueId, uniqueId, name, location, focusNearPlayers, visibleToEveryone);
     }
 
-    /**
-     * Creates a NPC with the specific parameters.
-     *
-     * @param skinUniqueId     unique id of the player that this npc adapts the skin from.
-     * @param location         location to spawn this npc to
-     * @param focusNearPlayers if true, this npc looks at nearby players
-     * @return npc with specific parameters
-     */
-    public static NPC createNPC(String skinUniqueId, Location location, boolean focusNearPlayers) {
-        return server.createNPC(skinUniqueId, null, location, focusNearPlayers, false);
+    public static NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone) {
+        return server.createNPC(value, signature, name, location, focusNearPlayers, visibleToEveryone);
     }
 
     public static void registerSmartApp(SmartApp app) {
