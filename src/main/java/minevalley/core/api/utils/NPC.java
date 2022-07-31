@@ -85,6 +85,10 @@ public interface NPC {
 
     void remove();
 
+    boolean isNameTagHidden();
+
+    void hideNameTag(boolean hidden);
+
     enum Click {
         RIGHT_CLICK,
         LEFT_CLICK
