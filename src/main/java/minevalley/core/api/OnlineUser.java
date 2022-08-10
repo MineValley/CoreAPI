@@ -605,6 +605,8 @@ public interface OnlineUser {
      */
     boolean isKnockedOut();
 
+    void heal();
+
     /**
      * Gets whether the user has reached the maximum idle time and is marked as afk.
      *
@@ -642,6 +644,11 @@ public interface OnlineUser {
     void imprison(int duration);
 
     /**
+     * Releases this user from prison (im imprisoned).
+     */
+    void releaseFromPrison();
+
+    /**
      * Gets whether the user has completed registration on our network.
      *
      * @return true, if the user is registered
@@ -676,6 +683,10 @@ public interface OnlineUser {
      * Unfreezes this user.
      */
     void unfreeze();
+
+    void setNavigationTarget(Location location);
+
+    void resetNavigationTarget();
 
     @Getter
     @Setter
