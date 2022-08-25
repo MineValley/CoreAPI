@@ -1174,7 +1174,7 @@ public final class Core {
     /**
      * Starts a timer with the specific parameters.
      *
-     * @param delay    delay after which this timer terminates
+     * @param delay    delay after which this timer terminates (in minutes)
      * @param callback callback that is called when this timer terminates
      * @return timer with the specific parameters
      */
@@ -1184,14 +1184,16 @@ public final class Core {
 
     /**
      * Starts a repeating timer with the specific parameters.
+     * <p>
+     *     <b>Note:</b> The timer gets triggered immediately after calling this method without having any delay.
+     * </p>
      *
-     * @param delay    seconds to wait before the first period
-     * @param period   period in which this repeating timer is called
+     * @param period   period in which this repeating timer is called (in minutes)
      * @param callback callback that is called when this repeating timer reaches a period
      * @return repeating timer with the specific parameters.
      */
-    public static RepeatingTimer startRepeatingTimer(int delay, int period, @NonNull Runnable callback) {
-        return server.startRepeatingTimer(delay, period, callback);
+    public static RepeatingTimer startRepeatingTimer(int period, @NonNull Runnable callback) {
+        return server.startRepeatingTimer(period, callback);
     }
 
     /**
@@ -1218,6 +1220,18 @@ public final class Core {
      */
     public static Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<DayOfWeek> weekdays) {
         return server.createReminder(hours, minutes, callback, weekdays);
+    }
+
+    /**
+     * Creates a reminder with the specific parameters.
+     *
+     * @param hours    hours on which this reminder is called
+     * @param minutes  minutes on which this reminder is called
+     * @param callback callback that is called when the given date/time is reached
+     * @return reminder with the specific parameters.
+     */
+    public static Reminder createReminder(int hours, int minutes, @NonNull Runnable callback) {
+        return server.createReminder(hours, minutes, callback, DayOfWeek.values());
     }
 
     /**

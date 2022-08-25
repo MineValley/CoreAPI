@@ -244,7 +244,7 @@ public interface CoreServer {
 
     Timer startTimer(int delay, @NonNull Runnable callback);
 
-    RepeatingTimer startRepeatingTimer(int delay, int period, @NonNull Runnable callback);
+    RepeatingTimer startRepeatingTimer(int period, @NonNull Runnable callback);
 
     Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, DayOfWeek... weekdays);
 

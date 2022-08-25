@@ -12,11 +12,25 @@ import java.util.List;
 public interface Reminder {
 
     /**
+     * Gets this reminders callback.
+     *
+     * @return callback
+     */
+    Runnable getCallback();
+
+    /**
+     * Sets the callback that is called, when the reminder is called.
+     *
+     * @param callback callback to be called, when specific time is reached
+     */
+    void setCallback(@NonNull Runnable callback);
+
+    /**
      * Gets the selected weekdays.
      *
      * @return list of all selected weekdays
      */
-    DayOfWeek[] getWeekdays();
+    List<DayOfWeek> getWeekdays();
 
     /**
      * Sets the weekdays, this reminder is called on.
@@ -26,23 +40,28 @@ public interface Reminder {
     void setWeekdays(List<DayOfWeek> weekdays);
 
     /**
-     * Sets the weekdays, this reminder is called on.
-     *
-     * @param weekdays weekdays, to call the callback on
-     */
-    void setWeekdays(DayOfWeek... weekdays);
-
-    /**
-     * Sets the weekdays, this reminder is called on.
+     * Adds weekdays, this reminder is called on.
      *
      * @param weekdays weekdays, to call the callback on
      */
     void addWeekdays(DayOfWeek... weekdays);
 
     /**
+     * Removes weekdays, this reminder is called on.
+     *
+     * @param weekdays weekdays, to call the callback on
+     */
+    void removeWeekDays(DayOfWeek... weekdays);
+
+    /**
+     * Removes all weekdays, this reminder is called on.
+     */
+    void resetWeekDays();
+
+    /**
      * Gets the hour, this reminder is called on.
      *
-     * @return hours as int in [0,24]
+     * @return hours as int in [0, 24]
      */
     int getHours();
 
@@ -68,21 +87,21 @@ public interface Reminder {
     void setMinutes(int minutes);
 
     /**
-     * Gets the callback that is called, when the reminder is called.
-     *
-     * @return callback
+     * Activates this reminder.
+     * <p>
+     * <b>Note:</b> reminders are activated by default. Only use this method, if this reminder may have been deactivated.
      */
-    Runnable getCallback();
+    void activate();
 
     /**
-     * Sets the callback that is called, when the reminder is called.
-     *
-     * @param callback callback to be called, when specific time is reached
+     * Deactivates this reminder.
      */
-    void setCallback(@NonNull Runnable callback);
+    void deactivate();
 
     /**
-     * Deletes this callback from the queue.
+     * Checks whether this reminder is activated.
+     *
+     * @return true, if this reminder is activated
      */
-    void delete();
+    boolean isActivated();
 }
