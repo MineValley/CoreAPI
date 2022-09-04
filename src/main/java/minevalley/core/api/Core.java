@@ -10,6 +10,7 @@ import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.InterfaceItem;
 import minevalley.core.api.misc.Weather;
 import minevalley.core.api.modulepipeline.Container;
@@ -393,6 +394,10 @@ public final class Core {
      */
     public static void sendTeamChatMessage(BaseComponent[] message) {
         server.sendTeamChatMessage(message);
+    }
+
+    public static void sendDebug(DebugType type, String message) {
+        server.sendDebug(type, removeColorCodes(message));
     }
 
     /**

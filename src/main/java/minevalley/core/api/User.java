@@ -1,11 +1,14 @@
 package minevalley.core.api;
 
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.Education;
 import minevalley.core.api.enums.Purchase;
 import minevalley.core.api.phone.Telephone;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.List;
 
 public interface User extends Registered {
 
@@ -136,6 +139,16 @@ public interface User extends Registered {
      * @return true, if the user is allowed to join team service
      */
     boolean isTeamAuth();
+
+    void addDebug(DebugType debugType);
+
+    boolean hasDebug(DebugType debugType);
+
+    List<DebugType> getDebugs();
+
+    void removeDebug(DebugType debugType);
+
+    void removeAllDebugs();
 
     // Education
 

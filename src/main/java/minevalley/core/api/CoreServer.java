@@ -8,6 +8,7 @@ import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.misc.Weather;
 import minevalley.core.api.modulepipeline.Container;
 import minevalley.core.api.modulepipeline.PipelineReceiver;
@@ -115,6 +116,8 @@ public interface CoreServer {
     void sendTeamChatMessage(String message);
 
     void sendTeamChatMessage(BaseComponent[] message);
+
+    void sendDebug(DebugType type, String message);
 
     DatabaseEntry getDatabaseEntry(String tableName, ResultSet resultSet, int index);
 
