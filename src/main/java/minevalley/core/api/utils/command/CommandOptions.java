@@ -82,4 +82,9 @@ public @interface CommandOptions {
      * Otherwise the command will not be invoked and the user will receive a syntax error.
      */
     int correctSyntaxLength() default -1;
+
+    /**
+     * If executableIfFrozen is true, this command can be executed even though the user is currently frozen by a team member.
+     */
+    boolean executableIfFrozen() default false;
 }
