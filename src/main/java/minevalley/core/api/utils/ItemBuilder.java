@@ -42,19 +42,6 @@ public interface ItemBuilder {
      * Hides the durability-bar in the players inventory
      *
      * @return this item-builder
-     *
-     * <p>
-     * <b>Deprecated!</b> use hideAttributes() instead!
-     * </p>
-     */
-    @Deprecated
-    ItemBuilder hideDurability();
-
-
-    /**
-     * Hides the durability-bar in the players inventory
-     *
-     * @return this item-builder
      */
     ItemBuilder hideAttributes();
 
