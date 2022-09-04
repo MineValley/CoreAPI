@@ -268,4 +268,6 @@ public interface CoreServer {
     void registerSmartApp(SmartApp app);
 
     List<SmartApp> getSmartApps();
+
+    List<OnlineUser> getOnlineUsers();
 }

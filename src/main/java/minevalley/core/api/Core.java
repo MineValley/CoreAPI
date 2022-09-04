@@ -1297,6 +1297,10 @@ public final class Core {
         return server.getSmartApps();
     }
 
+    public static List<OnlineUser> getOnlineUsers() {
+        return server.getOnlineUsers();
+    }
+
     @Getter
     @AllArgsConstructor
     public static class PosItem {
