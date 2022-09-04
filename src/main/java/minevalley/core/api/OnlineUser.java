@@ -392,6 +392,13 @@ public interface OnlineUser extends User {
      */
     boolean isOperator();
 
+    /**
+     * Gets whether the user is in support-service
+     *
+     * @return true, if the user is in support-service
+     */
+    boolean isInSupportService();
+
     void heal();
 
     /**
