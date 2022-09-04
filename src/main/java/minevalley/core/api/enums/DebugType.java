@@ -9,12 +9,14 @@ import lombok.RequiredArgsConstructor;
 public enum DebugType {
     SYSTEM("System"),
     DATABASE("Datenbank"),
+    DATABASE_ALL("Datenbank (erweitert)"),
     SETTINGS("Spielereinstellungen"),
     STATISTICS("Statistik"),
     POLICE("Polizei"),
     MEDIC("Rettungsdienst"),
     USER_ACTION("Spieleraktionen"),
-    FINANCE("Finanzen");
+    FINANCE("Finanzen"),
+    ERRORS("Errors");
 
     private final String name;
 }
