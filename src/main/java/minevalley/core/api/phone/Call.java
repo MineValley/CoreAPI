@@ -5,11 +5,6 @@ import java.time.Instant;
 public interface Call {
 
     /**
-     * Ends the current call.
-     */
-    void end();
-
-    /**
      * Gets the telephone, that started the call.
      *
      * @return thelephone that called the partner
@@ -29,4 +24,9 @@ public interface Call {
      * @return time as instant-object
      */
     Instant getBegin();
+
+    /**
+     * Ends the current call.
+     */
+    void end();
 }
