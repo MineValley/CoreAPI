@@ -17,7 +17,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.function.Consumer;
 
-public interface OnlineUser {
+public interface OnlineUser extends User {
 
     /**
      * Gets the player-object of this user.
@@ -29,37 +29,7 @@ public interface OnlineUser {
 
     User getUser();
 
-    String getName();
-
     void closeInventory();
-
-    /**
-     * Gets the unique id of this user.
-     *
-     * @return unique id as string
-     */
-    String getUniqueId();
-
-    /**
-     * Gets the id of this user.
-     *
-     * @return id as string
-     */
-    String getId();
-
-    /**
-     * Gets the id of the users address.
-     *
-     * @return id of users address
-     */
-    int getAddress();
-
-    /**
-     * Gets the head of this user.
-     *
-     * @return player-head as itemstack
-     */
-    ItemStack getPlayerHead();
 
     /**
      * Gets whether this user is currently logged in via labymod.
@@ -75,11 +45,6 @@ public interface OnlineUser {
      * @return current version
      */
     McVersion getVersion();
-
-    /**
-     * Removes the whole user-object and loads it again from the database.
-     */
-    void refresh();
 
     // Messages
 
@@ -315,22 +280,6 @@ public interface OnlineUser {
      */
     void leaveInterface();
 
-    // Accounts and socials
-
-    /**
-     * Gets the users telephone
-     *
-     * @return telephone of this user
-     */
-    Telephone getTelephone();
-
-    /**
-     * Gets the users bank account.
-     *
-     * @return users bank account
-     */
-    BankAccount getBankAccount();
-
     /**
      * Asks the user which bank account he wants to use (e. g. to pay sth)
      * He can choose from every bank account he's permissioned to transfer money from.
@@ -341,70 +290,6 @@ public interface OnlineUser {
      */
     void askForBankAccount(Consumer<BankAccount> callback);
 
-    /**
-     * Gets a list of the users friends unique ids
-     *
-     * @return list of the users friends unique ids as strings
-     */
-    String[] getFriends();
-
-    /**
-     * Gets a list of the unique ids of this users spouses
-     *
-     * @return list of the users spouses unique ids as strings
-     */
-    String[] getMarriage();
-
-    /**
-     * Gets a list of the blocked users unique ids
-     *
-     * @return list of the users unique ids, which were blocked at this users bell, as strings
-     */
-    String[] getBellBlacklist();
-
-    /**
-     * Adds the user with the specific unique id to this users bellblacklist
-     *
-     * @param uniqueId unique id of the user to block
-     */
-    void removeFromBellBlacklist(String uniqueId);
-
-    /**
-     * Removes the user with the specific unique id from this users bellblacklist
-     *
-     * @param uniqueId unique id of the user to block
-     */
-    void addToBellBlacklist(String uniqueId);
-
-    /**
-     * Gets a specific setting that the user can change.
-     * <p>
-     * <b>Note:</b> If the user did not provide a value, this will return null!
-     *
-     * @param key key of the setting
-     * @return value of the setting
-     */
-    String getUserSetting(String key);
-
-    /**
-     * Gets a specific setting that the user can change.
-     *
-     * @param key          key of the setting
-     * @param defaultValue value that is returned, if the setting is null
-     * @return value of the setting
-     */
-    String getUserSetting(String key, String defaultValue);
-
-    /**
-     * Updates the value of a specific setting.
-     * <p>
-     * <b>Note:</b> Neither the key nor the value must not contain non alphabetic characters! Otherwise the this method will not work properly...
-     *
-     * @param key      key of the setting
-     * @param newValue new value of the setting
-     */
-    void changeUserSetting(String key, String newValue);
-
     // FractionService
 
     /**
@@ -414,7 +299,6 @@ public interface OnlineUser {
      * @return users fraction
      */
     FractionService getFractionService();
-
 
     void enterFractionService(FractionService service);
 
@@ -508,103 +392,6 @@ public interface OnlineUser {
      */
     boolean isOperator();
 
-    /**
-     * Gets whether the user is in support-service
-     *
-     * @return true, if the user is in support-service
-     */
-    boolean isInSupportService();
-
-    // Education
-
-    /**
-     * Gets a list of the users education.
-     *
-     * @return list of users education
-     */
-    Education[] getEducation();
-
-    /**
-     * Gets a list of the active products, that this user bought.
-     *
-     * @return list of purchases
-     */
-    Purchase[] getPurchased();
-
-    /**
-     * Checks whether this user purchases the specific product.
-     *
-     * @param purchase product to check
-     * @return true, if this user purchases the specific product.
-     */
-    boolean purchased(Purchase purchase);
-
-    /**
-     * Gets whether the user has the specific education.
-     *
-     * @return true, if the user has the specific education
-     */
-    boolean hasEducation(Education education);
-
-    /**
-     * Gets whether the user has a drivers license.
-     *
-     * @return true, if the user has a drivers license
-     */
-    boolean hasDriversLicense();
-
-    /**
-     * Gets the level of the users gun license.
-     *
-     * @return level of users gun license (0 -> no license)
-     */
-    int getGunLicense();
-
-    // Cash
-
-    /**
-     * Gets the current amount of cash in the users wallet.
-     *
-     * @return the current amount of cash in the users wallet
-     */
-    double getCash();
-
-    /**
-     * Removes a certain amount of cash of the users wallet.
-     *
-     * @param amount amout to remove
-     * @return true, if the transaction was successful. If the user doesn't have enough money, this is false
-     */
-    boolean payCash(double amount);
-
-    /**
-     * Updates the users cash from the database
-     */
-    void updateCash();
-
-    // WantedLevel & KnockOut
-
-    /**
-     * Gets the wanted-level of the user.
-     *
-     * @return wanted-level of the user. 0 if the player isn't wanted
-     */
-    int getWantedLevel();
-
-    /**
-     * Sets the wanted-level of the user
-     *
-     * @param level new wanted-level
-     */
-    void setWantedLevel(int level);
-
-    /**
-     * Gets whether the user is knocked out.
-     *
-     * @return true, if the user is knocked out
-     */
-    boolean isKnockedOut();
-
     void heal();
 
     /**
@@ -628,13 +415,6 @@ public interface OnlineUser {
      * @param vanish vanish state
      */
     void setVanish(boolean vanish);
-
-    /**
-     * Gets whether the user is locked up in one of the state prisons.
-     *
-     * @return true, if the user is locked up in prison
-     */
-    boolean isImprisoned();
 
     /**
      * Imprisons this user.
@@ -666,23 +446,6 @@ public interface OnlineUser {
     void changeSign(Block block, final String line1, final String line2, final String line3, final String line4);
 
     void resetSign(Block block);
-
-    /**
-     * Players can be freezed by a team member. This method gets wether this user is freezed.
-     *
-     * @return true, if the user is currently freezed
-     */
-    boolean isFrozen();
-
-    /**
-     * Freezes this user.
-     */
-    void freeze();
-
-    /**
-     * Unfreezes this user.
-     */
-    void unfreeze();
 
     void setNavigationTarget(Location location);
 
