@@ -98,8 +98,8 @@ public enum InterfaceItem {
      * @return interface-item as item-builder
      */
     public ItemBuilder getBuilder() {
-        return (object instanceof ItemBuilder) ? (ItemBuilder) object : Core.createItem(Material.WOOD_SWORD)
-                .setDurability((int) object).hideDurability().setDisplayName(" ");
+        return object instanceof ItemBuilder ? (ItemBuilder) object : Core.createItem(Material.WOOD_SWORD)
+                .setDurability((int) object).hideAttributes().setDisplayName(" ");
     }
 
     /**
