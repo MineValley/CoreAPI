@@ -31,6 +31,11 @@ public enum InterfaceItem {
     HIGHLIGHTED_DOUBLE_SPACER(4),
 
     /**
+     * Highlights the item under the selected slot without hiding its own slot.
+     */
+    HIGHLIGHTER(29),
+
+    /**
      * Hides the selected slot and displays a green hook.
      * <p>
      * <b>Deprecated!</b> use CHECKMARK instead!
