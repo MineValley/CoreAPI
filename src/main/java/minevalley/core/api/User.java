@@ -68,39 +68,57 @@ public interface User extends Registered {
     BankAccount getBankAccount();
 
     /**
-     * Gets a list of the users friends unique ids
+     * Gets a list of the users friends.
      *
-     * @return list of the users friends unique ids as strings
+     * @return list of the users friends
      */
-    String[] getFriends();
+    List<User> getFriends();
+
+    /**
+     * Adds a user to this users friend list and vice versa.
+     *
+     * @param user user to add to friend list
+     */
+    void addFriend(User user);
+
+    /**
+     * Removes a user from this users friend list and vice versa.
+     *
+     * @param user user to remove from friend list
+     */
+    void removeFriend(User user);
 
     /**
      * Gets a list of the unique ids of this users spouses
      *
      * @return list of the users spouses unique ids as strings
      */
-    String[] getMarriage();
+    List<User> getMarriage();
+
+    void addToMarriage(User user);
+
+    void leaveMarriage();
 
     /**
-     * Gets a list of the blocked users unique ids
+     * Gets a list of the blocked users.
      *
-     * @return list of the users unique ids, which were blocked at this users bell, as strings
+     * @return list of the users, which were at this users bell blacklist
      */
-    String[] getBellBlacklist();
+    List<User> getBellBlacklist();
 
     /**
-     * Adds the user with the specific unique id to this users bellblacklist
+     * Adds the user to this users bell blacklist.
      *
-     * @param uniqueId unique id of the user to block
+     * @param user unique id of the user to block
      */
-    void removeFromBellBlacklist(String uniqueId);
+    void removeFromBellBlacklist(User user);
 
     /**
-     * Removes the user with the specific unique id from this users bellblacklist
+     * Removes the user with the specific unique id from this users bell blacklist.
      *
-     * @param uniqueId unique id of the user to block
+     * @param user user to block
      */
-    void addToBellBlacklist(String uniqueId);
+    void addToBellBlacklist(User user);
 
     /**
      * Gets a specific setting that the user can change.
