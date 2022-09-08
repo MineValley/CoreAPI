@@ -5,15 +5,16 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 import minevalley.core.api.economy.BankAccount;
-import minevalley.core.api.enums.*;
+import minevalley.core.api.enums.FractionService;
+import minevalley.core.api.enums.McVersion;
+import minevalley.core.api.enums.MessageType;
+import minevalley.core.api.enums.TeamRank;
 import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
-import minevalley.core.api.phone.Telephone;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.function.Consumer;
 
@@ -21,7 +22,6 @@ public interface OnlineUser extends User {
 
     /**
      * Gets the player-object of this user.
-     * Note: The player may be offline
      *
      * @return player-object of this user
      */
@@ -99,6 +99,8 @@ public interface OnlineUser extends User {
      * Starts the credits sequence.
      */
     void sendCredits();
+
+    void sendActionBar(@NonNull String message);
 
     /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
