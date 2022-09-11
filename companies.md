@@ -36,3 +36,19 @@ The list of all server-side companies serves to enumerate all information relate
 </p>
 
 ---
+
+### Wertstoffhof Reuters und Söhne
+<p>
+  <b>Beschreibung:</b> Recyclinghof für Elektronik und Gebrauchtwägen
+</p>
+<p>
+  <b>ID:</b> 649
+</p>
+<p>
+  <b>Iban:</b> DE01-11346
+</p>
+<p>
+  <b>Telefon:</b> nicht vorhanden
+</p>
+
+---
