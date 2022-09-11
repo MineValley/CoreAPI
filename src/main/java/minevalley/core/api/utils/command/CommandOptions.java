@@ -36,6 +36,7 @@ public @interface CommandOptions {
 
     /**
      * If this is true, the parameters playerrank, fractions and teamranks are ignored. Every user is able to execute the command.
+     * <p>
      * <b>Note: </b> This doesn't affect the requireSupportService()-parameter.
      */
     boolean ignoreRanks() default false;
