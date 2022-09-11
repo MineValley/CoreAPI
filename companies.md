@@ -53,7 +53,7 @@ The list of all server-side companies serves to enumerate all information relate
 
 ---
 
-### Kraus udn Schulz Abschleppdienst
+### Kraus und Schulz Abschleppdienst
 <p>
   <b>Beschreibung:</b> 24/7 Abschleppdienst - zuverlässig und günstig bei jeder Panne!
 </p>
