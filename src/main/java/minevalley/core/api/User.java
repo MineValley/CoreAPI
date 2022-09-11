@@ -61,13 +61,6 @@ public interface User extends Registered {
     Telephone getTelephone();
 
     /**
-     * Gets the users bank account.
-     *
-     * @return users bank account
-     */
-    BankAccount getBankAccount();
-
-    /**
      * Gets a list of the users friends.
      *
      * @return list of the users friends

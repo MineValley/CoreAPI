@@ -2,6 +2,7 @@ package minevalley.core.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import minevalley.core.api.economy.BankAccount;
 
 import java.util.List;
 
@@ -51,6 +52,13 @@ public interface Registered {
      * @return registered's type
      */
     Type getType();
+
+    /**
+     * Gets the registered bank account.
+     *
+     * @return bank account
+     */
+    BankAccount getBankAccount();
 
     List<Property> getProperties();
 
