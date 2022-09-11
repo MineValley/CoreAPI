@@ -52,3 +52,19 @@ The list of all server-side companies serves to enumerate all information relate
 </p>
 
 ---
+
+### Kraus udn Schulz Abschleppdienst
+<p>
+  <b>Beschreibung:</b> 24/7 Abschleppdienst - zuverlässig und günstig bei jeder Panne!
+</p>
+<p>
+  <b>ID:</b> 353
+</p>
+<p>
+  <b>Iban:</b> DE01-98968
+</p>
+<p>
+  <b>Telefon:</b> nicht vorhanden
+</p>
+
+---
