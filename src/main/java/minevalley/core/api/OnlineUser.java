@@ -304,7 +304,6 @@ public interface OnlineUser extends User {
 
     void enterFractionService(FractionService service);
 
-
     void leaveFractionService();
 
     // TeamRank
@@ -402,6 +401,8 @@ public interface OnlineUser extends User {
     boolean isInSupportService();
 
     void heal();
+
+    void revive();
 
     /**
      * Gets whether the user has reached the maximum idle time and is marked as afk.

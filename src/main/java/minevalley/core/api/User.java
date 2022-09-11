@@ -265,7 +265,7 @@ public interface User extends Registered {
      */
     boolean isRegistered();
 
-    void register();
+    void tryToRegister();
 
     /**
      * Gets whether this user is allowed to break/place/use a block at the given position regarding to the regions-system.
