@@ -4,7 +4,6 @@ Diese Liste aller serverseitigen Unternehmen dient der Aufzählung aller sie bet
 
 The list of all server-side companies serves to enumerate all information related to them, such as their iban and phone numbers.
 
-
 ### Name
 <p>
   <b>Beschreibung:</b> Hier kann das Unternehmen beschrieben werden
@@ -19,6 +18,9 @@ The list of all server-side companies serves to enumerate all information relate
   <b>Telefon:</b> 012345678
 </p>
 
+
+---
+
 ### staatl. Bankinstitut
 <p>
   <b>Beschreibung:</b> Institut für die Verwaltung von Bankkonten und Bankautomaten
@@ -32,3 +34,5 @@ The list of all server-side companies serves to enumerate all information relate
 <p>
   <b>Telefon:</b> nicht vorhanden
 </p>
+
+---
