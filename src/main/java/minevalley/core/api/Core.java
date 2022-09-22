@@ -649,8 +649,31 @@ public final class Core {
      * @param string string to verify
      * @return true, if the given string is numeric
      */
+    @Deprecated
     public static boolean isNumeric(String string) {
-        return server.isNumeric(string);
+        return server.isInteger(string);
+    }
+
+    /**
+     * Checks whether the given string is numeric and can be converted to an integer.
+     * <p>
+     * <b>Note:</b> This method also checks whether the integer exceeds the maximum value for integers.
+     *
+     * @param string string to verify
+     * @return true, if the given string is numeric
+     */
+    public static boolean isInteger(String string) {
+        return server.isInteger(string);
+    }
+
+    /**
+     * Verifies that the given string is numeric and can be converted to an double.
+     *
+     * @param string string to verify
+     * @return true, if the given string is numeric
+     */
+    public static boolean isDouble(String string) {
+        return server.isInteger(string);
     }
 
     /**

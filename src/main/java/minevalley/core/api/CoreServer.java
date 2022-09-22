@@ -173,7 +173,9 @@ public interface CoreServer {
 
     int randomInteger(int chars);
 
-    boolean isNumeric(String string);
+    boolean isInteger(String string);
+
+    boolean isDouble(String string);
 
     String formatMoney(double amount);
 
