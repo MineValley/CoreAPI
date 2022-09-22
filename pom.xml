@@ -6,7 +6,7 @@
 
     <groupId>minevalley.core</groupId>
     <artifactId>api</artifactId>
-    <version>1.164</version>
+    <version>1.165</version>
     <packaging>jar</packaging>
 
     <build>
