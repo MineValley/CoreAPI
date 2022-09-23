@@ -291,4 +291,8 @@ public interface User extends Registered {
      * Unfreezes this user.
      */
     void unfreeze();
+
+    long getLatestJoin();
+
+    String getLatestJoinFormatted();
 }
