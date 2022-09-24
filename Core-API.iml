@@ -30,14 +30,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:bungeecord-chat:1.12-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.16" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.8.1" level="project" />
-    <orderEntry type="module-library">
-      <library name="Maven: minevalley.smart:api:1.24">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/main/resources/SmartAPI.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Maven: minevalley.smart:api:1.24" level="project" />
   </component>
 </module>
