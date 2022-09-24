@@ -71,8 +71,6 @@
             <groupId>minevalley.smart</groupId>
             <artifactId>api</artifactId>
             <version>1.24</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/SmartAPI.jar</systemPath>
         </dependency>
     </dependencies>
 </project>
