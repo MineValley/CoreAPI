@@ -690,6 +690,10 @@ public final class Core {
         return new SimpleDateFormat("dd. MMMM yyyy - HH:mm", Locale.GERMANY).format(new Date(time)) + " Uhr";
     }
 
+    public static String formatRelativeTimestamp(long timestamp) {
+        return server.formatRelativeTimestamp(timestamp);
+    }
+
     public static String getCurrentTimeFormatted() {
         return getFormattedDate(System.currentTimeMillis());
     }

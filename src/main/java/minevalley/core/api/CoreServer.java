@@ -179,6 +179,8 @@ public interface CoreServer {
 
     String formatMoney(double amount);
 
+    String formatRelativeTimestamp(long time);
+
     Weather getWeather();
 
     Weather[] getUpcomingWeather();
