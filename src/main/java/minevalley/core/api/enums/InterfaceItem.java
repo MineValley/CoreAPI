@@ -100,7 +100,29 @@ public enum InterfaceItem {
     /**
      * Hides the selected slot and displays a blue return button.
      */
-    RETURN(15);
+    RETURN(15),
+
+    DIGIT_0(16),
+
+    DIGIT_1(17),
+
+    DIGIT_2(18),
+
+    DIGIT_3(19),
+
+    DIGIT_4(20),
+
+    DIGIT_5(21),
+
+    DIGIT_6(22),
+
+    DIGIT_7(23),
+
+    DIGIT_8(24),
+
+    DIGIT_9(25),
+
+    COLUMN(26);
 
 
     private final Object object;
