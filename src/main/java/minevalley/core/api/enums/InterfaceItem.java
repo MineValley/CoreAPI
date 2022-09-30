@@ -20,6 +20,10 @@ public enum InterfaceItem {
      */
     DOUBLE_SPACER(2),
 
+    DOUBLE_SPACER_LEFT(32),
+
+    DOUBLE_SPACER_RIGHT(33),
+
     /**
      * Hides the selected slot and highlights the item underneath.
      */
@@ -88,6 +92,10 @@ public enum InterfaceItem {
      * Hides the selected slot and displays the background of an button underneath.
      */
     BUTTON(12),
+
+    BUTTON_LEFT(30),
+
+    BUTTON_RIGHT(31),
 
     /**
      * Hides the selected slot and displays a blue return button.
