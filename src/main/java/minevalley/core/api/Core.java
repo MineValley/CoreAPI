@@ -487,7 +487,7 @@ public final class Core {
      * @return setting as string from the specific key
      */
     public static String getSetting(String key, String defaultValue) {
-        return Optional.of(server.getSetting(key)).orElse(defaultValue);
+        return Optional.ofNullable(server.getSetting(key)).orElse(defaultValue);
     }
 
     /**
