@@ -22,6 +22,7 @@ import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
 import minevalley.core.api.utils.*;
+import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
@@ -53,10 +54,7 @@ import org.bukkit.util.Vector;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -489,8 +487,7 @@ public final class Core {
      * @return setting as string from the specific key
      */
     public static String getSetting(String key, String defaultValue) {
-        final String result = server.getSetting(key);
-        return result == null ? defaultValue : result;
+        return Optional.of(server.getSetting(key)).orElse(defaultValue);
     }
 
     /**
