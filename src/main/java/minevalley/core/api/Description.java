@@ -11,4 +11,6 @@ public @interface Description {
     String version() default "1.0";
 
     String[] authors();
+
+    String[] dependencies() default "";
 }
