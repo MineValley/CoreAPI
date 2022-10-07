@@ -31,4 +31,8 @@ public abstract class CoreModule {
     public void onDisable() {
 
     }
+
+    public void onCleanup() {
+
+    }
 }
