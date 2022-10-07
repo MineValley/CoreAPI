@@ -11,8 +11,10 @@ import java.util.Arrays;
 public enum FractionService {
 
     NONE(0),
+
     POLICE(1),
     MEDIC(2),
+
     MAIL(-2),
     DISPOSAL(-1);
 
