@@ -461,6 +461,8 @@ public interface OnlineUser extends User {
 
     void resetNavigationTarget();
 
+    void updateLatestJoin();
+
     @Getter
     @Setter
     @AllArgsConstructor
