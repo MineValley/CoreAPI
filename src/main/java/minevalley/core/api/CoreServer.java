@@ -235,6 +235,12 @@ public interface CoreServer {
 
     Area getArea(Block loc1, Block loc2);
 
+    void transferFromShadow(Area... areas);
+
+    void loadPreset(Area presetArea, Block presetPivot, Block mainWorldPivot);
+
+    void restartAndClean();
+
     FakeBlock createFakeBlock(Block block, Material material, int data);
 
     boolean containsForForbiddenWords(String string);

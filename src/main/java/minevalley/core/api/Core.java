@@ -16,13 +16,14 @@ import minevalley.core.api.misc.Weather;
 import minevalley.core.api.modulepipeline.Container;
 import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
+import minevalley.core.api.regions.Area;
 import minevalley.core.api.regions.Boundary;
 import minevalley.core.api.regions.FakeBlock;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
-import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.EventListener;
+import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
@@ -872,13 +873,41 @@ public final class Core {
         return Bukkit.getWorld("bauteam");
     }
 
+    public static World getPreBuildWorld() {
+        return Bukkit.getWorld("prebuild");
+    }
+
+    public static World getPresetsWorld() {
+        return Bukkit.getWorld("presets");
+    }
+
+    public static World getMineWorld() {
+        return Bukkit.getWorld("mine");
+    }
+
+    public static World getDefaultMineWorld() {
+        return Bukkit.getWorld("default_mine");
+    }
+
     /**
      * Gets the shadow map.
      *
      * @return shadow map
      */
-    public static World getShadowMap() {
+    public static World getShadowWorld() {
         return Bukkit.getWorld("shadow");
+    }
+
+    public static void transferFromShadowWorld(Area... areas) {
+        server.transferFromShadow(areas);
+    }
+
+    public static void loadPreset(Area presetArea, Block presetPivot, Block mainWorldPivot) {
+        server.loadPreset(presetArea, presetPivot, mainWorldPivot);
+    }
+
+    public static void restartAndClean() {
+        server.restartAndClean();
     }
 
     /**
@@ -1214,7 +1243,7 @@ public final class Core {
     /**
      * Starts a repeating timer with the specific parameters.
      * <p>
-     *     <b>Note:</b> The timer gets triggered immediately after calling this method without having any delay.
+     * <b>Note:</b> The timer gets triggered immediately after calling this method without having any delay.
      * </p>
      *
      * @param period   period in which this repeating timer is called (in minutes)
