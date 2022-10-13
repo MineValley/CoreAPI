@@ -38,6 +38,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
@@ -1352,6 +1353,12 @@ public final class Core {
 
     public static List<OnlineUser> getOnlineUsers() {
         return server.getOnlineUsers();
+    }
+
+    public static CarBarrier createCarBarrier(Location loc, int rotation, List<Block> barrierBlocks) {
+        rotation %= 360;
+        if (rotation < 0) rotation += 360;
+        return server.createCarBarrier(loc, rotation, barrierBlocks);
     }
 
     @Getter

@@ -280,4 +280,6 @@ public interface CoreServer {
     List<SmartApp> getSmartApps();
 
     List<OnlineUser> getOnlineUsers();
+
+    CarBarrier createCarBarrier(Location loc, int rotation, List<Block> barrierBlocks);
 }
