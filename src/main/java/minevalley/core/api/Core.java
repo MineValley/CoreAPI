@@ -1361,6 +1361,10 @@ public final class Core {
         return server.createCarBarrier(loc, rotation, barrierBlocks);
     }
 
+    public static Hologram createHologram(Location loc, boolean visibleToEveryone, String... lines) {
+        return server.createHologram(loc, visibleToEveryone, lines);
+    }
+
     @Getter
     @AllArgsConstructor
     public static class PosItem {

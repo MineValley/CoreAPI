@@ -282,4 +282,6 @@ public interface CoreServer {
     List<OnlineUser> getOnlineUsers();
 
     CarBarrier createCarBarrier(Location loc, int rotation, List<Block> barrierBlocks);
+
+    Hologram createHologram(Location loc, boolean visibleToEveryone, String... lines);
 }
