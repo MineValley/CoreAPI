@@ -2,8 +2,8 @@ package minevalley.core.api.utils;
 
 import minevalley.core.api.OnlineUser;
 import minevalley.core.api.User;
+import org.bukkit.Location;
 
-import javax.xml.stream.Location;
 import java.util.List;
 
 public interface Hologram {
