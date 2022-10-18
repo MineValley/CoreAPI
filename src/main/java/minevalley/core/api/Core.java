@@ -415,7 +415,7 @@ public final class Core {
 
     /**
      * Gets the specific database-entry from the specified table with the specified value in the column.
-     * If there are more than one entries, that math the given description, this gets the first one.
+     * If there are more than one entry, that math the given description, this gets the first one.
      * If you want to get multiple entries, use database-collection, or database-table!
      *
      * @param tableName   name of the table as string
@@ -439,7 +439,7 @@ public final class Core {
 
     /**
      * Gets a database-collection from the specified table with the specified value in the column.
-     * This gets all of the entries that match the description. If you're searching for one single entry, use database-entry!
+     * This gets all the entries that match the description. If you're searching for one single entry, use database-entry!
      *
      * @param tableName   name of the table as string
      * @param searchValue value according to which the entries are filtered in a specific column
@@ -632,7 +632,7 @@ public final class Core {
     }
 
     /**
-     * Gets an random integer with the given length.
+     * Gets a random integer with the given length.
      *
      * @param chars number of chars
      * @return random integer
@@ -667,7 +667,7 @@ public final class Core {
     }
 
     /**
-     * Verifies that the given string is numeric and can be converted to an double.
+     * Verifies that the given string is numeric and can be converted to a double.
      *
      * @param string string to verify
      * @return true, if the given string is numeric
@@ -715,7 +715,7 @@ public final class Core {
     }
 
     /**
-     * Creates new gui-builder based on a existing inventory.
+     * Creates new gui-builder based on an existing inventory.
      *
      * @param inventory inventory on which the gui-builder should base on
      * @return new gui-builder
@@ -1124,7 +1124,7 @@ public final class Core {
     }
 
     /**
-     * Creates a menu which can be send to users chat.
+     * Creates a menu which can be sent to users chat.
      *
      * @param options clickable options (message and clickable)
      * @return new chat menu
@@ -1134,7 +1134,7 @@ public final class Core {
     }
 
     /**
-     * Creates a menu which can be send to users chat.
+     * Creates a menu which can be sent to users chat.
      *
      * @return new chat menu
      */
