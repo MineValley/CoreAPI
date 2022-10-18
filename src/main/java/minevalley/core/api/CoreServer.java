@@ -9,6 +9,7 @@ import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
+import minevalley.core.api.enums.InterfaceItem;
 import minevalley.core.api.misc.Weather;
 import minevalley.core.api.modulepipeline.Container;
 import minevalley.core.api.modulepipeline.PipelineReceiver;
@@ -27,6 +28,7 @@ import minevalley.core.api.utils.gui.GuiItem;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
+import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -194,6 +196,8 @@ public interface CoreServer {
     GuiItem createGuiItem(ItemStack itemStack, Consumer<OnlineUser> consumer);
 
     GuiItem createAdvancedGuiItem(ItemStack itemStack, BiConsumer<OnlineUser, ClickType> consumer);
+
+    GuiItem createAdvancedGuiItem(ItemStack itemStack, TriConsumer<OnlineUser, ClickType, Inventory> consumer);
 
     Countdown createCountdown();
 

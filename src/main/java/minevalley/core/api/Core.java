@@ -33,6 +33,7 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
+import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -814,6 +815,42 @@ public final class Core {
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(InterfaceItem item, BiConsumer<OnlineUser, ClickType> consumer) {
+        return server.createAdvancedGuiItem(item.toItemStack(), consumer);
+    }
+
+    /**
+     * Creates new gui-item, based on a specific itemstack with a specific callback.
+     * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
+     *
+     * @param itemStack item which should be displayed in the inventory
+     * @param consumer  consumer which gets calles if a player clicks the item
+     * @return gui-item-object to add to the gui-builder
+     */
+    public static GuiItem createGuiItem(ItemStack itemStack, TriConsumer<OnlineUser, ClickType, Inventory> consumer) {
+        return server.createAdvancedGuiItem(itemStack, consumer);
+    }
+
+    /**
+     * Creates new gui-item, based on a specific itemstack with a specific callback.
+     * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
+     *
+     * @param itemBuilder item which should be displayed in the inventory
+     * @param consumer    consumer which gets calles if a player clicks the item
+     * @return gui-item-object to add to the gui-builder
+     */
+    public static GuiItem createGuiItem(ItemBuilder itemBuilder, TriConsumer<OnlineUser, ClickType, Inventory> consumer) {
+        return server.createAdvancedGuiItem(itemBuilder.build(), consumer);
+    }
+
+    /**
+     * Creates new gui-item, based on a specific itemstack with a specific callback.
+     * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
+     *
+     * @param item     item which should be displayed in the inventory
+     * @param consumer consumer which gets calles if a player clicks the item
+     * @return gui-item-object to add to the gui-builder
+     */
+    public static GuiItem createGuiItem(InterfaceItem item, TriConsumer<OnlineUser, ClickType, Inventory> consumer) {
         return server.createAdvancedGuiItem(item.toItemStack(), consumer);
     }
 
