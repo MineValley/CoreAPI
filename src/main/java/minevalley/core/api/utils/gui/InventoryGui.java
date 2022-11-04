@@ -11,7 +11,7 @@ public interface InventoryGui {
 
     InventoryGui open(OnlineUser user);
 
-    void updateTitle(OnlineUser user, String title);
+    void updateTitle(String title);
 
     InventoryGui update();
 
