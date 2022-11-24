@@ -1,13 +1,12 @@
 package minevalley.core.api.regions;
 
-
 import minevalley.core.api.CoreServer;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 
 public final class RegionManager {
 
-    public static CoreServer server;
+    private static CoreServer server;
 
     public RegionManager(CoreServer coreServer) {
         server = coreServer;
@@ -31,6 +30,26 @@ public final class RegionManager {
      */
     public static Region getRegion(Location location) {
         return server.getRegion(location);
+    }
+
+    public static Region getRegion(Block block) {
+        return server.getRegion(block.getLocation());
+    }
+
+    public static Residence getResidence(int id) {
+        return server.getResidence(id);
+    }
+
+    public static Residence getResidence(Region region) {
+        return server.getResidence(region);
+    }
+
+    public static Residence getResidence(Location location) {
+        return server.getResidence(getRegion(location));
+    }
+
+    public static Residence getResidence(Block block) {
+        return server.getResidence(getRegion(block));
     }
 
     /**

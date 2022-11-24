@@ -25,9 +25,9 @@ public interface Region {
     int getPriority();
 
     /**
-     * Gets a list with the cuboids that this region lies on.
+     * Gets a list with the chunks that this region lies on.
      *
-     * @return list of cuboids
+     * @return list of chunks
      */
     Chunk[] getChunks();
 }

@@ -14,10 +14,7 @@ import minevalley.core.api.misc.Weather;
 import minevalley.core.api.modulepipeline.Container;
 import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
-import minevalley.core.api.regions.Area;
-import minevalley.core.api.regions.Boundary;
-import minevalley.core.api.regions.FakeBlock;
-import minevalley.core.api.regions.Region;
+import minevalley.core.api.regions.*;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
@@ -234,6 +231,10 @@ public interface CoreServer {
     Region getRegion(int id);
 
     Region getRegion(Location location);
+
+    Residence getResidence(int id);
+
+    Residence getResidence(Region region);
 
     Area getAreaFromString(String rawArea);
 
