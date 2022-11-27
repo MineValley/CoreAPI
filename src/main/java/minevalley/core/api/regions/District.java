@@ -1,6 +1,9 @@
 package minevalley.core.api.regions;
 
+import minevalley.core.api.OnlineUser;
 import org.bukkit.Chunk;
+
+import java.util.List;
 
 public interface District {
 
@@ -11,4 +14,6 @@ public interface District {
     String getName();
 
     String getDescription();
+
+    List<OnlineUser> getUsersInDistrict();
 }

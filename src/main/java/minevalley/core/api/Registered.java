@@ -2,7 +2,11 @@ package minevalley.core.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.mail.Parcel;
+import minevalley.core.api.phone.Telephone;
+import minevalley.core.api.regions.Residence;
 
 import java.util.List;
 
@@ -54,11 +58,34 @@ public interface Registered {
     Type getType();
 
     /**
-     * Gets the registered bank account.
-     *
-     * @return bank account
+     * Gets the bank account that is associated with this registered.
+     * Departments may not have their own bank account. If this registered is a department without its own bank account,
+     * this method will return the bank account of the departments company/organisation.
      */
     BankAccount getBankAccount();
+
+    /**
+     * Gets the address of this registered.
+     * <br>
+     * This might be null!
+     * <br>
+     * If this registered is a department without its own address, this will return the groups address.
+     * If this registered is a group without its own address, this will return the address of the owner.
+     */
+    Residence getAddress();
+
+    Telephone getTelephone();
+
+    /**
+     * Delivers the given parcel securely. If this registered doesn't have an address, it is sent to...
+     * <br>
+     * if registered is a department: to the associated group.
+     * <br>
+     * if registered is a group: to the group's owner.
+     * <br>
+     * if registered is a user: to a parcel shop.
+     */
+    void deliverParcel(Parcel parcel);
 
     List<Property> getProperties();
 
@@ -81,8 +108,8 @@ public interface Registered {
      */
     String toString();
 
-    @AllArgsConstructor
     @Getter
+    @RequiredArgsConstructor
     enum Type {
         USER("U"),
         GROUP("G"),

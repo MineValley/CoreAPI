@@ -1,5 +1,8 @@
 package minevalley.core.api.regions;
 
+import org.bukkit.Location;
+import org.bukkit.block.Block;
+
 public interface PlotMerge {
 
     /**
@@ -11,6 +14,11 @@ public interface PlotMerge {
      * All plots that are merged in this PlotMerge including the main plot
      */
     Plot[] getPlots();
+
+    /**
+     * When plots are merged, there are tiny subregions between both plots that also need be added to the plotmerge.
+     */
+    Region[] getMergeRegions();
 
     /**
      * Merges this plot with this PlotMerge.
@@ -25,10 +33,11 @@ public interface PlotMerge {
      * If the plot to merge with is also merged with/to other plots, all plots that were merged to the plot to merge with
      * will be added to the new main plot. Solely if the plot to merge with is already merged and this one is not, the other plots main plot is used.
      * <p>
-     *     This results in a behaviour of this method,
-     *     in which its insignificant from which of both plots this method is called,
-     *     as long as only one of both plots has already been merged.
+     * This results in a behaviour of this method,
+     * in which its insignificant from which of both plots this method is called,
+     * as long as only one of both plots has already been merged.
      * </p>
+     *
      * @param plot Plot to merge with
      */
     void merge(Plot plot);
@@ -44,4 +53,14 @@ public interface PlotMerge {
      * will be added to a new PlotMerge with the unmerged plot as main plot.
      */
     void unmerge(Plot plot);
+
+    /**
+     * Checks whether the given block is part of this plotmerge region.
+     */
+    boolean contains(Block block);
+
+    /**
+     * Checks whether the given location is part of this plotmerge region.
+     */
+    boolean contains(Location location);
 }

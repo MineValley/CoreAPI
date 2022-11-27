@@ -1,15 +1,65 @@
 package minevalley.core.api.regions;
 
-import jdk.nashorn.internal.ir.Block;
+import minevalley.core.api.mail.Parcel;
+import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 public interface Mailbox {
 
+    /**
+     * The mailbox itself consists of a head placed outside the resident.
+     * It is clickable and is used to display and empty the received mail just as add new letters.
+     */
     Block getBlock();
 
+    /**
+     * There may be some blocks around the mailbox, that are directly connected to it. Such as fences that are used as a post.
+     * If the mailbox is removed, these blocks will be replaced with air. If the mailbox is then placed again,
+     * those blocks will be replaced with their representative area in the shadow world.
+     */
+    Area getConnectedBlocks();
+
+    /**
+     * This gets a copy of the list of all contents, that are already put into the mailbox by mailmen or other players.
+     * Users with access-permission can collect those contents.
+     * Items in this array haven't been collected so far.
+     * Since this is a copy of the original list, changes on the array don't have any influence on ingame actions.
+     * use the add(), clear() and remove() methods.
+     */
     ItemStack[] getContents();
 
+    /**
+     * Adds a new item to this mailbox. It will be added to the getContents-array.
+     */
     void add(ItemStack itemStack);
 
+    /**
+     * Adds a parcel to this mailbox. It's itemstack will be added to the getContents-array.
+     */
+    void add(Parcel parcel);
+
+    /**
+     * Removes a specific item from the mailboxe content list.
+     */
+    void remove(ItemStack itemStack);
+
+    /**
+     * Removes a specific parcel from the mailbox content list.
+     */
+    void remove(Parcel parcel);
+
+    /**
+     * This clears the whole contents list. Regardless of the previous content, the mailbox is now empty.
+     */
     void clear();
+
+    /**
+     * Replaces the mailbox head such as the connected blocks with air.
+     */
+    void unplace();
+
+    /**
+     * Replaces the mailbox head such as the connected blocks with their representative blocks in the shadow world.
+     */
+    void place();
 }

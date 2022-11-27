@@ -2,6 +2,8 @@ package minevalley.core.api.regions;
 
 import org.bukkit.block.Block;
 
+import java.util.List;
+
 public interface Area {
 
     /**
@@ -17,6 +19,10 @@ public interface Area {
      * @return second location of this area
      */
     Block getSecondLocation();
+
+    List<Block> getBlocks();
+
+    boolean contains(Block block);
 
     /**
      * Converts this area to a string

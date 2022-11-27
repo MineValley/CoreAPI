@@ -20,7 +20,6 @@ public interface FakeBlock {
      */
     void hide(Player... players);
 
-
     /**
      * Shows the block to specific users.
      *

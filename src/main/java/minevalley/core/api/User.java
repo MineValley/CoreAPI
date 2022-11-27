@@ -1,6 +1,5 @@
 package minevalley.core.api;
 
-import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.Education;
 import minevalley.core.api.enums.Purchase;
@@ -31,13 +30,6 @@ public interface User extends Registered {
     String getId();
 
     String getName();
-
-    /**
-     * Gets the id of the users address.
-     *
-     * @return id of users address
-     */
-    int getAddress();
 
     /**
      * Gets the head of this user.

@@ -39,7 +39,6 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
@@ -1400,6 +1399,30 @@ public final class Core {
 
     public static Hologram createHologram(Location loc, boolean visibleToEveryone, String... lines) {
         return server.createHologram(loc, visibleToEveryone, lines);
+    }
+
+    public static String itemStackToString(ItemStack itemStack) {
+        return server.itemStackToString(itemStack);
+    }
+
+    public static ItemStack itemStackFromString(String itemStack) {
+        return server.itemStackFromString(itemStack);
+    }
+
+    public static String locationToString(Location location) {
+        return server.locationToString(location);
+    }
+
+    public static Location locationFromString(String location) {
+        return server.locationFromString(location);
+    }
+
+    public static String blockToString(Block block) {
+        return server.blockToString(block);
+    }
+
+    public static Block blockFromString(String block) {
+        return server.blockFromString(block);
     }
 
     @Getter

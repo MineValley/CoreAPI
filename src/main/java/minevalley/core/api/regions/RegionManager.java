@@ -64,6 +64,13 @@ public final class RegionManager {
     }
 
     /**
+     * Gets an area object with only one block.
+     */
+    public static Area getAreaOfBlock(Block block) {
+        return server.getArea(block, block);
+    }
+
+    /**
      * Gets the area that is represented by a specific string.
      *
      * @param rawArea area as string

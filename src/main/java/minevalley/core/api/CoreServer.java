@@ -289,4 +289,17 @@ public interface CoreServer {
     CarBarrier createCarBarrier(Location loc, int rotation, List<Block> barrierBlocks);
 
     Hologram createHologram(Location loc, boolean visibleToEveryone, String... lines);
+
+    String itemStackToString(ItemStack itemStack);
+
+    ItemStack itemStackFromString(String itemStack);
+
+    String locationToString(Location location);
+
+    Location locationFromString(String location);
+
+    String blockToString(Block block);
+
+    Block blockFromString(String block);
+
 }

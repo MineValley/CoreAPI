@@ -16,7 +16,6 @@ public abstract class ResidenceSign {
     public abstract void remove();
 
     public enum Direction {
-        FLOOR,
         NORTH,
         EAST,
         SOUTH,

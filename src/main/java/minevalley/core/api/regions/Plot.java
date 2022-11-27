@@ -33,19 +33,22 @@ public interface Plot extends Residence {
      */
     void merge(Plot plot);
 
-    boolean payElectricityCosts(BankAccount account);
-
-    BankAccount getOwnersBankAccount();
-
-    void changeOwnersBankAccount(@NonNull BankAccount account);
-
+    /**
+     * Sets this plot open for sale.
+     *
+     * @param price the price has to be a positive integer
+     */
     void openForSale(int price);
 
+    /**
+     * Transfers this plot to the new owner and transfers the given price to the then owners bank account.
+     * <br>
+     * If the plot wasn't for sale or is locked, this method does nothing!
+     *
+     * @param registered new owner
+     * @param account    new owners bank account
+     * @return true, if the buying-process was successful
+     */
     boolean buy(@NonNull Registered registered, @NonNull BankAccount account);
 
-    /**
-     * Transmits this plot to another owner. This method should never be called to sell the plot.
-     * It only changes the given parameters. No money is transferred. This plots worth remains unchanged.
-     */
-    void transmit(@NonNull Registered registered, @NonNull BankAccount account);
 }
