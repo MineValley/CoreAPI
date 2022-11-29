@@ -124,7 +124,7 @@ public enum InterfaceItem {
 
     DIGIT_9(25),
 
-    COLUMN(26);
+    COLON(26);
 
 
     private final Object object;
