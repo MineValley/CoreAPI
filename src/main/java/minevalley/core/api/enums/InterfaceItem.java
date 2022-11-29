@@ -82,7 +82,7 @@ public enum InterfaceItem {
     ARROWS(11),
 
     /**
-     * Hides the selected slot and displays the background of an button underneath.
+     * Hides the selected slot and displays the background of a button underneath.
      */
     BUTTON(12),
 
@@ -134,7 +134,7 @@ public enum InterfaceItem {
         assert digit >= 0;
         assert digit <= 9;
         return Arrays.stream(InterfaceItem.values()).filter(interfaceItem -> interfaceItem.object instanceof Integer)
-                .filter(interfaceItem -> ((int) interfaceItem.object) == 16 + digit).findFirst().orElse(null);
+                .filter(interfaceItem -> (int) interfaceItem.object == 16 + digit).findFirst().orElse(null);
     }
 
     /**
