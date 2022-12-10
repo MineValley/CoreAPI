@@ -2,7 +2,7 @@ package minevalley.core.api.vehicles;
 
 public interface VehicleBrand {
 
-    int getID();
+    int getId();
 
     String getName();
 
