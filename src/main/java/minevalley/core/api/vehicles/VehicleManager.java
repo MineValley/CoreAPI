@@ -103,6 +103,13 @@ public final class VehicleManager {
         return manager.pickUpFromDepot(id, location, orientation);
     }
 
+    /**
+     * Gets the brand with given id;
+     */
+    public static VehicleBrand getBrand(int id) {
+        return manager.getBrand(id);
+    }
+
     public interface Manager {
 
         Vehicle getVehicle(OnlineUser user);
@@ -118,5 +125,7 @@ public final class VehicleManager {
         Vehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registered registered, Location location, BlockFace orientation);
 
         Vehicle pickUpFromDepot(int id, Location location, BlockFace orientation);
+
+        VehicleBrand getBrand(int id);
     }
 }
