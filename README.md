@@ -7,13 +7,13 @@ We do our best to update this documentary. There's no other source of informatio
 
 > **README.md**:
 >
-> latest change: _09.12.2022_
+> latest change: _10.12.2022_
 
 > **Core API**:
 >
-> version: _1.186_
+> version: _1.187_
 >
-> latest change: _09.12.2022_
+> latest change: _10.12.2022_
 
 ## Changelog (v1.36)
 Here you can find the newest updates to this api.
