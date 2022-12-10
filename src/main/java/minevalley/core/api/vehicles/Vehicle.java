@@ -53,4 +53,16 @@ public interface Vehicle {
     void addFuel(double fuelInLiter);
 
     int getSpeed();
+
+    ParkingTicket getParkingTicket();
+
+    void addParkingTicket(ParkingTicket ticket);
+
+    void removeParkingTicket();
+
+    Repentance getRepentance();
+
+    void addRepentance(Repentance repentance);
+
+    void removeRepentance();
 }
