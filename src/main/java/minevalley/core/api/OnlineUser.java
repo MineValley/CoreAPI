@@ -11,9 +11,13 @@ import minevalley.core.api.enums.MessageType;
 import minevalley.core.api.enums.TeamRank;
 import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
+import minevalley.core.api.vehicles.Vehicle;
+import minevalley.core.api.vehicles.VehicleManager;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import java.util.function.Consumer;
@@ -462,6 +466,13 @@ public interface OnlineUser extends User {
     void resetNavigationTarget();
 
     void updateLatestJoin();
+
+    default Vehicle getVehicle() {
+        final Entity vehicle = getPlayer().getVehicle();
+        if (vehicle == null) return null;
+        if (!(vehicle instanceof ArmorStand)) return null;
+        return VehicleManager.getVehicle((ArmorStand) vehicle);
+    }
 
     @Getter
     @Setter
