@@ -1,6 +1,7 @@
 package minevalley.core.api.vehicles;
 
 import minevalley.core.api.OnlineUser;
+import minevalley.core.api.User;
 
 public interface ParkingTicket {
 
@@ -8,9 +9,13 @@ public interface ParkingTicket {
 
     long getStartTime();
 
-    int getPriceAdd();
+    int getPricePerHour();
 
-    int getPriceMultiplier();
+    int getPricePerDay();
+
+    User getDriver();
+
+    void tow();
 
     boolean pay(OnlineUser user);
 }
