@@ -214,6 +214,8 @@ public interface CoreServer {
 
     ItemBuilder createItem(String url);
 
+    ItemBuilder createItem(String value, String signature);
+
     Inventory getInventoryFromString(String inventory);
 
     String getStringFromInventory(Inventory inventory);

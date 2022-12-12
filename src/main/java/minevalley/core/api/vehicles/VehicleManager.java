@@ -3,6 +3,7 @@ package minevalley.core.api.vehicles;
 import lombok.Setter;
 import minevalley.core.api.OnlineUser;
 import minevalley.core.api.Registered;
+import minevalley.core.api.User;
 import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.ArmorStand;
@@ -104,10 +105,29 @@ public final class VehicleManager {
     }
 
     /**
-     * Gets the brand with given id;
+     * Gets the brand with given id.
      */
     public static VehicleBrand getBrand(int id) {
         return manager.getBrand(id);
+    }
+
+    /**
+     * Creates new repentance to add to vehicle.
+     */
+    public static Repentance createRepentance(User officer, String message) {
+        return manager.createRepentance(officer, message);
+    }
+
+    /**
+     * Creates new parking ticket to add to vehicle.
+     *
+     * @param carParkName  name of the car park
+     * @param pricePerHour price in cents
+     * @param pricePerDay  price in cents
+     * @param driver       current driver
+     */
+    public static ParkingTicket createParkingTicket(String carParkName, int pricePerHour, int pricePerDay, User driver) {
+        return manager.createParkingTicket(carParkName, pricePerHour, pricePerDay, driver);
     }
 
     public interface Manager {
@@ -127,5 +147,9 @@ public final class VehicleManager {
         Vehicle pickUpFromDepot(int id, Location location, BlockFace orientation);
 
         VehicleBrand getBrand(int id);
+
+        Repentance createRepentance(User officer, String message);
+
+        ParkingTicket createParkingTicket(String carParkName, int pricePerHour, int pricePerDay, User driver);
     }
 }

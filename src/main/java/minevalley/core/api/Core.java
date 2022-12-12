@@ -1041,6 +1041,10 @@ public final class Core {
         return server.createItem(uniqueId);
     }
 
+    public static ItemBuilder createItem(String value, String signature) {
+        return server.createItem(value, signature);
+    }
+
     /**
      * Creates new item-builder out of a custom head, based on its link.
      * <p>
