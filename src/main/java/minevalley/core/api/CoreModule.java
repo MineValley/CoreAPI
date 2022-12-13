@@ -16,7 +16,6 @@ public abstract class CoreModule {
         this.description = Objects.requireNonNull(getClass().getAnnotation(Description.class),
                 "Description-Annotation nicht vorhanden!");
         new Core(server);
-        new RegionManager(server);
     }
 
     /**
