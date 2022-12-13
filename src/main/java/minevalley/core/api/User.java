@@ -285,4 +285,12 @@ public interface User extends Registered {
     long getLatestJoin();
 
     String getLatestJoinFormatted();
+
+    int getTutorialStep();
+
+    void setTutorialStep(int step);
+
+    default boolean isInTutorial() {
+        return getTutorialStep() != -1;
+    }
 }
