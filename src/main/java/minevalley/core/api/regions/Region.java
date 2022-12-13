@@ -23,12 +23,6 @@ public interface Region {
     Area[] getAreas();
 
     /**
-     * Gets this regions priority.
-     * @return priority as integer
-     */
-    int getPriority();
-
-    /**
      * Gets a list with the chunks that this region lies on.
      *
      * @return list of chunks
@@ -41,7 +35,12 @@ public interface Region {
 
     void kickAllUsers(Location target);
 
-    void allowEntering(boolean allow);
+    void setAllowEnter(boolean allow);
 
     boolean isAllowedToEnter();
+
+    /**
+     * Could be null!
+     */
+    Residence getResidence();
 }

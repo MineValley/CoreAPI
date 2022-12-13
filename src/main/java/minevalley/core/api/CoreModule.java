@@ -1,7 +1,6 @@
 package minevalley.core.api;
 
 import lombok.Getter;
-import minevalley.core.api.regions.RegionManager;
 
 import java.util.Objects;
 

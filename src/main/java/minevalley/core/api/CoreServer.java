@@ -9,7 +9,6 @@ import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
-import minevalley.core.api.enums.InterfaceItem;
 import minevalley.core.api.misc.Weather;
 import minevalley.core.api.modulepipeline.Container;
 import minevalley.core.api.modulepipeline.PipelineReceiver;
@@ -232,11 +231,13 @@ public interface CoreServer {
 
     Region getRegion(int id);
 
-    Region getRegion(Location location);
+    List<Region> getRegions(Block block);
 
     Residence getResidence(int id);
 
     Residence getResidence(Region region);
+
+    Residence getResidence(Block block);
 
     Area getAreaFromString(String rawArea);
 
