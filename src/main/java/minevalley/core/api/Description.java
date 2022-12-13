@@ -13,4 +13,6 @@ public @interface Description {
     String[] authors();
 
     String[] dependencies() default "";
+
+    int loadingPriority() default 0;
 }
