@@ -293,4 +293,10 @@ public interface User extends Registered {
     default boolean isInTutorial() {
         return getTutorialStep() != -1;
     }
+
+    List<Integer> getInstalledSmartApps();
+
+    void installSmartApp(int id);
+
+    void uninstallSmartApp(int id);
 }
