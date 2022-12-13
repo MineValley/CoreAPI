@@ -294,9 +294,9 @@ public interface User extends Registered {
         return getTutorialStep() != -1;
     }
 
-    List<Integer> getInstalledSmartApps();
+    List<String> getInstalledSmartApps();
 
-    void installSmartApp(int id);
+    void installSmartApp(String systemName);
 
-    void uninstallSmartApp(int id);
+    void uninstallSmartApp(String systemName);
 }
