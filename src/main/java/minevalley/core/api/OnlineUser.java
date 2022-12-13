@@ -474,6 +474,8 @@ public interface OnlineUser extends User {
         return VehicleManager.getVehicle((ArmorStand) vehicle);
     }
 
+    void checkRegistration();
+
     @Getter
     @Setter
     @AllArgsConstructor
