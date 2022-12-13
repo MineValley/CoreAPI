@@ -11,7 +11,7 @@ We do our best to update this documentary. There's no other source of informatio
 
 > **Core API**:
 >
-> version: _1.198_
+> version: _1.199_
 >
 > latest change: _13.12.2022_
 
