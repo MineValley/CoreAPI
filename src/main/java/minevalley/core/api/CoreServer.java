@@ -237,8 +237,6 @@ public interface CoreServer {
 
     Residence getResidence(Region region);
 
-    Residence getResidence(Block block);
-
     Area getAreaFromString(String rawArea);
 
     Area getArea(Block loc1, Block loc2);
