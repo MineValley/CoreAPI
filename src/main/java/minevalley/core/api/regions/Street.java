@@ -1,5 +1,7 @@
 package minevalley.core.api.regions;
 
+import jdk.nashorn.internal.ir.Block;
+
 public interface Street {
 
     /**
@@ -16,4 +18,6 @@ public interface Street {
      * Get the description of this street. Not every street does have a description. If the street doesn't have a description, this is null.
      */
     String getDescription();
+
+    Block[] getAnchorPoints();
 }
