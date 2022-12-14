@@ -243,6 +243,10 @@ public interface CoreServer {
 
     List<District> getDistricts();
 
+    Street getStreet(int id);
+
+    District getDistrict(int id);
+
     Area getAreaFromString(String rawArea);
 
     Area getArea(Block loc1, Block loc2);

@@ -1504,6 +1504,14 @@ public final class Core {
         return server.getDistricts();
     }
 
+    public static Street getStreet(int id) {
+        return server.getStreet(id);
+    }
+
+    public static District getDistrict(int id) {
+        return server.getDistrict(id);
+    }
+
     /**
      * Gets an area object with the given locations.
      *
