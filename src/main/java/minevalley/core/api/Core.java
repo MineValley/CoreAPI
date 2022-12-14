@@ -57,6 +57,7 @@ import java.time.DayOfWeek;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public final class Core {
 
@@ -1459,12 +1460,36 @@ public final class Core {
         return server.getResidence(region);
     }
 
-    public static Residence getResidence(Location location) {
-        return getResidence(location.getBlock());
+    public static List<Residence> getResidences(Location location) {
+        return getResidences(location.getBlock());
     }
 
-    public static Residence getResidence(Block block) {
-        return server.getResidence(block);
+    public static List<Residence> getResidences(Block block) {
+        return getRegions(block).stream().map(Core::getResidence).filter(Objects::nonNull).collect(Collectors.toList());
+    }
+
+    public static Residence getDominantResidence(Location location) {
+        return getDominantResidence(location.getBlock());
+    }
+
+    public static Residence getDominantResidence(Block block) {
+        return Optional.ofNullable((Residence) getApartment(block)).orElse(getPlot(block));
+    }
+
+    public static Plot getPlot(Location location) {
+        return getPlot(location.getBlock());
+    }
+
+    public static Plot getPlot(Block block) {
+        return (Plot) getResidences(block).stream().filter(r -> r instanceof Plot).findFirst().orElse(null);
+    }
+
+    public static Apartment getApartment(Location location) {
+        return getApartment(location.getBlock());
+    }
+
+    public static Apartment getApartment(Block block) {
+        return (Apartment) getResidences(block).stream().filter(r -> r instanceof Apartment).findFirst().orElse(null);
     }
 
     /**
