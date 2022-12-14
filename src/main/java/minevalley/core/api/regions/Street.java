@@ -1,6 +1,7 @@
 package minevalley.core.api.regions;
 
-import jdk.nashorn.internal.ir.Block;
+
+import org.bukkit.block.Block;
 
 public interface Street {
 
@@ -20,4 +21,8 @@ public interface Street {
     String getDescription();
 
     Block[] getAnchorPoints();
+
+    void addAnchorPoint(Block block);
+
+    void removeAnchorPoint(Block block);
 }
