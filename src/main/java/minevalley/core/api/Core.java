@@ -32,10 +32,7 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import org.apache.logging.log4j.util.TriConsumer;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -1510,6 +1507,18 @@ public final class Core {
 
     public static District getDistrict(int id) {
         return server.getDistrict(id);
+    }
+
+    public static District getDistrict(Chunk chunk) {
+        return server.getDistrict(chunk);
+    }
+
+    public static District getDistrict(Block block) {
+        return getDistrict(block.getChunk());
+    }
+
+    public static District getDistrict(Location location) {
+        return getDistrict(location.getChunk());
     }
 
     /**

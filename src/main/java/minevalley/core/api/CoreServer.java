@@ -25,6 +25,7 @@ import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import org.apache.logging.log4j.util.TriConsumer;
+import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -246,6 +247,8 @@ public interface CoreServer {
     Street getStreet(int id);
 
     District getDistrict(int id);
+
+    District getDistrict(Chunk chunk);
 
     Area getAreaFromString(String rawArea);
 
