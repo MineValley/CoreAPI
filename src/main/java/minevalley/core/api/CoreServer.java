@@ -237,6 +237,12 @@ public interface CoreServer {
 
     Residence getResidence(Region region);
 
+    List<Residence> getLoadedResidences();
+
+    List<Street> getStreets();
+
+    List<District> getDistricts();
+
     Area getAreaFromString(String rawArea);
 
     Area getArea(Block loc1, Block loc2);

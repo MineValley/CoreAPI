@@ -1492,6 +1492,18 @@ public final class Core {
         return (Apartment) getResidences(block).stream().filter(r -> r instanceof Apartment).findFirst().orElse(null);
     }
 
+    public static List<Residence> getLoadedResidences() {
+        return server.getLoadedResidences();
+    }
+
+    public static List<Street> getStreets() {
+        return server.getStreets();
+    }
+
+    public static List<District> getDistricts() {
+        return server.getDistricts();
+    }
+
     /**
      * Gets an area object with the given locations.
      *
