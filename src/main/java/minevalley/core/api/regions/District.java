@@ -16,4 +16,8 @@ public interface District {
     String getDescription();
 
     List<OnlineUser> getUsersInDistrict();
+
+    void addChunk(Chunk chunk);
+
+    void removeChunk(Chunk chunk);
 }
