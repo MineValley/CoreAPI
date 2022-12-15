@@ -21,4 +21,6 @@ public interface Apartment extends Residence {
     void changeRent(int rent);
 
     boolean isClearedWhenUnrented();
+
+    ApartmentBlock getBlock();
 }
