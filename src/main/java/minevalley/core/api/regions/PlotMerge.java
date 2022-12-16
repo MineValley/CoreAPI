@@ -63,4 +63,7 @@ public interface PlotMerge {
      * Checks whether the given location is part of this plotmerge region.
      */
     boolean contains(Location location);
+
+    // setup-method
+    void addPlot(Region mergeRegion, Plot... plots);
 }

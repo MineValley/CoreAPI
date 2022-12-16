@@ -29,6 +29,7 @@ import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
@@ -232,11 +233,31 @@ public interface CoreServer {
 
     Region getRegion(int id);
 
+    Region createRegion(List<Area> areas);
+
     List<Region> getRegions(Block block);
 
     Residence getResidence(int id);
 
     Residence getResidence(Region region);
+
+    Plot createPlot(Region region, Street street, Registered owner, int fertility, Sign plotSign, Block mailboxBlock,
+                    Area mailboxConnectedBlocks, Location teleportLocation);
+
+    Apartment createApartment(Region region, Registered landlord, int fertility, int rent, Sign apartmentSign,
+                              Block mailbox);
+
+    Apartment createApartment(Region region, ApartmentBlock block, int rent, Sign apartmentSign, Block mailbox);
+
+    ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registered landlord, int fertility,
+                                        Block mailboxBlock, Area mailboxConnectedBlocks, Sign apartmentBlockSign,
+                                        int maxFloors, int defaultFloor, Area defaultFloorShadow,
+                                        Area roofShadow, Area constructionFloorShadow, Vector constructionWokerLocation,
+                                        List<Location> craftsmanLocations, Sign bellSign);
+
+    ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registered landlord, int fertility,
+                                        Block mailboxBlock, Area mailboxConnectedBlocks, Sign apartmentBlockSign,
+                                        int floors, List<Location> craftsmanLocations, Sign bellSign);
 
     List<Residence> getLoadedResidences();
 
@@ -249,6 +270,8 @@ public interface CoreServer {
     District getDistrict(int id);
 
     District getDistrict(Chunk chunk);
+
+    RadioMast createRadioMast(String name, Location location, int range);
 
     Area getAreaFromString(String rawArea);
 

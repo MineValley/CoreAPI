@@ -13,12 +13,16 @@ public interface Plot extends Residence {
      */
     int getWorth();
 
+    void setWorth();
+
     /**
      * The sale defines the price this plot is sold for.
      * <br>
      * The sale price is set to -1 if the plot isn't for sale.
      */
     int getSale();
+
+    int getTaxes();
 
     /**
      * The PlotMerge defines the way this plot is merged with other plots.
@@ -40,6 +44,8 @@ public interface Plot extends Residence {
      */
     void openForSale(int price);
 
+    void changeBankAccount(BankAccount bankAccount);
+
     /**
      * Transfers this plot to the new owner and transfers the given price to the then owners bank account.
      * <br>
@@ -51,4 +57,5 @@ public interface Plot extends Residence {
      */
     boolean buy(@NonNull Registered registered, @NonNull BankAccount account);
 
+    boolean isLocked();
 }

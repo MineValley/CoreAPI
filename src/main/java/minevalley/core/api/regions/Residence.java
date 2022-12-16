@@ -214,6 +214,10 @@ public interface Residence {
      */
     void resetByTeamler(User teamler);
 
+    default void reset() {
+        resetByTeamler(null);
+    }
+
     /**
      * The electricity costs are increased by heavy machines that are placed.
      * Since the electricity costs are cached and not directly updated to the database,
@@ -239,6 +243,9 @@ public interface Residence {
      * If a user-created apartment lies on two plots with different fertility, the lower fertility is used.
      */
     int getFertility();
+
+    // setup-method
+    void setFertility(int fertility);
 
     /**
      * If there is a termination for a residence, the renter (apartment) oder owner (plot) has to leave the residence.
