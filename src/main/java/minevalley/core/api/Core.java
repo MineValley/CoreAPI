@@ -34,6 +34,7 @@ import net.md_5.bungee.api.chat.HoverEvent;
 import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
@@ -668,7 +669,7 @@ public final class Core {
      * @return true, if the given string is numeric
      */
     public static boolean isDouble(String string) {
-        return server.isInteger(string);
+        return server.isDouble(string);
     }
 
     /**
@@ -1435,6 +1436,10 @@ public final class Core {
         return server.getRegion(id);
     }
 
+    public static Region createRegion(List<Area> areas) {
+        return server.createRegion(areas);
+    }
+
     /**
      * Gets the region in which this location lies in.
      *
@@ -1489,6 +1494,41 @@ public final class Core {
         return (Apartment) getResidences(block).stream().filter(r -> r instanceof Apartment).findFirst().orElse(null);
     }
 
+    public static Plot createPlot(Region region, Street street, Registered owner, int fertility, Sign plotSign,
+                                  Block mailboxBlock, Area mailboxConnectedBlocks, Location teleportLocation) {
+        return server.createPlot(region, street, owner, fertility, plotSign, mailboxBlock, mailboxConnectedBlocks,
+                teleportLocation);
+    }
+
+    public static Apartment createApartment(Region region, Registered landlord, int fertility, int rent,
+                                            Sign apartmentSign, Block mailbox) {
+        return server.createApartment(region, landlord, fertility, rent, apartmentSign, mailbox);
+    }
+
+    public static Apartment createApartment(Region region, ApartmentBlock block, int rent, Sign apartmentSign,
+                                            Block mailbox) {
+        return server.createApartment(region, block, rent, apartmentSign, mailbox);
+    }
+
+    public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registered landlord,
+                                                      int fertility, Block mailboxBlock, Area mailboxConnectedBlocks,
+                                                      Sign apartmentBlockSign, Sign bellSign, int maxFloors,
+                                                      int defaultFloor, Area defaultFloorShadow, List<Area> roofShadows,
+                                                      Area constructionFloorShadow, Vector constructionWorkerLocation,
+                                                      List<Location> craftsmanLocations, Block[] damagedFloorBlocks) {
+        return server.createApartmentBlock(street, teleportLocation, landlord, fertility, mailboxBlock,
+                mailboxConnectedBlocks, apartmentBlockSign, bellSign, maxFloors, defaultFloor, defaultFloorShadow,
+                roofShadows, constructionFloorShadow, constructionWorkerLocation, craftsmanLocations, damagedFloorBlocks);
+    }
+
+    public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registered landlord,
+                                                      int fertility, Block mailboxBlock, Area mailboxConnectedBlocks,
+                                                      Sign apartmentBlockSign, Sign bellSign, int floors,
+                                                      List<Location> craftsmanLocations, Block[] damagedFloorBlocks) {
+        return server.createApartmentBlock(street, teleportLocation, landlord, fertility, mailboxBlock,
+                mailboxConnectedBlocks, apartmentBlockSign, bellSign, floors, craftsmanLocations, damagedFloorBlocks);
+    }
+
     public static List<Residence> getLoadedResidences() {
         return server.getLoadedResidences();
     }
@@ -1519,6 +1559,10 @@ public final class Core {
 
     public static District getDistrict(Location location) {
         return getDistrict(location.getChunk());
+    }
+
+    public static RadioMast createRadioMast(String name, Location location, int range) {
+        return server.createRadioMast(name, location, range);
     }
 
     /**

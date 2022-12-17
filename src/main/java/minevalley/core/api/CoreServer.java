@@ -251,13 +251,13 @@ public interface CoreServer {
 
     ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registered landlord, int fertility,
                                         Block mailboxBlock, Area mailboxConnectedBlocks, Sign apartmentBlockSign,
-                                        int maxFloors, int defaultFloor, Area defaultFloorShadow,
-                                        Area roofShadow, Area constructionFloorShadow, Vector constructionWokerLocation,
-                                        List<Location> craftsmanLocations, Sign bellSign);
+                                        Sign bellSign, int maxFloors, int defaultFloor, Area defaultFloorShadow,
+                                        List<Area> roofShadows, Area constructionFloorShadow, Vector constructionWorkerLocation,
+                                        List<Location> craftsmanLocations, Block[] damagedFloorBlocks);
 
     ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registered landlord, int fertility,
                                         Block mailboxBlock, Area mailboxConnectedBlocks, Sign apartmentBlockSign,
-                                        int floors, List<Location> craftsmanLocations, Sign bellSign);
+                                        Sign bellSign, int floors, List<Location> craftsmanLocations, Block[] damagedFloorBlocks);
 
     List<Residence> getLoadedResidences();
 
