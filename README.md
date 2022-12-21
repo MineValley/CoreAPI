@@ -11,5 +11,6 @@ We do our best to update this documentary. There's no other source of informatio
 >
 > latest change: _17.12.2022_
 
-# Documentation
+
+### Documentation
 There will be comprehensive documentation in the "Wiki" tab
