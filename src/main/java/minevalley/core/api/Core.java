@@ -1537,12 +1537,16 @@ public final class Core {
         return server.getStreets();
     }
 
-    public static List<District> getDistricts() {
-        return server.getDistricts();
-    }
-
     public static Street getStreet(int id) {
         return server.getStreet(id);
+    }
+
+    public static Street createStreet(String name, String description) {
+        return server.createStreet(name, description);
+    }
+
+    public static List<District> getDistricts() {
+        return server.getDistricts();
     }
 
     public static District getDistrict(int id) {

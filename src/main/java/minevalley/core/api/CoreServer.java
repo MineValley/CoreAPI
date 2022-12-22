@@ -263,13 +263,15 @@ public interface CoreServer {
 
     List<Street> getStreets();
 
-    List<District> getDistricts();
-
     Street getStreet(int id);
+
+    Street createStreet(String name, String description);
 
     District getDistrict(int id);
 
     District getDistrict(Chunk chunk);
+
+    List<District> getDistricts();
 
     RadioMast createRadioMast(String name, Location location, int range);
 

@@ -25,6 +25,8 @@ public interface Street {
      */
     String getDescription();
 
+    void remove();
+
     @Setter
     class StreetHelper {
         private static IStreetHelper helper;

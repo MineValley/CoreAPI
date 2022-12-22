@@ -66,4 +66,7 @@ public interface PlotMerge {
 
     // setup-method
     void addPlot(Region mergeRegion, Plot... plots);
+
+    // setup-method
+    void removePlot(Plot plot);
 }

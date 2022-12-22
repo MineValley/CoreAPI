@@ -278,4 +278,10 @@ public interface Residence {
      * All variable values (such as the ones that are changeable in this interface) are updated automatically.
      */
     void updateFromDatabase();
+
+    // setup-method
+    void remove();
+
+    // setup-method
+    void setRegion(Region region);
 }

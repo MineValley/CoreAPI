@@ -41,4 +41,6 @@ public interface ApartmentBlock {
     void setFirstStackingFloor();
 
     int getFloor(Apartment apartment);
+
+    void remove();
 }

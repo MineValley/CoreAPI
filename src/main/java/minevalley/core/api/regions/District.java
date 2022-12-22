@@ -20,4 +20,6 @@ public interface District {
     void addChunk(Chunk chunk);
 
     void removeChunk(Chunk chunk);
+
+    void remove();
 }
