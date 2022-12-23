@@ -22,5 +22,8 @@ public interface Apartment extends Residence {
 
     boolean isClearedWhenUnrented();
 
-    ApartmentBlock getBlock();
+    /**
+     * Is null, when this apartment is not part of an apartment block!
+     */
+    ApartmentBlock getApartmentBlock();
 }

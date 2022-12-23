@@ -5,6 +5,8 @@ import minevalley.core.api.economy.BankAccount;
 
 public interface ApartmentBlock {
 
+    int getId();
+
     Registered getOwner();
 
     void transfer(Registered registered);

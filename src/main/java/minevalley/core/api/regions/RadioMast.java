@@ -3,6 +3,8 @@ package minevalley.core.api.regions;
 import minevalley.core.api.OnlineUser;
 import org.bukkit.Location;
 
+import java.util.List;
+
 public interface RadioMast {
 
     String getName();
@@ -11,7 +13,9 @@ public interface RadioMast {
 
     Location getLocation();
 
-    OnlineUser getConnectedUsers();
+    void changeLocation(Location location);
+
+    List<OnlineUser> getConnectedUsers();
 
     /**
      * Range in percent.

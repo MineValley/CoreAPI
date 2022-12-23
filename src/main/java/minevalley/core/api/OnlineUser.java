@@ -19,6 +19,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.function.Consumer;
 
@@ -476,10 +477,34 @@ public interface OnlineUser extends User {
 
     void checkRegistration();
 
+    void chat(ChatType type, String message);
+
+    default void chat(String message) {
+        chat(ChatType.NORMAL, message);
+    }
+
+    void performCommand(String command);
+
+    boolean addItem(ItemStack item);
+
+    int getAmountOfFreeInventorySlots();
+
+    default boolean hasFreeInventorySlot() {
+        return getAmountOfFreeInventorySlots() != 0;
+    }
+
     @Getter
     @Setter
     @AllArgsConstructor
     class Notice {
         String id, message;
+    }
+
+    enum ChatType {
+        NORMAL,
+        WHISPER,
+        SHOUT,
+        FRACTION_CHAT,
+        ACTION
     }
 }

@@ -1,8 +1,8 @@
 package minevalley.core.api.regions;
 
+import minevalley.core.api.OnlineUser;
 import minevalley.core.api.mail.Parcel;
 import org.bukkit.block.Block;
-import org.bukkit.inventory.ItemStack;
 
 public interface Mailbox {
 
@@ -26,12 +26,7 @@ public interface Mailbox {
      * Since this is a copy of the original list, changes on the array don't have any influence on ingame actions.
      * use the add(), clear() and remove() methods.
      */
-    ItemStack[] getContents();
-
-    /**
-     * Adds a new item to this mailbox. It will be added to the getContents-array.
-     */
-    void add(ItemStack itemStack);
+    Parcel[] getContents();
 
     /**
      * Adds a parcel to this mailbox. It's itemstack will be added to the getContents-array.
@@ -39,14 +34,9 @@ public interface Mailbox {
     void add(Parcel parcel);
 
     /**
-     * Removes a specific item from the mailboxe content list.
-     */
-    void remove(ItemStack itemStack);
-
-    /**
      * Removes a specific parcel from the mailbox content list.
      */
-    void remove(Parcel parcel);
+    void remove(Parcel parcel, OnlineUser user);
 
     /**
      * This clears the whole contents list. Regardless of the previous content, the mailbox is now empty.
@@ -62,4 +52,10 @@ public interface Mailbox {
      * Replaces the mailbox head such as the connected blocks with their representative blocks in the shadow world.
      */
     void place();
+
+    // setup-method
+    void changeBlock(Block block);
+
+    // setup-method
+    void setConnectedBlocks(Area area);
 }
