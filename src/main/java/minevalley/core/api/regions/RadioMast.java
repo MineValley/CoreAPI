@@ -13,6 +13,8 @@ public interface RadioMast {
 
     Location getLocation();
 
+    double distance(Location location);
+
     void changeLocation(Location location);
 
     List<OnlineUser> getConnectedUsers();
