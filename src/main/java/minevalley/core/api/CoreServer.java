@@ -273,7 +273,7 @@ public interface CoreServer {
 
     List<District> getDistricts();
 
-    RadioMast createRadioMast(String name, Location location, int range);
+    RadioMast createRadioMast(String name, Block location, int range);
 
     RadioMast getNearestRadioMast(Location location);
 

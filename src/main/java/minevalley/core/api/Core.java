@@ -1565,7 +1565,7 @@ public final class Core {
         return getDistrict(location.getChunk());
     }
 
-    public static RadioMast createRadioMast(String name, Location location, int range) {
+    public static RadioMast createRadioMast(String name, Block location, int range) {
         return server.createRadioMast(name, location, range);
     }
 
