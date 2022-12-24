@@ -275,6 +275,8 @@ public interface CoreServer {
 
     RadioMast createRadioMast(String name, Location location, int range);
 
+    RadioMast getNearestRadioMast(Location location);
+
     Area getAreaFromString(String rawArea);
 
     Area getArea(Block loc1, Block loc2);

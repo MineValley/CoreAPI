@@ -1569,6 +1569,10 @@ public final class Core {
         return server.createRadioMast(name, location, range);
     }
 
+    public static RadioMast getNearestRadioMast(Location location) {
+        return server.getNearestRadioMast(location);
+    }
+
     /**
      * Gets an area object with the given locations.
      *
