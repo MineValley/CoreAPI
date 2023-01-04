@@ -1,7 +1,11 @@
 package minevalley.core.api.database;
 
+import minevalley.core.api.Registered;
 import org.bukkit.Location;
+import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
+
+import java.sql.Array;
 
 public interface DatabaseEntry {
 
@@ -38,7 +42,7 @@ public interface DatabaseEntry {
      * @param column name of the column
      * @return integer at given column from the selected database entry
      */
-    Integer getInteger(String column);
+    int getInteger(String column);
 
     /**
      * Gets the boolean at the given column.
@@ -46,7 +50,7 @@ public interface DatabaseEntry {
      * @param column name of the column
      * @return boolean at given column from the selected database entry
      */
-    Boolean getBoolean(String column);
+    boolean getBoolean(String column);
 
     /**
      * Gets the double at the given column.
@@ -54,7 +58,39 @@ public interface DatabaseEntry {
      * @param column name of the column
      * @return double at given column from the selected database entry
      */
-    Double getDouble(String column);
+    double getDouble(String column);
+
+    /**
+     * Gets the float at the given column.
+     *
+     * @param column name of the column
+     * @return float at given column from the selected database entry
+     */
+    float getFloat(String column);
+
+    /**
+     * Gets the long at the given column.
+     *
+     * @param column name of the column
+     * @return long at given column from the selected database entry
+     */
+    long getLong(String column);
+
+    /**
+     * Gets the byte at the given column.
+     *
+     * @param column name of the column
+     * @return byte at given column from the selected database entry
+     */
+    byte getByte(String column);
+
+    /**
+     * Gets the array at the given column.
+     *
+     * @param column name of the column
+     * @return array at given column from the selected database entry
+     */
+    Array getArray(String column);
 
     /**
      * Gets the location at the given column (with pitch & yaw).
@@ -63,6 +99,22 @@ public interface DatabaseEntry {
      * @return location at given column from the selected database entry
      */
     Location getLocation(String column);
+
+    /**
+     * Gets the block at the given column.
+     *
+     * @param column name of the column
+     * @return block at given column from the selected database entry
+     */
+    Block getBlock(String column);
+
+    /**
+     * Gets the registered at the given column.
+     *
+     * @param column name of the column
+     * @return registered at given column from the selected database entry
+     */
+    Registered getRegistered(String column);
 
     /**
      * Gets the itemstack at the given column.
