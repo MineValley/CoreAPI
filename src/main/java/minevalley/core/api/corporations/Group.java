@@ -53,17 +53,13 @@ public interface Group extends Registrant {
 
     /**
      * Gets this group's owner.
-     *
-     * @return unique id of owner as string
      */
-    String getOwner();
+    Registrant getOwner();
 
     /**
      * Gets a list of all operators.
-     *
-     * @return list of all operators' unique ids
      */
-    List<String> getOperators();
+    List<Registrant> getOperators();
 
     /**
      * Gets the department, which is markes as default.
@@ -87,9 +83,11 @@ public interface Group extends Registrant {
     void removeMember(User user);
 
     /**
-     * Adds a member with the specific unique id to this group.
+     * Adds a member to this group.
+     * <p>
+     * <b>Note:</b> The user will be added to the default department!
      *
-     * @param uniqueId member to add
+     * @param user member to add
      */
     void addMember(User user);
 
