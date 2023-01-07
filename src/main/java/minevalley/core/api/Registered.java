@@ -1,6 +1,5 @@
 package minevalley.core.api;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.economy.BankAccount;
