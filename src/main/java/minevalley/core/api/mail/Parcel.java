@@ -1,6 +1,6 @@
 package minevalley.core.api.mail;
 
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import org.bukkit.inventory.ItemStack;
 
 public interface Parcel {
@@ -8,12 +8,12 @@ public interface Parcel {
     /**
      * Gets the sender of this parcel.
      */
-    Registered getSender();
+    Registrant getSender();
 
     /**
      * Gets this parcels intended addressee.
      */
-    Registered getTarget();
+    Registrant getTarget();
 
     /**
      * Starts the delivering process for this parcel.

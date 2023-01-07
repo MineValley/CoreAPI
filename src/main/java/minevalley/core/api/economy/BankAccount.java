@@ -1,6 +1,6 @@
 package minevalley.core.api.economy;
 
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import minevalley.core.api.User;
 
 import java.util.List;
@@ -12,7 +12,7 @@ public interface BankAccount {
      *
      * @return holder of this bank account
      */
-    Registered getHolder();
+    Registrant getHolder();
 
     /**
      * Gets this accounts banking id.
@@ -30,18 +30,18 @@ public interface BankAccount {
     double getAmount();
 
     /**
-     * Gets a list of the registered that are permissioned to use this bank account.
+     * Gets a list of the registrant that are permissioned to use this bank account.
      *
-     * @return list of registered
+     * @return list of registrant
      */
-    List<Registered> getPermissioned();
+    List<Registrant> getPermissioned();
 
     /**
-     * Removes a specific permissioned registered.
+     * Removes a specific permissioned registrant.
      *
-     * @param registered registered to remove
+     * @param registrant registrant to remove
      */
-    void removeFromPermissioned(Registered registered);
+    void removeFromPermissioned(Registrant registrant);
 
     /**
      * Gets whether the specific user is permissioned to use this bank account.

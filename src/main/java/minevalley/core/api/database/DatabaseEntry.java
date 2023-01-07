@@ -1,6 +1,6 @@
 package minevalley.core.api.database;
 
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
@@ -109,12 +109,12 @@ public interface DatabaseEntry {
     Block getBlock(String column);
 
     /**
-     * Gets the registered at the given column.
+     * Gets the registrant at the given column.
      *
      * @param column name of the column
-     * @return registered at given column from the selected database entry
+     * @return registrant at given column from the selected database entry
      */
-    Registered getRegistered(String column);
+    Registrant getRegistrant(String column);
 
     /**
      * Gets the itemstack at the given column.

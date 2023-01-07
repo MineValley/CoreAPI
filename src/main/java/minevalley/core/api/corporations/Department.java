@@ -1,12 +1,12 @@
 package minevalley.core.api.corporations;
 
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.CorporatePermission;
 
 import java.util.List;
 
-public interface Department extends Registered {
+public interface Department extends Registrant {
 
     /**
      * Gets this department's id.

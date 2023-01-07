@@ -1,7 +1,7 @@
 package minevalley.core.api.regions;
 
 import lombok.NonNull;
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import minevalley.core.api.economy.BankAccount;
 
 public interface Plot extends Residence {
@@ -51,11 +51,11 @@ public interface Plot extends Residence {
      * <br>
      * If the plot wasn't for sale or is locked, this method does nothing!
      *
-     * @param registered new owner
+     * @param registrant new owner
      * @param account    new owners bank account
      * @return true, if the buying-process was successful
      */
-    boolean buy(@NonNull Registered registered, @NonNull BankAccount account);
+    boolean buy(@NonNull Registrant registrant, @NonNull BankAccount account);
 
     boolean isLocked();
 }

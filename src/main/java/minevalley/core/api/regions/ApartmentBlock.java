@@ -1,15 +1,15 @@
 package minevalley.core.api.regions;
 
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import minevalley.core.api.economy.BankAccount;
 
 public interface ApartmentBlock {
 
     int getId();
 
-    Registered getOwner();
+    Registrant getOwner();
 
-    void transfer(Registered registered);
+    void transfer(Registrant registrant);
 
     BankAccount getOwnersBankAccount();
 

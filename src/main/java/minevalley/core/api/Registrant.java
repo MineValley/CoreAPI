@@ -7,7 +7,7 @@ import minevalley.core.api.regions.Residence;
 
 import java.util.List;
 
-public interface Registered {
+public interface Registrant {
 
 
     String getId();
@@ -29,41 +29,46 @@ public interface Registered {
     String getRegisterName();
 
     /**
-     * Checks whether a user is represented by this registered (in case it represents only one user),
-     * or whether the user is part of the group / department, that this registered represents.
+     * Takes the registrant's name, but truncates it if it's longer than 16 characters.
+     */
+    String getRegisterNameCropped();
+
+    /**
+     * Checks whether a user is represented by this registrant (in case it represents only one user),
+     * or whether the user is part of the group / department, that this registrant represents.
      *
      * @param user user to check
-     * @return true, if the user is represented by this registered or is a part of the group / department that this registered represents
+     * @return true, if the user is represented by this registrant or is a part of the group / department that this registrant represents
      */
     boolean contains(User user);
 
     /**
-     * Gets the bank account that is associated with this registered.
-     * Departments may not have their own bank account. If this registered is a department without its own bank account,
+     * Gets the bank account that is associated with this registrant.
+     * Departments may not have their own bank account. If this registrant is a department without its own bank account,
      * this method will return the bank account of the departments company/organisation.
      */
     BankAccount getBankAccount();
 
     /**
-     * Gets the address of this registered.
+     * Gets the address of this registrant.
      * <br>
      * This might be null!
      * <br>
-     * If this registered is a department without its own address, this will return the groups address.
-     * If this registered is a group without its own address, this will return the address of the owner.
+     * If this registrant is a department without its own address, this will return the groups address.
+     * If this registrant is a group without its own address, this will return the address of the owner.
      */
     Residence getAddress();
 
     Telephone getTelephone();
 
     /**
-     * Delivers the given parcel securely. If this registered doesn't have an address, it is sent to...
+     * Delivers the given parcel securely. If this registrant doesn't have an address, it is sent to...
      * <br>
-     * if registered is a department: to the associated group.
+     * if registrant is a department: to the associated group.
      * <br>
-     * if registered is a group: to the group's owner.
+     * if registrant is a group: to the group's owner.
      * <br>
-     * if registered is a user: to a parcel shop.
+     * if registrant is a user: to a parcel shop.
      */
     void deliverParcel(Parcel parcel);
 

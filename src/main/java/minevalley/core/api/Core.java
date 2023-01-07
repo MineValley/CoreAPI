@@ -1178,7 +1178,7 @@ public final class Core {
      * @param holder holder of this bank account
      * @return new bank account
      */
-    public static BankAccount createBankAccount(Registered holder) {
+    public static BankAccount createBankAccount(Registrant holder) {
         return server.createBankAccount(holder);
     }
 
@@ -1205,7 +1205,7 @@ public final class Core {
     /**
      * Creates a new group.
      *
-     * @param owner   registered id of the owner (alternative: STATE:[category])
+     * @param owner   registrant id of the owner (alternative: STATE:[category])
      * @param company true -> company; false -> organization
      * @return new generated group
      */
@@ -1214,9 +1214,9 @@ public final class Core {
     }
 
     /**
-     * Creates a new telephone with the given owner. The owner should be the registered id.
+     * Creates a new telephone with the given owner. The owner should be the registrant id.
      *
-     * @param owner owner's registered id
+     * @param owner owner's registrant id
      * @return new telephone with the specific owner
      */
     public static Telephone createTelephone(String owner) {
@@ -1234,13 +1234,24 @@ public final class Core {
     }
 
     /**
-     * Gets the registered object that is represented by the specific string.
+     * Gets the registrant object that is represented by the specific string.
      *
-     * @param rawRegistered registered as string
-     * @return represented registered
+     * @param id registrant as string
+     * @return represented registrant
      */
-    public static Registered getRegistered(String rawRegistered) {
-        return server.getRegistered(rawRegistered);
+    @Deprecated
+    public static Registrant getRegistered(String id) {
+        return server.getRegistrant(id);
+    }
+
+    /**
+     * Gets the registrant object that is represented by the specific string.
+     *
+     * @param id registrant as string
+     * @return represented registrant
+     */
+    public static Registrant getRegistrant(String id) {
+        return server.getRegistrant(id);
     }
 
     /**
@@ -1494,13 +1505,13 @@ public final class Core {
         return (Apartment) getResidences(block).stream().filter(r -> r instanceof Apartment).findFirst().orElse(null);
     }
 
-    public static Plot createPlot(Region region, Street street, Registered owner, int fertility, Sign plotSign,
+    public static Plot createPlot(Region region, Street street, Registrant owner, int fertility, Sign plotSign,
                                   Block mailboxBlock, Area mailboxConnectedBlocks, Location teleportLocation) {
         return server.createPlot(region, street, owner, fertility, plotSign, mailboxBlock, mailboxConnectedBlocks,
                 teleportLocation);
     }
 
-    public static Apartment createApartment(Region region, Registered landlord, int fertility, int rent,
+    public static Apartment createApartment(Region region, Registrant landlord, int fertility, int rent,
                                             Sign apartmentSign, Block mailbox) {
         return server.createApartment(region, landlord, fertility, rent, apartmentSign, mailbox);
     }
@@ -1510,7 +1521,7 @@ public final class Core {
         return server.createApartment(region, block, rent, apartmentSign, mailbox);
     }
 
-    public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registered landlord,
+    public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord,
                                                       int fertility, Block mailboxBlock, Area mailboxConnectedBlocks,
                                                       Sign apartmentBlockSign, Sign bellSign, int maxFloors,
                                                       int defaultFloor, Area defaultFloorShadow, List<Area> roofShadows,
@@ -1521,7 +1532,7 @@ public final class Core {
                 roofShadows, constructionFloorShadow, constructionWorkerLocation, craftsmanLocations, damagedFloorBlocks);
     }
 
-    public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registered landlord,
+    public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord,
                                                       int fertility, Block mailboxBlock, Area mailboxConnectedBlocks,
                                                       Sign apartmentBlockSign, Sign bellSign, int floors,
                                                       List<Location> craftsmanLocations, Block[] damagedFloorBlocks) {

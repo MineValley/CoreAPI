@@ -1,6 +1,6 @@
 package minevalley.core.api.phone;
 
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 
 import java.util.List;
 
@@ -45,20 +45,20 @@ public interface Telephone {
     Telephone getIncomingCaller();
 
     /**
-     * Gets the list of registered, that are allowed to use this telephone.
+     * Gets the list of registrant, that are allowed to use this telephone.
      * If this telephone is called, all of them are being informed,
      * as long as their own phone is activated and is connected to the network.
      *
-     * @return list of all permissioned registered
+     * @return list of all permissioned registrant
      */
-    List<Registered> getPermissioned();
+    List<Registrant> getPermissioned();
 
     /**
      * Gets this telephones owner
      *
-     * @return owner as registered
+     * @return owner as registrant
      */
-    Registered getOwner();
+    Registrant getOwner();
 
     /**
      * Accepts the incoming call.

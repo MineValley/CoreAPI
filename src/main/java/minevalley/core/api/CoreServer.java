@@ -223,7 +223,7 @@ public interface CoreServer {
 
     BankAccount getBankAccount(String iban);
 
-    BankAccount createBankAccount(Registered holder);
+    BankAccount createBankAccount(Registrant holder);
 
     Group getGroup(int id);
 
@@ -241,21 +241,21 @@ public interface CoreServer {
 
     Residence getResidence(Region region);
 
-    Plot createPlot(Region region, Street street, Registered owner, int fertility, Sign plotSign, Block mailboxBlock,
+    Plot createPlot(Region region, Street street, Registrant owner, int fertility, Sign plotSign, Block mailboxBlock,
                     Area mailboxConnectedBlocks, Location teleportLocation);
 
-    Apartment createApartment(Region region, Registered landlord, int fertility, int rent, Sign apartmentSign,
+    Apartment createApartment(Region region, Registrant landlord, int fertility, int rent, Sign apartmentSign,
                               Block mailbox);
 
     Apartment createApartment(Region region, ApartmentBlock block, int rent, Sign apartmentSign, Block mailbox);
 
-    ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registered landlord, int fertility,
+    ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord, int fertility,
                                         Block mailboxBlock, Area mailboxConnectedBlocks, Sign apartmentBlockSign,
                                         Sign bellSign, int maxFloors, int defaultFloor, Area defaultFloorShadow,
                                         List<Area> roofShadows, Area constructionFloorShadow, Vector constructionWorkerLocation,
                                         List<Location> craftsmanLocations, Block[] damagedFloorBlocks);
 
-    ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registered landlord, int fertility,
+    ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord, int fertility,
                                         Block mailboxBlock, Area mailboxConnectedBlocks, Sign apartmentBlockSign,
                                         Sign bellSign, int floors, List<Location> craftsmanLocations, Block[] damagedFloorBlocks);
 
@@ -295,7 +295,7 @@ public interface CoreServer {
 
     Telephone getTelephone(String telephoneNumber);
 
-    Registered getRegistered(String string);
+    Registrant getRegistrant(String string);
 
     Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<PlayerInteractEvent> callback);
 

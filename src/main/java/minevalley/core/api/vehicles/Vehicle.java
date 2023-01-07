@@ -1,7 +1,7 @@
 package minevalley.core.api.vehicles;
 
 import minevalley.core.api.OnlineUser;
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
@@ -10,7 +10,7 @@ public interface Vehicle {
 
     VehicleModel getModel();
 
-    Registered getOwner();
+    Registrant getOwner();
 
     int getKeyId();
 
@@ -28,7 +28,7 @@ public interface Vehicle {
 
     void replaceLock(OnlineUser user);
 
-    void transfer(Registered registered, OnlineUser onlineUser);
+    void transfer(Registrant registrant, OnlineUser onlineUser);
 
     String getLicensePlate();
 

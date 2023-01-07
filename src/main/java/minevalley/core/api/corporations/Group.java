@@ -1,12 +1,12 @@
 package minevalley.core.api.corporations;
 
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import minevalley.core.api.User;
 import minevalley.core.api.economy.BankAccount;
 
 import java.util.List;
 
-public interface Group extends Registered {
+public interface Group extends Registrant {
 
     /**
      * Gets the id of this group.

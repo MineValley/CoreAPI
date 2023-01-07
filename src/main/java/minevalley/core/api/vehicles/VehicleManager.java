@@ -2,7 +2,7 @@ package minevalley.core.api.vehicles;
 
 import lombok.Setter;
 import minevalley.core.api.OnlineUser;
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import minevalley.core.api.User;
 import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
@@ -74,12 +74,12 @@ public final class VehicleManager {
      * Adds new vehicle to user. The payment has to be done before calling this method!
      *
      * @param user        user to give key to
-     * @param registered  new owner
+     * @param registrant  new owner
      * @param location    location to spawn
      * @param orientation orientation to spawn
      */
-    public static Vehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registered registered, Location location, BlockFace orientation) {
-        return manager.addVehicle(model, color, user, registered, location, orientation);
+    public static Vehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registrant registrant, Location location, BlockFace orientation) {
+        return manager.addVehicle(model, color, user, registrant, location, orientation);
     }
 
     /**
@@ -142,7 +142,7 @@ public final class VehicleManager {
 
         List<VehicleModel> getAllVehicleModels();
 
-        Vehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registered registered, Location location, BlockFace orientation);
+        Vehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registrant registrant, Location location, BlockFace orientation);
 
         Vehicle pickUpFromDepot(int id, Location location, BlockFace orientation);
 

@@ -1,7 +1,7 @@
 package minevalley.core.api.regions;
 
 import lombok.NonNull;
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import minevalley.core.api.User;
 import minevalley.core.api.economy.BankAccount;
 import org.bukkit.Location;
@@ -74,7 +74,7 @@ public interface Residence {
      * The result of getOwner() might be null! This is only the case, if the residence is for sale / for rent.
      * Plots for sale keep their owner until they are bought. To check, whether a plot is for sale, check the getSale()-method.
      */
-    Registered getOwner();
+    Registrant getOwner();
 
     /**
      * Permissioned users are allowed to build and have access to locked chests (and other locked blocks) if they are set up this way.
@@ -83,7 +83,7 @@ public interface Residence {
      * <b>Note:</b> This method only gives a copy of the original list. use the grantPermission and revokePermission method to adjust the contents.
      * Future changes won't be added to this list.
      */
-    List<Registered> getPermissioned();
+    List<Registrant> getPermissioned();
 
     /**
      * Admin users have full permission for everything, the owner can access to, but:
@@ -101,7 +101,7 @@ public interface Residence {
      * revokeAdminPermission method to adjust the contents.
      * Future changes won't be added to this list.
      */
-    List<Registered> getAdmins();
+    List<Registrant> getAdmins();
 
     /**
      * Checks whether a user is part of the permissioned users list.
@@ -120,24 +120,24 @@ public interface Residence {
     boolean isAdmin(User user);
 
     /**
-     * Adds a registered to the permissioned list.
+     * Adds a registrant to the permissioned list.
      */
-    void grantPermission(Registered registered);
+    void grantPermission(Registrant registrant);
 
     /**
-     * Adds a registered to the admin list.
+     * Adds a registrant to the admin list.
      */
-    void grantAdminPermission(Registered registered);
+    void grantAdminPermission(Registrant registrant);
 
     /**
-     * Removes a registered from the permissioned list.
+     * Removes a registrant from the permissioned list.
      */
-    void revokePermission(Registered registered);
+    void revokePermission(Registrant registrant);
 
     /**
-     * Removes a registered from the admin list.
+     * Removes a registrant from the admin list.
      */
-    void revokeAdminPermission(Registered registered);
+    void revokeAdminPermission(Registrant registrant);
 
     /**
      * Transmits this residence to another owner. This method should never be called to sell/rent the residence.
@@ -145,7 +145,7 @@ public interface Residence {
      *
      * @param user the given user will be marked as the responsible in a letter, that is sent to the transmitted plot.
      */
-    void transmit(User user, @NonNull Registered registered, @NonNull BankAccount account);
+    void transmit(User user, @NonNull Registrant registrant, @NonNull BankAccount account);
 
     /**
      * Residences can be locked by a teamler or by the system.

@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
-public interface User extends Registered {
+public interface User extends Registrant {
 
     OnlineUser getOnlineUser();
 

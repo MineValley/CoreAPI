@@ -1,16 +1,16 @@
 package minevalley.core.api.regions;
 
 import lombok.NonNull;
-import minevalley.core.api.Registered;
+import minevalley.core.api.Registrant;
 import minevalley.core.api.economy.BankAccount;
 
 public interface Apartment extends Residence {
 
     boolean isPremiumOnly();
 
-    Registered getLandlord();
+    Registrant getLandlord();
 
-    void setLandlord(@NonNull Registered landlord);
+    void setLandlord(@NonNull Registrant landlord);
 
     BankAccount getLandLordBankAccount();
 
