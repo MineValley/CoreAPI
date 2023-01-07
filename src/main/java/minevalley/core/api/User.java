@@ -22,13 +22,6 @@ public interface User extends Registrant {
      */
     String getUniqueId();
 
-    /**
-     * Gets the id of this user.
-     *
-     * @return id as string
-     */
-    String getId();
-
     String getName();
 
     /**
@@ -134,8 +127,6 @@ public interface User extends Registrant {
      */
     void changeUserSetting(String key, String newValue);
 
-    // TeamRank
-
     /**
      * Gets whether the user is allowed to join team service.
      *
@@ -152,8 +143,6 @@ public interface User extends Registrant {
     void removeDebug(DebugType debugType);
 
     void removeAllDebugs();
-
-    // Education
 
     /**
      * Gets a list of the users education.
@@ -198,14 +187,15 @@ public interface User extends Registrant {
      */
     int getGunLicense();
 
-    // Cash
-
     /**
      * Gets the current amount of cash in the users wallet.
      *
      * @return the current amount of cash in the users wallet
      */
+    @Deprecated
     double getCash();
+
+    int getCashInCents();
 
     /**
      * Removes a certain amount of cash of the users wallet.
@@ -213,20 +203,22 @@ public interface User extends Registrant {
      * @param amount amout to remove
      * @return true, if the transaction was successful. If the user doesn't have enough money, this is false
      */
+    @Deprecated
     boolean payCash(double amount);
+
+    boolean payCash(int amountInCents);
 
     /**
      * Updates the users cash from the database
      */
     void updateCash();
 
-    // WantedLevel & KnockOut
-
     /**
      * Gets the wanted-level of the user.
      *
      * @return wanted-level of the user. 0 if the player isn't wanted
      */
+    @Deprecated
     int getWantedLevel();
 
     /**
@@ -234,6 +226,7 @@ public interface User extends Registrant {
      *
      * @param level new wanted-level
      */
+    @Deprecated
     void setWantedLevel(int level);
 
     /**
