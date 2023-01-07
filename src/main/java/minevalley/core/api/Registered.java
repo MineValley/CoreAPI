@@ -1,7 +1,5 @@
 package minevalley.core.api;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.phone.Telephone;
@@ -11,18 +9,8 @@ import java.util.List;
 
 public interface Registered {
 
-    /**
-     * Gets the registerNumber of this registered.
-     * <p>
-     * <b>User:</b> user's unique id
-     * <p>
-     * <b>Company:</b> company's id
-     * <p>
-     * <b>Organization:</b> organization's id
-     * <p>
-     * <b>Department (of company/organization):</b> department's id
-     */
-    String getRegisterNumber();
+
+    String getId();
 
     /**
      * Gets the name to display on signs etc.
@@ -48,13 +36,6 @@ public interface Registered {
      * @return true, if the user is represented by this registered or is a part of the group / department that this registered represents
      */
     boolean contains(User user);
-
-    /**
-     * Gets the type of this registered.
-     *
-     * @return registered's type
-     */
-    Type getType();
 
     /**
      * Gets the bank account that is associated with this registered.
@@ -100,20 +81,4 @@ public interface Registered {
 
     void removeProperty(Property property);
 
-    /**
-     * Converts this registered to a string.
-     *
-     * @return registered as string
-     */
-    String toString();
-
-    @Getter
-    @RequiredArgsConstructor
-    enum Type {
-        USER("U"),
-        GROUP("G"),
-        DEPARTMENT("D");
-
-        private final String mark;
-    }
 }
