@@ -9,13 +9,6 @@ import java.util.List;
 public interface Department extends Registrant {
 
     /**
-     * Gets this department's id.
-     *
-     * @return id as int
-     */
-    int getId();
-
-    /**
      * Gets this department's name.
      *
      * @return name as string

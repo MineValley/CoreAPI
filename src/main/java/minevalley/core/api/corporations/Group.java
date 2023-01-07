@@ -9,13 +9,6 @@ import java.util.List;
 public interface Group extends Registrant {
 
     /**
-     * Gets the id of this group.
-     *
-     * @return id of group
-     */
-    int getId();
-
-    /**
      * Gets the name of this group.
      *
      * @return name of group
