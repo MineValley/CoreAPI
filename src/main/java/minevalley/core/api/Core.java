@@ -553,16 +553,6 @@ public final class Core {
         return server.getUser(uniqueId);
     }
 
-    /**
-     * Gets a players user object
-     *
-     * @param id id to get user from
-     * @return user object of the given uniqueId
-     */
-    public static User getUserById(String id) {
-        return server.getUserById(id);
-    }
-
     public static OnlineUser getOnlineUser(Player player) {
         return server.getOnlineUser(player);
     }
