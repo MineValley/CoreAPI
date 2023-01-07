@@ -18,7 +18,7 @@ public interface Group extends Registrant {
     /**
      * Sets the name of this group.
      *
-     * @return Result of the rename
+     * @return Result of rename
      */
     RenameFeedback changeName(String name);
 
@@ -78,7 +78,7 @@ public interface Group extends Registrant {
     /**
      * Removes the member with the specific unique id from this group.
      *
-     * @param uniqueId member to remove
+     * @param user member to remove
      */
     void removeMember(User user);
 
