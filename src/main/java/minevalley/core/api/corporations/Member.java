@@ -1,9 +1,6 @@
 package minevalley.core.api.corporations;
 
 import minevalley.core.api.User;
-import minevalley.core.api.enums.CorporatePermission;
-
-import java.util.List;
 
 public interface Member {
 
@@ -21,47 +18,10 @@ public interface Member {
      */
     Department getDepartment();
 
-    /**
-     * Gets this members permissions. This also includes the permissions of the members department.
-     *
-     * @return list of members permissions
-     */
-    List<CorporatePermission> getPermissions();
+    PermissionConfiguration getPermissionConfiguration();
 
     /**
-     * Gets the base wage of this member. If it's not defined, this returns the base wage of the member's department.
-     * If the wage isn't defined (e.g. because the group is an organization), this returns -1.
-     *
-     * @return member's base wage
+     * <b>Note:</b> if group is association, this is null!
      */
-    double getBaseWage();
-
-    /**
-     * Defines this member's base wage. (-1 to set the base wage to 'undefined')
-     *
-     * @param baseWage member's base wage
-     */
-    void setBaseWage(double baseWage);
-
-    /**
-     * Gets the service wage of this member. If it's not defined, this returns the service wage of the member's department.
-     * If the wage isn't defined (e.g. because the group is an organization), this returns -1.
-     *
-     * @return member's base wage
-     */
-    double getServiceWage();
-
-    /**
-     * Defines this member's service wage. (-1 to set the service wage to 'undefined')
-     *
-     * @param serviceWage member's service wage
-     */
-    void setServiceWage(double serviceWage);
-
-    /**
-     * Gets whether this member is its departments head.
-     *
-     * @return true, if this member is the head of his department
-     */
-    boolean isHeadOfDepartment();
+    WageConfiguration getWageConfiguration();
 }

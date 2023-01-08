@@ -2,7 +2,6 @@ package minevalley.core.api;
 
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.mail.Parcel;
-import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.Residence;
 
 import java.util.List;
@@ -15,14 +14,7 @@ public interface Registrant {
     /**
      * Gets the name to display on signs etc.
      * <p>
-     * <b>User:</b> user's name
-     * <p>
-     * <b>Company:</b> company's name
-     * <p>
-     * <b>Organization:</b> organizsation's name
-     * <p>
-     * <b>Department (of company/organization):</b> name of department - name of company/organisation
-     * <p>
+     * <b>Department:</b> "name of department - name of company/association"
      * <p>
      * <b>Note:</b> department names may be longer than 16 characters and can therefore not been put onto signs!
      */
@@ -31,7 +23,9 @@ public interface Registrant {
     /**
      * Takes the registrant's name, but truncates it if it's longer than 16 characters.
      */
-    String getRegisterNameCropped();
+    default String getRegisterNameCropped() {
+        return getRegisterName().length() > 16 ? getRegisterName().substring(0, 13) + "..." : getRegisterName();
+    }
 
     /**
      * Checks whether a user is represented by this registrant (in case it represents only one user),
@@ -58,8 +52,6 @@ public interface Registrant {
      * If this registrant is a group without its own address, this will return the address of the owner.
      */
     Residence getAddress();
-
-    Telephone getTelephone();
 
     /**
      * Delivers the given parcel securely. If this registrant doesn't have an address, it is sent to...

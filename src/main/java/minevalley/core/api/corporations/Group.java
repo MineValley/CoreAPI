@@ -16,13 +16,6 @@ public interface Group extends Registrant {
     String getName();
 
     /**
-     * Sets the name of this group.
-     *
-     * @return Result of rename
-     */
-    RenameFeedback changeName(String name);
-
-    /**
      * Gets this group's description
      *
      * @return description as string
@@ -30,11 +23,11 @@ public interface Group extends Registrant {
     String getDescription();
 
     /**
-     * Sets the description of this group.
+     * Sets the name of this group.
      *
-     * @param description description as string
+     * @return Result of rename
      */
-    void setDescription(String description);
+    RenameFeedback changeName(String name);
 
     /**
      * Changes the description of this group. Max. length = 150 chars; Min. length = 15 chars
@@ -43,23 +36,6 @@ public interface Group extends Registrant {
      * @return result of the description change
      */
     RenameFeedback changeDescription(String description);
-
-    /**
-     * Gets whether this group is a company (otherwise: organization).
-     *
-     * @return true, if group is company
-     */
-    boolean isCompany();
-
-    /**
-     * Gets this group's owner.
-     */
-    Registrant getOwner();
-
-    /**
-     * Gets a list of all operators.
-     */
-    List<Registrant> getOperators();
 
     /**
      * Gets the department, which is markes as default.
@@ -97,11 +73,6 @@ public interface Group extends Registrant {
      * @return bank account of group
      */
     BankAccount getBankAccount();
-
-    /**
-     * Deletes this group.
-     */
-    void delete();
 
     enum RenameFeedback {
         FORBIDDEN_CHARACTERS,

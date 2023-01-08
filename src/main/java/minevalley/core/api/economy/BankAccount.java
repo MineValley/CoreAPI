@@ -3,7 +3,7 @@ package minevalley.core.api.economy;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.User;
 
-import java.util.List;
+import java.util.Map;
 
 public interface BankAccount {
 
@@ -24,17 +24,21 @@ public interface BankAccount {
 
     /**
      * Gets the amount of money in this bank account.
-     *
-     * @return amount of money in this bank account
      */
-    double getAmount();
+    int getAmountInCents();
 
     /**
      * Gets a list of the registrant that are permissioned to use this bank account.
      *
-     * @return list of registrant
+     * @return map of permissioned registrants and their maximum payout per day (-1 if unlimited)
      */
-    List<Registrant> getPermissioned();
+    Map<Registrant, Integer> getPermissioned();
+
+    default void addPermissioned(Registrant registrant) {
+        addPermissioned(registrant, -1);
+    }
+
+    void addPermissioned(Registrant registrant, int maxPayoutPerDay);
 
     /**
      * Removes a specific permissioned registrant.
@@ -50,6 +54,10 @@ public interface BankAccount {
      * @return true, if the specific user is permissioned to use this bank account
      */
     boolean isPermissioned(User user);
+
+    int getMaximumPayoutPerDay(Registrant registrant);
+
+    int getRemainingPayoutVolume(Registrant registrant);
 
     /**
      * Checks if this bank account is government owned.
@@ -69,5 +77,5 @@ public interface BankAccount {
      * @param usage  usage as string
      * @return true, if the transfer was successful (false, if account does not have enough money)
      */
-    boolean transfer(BankAccount target, double amount, String usage);
+    boolean transfer(BankAccount target, int amount, String usage);
 }
