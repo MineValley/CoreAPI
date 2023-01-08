@@ -139,8 +139,6 @@ public interface CoreServer {
 
     User getUser(String uuid);
 
-    User getUserById(String id);
-
     OnlineUser getOnlineUser(Player player);
 
     ClickEvent createClickEvent(boolean selfCancelling, Consumer<OnlineUser> callback);
@@ -225,11 +223,7 @@ public interface CoreServer {
 
     BankAccount createBankAccount(Registrant holder);
 
-    Group getGroup(int id);
-
     Group getGroup(String name);
-
-    Group createGroup(String owner, boolean company);
 
     Region getRegion(int id);
 
@@ -290,8 +284,6 @@ public interface CoreServer {
     FakeBlock createFakeBlock(Block block, Material material, int data);
 
     boolean containsForForbiddenWords(String string);
-
-    Telephone createTelephone(String owner);
 
     Telephone getTelephone(String telephoneNumber);
 

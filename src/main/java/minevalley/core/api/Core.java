@@ -1173,16 +1173,6 @@ public final class Core {
     }
 
     /**
-     * Gets the group (organization/company) with the specific id.
-     *
-     * @param id id as integer
-     * @return group with the specific id
-     */
-    public static Group getGroup(int id) {
-        return server.getGroup(id);
-    }
-
-    /**
      * Gets the group (organization/company) with the specific name.
      *
      * @param name name as string
@@ -1193,27 +1183,6 @@ public final class Core {
     }
 
     /**
-     * Creates a new group.
-     *
-     * @param owner   registrant id of the owner (alternative: STATE:[category])
-     * @param company true -> company; false -> organization
-     * @return new generated group
-     */
-    public static Group createGroup(String owner, boolean company) {
-        return server.createGroup(owner, company);
-    }
-
-    /**
-     * Creates a new telephone with the given owner. The owner should be the registrant id.
-     *
-     * @param owner owner's registrant id
-     * @return new telephone with the specific owner
-     */
-    public static Telephone createTelephone(String owner) {
-        return server.createTelephone(owner);
-    }
-
-    /**
      * Gets the telephone with the specific telephone number.
      *
      * @param telephoneNumber telephone number to get telephone from
@@ -1221,17 +1190,6 @@ public final class Core {
      */
     public static Telephone getTelephone(String telephoneNumber) {
         return server.getTelephone(telephoneNumber);
-    }
-
-    /**
-     * Gets the registrant object that is represented by the specific string.
-     *
-     * @param id registrant as string
-     * @return represented registrant
-     */
-    @Deprecated
-    public static Registrant getRegistered(String id) {
-        return server.getRegistrant(id);
     }
 
     /**
