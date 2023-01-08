@@ -59,13 +59,4 @@ public interface Department extends Registrant {
      * @return list with all members of this department
      */
     List<Member> getMembers();
-
-    /**
-     * Gets the tasks the members of this department are allowed to handle.
-     * <p>
-     * <b>Note:</b> This is only usable for company-departments!
-     *
-     * @return list of tasks to handle
-     */
-    List<Task> getTasks();
 }

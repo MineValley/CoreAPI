@@ -18,13 +18,13 @@ public interface Registrant {
      * <p>
      * <b>Note:</b> department names may be longer than 16 characters and can therefore not been put onto signs!
      */
-    String getRegisterName();
+    String getName();
 
     /**
      * Takes the registrant's name, but truncates it if it's longer than 16 characters.
      */
-    default String getRegisterNameCropped() {
-        return getRegisterName().length() > 16 ? getRegisterName().substring(0, 13) + "..." : getRegisterName();
+    default String getCroppedName() {
+        return getName().length() > 16 ? getName().substring(0, 13) + "..." : getName();
     }
 
     /**

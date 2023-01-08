@@ -67,7 +67,7 @@ public interface User extends Registrant {
     void removeFriend(User user);
 
     /**
-     * Gets a list of the unique ids of this users spouses
+     * Gets a list of the unique ids of this user's spouses
      *
      * @return list of the users spouses unique ids as strings
      */
@@ -120,7 +120,7 @@ public interface User extends Registrant {
     /**
      * Updates the value of a specific setting.
      * <p>
-     * <b>Note:</b> Neither the key nor the value must not contain non alphabetic characters! Otherwise the this method will not work properly...
+     * <b>Note:</b> Neither the key nor the value must not contain non-alphabetic characters! Otherwise, this method will not work properly...
      *
      * @param key      key of the setting
      * @param newValue new value of the setting
@@ -145,16 +145,16 @@ public interface User extends Registrant {
     void removeAllDebugs();
 
     /**
-     * Gets a list of the users education.
+     * Gets a list of the user's education.
      *
-     * @return list of users education
+     * @return array of users education
      */
     Education[] getEducation();
 
     /**
      * Gets a list of the active products, that this user bought.
      *
-     * @return list of purchases
+     * @return array of purchases
      */
     Purchase[] getPurchased();
 
@@ -174,9 +174,9 @@ public interface User extends Registrant {
     boolean hasEducation(Education education);
 
     /**
-     * Gets whether the user has a drivers license.
+     * Gets whether the user has a driver's license.
      *
-     * @return true, if the user has a drivers license
+     * @return true, if the user has a driver's license
      */
     boolean hasDriversLicense();
 
@@ -188,24 +188,18 @@ public interface User extends Registrant {
     int getGunLicense();
 
     /**
-     * Gets the current amount of cash in the users wallet.
+     * Gets the current amount of cash in the user's wallet.
      *
      * @return the current amount of cash in the users wallet
      */
-    @Deprecated
-    double getCash();
-
     int getCashInCents();
 
     /**
-     * Removes a certain amount of cash of the users wallet.
+     * Removes a certain amount of cash of the user's wallet.
      *
-     * @param amount amout to remove
+     * @param amountInCents amount to remove
      * @return true, if the transaction was successful. If the user doesn't have enough money, this is false
      */
-    @Deprecated
-    boolean payCash(double amount);
-
     boolean payCash(int amountInCents);
 
     /**
@@ -251,7 +245,7 @@ public interface User extends Registrant {
     boolean isRegistered();
 
     /**
-     * Gets whether this user is allowed to break/place/use a block at the given position regarding to the regions-system.
+     * Gets whether this user is allowed to break/place/use a block at the given position regarding the regions-system.
      *
      * @param block block to check
      * @return true, if this user is allowed to break/place/use a block here
@@ -259,9 +253,9 @@ public interface User extends Registrant {
     boolean isAllowedToUse(Block block);
 
     /**
-     * Players can be freezed by a team member. This method gets wether this user is freezed.
+     * Players can be frozen by a team member. This method gets whether this user is frozen.
      *
-     * @return true, if the user is currently freezed
+     * @return true, if the user is currently frozen
      */
     boolean isFrozen();
 

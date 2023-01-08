@@ -110,7 +110,7 @@ public interface OnlineUser extends User {
     /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
      *
-     * @param message message to be send as string
+     * @param message message to be sent as string
      */
     void sendMessage(@NonNull String message);
 
@@ -118,7 +118,7 @@ public interface OnlineUser extends User {
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
      * The message includes a notice that the user can click to get more information about the message.
      *
-     * @param message message to be send as string
+     * @param message message to be sent as string
      * @param notice  notice that is sent to the user
      */
     void sendMessage(@NonNull String message, @NonNull Notice notice);
@@ -127,7 +127,7 @@ public interface OnlineUser extends User {
      * Sends a message to this user with a specific prefix.
      *
      * @param messageType type of prefix to be displayed in front of the message
-     * @param message     message to be send as string
+     * @param message     message to be sent as string
      */
     void sendMessage(@NonNull MessageType messageType, @NonNull String message);
 
@@ -136,7 +136,7 @@ public interface OnlineUser extends User {
      * The message includes a notice that the user can click to get more information about the message.
      *
      * @param messageType type of prefix to be displayed in front of the message
-     * @param message     message to be send as string
+     * @param message     message to be sent as string
      * @param notice      notice that is sent to the user
      */
     void sendMessage(@NonNull MessageType messageType, @NonNull String message, @NonNull Notice notice);
@@ -145,7 +145,7 @@ public interface OnlineUser extends User {
      * Sends a message to this user with a specific prefix, using ComponentBuilders.
      *
      * @param messageType   type of prefix to be displayed in front of the message
-     * @param baseComponent message to be send as string
+     * @param baseComponent message to be sent as string
      */
     void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent);
 
@@ -154,20 +154,20 @@ public interface OnlineUser extends User {
      * The message includes a notice that the user can click to get more information about the message.
      *
      * @param messageType   type of prefix to be displayed in front of the message
-     * @param baseComponent message to be send as string
+     * @param baseComponent message to be sent as string
      * @param notice        notice that is sent to the user
      */
     void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, @NonNull Notice notice);
 
     /**
-     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and clickevents and can take advantage of the clickable messages.
+     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
      *
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
      */
     void sendMessage(@NonNull BaseComponent[] baseComponent);
 
     /**
-     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and clickevents and can take advantage of the clickable messages.
+     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
      * The message includes a notice that the user can click to get more information about the message.
      *
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
@@ -179,7 +179,7 @@ public interface OnlineUser extends User {
     /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
      *
-     * @param message  message to be send as string
+     * @param message  message to be sent as string
      * @param chatMenu menu to attach underneath the message
      */
 
@@ -189,7 +189,7 @@ public interface OnlineUser extends User {
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
      * The message includes a notice that the user can click to get more information about the message.
      *
-     * @param message  message to be send as string
+     * @param message  message to be sent as string
      * @param chatMenu menu to attach underneath the message
      * @param notice   notice that is sent to the user
      */
@@ -199,7 +199,7 @@ public interface OnlineUser extends User {
      * Sends a message to this user with a specific prefix.
      *
      * @param messageType type of prefix to be displayed in front of the message
-     * @param message     message to be send as string
+     * @param message     message to be sent as string
      * @param chatMenu    menu to attach underneath the message
      */
     void sendMessage(@NonNull MessageType messageType, @NonNull String message, ChatMenu chatMenu);
@@ -209,7 +209,7 @@ public interface OnlineUser extends User {
      * The message includes a notice that the user can click to get more information about the message.
      *
      * @param messageType type of prefix to be displayed in front of the message
-     * @param message     message to be send as string
+     * @param message     message to be sent as string
      * @param chatMenu    menu to attach underneath the message
      * @param notice      notice that is sent to the user
      */
@@ -219,7 +219,7 @@ public interface OnlineUser extends User {
      * Sends a message to this user with a specific prefix, using ComponentBuilders.
      *
      * @param messageType   type of prefix to be displayed in front of the message
-     * @param baseComponent message to be send as string
+     * @param baseComponent message to be sent as string
      * @param chatMenu      menu to attach underneath the message
      */
     void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, ChatMenu chatMenu);
@@ -229,14 +229,14 @@ public interface OnlineUser extends User {
      * The message includes a notice that the user can click to get more information about the message.
      *
      * @param messageType   type of prefix to be displayed in front of the message
-     * @param baseComponent message to be send as string
+     * @param baseComponent message to be sent as string
      * @param chatMenu      menu to attach underneath the message
      * @param notice        notice that is sent to the user
      */
     void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, ChatMenu chatMenu, @NonNull Notice notice);
 
     /**
-     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and clickevents and can take advantage of the clickable messages.
+     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
      *
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
      * @param chatMenu      menu to attach underneath the message
@@ -244,7 +244,7 @@ public interface OnlineUser extends User {
     void sendMessage(@NonNull BaseComponent[] baseComponent, ChatMenu chatMenu);
 
     /**
-     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and clickevents and can take advantage of the clickable messages.
+     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
      * The message includes a notice that the user can click to get more information about the message.
      *
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
@@ -261,7 +261,7 @@ public interface OnlineUser extends User {
     void sendMessage(@NonNull Notice notice);
 
     /**
-     * Sends the usual "Unbekannter Befehl!"-error to the user. Mostly used when a player is trying to execute an command that they are not allowed to do.
+     * Sends the usual "Unbekannter Befehl!"-error to the user. Mostly used when a player is trying to execute a command that they are not allowed to do.
      */
     void sendError();
 
@@ -270,8 +270,8 @@ public interface OnlineUser extends User {
     /**
      * Asks the player for any type of input via a chat-interface. The player can leave this interface. If he writes something into this interface, the callback gets called.
      *
-     * @param message  the message to be send to the player. Normally containing a question or a request to put in any data
-     * @param callback the callback that is called when the player makes an entry in the chat-interface. The consumer contains a string of the sent message.
+     * @param message  the message to be sent to the player. Normally containing a question or a request to put in any data
+     * @param callback the callback that is called when the player makes an entry in the chat-interface. The consumer contains a string of the message.
      */
     void input(@NonNull String message, @NonNull Consumer<String> callback);
 
@@ -288,7 +288,7 @@ public interface OnlineUser extends User {
     void leaveInterface();
 
     /**
-     * Asks the user which bank account he wants to use (e. g. to pay sth)
+     * Asks the user which bank account he wants to use (e.g. to pay sth)
      * He can choose from every bank account he's permissioned to transfer money from.
      * If he chooses nothing, the callback isn't called.
      * If he's only permissioned to transfer money from one account, he will not be asked (The callback will be called immediately with the account).
@@ -300,7 +300,7 @@ public interface OnlineUser extends User {
     // FractionService
 
     /**
-     * Gets the users fraction.
+     * Gets the user's fraction.
      * Note: The user must be in fraction-service, otherwise this is NONE
      *
      * @return users fraction
@@ -323,7 +323,7 @@ public interface OnlineUser extends User {
     /**
      * Gets whether the player is team-member with the plus-rank.
      *
-     * @return true, if the user is teamplus-member
+     * @return true, if the user is team-plus-member
      */
     boolean isTeamPlus();
 
@@ -451,7 +451,7 @@ public interface OnlineUser extends User {
     boolean isRegistered();
 
     /**
-     * Gets whether this user is allowed to break/place/use a block at the given position regarding to the regions-system.
+     * Gets whether this user is allowed to break/place/use a block at the given position regarding the regions-system.
      *
      * @param block block to check
      * @return true, if this user is allowed to break/place/use a block here
