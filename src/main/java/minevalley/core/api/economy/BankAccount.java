@@ -1,9 +1,10 @@
 package minevalley.core.api.economy;
 
+import lombok.*;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.User;
 
-import java.util.Map;
+import java.util.List;
 
 public interface BankAccount {
 
@@ -32,20 +33,18 @@ public interface BankAccount {
      *
      * @return map of permissioned registrants and their maximum payout per day (-1 if unlimited)
      */
-    Map<Registrant, Integer> getPermissioned();
+    List<AccountUser> getAccountUsers();
 
-    default void addPermissioned(Registrant registrant) {
-        addPermissioned(registrant, -1);
-    }
-
-    void addPermissioned(Registrant registrant, int maxPayoutPerDay);
+    void addAccountUser(AccountUser accountUser);
 
     /**
      * Removes a specific permissioned registrant.
      *
-     * @param registrant registrant to remove
+     * @param accountUser account user to remove
      */
-    void removeFromPermissioned(Registrant registrant);
+    void removeAccountUser(AccountUser accountUser);
+
+    void updateAccountUsers();
 
     /**
      * Gets whether the specific user is permissioned to use this bank account.
@@ -55,27 +54,71 @@ public interface BankAccount {
      */
     boolean isPermissioned(User user);
 
-    int getMaximumPayoutPerDay(Registrant registrant);
-
-    int getRemainingPayoutVolume(Registrant registrant);
-
-    /**
-     * Checks if this bank account is government owned.
-     * Government bank accounts have no amount and can send or receive unlimited funds.
-     *
-     * @return true, if this account is government owned
-     */
-    boolean isState();
+    AccountType getType();
 
     /**
      * Transfers an amount to another bank account.
      * <p>
      * <b>Note:</b> This method only accepts positive amounts!
      *
-     * @param target bank account to which the money is transfered to
-     * @param amount amount of money to be transfered
-     * @param usage  usage as string
+     * @param target        bank account to which the money is transferred to
+     * @param accountUser   accountUser making the transfer
+     * @param amountInCents amount of money to be transferred
+     * @param usage         usage as string
      * @return true, if the transfer was successful (false, if account does not have enough money)
      */
-    boolean transfer(BankAccount target, int amount, String usage);
+    TransferResult transfer(BankAccount target, AccountUser accountUser, int amountInCents, String usage);
+
+    /**
+     * Transfers an amount to another bank account.
+     * <p>
+     * <b>Note:</b> This method only accepts positive amounts!
+     *
+     * @param target        bank account to which the money is transferred to
+     * @param amountInCents amount of money to be transferred
+     * @param usage         usage as string
+     * @return true, if the transfer was successful (false, if account does not have enough money)
+     */
+    TransferResult transfer(BankAccount target, int amountInCents, String usage);
+
+    @Getter
+    @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+    enum AccountType {
+        USER("DE00-"),
+        COMPANY("DE01-"),
+        ASSOCIATION("DE02-"),
+        SECOND_ACCOUNT("DE03-");
+
+        private final String prefix;
+
+        public static AccountType getAccountType(String iban) {
+            switch (iban.split("-")[0]) {
+                case "DE00":
+                    return USER;
+                case "DE01":
+                    return COMPANY;
+                case "DE02":
+                    return ASSOCIATION;
+                case "DE03":
+                    return SECOND_ACCOUNT;
+                default:
+                    return null;
+            }
+        }
+    }
+
+    enum TransferResult {
+        SUCCESS,
+        NO_PERMISSION,
+        NOT_ENOUGH_MONEY,
+        MAX_PAYOUT_REACHED
+    }
+
+    @Setter
+    @Getter
+    @AllArgsConstructor
+    class AccountUser {
+        private final String registrantId;
+        private int maxPayOutPerDay, remainingDailyPayOut;
+    }
 }
