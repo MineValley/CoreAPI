@@ -175,7 +175,7 @@ public interface CoreServer {
 
     boolean isDouble(String string);
 
-    String formatMoney(double amount);
+    String formatMoney(int amountInCents);
 
     String formatRelativeTimestamp(long time);
 

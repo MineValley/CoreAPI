@@ -665,11 +665,11 @@ public final class Core {
     /**
      * Creates a readable string of the specific amount of money.
      *
-     * @param amount amount to convert
+     * @param amountInCents amount to convert
      * @return amount as x.xxx.xxx,xx€
      */
-    public static String formatMoney(double amount) {
-        return server.formatMoney(amount);
+    public static String formatMoney(int amountInCents) {
+        return server.formatMoney(amountInCents);
     }
 
     public static String getFormattedDate(long time) {
