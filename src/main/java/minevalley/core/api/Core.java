@@ -628,19 +628,6 @@ public final class Core {
     }
 
     /**
-     * Verifies that the given string is numeric and can be converted to an integer.
-     * <p>
-     * <b>Note:</b> This method also checks whether the integer exceeds the maximum value for integers.
-     *
-     * @param string string to verify
-     * @return true, if the given string is numeric
-     */
-    @Deprecated
-    public static boolean isNumeric(String string) {
-        return server.isInteger(string);
-    }
-
-    /**
      * Checks whether the given string is numeric and can be converted to an integer.
      * <p>
      * <b>Note:</b> This method also checks whether the integer exceeds the maximum value for integers.
