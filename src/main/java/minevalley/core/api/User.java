@@ -1,8 +1,8 @@
 package minevalley.core.api;
 
+import minevalley.core.api.corporations.purchases.Purchase;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.Education;
-import minevalley.core.api.enums.Purchase;
 import minevalley.core.api.phone.Telephone;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
@@ -156,15 +156,13 @@ public interface User extends Registrant {
      *
      * @return array of purchases
      */
-    Purchase[] getPurchased();
+    Purchase[] getPurchases();
 
-    /**
-     * Checks whether this user purchases the specific product.
-     *
-     * @param purchase product to check
-     * @return true, if this user purchases the specific product.
-     */
-    boolean purchased(Purchase purchase);
+    void addPurchase(Purchase purchase);
+
+    void removePurchase(Purchase purchase);
+
+    boolean isPremium();
 
     /**
      * Gets whether the user has the specific education.
