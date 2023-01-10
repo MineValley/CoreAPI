@@ -4,6 +4,7 @@ import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.regions.Residence;
 import minevalley.core.api.vehicles.Vehicle;
+import minevalley.core.api.weapons.Weapon;
 
 import java.util.List;
 

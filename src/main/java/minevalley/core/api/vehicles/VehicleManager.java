@@ -3,7 +3,6 @@ package minevalley.core.api.vehicles;
 import lombok.Setter;
 import minevalley.core.api.OnlineUser;
 import minevalley.core.api.Registrant;
-import minevalley.core.api.User;
 import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.ArmorStand;
@@ -21,27 +20,25 @@ public final class VehicleManager {
     @Setter
     private static Manager manager;
 
+    public static List<Vehicle> getVehicles(Registrant registrant) {
+        return manager.getVehicles(registrant);
+    }
+
+    /**
+     * Gets the vehicle with the given id.
+     */
+    public static Vehicle getVehicle(String id) {
+        return manager.getVehicle(id);
+    }
+
     /**
      * Gets the vehicle this user is currently driving with. It is not taken into account whether the user is the driver or just a passenger.
      * <p>
      * <b>Note:</b> Returns null if the user is not in a vehicle!
      * </p>
      */
-    public static Vehicle getVehicle(OnlineUser user) {
+    public static LoadedVehicle getVehicle(OnlineUser user) {
         return manager.getVehicle(user);
-    }
-
-    /**
-     * Gets the vehicle with the given id.
-     * <p>
-     * <b>Note:</b> If the car isn't loaded, this returns null!
-     * </p>
-     * <p>
-     * <b>Tip:</b> Using the getVehicle(ArmorStand)-function will try to load the vehicle, if unloaded!
-     * </p>
-     */
-    public static Vehicle getVehicle(int id) {
-        return manager.getVehicle(id);
     }
 
     /**
@@ -52,7 +49,7 @@ public final class VehicleManager {
      * <b>Note:</b> This might return null, if there is no vehicle associated with the given armor stand!
      * </p>
      */
-    public static Vehicle getVehicle(ArmorStand armorStand) {
+    public static LoadedVehicle getVehicle(ArmorStand armorStand) {
         return manager.getVehicle(armorStand);
     }
 
@@ -78,7 +75,8 @@ public final class VehicleManager {
      * @param location    location to spawn
      * @param orientation orientation to spawn
      */
-    public static Vehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registrant registrant, Location location, BlockFace orientation) {
+    public static Vehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registrant registrant,
+                                     Location location, BlockFace orientation) {
         return manager.addVehicle(model, color, user, registrant, location, orientation);
     }
 
@@ -89,20 +87,11 @@ public final class VehicleManager {
      * @param location    location to spawn
      * @param orientation orientation to spawn
      */
-    public static Vehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Location location, BlockFace orientation) {
+    public static LoadedVehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Location location,
+                                           BlockFace orientation) {
         return manager.addVehicle(model, color, user, user, location, orientation);
     }
 
-    /**
-     * Moves Vehicle out of depot.
-     *
-     * @param id          id of car
-     * @param location    location to spawn
-     * @param orientation orientation to spawn
-     */
-    public static Vehicle pickUpFromDepot(int id, Location location, BlockFace orientation) {
-        return manager.pickUpFromDepot(id, location, orientation);
-    }
 
     /**
      * Gets the brand with given id.
@@ -111,45 +100,23 @@ public final class VehicleManager {
         return manager.getBrand(id);
     }
 
-    /**
-     * Creates new repentance to add to vehicle.
-     */
-    public static Repentance createRepentance(User officer, String message) {
-        return manager.createRepentance(officer, message);
-    }
-
-    /**
-     * Creates new parking ticket to add to vehicle.
-     *
-     * @param carParkName  name of the car park
-     * @param pricePerHour price in cents
-     * @param pricePerDay  price in cents
-     * @param driver       current driver
-     */
-    public static ParkingTicket createParkingTicket(String carParkName, int pricePerHour, int pricePerDay, User driver) {
-        return manager.createParkingTicket(carParkName, pricePerHour, pricePerDay, driver);
-    }
-
     public interface Manager {
 
-        Vehicle getVehicle(OnlineUser user);
+        List<Vehicle> getVehicles(Registrant registrant);
 
-        Vehicle getVehicle(int id);
+        Vehicle getVehicle(String id);
 
-        Vehicle getVehicle(ArmorStand armorStand);
+        LoadedVehicle getVehicle(OnlineUser user);
+
+        LoadedVehicle getVehicle(ArmorStand armorStand);
 
         VehicleModel getVehicleModel(int id);
 
         List<VehicleModel> getAllVehicleModels();
 
-        Vehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registrant registrant, Location location, BlockFace orientation);
-
-        Vehicle pickUpFromDepot(int id, Location location, BlockFace orientation);
+        LoadedVehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registrant registrant,
+                                 Location location, BlockFace orientation);
 
         VehicleBrand getBrand(int id);
-
-        Repentance createRepentance(User officer, String message);
-
-        ParkingTicket createParkingTicket(String carParkName, int pricePerHour, int pricePerDay, User driver);
     }
 }
