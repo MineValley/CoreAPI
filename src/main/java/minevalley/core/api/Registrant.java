@@ -3,6 +3,7 @@ package minevalley.core.api;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.regions.Residence;
+import minevalley.core.api.vehicles.Vehicle;
 
 import java.util.List;
 
@@ -64,18 +65,10 @@ public interface Registrant {
      */
     void deliverParcel(Parcel parcel);
 
-    List<Property> getProperties();
+    List<Vehicle> getVehicles();
 
-    List<Property> getProperties(Property.Type type);
+    List<Weapon> getWeapons();
 
-    boolean ownsProperty(int id, Property.Type type);
-
-    boolean ownsProperty(Property property);
-
-    void addProperty(Property property);
-
-    void removeProperty(int id, Property.Type type);
-
-    void removeProperty(Property property);
+    List<Residence> getResidences();
 
 }
