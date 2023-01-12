@@ -44,6 +44,8 @@ public interface Department extends Registrant {
 
     Department getParentDepartment();
 
+    List<Department> getChildDepartments();
+
     /**
      * Gets whether this department is the default department of the organization / company. The main department is the department, new members will be put into.
      *
