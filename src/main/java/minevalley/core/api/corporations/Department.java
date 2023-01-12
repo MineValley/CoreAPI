@@ -1,9 +1,9 @@
 package minevalley.core.api.corporations;
 
 import minevalley.core.api.Registrant;
-import minevalley.core.api.economy.BankAccount;
 
 import java.util.List;
+import java.util.Map;
 
 public interface Department extends Registrant {
 
@@ -49,14 +49,37 @@ public interface Department extends Registrant {
      */
     boolean isDefaultDepartment();
 
-    PermissionConfiguration getDefaultPermissionConfiguration();
-
-    WageConfiguration getDefaultWageConfiguration();
-
     /**
      * Gets the members of this department.
      *
      * @return list with all members of this department
      */
     List<Member> getMembers();
+
+    int getDefaultBaseWageInCents();
+
+    void setDefaultBaseWageInCents(int baseWageInCents);
+
+    List<Task> getAvailableTasks();
+
+    void addTask(Task task);
+
+    void removeTask(Task task);
+
+    List<MemberPermission> getDefaultMemberPermissions();
+
+    void addDefaultPermission(MemberPermission permission);
+
+    void revokeDefaultPermission(MemberPermission permission);
+
+    Map<DepartmentPermission, Integer> getPermissions();
+
+    void addPermission(DepartmentPermission permission, int necessaryApprovalRate);
+
+    void revokePermission(DepartmentPermission permission);
+
+    default void setNecessaryApprovalRate(DepartmentPermission permission, int necessaryApprovalRate) {
+        revokePermission(permission);
+        addPermission(permission, necessaryApprovalRate);
+    }
 }

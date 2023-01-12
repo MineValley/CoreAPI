@@ -2,7 +2,12 @@ package minevalley.core.api.corporations;
 
 import minevalley.core.api.User;
 
+import java.util.List;
+
 public interface Member {
+
+
+    String getId();
 
     /**
      * Gets this member's user object.
@@ -18,10 +23,19 @@ public interface Member {
      */
     Department getDepartment();
 
-    PermissionConfiguration getPermissionConfiguration();
+    int getBaseWageInCents();
 
-    /**
-     * <b>Note:</b> if group is association, this is null!
-     */
-    WageConfiguration getWageConfiguration();
+    void setBaseWageInCents(int baseWageInCents);
+
+    List<Task> getAvailableTasks();
+
+    void addTask(Task task);
+
+    void removeTask(Task task);
+
+    List<MemberPermission> getMemberPermissions();
+
+    void addPermission(MemberPermission permission);
+
+    void revokePermission(MemberPermission permission);
 }
