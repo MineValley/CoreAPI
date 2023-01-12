@@ -11,6 +11,7 @@ import minevalley.core.api.enums.MessageType;
 import minevalley.core.api.enums.TeamRank;
 import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
+import minevalley.core.api.vehicles.LoadedVehicle;
 import minevalley.core.api.vehicles.Vehicle;
 import minevalley.core.api.vehicles.VehicleManager;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -468,7 +469,7 @@ public interface OnlineUser extends User {
 
     void updateLatestJoin();
 
-    default Vehicle getVehicle() {
+    default LoadedVehicle getVehicle() {
         final Entity vehicle = getPlayer().getVehicle();
         if (vehicle == null) return null;
         if (!(vehicle instanceof ArmorStand)) return null;
