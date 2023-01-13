@@ -20,14 +20,10 @@ public final class VehicleManager {
     @Setter
     private static Manager manager;
 
-    public static List<Vehicle> getVehicles(Registrant registrant) {
-        return manager.getVehicles(registrant);
-    }
-
     /**
      * Gets the vehicle with the given id.
      */
-    public static Vehicle getVehicle(String id) {
+    public static Vehicle getVehicle(int id) {
         return manager.getVehicle(id);
     }
 
@@ -75,8 +71,8 @@ public final class VehicleManager {
      * @param location    location to spawn
      * @param orientation orientation to spawn
      */
-    public static Vehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registrant registrant,
-                                     Location location, BlockFace orientation) {
+    public static LoadedVehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registrant registrant,
+                                           Location location, BlockFace orientation) {
         return manager.addVehicle(model, color, user, registrant, location, orientation);
     }
 
@@ -102,9 +98,7 @@ public final class VehicleManager {
 
     public interface Manager {
 
-        List<Vehicle> getVehicles(Registrant registrant);
-
-        Vehicle getVehicle(String id);
+        Vehicle getVehicle(int id);
 
         LoadedVehicle getVehicle(OnlineUser user);
 
