@@ -20,6 +20,10 @@ public final class VehicleManager {
     @Setter
     private static Manager manager;
 
+    public static List<Vehicle> getVehicles(Registrant registrant) {
+        return manager.getVehicles(registrant);
+    }
+
     /**
      * Gets the vehicle with the given id.
      */
@@ -97,6 +101,8 @@ public final class VehicleManager {
     }
 
     public interface Manager {
+
+        List<Vehicle> getVehicles(Registrant registrant);
 
         Vehicle getVehicle(int id);
 
