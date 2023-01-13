@@ -17,7 +17,7 @@ public enum MemberPermission {
     MANAGE_DEPARTMENT_PROPERTY, // Besitzgüter verwalten (kaufen, verkaufen)
     MANAGE_GROUP_PROPERTY,
 
-    OPERATE_DEPARTMENT_BLOCKS, // Wohnblocks betreiben (Reparaturen, Stromrechnungen)
+    OPERATE_APARTMENT_BLOCKS, // Wohnblocks betreiben (Reparaturen, Stromrechnungen)
 
-    MANAGE_DEPARTMENT_BLOCKS, // Wohnblocks verwalten (Stockwerke, Kündigungen)
+    MANAGE_APARTMENT_BLOCKS, // Wohnblocks verwalten (Stockwerke, Kündigungen)
 }
