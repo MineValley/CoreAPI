@@ -38,6 +38,8 @@ public interface Registrant {
      */
     boolean contains(User user);
 
+    List<OnlineUser> getOnlineUsers();
+
     /**
      * Gets the bank account that is associated with this registrant.
      * Departments may not have their own bank account. If this registrant is a department without its own bank account,
