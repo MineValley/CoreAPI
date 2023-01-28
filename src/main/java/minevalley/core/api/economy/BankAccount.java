@@ -1,6 +1,8 @@
 package minevalley.core.api.economy;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.User;
 
@@ -114,11 +116,36 @@ public interface BankAccount {
         MAX_PAYOUT_REACHED
     }
 
-    @Setter
-    @Getter
-    @AllArgsConstructor
-    class AccountUser {
-        private final String registrantId;
-        private int maxPayOutPerDay, remainingDailyPayOut;
+    interface AccountUser {
+
+        Registrant getRegistrant();
+
+        int getMaxPayoutPerDayInCents();
+
+        int getRemainingDailyPayout();
+
+        void resetDailyPayout();
+
+        default boolean hasMaxPayoutPerDay() {
+            return getMaxPayoutPerDayInCents() != -1;
+        }
+
+        List<BankAccountUserPermission> getPermissions();
+
+        default boolean hasPermission(BankAccountUserPermission permission) {
+            return getPermissions().contains(permission);
+        }
+
+        void grantPermission(BankAccountUserPermission permission);
+
+        void revokePermission(BankAccountUserPermission permission);
+    }
+
+    enum BankAccountUserPermission {
+        PAYOUT,
+        TRANSFER_MONEY,
+        CREATE_NEW_CARDS,
+        ADD_NEW_USERS,
+        REMOVE_USERS;
     }
 }
