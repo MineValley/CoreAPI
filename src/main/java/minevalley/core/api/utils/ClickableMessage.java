@@ -12,7 +12,7 @@ public interface ClickableMessage {
     void disable();
 
     /**
-     * Defines if this clickable message gets disabled automaticly when the player clicks it
+     * Defines if this clickable message gets disabled automatically when the player clicks it.
      *
      * @param isSelfCancelling boolean that defines if this clickable message is self cancelling
      * @return this clickable message
@@ -20,15 +20,15 @@ public interface ClickableMessage {
     ClickableMessage selfCancelling(boolean isSelfCancelling);
 
     /**
-     * Defines the callback which is called when the player clicks this message
+     * Defines the callback which is called when the player clicks this message.
      *
-     * @param runnable
+     * @param runnable will be called if the player clicks the message
      * @return
      */
     ClickableMessage setCallback(Consumer<OnlineUser> runnable);
 
     /**
-     * Gets the command which executes the callback. Put this into the click-event of your component-builder
+     * Gets the command which executes the callback. Put this into the click-event of your component-builder.
      *
      * @return the command as string
      */
