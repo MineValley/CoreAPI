@@ -65,7 +65,7 @@ public interface Group extends Registrant {
      *
      * @param user member to add
      */
-    void addMember(User user);
+    Member addMember(User user);
 
     Member getMember(User user);
 

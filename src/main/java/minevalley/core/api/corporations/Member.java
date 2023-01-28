@@ -24,7 +24,7 @@ public interface Member {
      */
     Department getDepartment();
 
-    void switchApartment(Apartment apartment);
+    void switchDepartment(Department department);
 
     int getBaseWageInCents();
 
@@ -41,4 +41,8 @@ public interface Member {
     void addPermission(MemberPermission permission);
 
     void revokePermission(MemberPermission permission);
+
+    void updateFromDatabase();
+
+    void kick();
 }

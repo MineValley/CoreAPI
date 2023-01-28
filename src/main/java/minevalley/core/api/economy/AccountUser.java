@@ -1,5 +1,8 @@
 package minevalley.core.api.economy;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import minevalley.core.api.Registrant;
 
 import java.util.List;
@@ -12,7 +15,9 @@ public interface AccountUser {
 
     int getMaxPayoutPerDayInCents();
 
-    int getRemainingDailyPayout();
+    void setMaxPayOutPerDayInCents(int maxPayout);
+
+    int getRemainingDailyPayoutInCents();
 
     void resetDailyPayout();
 
@@ -29,12 +34,20 @@ public interface AccountUser {
     void grantPermission(BankAccountUserPermission permission);
 
     void revokePermission(BankAccountUserPermission permission);
-}
 
-enum BankAccountUserPermission {
-    PAYOUT,
-    TRANSFER_MONEY,
-    CREATE_NEW_CARDS,
-    ADD_NEW_USERS,
-    REMOVE_USERS;
+    void updateFromDatabase();
+
+    void remove();
+
+    @Getter
+    @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+    enum BankAccountUserPermission {
+        PAYOUT("allow_payout"),
+        TRANSFER_MONEY("allow_transfers"),
+        CREATE_NEW_CARDS("allow_create_new_bank_cars"),
+        ADD_NEW_USERS("allow_adding_new_users"),
+        REMOVE_USERS("allow_removing_other_users");
+
+        private final String code;
+    }
 }

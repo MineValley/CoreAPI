@@ -37,16 +37,10 @@ public interface BankAccount {
      */
     List<AccountUser> getAccountUsers();
 
-    void addAccountUser(AccountUser accountUser);
-
-    /**
-     * Removes a specific permissioned registrant.
-     *
-     * @param accountUser account user to remove
-     */
-    void removeAccountUser(AccountUser accountUser);
-
-    void updateAccountUsers();
+    default AccountUser getAccountUser(Registrant registrant) {
+        return getAccountUsers().stream()
+                .filter(accountUser -> accountUser.getRegistrant().equals(registrant)).findFirst().orElse(null);
+    }
 
     /**
      * Gets whether the specific user is permissioned to use this bank account.
