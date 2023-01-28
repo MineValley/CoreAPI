@@ -1,5 +1,6 @@
 package minevalley.core.api;
 
+import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.regions.Residence;
@@ -46,6 +47,8 @@ public interface Registrant {
      * this method will return the bank account of the departments company/organisation.
      */
     BankAccount getBankAccount();
+
+    List<AccountUser> getRelatedAccountUsers();
 
     /**
      * Gets the address of this registrant.

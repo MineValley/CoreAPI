@@ -1,6 +1,7 @@
 package minevalley.core.api.corporations;
 
 import minevalley.core.api.Registrant;
+import minevalley.core.api.User;
 
 import java.util.List;
 import java.util.Map;
@@ -59,6 +60,8 @@ public interface Department extends Registrant {
      * @return list with all members of this department
      */
     List<Member> getMembers();
+
+    Member getMember(User user);
 
     int getDefaultBaseWageInCents();
 

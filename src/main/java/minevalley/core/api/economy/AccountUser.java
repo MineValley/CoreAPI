@@ -8,6 +8,8 @@ public interface AccountUser {
 
     Registrant getRegistrant();
 
+    BankAccount getBankAccount();
+
     int getMaxPayoutPerDayInCents();
 
     int getRemainingDailyPayout();

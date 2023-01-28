@@ -67,6 +67,8 @@ public interface Group extends Registrant {
      */
     void addMember(User user);
 
+    Member getMember(User user);
+
     /**
      * Gets the bank account of this group.
      *

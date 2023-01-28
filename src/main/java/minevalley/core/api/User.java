@@ -1,5 +1,9 @@
 package minevalley.core.api;
 
+import minevalley.core.api.corporations.Group;
+import minevalley.core.api.corporations.Member;
+import minevalley.core.api.corporations.business.Aktiengesellschaft;
+import minevalley.core.api.corporations.business.Kapitalgesellschaft;
 import minevalley.core.api.corporations.purchases.Purchase;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.Education;
@@ -284,4 +288,12 @@ public interface User extends Registrant {
     void installSmartApp(String systemName);
 
     void uninstallSmartApp(String systemName);
+
+    List<Aktiengesellschaft.Stockholder> getRelatedStockholders();
+
+    List<Kapitalgesellschaft.Shareholder> getRelatedShareholders();
+
+    List<Member> getRelatedMembers();
+
+    List<Group> getRelatedGroups();
 }
