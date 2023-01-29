@@ -70,9 +70,8 @@
         <dependency>
             <groupId>minevalley.smart</groupId>
             <artifactId>api</artifactId>
-            <version>1.25</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/SmartAPI.jar</systemPath>
+            <version>1.44</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.squareup.okhttp</groupId>
