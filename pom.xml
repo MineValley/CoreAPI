@@ -70,7 +70,7 @@
         <dependency>
             <groupId>minevalley.smart</groupId>
             <artifactId>api</artifactId>
-            <version>1.44</version>
+            <version>1.45</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
