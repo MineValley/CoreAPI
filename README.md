@@ -7,7 +7,7 @@ We do our best to update this documentary. There's no other source of informatio
 
 > **Core API**:
 >
-> version: _1.227_
+> version: _1.228_
 >
 > latest change: _29.01.2023_
 
