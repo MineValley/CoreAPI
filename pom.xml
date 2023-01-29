@@ -72,8 +72,8 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>minevalley.smart</groupId>
-            <artifactId>api</artifactId>
+            <groupId>com.github.MineValley</groupId>
+            <artifactId>SmartAPI</artifactId>
             <version>1.45</version>
             <scope>compile</scope>
         </dependency>
