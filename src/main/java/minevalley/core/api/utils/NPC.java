@@ -1,5 +1,7 @@
 package minevalley.core.api.utils;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import minevalley.core.api.ChatMenu;
 import minevalley.core.api.OnlineUser;
 import minevalley.core.api.enums.NPCAnimation;
@@ -77,6 +79,14 @@ public interface NPC {
 
     void say(OnlineUser user, BaseComponent[] baseComponent, ChatMenu chatMenu, OnlineUser.Notice notice);
 
+    void say(OnlineUser user, RandomText text);
+
+    void say(OnlineUser user, RandomText text, ChatMenu chatMenu);
+
+    void say(OnlineUser user, RandomText text, OnlineUser.Notice notice);
+
+    void say(OnlineUser user, RandomText text, ChatMenu chatMenu, OnlineUser.Notice notice);
+
     OnlineUser.Notice getTalkWithMeNotice();
 
     List<Player> getSeeingPlayers();
@@ -92,5 +102,31 @@ public interface NPC {
     enum Click {
         RIGHT_CLICK,
         LEFT_CLICK
+    }
+
+    @Getter
+    class RandomText {
+        private final String[] texts;
+        private final Chance[] chanceTexts;
+
+        public RandomText(String... texts) {
+            this.texts = texts;
+            this.chanceTexts = new Chance[0];
+        }
+
+        public RandomText(Chance... texts) {
+            this.texts = new String[0];
+            this.chanceTexts = texts;
+        }
+
+        @Getter
+        @AllArgsConstructor
+        static class Chance {
+
+            // 1 - 100
+            private final int percentage;
+
+            private final String text;
+        }
     }
 }
