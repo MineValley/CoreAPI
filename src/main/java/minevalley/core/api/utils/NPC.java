@@ -14,6 +14,7 @@ import org.bukkit.util.Vector;
 
 import java.util.List;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 public interface NPC {
 
@@ -34,6 +35,20 @@ public interface NPC {
     boolean focusNearPlayers();
 
     void setFocusNearPlayers(boolean focusNearPlayers);
+
+    void zoomIn(OnlineUser user, boolean allowManualZoomOut);
+
+    default void zoomIn(OnlineUser user) {
+        zoomIn(user, true);
+    }
+
+    void zoomOut(OnlineUser user);
+
+    void onZoomOut(Consumer<OnlineUser> callback);
+
+    boolean isZoomedIn(OnlineUser user);
+
+    List<OnlineUser> getZoomedInUsers();
 
     void playAnimation(NPCAnimation animation);
 

@@ -20,7 +20,9 @@ public interface Region {
      *
      * @return list of areas
      */
-    Area[] getAreas();
+    Area[] getIncluded();
+
+    Area[] getExcluded();
 
     /**
      * Gets a list with the chunks that this region lies on.
