@@ -71,6 +71,7 @@ public final class Core {
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
+    @Deprecated
     public static int scheduleSyncRepeatingTask(long delay, long period, BukkitRunnable runnable) {
         return server.scheduleSyncRepeatingTask(delay, period, runnable);
     }
@@ -85,8 +86,23 @@ public final class Core {
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
+    @Deprecated
     public static int scheduleSyncRepeatingTask(long delay, long period, Runnable runnable) {
-        return server.scheduleSyncRepeatingTask(delay, period, runnable);
+        return server.scheduleSyncRepeatingTask("undefined", delay, period, runnable);
+    }
+
+    /**
+     * Schedules a repeating task.
+     * <p>
+     * This task will be executed by the main server thread.
+     *
+     * @param period   Period in server ticks of the task
+     * @param delay    Delay in server ticks before executing first repeat
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     */
+    public static int scheduleSyncRepeatingTask(String name, long delay, long period, Runnable runnable) {
+        return server.scheduleSyncRepeatingTask(name, delay, period, runnable);
     }
 
     /**
@@ -103,8 +119,27 @@ public final class Core {
      * @deprecated This name is misleading, as it does not schedule "a sync"
      * task, but rather, "an async" task
      */
+    @Deprecated
     public static int scheduleAsyncRepeatingTask(long delay, long period, Runnable runnable) {
-        return server.scheduleAsyncRepeatingTask(delay, period, runnable);
+        return server.scheduleAsyncRepeatingTask("undefined", delay, period, runnable);
+    }
+
+    /**
+     * <b>Asynchronous tasks should never access any API in Bukkit. Great care
+     * should be taken to assure the thread-safety of asynchronous tasks.</b>
+     * <p>
+     * Schedules a repeating task. This task will be executed by a thread
+     * managed by the scheduler.
+     *
+     * @param period   Period in server ticks of the task
+     * @param delay    Delay in server ticks before executing first repeat
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     * @deprecated This name is misleading, as it does not schedule "a sync"
+     * task, but rather, "an async" task
+     */
+    public static int scheduleAsyncRepeatingTask(String name, long delay, long period, Runnable runnable) {
+        return server.scheduleAsyncRepeatingTask(name, delay, period, runnable);
     }
 
     /**
@@ -112,6 +147,7 @@ public final class Core {
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
+    @Deprecated
     public static int scheduleSyncDelayedTask(long delay, BukkitRunnable runnable) {
         return server.scheduleSyncDelayedTask(delay, runnable);
     }
@@ -125,14 +161,29 @@ public final class Core {
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
+    @Deprecated
     public static int scheduleSyncDelayedTask(long delay, Runnable runnable) {
-        return server.scheduleSyncDelayedTask(delay, runnable);
+        return server.scheduleSyncDelayedTask("undefined", delay, runnable);
+    }
+
+    /**
+     * Schedules a once off task to occur after a delay.
+     * <p>
+     * This task will be executed by the main server thread.
+     *
+     * @param delay    Delay in server ticks before executing task
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     */
+    public static int scheduleSyncDelayedTask(String name, long delay, Runnable runnable) {
+        return server.scheduleSyncDelayedTask(name, delay, runnable);
     }
 
     /**
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
+    @Deprecated
     public static int scheduleSyncDelayedTask(BukkitRunnable runnable) {
         return server.scheduleSyncDelayedTask(runnable);
     }
@@ -145,8 +196,21 @@ public final class Core {
      * @param runnable Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
+    @Deprecated
     public static int scheduleSyncDelayedTask(Runnable runnable) {
-        return server.scheduleSyncDelayedTask(runnable);
+        return server.scheduleSyncDelayedTask("undefined", runnable);
+    }
+
+    /**
+     * Schedules a once off task to occur as soon as possible.
+     * <p>
+     * This task will be executed by the main server thread.
+     *
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     */
+    public static int scheduleSyncDelayedTask(String name, Runnable runnable) {
+        return server.scheduleSyncDelayedTask(name, runnable);
     }
 
     /**
@@ -162,8 +226,26 @@ public final class Core {
      * @deprecated This name is misleading, as it does not schedule "a sync"
      * task, but rather, "an async" task
      */
+    @Deprecated
     public static int scheduleAsyncDelayedTask(long delay, Runnable runnable) {
-        return server.scheduleAsyncDelayedTask(delay, runnable);
+        return server.scheduleAsyncDelayedTask("undefined", delay, runnable);
+    }
+
+    /**
+     * <b>Asynchronous tasks should never access any API in Bukkit. Great care
+     * should be taken to assure the thread-safety of asynchronous tasks.</b>
+     * <p>
+     * Schedules a once off task to occur after a delay. This task will be
+     * executed by a thread managed by the scheduler.
+     *
+     * @param delay    Delay in server ticks before executing task
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     * @deprecated This name is misleading, as it does not schedule "a sync"
+     * task, but rather, "an async" task
+     */
+    public static int scheduleAsyncDelayedTask(String name, long delay, Runnable runnable) {
+        return server.scheduleAsyncDelayedTask(name, delay, runnable);
     }
 
     /**
@@ -178,8 +260,25 @@ public final class Core {
      * @deprecated This name is misleading, as it does not schedule "a sync"
      * task, but rather, "an async" task
      */
+    @Deprecated
     public static int scheduleAsyncDelayedTask(Runnable runnable) {
-        return server.scheduleAsyncDelayedTask(runnable);
+        return server.scheduleAsyncDelayedTask("undefined", runnable);
+    }
+
+    /**
+     * <b>Asynchronous tasks should never access any API in Bukkit. Great care
+     * should be taken to assure the thread-safety of asynchronous tasks.</b>
+     * <p>
+     * Schedules a once off task to occur as soon as possible. This task will
+     * be executed by a thread managed by the scheduler.
+     *
+     * @param runnable Task to be executed
+     * @return Task id number (-1 if scheduling failed)
+     * @deprecated This name is misleading, as it does not schedule "a sync"
+     * task, but rather, "an async" task
+     */
+    public static int scheduleAsyncDelayedTask(String name, Runnable runnable) {
+        return server.scheduleAsyncDelayedTask(name, runnable);
     }
 
     /**
@@ -190,8 +289,9 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
+    @Deprecated
     public static BukkitTask runTask(Runnable runnable) {
-        return server.runTask(runnable);
+        return server.runTask("undefined", runnable);
     }
 
 
@@ -206,6 +306,7 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
+    @Deprecated
     public static BukkitTask runTaskAsync(Runnable runnable) {
         return server.runTaskAsync(runnable);
     }
@@ -218,6 +319,7 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
+    @Deprecated
     public static BukkitTask runTaskTimer(long delay, long period, BukkitRunnable runnable) {
         return server.runTaskTimer(delay, period, runnable);
     }
@@ -233,6 +335,7 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
+    @Deprecated
     public static BukkitTask runTaskTimer(long delay, long period, Runnable runnable) {
         return server.runTaskTimer(delay, period, runnable);
     }
@@ -245,6 +348,7 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
+    @Deprecated
     public static BukkitTask runTaskTimerAsync(long delay, long period, BukkitRunnable runnable) {
         return server.runTaskTimerAsync(delay, period, runnable);
     }
@@ -263,6 +367,7 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
+    @Deprecated
     public static BukkitTask runTaskTimerAsync(long delay, long period, Runnable runnable) {
         return server.runTaskTimerAsync(delay, period, runnable);
     }
@@ -274,6 +379,7 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
+    @Deprecated
     public static BukkitTask runTaskLater(long delay, BukkitRunnable runnable) {
         return server.runTaskLater(delay, runnable);
     }
@@ -288,6 +394,7 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
+    @Deprecated
     public static BukkitTask runTaskLater(long delay, Runnable runnable) {
         return server.runTaskLater(delay, runnable);
     }
@@ -299,6 +406,7 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
+    @Deprecated
     public static BukkitTask runTaskLaterAsync(long delay, BukkitRunnable runnable) {
         return server.runTaskLaterAsync(delay, runnable);
     }
@@ -316,6 +424,7 @@ public final class Core {
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
+    @Deprecated
     public static BukkitTask runTaskLaterAsync(long delay, Runnable runnable) {
         return server.runTaskLaterAsync(delay, runnable);
     }

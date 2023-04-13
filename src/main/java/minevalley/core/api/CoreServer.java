@@ -55,24 +55,24 @@ public interface CoreServer {
 
     int scheduleSyncRepeatingTask(long delay, long period, BukkitRunnable runnable);
 
-    int scheduleSyncRepeatingTask(long delay, long period, Runnable runnable);
+    int scheduleSyncRepeatingTask(String name, long delay, long period, Runnable runnable);
 
-    int scheduleAsyncRepeatingTask(long delay, long period, Runnable runnable);
+    int scheduleAsyncRepeatingTask(String name, long delay, long period, Runnable runnable);
 
     int scheduleSyncDelayedTask(long delay, BukkitRunnable runnable);
 
-    int scheduleSyncDelayedTask(long delay, Runnable runnable);
+    int scheduleSyncDelayedTask(String name, long delay, Runnable runnable);
 
     int scheduleSyncDelayedTask(BukkitRunnable runnable);
 
-    int scheduleSyncDelayedTask(Runnable runnable);
+    int scheduleSyncDelayedTask(String name, Runnable runnable);
 
-    int scheduleAsyncDelayedTask(long delay, Runnable runnable);
+    int scheduleAsyncDelayedTask(String name, long delay, Runnable runnable);
 
-    int scheduleAsyncDelayedTask(Runnable runnable);
+    int scheduleAsyncDelayedTask(String name, Runnable runnable);
 
 
-    BukkitTask runTask(Runnable runnable);
+    BukkitTask runTask(String name, Runnable runnable);
 
     BukkitTask runTaskAsync(Runnable runnable);
 
