@@ -1656,6 +1656,10 @@ public final class Core {
         return server.getAreaFromString(rawArea);
     }
 
+    public static int convertHexToDecimalColor(String hex) {
+        return server.convertHexToDecimalColor(hex);
+    }
+
     @Getter
     @AllArgsConstructor
     public static class PosItem {

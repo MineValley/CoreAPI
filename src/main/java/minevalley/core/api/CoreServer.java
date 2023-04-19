@@ -335,4 +335,6 @@ public interface CoreServer {
 
     Block blockFromString(String block);
 
+    int convertHexToDecimalColor(String hex);
+
 }
