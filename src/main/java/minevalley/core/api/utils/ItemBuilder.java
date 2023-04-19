@@ -45,6 +45,10 @@ public interface ItemBuilder {
      */
     ItemBuilder hideAttributes();
 
+    ItemBuilder setLeatherArmorColor(String hexColor);
+
+    ItemBuilder setLeatherArmorColor(int decimalColor);
+
     /**
      * Converts this builder with its parameters into an itemstack
      *
