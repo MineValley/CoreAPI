@@ -12,7 +12,6 @@ import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.InterfaceItem;
-import minevalley.core.api.weather.Weather;
 import minevalley.core.api.modulepipeline.Container;
 import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
@@ -60,14 +59,9 @@ import java.util.stream.Collectors;
 public final class Core {
 
     private static CoreServer server;
-    private static Weather weather;
 
     public Core(CoreServer server) {
         Core.server = server;
-    }
-
-    public Core(Weather weather) {
-        Core.weather = weather;
     }
 
 
@@ -792,27 +786,6 @@ public final class Core {
 
     public static String getFormattedTime(long time) {
         return new SimpleDateFormat("HH:mm", Locale.GERMANY).format(new Date(time)) + " Uhr";
-    }
-
-
-    public static String getCurrentTime() {
-        return weather.getCurrentTime();
-    }
-
-    public static String getCurrentSeason() {
-        return weather.getCurrentSeason();
-    }
-
-    public static String getCurrentDate() {
-        return weather.getCurrentDate();
-    }
-
-    public static String getCurrentWeather() {
-        return weather.getCurrentWeather();
-    }
-
-    public static String[] getUpcomingWeather() {
-        return weather.getUpcomingWeather();
     }
 
     /**
