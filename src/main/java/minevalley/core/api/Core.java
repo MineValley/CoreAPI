@@ -60,10 +60,16 @@ import java.util.stream.Collectors;
 public final class Core {
 
     private static CoreServer server;
+    private static Weather weather;
 
     public Core(CoreServer server) {
         Core.server = server;
     }
+
+    public Core(Weather weather) {
+        Core.weather = weather;
+    }
+
 
     /**
      * @param period   Period in server ticks of the task
@@ -789,24 +795,24 @@ public final class Core {
     }
 
 
-    public static Weather getCurrentTime() {
-        return server.getCurrentTime();
+    public static String getCurrentTime() {
+        return weather.getCurrentTime();
     }
 
-    public static Weather getCurrentSeason() {
-        return server.getCurrentSeason();
+    public static String getCurrentSeason() {
+        return weather.getCurrentSeason();
     }
 
-    public static Weather getCurrentDate() {
-        return server.getCurrentDate();
+    public static String getCurrentDate() {
+        return weather.getCurrentDate();
     }
 
-    public static Weather getCurrentWeather() {
-        return server.getCurrentWeather();
+    public static String getCurrentWeather() {
+        return weather.getCurrentWeather();
     }
 
-    public static Weather[] getUpcomingWeather() {
-        return server.getUpcomingWeather();
+    public static String[] getUpcomingWeather() {
+        return weather.getUpcomingWeather();
     }
 
     /**

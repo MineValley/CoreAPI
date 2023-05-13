@@ -9,7 +9,6 @@ import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
-import minevalley.core.api.weather.Weather;
 import minevalley.core.api.modulepipeline.Container;
 import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
@@ -178,12 +177,6 @@ public interface CoreServer {
     String formatMoney(int amountInCents);
 
     String formatRelativeTimestamp(long time);
-
-    Weather getCurrentTime();
-    Weather getCurrentSeason();
-    Weather getCurrentDate();
-    Weather getCurrentWeather();
-    Weather[] getUpcomingWeather();
 
     GuiBuilder createGui(Inventory inventory);
 
