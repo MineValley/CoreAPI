@@ -1,4 +1,4 @@
-package minevalley.core.api.misc;
+package minevalley.core.api.weather;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class Weather {
+public class WeatherEnum {
 
     private final Type type;
     private final int temperature;
