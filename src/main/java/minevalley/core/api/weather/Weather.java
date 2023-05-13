@@ -1,4 +1,4 @@
-package minevalley.core.api.misc;
+package minevalley.core.api.weather;
 
 import lombok.AccessLevel;
 import lombok.Getter;
