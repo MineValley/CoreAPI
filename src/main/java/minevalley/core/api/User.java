@@ -8,6 +8,7 @@ import minevalley.core.api.corporations.purchases.Purchase;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.Education;
 import minevalley.core.api.phone.Telephone;
+import minevalley.core.api.utils.OnTimeHandler;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
@@ -300,9 +301,15 @@ public interface User extends Registrant {
 
     List<Group> getRelatedGroups();
 
-    int getTotalOnTimeInMinutes();
+    default int getTotalOnTimeInMinutes() {
+        return OnTimeHandler.getTodayOnTimeInMinutes(this);
+    }
 
-    int getTodayOnTimeInMinutes();
+    default int getTodayOnTimeInMinutes() {
+        return OnTimeHandler.getTodayOnTimeInMinutes(this);
+    }
 
-    Map<LocalDate, Integer> getThirtyDaysOnTimeInMinutes();
+    default Map<LocalDate, Integer> getThirtyDaysOnTimeInMinutes() {
+        return OnTimeHandler.getThirtyDaysOnTimeInMinutes(this);
+    }
 }
