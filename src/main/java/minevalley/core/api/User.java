@@ -304,5 +304,5 @@ public interface User extends Registrant {
 
     int getTodayOnTimeInMinutes();
 
-    Map<LocalDate, Integer> getThirtyDaysOnTime();
+    Map<LocalDate, Integer> getThirtyDaysOnTimeInMinutes();
 }
