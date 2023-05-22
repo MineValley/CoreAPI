@@ -11,10 +11,6 @@ public final class OnTimeHandler {
     @Setter
     private static Manager manager;
 
-    public static int getTotalOnTimeInMinutes(User user) {
-        return manager.getTotalOnTimeInMinutes(user);
-    }
-
     public static int getTodayOnTimeInMinutes(User user) {
         return manager.getTodayOnTimeInMinutes(user);
     }
@@ -24,8 +20,6 @@ public final class OnTimeHandler {
     }
 
     public interface Manager {
-
-        int getTotalOnTimeInMinutes(User user);
 
         int getTodayOnTimeInMinutes(User user);
 
