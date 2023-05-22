@@ -296,4 +296,8 @@ public interface User extends Registrant {
     List<Member> getRelatedMembers();
 
     List<Group> getRelatedGroups();
+
+    int getTotalOnTimeInMinutes();
+
+    int getTodayOnTimeInMinutes();
 }
