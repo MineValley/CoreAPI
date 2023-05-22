@@ -301,9 +301,7 @@ public interface User extends Registrant {
 
     List<Group> getRelatedGroups();
 
-    default int getTotalOnTimeInMinutes() {
-        return OnTimeHandler.getTodayOnTimeInMinutes(this);
-    }
+    int getTotalOnTimeInMinutes();
 
     default int getTodayOnTimeInMinutes() {
         return OnTimeHandler.getTodayOnTimeInMinutes(this);
