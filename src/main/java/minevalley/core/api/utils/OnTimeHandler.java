@@ -19,11 +19,16 @@ public final class OnTimeHandler {
         return manager.getThirtyDaysOnTimeInMinutes(user);
     }
 
+    public static int getOnTimeSinceRestartInMinutes(User user) {
+        return manager.getOnTimeSinceRestartInMinutes(user);
+    }
+
     public interface Manager {
 
         int getTodayOnTimeInMinutes(User user);
 
         Map<LocalDate, Integer> getThirtyDaysOnTimeInMinutes(User user);
 
+        int getOnTimeSinceRestartInMinutes(User user);
     }
 }
