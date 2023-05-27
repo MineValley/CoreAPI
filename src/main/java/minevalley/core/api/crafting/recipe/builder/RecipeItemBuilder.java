@@ -1,5 +1,6 @@
 package minevalley.core.api.crafting.recipe.builder;
 
+import minevalley.core.api.crafting.recipe.RecipeItem;
 import org.bukkit.inventory.ItemStack;
 
 public interface RecipeItemBuilder {
@@ -18,5 +19,13 @@ public interface RecipeItemBuilder {
      * @param ignoreMetadata boolean if meta is important
      */
     RecipeItemBuilder setIgnoreMetadata(boolean ignoreMetadata);
+
+
+    /**
+     * Creates the new instance out of the builder components
+     *
+     * @return The RecipeItem instance object
+     */
+    RecipeItem build();
 
 }
