@@ -1,6 +1,7 @@
 package minevalley.core.api.crafting.recipe.builder;
 
 import minevalley.core.api.crafting.recipe.RecipeItem;
+import minevalley.core.api.crafting.recipe.requirements.Requirement;
 import org.bukkit.inventory.ItemStack;
 
 public interface RecipeItemBuilder {
@@ -20,6 +21,20 @@ public interface RecipeItemBuilder {
      */
     RecipeItemBuilder setIgnoreMetadata(boolean ignoreMetadata);
 
+
+    /**
+     * Add a new Requirement to the current item
+     *
+     * @param requirement requirement which data the item needs to match
+     */
+    RecipeItemBuilder addRequirement(Requirement requirement);
+
+    /**
+     * Replace the item after the craft-process
+     *
+     * @param item the replaced item
+     */
+    RecipeItemBuilder replaceItemAfterCrafting(ItemStack item);
 
     /**
      * Creates the new instance out of the builder components
