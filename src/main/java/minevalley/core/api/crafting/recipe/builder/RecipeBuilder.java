@@ -29,6 +29,16 @@ public interface RecipeBuilder {
     RecipeBuilder setIngredients(Map<Integer, RecipeItem> ingredients);
 
     /**
+     * Add a new ingredient which is needed for the recipe
+     * If the recipe is marked as "setShapeless(true)" this list is used for <Slot, Item> detection
+     * When you are using a shapeless recipe just count the slot+1 everytime you add a new ingredient
+     *
+     * @param slot Slot of the item
+     * @param item RecipeItem Object
+     */
+    RecipeBuilder addIngredient(int slot, RecipeItem item);
+
+    /**
      * Defines if the recipe is a shapeless or shaped recipe
      *
      * @param shapeless If the recipe is shapeless or not
