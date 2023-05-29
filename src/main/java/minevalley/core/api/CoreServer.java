@@ -260,6 +260,8 @@ public interface CoreServer {
 
     District getDistrict(Chunk chunk);
 
+    void updateDistricts();
+
     List<District> getDistricts();
 
     RadioMast createRadioMast(String name, Block location, int range);
