@@ -1,6 +1,9 @@
 package minevalley.core.api.crafting.recipe;
 
+import minevalley.core.api.crafting.recipe.requirements.Requirement;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.List;
 
 public interface RecipeItem {
 
@@ -24,5 +27,12 @@ public interface RecipeItem {
      * @return Amount of craft components needed
      */
     int getAmount();
+
+    /**
+     * Get the Requirements of the Item which are needed to "allow" the crafting
+     *
+     * @return List with the Requirements
+     */
+    List<Requirement> getRequirements();
 
 }
