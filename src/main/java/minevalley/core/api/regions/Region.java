@@ -25,9 +25,9 @@ public interface Region {
     Area[] getExcluded();
 
     /**
-     * Gets a list with the chunks that this region lies on.
+     * Gets an array with the chunks that this region lies on.
      *
-     * @return list of chunks
+     * @return array of chunks
      */
     Chunk[] getChunks();
 
