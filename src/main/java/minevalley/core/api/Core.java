@@ -527,8 +527,8 @@ public final class Core {
      * @param searchValue value according to which the entries are filtered in a specific column
      * @return the first database-entry that matches the given description
      */
-    public static DatabaseEntry getDatabaseEntry(String tableName, Value searchValue) {
-        return server.getDatabaseEntry(tableName, searchValue);
+    public static DatabaseEntry getDatabaseEntry(String tableName, Value... searchValues) {
+        return server.getDatabaseEntry(tableName, searchValues);
     }
 
     /**
@@ -550,8 +550,8 @@ public final class Core {
      * @param searchValue value according to which the entries are filtered in a specific column
      * @return a collection of all database-entries in this table, that matches the given description
      */
-    public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue) {
-        return server.getDatabaseEntryCollection(tableName, searchValue);
+    public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value... searchValues) {
+        return server.getDatabaseEntryCollection(tableName, searchValues);
     }
 
     /**

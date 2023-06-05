@@ -120,11 +120,11 @@ public interface CoreServer {
 
     DatabaseEntry getDatabaseEntry(String tableName, ResultSet resultSet, int index);
 
-    DatabaseEntry getDatabaseEntry(String tableName, Value searchValue);
+    DatabaseEntry getDatabaseEntry(String tableName, Value... searchValues);
 
     DatabaseEntryCollection getDatabaseEntryCollection(String tableName, List<DatabaseEntry> entries);
 
-    DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue);
+    DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value... searchValues);
 
     DatabaseTable getDatabaseTable(String tableName);
 
