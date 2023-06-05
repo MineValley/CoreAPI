@@ -42,7 +42,7 @@ public interface Region {
     boolean isAllowedToEnter();
 
     /**
-     * Could be null!
+     * <b>Note:</b> This could be null!
      */
     Residence getResidence();
 }
