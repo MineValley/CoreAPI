@@ -5,13 +5,11 @@ import org.bukkit.Chunk;
 
 import java.util.List;
 
-public interface District {
+public interface District extends PlayerLocation {
 
     int getId();
 
     Chunk[] getChunks();
-
-    String getName();
 
     String getDescription();
 

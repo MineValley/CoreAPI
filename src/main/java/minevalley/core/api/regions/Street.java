@@ -67,9 +67,10 @@ public interface Street {
 
     @Getter
     @RequiredArgsConstructor
-    class NavigationPoint {
+    class NavigationPoint implements PlayerLocation {
         private final Street street;
         private final Location location;
+        private final String name;
         private final List<Connection> connections;
 
         public double distance(Location location) {

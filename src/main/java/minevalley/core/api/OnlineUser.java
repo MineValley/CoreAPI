@@ -11,6 +11,7 @@ import minevalley.core.api.enums.MessageType;
 import minevalley.core.api.enums.TeamRank;
 import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
+import minevalley.core.api.regions.PlayerLocation;
 import minevalley.core.api.vehicles.LoadedVehicle;
 import minevalley.core.api.vehicles.Vehicle;
 import minevalley.core.api.vehicles.VehicleManager;
@@ -493,6 +494,8 @@ public interface OnlineUser extends User {
     default boolean hasFreeInventorySlot() {
         return getAmountOfFreeInventorySlots() != 0;
     }
+
+    PlayerLocation getLocation();
 
     @Getter
     @Setter
