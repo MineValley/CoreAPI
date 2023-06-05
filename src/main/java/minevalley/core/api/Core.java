@@ -1557,6 +1557,8 @@ public final class Core {
         return server.createApartment(region, block, rent, apartmentSign, mailbox);
     }
 
+    // TODO: 05.06.2023
+    @Deprecated
     public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord,
                                                       int fertility, Block mailboxBlock, Area mailboxConnectedBlocks,
                                                       Sign apartmentBlockSign, Sign bellSign, int maxFloors,
@@ -1568,6 +1570,8 @@ public final class Core {
                 roofShadows, constructionFloorShadow, constructionWorkerLocation, craftsmanLocations, damagedFloorBlocks);
     }
 
+    // TODO: 05.06.2023
+    @Deprecated
     public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord,
                                                       int fertility, Block mailboxBlock, Area mailboxConnectedBlocks,
                                                       Sign apartmentBlockSign, Sign bellSign, int floors,
