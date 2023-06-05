@@ -1440,8 +1440,8 @@ public final class Core {
     }
 
     public static CarBarrier createCarBarrier(Location loc, int rotation, List<Block> barrierBlocks) {
+        while (rotation < 0) rotation += 360;
         rotation %= 360;
-        if (rotation < 0) rotation += 360;
         return server.createCarBarrier(loc, rotation, barrierBlocks);
     }
 
