@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.User;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
@@ -76,6 +77,8 @@ public interface BankAccount {
      * @return true, if the transfer was successful (false, if account does not have enough money)
      */
     TransferResult transfer(BankAccount target, int amountInCents, String usage);
+
+    ItemStack getBankCard();
 
     @Getter
     @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
