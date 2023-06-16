@@ -216,6 +216,8 @@ public interface CoreServer {
 
     BankAccount getBankAccount(String iban);
 
+    BankAccount getBankAccount(ItemStack bankingCard);
+
     BankAccount createBankAccount(Registrant holder);
 
     Group getGroup(String name);

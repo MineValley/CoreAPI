@@ -1250,6 +1250,10 @@ public final class Core {
         return server.getBankAccount(iban);
     }
 
+    public static BankAccount getBankAccount(ItemStack bankCard) {
+        return server.getBankAccount(bankCard);
+    }
+
     /**
      * Creates a new bank account with the given holder.
      *
