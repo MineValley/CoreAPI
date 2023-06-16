@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface Member {
 
-
     String getId();
 
     /**
@@ -41,8 +40,6 @@ public interface Member {
     void addPermission(MemberPermission permission);
 
     void revokePermission(MemberPermission permission);
-
-    void updateFromDatabase();
 
     void kick();
 }
