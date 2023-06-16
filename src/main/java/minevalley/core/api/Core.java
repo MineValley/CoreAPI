@@ -507,7 +507,7 @@ public final class Core {
     }
 
     /**
-     * Gets the specific database-entry from the given ResultSet, the tablename and the entrys index.
+     * Gets the specific database-entry from the given ResultSet, the table name and the entry's index.
      *
      * @param tableName name of the table as string
      * @param resultSet resultset
@@ -632,7 +632,7 @@ public final class Core {
     }
 
     /**
-     * Removes all metadata-objects with the given key from the specifiy metadatable object.
+     * Removes all metadata-objects with the given key from the specific metadatable object.
      *
      * @param metadatable object from which the metadata should be removed
      * @param key         object
@@ -825,7 +825,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param itemStack item which should be displayed in the inventory
-     * @param consumer  consumer which gets calles if a player clicks the item
+     * @param consumer  consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemStack itemStack, Consumer<OnlineUser> consumer) {
@@ -837,7 +837,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param itemBuilder item which should be displayed in the inventory
-     * @param consumer    consumer which gets calles if a player clicks the item
+     * @param consumer    consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemBuilder itemBuilder, Consumer<OnlineUser> consumer) {
@@ -849,7 +849,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param item     item which should be displayed in the inventory
-     * @param consumer consumer which gets calles if a player clicks the item
+     * @param consumer consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(InterfaceItem item, Consumer<OnlineUser> consumer) {
@@ -861,7 +861,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param itemStack item which should be displayed in the inventory
-     * @param consumer  consumer which gets calles if a player clicks the item
+     * @param consumer  consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemStack itemStack, BiConsumer<OnlineUser, ClickType> consumer) {
@@ -873,7 +873,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param itemBuilder item which should be displayed in the inventory
-     * @param consumer    consumer which gets calles if a player clicks the item
+     * @param consumer    consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemBuilder itemBuilder, BiConsumer<OnlineUser, ClickType> consumer) {
@@ -885,7 +885,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param item     item which should be displayed in the inventory
-     * @param consumer consumer which gets calles if a player clicks the item
+     * @param consumer consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(InterfaceItem item, BiConsumer<OnlineUser, ClickType> consumer) {
@@ -897,7 +897,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param itemStack item which should be displayed in the inventory
-     * @param consumer  consumer which gets calles if a player clicks the item
+     * @param consumer  consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemStack itemStack, TriConsumer<OnlineUser, ClickType, Inventory> consumer) {
@@ -909,7 +909,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param itemBuilder item which should be displayed in the inventory
-     * @param consumer    consumer which gets calles if a player clicks the item
+     * @param consumer    consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(ItemBuilder itemBuilder, TriConsumer<OnlineUser, ClickType, Inventory> consumer) {
@@ -921,7 +921,7 @@ public final class Core {
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
      * @param item     item which should be displayed in the inventory
-     * @param consumer consumer which gets calles if a player clicks the item
+     * @param consumer consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
     public static GuiItem createGuiItem(InterfaceItem item, TriConsumer<OnlineUser, ClickType, Inventory> consumer) {
@@ -1191,9 +1191,9 @@ public final class Core {
     }
 
     /**
-     * Creates a clickable message that executes the given callback, and is only clickable once (if selfCanselling is true).
+     * Creates a clickable message that executes the given callback, and is only clickable once (if selfCancelling is true).
      *
-     * @param callback       callbacl to be executed if player clicks the message
+     * @param callback       callback to be executed if player clicks the message
      * @param selfCancelling defines if the message is clickable multiple times
      * @return new clickable message
      */
@@ -1268,7 +1268,7 @@ public final class Core {
      * Gets the group (organization/company) with the specific name.
      *
      * @param name name as string
-     * @return group with the specifc name
+     * @return group with the specific name
      */
     public static Group getGroup(String name) {
         return server.getGroup(name);
