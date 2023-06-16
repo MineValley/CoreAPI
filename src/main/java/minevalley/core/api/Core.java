@@ -524,7 +524,7 @@ public final class Core {
      * If you want to get multiple entries, use database-collection, or database-table!
      *
      * @param tableName   name of the table as string
-     * @param searchValue value according to which the entries are filtered in a specific column
+     * @param searchValues value according to which the entries are filtered in a specific column
      * @return the first database-entry that matches the given description
      */
     public static DatabaseEntry getDatabaseEntry(String tableName, Value... searchValues) {
@@ -547,7 +547,7 @@ public final class Core {
      * This gets all the entries that match the description. If you're searching for one single entry, use database-entry!
      *
      * @param tableName   name of the table as string
-     * @param searchValue value according to which the entries are filtered in a specific column
+     * @param searchValues value according to which the entries are filtered in a specific column
      * @return a collection of all database-entries in this table, that matches the given description
      */
     public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value... searchValues) {
