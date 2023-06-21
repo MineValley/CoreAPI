@@ -12,10 +12,12 @@ public interface StateCompany extends Kapitalgesellschaft {
     @Getter
     @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
     enum Sector {
-        OFFICE("Behörde"),
-        REAL_ESTATE("Immobilien"),
-        ECONOMY("Wirtschaftsinstitut"),
-        PUBLIC_INSTITUTION("Öffentliche Einrichtung");
-        private final String clearName;
+        OFFICE(1, "Behörde"),
+        REAL_ESTATE(2, "Immobilien"),
+        ECONOMY(3, "Wirtschaftsinstitut"),
+        PUBLIC_INSTITUTION(4, "Öffentliche Einrichtung");
+
+        private final int id;
+        private final String name;
     }
 }
