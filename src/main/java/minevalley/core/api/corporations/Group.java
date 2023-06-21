@@ -76,6 +76,8 @@ public interface Group extends Registrant {
      */
     BankAccount getBankAccount();
 
+    void delete();
+
     enum RenameFeedback {
         FORBIDDEN_CHARACTERS,
         FORBIDDEN_WORDS,
