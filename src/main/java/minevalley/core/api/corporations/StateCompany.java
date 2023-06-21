@@ -19,5 +19,11 @@ public interface StateCompany extends Kapitalgesellschaft {
 
         private final int id;
         private final String name;
+
+        public static Sector getSector(int id) {
+            assert id > 0;
+            assert id < Sector.values().length;
+            return Sector.values()[id - 1];
+        }
     }
 }
