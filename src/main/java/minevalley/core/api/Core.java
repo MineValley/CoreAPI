@@ -1689,6 +1689,10 @@ public final class Core {
         return server.createAktiengesellschaft(address, stocks);
     }
 
+    public static List<StateCompany> getStateCompanies() {
+        return  server.getStateCompanies();
+    }
+
     @Getter
     @AllArgsConstructor
     public static class PosItem {

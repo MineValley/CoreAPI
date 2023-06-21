@@ -351,4 +351,6 @@ public interface CoreServer {
 
     Aktiengesellschaft createAktiengesellschaft(int address, int stocks);
 
+    List<StateCompany> getStateCompanies();
+
 }
