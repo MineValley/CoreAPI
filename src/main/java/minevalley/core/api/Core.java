@@ -1669,25 +1669,24 @@ public final class Core {
         return server.convertHexToDecimalColor(hex);
     }
 
-    public static Einzelunternehmen createEinzelunternehmen(String name, String description, User owner) {
-        return server.createEinzelunternehmen(name, description, owner);
+    public static Einzelunternehmen createEinzelunternehmen(User owner) {
+        return server.createEinzelunternehmen(owner);
     }
 
-    public static Personengesellschaft createPersonengesellschaft(String name, String description, User owner,
-                                                                  List<User> coOwners) {
-        return server.createPersonengesellschaft(name, description, owner, coOwners);
+    public static Personengesellschaft createPersonengesellschaft(User owner, List<User> coOwners) {
+        return server.createPersonengesellschaft(owner, coOwners);
     }
 
-    public static Kapitalgesellschaft createKapitalgesellschaft(String name, String description, int address) {
-        return server.createKapitalgesellschaft(name, description, address);
+    public static Kapitalgesellschaft createKapitalgesellschaft(int address) {
+        return server.createKapitalgesellschaft(address);
     }
 
-    public static StateCompany createStateCompany(String name, String description, int address, StateCompany.Sector sector) {
-        return server.createStateCompany(name, description, address, sector);
+    public static StateCompany createStateCompany(int address, StateCompany.Sector sector) {
+        return server.createStateCompany(address, sector);
     }
 
-    public static Aktiengesellschaft createAktiengesellschaft(String name, String description, int address, int stocks) {
-        return server.createAktiengesellschaft(name, description, address, stocks);
+    public static Aktiengesellschaft createAktiengesellschaft(int address, int stocks) {
+        return server.createAktiengesellschaft(address, stocks);
     }
 
     @Getter

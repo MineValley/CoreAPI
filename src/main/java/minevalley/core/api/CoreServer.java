@@ -341,14 +341,14 @@ public interface CoreServer {
 
     int convertHexToDecimalColor(String hex);
 
-    Einzelunternehmen createEinzelunternehmen(String name, String description, User owner);
+    Einzelunternehmen createEinzelunternehmen(User owner);
 
-    Personengesellschaft createPersonengesellschaft(String name, String description, User owner, List<User> coOwners);
+    Personengesellschaft createPersonengesellschaft(User owner, List<User> coOwners);
 
-    Kapitalgesellschaft createKapitalgesellschaft(String name, String description, int address);
+    Kapitalgesellschaft createKapitalgesellschaft(int address);
 
-    StateCompany createStateCompany(String name, String description, int address, StateCompany.Sector sector);
+    StateCompany createStateCompany(int address, StateCompany.Sector sector);
 
-    Aktiengesellschaft createAktiengesellschaft(String name, String description, int address, int stocks);
+    Aktiengesellschaft createAktiengesellschaft(int address, int stocks);
 
 }
