@@ -74,7 +74,7 @@
         <dependency>
             <groupId>com.github.MineValley</groupId>
             <artifactId>SmartAPI</artifactId>
-            <version>1.45</version>
+            <version>1.46</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
