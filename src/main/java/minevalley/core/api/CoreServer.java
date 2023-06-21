@@ -3,6 +3,11 @@ package minevalley.core.api;
 import com.google.gson.Gson;
 import lombok.NonNull;
 import minevalley.core.api.corporations.Group;
+import minevalley.core.api.corporations.StateCompany;
+import minevalley.core.api.corporations.business.Aktiengesellschaft;
+import minevalley.core.api.corporations.business.Einzelunternehmen;
+import minevalley.core.api.corporations.business.Kapitalgesellschaft;
+import minevalley.core.api.corporations.business.Personengesellschaft;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
@@ -335,5 +340,15 @@ public interface CoreServer {
     Block blockFromString(String block);
 
     int convertHexToDecimalColor(String hex);
+
+    Einzelunternehmen createEinzelunternehmen(String name, String description, User owner);
+
+    Personengesellschaft createPersonengesellschaft(String name, String description, User owner, List<User> coOwners);
+
+    Kapitalgesellschaft createKapitalgesellschaft(String name, String description, int address);
+
+    StateCompany createStateCompany(String name, String description, int address, StateCompany.Sector sector);
+
+    Aktiengesellschaft createAktiengesellschaft(String name, String description, int address, int stocks);
 
 }

@@ -5,6 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
 import minevalley.core.api.corporations.Group;
+import minevalley.core.api.corporations.StateCompany;
+import minevalley.core.api.corporations.business.Aktiengesellschaft;
+import minevalley.core.api.corporations.business.Einzelunternehmen;
+import minevalley.core.api.corporations.business.Kapitalgesellschaft;
+import minevalley.core.api.corporations.business.Personengesellschaft;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
@@ -523,7 +528,7 @@ public final class Core {
      * If there are more than one entry, that math the given description, this gets the first one.
      * If you want to get multiple entries, use database-collection, or database-table!
      *
-     * @param tableName   name of the table as string
+     * @param tableName    name of the table as string
      * @param searchValues value according to which the entries are filtered in a specific column
      * @return the first database-entry that matches the given description
      */
@@ -546,7 +551,7 @@ public final class Core {
      * Gets a database-collection from the specified table with the specified value in the column.
      * This gets all the entries that match the description. If you're searching for one single entry, use database-entry!
      *
-     * @param tableName   name of the table as string
+     * @param tableName    name of the table as string
      * @param searchValues value according to which the entries are filtered in a specific column
      * @return a collection of all database-entries in this table, that matches the given description
      */
@@ -1662,6 +1667,27 @@ public final class Core {
 
     public static int convertHexToDecimalColor(String hex) {
         return server.convertHexToDecimalColor(hex);
+    }
+
+    public static Einzelunternehmen createEinzelunternehmen(String name, String description, User owner) {
+        return server.createEinzelunternehmen(name, description, owner);
+    }
+
+    public static Personengesellschaft createPersonengesellschaft(String name, String description, User owner,
+                                                                  List<User> coOwners) {
+        return server.createPersonengesellschaft(name, description, owner, coOwners);
+    }
+
+    public static Kapitalgesellschaft createKapitalgesellschaft(String name, String description, int address) {
+        return server.createKapitalgesellschaft(name, description, address);
+    }
+
+    public static StateCompany createStateCompany(String name, String description, int address, StateCompany.Sector sector) {
+        return server.createStateCompany(name, description, address, sector);
+    }
+
+    public static Aktiengesellschaft createAktiengesellschaft(String name, String description, int address, int stocks) {
+        return server.createAktiengesellschaft(name, description, address, stocks);
     }
 
     @Getter
