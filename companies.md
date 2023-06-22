@@ -1,8 +1,8 @@
-# companies
+# Staatliche Unternehmen / state companies
 
-Diese Liste aller serverseitigen Unternehmen dient der Aufzählung aller sie betreffenden Informationen, wie z. B. deren iban und Telefonnummern.
+Diese Liste aller staatlichen Unternehmen dient der Übersicht über deren Daten, wie z. B. deren Iban und Telefonnummern.
 
-The list of all server-side companies serves to enumerate all information related to them, such as their iban and phone numbers.
+This list of all state companies serves to enumerate all information related to them, such as their banking id and phone numbers.
 
 ### Name
 <p>
@@ -17,7 +17,6 @@ The list of all server-side companies serves to enumerate all information relate
 <p>
   <b>Telefon:</b> 012345678
 </p>
-
 
 ---
 
