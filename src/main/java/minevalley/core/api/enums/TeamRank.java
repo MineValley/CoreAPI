@@ -69,7 +69,7 @@ public enum TeamRank {
      * Gets the rank by giving the identification-number of the rank.
      *
      * @param value identification-number of the searched rank
-     * @return the maching team-rank
+     * @return the matching team-rank
      */
     public static TeamRank getRank(int value) {
         return Arrays.stream(values()).filter(teamRank -> teamRank.getValue() == value).findFirst().orElse(null);

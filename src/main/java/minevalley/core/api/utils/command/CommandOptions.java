@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 public @interface CommandOptions {
 
     /**
-     * This list is used to make all of the strings usable command-variations. It should contain each alias and the original spelling of the command
+     * This list is used to make all the strings usable command-variations. It should contain each alias and the original spelling of the command
      */
     @NonNull
     String[] commands();
@@ -35,7 +35,7 @@ public @interface CommandOptions {
     String successMessage() default "";
 
     /**
-     * If this is true, the parameters playerrank, fractions and teamranks are ignored. Every user is able to execute the command.
+     * If this is true, the parameters player-rank, fractions and team-ranks are ignored. Every user is able to execute the command.
      * <p>
      * <b>Note: </b> This doesn't affect the requireSupportService()-parameter.
      */
@@ -57,18 +57,18 @@ public @interface CommandOptions {
 
     /**
      * If this is enabled, users aren't allowed to use this command, if they aren't in team service.
-     * This is used for commands, that are only accessible for teammembers. Use this instead of adding every possible team rank into the teamRanks-option!
+     * This is used for commands, that are only accessible for team members. Use this instead of adding every possible team rank into the teamRanks-option!
      */
     boolean requireTeamService() default false;
 
     /**
-     * If this is enabled, users (in this case only teammembers) aren't allowed to use this command, if they aren't in support service.
+     * If this is enabled, users (in this case only team members) aren't allowed to use this command, if they aren't in support service.
      */
     boolean requireSupportService() default false;
 
     /**
      * If this is enabled, users that are allowed to use this command are also allowed to tab it.
-     * Disable this if you want to make custom permission-checks beyond the commandoptions!
+     * Disable this if you want to make custom permission-checks beyond the command-options!
      */
     boolean allowTabbing() default true;
 
@@ -80,7 +80,7 @@ public @interface CommandOptions {
 
     /**
      * If a value is specified here, the user must execute the command with the specified number of arguments.
-     * Otherwise the command will not be invoked and the user will receive a syntax error.
+     * Otherwise, the command will not be invoked and the user will receive a syntax error.
      */
     int correctSyntaxLength() default -1;
 

@@ -15,7 +15,7 @@ public class Termination {
     private final long date;
 
     /**
-     * Defines whether this termination is made by the landlord (only available with apartments) or is set up by the system (e. g. by a team member).
+     * Defines whether this termination is made by the landlord (only available with apartments) or is set up by the system (e.g. by a team member).
      */
     private final Type type;
 

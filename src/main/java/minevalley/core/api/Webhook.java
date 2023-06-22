@@ -4,8 +4,8 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * This Webhook-builder is ment to help you creating discord-webhooks.
- * You can find helpful information here: https://birdie0.github.io/discord-webhooks-guide/discord_webhook.html
+ * This Webhook-builder is meant to help you to create discord-webhooks.
+ * You can find helpful information here: <a href="https://birdie0.github.io/discord-webhooks-guide/discord_webhook.html">...</a>
  */
 public interface Webhook {
 

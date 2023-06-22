@@ -2,13 +2,12 @@ package minevalley.core.api.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.OnlineUser;
 import minevalley.core.api.User;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 /**
- * This event gets called when a user is freezed.
+ * This event gets called when a user is frozen.
  */
 @Getter
 @RequiredArgsConstructor

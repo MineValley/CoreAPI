@@ -9,7 +9,7 @@ import java.util.List;
 public interface Region {
 
     /**
-     * Gets this regions id.
+     * Gets this regions' id.
      *
      * @return id as integer
      */
@@ -18,7 +18,7 @@ public interface Region {
     /**
      * Gets a list of the areas that define this region.
      *
-     * @return list of areas
+     * @return array of areas
      */
     Area[] getIncluded();
 

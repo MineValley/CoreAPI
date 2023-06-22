@@ -36,6 +36,6 @@ public final class UserServiceSwitchEvent extends Event {
         JOIN_MAIL_SERVICE,
         LEAVE_MAIL_SERVICE,
         JOIN_DISPOSAL_SERVICE,
-        LEAVE_DISPOSAL_SERVICE;
+        LEAVE_DISPOSAL_SERVICE
     }
 }

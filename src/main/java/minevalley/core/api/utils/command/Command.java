@@ -28,7 +28,7 @@ public interface Command {
     List<String> onTabComplete(OnlineUser user, String[] args);
 
     /**
-     * This method is used to define whether a user is permissioned to execute/tab this command more precisly than the CommandOptions-Annotation is able to.
+     * This method is used to define whether a user is permissioned to execute/tab this command more precisely than the CommandOptions-Annotation is able to.
      * This is checked, when a user tabs or executes the command. This check will only be called, if the user has the permissions given by the CommandOptions-Annotation.
      * <p>
      * <b>Note:</b> This method should not have any side effects!

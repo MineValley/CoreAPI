@@ -1113,7 +1113,7 @@ public final class Core {
      * Creates a boundary with the specific parameters.
      *
      * @param anchorPoint anchorPoint which is used to move the boundary
-     * @param pullPoint   pullpoint which is used to form the cuboid with the anchorpoint
+     * @param pullPoint   pull-point which is used to form the cuboid with the anchorpoint
      * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
      */
@@ -1125,7 +1125,7 @@ public final class Core {
      * Creates a boundary with the specific parameters.
      *
      * @param anchorPoint anchorPoint which is used to move the boundary
-     * @param vector      vector from anchor- to pullpoint to form the cuboid
+     * @param vector      vector from anchor- to pull-point to form the cuboid
      * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
      */

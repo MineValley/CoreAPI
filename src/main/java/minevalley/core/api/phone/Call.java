@@ -7,7 +7,7 @@ public interface Call {
     /**
      * Gets the telephone, that started the call.
      *
-     * @return thelephone that called the partner
+     * @return telephone that called the partner
      */
     Telephone getCaller();
 

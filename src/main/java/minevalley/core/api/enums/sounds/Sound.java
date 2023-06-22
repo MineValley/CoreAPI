@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 public enum Sound {
 
     /**
-     * Used to get the users attention.
+     * Used to get the user's attention.
      */
     NOTIFICATION_INFO("notification_info"),
 

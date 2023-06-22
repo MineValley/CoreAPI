@@ -2,7 +2,6 @@ package minevalley.core.api.crafting.recipe;
 
 import org.bukkit.inventory.ItemStack;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public interface Recipe {

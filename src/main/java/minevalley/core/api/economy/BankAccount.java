@@ -34,7 +34,7 @@ public interface BankAccount {
     /**
      * Gets a list of the registrant that are permissioned to use this bank account.
      *
-     * @return map of permissioned registrants and their maximum payout per day (-1 if unlimited)
+     * @return list of permissioned registrants and their maximum payout per day (-1 if unlimited)
      */
     List<AccountUser> getAccountUsers();
 

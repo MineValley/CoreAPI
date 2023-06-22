@@ -1,7 +1,6 @@
 package minevalley.core.api.corporations;
 
 import minevalley.core.api.User;
-import minevalley.core.api.regions.Apartment;
 
 import java.util.List;
 

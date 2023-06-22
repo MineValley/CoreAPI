@@ -46,7 +46,7 @@ public interface Mailbox {
     /**
      * Replaces the mailbox head such as the connected blocks with air.
      */
-    void unplace();
+    void unPlace();
 
     /**
      * Replaces the mailbox head such as the connected blocks with their representative blocks in the shadow world.

@@ -8,14 +8,14 @@ import lombok.NonNull;
 public interface RepeatingTimer {
 
     /**
-     * Gets this timers callback.
+     * Gets this timer's callback.
      *
-     * @return callback that is calles then timer terminates
+     * @return callback that is called then timer terminates
      */
     Runnable getCallback();
 
     /**
-     * Sets this timers callback.
+     * Sets this timer's callback.
      *
      * @param runnable callback that will be called when the timer terminates
      */

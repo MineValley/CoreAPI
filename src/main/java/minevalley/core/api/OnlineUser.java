@@ -13,7 +13,6 @@ import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
 import minevalley.core.api.regions.PlayerLocation;
 import minevalley.core.api.vehicles.LoadedVehicle;
-import minevalley.core.api.vehicles.Vehicle;
 import minevalley.core.api.vehicles.VehicleManager;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Location;

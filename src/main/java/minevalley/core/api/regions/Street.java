@@ -113,7 +113,7 @@ public interface Street {
         ROUNDABOUT_SECOND_EXIT,
         ROUNDABOUT_THIRD_EXIT,
         ROUNDABOUT_FOURTH_EXIT,
-        TURN;
+        TURN
     }
 
     @Getter

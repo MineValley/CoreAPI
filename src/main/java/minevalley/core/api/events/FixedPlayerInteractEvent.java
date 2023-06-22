@@ -16,7 +16,7 @@ import org.bukkit.inventory.ItemStack;
  * This event equals the PlayerInteractEvent. It is called when a player interacts with an object or air.
  * <p>
  * Things we changed:
- * <p>- Event is only called when a player also has the permission to interact (knocked out; freezed by team)</p>
+ * <p>- Event is only called when a player also has the permission to interact (knocked out; frozen by team)</p>
  * - Event is only called once, even though the player uses two hands as in the PlayerInteractEvent</p>
  * <p>
  * <i>Credits: This class consists largely of Spigot's PlayerInteractEvent class.</i>

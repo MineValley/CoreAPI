@@ -73,7 +73,7 @@ public interface Telephone {
     boolean isInCall();
 
     /**
-     * Gets the current call of the this telephone.
+     * Gets the current call of this telephone.
      * Note: Even though the {@link Telephone#isInCall()}-method returns true if the telephone receives or starts a call, which isn't yet picked up, this object is null as there is no active call in which both phones are involved.
      *
      * @return call-object of current call (null, if there is no call)

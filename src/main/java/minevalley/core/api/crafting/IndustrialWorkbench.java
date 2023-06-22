@@ -1,8 +1,6 @@
 package minevalley.core.api.crafting;
 
-import minevalley.core.api.Core;
 import minevalley.core.api.OnlineUser;
-import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -57,7 +55,7 @@ public interface IndustrialWorkbench {
     /**
      * Sets the workbench power level
      *
-     * @param level Powerlevel of the workbench
+     * @param level Power level of the workbench
      */
     void setPowerLevel(int level);
 

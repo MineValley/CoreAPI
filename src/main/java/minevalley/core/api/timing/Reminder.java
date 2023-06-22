@@ -12,7 +12,7 @@ import java.util.List;
 public interface Reminder {
 
     /**
-     * Gets this reminders callback.
+     * Gets this reminder's callback.
      *
      * @return callback
      */

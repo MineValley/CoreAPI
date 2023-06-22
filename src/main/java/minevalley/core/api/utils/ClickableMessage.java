@@ -23,7 +23,7 @@ public interface ClickableMessage {
      * Defines the callback which is called when the player clicks this message.
      *
      * @param runnable will be called if the player clicks the message
-     * @return
+     * @return runnable
      */
     ClickableMessage setCallback(Consumer<OnlineUser> runnable);
 

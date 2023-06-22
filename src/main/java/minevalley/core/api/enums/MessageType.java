@@ -14,7 +14,7 @@ public enum MessageType {
     SUCCESS("§a✔§8 ━ §7"),
 
     /**
-     * Used to signal the failure of a process or a action.
+     * Used to signal the failure of a process or an action.
      */
     ERROR(" §c§l!§8 ━ §7"),
 
@@ -29,7 +29,7 @@ public enum MessageType {
     INFO_TURQUOISE("§bℹ §7"),
 
     /**
-     * Used to display any information to the user. Uses a aqua-colored "i"-letter.
+     * Used to display any information to the user. Uses an aqua-colored "i"-letter.
      */
     INFO_AQUA("§3ℹ §7"),
 
