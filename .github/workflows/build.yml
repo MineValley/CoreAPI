@@ -1,0 +1,31 @@
+name: Core-API | Maven-deployer
+
+# This workflow is used to deploy a new maven-build of this api, whenever a new release is created.
+# Always make sure to delete the latest package before creating a new release!
+
+on:
+  release: # Triggers this workflow whenever a new release is created.
+    type: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
+      - name: Repository-Checkout
+        uses: actions/checkout@v2
+
+      # Sets the current Java-version to 1.8.
+      - name: Set up to JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8.0
+
+      # Deploys a maven-build as a new package to be accessed with any pom.xml.
+      - name: Deploy to GitHub
+        run: |
+          mvn source:jar
+          mvn deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
