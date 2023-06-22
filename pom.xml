@@ -38,7 +38,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <dep.lombok.version>1.18.16</dep.lombok.version>
+        <dep.lombok.version>1.18.26</dep.lombok.version>
     </properties>
 
     <repositories>
