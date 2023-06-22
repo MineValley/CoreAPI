@@ -55,6 +55,8 @@ import java.util.function.Consumer;
 
 public interface CoreServer {
 
+    JavaPlugin getInstance();
+
     int runSyncTaskLater(String taskName, long delay, Runnable runnable);
 
     int runAsyncTaskLater(String taskName, long delay, Runnable runnable);
@@ -62,8 +64,6 @@ public interface CoreServer {
     int runSyncTaskPeriodically(String taskName, long delay, long period, Runnable runnable);
 
     int runAsyncTaskPeriodically(String taskName, long delay, long period, Runnable runnable);
-
-    JavaPlugin getInstance();
 
     boolean isCurrentlyRunning(int taskId);
 
