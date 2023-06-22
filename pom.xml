@@ -36,8 +36,11 @@
     </distributionManagement>
 
     <properties>
+        <smart-api.version>1.47</smart-api.version>
+
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+
         <dep.lombok.version>1.18.26</dep.lombok.version>
     </properties>
 
@@ -53,12 +56,15 @@
     </repositories>
 
     <dependencies>
+        <!-- MineValley APIs -->
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
+            <groupId>com.github.MineValley</groupId>
+            <artifactId>SmartAPI</artifactId>
+            <version>${smart-api.version}</version>
+            <scope>compile</scope>
         </dependency>
+
+        <!-- Libs -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -72,16 +78,18 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.MineValley</groupId>
-            <artifactId>SmartAPI</artifactId>
-            <version>1.47</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>com.squareup.okhttp</groupId>
             <artifactId>okhttp</artifactId>
             <version>2.7.5</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- Spigot -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
