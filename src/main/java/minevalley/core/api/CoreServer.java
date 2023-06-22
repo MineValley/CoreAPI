@@ -44,8 +44,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 import java.sql.ResultSet;
@@ -57,57 +55,23 @@ import java.util.function.Consumer;
 
 public interface CoreServer {
 
-    int scheduleSyncRepeatingTask(long delay, long period, BukkitRunnable runnable);
+    int runSyncTaskLater(String taskName, long delay, Runnable runnable);
 
-    int scheduleSyncRepeatingTask(String name, long delay, long period, Runnable runnable);
+    int runAsyncTaskLater(String taskName, long delay, Runnable runnable);
 
-    int scheduleAsyncRepeatingTask(String name, long delay, long period, Runnable runnable);
+    int runSyncTaskPeriodically(String taskName, long delay, long period, Runnable runnable);
 
-    int scheduleSyncDelayedTask(long delay, BukkitRunnable runnable);
+    int runAsyncTaskPeriodically(String taskName, long delay, long period, Runnable runnable);
 
-    int scheduleSyncDelayedTask(String name, long delay, Runnable runnable);
-
-    int scheduleSyncDelayedTask(BukkitRunnable runnable);
-
-    int scheduleSyncDelayedTask(String name, Runnable runnable);
-
-    int scheduleAsyncDelayedTask(String name, long delay, Runnable runnable);
-
-    int scheduleAsyncDelayedTask(String name, Runnable runnable);
-
-
-    BukkitTask runTask(String name, Runnable runnable);
-
-    BukkitTask runTaskAsync(Runnable runnable);
-
-
-    BukkitTask runTaskTimer(long delay, long period, BukkitRunnable runnable);
-
-    BukkitTask runTaskTimer(long delay, long period, Runnable runnable);
-
-    BukkitTask runTaskTimerAsync(long delay, long period, BukkitRunnable runnable);
-
-    BukkitTask runTaskTimerAsync(long delay, long period, Runnable runnable);
-
-
-    BukkitTask runTaskLater(long delay, BukkitRunnable runnable);
-
-    BukkitTask runTaskLater(long delay, Runnable runnable);
-
-    BukkitTask runTaskLaterAsync(long delay, BukkitRunnable runnable);
-
-    BukkitTask runTaskLaterAsync(long delay, Runnable runnable);
-
+    JavaPlugin getInstance();
 
     boolean isCurrentlyRunning(int taskId);
 
     void cancelTask(int taskId);
 
-    JavaPlugin getInstance();
+    void registerEvent(Class<? extends Event> cls, EventListener<Event> listener);
 
-    void registerEvent(Class<? extends Event> cls, EventListener listener);
-
-    void unregisterEvent(Class<? extends Event> cls, EventListener listener);
+    void unregisterEvent(Class<? extends Event> cls, EventListener<Event> listener);
 
     void registerListeners(Listener listener);
 
