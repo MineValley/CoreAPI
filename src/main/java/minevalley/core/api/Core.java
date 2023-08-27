@@ -462,18 +462,6 @@ public final class Core {
     }
 
     /**
-     * Creates new gui-builder with the specific size.
-     *
-     * @param items    list of the items to display
-     * @param size     size of each inventory (has to be a multiple of 9)
-     * @param posItems items to be placed on specific slots on every inventory
-     * @return new gui-builder
-     */
-    public static GuiBuilder createGui(List<GuiItem> items, int size, String title, PosItem... posItems) {
-        return server.createGui(items, size, title, posItems);
-    }
-
-    /**
      * Creates new gui-item, based on a specific itemstack with a specific callback.
      * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
      *
@@ -1309,12 +1297,5 @@ public final class Core {
 
     public static List<StateCompany> getStateCompanies() {
         return server.getStateCompanies();
-    }
-
-    @Getter
-    @AllArgsConstructor
-    public static class PosItem {
-        private final int position;
-        private final GuiItem guiItem;
     }
 }
