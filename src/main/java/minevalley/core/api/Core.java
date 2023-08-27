@@ -24,6 +24,8 @@ import minevalley.core.api.regions.*;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
+import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.User;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.command.PlayerCommand;
@@ -984,36 +986,6 @@ public final class Core {
      */
     public static ClickEvent createClickEvent(Consumer<OnlineUser> callback) {
         return server.createClickEvent(true, callback);
-    }
-
-    /**
-     * Creates a clickable message without any specifications.
-     *
-     * @return new clickable message
-     */
-    public static ClickableMessage createClickableMessage() {
-        return server.createClickableMessage();
-    }
-
-    /**
-     * Creates a clickable message that executes the given callback.
-     *
-     * @param callback callback to be executed if player clicks the message
-     * @return new clickable message
-     */
-    public static ClickableMessage createClickableMessage(Consumer<OnlineUser> callback) {
-        return server.createClickableMessage(callback);
-    }
-
-    /**
-     * Creates a clickable message that executes the given callback, and is only clickable once (if selfCancelling is true).
-     *
-     * @param callback       callback to be executed if player clicks the message
-     * @param selfCancelling defines if the message is clickable multiple times
-     * @return new clickable message
-     */
-    public static ClickableMessage createClickableMessage(Consumer<OnlineUser> callback, boolean selfCancelling) {
-        return server.createClickableMessage(callback, selfCancelling);
     }
 
     /**

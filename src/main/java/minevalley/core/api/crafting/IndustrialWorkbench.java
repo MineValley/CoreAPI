@@ -1,6 +1,6 @@
 package minevalley.core.api.crafting;
 
-import minevalley.core.api.OnlineUser;
+import minevalley.core.api.users.OnlineUser;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 

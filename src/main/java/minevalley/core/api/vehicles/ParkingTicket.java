@@ -1,7 +1,7 @@
 package minevalley.core.api.vehicles;
 
-import minevalley.core.api.OnlineUser;
-import minevalley.core.api.User;
+import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.User;
 
 public interface ParkingTicket {
 

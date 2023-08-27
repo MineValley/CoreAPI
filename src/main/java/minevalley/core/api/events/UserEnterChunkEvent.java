@@ -2,7 +2,7 @@ package minevalley.core.api.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.OnlineUser;
+import minevalley.core.api.users.OnlineUser;
 import org.bukkit.Chunk;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;

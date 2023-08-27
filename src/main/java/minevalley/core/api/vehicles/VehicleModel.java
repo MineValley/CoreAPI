@@ -1,6 +1,6 @@
 package minevalley.core.api.vehicles;
 
-import minevalley.core.api.OnlineUser;
+import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.Registrant;
 import org.bukkit.inventory.ItemStack;
 

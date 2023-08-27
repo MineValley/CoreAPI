@@ -2,7 +2,7 @@ package minevalley.core.api.regions;
 
 import lombok.NonNull;
 import minevalley.core.api.Registrant;
-import minevalley.core.api.User;
+import minevalley.core.api.users.User;
 import minevalley.core.api.economy.BankAccount;
 import org.bukkit.Location;
 import org.bukkit.block.Block;

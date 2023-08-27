@@ -3,7 +3,7 @@ package minevalley.core.api.events;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.OnlineUser;
+import minevalley.core.api.users.OnlineUser;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 

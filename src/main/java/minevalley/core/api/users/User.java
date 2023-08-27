@@ -1,12 +1,12 @@
-package minevalley.core.api;
+package minevalley.core.api.users;
 
+import minevalley.core.api.Registrant;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.Member;
 import minevalley.core.api.corporations.business.Aktiengesellschaft;
 import minevalley.core.api.corporations.business.Kapitalgesellschaft;
 import minevalley.core.api.corporations.purchases.Purchase;
 import minevalley.core.api.enums.DebugType;
-import minevalley.core.api.enums.Education;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.utils.OnTimeHandler;
 import org.bukkit.block.Block;
@@ -156,7 +156,7 @@ public interface User extends Registrant {
      *
      * @return array of users education
      */
-    Education[] getEducation();
+    Education.Subject[] getEducation();
 
     /**
      * Gets a list of the active products, that this user bought.
@@ -176,7 +176,7 @@ public interface User extends Registrant {
      *
      * @return true, if the user has the specific education
      */
-    boolean hasEducation(Education education);
+    boolean hasEducation(Education.Subject education);
 
     /**
      * Gets whether the user has a driver's license.

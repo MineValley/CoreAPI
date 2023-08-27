@@ -21,6 +21,8 @@ import minevalley.core.api.regions.*;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
+import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.User;
 import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;

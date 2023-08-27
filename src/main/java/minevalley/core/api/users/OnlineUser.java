@@ -1,9 +1,10 @@
-package minevalley.core.api;
+package minevalley.core.api.users;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import minevalley.core.api.ChatMenu;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.FractionService;
 import minevalley.core.api.enums.McVersion;
@@ -12,6 +13,7 @@ import minevalley.core.api.enums.TeamRank;
 import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
 import minevalley.core.api.regions.PlayerLocation;
+import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.vehicles.LoadedVehicle;
 import minevalley.core.api.vehicles.VehicleManager;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -495,6 +497,30 @@ public interface OnlineUser extends User {
     }
 
     PlayerLocation getLocation();
+
+    /**
+     * Creates a clickable message without any specifications.
+     *
+     * @return new clickable message
+     */
+    ClickableMessage createClickableMessage();
+
+    /**
+     * Creates a clickable message that executes the given callback.
+     *
+     * @param callback callback to be executed if player clicks the message
+     * @return new clickable message
+     */
+    ClickableMessage createClickableMessage(Runnable callback);
+
+    /**
+     * Creates a clickable message that executes the given callback, and is only clickable once (if selfCancelling is true).
+     *
+     * @param selfCancelling defines if the message is clickable multiple times
+     * @param callback       callback to be executed if player clicks the message
+     * @return new clickable message
+     */
+    ClickableMessage createClickableMessage(boolean selfCancelling, Runnable callback);
 
     @Getter
     @Setter

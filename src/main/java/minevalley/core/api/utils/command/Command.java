@@ -1,6 +1,6 @@
 package minevalley.core.api.utils.command;
 
-import minevalley.core.api.OnlineUser;
+import minevalley.core.api.users.OnlineUser;
 
 import java.util.List;
 

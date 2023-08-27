@@ -2,7 +2,7 @@ package minevalley.core.api.regions;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import minevalley.core.api.User;
+import minevalley.core.api.users.User;
 
 @Getter
 @AllArgsConstructor

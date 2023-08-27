@@ -1,7 +1,7 @@
 package minevalley.core.api.utils;
 
-import minevalley.core.api.OnlineUser;
-import minevalley.core.api.User;
+import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.User;
 import org.bukkit.Location;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package minevalley.core.api.utils;
 
 import lombok.Setter;
-import minevalley.core.api.User;
+import minevalley.core.api.users.User;
 
 import java.time.LocalDate;
 import java.util.Map;

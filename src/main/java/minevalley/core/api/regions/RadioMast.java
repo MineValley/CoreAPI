@@ -1,6 +1,6 @@
 package minevalley.core.api.regions;
 
-import minevalley.core.api.OnlineUser;
+import minevalley.core.api.users.OnlineUser;
 import org.bukkit.Location;
 
 import java.util.List;

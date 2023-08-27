@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.Registrant;
-import minevalley.core.api.User;
+import minevalley.core.api.users.User;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;

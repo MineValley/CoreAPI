@@ -1,6 +1,6 @@
 package minevalley.core.api.utils;
 
-import minevalley.core.api.OnlineUser;
+import minevalley.core.api.users.OnlineUser;
 
 import java.util.function.Consumer;
 
@@ -33,4 +33,6 @@ public interface ClickableMessage {
      * @return the command as string
      */
     String getCommand();
+
+    OnlineUser getUser();
 }

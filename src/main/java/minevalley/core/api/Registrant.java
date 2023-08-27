@@ -4,6 +4,8 @@ import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.regions.Residence;
+import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.User;
 import minevalley.core.api.vehicles.Vehicle;
 import minevalley.core.api.weapons.Weapon;
 
