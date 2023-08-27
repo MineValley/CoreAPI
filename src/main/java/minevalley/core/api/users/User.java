@@ -8,6 +8,7 @@ import minevalley.core.api.corporations.business.Kapitalgesellschaft;
 import minevalley.core.api.corporations.purchases.Purchase;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.phone.Telephone;
+import minevalley.core.api.users.friends.Friendship;
 import minevalley.core.api.utils.OnTimeHandler;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
@@ -60,18 +61,18 @@ public interface User extends Registrant {
     List<User> getFriends();
 
     /**
+     * Gets a list of the users friendships.
+     *
+     * @return list of the users friendships
+     */
+    List<Friendship> getFriendships();
+
+    /**
      * Adds a user to this users friend list and vice versa.
      *
      * @param user user to add to friend list
      */
     void addFriend(User user);
-
-    /**
-     * Removes a user from this users friend list and vice versa.
-     *
-     * @param user user to remove from friend list
-     */
-    void removeFriend(User user);
 
     /**
      * Gets a list of the unique ids of this user's spouses
