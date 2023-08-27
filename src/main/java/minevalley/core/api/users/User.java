@@ -8,6 +8,7 @@ import minevalley.core.api.corporations.business.Kapitalgesellschaft;
 import minevalley.core.api.corporations.purchases.Purchase;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.phone.Telephone;
+import minevalley.core.api.users.friends.FriendRequest;
 import minevalley.core.api.users.friends.Friendship;
 import minevalley.core.api.utils.OnTimeHandler;
 import org.bukkit.block.Block;
@@ -66,6 +67,10 @@ public interface User extends Registrant {
      * @return list of the users friendships
      */
     List<Friendship> getFriendships();
+
+    List<FriendRequest> getReceivedFriendRequests();
+
+    List<FriendRequest> getPendingFriendRequests();
 
     /**
      * Adds a user to this users friend list and vice versa.
