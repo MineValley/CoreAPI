@@ -1,15 +1,19 @@
 package minevalley.core.api.utils.gui;
 
-import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.enums.InterfaceItem;
+import minevalley.core.api.users.OnlineUser;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public interface GuiBuilder {
 
+    /**
+     * <b>%i</b> will be replaced with the current page number
+     */
     GuiBuilder setTitle(String title);
 
     GuiBuilder setItem(int slot, GuiItem guiItem);
@@ -28,9 +32,25 @@ public interface GuiBuilder {
 
     GuiBuilder addInterfaceItemsInRange(InterfaceItem item, int from, int to);
 
-    GuiBuilder unlockSlot(int slot);
-
     GuiBuilder unlockSlots(int... slots);
+
+    GuiBuilder addFillSlots(int... slots);
+
+    GuiBuilder removeFillSlots(int... slots);
+
+    GuiBuilder fillWith(List<GuiItem> guiItems);
+
+    GuiBuilder setNextItemSlot(int slot);
+
+    GuiBuilder setPreviousItemSlot(int slot);
+
+    GuiBuilder setNextItem(ItemStack itemStack);
+
+    GuiBuilder setPreviousItem(ItemStack itemStack);
+
+    GuiBuilder setNextItem(int slot, ItemStack itemStack);
+
+    GuiBuilder setPreviousItem(int slot, ItemStack itemStack);
 
     GuiBuilder addCloser();
 
