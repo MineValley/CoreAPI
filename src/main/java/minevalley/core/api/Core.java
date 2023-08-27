@@ -452,16 +452,6 @@ public final class Core {
     }
 
     /**
-     * Creates new gui-builder based on an existing inventory.
-     *
-     * @param inventory inventory on which the gui-builder should base on
-     * @return new gui-builder
-     */
-    public static GuiBuilder createGui(Inventory inventory) {
-        return server.createGui(inventory);
-    }
-
-    /**
      * Creates new gui-builder with the specific size.
      *
      * @param size size of the inventory (has to be a multiple of 9)
