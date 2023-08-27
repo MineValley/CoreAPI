@@ -156,7 +156,7 @@ public interface User extends Registrant {
      *
      * @return array of users education
      */
-    Education.Subject[] getEducation();
+    Education[] getEducation();
 
     /**
      * Gets a list of the active products, that this user bought.
