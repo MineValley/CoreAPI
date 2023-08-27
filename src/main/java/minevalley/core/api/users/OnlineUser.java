@@ -279,16 +279,37 @@ public interface OnlineUser extends User {
     void input(@NonNull String message, @NonNull Consumer<String> callback);
 
     /**
-     * Gets whether the user is currently in a chat-interface.
+     * Gets whether the user is currently in a chat input.
      *
-     * @return true, if the user is in a chat-interface
+     * @return true, if the user is in a chat input
+     * @deprecated use isInChatInput()!
      */
-    boolean isInChatInterface();
+    @Deprecated
+    default boolean isInChatInterface() {
+        return isInChatInput();
+    }
 
     /**
-     * Lets the user leave his current interface
+     * Gets whether the user is currently in a chat input.
+     *
+     * @return true, if the user is in a chat input
      */
-    void leaveInterface();
+    boolean isInChatInput();
+
+    /**
+     * Lets the user leave his current chat input
+     *
+     * @deprecated use leaveChatInput instead!
+     */
+    @Deprecated
+    default void leaveInterface() {
+        leaveChatInput();
+    }
+
+    /**
+     * Lets the user leave his current chat input
+     */
+    void leaveChatInput();
 
     /**
      * Asks the user which bank account he wants to use (e.g. to pay sth)
