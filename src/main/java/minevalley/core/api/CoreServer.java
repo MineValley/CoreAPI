@@ -113,12 +113,6 @@ public interface CoreServer {
 
     ClickEvent createClickEvent(boolean selfCancelling, Consumer<OnlineUser> callback);
 
-    ClickableMessage createClickableMessage();
-
-    ClickableMessage createClickableMessage(Consumer<OnlineUser> callback);
-
-    ClickableMessage createClickableMessage(Consumer<OnlineUser> callback, boolean selfCancelling);
-
     ChatMenu createChatMenu(ChatMenu.Option... options);
 
     ChatMenu createChatMenu();
@@ -149,11 +143,7 @@ public interface CoreServer {
 
     String formatRelativeTimestamp(long time);
 
-    GuiBuilder createGui(Inventory inventory);
-
     GuiBuilder createGui(int size);
-
-    GuiBuilder createGui(List<GuiItem> items, int size, String title, Core.PosItem... posItems);
 
     GuiItem createGuiItem(ItemStack itemStack, Consumer<OnlineUser> consumer);
 
