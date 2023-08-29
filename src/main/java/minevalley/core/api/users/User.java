@@ -5,7 +5,6 @@ import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.Member;
 import minevalley.core.api.corporations.business.Aktiengesellschaft;
 import minevalley.core.api.corporations.business.Kapitalgesellschaft;
-import minevalley.core.api.corporations.purchases.Purchase;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.users.friends.FriendRequest;
@@ -84,11 +83,7 @@ public interface User extends Registrant {
      *
      * @return list of the users spouses unique ids as strings
      */
-    List<User> getMarriage();
-
-    void addToMarriage(User user);
-
-    void leaveMarriage();
+    Marriage getMarriage();
 
     /**
      * Gets a list of the blocked users.
@@ -212,11 +207,6 @@ public interface User extends Registrant {
      * @return true, if the transaction was successful. If the user doesn't have enough money, this is false
      */
     boolean payCash(int amountInCents);
-
-    /**
-     * Updates the users cash from the database
-     */
-    void updateCash();
 
     /**
      * Gets the wanted-level of the user.

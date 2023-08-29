@@ -9,4 +9,6 @@ public interface Friendship {
     User getFriend2();
 
     long since();
+
+    void exit();
 }

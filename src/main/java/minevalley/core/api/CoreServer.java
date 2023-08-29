@@ -111,8 +111,6 @@ public interface CoreServer {
 
     OnlineUser getOnlineUser(Player player);
 
-    ClickEvent createClickEvent(boolean selfCancelling, Consumer<OnlineUser> callback);
-
     ChatMenu createChatMenu(ChatMenu.Option... options);
 
     ChatMenu createChatMenu();

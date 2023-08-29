@@ -1,8 +1,6 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NonNull;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.StateCompany;
@@ -34,7 +32,6 @@ import minevalley.core.api.utils.gui.GuiItem;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import org.apache.logging.log4j.util.TriConsumer;
@@ -787,29 +784,6 @@ public final class Core {
      */
     public static HoverEvent createHoverText(String text) {
         return new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(text).color(ChatColor.GRAY).create());
-    }
-
-    /**
-     * Creates a click event consisting of a clickable message.
-     *
-     * @param selfCancelling defines whether the message is clickable multiple times
-     * @param callback       is called if the player clicks the message
-     * @return ClickEvent object to be put into .event()
-     */
-    public static ClickEvent createClickEvent(boolean selfCancelling, Consumer<OnlineUser> callback) {
-        return server.createClickEvent(selfCancelling, callback);
-    }
-
-    /**
-     * Creates a click event consisting of a clickable message.
-     * <p>
-     * <b>Note:</b> This clickable message is only clickable once! Use createClickEvent(boolean, Consumer) if you want to create it for multiple use.
-     *
-     * @param callback is called if the player clicks the message
-     * @return ClickEvent object to be put into .event()
-     */
-    public static ClickEvent createClickEvent(Consumer<OnlineUser> callback) {
-        return server.createClickEvent(true, callback);
     }
 
     /**

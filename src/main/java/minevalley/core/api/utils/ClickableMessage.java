@@ -2,8 +2,6 @@ package minevalley.core.api.utils;
 
 import minevalley.core.api.users.OnlineUser;
 
-import java.util.function.Consumer;
-
 public interface ClickableMessage {
 
     /**
@@ -25,7 +23,7 @@ public interface ClickableMessage {
      * @param runnable will be called if the player clicks the message
      * @return runnable
      */
-    ClickableMessage setCallback(Consumer<OnlineUser> runnable);
+    ClickableMessage setCallback(Runnable runnable);
 
     /**
      * Gets the command which executes the callback. Put this into the click-event of your component-builder.

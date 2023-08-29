@@ -17,6 +17,7 @@ import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.vehicles.LoadedVehicle;
 import minevalley.core.api.vehicles.VehicleManager;
 import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ClickEvent;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
@@ -542,6 +543,8 @@ public interface OnlineUser extends User {
      * @return new clickable message
      */
     ClickableMessage createClickableMessage(boolean selfCancelling, Runnable callback);
+
+    ClickEvent createClickEvent(boolean selfCancelling, Runnable callback);
 
     @Getter
     @Setter

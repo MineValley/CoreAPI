@@ -1,4 +1,4 @@
-package minevalley.core.api.corporations.purchases;
+package minevalley.core.api.users;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

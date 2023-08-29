@@ -10,7 +10,7 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class Education {
 
-    private final Subject education;
+    private final Subject subject;
     private final long graduationDate;
 
     @Getter
