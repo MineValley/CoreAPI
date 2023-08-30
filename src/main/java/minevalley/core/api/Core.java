@@ -29,6 +29,7 @@ import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
+import minevalley.core.api.utils.gui.MultiPageGui;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -50,7 +51,6 @@ import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 
-import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.util.*;
@@ -171,7 +171,7 @@ public final class Core {
      * If there are more than one entry, that math the given description, this gets the first one.
      * If you want to get multiple entries, use database-collection, or database-table!
      *
-     * @param tableName    name of the table as string
+     * @param tableName   name of the table as string
      * @param searchValue value according to which the entries are filtered in a specific column
      * @return the first database-entry that matches the given description
      */
@@ -209,7 +209,7 @@ public final class Core {
      * Gets a database-collection from the specified table with the specified value in the column.
      * This gets all the entries that match the description. If you're searching for one single entry, use database-entry!
      *
-     * @param tableName    name of the table as string
+     * @param tableName   name of the table as string
      * @param searchValue value according to which the entries are filtered in a specific column
      * @return a collection of all database-entries in this table, that matches the given description
      */
@@ -483,6 +483,10 @@ public final class Core {
      */
     public static GuiBuilder createGui(int size) {
         return server.createGui(size);
+    }
+
+    public static MultiPageGui createMultiPageGui(int size) {
+        return server.createMultiPageGui(size);
     }
 
     /**

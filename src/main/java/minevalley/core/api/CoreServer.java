@@ -27,6 +27,7 @@ import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
+import minevalley.core.api.utils.gui.MultiPageGui;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.apache.logging.log4j.util.TriConsumer;
@@ -144,6 +145,8 @@ public interface CoreServer {
     String formatRelativeTimestamp(long time);
 
     GuiBuilder createGui(int size);
+
+    MultiPageGui createMultiPageGui(int size);
 
     GuiItem createGuiItem(ItemStack itemStack, Consumer<OnlineUser> consumer);
 
