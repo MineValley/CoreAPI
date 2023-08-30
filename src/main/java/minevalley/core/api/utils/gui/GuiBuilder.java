@@ -44,9 +44,9 @@ public interface GuiBuilder {
 
     GuiBuilder setPreviousItemSlot(int slot);
 
-    GuiBuilder setNextItem(ItemStack itemStack);
+    GuiBuilder setNextItem(ItemStack itemStack, String altName);
 
-    GuiBuilder setPreviousItem(ItemStack itemStack);
+    GuiBuilder setPreviousItem(ItemStack itemStack, String altName);
 
     GuiBuilder setNextItem(int slot, ItemStack itemStack);
 

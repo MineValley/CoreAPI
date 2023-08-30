@@ -12,17 +12,9 @@ public interface InventoryGui {
 
     void updateTitle(String title);
 
-    InventoryGui update();
-
-    InventoryGui updateItem(GuiItem guiItem);
-
-    InventoryGui updateItem(GuiItem guiItem, GuiItem updateItem);
-
     InventoryGui unlockSlot(int slot);
 
     void clear();
-
-    void fix();
 
     void addItem(int slot, GuiItem guiItem);
 
