@@ -15,4 +15,8 @@ public interface InventoryGui {
     InventoryGui unlockSlot(int slot);
 
     GuiItem getItem(int slot);
+
+    Inventory getInventory();
+
+    void setItem(int slot, GuiItem item);
 }
