@@ -167,15 +167,16 @@ public final class Core {
     }
 
     /**
-     * Gets the specific database-entry from the given ResultSet, the table name and the entry's index.
+     * Gets the specific database-entry from the specified table with the specified value in the column.
+     * If there are more than one entry, that math the given description, this gets the first one.
+     * If you want to get multiple entries, use database-collection, or database-table!
      *
-     * @param tableName name of the table as string
-     * @param resultSet resultset
-     * @param index     index of the entry
-     * @return DatabaseEntry from the given parameters
+     * @param tableName    name of the table as string
+     * @param searchValue value according to which the entries are filtered in a specific column
+     * @return the first database-entry that matches the given description
      */
-    public static DatabaseEntry getDatabaseEntry(String tableName, ResultSet resultSet, int index) {
-        return server.getDatabaseEntry(tableName, resultSet, index);
+    public static DatabaseEntry getDatabaseEntry(String tableName, Value searchValue) {
+        return server.getDatabaseEntry(tableName, searchValue);
     }
 
     /**
@@ -187,19 +188,33 @@ public final class Core {
      * @param searchValues value according to which the entries are filtered in a specific column
      * @return the first database-entry that matches the given description
      */
-    public static DatabaseEntry getDatabaseEntry(String tableName, Value... searchValues) {
-        return server.getDatabaseEntry(tableName, searchValues);
+    public static DatabaseEntry getDatabaseEntryAnd(String tableName, Value... searchValues) {
+        return server.getDatabaseEntryAnd(tableName, searchValues);
     }
 
     /**
-     * Creates a database-collection with the given entries.
+     * Gets the specific database-entry from the specified table with the specified value in the column.
+     * If there are more than one entry, that math the given description, this gets the first one.
+     * If you want to get multiple entries, use database-collection, or database-table!
      *
-     * @param tableName name of the table as string
-     * @param entries   list of entries
-     * @return collection of the given entries
+     * @param tableName    name of the table as string
+     * @param searchValues value according to which the entries are filtered in a specific column
+     * @return the first database-entry that matches the given description
      */
-    public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, List<DatabaseEntry> entries) {
-        return server.getDatabaseEntryCollection(tableName, entries);
+    public static DatabaseEntry getDatabaseEntryOr(String tableName, Value... searchValues) {
+        return server.getDatabaseEntryOr(tableName, searchValues);
+    }
+
+    /**
+     * Gets a database-collection from the specified table with the specified value in the column.
+     * This gets all the entries that match the description. If you're searching for one single entry, use database-entry!
+     *
+     * @param tableName    name of the table as string
+     * @param searchValue value according to which the entries are filtered in a specific column
+     * @return a collection of all database-entries in this table, that matches the given description
+     */
+    public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue) {
+        return server.getDatabaseEntryCollection(tableName, searchValue);
     }
 
     /**
@@ -210,8 +225,20 @@ public final class Core {
      * @param searchValues value according to which the entries are filtered in a specific column
      * @return a collection of all database-entries in this table, that matches the given description
      */
-    public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value... searchValues) {
-        return server.getDatabaseEntryCollection(tableName, searchValues);
+    public static DatabaseEntryCollection getDatabaseEntryCollectionAnd(String tableName, Value... searchValues) {
+        return server.getDatabaseEntryCollectionAnd(tableName, searchValues);
+    }
+
+    /**
+     * Gets a database-collection from the specified table with the specified value in the column.
+     * This gets all the entries that match the description. If you're searching for one single entry, use database-entry!
+     *
+     * @param tableName    name of the table as string
+     * @param searchValues value according to which the entries are filtered in a specific column
+     * @return a collection of all database-entries in this table, that matches the given description
+     */
+    public static DatabaseEntryCollection getDatabaseEntryCollectionOr(String tableName, Value... searchValues) {
+        return server.getDatabaseEntryCollectionOr(tableName, searchValues);
     }
 
     /**

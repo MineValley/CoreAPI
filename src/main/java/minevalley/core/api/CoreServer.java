@@ -29,7 +29,6 @@ import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.ClickEvent;
 import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -48,7 +47,6 @@ import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 
-import java.sql.ResultSet;
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.UUID;
@@ -89,13 +87,17 @@ public interface CoreServer {
 
     void sendDebug(DebugType type, String message);
 
-    DatabaseEntry getDatabaseEntry(String tableName, ResultSet resultSet, int index);
+    DatabaseEntry getDatabaseEntry(String tableName, Value searchValue);
 
-    DatabaseEntry getDatabaseEntry(String tableName, Value... searchValues);
+    DatabaseEntry getDatabaseEntryAnd(String tableName, Value... searchValues);
 
-    DatabaseEntryCollection getDatabaseEntryCollection(String tableName, List<DatabaseEntry> entries);
+    DatabaseEntry getDatabaseEntryOr(String tableName, Value... searchValues);
 
-    DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value... searchValues);
+    DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue);
+
+    DatabaseEntryCollection getDatabaseEntryCollectionAnd(String tableName, Value... searchValues);
+
+    DatabaseEntryCollection getDatabaseEntryCollectionOr(String tableName, Value... searchValues);
 
     DatabaseTable getDatabaseTable(String tableName);
 
