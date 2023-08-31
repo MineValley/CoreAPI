@@ -13,6 +13,8 @@ import java.util.function.Function;
 
 /**
  * <b>%i</b> will be replaced with the current page number
+ * <br>
+ * <b>%o</b> will be replaced with the amount of pages
  */
 public interface MultiPageGui {
 
