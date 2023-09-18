@@ -66,6 +66,10 @@ public enum InterfaceItem {
      */
     NEXT(8),
 
+    UP(34),
+
+    DOWN(35),
+
     /**
      * Is used to signalize an empty power slot.
      */
