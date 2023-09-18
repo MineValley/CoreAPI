@@ -10,7 +10,7 @@ public interface Vehicle {
 
     Registrant getOwner();
 
-    int getKeyId();
+    String getId();
 
     int getKeyNumber();
 

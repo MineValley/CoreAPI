@@ -27,7 +27,7 @@ public final class VehicleManager {
     /**
      * Gets the vehicle with the given id.
      */
-    public static Vehicle getVehicle(int id) {
+    public static Vehicle getVehicle(String id) {
         return manager.getVehicle(id);
     }
 
@@ -104,7 +104,7 @@ public final class VehicleManager {
 
         List<Vehicle> getVehicles(Registrant registrant);
 
-        Vehicle getVehicle(int id);
+        Vehicle getVehicle(String id);
 
         LoadedVehicle getVehicle(OnlineUser user);
 
