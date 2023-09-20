@@ -1303,4 +1303,14 @@ public final class Core {
     public static List<StateCompany> getStateCompanies() {
         return server.getStateCompanies();
     }
+
+    public static ArmorStand createArmorStand(Location location, Player player)
+    {
+        return createArmorStand(null, location, player);
+    }
+    public static ArmorStand createArmorStand(Consumer<ArmorStand> consumer, Location location, Player player)
+    {
+        return server.createArmorStand(consumer, location, player);
+    }
+
 }

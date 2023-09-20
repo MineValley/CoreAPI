@@ -312,4 +312,6 @@ public interface CoreServer {
 
     List<StateCompany> getStateCompanies();
 
+    ArmorStand createArmorStand(Consumer<ArmorStand> consumer, Location location, Player player);
+
 }
