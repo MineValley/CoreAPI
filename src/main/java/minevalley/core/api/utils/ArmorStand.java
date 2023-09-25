@@ -4,7 +4,12 @@ import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
 
+import java.util.UUID;
+
 public interface ArmorStand {
+
+    void spawn();
+    void update();
 
     Location getLocation();
     void setLocation(Location loc1);
@@ -73,4 +78,6 @@ public interface ArmorStand {
 
     void setMarker(boolean var1);
 
+    String getId();
+    void setId(String var1);
 }
