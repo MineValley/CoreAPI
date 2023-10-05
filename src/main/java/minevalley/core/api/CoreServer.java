@@ -24,6 +24,7 @@ import minevalley.core.api.timing.Timer;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
 import minevalley.core.api.utils.*;
+import minevalley.core.api.utils.armorstand.ArmorStand;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
@@ -311,5 +312,7 @@ public interface CoreServer {
     Aktiengesellschaft createAktiengesellschaft(int address, int stocks);
 
     List<StateCompany> getStateCompanies();
+
+    ArmorStand createArmorStand(Consumer<ArmorStand> consumer, Location location);
 
 }

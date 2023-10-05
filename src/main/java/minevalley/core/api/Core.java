@@ -26,6 +26,7 @@ import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.*;
+import minevalley.core.api.utils.armorstand.ArmorStand;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
@@ -1303,4 +1304,14 @@ public final class Core {
     public static List<StateCompany> getStateCompanies() {
         return server.getStateCompanies();
     }
+
+    public static ArmorStand createArmorStand(Location location)
+    {
+        return createArmorStand(null, location);
+    }
+    public static ArmorStand createArmorStand(Consumer<ArmorStand> consumer, Location location)
+    {
+        return server.createArmorStand(consumer, location);
+    }
+
 }
