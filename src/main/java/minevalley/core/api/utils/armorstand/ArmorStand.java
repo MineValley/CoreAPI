@@ -1,18 +1,50 @@
-package minevalley.core.api.utils;
+package minevalley.core.api.utils.armorstand;
 
+import minevalley.core.api.utils.Pair;
 import org.bukkit.Location;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
 
-import java.util.UUID;
-
 public interface ArmorStand {
 
-    void spawn();
+    Pair<Integer, Byte> BYTE_MASK = new Pair<>(11, (byte) 0x00);
+    Pair<Integer, EulerAngle> HEAD_ROTATION = new Pair<>(12, new EulerAngle(0,0,0));
+    Pair<Integer, EulerAngle> BODY_ROTATION = new Pair<>(13, new EulerAngle(0,0,0));
+    Pair<Integer, EulerAngle> LEFT_ARM_ROTATION = new Pair<>(14, new EulerAngle(0,0,0));
+    Pair<Integer, EulerAngle> RIGHT_ARM_ROTATION = new Pair<>(15, new EulerAngle(0,0,0));
+    Pair<Integer, EulerAngle> LEFT_LEG_ROTATION = new Pair<>(16, new EulerAngle(0,0,0));
+    Pair<Integer, EulerAngle> RIGHT_LEG_ROTATION = new Pair<>(17, new EulerAngle(0,0,0));
+
+    /**
+     * Exposes the Armorstand to the player
+     */
+    void show();
+
+    /**
+     * Hides the Armorstand from the player
+     */
+    void hide();
+
+    /**
+     * Creates the Armorstand but won't display it, until {@link #show()} was called
+     */
+    void create();
+
+    /**
+     * Updates the ArmorStand
+     */
     void update();
 
+    /**
+     * Destroy the ArmorStand and delete it from any existing unit
+     */
+    void destroy();
+
+    void canSee(boolean canSee, Player... players);
+
     Location getLocation();
-    void setLocation(Location loc1);
+    void setLocation(Location var1);
 
     ItemStack getItemInHand();
 
@@ -78,6 +110,6 @@ public interface ArmorStand {
 
     void setMarker(boolean var1);
 
-    String getId();
-    void setId(String var1);
+    int getId();
+    void setId(int var1);
 }
