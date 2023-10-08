@@ -1305,10 +1305,21 @@ public final class Core {
         return server.getStateCompanies();
     }
 
+    /**
+     * Creates an armorstand without a consumer
+     * @param location
+     * @return ArmorStand instance
+     */
     public static ArmorStand createArmorStand(Location location)
     {
         return createArmorStand(null, location);
     }
+
+    /**
+     * Creates an armorstand with a consumer
+     * @param location
+     * @return ArmorStand instance
+     */
     public static ArmorStand createArmorStand(Consumer<ArmorStand> consumer, Location location)
     {
         return server.createArmorStand(consumer, location);

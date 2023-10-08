@@ -1,8 +1,8 @@
 package minevalley.core.api.utils.armorstand;
 
+import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.utils.Pair;
 import org.bukkit.Location;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
 
@@ -17,12 +17,12 @@ public interface ArmorStand {
     Pair<Integer, EulerAngle> RIGHT_LEG_ROTATION = new Pair<>(17, new EulerAngle(0,0,0));
 
     /**
-     * Exposes the Armorstand to the player
+     * Exposes the Armorstand for onlineusers
      */
     void show();
 
     /**
-     * Hides the Armorstand from the player
+     * Hides the Armorstand for onlineusers
      */
     void hide();
 
@@ -41,7 +41,7 @@ public interface ArmorStand {
      */
     void destroy();
 
-    void canSee(boolean canSee, Player... players);
+    void canSee(boolean canSee, OnlineUser... players);
 
     Location getLocation();
     void setLocation(Location var1);
