@@ -112,4 +112,26 @@ public interface ArmorStand {
 
     int getId();
     void setId(int var1);
+
+    /**
+     * Add a passenger to the armorstand
+     * @param user
+     * @return if the passenger applied correctly
+     */
+    boolean addPassenger(OnlineUser user);
+
+    /**
+     * Add a passenger to the armorstand
+     * @param user
+     * @return if the passenger removed correctly
+     */
+    boolean removePassenger(OnlineUser user);
+
+    /**
+     * Get the current passenger.
+     * @return OnlineUser or null if no passenger provided
+     */
+    OnlineUser getPassenger();
+
+
 }
