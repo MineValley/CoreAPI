@@ -26,7 +26,7 @@ import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.*;
-import minevalley.core.api.utils.armorstand.ArmorStand;
+import minevalley.core.api.utils.armorstand.FakeArmorStand;
 import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
@@ -1310,7 +1310,7 @@ public final class Core {
      * @param location
      * @return ArmorStand instance
      */
-    public static ArmorStand createArmorStand(Location location)
+    public static FakeArmorStand createArmorStand(Location location)
     {
         return createArmorStand(null, location);
     }
@@ -1320,7 +1320,7 @@ public final class Core {
      * @param location
      * @return ArmorStand instance
      */
-    public static ArmorStand createArmorStand(Consumer<ArmorStand> consumer, Location location)
+    public static FakeArmorStand createArmorStand(Consumer<FakeArmorStand> consumer, Location location)
     {
         return server.createArmorStand(consumer, location);
     }

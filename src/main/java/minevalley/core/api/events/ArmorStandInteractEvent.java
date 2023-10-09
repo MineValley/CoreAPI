@@ -1,14 +1,13 @@
 package minevalley.core.api.events;
 
 import minevalley.core.api.users.OnlineUser;
-import minevalley.core.api.utils.armorstand.ArmorStand;
-import org.bukkit.entity.Player;
+import minevalley.core.api.utils.armorstand.FakeArmorStand;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 public class ArmorStandInteractEvent extends Event {
 
-    private ArmorStand armorStand;
+    private FakeArmorStand armorStand;
     private OnlineUser user;
 
     /**
@@ -20,7 +19,7 @@ public class ArmorStandInteractEvent extends Event {
 
     private static final HandlerList HANDLERS = new HandlerList();
 
-    public ArmorStandInteractEvent(OnlineUser user, ArmorStand armorStand, int interactionType)
+    public ArmorStandInteractEvent(OnlineUser user, FakeArmorStand armorStand, int interactionType)
     {
         this.user = user;
         this.armorStand = armorStand;
@@ -40,7 +39,7 @@ public class ArmorStandInteractEvent extends Event {
         return HANDLERS;
     }
 
-    public ArmorStand getArmorStand() {
+    public FakeArmorStand getArmorStand() {
         return armorStand;
     }
 
