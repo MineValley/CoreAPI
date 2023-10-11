@@ -71,11 +71,11 @@ public interface CoreServer {
 
     void cancelTask(int taskId);
 
-    void registerEvent(Class<? extends Event> cls, EventListener listener);
+    void registerListener(Class<? extends Event> cls, EventListener listener);
 
-    void unregisterEvent(Class<? extends Event> cls, EventListener listener);
+    void unregisterListener(Class<? extends Event> cls, EventListener listener);
 
-    void registerListeners(Listener listener);
+    void registerListener(Listener listener);
 
     void registerPipelineReceiver(PipelineReceiver pipeLineManager);
 

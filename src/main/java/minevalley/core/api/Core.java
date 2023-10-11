@@ -121,16 +121,40 @@ public final class Core {
         server.cancelTask(taskId);
     }
 
+    /**
+     * @deprecated use {@link #registerListener(Class, EventListener)} instead!
+     */
+    @Deprecated
     public static void registerEvent(Class<? extends Event> cls, EventListener listener) {
-        server.registerEvent(cls, listener);
+        server.registerListener(cls, listener);
     }
 
+    public static void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener) {
+        server.registerListener(cls, listener);
+    }
+
+    /**
+     * @deprecated use {@link #unregisterListener(Class, EventListener)} instead!
+     */
+    @Deprecated
     public static void unregisterEvent(Class<? extends Event> cls, EventListener listener) {
-        server.unregisterEvent(cls, listener);
+        server.unregisterListener(cls, listener);
     }
 
+    public static void unregisterListener(Class<? extends Event> cls, EventListener<? extends Event> listener) {
+        server.unregisterListener(cls, listener);
+    }
+
+    /**
+     * @deprecated use {@link #registerListener(Listener)} instead!
+     */
+    @Deprecated
     public static void registerListeners(Listener listener) {
-        server.registerListeners(listener);
+        server.registerListener(listener);
+    }
+
+    public static void registerListener(Listener listener) {
+        server.registerListener(listener);
     }
 
     public static void registerPipeline(PipelineReceiver pipelineReceiver) {
@@ -1307,21 +1331,21 @@ public final class Core {
 
     /**
      * Creates an armorstand without a consumer
+     *
      * @param location
      * @return ArmorStand instance
      */
-    public static FakeArmorStand createArmorStand(Location location)
-    {
+    public static FakeArmorStand createArmorStand(Location location) {
         return createArmorStand(null, location);
     }
 
     /**
      * Creates an armorstand with a consumer
+     *
      * @param location
      * @return ArmorStand instance
      */
-    public static FakeArmorStand createArmorStand(Consumer<FakeArmorStand> consumer, Location location)
-    {
+    public static FakeArmorStand createArmorStand(Consumer<FakeArmorStand> consumer, Location location) {
         return server.createArmorStand(consumer, location);
     }
 
