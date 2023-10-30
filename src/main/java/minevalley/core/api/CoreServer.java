@@ -313,6 +313,6 @@ public interface CoreServer {
 
     List<StateCompany> getStateCompanies();
 
-    FakeArmorStand createArmorStand(Consumer<FakeArmorStand> consumer, Location location);
+    FakeArmorStand createArmorStand();
 
 }

@@ -1,145 +1,137 @@
 package minevalley.core.api.utils.armorstand;
 
-import minevalley.core.api.users.OnlineUser;
-import minevalley.core.api.utils.Pair;
+import minevalley.core.api.utils.armorstand.enums.ArmorStandMetaData;
+import minevalley.core.api.utils.armorstand.enums.EquipmentSlot;
+import minevalley.core.api.utils.armorstand.properties.VisibilityModifier;
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.EulerAngle;
 
-import java.util.function.Function;
+import java.util.List;
+import java.util.UUID;
 
-public interface FakeArmorStand {
-
-    Pair<Integer, Byte> BYTE_MASK = new Pair<>(11, (byte) 0x00);
-    Pair<Integer, EulerAngle> HEAD_ROTATION = new Pair<>(12, new EulerAngle(0, 0, 0));
-    Pair<Integer, EulerAngle> BODY_ROTATION = new Pair<>(13, new EulerAngle(0, 0, 0));
-    Pair<Integer, EulerAngle> LEFT_ARM_ROTATION = new Pair<>(14, new EulerAngle(0, 0, 0));
-    Pair<Integer, EulerAngle> RIGHT_ARM_ROTATION = new Pair<>(15, new EulerAngle(0, 0, 0));
-    Pair<Integer, EulerAngle> LEFT_LEG_ROTATION = new Pair<>(16, new EulerAngle(0, 0, 0));
-    Pair<Integer, EulerAngle> RIGHT_LEG_ROTATION = new Pair<>(17, new EulerAngle(0, 0, 0));
+public interface FakeArmorStand extends VisibilityModifier {
 
     /**
-     * Exposes the Armorstand to everyone who fulfills the {@link #visibilityCondition(Function)}
+     * Get the random generated uuid of the armorstand
+     * @return uuid
      */
-    void show();
+    UUID getUniqueId();
 
     /**
-     * Hides the Armorstand from everyone
+     * get the custom id from the armorstand
+     * @return int
      */
-    void hide();
+    int getId();
 
     /**
-     * Creates the Armorstand but won't display it, until {@link #show()} was called
+     * set the custom id for the armorstand
+     * @param id
      */
-    void create();
+    void setId(int id);
 
     /**
-     * Updates the ArmorStand
+     * Get the yaw from the armorstand facing
+     * @return float
      */
-    void update();
+    float getYaw();
 
     /**
-     * Destroy the ArmorStand and delete it from any existing unit
+     * Get the pitch from the armorstand facing
+     * @return float
+     */
+    float getPitch();
+
+    /**
+     * Set the equipment to the given slot see {@link EquipmentSlot} for the available slots
+     * @param item itemstack to be setted
+     * @param slot the slot to be replaced
+     */
+    void setEquipment(ItemStack item, EquipmentSlot slot);
+
+    /**
+     * Get the Item from the given asked slot
+     * @param slot EquipmentSlot Enum
+     * @return ItemStack
+     */
+    ItemStack getEquipment(EquipmentSlot slot);
+
+    /**
+     * Set specific attributes for the armorstand in form of metadata
+     * @param metaData the metadata enum
+     * @param state the new state of this attribute
+     */
+    void setAttribute(ArmorStandMetaData metaData, boolean state);
+
+    /**
+     * Get the state of an attribute
+     * @param metaData the metadata enum
+     * @return state of the attribute
+     */
+    boolean getAttribute(ArmorStandMetaData metaData);
+
+    /**
+     * Get the location of the armorstand
+     * @return location
+     */
+    Location getLocation();
+
+    /**
+     * Set the location of the armorstand
+     * @param location
+     */
+    void setLocation(Location location);
+
+    /**
+     * Spawns the armorstand
+     */
+    void spawn(Location location);
+
+    /**
+     * Destroys/de-spawn the armor-stand
      */
     void destroy();
 
     /**
-     * Defines who can see the armorstand. By default, everyone can see the armorstand.
+     * Add a passenger to the object
+     * @param entity the entity to be added
      */
-    void visibilityCondition(Function<OnlineUser, Boolean> visibilityCondition);
-
-    Location getLocation();
-
-    void setLocation(Location location);
-
-    ItemStack getItemInHand();
-
-    void setItemInHand(ItemStack item);
-
-    ItemStack getBoots();
-
-    void setBoots(ItemStack boots);
-
-    ItemStack getLeggings();
-
-    void setLeggings(ItemStack leggings);
-
-    ItemStack getChestplate();
-
-    void setChestplate(ItemStack chestplate);
-
-    ItemStack getHelmet();
-
-    void setHelmet(ItemStack helmet);
-
-    EulerAngle getBodyPose();
-
-    void setBodyPose(EulerAngle bodyPose);
-
-    EulerAngle getLeftArmPose();
-
-    void setLeftArmPose(EulerAngle leftArmPose);
-
-    EulerAngle getRightArmPose();
-
-    void setRightArmPose(EulerAngle rightArmPose);
-
-    EulerAngle getLeftLegPose();
-
-    void setLeftLegPose(EulerAngle leftLegPose);
-
-    EulerAngle getRightLegPose();
-
-    void setRightLegPose(EulerAngle rightLegPose);
-
-    EulerAngle getHeadPose();
-
-    void setHeadPose(EulerAngle headPose);
-
-    boolean hasBasePlate();
-
-    void setBasePlate(boolean baseplate);
-
-    boolean isVisible();
-
-    void setVisible(boolean visible);
-
-    boolean hasArms();
-
-    void setArms(boolean hasArms);
-
-    boolean isSmall();
-
-    void setSmall(boolean small);
-
-    boolean isMarker();
-
-    void setMarker(boolean marker);
-
-    int getId();
-
-    void setId(int id);
+    void addPassenger(Entity entity);
 
     /**
-     * Get the current passenger.
-     *
-     * @return OnlineUser or null if no passenger provided
+     * Remove a passenger
+     * @param entity the entity to be removed
      */
-    OnlineUser getPassenger();
+    void removePassenger(Entity entity);
 
     /**
-     * Add a passenger to the armorstand
-     *
-     * @param user
-     * @return if the passenger applied correctly
+     * get the current passenger list
+     * @return a list with the passengers as entities
      */
-    boolean addPassenger(OnlineUser user);
+    List<Entity> getPassengers();
 
     /**
-     * Add a passenger to the armorstand
-     *
-     * @param user
-     * @return if the passenger removed correctly
+     * Teleports the entity to a given location
+     * IGNORES the yaw and pitch values. (See {@link #setHeadRotation(float, float)} for yaw and pitch alignments)
+     * @param location
      */
-    boolean removePassenger(OnlineUser user);
+    void teleport(Location location);
+
+    /**
+     * Set the yaw and pitch values for the current location of the armorstand
+     * @param yaw
+     * @param pitch
+     */
+    void setHeadRotation(float yaw, float pitch);
+
+    /**
+     * Updates the metadata of the current armorstand instance
+     */
+    void updateMetaData();
+
+    /**
+     * Refreshed the Armorstand with its configuration
+     */
+    void refresh();
+
 }
