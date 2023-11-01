@@ -36,7 +36,7 @@
     </distributionManagement>
 
     <properties>
-        <smart-api.version>1.55</smart-api.version>
+        <smart-api.version>1.57</smart-api.version>
 
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
