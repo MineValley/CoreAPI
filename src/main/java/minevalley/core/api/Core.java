@@ -31,6 +31,7 @@ import minevalley.core.api.utils.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
 import minevalley.core.api.utils.gui.MultiPageGui;
+import minevalley.smart.api.Session;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -376,6 +377,10 @@ public final class Core {
 
     public static OnlineUser getOnlineUser(Player player) {
         return server.getOnlineUser(player);
+    }
+
+    public static OnlineUser getOnlineUser(Session session) {
+        return server.getOnlineUser(session);
     }
 
     /**
