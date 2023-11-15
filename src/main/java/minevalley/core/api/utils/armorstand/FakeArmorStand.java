@@ -14,36 +14,42 @@ public interface FakeArmorStand extends VisibilityModifier {
 
     /**
      * Get the random generated uuid of the armorstand
+     *
      * @return uuid
      */
     UUID getUniqueId();
 
     /**
      * get the custom id from the armorstand
+     *
      * @return int
      */
     int getId();
 
     /**
      * set the custom id for the armorstand
+     *
      * @param id
      */
     void setId(int id);
 
     /**
      * Get the yaw from the armorstand facing
+     *
      * @return float
      */
     float getYaw();
 
     /**
      * Get the pitch from the armorstand facing
+     *
      * @return float
      */
     float getPitch();
 
     /**
      * Set the equipment to the given slot see {@link EquipmentSlot} for the available slots
+     *
      * @param item itemstack to be setted
      * @param slot the slot to be replaced
      */
@@ -51,6 +57,7 @@ public interface FakeArmorStand extends VisibilityModifier {
 
     /**
      * Get the Item from the given asked slot
+     *
      * @param slot EquipmentSlot Enum
      * @return ItemStack
      */
@@ -58,13 +65,17 @@ public interface FakeArmorStand extends VisibilityModifier {
 
     /**
      * Set specific attributes for the armorstand in form of metadata
+     *
      * @param metaData the metadata enum
-     * @param state the new state of this attribute
+     * @param state    the new state of this attribute
      */
     void setAttribute(ArmorStandMetaData metaData, boolean state);
 
+    void setAttributes(ArmorStandMetaData... metaData);
+
     /**
      * Get the state of an attribute
+     *
      * @param metaData the metadata enum
      * @return state of the attribute
      */
@@ -72,12 +83,14 @@ public interface FakeArmorStand extends VisibilityModifier {
 
     /**
      * Get the location of the armorstand
+     *
      * @return location
      */
     Location getLocation();
 
     /**
      * Set the location of the armorstand
+     *
      * @param location
      */
     void setLocation(Location location);
@@ -85,7 +98,15 @@ public interface FakeArmorStand extends VisibilityModifier {
     /**
      * Spawns the armorstand
      */
-    void spawn(Location location);
+    void spawn();
+
+    /**
+     * Spawns the armorstand
+     */
+    default void spawn(Location location) {
+        setLocation(location);
+        spawn();
+    }
 
     /**
      * Destroys/de-spawn the armor-stand
@@ -94,18 +115,21 @@ public interface FakeArmorStand extends VisibilityModifier {
 
     /**
      * Add a passenger to the object
+     *
      * @param entity the entity to be added
      */
     void addPassenger(Entity entity);
 
     /**
      * Remove a passenger
+     *
      * @param entity the entity to be removed
      */
     void removePassenger(Entity entity);
 
     /**
      * get the current passenger list
+     *
      * @return a list with the passengers as entities
      */
     List<Entity> getPassengers();
@@ -113,12 +137,14 @@ public interface FakeArmorStand extends VisibilityModifier {
     /**
      * Teleports the entity to a given location
      * IGNORES the yaw and pitch values. (See {@link #setHeadRotation(float, float)} for yaw and pitch alignments)
+     *
      * @param location
      */
     void teleport(Location location);
 
     /**
      * Set the yaw and pitch values for the current location of the armorstand
+     *
      * @param yaw
      * @param pitch
      */
