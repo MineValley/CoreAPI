@@ -546,6 +546,14 @@ public interface OnlineUser extends User {
 
     ClickEvent createClickEvent(boolean selfCancelling, Runnable callback);
 
+    /**
+     * Checks whether the user is in a virtual box whose span in each direction is twice the specified range.
+     * <br>
+     * Use this method instead of the distance()-method. It is significantly more powerful, but not recommended for precise applications
+     * @param location location to check distance from
+     * @param range maximum range for the result to be true
+     * @return true, if user is in range
+     */
     boolean isInCubicRange(Location location, int range);
 
     @Getter
