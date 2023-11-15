@@ -546,6 +546,8 @@ public interface OnlineUser extends User {
 
     ClickEvent createClickEvent(boolean selfCancelling, Runnable callback);
 
+    boolean isInCubicRange(Location location, int range);
+
     @Getter
     @Setter
     @AllArgsConstructor
