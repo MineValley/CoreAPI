@@ -15,6 +15,7 @@ import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.InterfaceItem;
+import minevalley.core.api.enums.Server;
 import minevalley.core.api.modulepipeline.Container;
 import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
@@ -1336,10 +1337,14 @@ public final class Core {
 
     /**
      * Creates an armorstand with a consumer
+     *
      * @return ArmorStand instance
      */
     public static FakeArmorStand createArmorStand() {
         return server.createArmorStand();
     }
 
+    public static Server getServer() {
+        return server.getServer();
+    }
 }
