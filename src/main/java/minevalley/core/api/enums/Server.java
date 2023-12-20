@@ -5,5 +5,5 @@ public enum Server {
     MAIN,
     VERIFY,
     DEV,
-    BUILDING_APPLY;
+    BUILDING_APPLY
 }
