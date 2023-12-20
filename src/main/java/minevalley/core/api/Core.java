@@ -1345,6 +1345,6 @@ public final class Core {
     }
 
     public static Server getServer() {
-        return server.getServer();
+        return server.getServerType();
     }
 }

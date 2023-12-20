@@ -319,6 +319,6 @@ public interface CoreServer {
 
     FakeArmorStand createArmorStand();
 
-    Server getServer();
+    Server getServerType();
 
 }
