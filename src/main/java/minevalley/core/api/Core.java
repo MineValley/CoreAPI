@@ -1341,7 +1341,16 @@ public final class Core {
      * @return ArmorStand instance
      */
     public static FakeArmorStand createArmorStand() {
-        return server.createArmorStand();
+        return server.createArmorStand(null);
+    }
+
+    /**
+     * Creates an armorstand with a consumer
+     *
+     * @return ArmorStand instance
+     */
+    public static FakeArmorStand createArmorStand(Location location) {
+        return server.createArmorStand(location);
     }
 
     public static Server getServer() {

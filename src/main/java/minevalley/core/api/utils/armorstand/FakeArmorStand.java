@@ -1,23 +1,11 @@
 package minevalley.core.api.utils.armorstand;
 
-import minevalley.core.api.utils.armorstand.enums.ArmorStandMetaData;
-import minevalley.core.api.utils.armorstand.enums.EquipmentSlot;
-import minevalley.core.api.utils.armorstand.properties.VisibilityModifier;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
-import java.util.UUID;
 
-public interface FakeArmorStand extends VisibilityModifier {
-
-    /**
-     * Get the random generated uuid of the armorstand
-     *
-     * @return uuid
-     */
-    UUID getUniqueId();
+public interface FakeArmorStand extends VisibilityModifier, PoseModifier, EquipmentModifier {
 
     /**
      * get the custom id from the armorstand
@@ -27,59 +15,23 @@ public interface FakeArmorStand extends VisibilityModifier {
     int getId();
 
     /**
-     * set the custom id for the armorstand
-     *
-     * @param id
+     * Refreshed the Armorstand with its configuration
      */
-    void setId(int id);
+    void update();
 
     /**
-     * Get the yaw from the armorstand facing
-     *
-     * @return float
+     * Spawns the armorstand
      */
-    float getYaw();
+    void spawn();
 
     /**
-     * Get the pitch from the armorstand facing
-     *
-     * @return float
+     * Destroys/de-spawn the armor-stand
      */
-    float getPitch();
+    void destroy();
 
-    /**
-     * Set the equipment to the given slot see {@link EquipmentSlot} for the available slots
-     *
-     * @param item itemstack to be setted
-     * @param slot the slot to be replaced
-     */
-    void setEquipment(ItemStack item, EquipmentSlot slot);
+    int getVisibilityRange();
 
-    /**
-     * Get the Item from the given asked slot
-     *
-     * @param slot EquipmentSlot Enum
-     * @return ItemStack
-     */
-    ItemStack getEquipment(EquipmentSlot slot);
-
-    /**
-     * Set specific attributes for the armorstand in form of metadata
-     *
-     * @param metaData the metadata enum
-     * @param state    the new state of this attribute
-     */
-    void setAttribute(ArmorStandMetaData metaData, boolean state);
-
-    void setAttributes(ArmorStandMetaData... metaData);
-
-    /**
-     * Get the state of an attribute
-     *
-     * @param metaData the metadata enum
-     * @return state of the attribute
-     */
-    boolean getAttribute(ArmorStandMetaData metaData);
+    void setVisibilityRange(int visibilityRange);
 
     /**
      * Get the location of the armorstand
@@ -89,29 +41,53 @@ public interface FakeArmorStand extends VisibilityModifier {
     Location getLocation();
 
     /**
-     * Set the location of the armorstand
+     * Sets the armorstand's location.
+     * <b>Note:</b This ignores the yaw and pitch values.
      *
      * @param location
      */
     void setLocation(Location location);
 
     /**
-     * Spawns the armorstand
+     * Get the pitch from the armorstand facing
+     *
+     * @return float
      */
-    void spawn();
+    float getPitch();
+
+    void setPitch(float pitch);
 
     /**
-     * Spawns the armorstand
+     * Get the yaw from the armorstand facing
+     *
+     * @return float
      */
-    default void spawn(Location location) {
-        setLocation(location);
-        spawn();
-    }
+    float getYaw();
+
+    void setYaw(float yaw);
+
+    boolean hasBasePlate();
+
+    void setBasePlate(boolean basePlate);
+
+    boolean isSmall();
+
+    void setSmall(boolean small);
+
+    boolean hasArms();
+
+    void setArms(boolean arms);
+
+    boolean isMarker();
+
+    void setMarker(boolean marker);
 
     /**
-     * Destroys/de-spawn the armor-stand
+     * get the current passenger list
+     *
+     * @return a list with the passengers as entities
      */
-    void destroy();
+    List<Entity> getPassengers();
 
     /**
      * Add a passenger to the object
@@ -126,38 +102,4 @@ public interface FakeArmorStand extends VisibilityModifier {
      * @param entity the entity to be removed
      */
     void removePassenger(Entity entity);
-
-    /**
-     * get the current passenger list
-     *
-     * @return a list with the passengers as entities
-     */
-    List<Entity> getPassengers();
-
-    /**
-     * Teleports the entity to a given location
-     * IGNORES the yaw and pitch values. (See {@link #setHeadRotation(float, float)} for yaw and pitch alignments)
-     *
-     * @param location
-     */
-    void teleport(Location location);
-
-    /**
-     * Set the yaw and pitch values for the current location of the armorstand
-     *
-     * @param yaw
-     * @param pitch
-     */
-    void setHeadRotation(float yaw, float pitch);
-
-    /**
-     * Updates the metadata of the current armorstand instance
-     */
-    void updateMetaData();
-
-    /**
-     * Refreshed the Armorstand with its configuration
-     */
-    void refresh();
-
 }

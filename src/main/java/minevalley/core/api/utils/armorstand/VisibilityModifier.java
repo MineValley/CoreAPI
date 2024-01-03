@@ -1,4 +1,4 @@
-package minevalley.core.api.utils.armorstand.properties;
+package minevalley.core.api.utils.armorstand;
 
 import minevalley.core.api.users.OnlineUser;
 
