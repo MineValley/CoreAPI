@@ -368,6 +368,16 @@ public interface OnlineUser extends User {
     String getCustomTeamRankName();
 
     /**
+     * Sometimes a player is assigned a team rank to grant them permission or access.
+     * Because team members are highlighted in the chat and tab list,
+     * they appear representative of the project and players may assume they have the permission and knowledge
+     * to guide other players. Therefore, the rank assigned to the player can be hidden.
+     *
+     * @return true, if this user is displayed as team member in chat, tab list, etc.
+     */
+    boolean isDisplayedAsTeamler();
+
+    /**
      * Gets whether the user has any of the listed team-ranks.
      *
      * @param ranks list of team-ranks to be checked for
@@ -550,8 +560,9 @@ public interface OnlineUser extends User {
      * Checks whether the user is in a virtual box whose span in each direction is twice the specified range.
      * <br>
      * Use this method instead of the distance()-method. It is significantly more powerful, but not recommended for precise applications
+     *
      * @param location location to check distance from
-     * @param range maximum range for the result to be true
+     * @param range    maximum range for the result to be true
      * @return true, if user is in range
      */
     boolean isInCubicRange(Location location, int range);
