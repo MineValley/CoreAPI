@@ -11,7 +11,7 @@ public enum MessageType {
     /**
      * Used to signal the success of a process or action.
      */
-    SUCCESS("§a✔§8 ━ §7"),
+    SUCCESS(" §a✔§8 ━ §7"),
 
     /**
      * Used to signal the failure of a process or an action.
