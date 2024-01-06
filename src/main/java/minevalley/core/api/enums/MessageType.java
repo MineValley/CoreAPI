@@ -23,6 +23,10 @@ public enum MessageType {
      */
     SYNTAX_ERROR(ERROR.getValue() + "Korrekte Verwendung: §e/"),
 
+    INFO(" §f" + CustomCharacter.MV + " §8━ §7"),
+
+    INFO_BW(" §f" + CustomCharacter.MV_BW + " §8━ §7"),
+
     /**
      * Used to display any information to the user. Uses a turquoise-colored "i"-letter.
      */
