@@ -13,6 +13,7 @@ import minevalley.core.api.enums.TeamRank;
 import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
 import minevalley.core.api.regions.PlayerLocation;
+import minevalley.core.api.utils.ChatHandler;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.vehicles.LoadedVehicle;
 import minevalley.core.api.vehicles.VehicleManager;
@@ -512,7 +513,9 @@ public interface OnlineUser extends User {
 
     void checkRegistration();
 
-    void chat(ChatType type, String message);
+    default void chat(ChatType type, String message) {
+        ChatHandler.chat(this, type, message);
+    }
 
     default void chat(String message) {
         chat(ChatType.NORMAL, message);
