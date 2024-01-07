@@ -1340,7 +1340,7 @@ public final class Core {
      *
      * @return ArmorStand instance
      */
-    public static FakeArmorStand createArmorStand() {
+    public static FakeArmorStand createFakeArmorStand() {
         return server.createArmorStand(null);
     }
 
@@ -1349,7 +1349,7 @@ public final class Core {
      *
      * @return ArmorStand instance
      */
-    public static FakeArmorStand createArmorStand(Location location) {
+    public static FakeArmorStand createFakeArmorStand(Location location) {
         return server.createArmorStand(location);
     }
 
