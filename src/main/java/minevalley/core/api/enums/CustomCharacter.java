@@ -52,7 +52,7 @@ public enum CustomCharacter {
 
     PREMIUM_TRANSPARENT('ヰ'),
 
-    SINGLE_WHITE_SPACE('∀');
+    SINGLE_WHITE_SPACE('₶');
 
 
     private final char c;
