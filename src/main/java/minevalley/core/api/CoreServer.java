@@ -321,4 +321,6 @@ public interface CoreServer {
 
     Server getServerType();
 
+    String convertToTransparent(String text);
+
 }

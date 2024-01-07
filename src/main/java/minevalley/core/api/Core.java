@@ -1356,4 +1356,8 @@ public final class Core {
     public static Server getServer() {
         return server.getServerType();
     }
+
+    public static String convertToTransparent(String text) {
+        return server.convertToTransparent(text);
+    }
 }

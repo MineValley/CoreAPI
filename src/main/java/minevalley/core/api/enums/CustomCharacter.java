@@ -14,12 +14,21 @@ public enum CustomCharacter {
     MV_BW('け'),
     SUPPORT_QUESTION_MARK('げ'),
     HELP_QUESTION_MARK('こ'),
+    TEAM('ご'),
+
+    SUPPORT_QUESTION_MARK_TRANSPARENT('ヱ'),
 
     MEDICS('だ'),
     COPS('ち'),
     MAIL('ぢ'),
     DISPOSAL('っ'),
     HANDCUFFS('つ'),
+
+    MEDICS_TRANSPARENT('ム'),
+    COPS_TRANSPARENT('メ'),
+    MAIL_TRANSPARENT('モ'),
+    DISPOSAL_TRANSPARENT('ャ'),
+    HANDCUFFS_TRANSPARENT('ヤ'),
 
     EURO_NOTES('ば'),
     BELL('ぱ'),
@@ -39,7 +48,11 @@ public enum CustomCharacter {
     EMOJI_ANNOYED('り'),
     EMOJI_CRYING('る'),
 
-    PREMIUM('ゐ');
+    PREMIUM('ゐ'),
+
+    PREMIUM_TRANSPARENT('ヰ'),
+
+    SINGLE_WHITE_SPACE('∀');
 
 
     private final char c;
