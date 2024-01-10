@@ -25,7 +25,7 @@ jobs:
       # Deploys a maven-build as a new package to be accessed with any pom.xml.
       - name: Deploy to GitHub
         run: |
-          mvn source:jar
+          mvn source:jar -DapiVersion=${{ github.event.release.tag_name#v }}
           mvn deploy
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
