@@ -390,7 +390,7 @@ public final class Core {
      * @param uniqueId unique id of the player
      * @return name of the player
      */
-    public static String getName(String uniqueId) {
+    public static String getName(UUID uniqueId) {
         return server.getName(uniqueId);
     }
 

@@ -131,7 +131,7 @@ public interface CoreServer {
 
     Gson getGson();
 
-    String getName(String uniqueId);
+    String getName(UUID uniqueId);
 
     String getUniqueId(String name);
 
