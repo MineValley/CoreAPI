@@ -1,0 +1,27 @@
+name: Core-API | Release Builder
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  get-version:
+    name: Get Version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get-version.outputs.version }}
+    steps:
+      - name: Get Version
+        id: get-version
+        run: |
+          TAG_NAME=${{ github.event.release.tag_name }}
+          echo ::set-output name=version::${TAG_NAME#v}
+
+  build-release:
+    name: Build Release
+    needs: get-version
+    uses: ./.github/workflows/build.yml
+    with:
+      version: ${{ needs.get-version.outputs.version }}
+
+    
