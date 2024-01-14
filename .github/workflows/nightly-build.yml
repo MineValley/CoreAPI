@@ -1,0 +1,47 @@
+name: Core-API | Nightly Builder
+
+on:
+  push:
+    branches:
+      - '**'
+
+  workflow_dispatch:
+
+jobs:
+  get-latest-version:
+    name: Get latest version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version-ready.outputs.release  }}
+    steps:
+      - name: Get latest release version
+        if: github.event_name == 'push'
+        id: get-latest-version
+        uses: pozetroninc/github-action-get-latest-release@v0.7.0
+        with:
+          repository: ${{ github.repository }}
+
+      - name: Increment version
+        if: github.event_name == 'push'
+        id: increment-version
+        run: |
+          RELEASE_NAME=${{ steps.get-latest-version.outputs.release }}
+          echo "release=$(echo ${RELEASE_NAME#v} | awk -F. -v OFS=. '{$NF = $NF + 1;} 1')" >> "$GITHUB_OUTPUT"
+
+      - name: Set output
+        id: version-ready
+        
+        run: |
+          if [[ "${{ github.ref_name}}" == "main" || "${{ github.ref_name }}" == "master" ]]; then
+            echo "release=${{ steps.increment-version.outputs.release }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "release=${{ github.ref_name }}_${{ steps.increment-version.outputs.release }}" >> "$GITHUB_OUTPUT"
+          fi
+
+  build-nightly:
+    name: Build Nightly version
+    needs: get-latest-version
+    uses: ./.github/workflows/build.yml
+    with:
+      version: ${{ needs.get-latest-version.outputs.version }}-SNAPSHOT
+      isRelease: false
