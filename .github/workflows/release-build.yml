@@ -15,7 +15,7 @@ jobs:
         id: get-version
         run: |
           TAG_NAME=${{ github.event.release.tag_name }}
-          echo ::set-output name=version::${TAG_NAME#v}
+          echo "version=${TAG_NAME#v}" >> "$GITHUB_OUTPUT"
 
   build-release:
     name: Build Release
@@ -23,5 +23,4 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       version: ${{ needs.get-version.outputs.version }}
-
-    
+      isRelease: true

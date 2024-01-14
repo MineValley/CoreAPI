@@ -3,34 +3,45 @@ name: Core-API | Nightly Builder
 on:
   push:
     branches:
-      - master
+      - '**'
 
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version to build'
-        required: true
-        type: string
 
 jobs:
-  get-version:
-    name: Get version
+  get-latest-version:
+    name: Get latest version
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.set-version-push.outputs.version || steps.set-version.outputs.version }}
+      version: ${{ steps.version-ready.outputs.release  }}
     steps:
-      - name: Set short commit hash on push
+      - name: Get latest release version
         if: github.event_name == 'push'
-        id: set-version-push
-        run: echo ::set-output name=version::$(git rev-parse --short HEAD)
-      - name: Set version from input
-        if: github.event_name == 'workflow_dispatch'
-        id: set-version
-        run: echo ::set-output name=version::${{ github.event.inputs.version }}
+        id: get-latest-version
+        uses: pozetroninc/github-action-get-latest-release@v0.7.0
+        with:
+          repository: ${{ github.repository }}
+
+      - name: Increment version
+        if: github.event_name == 'push'
+        id: increment-version
+        run: |
+          RELEASE_NAME=${{ steps.get-latest-version.outputs.release }}
+          echo "release=$(echo ${RELEASE_NAME#v} | awk -F. -v OFS=. '{$NF = $NF + 1;} 1')" >> "$GITHUB_OUTPUT"
+
+      - name: Set output
+        id: version-ready
+        
+        run: |
+          if [[ "${{ github.ref_name}}" == "main" || "${{ github.ref_name }}" == "master" ]]; then
+            echo "release=${{ steps.increment-version.outputs.release }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "release=${{ github.ref_name }}_${{ steps.increment-version.outputs.release }}" >> "$GITHUB_OUTPUT"
+          fi
 
   build-nightly:
     name: Build Nightly version
-    needs: get-version
+    needs: get-latest-version
     uses: ./.github/workflows/build.yml
     with:
-      version: ${{ needs.get-version.outputs.version }}
+      version: ${{ needs.get-latest-version.outputs.version }}-SNAPSHOT
+      isRelease: false

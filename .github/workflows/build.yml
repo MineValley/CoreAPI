@@ -7,6 +7,14 @@ on:
         description: 'The version of the new build.'
         required: true
         type: string
+      isRelease:
+        description: 'Is this a release build?'
+        required: true
+        type: boolean
+
+permissions:
+  contents: write
+  packages: write
 
 jobs:
   build:
@@ -23,10 +31,22 @@ jobs:
           cache: 'maven'
           java-version: 8
 
+      - name: Set Project Version
+        run: mvn versions:set -DnewVersion=${{ inputs.version }}
+
       - name: Build with Maven
-        run: mvn source:jar -DapiVersion=${{ inputs.version }}
+        run: mvn -B clean package
 
       - name: Deploy to GitHub Packages # Repository is set in pom.xml
         run: mvn deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload assets to release
+        if: ${{ inputs.isRelease }}
+        uses: softprops/action-gh-release@v0.1.15
+        with: 
+          files: |
+            target/api-${{ inputs.version }}.jar
+            target/api-${{ inputs.version }}-sources.jar
+            target/api-${{ inputs.version }}-javadoc.jar
