@@ -20,16 +20,23 @@ public @interface CommandOptions {
     String[] commands();
 
     /**
-     * This string defines the correct syntax
+     * <p>
+     *     This string defines the correct syntax.
+     * </p>
      * Begin with the mostly used alias of the command itself without "/"
-     * Then add all possible arguments with "< >"
-     * arguments that are not required are marked with "[< >]"
+     * Then add all possible arguments with "&lt; &gt;"
+     * arguments that are not required are marked with "[&lt; &gt;]"
+     * <br>
+     * Different argument suggestions are separated by vertical bars (example: <i>see below</i>).
+     * <br>
+     * Literal argument suggestions are written in quotation marks (e. g. /restart &lt;seconds|'now'&gt;)
      */
     @NonNull
     String syntax() default "<command>";
 
     /**
      * This message defined here will be sent, when the onCommand-method returns SUCCESS.
+     * <br>
      * Don't use this method, if the player shouldn't get printed any message on success.
      */
     String successMessage() default "";
