@@ -230,6 +230,10 @@ public interface Residence extends PlayerLocation {
 
     /**
      * Gets the electricity costs that are summed up since the latest bill.
+     * <br>
+     * <b>Note:</b> This will be replaced by an integer in the future!
+     *
+     * @return electricityCosts as integer.
      */
     double getElectricityCosts();
 
