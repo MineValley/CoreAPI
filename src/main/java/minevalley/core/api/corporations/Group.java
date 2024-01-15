@@ -25,6 +25,7 @@ public interface Group extends Registrant {
     /**
      * Sets the name of this group.
      *
+     * @param name new name
      * @return Result of rename
      */
     RenameFeedback changeName(String name);
