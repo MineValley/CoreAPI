@@ -35,6 +35,9 @@ public interface Mailbox {
 
     /**
      * Removes a specific parcel from the mailbox content list.
+     *
+     * @param parcel to delete
+     * @param user target of the parcel
      */
     void remove(Parcel parcel, OnlineUser user);
 
