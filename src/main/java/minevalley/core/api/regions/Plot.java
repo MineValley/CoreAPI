@@ -19,6 +19,8 @@ public interface Plot extends Residence {
      * The sale defines the price this plot is sold for.
      * <br>
      * The sale price is set to -1 if the plot isn't for sale.
+     *
+     * @return this plots sale price.
      */
     int getSale();
 
