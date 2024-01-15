@@ -148,6 +148,7 @@ public final class Core {
     }
 
     /**
+     * @param listener listener to register
      * @deprecated use {@link #registerListener(Listener)} instead!
      */
     @Deprecated
