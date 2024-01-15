@@ -1347,6 +1347,7 @@ public final class Core {
     /**
      * Creates an armorstand with a consumer
      *
+     * @param location location to spawn the armorstand at.
      * @return ArmorStand instance
      */
     public static FakeArmorStand createFakeArmorStand(Location location) {
