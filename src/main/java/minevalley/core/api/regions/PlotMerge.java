@@ -12,6 +12,8 @@ public interface PlotMerge {
 
     /**
      * All plots that are merged in this PlotMerge including the main plot
+     *
+     * @return array of plots that are merged within this plot merge.
      */
     Plot[] getPlots();
 
