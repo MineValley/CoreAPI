@@ -1292,6 +1292,9 @@ public final class Core {
 
     /**
      * Gets an area object with only one block.
+     *
+     * @param block block to create the area from
+     * @return area consisting of the one specific block
      */
     public static Area getAreaOfBlock(Block block) {
         return server.getArea(block, block);
