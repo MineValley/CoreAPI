@@ -47,6 +47,8 @@ public interface Registrant {
      * Gets the bank account that is associated with this registrant.
      * Departments may not have their own bank account. If this registrant is a department without its own bank account,
      * this method will return the bank account of the departments company/organisation.
+     *
+     * @return the bank account that is associated with this registrant.
      */
     BankAccount getBankAccount();
 
