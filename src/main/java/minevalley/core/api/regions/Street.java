@@ -12,6 +12,7 @@ public interface Street {
 
     /**
      * Every street will be assigned an ID. It should be used to refer to this street.
+     * @return id as integer.
      */
     int getId();
 
