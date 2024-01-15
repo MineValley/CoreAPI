@@ -93,7 +93,7 @@ public interface DatabaseEntry {
     Array getArray(String column);
 
     /**
-     * Gets the location at the given column (with pitch & yaw).
+     * Gets the location at the given column (with pitch &amp; yaw).
      *
      * @param column name of the column
      * @return location at given column from the selected database entry
