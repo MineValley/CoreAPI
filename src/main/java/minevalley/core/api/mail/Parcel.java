@@ -27,6 +27,8 @@ public interface Parcel {
     /**
      * Gets the minutes that remain, until this parcel is delivered to the mailbox of the target.
      * This is only an approximation. Parcels may be delivered up to five minutes earlier or later.
+     *
+     * @return minutes until this parcel is delivered.
      */
     int getRemainingMinutes();
 
