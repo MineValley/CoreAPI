@@ -57,6 +57,8 @@ public interface Residence extends PlayerLocation {
      * It is used for teamlers to teleport to a specific residence and is used as navigation target,
      * whenever a user tries to navigate to this residence.
      * In case this residence is an apartment created by a player, this location is set to the location of the ResidenceSign.
+     *
+     * @return this plots location to be teleported to if needed.
      */
     Location getLocation();
 
