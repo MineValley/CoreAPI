@@ -143,7 +143,9 @@ public interface Residence extends PlayerLocation {
      * Transmits this residence to another owner. This method should never be called to sell/rent the residence.
      * It only changes the given parameters. No money is transferred. This plots worth remains unchanged.
      *
-     * @param user the given user will be marked as the responsible in a letter, that is sent to the transmitted plot.
+     * @param user       the given user will be marked as the responsible in a letter, that is sent to the transmitted plot.
+     * @param registrant new owner
+     * @param account    bank account of new owner to withdraw taxes from
      */
     void transmit(User user, @NonNull Registrant registrant, @NonNull BankAccount account);
 
