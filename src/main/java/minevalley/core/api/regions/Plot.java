@@ -26,6 +26,8 @@ public interface Plot extends Residence {
 
     /**
      * The PlotMerge defines the way this plot is merged with other plots.
+     *
+     * @return this plots merge.
      */
     PlotMerge getPlotMerge();
 
