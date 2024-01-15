@@ -108,6 +108,9 @@ public interface Residence extends PlayerLocation {
      * <br>
      * <b>Note:</b> The user doesn't have to be mentioned in the list! He just might be member of a
      * company/organisation/department that is listed as a permissioned user!
+     *
+     * @param user user to check
+     * @return true, if user is permissioned.
      */
     boolean isPermissioned(User user);
 
