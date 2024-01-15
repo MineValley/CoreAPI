@@ -21,7 +21,7 @@ public @interface CommandOptions {
 
     /**
      * <p>
-     *     This string defines the correct syntax.
+     * This string defines the correct syntax.
      * </p>
      * Begin with the mostly used alias of the command itself without "/"
      * Then add all possible arguments with "&lt; &gt;"
@@ -82,6 +82,8 @@ public @interface CommandOptions {
     /**
      * If abuseWarning() is true, the team will be notified if a player tries to execute this command without permission
      * The return of ABUSE_WARNING in the onCommand method is not related to this setting and can also be carried out if nothing (or false) is specified here
+     *
+     * @return true, if the team should be notified about illegal use of this command.
      */
     boolean abuseWarning() default false;
 
