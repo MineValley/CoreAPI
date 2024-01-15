@@ -22,6 +22,8 @@ public interface Street {
 
     /**
      * Get the description of this street. Not every street does have a description. If the street doesn't have a description, this is null.
+     *
+     * @return description as string.
      */
     String getDescription();
 
