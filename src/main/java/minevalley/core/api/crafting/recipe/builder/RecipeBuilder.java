@@ -10,13 +10,11 @@ public interface RecipeBuilder {
 
     /**
      * Set the recipe name
-     *
      */
     RecipeBuilder setRecipeName(String name);
 
     /**
      * Set the item that's gonna crafted
-     *
      */
     RecipeBuilder setOutputItem(ItemStack output);
 
@@ -48,6 +46,7 @@ public interface RecipeBuilder {
     /**
      * Set the recipe power craft costs
      *
+     * @param powerConsumption as integer.
      */
     RecipeBuilder setPowerConsumption(int powerConsumption);
 
