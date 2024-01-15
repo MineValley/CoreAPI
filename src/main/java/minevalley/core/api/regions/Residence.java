@@ -41,6 +41,8 @@ public interface Residence extends PlayerLocation {
      * If a plot gets merged with another one, its mailbox will get unplaced by the system. In this case, all contents are
      * directly delivered to the mailbox of the main plot (without time delay). Every plot merge does have a mailbox on
      * its main plot. If there is mail added to an unplaced mailbox, the system redirects the mail automatically to its new destination (main plot).
+     *
+     * @return this residences' mailbox.
      */
     Mailbox getMailbox();
 
@@ -50,7 +52,7 @@ public interface Residence extends PlayerLocation {
      * Every Resident has a sign, but merged plots unplace their sign and use the residence sign of the main plot.
      * When unmerging a plot, the original residence sign is replaced.
      *
-     * @return this residences sign.
+     * @return this residences' sign.
      */
     ResidenceSign getSign();
 
@@ -60,7 +62,7 @@ public interface Residence extends PlayerLocation {
      * whenever a user tries to navigate to this residence.
      * In case this residence is an apartment created by a player, this location is set to the location of the ResidenceSign.
      *
-     * @return this residences location to be teleported to if needed.
+     * @return this residences' location to be teleported to if needed.
      */
     Location getLocation();
 
@@ -69,7 +71,7 @@ public interface Residence extends PlayerLocation {
      * the street is the same as the one from the plot, this apartment lies on.
      * If the apartment lies on a merged plot, the street will be taken from the plot merges main plot.
      *
-     * @return this residences street.
+     * @return this residences' street.
      */
     Street getStreet();
 
