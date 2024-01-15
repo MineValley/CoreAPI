@@ -63,7 +63,9 @@ public interface Residence extends PlayerLocation {
     /**
      * Every Residence has a Street. If this residence is a player-created apartment,
      * the street is the same as the one from the plot, this apartment lies on.
-     * If the apartment lies on a merged plot, the street will be taken from the plotmerges main plot.
+     * If the apartment lies on a merged plot, the street will be taken from the plot merges main plot.
+     *
+     * @return this plots street.
      */
     Street getStreet();
 
