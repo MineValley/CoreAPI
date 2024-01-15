@@ -70,6 +70,8 @@ public interface Registrant {
      * if registrant is a group: to the group's owner.
      * <br>
      * if registrant is a user: to a parcel shop.
+     *
+     * @param parcel parcel to deliver
      */
     void deliverParcel(Parcel parcel);
 
