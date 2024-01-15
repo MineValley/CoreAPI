@@ -25,6 +25,8 @@ public interface Mailbox {
      * Items in this array haven't been collected so far.
      * Since this is a copy of the original list, changes on the array don't have any influence on ingame actions.
      * use the add(), clear() and remove() methods.
+     *
+     * @return array of the parcels in this mailbox
      */
     Parcel[] getContents();
 
