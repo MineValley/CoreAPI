@@ -34,6 +34,8 @@ public interface Plot extends Residence {
      * <br>
      * <b>Note:</b> If either this plot or the given plot is already in a PlotMerge, the other one is added to its existing PlotMerge.
      * If both already have a PlotMerge, the one given with the plot-parameter will be adapted to the PlotMerge given in this plot.
+     *
+     * @param plot plot to merge this plot with
      */
     void merge(Plot plot);
 
