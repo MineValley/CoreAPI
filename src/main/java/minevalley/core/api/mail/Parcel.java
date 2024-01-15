@@ -34,6 +34,8 @@ public interface Parcel {
 
     /**
      * Returns an item that represents this parcel and can be opened by team members and the addressee.
+     *
+     * @return this parcels item.
      */
     ItemStack asItem();
 
