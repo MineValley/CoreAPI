@@ -22,7 +22,7 @@ public interface Plot extends Residence {
      * <br>
      * The sale price is set to -1 if the plot isn't for sale.
      *
-     * @return this plots sale price.
+     * @return this plots sale price as integer.
      */
     int getSale();
 
