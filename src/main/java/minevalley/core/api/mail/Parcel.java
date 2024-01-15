@@ -14,6 +14,8 @@ public interface Parcel {
 
     /**
      * Gets this parcels intended addressee.
+     *
+     * @return this parcels target as registrant.
      */
     Registrant getTarget();
 
