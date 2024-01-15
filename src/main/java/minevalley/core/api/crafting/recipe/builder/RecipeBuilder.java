@@ -33,7 +33,7 @@ public interface RecipeBuilder {
 
     /**
      * Add a new ingredient which is needed for the recipe
-     * If the recipe is marked as "setShapeless(true)" this list is used for <Slot, Item> detection
+     * If the recipe is marked as "setShapeless(true)" this list is used for &lt;Slot, Item&gt; detection
      * When you are using a shapeless recipe just count the slot+1 everytime you add a new ingredient
      *
      * @param slot Slot of the item
