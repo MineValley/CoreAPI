@@ -82,6 +82,8 @@ public interface Residence extends PlayerLocation {
      * <br>
      * <b>Note:</b> This method only gives a copy of the original list. use the grantPermission and revokePermission method to adjust the contents.
      * Future changes won't be added to this list.
+     *
+     * @return list of all permissioned registrants.
      */
     List<Registrant> getPermissioned();
 
