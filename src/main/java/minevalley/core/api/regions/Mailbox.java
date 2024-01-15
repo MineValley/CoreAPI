@@ -1,7 +1,7 @@
 package minevalley.core.api.regions;
 
-import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.mail.Parcel;
+import minevalley.core.api.users.OnlineUser;
 import org.bukkit.block.Block;
 
 public interface Mailbox {
@@ -16,6 +16,8 @@ public interface Mailbox {
      * There may be some blocks around the mailbox, that are directly connected to it. Such as fences that are used as a post.
      * If the mailbox is removed, these blocks will be replaced with air. If the mailbox is then placed again,
      * those blocks will be replaced with their representative area in the shadow world.
+     *
+     * @return area of all the blocks that should be removed whenever this mailbox is removed.
      */
     Area getConnectedBlocks();
 
