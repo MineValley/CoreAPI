@@ -131,6 +131,8 @@ public interface Residence extends PlayerLocation {
 
     /**
      * Removes a registrant from the permissioned list.
+     *
+     * @param registrant registrant to revoke permission from
      */
     void revokePermission(Registrant registrant);
 
