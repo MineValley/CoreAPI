@@ -8,6 +8,7 @@ public enum CustomCharacter {
 
     /*
     https://www.ssec.wisc.edu/~tomw/java/unicode.html#x3040
+    https://en.wikipedia.org/wiki/List_of_Unicode_characters#East_Asian_writing_systems
      */
 
     MV('ぐ'),
@@ -50,10 +51,20 @@ public enum CustomCharacter {
 
     PREMIUM('ゐ'),
 
+    RADIO('゠'),
+    SHOUT('ァ'),
+    CROSS('ア'),
+    CHECKMARK('ィ'),
+    LOG('イ'),
+    BUG('ゥ'),
+    EYE('ウ'),
+    WRENCH('ェ'),
+    CIRCLE('エ'),
+    HOUSE('ォ'),
+
     PREMIUM_TRANSPARENT('ヰ'),
 
     SINGLE_WHITE_SPACE('₶');
-
 
     private final char c;
 
