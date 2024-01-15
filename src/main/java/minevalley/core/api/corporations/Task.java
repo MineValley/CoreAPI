@@ -22,6 +22,7 @@ public interface Task {
      * Lets a user enter this task.
      *
      * @param user user to enter this task
+     * @return true, if participation was successful
      */
     boolean participate(User user);
 
