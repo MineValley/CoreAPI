@@ -30,6 +30,8 @@ public interface Residence extends PlayerLocation {
      * <b>Note:</b> Since Residences can be plots that are merged to other ones, keep in mind that there might be other
      * residences that are merged with this one. Therefore, it might be necessary to get the merged regions and the
      * merging regions (regions between merged plots), too.
+     *
+     * @return region this residence consists of.
      */
     Region getRegion();
 
