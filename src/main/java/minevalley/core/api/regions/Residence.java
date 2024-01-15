@@ -160,6 +160,8 @@ public interface Residence extends PlayerLocation {
      * If there is an apartment on a locked plot, it should always be terminated by the system.
      * But until the 14-days period is over, the apartment isn't affected by the locked plot in any case.
      * Unrented apartments that are part of a locked plot can't be rented until the plot is unlocked.
+     *
+     * @return true, if this residence is locked.
      */
     boolean isLocked();
 
