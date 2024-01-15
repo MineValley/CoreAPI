@@ -241,6 +241,8 @@ public interface Residence extends PlayerLocation {
      * The fertility of a residence defines, how fast plants can grow.
      * Apartments that are created by users always get the fertility of the plot they lie on.
      * If a user-created apartment lies on two plots with different fertility, the lower fertility is used.
+     *
+     * @return fertility as integer.
      */
     int getFertility();
 
