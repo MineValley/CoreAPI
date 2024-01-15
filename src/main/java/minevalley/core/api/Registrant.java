@@ -22,6 +22,8 @@ public interface Registrant {
      * <b>Department:</b> "name of department - name of company/association"
      * <p>
      * <b>Note:</b> department names may be longer than 16 characters and can therefore not been put onto signs!
+     *
+     * @return this registrants name as string.
      */
     String getName();
 
