@@ -42,9 +42,9 @@ public interface FakeArmorStand extends VisibilityModifier, PoseModifier, Equipm
 
     /**
      * Sets the armorstand's location.
-     * <b>Note:</b This ignores the yaw and pitch values.
+     * <b>Note:</b> This ignores the yaw and pitch values.
      *
-     * @param location
+     * @param location new location of the armorstand.
      */
     void setLocation(Location location);
 
