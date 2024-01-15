@@ -199,6 +199,8 @@ public interface Residence extends PlayerLocation {
 
     /**
      * Adds a new warning. If there already is a warning, this method will do nothing!
+     *
+     * @param notice notice to add to this residence.
      */
     void addWarning(Warning notice);
 
