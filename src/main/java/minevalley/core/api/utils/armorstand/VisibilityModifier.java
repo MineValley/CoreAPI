@@ -12,6 +12,8 @@ public interface VisibilityModifier {
      * <b>Note 1:</b> If list is empty, armorstand is visible to everyone!
      * <br>
      * <b>Note 2:</b> The viewers list can be overwritten by the hide list!
+     *
+     * @return List of all users this armorstand is shown to.
      */
     List<OnlineUser> getViewersList();
 
@@ -26,6 +28,7 @@ public interface VisibilityModifier {
 
     /**
      * The armorstand will explicitly hide from the players in this list, even if the viewers list contains them (or is empty)!
+     *
      * @return list of users to hide this armorstand from.
      */
     List<OnlineUser> getHideList();
