@@ -126,6 +126,8 @@ public interface Residence extends PlayerLocation {
 
     /**
      * Adds a registrant to the admin list.
+     *
+     * @param registrant registrant to grant admin permission.
      */
     void grantAdminPermission(Registrant registrant);
 
