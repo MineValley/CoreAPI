@@ -124,6 +124,8 @@ public final class Core {
     }
 
     /**
+     * @param cls      class of event
+     * @param listener listener to register
      * @deprecated use {@link #registerListener(Class, EventListener)} instead!
      */
     @Deprecated
@@ -136,6 +138,8 @@ public final class Core {
     }
 
     /**
+     * @param cls      class of event
+     * @param listener listener to unregister
      * @deprecated use {@link #unregisterListener(Class, EventListener)} instead!
      */
     @Deprecated
