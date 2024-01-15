@@ -254,6 +254,8 @@ public interface Residence extends PlayerLocation {
      * The termination always stays for 14 days until it is executed. It can be cancelled in those 14 days.
      * <br>
      * If the owner of an apartment decides to move out, there is no delay in the termination.
+     *
+     * @return array of the terminations that are associated with this residence.
      */
     Termination[] getTerminations();
 
