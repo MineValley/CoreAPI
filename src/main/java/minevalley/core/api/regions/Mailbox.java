@@ -30,6 +30,8 @@ public interface Mailbox {
 
     /**
      * Adds a parcel to this mailbox. It's itemstack will be added to the getContents-array.
+     *
+     * @param parcel parcel to add to this mailbox.
      */
     void add(Parcel parcel);
 
@@ -37,7 +39,7 @@ public interface Mailbox {
      * Removes a specific parcel from the mailbox content list.
      *
      * @param parcel to delete
-     * @param user target of the parcel
+     * @param user   target of the parcel
      */
     void remove(Parcel parcel, OnlineUser user);
 
