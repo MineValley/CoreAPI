@@ -17,6 +17,7 @@ public interface Street {
 
     /**
      * Gets this streets name. Don't use it to refer to the street. Names might change in the future. Use getId instead!
+     * @return name as string.
      */
     String getName();
 
