@@ -18,6 +18,7 @@ public interface RecipeBuilder {
     /**
      * Set the item that's gonna crafted
      *
+     * @param output resulting item stack
      * @return this
      */
     RecipeBuilder setOutputItem(ItemStack output);
