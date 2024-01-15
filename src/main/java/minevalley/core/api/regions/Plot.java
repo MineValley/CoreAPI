@@ -10,6 +10,8 @@ public interface Plot extends Residence {
      * The worth of a plot is calculated automatically by its latest selling price.
      * <br>
      * It's used to calculate the upcoming taxes.
+     *
+     * @return this plots worth as integer.
      */
     int getWorth();
 
