@@ -16,7 +16,9 @@ public interface PlotMerge {
     Plot[] getPlots();
 
     /**
-     * When plots are merged, there are tiny subregions between both plots that also need be added to the plotmerge.
+     * When plots are merged, there are tiny subregions between both plots that also need be added to the plot merge.
+     *
+     * @return array of all the regions that lie in between the merged plots.
      */
     Region[] getMergeRegions();
 
