@@ -175,6 +175,7 @@ public interface User extends Registrant {
     /**
      * Gets whether the user has the specific education.
      *
+     * @param education education to check
      * @return true, if the user has the specific education
      */
     boolean hasEducation(Education.Subject education);
