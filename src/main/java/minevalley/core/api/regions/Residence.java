@@ -2,8 +2,8 @@ package minevalley.core.api.regions;
 
 import lombok.NonNull;
 import minevalley.core.api.Registrant;
-import minevalley.core.api.users.User;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.users.User;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 
@@ -264,6 +264,8 @@ public interface Residence extends PlayerLocation {
 
     /**
      * Removes a termination.
+     *
+     * @param termination termination to remove.
      */
     void removeTermination(Termination termination);
 
