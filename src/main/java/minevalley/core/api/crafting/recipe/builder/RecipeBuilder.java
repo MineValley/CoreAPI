@@ -11,6 +11,7 @@ public interface RecipeBuilder {
     /**
      * Set the recipe name
      *
+     * @param name as string
      * @return this
      */
     RecipeBuilder setRecipeName(String name);
