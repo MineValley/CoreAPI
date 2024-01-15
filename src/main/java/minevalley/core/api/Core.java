@@ -415,7 +415,7 @@ public final class Core {
     }
 
     /**
-     * Converts chat-color-codes to normal color-codes (& -> §)
+     * Converts chat-color-codes to normal color-codes (&amp; -> &sect;)
      *
      * @param text string which could contain chat-color-codes
      * @return string with converted color-codes
