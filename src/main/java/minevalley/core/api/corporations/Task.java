@@ -15,6 +15,8 @@ public interface Task {
 
     /**
      * Sets the wage paid to the user who completes this task.
+     *
+     * @param wageInCents wage in cents
      */
     void setWage(int wageInCents);
 
