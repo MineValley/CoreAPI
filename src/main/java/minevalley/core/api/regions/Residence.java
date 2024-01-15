@@ -60,7 +60,7 @@ public interface Residence extends PlayerLocation {
      * whenever a user tries to navigate to this residence.
      * In case this residence is an apartment created by a player, this location is set to the location of the ResidenceSign.
      *
-     * @return this plots location to be teleported to if needed.
+     * @return this residences location to be teleported to if needed.
      */
     Location getLocation();
 
@@ -69,7 +69,7 @@ public interface Residence extends PlayerLocation {
      * the street is the same as the one from the plot, this apartment lies on.
      * If the apartment lies on a merged plot, the street will be taken from the plot merges main plot.
      *
-     * @return this plots street.
+     * @return this residences street.
      */
     Street getStreet();
 
@@ -80,7 +80,7 @@ public interface Residence extends PlayerLocation {
      * The result of getOwner() might be null! This is only the case, if the residence is for sale / for rent.
      * Plots for sale keep their owner until they are bought. To check, whether a plot is for sale, check the getSale()-method.
      *
-     * @return this plots owner.
+     * @return residence owner.
      */
     Registrant getOwner();
 
