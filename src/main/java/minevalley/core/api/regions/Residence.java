@@ -49,6 +49,8 @@ public interface Residence extends PlayerLocation {
      * It is placed outside the residence. Players use it to take actions, sell or buy the resident.
      * Every Resident has a sign, but merged plots unplace their sign and use the residence sign of the main plot.
      * When unmerging a plot, the original residence sign is replaced.
+     *
+     * @return this residences sign.
      */
     ResidenceSign getSign();
 
