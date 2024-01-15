@@ -28,6 +28,8 @@ public interface BankAccount {
 
     /**
      * Gets the amount of money in this bank account.
+     *
+     * @return amount of money in cents as integer.
      */
     int getAmountInCents();
 

@@ -22,7 +22,7 @@ public interface Recipe {
 
     /**
      * Get the needed recipe ingredients
-     * If the recipe is marked as "setShapeless(true)" this list is used for <Slot, Item> detection
+     * If the recipe is marked as "setShapeless(true)" this list is used for &lt;Slot, Item&gt; detection
      *
      * @return Map with ingredients and slots
      */

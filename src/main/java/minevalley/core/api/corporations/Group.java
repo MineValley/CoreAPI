@@ -1,8 +1,8 @@
 package minevalley.core.api.corporations;
 
 import minevalley.core.api.Registrant;
-import minevalley.core.api.users.User;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.users.User;
 
 import java.util.List;
 
@@ -25,6 +25,7 @@ public interface Group extends Registrant {
     /**
      * Sets the name of this group.
      *
+     * @param name new name
      * @return Result of rename
      */
     RenameFeedback changeName(String name);
@@ -63,7 +64,8 @@ public interface Group extends Registrant {
      * <p>
      * <b>Note:</b> The user will be added to the default department!
      *
-     * @param user member to add
+     * @param user member to add as user
+     * @return member object representing this user
      */
     Member addMember(User user);
 

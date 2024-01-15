@@ -175,6 +175,7 @@ public interface User extends Registrant {
     /**
      * Gets whether the user has the specific education.
      *
+     * @param education education to check
      * @return true, if the user has the specific education
      */
     boolean hasEducation(Education.Subject education);
@@ -189,7 +190,7 @@ public interface User extends Registrant {
     /**
      * Gets the level of the users gun license.
      *
-     * @return level of users gun license (0 -> no license)
+     * @return level of users gun license (0 &rarr; no license)
      */
     int getGunLicense();
 

@@ -1,7 +1,7 @@
 package minevalley.core.api.regions;
 
-import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.mail.Parcel;
+import minevalley.core.api.users.OnlineUser;
 import org.bukkit.block.Block;
 
 public interface Mailbox {
@@ -9,6 +9,8 @@ public interface Mailbox {
     /**
      * The mailbox itself consists of a head placed outside the resident.
      * It is clickable and is used to display and empty the received mail just as add new letters.
+     *
+     * @return this mailbox as a block.
      */
     Block getBlock();
 
@@ -16,6 +18,8 @@ public interface Mailbox {
      * There may be some blocks around the mailbox, that are directly connected to it. Such as fences that are used as a post.
      * If the mailbox is removed, these blocks will be replaced with air. If the mailbox is then placed again,
      * those blocks will be replaced with their representative area in the shadow world.
+     *
+     * @return area of all the blocks that should be removed whenever this mailbox is removed.
      */
     Area getConnectedBlocks();
 
@@ -25,16 +29,23 @@ public interface Mailbox {
      * Items in this array haven't been collected so far.
      * Since this is a copy of the original list, changes on the array don't have any influence on ingame actions.
      * use the add(), clear() and remove() methods.
+     *
+     * @return array of the parcels in this mailbox
      */
     Parcel[] getContents();
 
     /**
      * Adds a parcel to this mailbox. It's itemstack will be added to the getContents-array.
+     *
+     * @param parcel parcel to add to this mailbox.
      */
     void add(Parcel parcel);
 
     /**
      * Removes a specific parcel from the mailbox content list.
+     *
+     * @param parcel to delete
+     * @param user   target of the parcel
      */
     void remove(Parcel parcel, OnlineUser user);
 

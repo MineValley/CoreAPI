@@ -10,6 +10,8 @@ public interface Plot extends Residence {
      * The worth of a plot is calculated automatically by its latest selling price.
      * <br>
      * It's used to calculate the upcoming taxes.
+     *
+     * @return this plots worth as integer.
      */
     int getWorth();
 
@@ -19,6 +21,8 @@ public interface Plot extends Residence {
      * The sale defines the price this plot is sold for.
      * <br>
      * The sale price is set to -1 if the plot isn't for sale.
+     *
+     * @return this plots sale price as integer.
      */
     int getSale();
 
@@ -26,6 +30,8 @@ public interface Plot extends Residence {
 
     /**
      * The PlotMerge defines the way this plot is merged with other plots.
+     *
+     * @return this plots merge.
      */
     PlotMerge getPlotMerge();
 
@@ -34,6 +40,8 @@ public interface Plot extends Residence {
      * <br>
      * <b>Note:</b> If either this plot or the given plot is already in a PlotMerge, the other one is added to its existing PlotMerge.
      * If both already have a PlotMerge, the one given with the plot-parameter will be adapted to the PlotMerge given in this plot.
+     *
+     * @param plot plot to merge this plot with
      */
     void merge(Plot plot);
 

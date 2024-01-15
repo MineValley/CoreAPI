@@ -124,6 +124,8 @@ public final class Core {
     }
 
     /**
+     * @param cls      class of event
+     * @param listener listener to register
      * @deprecated use {@link #registerListener(Class, EventListener)} instead!
      */
     @Deprecated
@@ -136,6 +138,8 @@ public final class Core {
     }
 
     /**
+     * @param cls      class of event
+     * @param listener listener to unregister
      * @deprecated use {@link #unregisterListener(Class, EventListener)} instead!
      */
     @Deprecated
@@ -148,6 +152,7 @@ public final class Core {
     }
 
     /**
+     * @param listener listener to register
      * @deprecated use {@link #registerListener(Listener)} instead!
      */
     @Deprecated
@@ -415,7 +420,7 @@ public final class Core {
     }
 
     /**
-     * Converts chat-color-codes to normal color-codes (& -> §)
+     * Converts chat-color-codes to normal color-codes (&amp; -> &sect;)
      *
      * @param text string which could contain chat-color-codes
      * @return string with converted color-codes
@@ -831,7 +836,7 @@ public final class Core {
      * <p>
      * Note: Always cache heads you already created! Getting/creating new heads can be a waste of server-performance. A simple way to cash all heads used in inventories, is to load the with the onEnable()-method.
      *
-     * @param url link to <span style="text-decoration:underline;">or</span></span> the id of the specific head
+     * @param url link to <span style="text-decoration:underline;">or</span> the id of the specific head
      * @return item-builder based on the chosen head
      */
     public static ItemBuilder createItem(String url) {
@@ -1292,6 +1297,9 @@ public final class Core {
 
     /**
      * Gets an area object with only one block.
+     *
+     * @param block block to create the area from
+     * @return area consisting of the one specific block
      */
     public static Area getAreaOfBlock(Block block) {
         return server.getArea(block, block);
@@ -1347,6 +1355,7 @@ public final class Core {
     /**
      * Creates an armorstand with a consumer
      *
+     * @param location location to spawn the armorstand at.
      * @return ArmorStand instance
      */
     public static FakeArmorStand createFakeArmorStand(Location location) {

@@ -22,11 +22,15 @@ public interface Registrant {
      * <b>Department:</b> "name of department - name of company/association"
      * <p>
      * <b>Note:</b> department names may be longer than 16 characters and can therefore not been put onto signs!
+     *
+     * @return this registrants name as string.
      */
     String getName();
 
     /**
      * Takes the registrant's name, but truncates it if it's longer than 16 characters.
+     *
+     * @return this registrants name cropped to have a maximum length of 16 characters.
      */
     default String getCroppedName() {
         return getName().length() > 16 ? getName().substring(0, 13) + "..." : getName();
@@ -47,6 +51,8 @@ public interface Registrant {
      * Gets the bank account that is associated with this registrant.
      * Departments may not have their own bank account. If this registrant is a department without its own bank account,
      * this method will return the bank account of the departments company/organisation.
+     *
+     * @return the bank account that is associated with this registrant.
      */
     BankAccount getBankAccount();
 
@@ -59,6 +65,8 @@ public interface Registrant {
      * <br>
      * If this registrant is a department without its own address, this will return the groups address.
      * If this registrant is a group without its own address, this will return the address of the owner.
+     *
+     * @return this registrants address as residence
      */
     Residence getAddress();
 
@@ -70,6 +78,8 @@ public interface Registrant {
      * if registrant is a group: to the group's owner.
      * <br>
      * if registrant is a user: to a parcel shop.
+     *
+     * @param parcel parcel to deliver
      */
     void deliverParcel(Parcel parcel);
 

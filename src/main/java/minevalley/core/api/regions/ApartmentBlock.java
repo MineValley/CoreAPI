@@ -29,6 +29,8 @@ public interface ApartmentBlock {
 
     /**
      * <b>Note:</b> The lowest floor is always 0. If there are basement floors, the index of the first floor can be above 0
+     *
+     * @return amount of floors as integer.
      */
     int getFloors();
 

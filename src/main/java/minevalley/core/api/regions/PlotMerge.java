@@ -7,16 +7,22 @@ public interface PlotMerge {
 
     /**
      * Only the main plot does have a plot sign.
+     *
+     * @return the main plot of this plot merge.
      */
     Plot getMainPlot();
 
     /**
      * All plots that are merged in this PlotMerge including the main plot
+     *
+     * @return array of plots that are merged within this plot merge.
      */
     Plot[] getPlots();
 
     /**
-     * When plots are merged, there are tiny subregions between both plots that also need be added to the plotmerge.
+     * When plots are merged, there are tiny subregions between both plots that also need be added to the plot merge.
+     *
+     * @return array of all the regions that lie in between the merged plots.
      */
     Region[] getMergeRegions();
 
@@ -51,11 +57,15 @@ public interface PlotMerge {
      * some plots from the main plot of this PlotMerge.
      * In this case, the other plots (including the one that was explicitly unmerged here)
      * will be added to a new PlotMerge with the unmerged plot as main plot.
+     *
+     * @param plot plot to unmerge this plot from.
      */
     void unmerge(Plot plot);
 
     /**
-     * Checks whether the given block is part of this plotmerge region.
+     * Checks whether the given block is part of this plot merge region.
+     *
+     * @return true, if the block is part of the region that defines this plot merge
      */
     boolean contains(Block block);
 

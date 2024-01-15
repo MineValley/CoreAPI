@@ -10,6 +10,7 @@ public interface RecipeItemBuilder {
      * Sets the Item
      *
      * @param item the craft component
+     * @return this
      */
     RecipeItemBuilder setItem(ItemStack item);
 
@@ -18,6 +19,7 @@ public interface RecipeItemBuilder {
      * Notice: If there is a specific amount of items needed: Please get the amount from the item above!
      *
      * @param ignoreMetadata boolean if meta is important
+     * @return this
      */
     RecipeItemBuilder setIgnoreMetadata(boolean ignoreMetadata);
 
@@ -26,6 +28,7 @@ public interface RecipeItemBuilder {
      * Add a new Requirement to the current item
      *
      * @param requirement requirement which data the item needs to match
+     * @return this
      */
     RecipeItemBuilder addRequirement(Requirement requirement);
 
@@ -33,6 +36,7 @@ public interface RecipeItemBuilder {
      * Replace the item after the craft-process
      *
      * @param item the replaced item
+     * @return this
      */
     RecipeItemBuilder replaceItemAfterCrafting(ItemStack item);
 

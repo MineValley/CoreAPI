@@ -15,21 +15,29 @@ public @interface CommandOptions {
 
     /**
      * This list is used to make all the strings usable command-variations. It should contain each alias and the original spelling of the command
+     * @return array of all command varies and its aliases
      */
     @NonNull
     String[] commands();
 
     /**
-     * This string defines the correct syntax
+     * <p>
+     * This string defines the correct syntax.
+     * </p>
      * Begin with the mostly used alias of the command itself without "/"
-     * Then add all possible arguments with "< >"
-     * arguments that are not required are marked with "[< >]"
+     * Then add all possible arguments with "&lt; &gt;"
+     * arguments that are not required are marked with "[&lt; &gt;]"
+     * <br>
+     * Different argument suggestions are separated by vertical bars (example: <i>see below</i>).
+     * <br>
+     * Literal argument suggestions are written in quotation marks (e. g. /restart &lt;seconds | 'now'&gt;)
      */
     @NonNull
     String syntax() default "<command>";
 
     /**
      * This message defined here will be sent, when the onCommand-method returns SUCCESS.
+     * <br>
      * Don't use this method, if the player shouldn't get printed any message on success.
      */
     String successMessage() default "";
@@ -66,15 +74,20 @@ public @interface CommandOptions {
      */
     boolean requireSupportService() default false;
 
+
     /**
      * If this is enabled, users that are allowed to use this command are also allowed to tab it.
      * Disable this if you want to make custom permission-checks beyond the command-options!
+     *
+     * @return true, if everyone with permission can tab this command.
      */
     boolean allowTabbing() default true;
 
     /**
      * If abuseWarning() is true, the team will be notified if a player tries to execute this command without permission
      * The return of ABUSE_WARNING in the onCommand method is not related to this setting and can also be carried out if nothing (or false) is specified here
+     *
+     * @return true, if the team should be notified about illegal use of this command.
      */
     boolean abuseWarning() default false;
 
