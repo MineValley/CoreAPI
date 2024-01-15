@@ -73,6 +73,8 @@ public interface Residence extends PlayerLocation {
      * <b>Note:</b> The owner of an apartment is its renter! To get the landlord, use the apartment-object and check for its landlord.
      * The result of getOwner() might be null! This is only the case, if the residence is for sale / for rent.
      * Plots for sale keep their owner until they are bought. To check, whether a plot is for sale, check the getSale()-method.
+     *
+     * @return this plots owner.
      */
     Registrant getOwner();
 
