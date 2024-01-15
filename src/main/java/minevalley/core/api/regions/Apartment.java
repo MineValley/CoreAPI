@@ -24,6 +24,8 @@ public interface Apartment extends Residence {
 
     /**
      * Is null, when this apartment is not part of an apartment block!
+     *
+     * @return this apartments apartment block, if existing.
      */
     ApartmentBlock getApartmentBlock();
 }
