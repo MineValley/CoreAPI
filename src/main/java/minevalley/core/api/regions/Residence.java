@@ -259,6 +259,8 @@ public interface Residence extends PlayerLocation {
 
     /**
      * Adds a termination. This can be used by a team member or the landlord of an apartment.
+     *
+     * @param termination termination to add to this residences termination list.
      */
     void terminate(@NonNull Termination termination);
 
