@@ -27,6 +27,8 @@ public interface Registrant {
 
     /**
      * Takes the registrant's name, but truncates it if it's longer than 16 characters.
+     *
+     * @return this registrants name cropped to have a maximum length of 16 characters.
      */
     default String getCroppedName() {
         return getName().length() > 16 ? getName().substring(0, 13) + "..." : getName();
