@@ -10,11 +10,15 @@ public interface RecipeBuilder {
 
     /**
      * Set the recipe name
+     *
+     * @return this
      */
     RecipeBuilder setRecipeName(String name);
 
     /**
      * Set the item that's gonna crafted
+     *
+     * @return this
      */
     RecipeBuilder setOutputItem(ItemStack output);
 
@@ -23,6 +27,7 @@ public interface RecipeBuilder {
      * If the recipe is marked as "setShapeless(true)" this list is used for <Slot, Item> detection
      *
      * @param ingredients List of ingredients
+     * @return this
      */
     RecipeBuilder setIngredients(Map<Integer, RecipeItem> ingredients);
 
@@ -33,6 +38,7 @@ public interface RecipeBuilder {
      *
      * @param slot Slot of the item
      * @param item RecipeItem Object
+     * @return this
      */
     RecipeBuilder addIngredient(int slot, RecipeItem item);
 
@@ -40,6 +46,7 @@ public interface RecipeBuilder {
      * Defines if the recipe is a shapeless or shaped recipe
      *
      * @param shapeless If the recipe is shapeless or not
+     * @return this
      */
     RecipeBuilder setShapeless(boolean shapeless);
 
@@ -47,6 +54,7 @@ public interface RecipeBuilder {
      * Set the recipe power craft costs
      *
      * @param powerConsumption as integer.
+     * @return this
      */
     RecipeBuilder setPowerConsumption(int powerConsumption);
 
