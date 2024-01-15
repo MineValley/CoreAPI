@@ -9,6 +9,8 @@ public interface Mailbox {
     /**
      * The mailbox itself consists of a head placed outside the resident.
      * It is clickable and is used to display and empty the received mail just as add new letters.
+     *
+     * @return this mailbox as a block.
      */
     Block getBlock();
 
