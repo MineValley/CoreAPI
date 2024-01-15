@@ -100,6 +100,8 @@ public interface Residence extends PlayerLocation {
      * <b>Note:</b> This method only gives a copy of the original list. use the grantAdminPermission and
      * revokeAdminPermission method to adjust the contents.
      * Future changes won't be added to this list.
+     *
+     * @return list of all admins.
      */
     List<Registrant> getAdmins();
 
