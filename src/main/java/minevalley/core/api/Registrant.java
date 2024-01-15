@@ -59,6 +59,8 @@ public interface Registrant {
      * <br>
      * If this registrant is a department without its own address, this will return the groups address.
      * If this registrant is a group without its own address, this will return the address of the owner.
+     *
+     * @return this registrants address as residence
      */
     Residence getAddress();
 
