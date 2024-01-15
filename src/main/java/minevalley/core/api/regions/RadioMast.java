@@ -20,7 +20,9 @@ public interface RadioMast {
     List<OnlineUser> getConnectedUsers();
 
     /**
-     * Range in percent.
+     * The range defines how far this radio mast reaches.
+     *
+     * @return Range in percent as integer.
      */
     int getRange();
 
