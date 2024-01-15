@@ -29,7 +29,7 @@ public @interface CommandOptions {
      * <br>
      * Different argument suggestions are separated by vertical bars (example: <i>see below</i>).
      * <br>
-     * Literal argument suggestions are written in quotation marks (e. g. /restart &lt;seconds|'now'&gt;)
+     * Literal argument suggestions are written in quotation marks (e. g. /restart &lt;seconds | 'now'&gt;)
      */
     @NonNull
     String syntax() default "<command>";
