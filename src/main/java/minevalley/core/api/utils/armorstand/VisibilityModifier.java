@@ -26,6 +26,7 @@ public interface VisibilityModifier {
 
     /**
      * The armorstand will explicitly hide from the players in this list, even if the viewers list contains them (or is empty)!
+     * @return list of users to hide this armorstand from.
      */
     List<OnlineUser> getHideList();
 
