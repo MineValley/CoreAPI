@@ -43,6 +43,7 @@ public interface Region {
 
     /**
      * <b>Note:</b> This could be null!
+     * @return the residence this region is connected to, if existing.
      */
     Residence getResidence();
 }
