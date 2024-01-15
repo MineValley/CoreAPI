@@ -188,6 +188,9 @@ public interface Residence extends PlayerLocation {
      * <br>
      * <b>Note:</b> If this residence is a plot which is part of a PlotMerge, the other plots are ignored.
      * Use the contains()-method of the PlotMerge object instead to check for all merged plots!
+     *
+     * @param location location to check
+     * @return true, if location is contained in this residence.
      */
     boolean contains(Location location);
 
