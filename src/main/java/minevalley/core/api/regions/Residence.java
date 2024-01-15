@@ -194,6 +194,8 @@ public interface Residence extends PlayerLocation {
     /**
      * If the building of this residence does not meet the building regulations, a team member can issue a warning.
      * There can only be one warning on a residence at a time. If this is null, there is no warning.
+     *
+     * @return warning, if existing.
      */
     Warning getWarning();
 
