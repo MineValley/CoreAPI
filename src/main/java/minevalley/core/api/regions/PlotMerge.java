@@ -55,7 +55,9 @@ public interface PlotMerge {
     void unmerge(Plot plot);
 
     /**
-     * Checks whether the given block is part of this plotmerge region.
+     * Checks whether the given block is part of this plot merge region.
+     *
+     * @return true, if the block is part of the region that defines this plot merge
      */
     boolean contains(Block block);
 
