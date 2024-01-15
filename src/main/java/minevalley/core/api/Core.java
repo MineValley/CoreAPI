@@ -831,7 +831,7 @@ public final class Core {
      * <p>
      * Note: Always cache heads you already created! Getting/creating new heads can be a waste of server-performance. A simple way to cash all heads used in inventories, is to load the with the onEnable()-method.
      *
-     * @param url link to <span style="text-decoration:underline;">or</span></span> the id of the specific head
+     * @param url link to <span style="text-decoration:underline;">or</span> the id of the specific head
      * @return item-builder based on the chosen head
      */
     public static ItemBuilder createItem(String url) {
