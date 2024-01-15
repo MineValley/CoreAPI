@@ -21,6 +21,8 @@ public interface Residence extends PlayerLocation {
     /**
      * Each residence can be clearly identified by its ID. The Residences IDs are unique, regardless if it's a plot
      * or an apartment. There'll be neither a plot nor an apartment with the same ID as this one. The ID won't change.
+     *
+     * @return this residences' id as integer.
      */
     int getId();
 
