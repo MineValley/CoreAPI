@@ -51,6 +51,8 @@ public interface PlotMerge {
      * some plots from the main plot of this PlotMerge.
      * In this case, the other plots (including the one that was explicitly unmerged here)
      * will be added to a new PlotMerge with the unmerged plot as main plot.
+     *
+     * @param plot plot to unmerge this plot from.
      */
     void unmerge(Plot plot);
 
