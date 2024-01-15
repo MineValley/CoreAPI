@@ -7,6 +7,8 @@ public interface PlotMerge {
 
     /**
      * Only the main plot does have a plot sign.
+     *
+     * @return the main plot of this plot merge.
      */
     Plot getMainPlot();
 
