@@ -7,6 +7,8 @@ public interface Parcel {
 
     /**
      * Gets the sender of this parcel.
+     *
+     * @return this parcels sender as registrant.
      */
     Registrant getSender();
 
