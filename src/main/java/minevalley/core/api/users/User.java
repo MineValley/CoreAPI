@@ -189,7 +189,7 @@ public interface User extends Registrant {
     /**
      * Gets the level of the users gun license.
      *
-     * @return level of users gun license (0 -> no license)
+     * @return level of users gun license (0 &rarr; no license)
      */
     int getGunLicense();
 
