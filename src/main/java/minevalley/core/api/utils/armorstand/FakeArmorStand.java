@@ -48,24 +48,6 @@ public interface FakeArmorStand extends VisibilityModifier, PoseModifier, Equipm
      */
     void setLocation(Location location);
 
-    /**
-     * Get the pitch from the armorstand facing
-     *
-     * @return float
-     */
-    float getPitch();
-
-    void setPitch(float pitch);
-
-    /**
-     * Get the yaw from the armorstand facing
-     *
-     * @return float
-     */
-    float getYaw();
-
-    void setYaw(float yaw);
-
     boolean hasBasePlate();
 
     void setBasePlate(boolean basePlate);
