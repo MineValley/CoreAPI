@@ -18,5 +18,5 @@ public interface MetadataModifier {
 
     MetadataModifier setMarker(boolean marker);
 
-    void update();
+    void updateModifier();
 }

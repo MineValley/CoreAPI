@@ -92,5 +92,5 @@ public interface FakeArmorStand extends EquipmentModifier, MetadataModifier, Pos
 
     boolean isSilent();
 
-    void update();
+    void updateModifier();
 }
