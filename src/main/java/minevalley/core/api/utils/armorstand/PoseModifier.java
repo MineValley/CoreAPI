@@ -4,6 +4,8 @@ import org.bukkit.util.EulerAngle;
 
 public interface PoseModifier {
 
+    void queueHeadPose(float yaw, float pitch);
+
     void queueHeadPose(EulerAngle headPose);
 
     void queueLeftArmPose(EulerAngle leftArmPose);
