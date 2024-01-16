@@ -5,7 +5,7 @@ import org.bukkit.entity.Entity;
 
 import java.util.List;
 
-public interface FakeArmorStand extends VisibilityModifier, PoseModifier, EquipmentModifier, MetadataModifier {
+public interface FakeArmorStand extends EquipmentModifier, MetadataModifier, PoseModifier, VisibilityModifier {
 
     /**
      * get the custom id from the armorstand
