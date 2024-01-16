@@ -17,14 +17,14 @@ public interface VisibilityModifier {
      */
     List<OnlineUser> getViewersList();
 
-    void addToViewersList(OnlineUser... onlineUsers);
+    VisibilityModifier addToViewersList(OnlineUser... onlineUsers);
 
-    void removeFromViewersList(OnlineUser... onlineUsers);
+    VisibilityModifier removeFromViewersList(OnlineUser... onlineUsers);
 
     /**
      * <b>Emptying this list results in everyone seeing the armorstand (If not part of hide list)</b>
      */
-    void emptyViewersList();
+    VisibilityModifier emptyViewersList();
 
     /**
      * The armorstand will explicitly hide from the players in this list, even if the viewers list contains them (or is empty)!
@@ -33,10 +33,11 @@ public interface VisibilityModifier {
      */
     List<OnlineUser> getHideList();
 
-    void addToHideList(OnlineUser... onlineUsers);
+    VisibilityModifier addToHideList(OnlineUser... onlineUsers);
 
-    void removeFromHideList(OnlineUser... onlineUsers);
+    VisibilityModifier removeFromHideList(OnlineUser... onlineUsers);
 
-    void emptyHideList();
+    VisibilityModifier emptyHideList();
 
+    void updateVisibility();
 }
