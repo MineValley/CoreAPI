@@ -6,25 +6,27 @@ public interface EquipmentModifier {
 
     ItemStack getLeftHand();
 
-    void setLeftHand(ItemStack itemStack);
+    EquipmentModifier setLeftHand(ItemStack itemStack);
 
     ItemStack getRightHand();
 
-    void setRightHand(ItemStack itemStack);
+    EquipmentModifier setRightHand(ItemStack itemStack);
 
     ItemStack getHelmet();
 
-    void setHelmet(ItemStack helmet);
+    EquipmentModifier setHelmet(ItemStack helmet);
 
     ItemStack getChestplate();
 
-    void setChestplate(ItemStack chestplate);
+    EquipmentModifier setChestplate(ItemStack chestplate);
 
     ItemStack getLeggings();
 
-    void setLeggings(ItemStack leggings);
+    EquipmentModifier setLeggings(ItemStack leggings);
 
     ItemStack getBoots();
 
-    void setBoots(ItemStack boots);
+    EquipmentModifier setBoots(ItemStack boots);
+
+    void updateEquipment();
 }

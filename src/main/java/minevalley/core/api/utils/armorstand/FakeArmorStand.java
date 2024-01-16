@@ -5,7 +5,7 @@ import org.bukkit.entity.Entity;
 
 import java.util.List;
 
-public interface FakeArmorStand extends VisibilityModifier, PoseModifier, EquipmentModifier {
+public interface FakeArmorStand extends EquipmentModifier, MetadataModifier, PoseModifier, VisibilityModifier {
 
     /**
      * get the custom id from the armorstand
@@ -13,11 +13,6 @@ public interface FakeArmorStand extends VisibilityModifier, PoseModifier, Equipm
      * @return int
      */
     int getId();
-
-    /**
-     * Refreshed the Armorstand with its configuration
-     */
-    void update();
 
     /**
      * Spawns the armorstand
@@ -49,40 +44,6 @@ public interface FakeArmorStand extends VisibilityModifier, PoseModifier, Equipm
     void setLocation(Location location);
 
     /**
-     * Get the pitch from the armorstand facing
-     *
-     * @return float
-     */
-    float getPitch();
-
-    void setPitch(float pitch);
-
-    /**
-     * Get the yaw from the armorstand facing
-     *
-     * @return float
-     */
-    float getYaw();
-
-    void setYaw(float yaw);
-
-    boolean hasBasePlate();
-
-    void setBasePlate(boolean basePlate);
-
-    boolean isSmall();
-
-    void setSmall(boolean small);
-
-    boolean hasArms();
-
-    void setArms(boolean arms);
-
-    boolean isMarker();
-
-    void setMarker(boolean marker);
-
-    /**
      * get the current passenger list
      *
      * @return a list with the passengers as entities
@@ -102,4 +63,34 @@ public interface FakeArmorStand extends VisibilityModifier, PoseModifier, Equipm
      * @param entity the entity to be removed
      */
     void removePassenger(Entity entity);
+
+    void setOnFire(boolean onFire);
+
+    boolean isOnFire();
+
+    void setVisible(boolean visible);
+
+    boolean isVisible();
+
+    void setGlowing(boolean glowing);
+
+    boolean isGlowing();
+
+    void setGravity(boolean gravity);
+
+    boolean hasGravity();
+
+    void setCustomName(String customName);
+
+    String getCustomName();
+
+    void setCustomNameVisible(boolean customNameVisible);
+
+    boolean isCustomNameVisible();
+
+    void setSilent(boolean silent);
+
+    boolean isSilent();
+
+    void updateModifier();
 }
