@@ -63,4 +63,34 @@ public interface FakeArmorStand extends EquipmentModifier, MetadataModifier, Pos
      * @param entity the entity to be removed
      */
     void removePassenger(Entity entity);
+
+    void setOnFire(boolean onFire);
+
+    boolean isOnFire();
+
+    void setVisible(boolean visible);
+
+    boolean isVisible();
+
+    void setGlowing(boolean glowing);
+
+    boolean isGlowing();
+
+    void setGravity(boolean gravity);
+
+    boolean hasGravity();
+
+    void setCustomName(String customName);
+
+    String getCustomName();
+
+    void setCustomNameVisible(boolean customNameVisible);
+
+    boolean isCustomNameVisible();
+
+    void setSilent(boolean silent);
+
+    boolean isSilent();
+
+    void update();
 }
