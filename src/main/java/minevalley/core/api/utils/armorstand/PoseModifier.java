@@ -4,13 +4,15 @@ import org.bukkit.util.EulerAngle;
 
 public interface PoseModifier {
 
-    void setLeftArmPose(EulerAngle leftArmPose);
+    void queueLeftArmPose(EulerAngle leftArmPose);
 
-    void setRightArmPose(EulerAngle rightArmPose);
+    void queueRightArmPose(EulerAngle rightArmPose);
 
-    void setLeftLegPose(EulerAngle leftLegPose);
+    void queueLeftLegPose(EulerAngle leftLegPose);
 
-    void setRightLegPose(EulerAngle rightLegPose);
+    void queueRightLegPose(EulerAngle rightLegPose);
 
-    void setBodyPose(EulerAngle bodyPose);
+    void queueBodyPose(EulerAngle bodyPose);
+
+    void updatePose();
 }
