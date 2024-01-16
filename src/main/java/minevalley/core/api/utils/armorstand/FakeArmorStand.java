@@ -5,7 +5,7 @@ import org.bukkit.entity.Entity;
 
 import java.util.List;
 
-public interface FakeArmorStand extends VisibilityModifier, PoseModifier, EquipmentModifier {
+public interface FakeArmorStand extends VisibilityModifier, PoseModifier, EquipmentModifier, MetadataModifier {
 
     /**
      * get the custom id from the armorstand
@@ -42,22 +42,6 @@ public interface FakeArmorStand extends VisibilityModifier, PoseModifier, Equipm
      * @param location new location of the armorstand.
      */
     void setLocation(Location location);
-
-    boolean hasBasePlate();
-
-    void setBasePlate(boolean basePlate);
-
-    boolean isSmall();
-
-    void setSmall(boolean small);
-
-    boolean hasArms();
-
-    void setArms(boolean arms);
-
-    boolean isMarker();
-
-    void setMarker(boolean marker);
 
     /**
      * get the current passenger list
