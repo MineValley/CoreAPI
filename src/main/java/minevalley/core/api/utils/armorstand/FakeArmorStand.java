@@ -15,11 +15,6 @@ public interface FakeArmorStand extends VisibilityModifier, PoseModifier, Equipm
     int getId();
 
     /**
-     * Refreshed the Armorstand with its configuration
-     */
-    void update();
-
-    /**
      * Spawns the armorstand
      */
     void spawn();
