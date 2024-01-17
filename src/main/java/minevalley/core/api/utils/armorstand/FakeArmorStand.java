@@ -31,7 +31,8 @@ public interface FakeArmorStand extends EquipmentModifier, LocationModifier, Met
 
     /**
      * Sets the visibility range of the armorstand
-     *
+     * <br>
+     * <b>Default:</b> 50
      * @param visibilityRange range in blocks
      */
     void setVisibilityRange(int visibilityRange);
