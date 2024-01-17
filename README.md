@@ -5,6 +5,6 @@ The wiki to this api is still work in progress.
 
 > **Core API**:
 >
-> version: _1.279.1_
+> version: _1.279.2_
 >
 > latest change: _17.01.2024_
