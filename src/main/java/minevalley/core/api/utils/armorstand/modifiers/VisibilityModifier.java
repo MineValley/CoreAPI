@@ -1,4 +1,4 @@
-package minevalley.core.api.utils.armorstand;
+package minevalley.core.api.utils.armorstand.modifiers;
 
 import minevalley.core.api.users.OnlineUser;
 
@@ -17,12 +17,27 @@ public interface VisibilityModifier {
      */
     List<OnlineUser> getViewersList();
 
+    /**
+     * Adds the given users to the viewers list.
+     *
+     * @param onlineUsers users to add
+     * @return this
+     */
     VisibilityModifier addToViewersList(OnlineUser... onlineUsers);
 
+    /**
+     * Removes the given users from the viewers list.
+     *
+     * @param onlineUsers users to remove
+     * @return this
+     */
     VisibilityModifier removeFromViewersList(OnlineUser... onlineUsers);
 
     /**
+     * Empties the viewers list.
      * <b>Emptying this list results in everyone seeing the armorstand (If not part of hide list)</b>
+     *
+     * @return this
      */
     VisibilityModifier emptyViewersList();
 
@@ -33,11 +48,31 @@ public interface VisibilityModifier {
      */
     List<OnlineUser> getHideList();
 
+    /**
+     * Adds the given users to the hide list.
+     *
+     * @param onlineUsers users to add
+     * @return this
+     */
     VisibilityModifier addToHideList(OnlineUser... onlineUsers);
 
+    /**
+     * Removes the given users from the hide list.
+     *
+     * @param onlineUsers users to remove
+     * @return this
+     */
     VisibilityModifier removeFromHideList(OnlineUser... onlineUsers);
 
+    /**
+     * Empties the hide list.
+     *
+     * @return this
+     */
     VisibilityModifier emptyHideList();
 
+    /**
+     * Updates the visibility of the armorstand.
+     */
     void updateVisibility();
 }
