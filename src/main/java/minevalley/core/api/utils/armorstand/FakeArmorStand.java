@@ -1,11 +1,9 @@
 package minevalley.core.api.utils.armorstand;
 
-import org.bukkit.Location;
-import org.bukkit.entity.Entity;
+import minevalley.core.api.utils.armorstand.modifiers.*;
 
-import java.util.List;
-
-public interface FakeArmorStand extends EquipmentModifier, MetadataModifier, PoseModifier, VisibilityModifier {
+public interface FakeArmorStand extends EquipmentModifier, LocationModifier, MetadataModifier, PassengerModifier,
+        PoseModifier, VisibilityModifier {
 
     /**
      * get the custom id from the armorstand
@@ -20,77 +18,22 @@ public interface FakeArmorStand extends EquipmentModifier, MetadataModifier, Pos
     void spawn();
 
     /**
-     * Destroys/de-spawn the armor-stand
+     * Destroys/de-spawn the armorstand
      */
     void destroy();
 
+    /**
+     * Gets the visibility range of the armorstand
+     *
+     * @return range in blocks
+     */
     int getVisibilityRange();
 
+    /**
+     * Sets the visibility range of the armorstand
+     * <br>
+     * <b>Default:</b> 50
+     * @param visibilityRange range in blocks
+     */
     void setVisibilityRange(int visibilityRange);
-
-    /**
-     * Get the location of the armorstand
-     *
-     * @return location
-     */
-    Location getLocation();
-
-    /**
-     * Sets the armorstand's location.
-     * <b>Note:</b> This ignores the yaw and pitch values.
-     *
-     * @param location new location of the armorstand.
-     */
-    void setLocation(Location location);
-
-    /**
-     * get the current passenger list
-     *
-     * @return a list with the passengers as entities
-     */
-    List<Entity> getPassengers();
-
-    /**
-     * Add a passenger to the object
-     *
-     * @param entity the entity to be added
-     */
-    void addPassenger(Entity entity);
-
-    /**
-     * Remove a passenger
-     *
-     * @param entity the entity to be removed
-     */
-    void removePassenger(Entity entity);
-
-    void setOnFire(boolean onFire);
-
-    boolean isOnFire();
-
-    void setVisible(boolean visible);
-
-    boolean isVisible();
-
-    void setGlowing(boolean glowing);
-
-    boolean isGlowing();
-
-    void setGravity(boolean gravity);
-
-    boolean hasGravity();
-
-    void setCustomName(String customName);
-
-    String getCustomName();
-
-    void setCustomNameVisible(boolean customNameVisible);
-
-    boolean isCustomNameVisible();
-
-    void setSilent(boolean silent);
-
-    boolean isSilent();
-
-    void updateModifier();
 }
