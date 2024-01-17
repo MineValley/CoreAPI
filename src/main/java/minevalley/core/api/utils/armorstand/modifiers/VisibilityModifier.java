@@ -70,9 +70,4 @@ public interface VisibilityModifier {
      * @return this
      */
     VisibilityModifier emptyHideList();
-
-    /**
-     * Updates the visibility of the armorstand.
-     */
-    void updateVisibility();
 }
