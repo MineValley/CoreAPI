@@ -1,4 +1,4 @@
-package minevalley.core.api.utils.armorstand;
+package minevalley.core.api.utils.armorstand.modifiers;
 
 import org.bukkit.entity.Entity;
 
@@ -18,14 +18,14 @@ public interface PassengerModifier {
      *
      * @param entity the entity to be added
      */
-    void addPassenger(Entity entity);
+    PassengerModifier addPassenger(Entity entity);
 
     /**
      * Remove a passenger
      *
      * @param entity the entity to be removed
      */
-    void removePassenger(Entity entity);
+    PassengerModifier removePassenger(Entity entity);
 
     /**
      * Update the passengers

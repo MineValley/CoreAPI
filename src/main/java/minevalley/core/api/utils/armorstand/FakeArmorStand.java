@@ -1,8 +1,9 @@
 package minevalley.core.api.utils.armorstand;
 
-import org.bukkit.Location;
+import minevalley.core.api.utils.armorstand.modifiers.*;
 
-public interface FakeArmorStand extends EquipmentModifier, MetadataModifier, PassengerModifier, PoseModifier, VisibilityModifier {
+public interface FakeArmorStand extends EquipmentModifier, LocationModifier, MetadataModifier, PassengerModifier,
+        PoseModifier, VisibilityModifier {
 
     /**
      * get the custom id from the armorstand
@@ -17,26 +18,21 @@ public interface FakeArmorStand extends EquipmentModifier, MetadataModifier, Pas
     void spawn();
 
     /**
-     * Destroys/de-spawn the armor-stand
+     * Destroys/de-spawn the armorstand
      */
     void destroy();
 
+    /**
+     * Gets the visibility range of the armorstand
+     *
+     * @return range in blocks
+     */
     int getVisibilityRange();
 
+    /**
+     * Sets the visibility range of the armorstand
+     *
+     * @param visibilityRange range in blocks
+     */
     void setVisibilityRange(int visibilityRange);
-
-    /**
-     * Get the location of the armorstand
-     *
-     * @return location
-     */
-    Location getLocation();
-
-    /**
-     * Sets the armorstand's location.
-     * <b>Note:</b> This ignores the yaw and pitch values.
-     *
-     * @param location new location of the armorstand.
-     */
-    void setLocation(Location location);
 }
