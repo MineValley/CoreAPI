@@ -2,9 +2,3 @@
 This api grants important features and access to the internal server-core of MineValleyEU, that is used in any module.
 
 The wiki to this api is still work in progress.
-
-> **Core API**:
->
-> version: _1.279.3_
->
-> latest change: _17.01.2024_
