@@ -6,7 +6,7 @@ import minevalley.core.api.utils.armorstand.modifiers.*;
 import java.util.function.BiConsumer;
 
 public interface FakeArmorStand extends EquipmentModifier, LocationModifier, MetadataModifier, PassengerModifier,
-        PoseModifier, VisibilityModifier {
+        PoseModifier, RotationModifier, VisibilityModifier {
 
     /**
      * get the custom id from the armorstand
