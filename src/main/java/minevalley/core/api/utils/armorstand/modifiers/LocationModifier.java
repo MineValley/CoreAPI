@@ -18,7 +18,7 @@ public interface LocationModifier {
      *
      * @param location new location of the armorstand.
      */
-    void setLocation(Location location);
+    LocationModifier setLocation(Location location);
 
     /**
      * Update the location of the armorstand
