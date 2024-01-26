@@ -1,3 +1,6 @@
+.idea/
 target/
 *.iml
-.idea/
+maven-archiver/
+maven-status/
+*.jar
