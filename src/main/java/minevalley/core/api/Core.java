@@ -1350,7 +1350,7 @@ public final class Core {
      * @return ArmorStand instance
      */
     public static FakeArmorStand createFakeArmorStand(Location location) {
-        return server.createArmorStand(location);
+        return server.createFakeArmorStand(location);
     }
 
     public static FakeArmorStand getFakeArmorStand(int id) {
