@@ -317,7 +317,9 @@ public interface CoreServer {
 
     List<StateCompany> getStateCompanies();
 
-    FakeArmorStand createArmorStand(Location location);
+    FakeArmorStand createFakeArmorStand(Location location);
+
+    FakeArmorStand getFakeArmorStand(int id);
 
     Server getServerType();
 
