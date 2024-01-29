@@ -1353,6 +1353,12 @@ public final class Core {
         return server.createFakeArmorStand(location);
     }
 
+    /**
+     * Gets an armorstand by its id.
+     *
+     * @param id id of the armorstand
+     * @return ArmorStand instance
+     */
     public static FakeArmorStand getFakeArmorStand(int id) {
         return server.getFakeArmorStand(id);
     }
