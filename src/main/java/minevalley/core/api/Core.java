@@ -1346,15 +1346,6 @@ public final class Core {
     /**
      * Creates an armorstand with a consumer
      *
-     * @return ArmorStand instance
-     */
-    public static FakeArmorStand createFakeArmorStand() {
-        return server.createArmorStand(null);
-    }
-
-    /**
-     * Creates an armorstand with a consumer
-     *
      * @param location location to spawn the armorstand at.
      * @return ArmorStand instance
      */
