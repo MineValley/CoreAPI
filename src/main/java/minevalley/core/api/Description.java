@@ -8,7 +8,7 @@ public @interface Description {
 
     String name();
 
-    String version() default "1.0";
+    String version();
 
     String[] authors();
 
