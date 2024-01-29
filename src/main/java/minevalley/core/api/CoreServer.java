@@ -319,6 +319,8 @@ public interface CoreServer {
 
     FakeArmorStand createArmorStand(Location location);
 
+    FakeArmorStand getFakeArmorStand(int id);
+
     Server getServerType();
 
     String convertToTransparent(String text);

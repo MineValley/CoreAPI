@@ -1353,6 +1353,10 @@ public final class Core {
         return server.createArmorStand(location);
     }
 
+    public static FakeArmorStand getFakeArmorStand(int id) {
+        return server.getFakeArmorStand(id);
+    }
+
     public static Server getServer() {
         return server.getServerType();
     }
