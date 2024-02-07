@@ -5,6 +5,13 @@ import org.bukkit.util.EulerAngle;
 public interface PoseModifier {
 
     /**
+     * Gets the head pose of the armor stand.
+     *
+     * @return The pose of the head.
+     */
+    EulerAngle getHeadPose();
+
+    /**
      * Sets the head pose of the armor stand.
      *
      * @param yaw   The yaw of the head.
@@ -21,6 +28,15 @@ public interface PoseModifier {
      */
     PoseModifier setHeadPose(EulerAngle headPose);
 
+
+
+    /**
+     * Gets the left arm pose of the armor stand.
+     *
+     * @return The pose of the left arm.
+     */
+    EulerAngle getLeftArmPose();
+
     /**
      * Sets the left arm pose of the armor stand.
      *
@@ -28,6 +44,15 @@ public interface PoseModifier {
      * @return The pose modifier.
      */
     PoseModifier setLeftArmPose(EulerAngle leftArmPose);
+
+
+
+    /**
+     * Gets the right arm pose of the armor stand.
+     *
+     * @return The pose of the right arm.
+     */
+    EulerAngle getRightArmPose();
 
     /**
      * Sets the right arm pose of the armor stand.
@@ -37,6 +62,15 @@ public interface PoseModifier {
      */
     PoseModifier setRightArmPose(EulerAngle rightArmPose);
 
+
+
+    /**
+     * Gets the left leg pose of the armor stand.
+     *
+     * @return The pose of the left leg.
+     */
+    EulerAngle getBodyPose();
+
     /**
      * Sets the body pose of the armor stand.
      *
@@ -44,6 +78,15 @@ public interface PoseModifier {
      * @return The pose modifier.
      */
     PoseModifier setBodyPose(EulerAngle bodyPose);
+
+
+
+    /**
+     * Gets the left leg pose of the armor stand.
+     *
+     * @return The pose of the left leg.
+     */
+    EulerAngle getLeftLegPose();
 
     /**
      * Sets the left leg pose of the armor stand.
@@ -53,6 +96,15 @@ public interface PoseModifier {
      */
     PoseModifier setLeftLegPose(EulerAngle leftLegPose);
 
+
+
+    /**
+     * Gets the right leg pose of the armor stand.
+     *
+     * @return The pose of the right leg.
+     */
+    EulerAngle getRightLegPose();
+
     /**
      * Sets the right leg pose of the armor stand.
      *
@@ -60,6 +112,8 @@ public interface PoseModifier {
      * @return The pose modifier.
      */
     PoseModifier setRightLegPose(EulerAngle rightLegPose);
+
+
 
     /**
      * Updates the pose of the armor stand.
