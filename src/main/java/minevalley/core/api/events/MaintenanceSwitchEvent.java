@@ -8,6 +8,7 @@ import org.bukkit.event.HandlerList;
 import java.util.List;
 
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class MaintenanceSwitchEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();

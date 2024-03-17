@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 @Getter
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public abstract class ResidenceSign {
 
     private final Block block;

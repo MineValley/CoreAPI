@@ -1,5 +1,6 @@
 package minevalley.core.api.mail;
 
+@SuppressWarnings("unused")
 public interface Letter extends Parcel {
 
     /**

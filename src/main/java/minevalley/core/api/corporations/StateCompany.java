@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.corporations.business.Kapitalgesellschaft;
 
+@SuppressWarnings("unused")
 public interface StateCompany extends Kapitalgesellschaft {
 
     Sector getSector();

@@ -24,6 +24,7 @@ import org.bukkit.inventory.ItemStack;
  * <i>Credits: This class consists largely of Spigot's PlayerInteractEvent class.</i>
  */
 @Getter
+@SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted"})
 public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
     protected ItemStack item;

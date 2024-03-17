@@ -15,6 +15,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
  */
 @RequiredArgsConstructor
 @Getter
+@SuppressWarnings("unused")
 public class UserEnterChunkEvent extends Event implements Cancellable {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();

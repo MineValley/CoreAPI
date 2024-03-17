@@ -5,6 +5,7 @@ import org.bukkit.block.Block;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface Area {
 
     /**

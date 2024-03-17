@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 
 @AllArgsConstructor
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class Container {
 
     @Getter

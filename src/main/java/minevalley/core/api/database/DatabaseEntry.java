@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.sql.Array;
 
+@SuppressWarnings("unused")
 public interface DatabaseEntry {
 
     /**

@@ -7,6 +7,7 @@ import org.bukkit.util.Vector;
 
 import java.util.function.Consumer;
 
+@SuppressWarnings("unused")
 public interface Boundary {
 
     /**

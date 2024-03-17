@@ -6,6 +6,7 @@ import minevalley.core.api.users.User;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public interface Department extends Registrant {
 
     /**

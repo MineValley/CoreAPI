@@ -13,6 +13,7 @@ import org.bukkit.event.HandlerList;
  */
 @RequiredArgsConstructor
 @Getter
+@SuppressWarnings("unused")
 public class VehicleEnterRegionEvent extends Event implements Cancellable {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();

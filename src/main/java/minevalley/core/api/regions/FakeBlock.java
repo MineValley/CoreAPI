@@ -3,6 +3,7 @@ package minevalley.core.api.regions;
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.entity.Player;
 
+@SuppressWarnings("unused")
 public interface FakeBlock {
 
     /**

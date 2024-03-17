@@ -6,6 +6,7 @@ import minevalley.core.api.corporations.RealEstateGroup;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class ResidenceManager {
 
     @Setter

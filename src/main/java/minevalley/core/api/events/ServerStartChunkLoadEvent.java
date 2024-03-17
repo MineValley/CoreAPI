@@ -7,6 +7,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class ServerStartChunkLoadEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();

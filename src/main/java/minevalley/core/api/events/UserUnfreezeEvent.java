@@ -11,6 +11,7 @@ import org.bukkit.event.HandlerList;
  */
 @Getter
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class UserUnfreezeEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();

@@ -13,6 +13,7 @@ import org.bukkit.event.HandlerList;
  */
 @RequiredArgsConstructor
 @Getter
+@SuppressWarnings("unused")
 public final class UserRefreshEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();

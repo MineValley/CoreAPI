@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+@SuppressWarnings("unused")
 public enum FractionService {
 
     NONE(0),

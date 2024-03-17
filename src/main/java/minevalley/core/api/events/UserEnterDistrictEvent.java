@@ -12,6 +12,7 @@ import org.bukkit.event.HandlerList;
  */
 @RequiredArgsConstructor
 @Getter
+@SuppressWarnings("unused")
 public class UserEnterDistrictEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();

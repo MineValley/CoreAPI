@@ -4,6 +4,7 @@ import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.block.Block;
 
+@SuppressWarnings("unused")
 public interface Mailbox {
 
     /**

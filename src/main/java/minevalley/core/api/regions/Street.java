@@ -8,6 +8,7 @@ import org.bukkit.Location;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface Street {
 
     /**

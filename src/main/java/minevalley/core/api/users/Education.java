@@ -15,6 +15,7 @@ public class Education {
 
     @Getter
     @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+    @SuppressWarnings("unused")
     public enum Subject {
 
         MEDICAL(0),

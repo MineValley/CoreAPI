@@ -2,6 +2,7 @@ package minevalley.core.api.database;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface DatabaseEntryCollection {
 
     /**
