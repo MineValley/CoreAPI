@@ -193,7 +193,7 @@ public interface CoreServer {
 
     Region getRegion(int id);
 
-    Region createRegion(List<Area> areas);
+    Region createRegion(List<Area> included, List<Area> excluded);
 
     List<Region> getRegions(Block block);
 
