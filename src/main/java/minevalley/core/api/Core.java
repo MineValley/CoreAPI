@@ -1139,8 +1139,8 @@ public final class Core {
         return server.getRegion(id);
     }
 
-    public static Region createRegion(List<Area> areas) {
-        return server.createRegion(areas);
+    public static Region createRegion(List<Area> included, List<Area> excluded) {
+        return server.createRegion(included, excluded);
     }
 
     /**
