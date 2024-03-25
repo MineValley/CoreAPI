@@ -3,6 +3,7 @@ package minevalley.core.api;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.mail.Parcel;
+import minevalley.core.api.regions.Address;
 import minevalley.core.api.regions.Residence;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
@@ -68,7 +69,7 @@ public interface Registrant {
      *
      * @return this registrants address as residence
      */
-    Residence getAddress();
+    Address getAddress();
 
     /**
      * Delivers the given parcel securely. If this registrant doesn't have an address, it is sent to...
