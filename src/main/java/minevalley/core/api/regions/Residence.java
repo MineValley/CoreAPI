@@ -16,7 +16,7 @@ import java.util.List;
  * <b>Note:</b> Plots may have been merged! Even if they are, every plot still consists of its residence.
  * When dealing with plots, always take note of merged plots.
  */
-public interface Residence extends PlayerLocation {
+public interface Residence extends PlayerLocation, Address {
 
     /**
      * Each residence can be clearly identified by its ID. The Residences IDs are unique, regardless if it's a plot
