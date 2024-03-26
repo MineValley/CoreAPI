@@ -289,13 +289,7 @@ public interface User extends Registrant {
 
     void uninstallSmartApp(String systemName);
 
-    List<Aktiengesellschaft.Stockholder> getRelatedStockholders();
-
-    List<Kapitalgesellschaft.Shareholder> getRelatedShareholders();
-
-    List<Member> getRelatedMembers();
-
-    List<Group> getRelatedGroups();
+    List<Member> getRelatedGroupMembers();
 
     int getTotalOnTimeInMinutes();
 

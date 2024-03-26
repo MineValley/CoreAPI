@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
-import minevalley.core.api.corporations.Member;
+import minevalley.core.api.corporations.business.Aktiengesellschaft;
+import minevalley.core.api.corporations.business.Kapitalgesellschaft;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.mail.Parcel;
@@ -60,7 +61,9 @@ public interface Registrant {
 
     List<AccountUser> getRelatedAccountUsers();
 
-    List<Member> getRelatedGroupMembers();
+    List<Aktiengesellschaft.Stockholder> getRelatedStockholders();
+
+    List<Kapitalgesellschaft.Shareholder> getRelatedShareholders();
 
     /**
      * Gets the address of this registrant.
