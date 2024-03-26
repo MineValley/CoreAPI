@@ -86,9 +86,9 @@ public interface BankAccount {
     @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
     enum AccountType {
         USER("DE00-"),
-        COMPANY("DE01-"),
-        ASSOCIATION("DE02-"),
-        SECOND_ACCOUNT("DE03-");
+        SECOND_ACCOUNT("DE01-"),
+        COMPANY("DE02-"),
+        ASSOCIATION("DE03-");
 
         private final String prefix;
 
@@ -97,11 +97,11 @@ public interface BankAccount {
                 case "DE00":
                     return USER;
                 case "DE01":
-                    return COMPANY;
-                case "DE02":
-                    return ASSOCIATION;
-                case "DE03":
                     return SECOND_ACCOUNT;
+                case "DE02":
+                    return COMPANY;
+                case "DE03":
+                    return ASSOCIATION;
                 default:
                     return null;
             }

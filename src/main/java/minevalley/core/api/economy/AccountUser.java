@@ -15,7 +15,7 @@ public interface AccountUser {
 
     int getMaxPayoutPerDayInCents();
 
-    void setMaxPayOutPerDayInCents(int maxPayout);
+    void setMaxPayoutPerDayInCents(int maxPayoutInCents);
 
     int getRemainingDailyPayoutInCents();
 
@@ -35,18 +35,14 @@ public interface AccountUser {
 
     void revokePermission(BankAccountUserPermission permission);
 
-    void updateFromDatabase();
-
     void remove();
 
     @Getter
     @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
     enum BankAccountUserPermission {
-        PAYOUT("allow_payout"),
-        TRANSFER_MONEY("allow_transfers"),
-        CREATE_NEW_CARDS("allow_create_new_bank_cars"),
-        ADD_NEW_USERS("allow_adding_new_users"),
-        REMOVE_USERS("allow_removing_other_users");
+        CREATE_NEW_CARDS("allowed_to_create_new_bank_cards"),
+        ADD_NEW_USERS("allowed_to_add_new_users"),
+        REMOVE_USERS("allowed_to_remove_other_users");
 
         private final String code;
     }
