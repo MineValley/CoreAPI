@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 import minevalley.core.api.ChatMenu;
+import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.FractionService;
 import minevalley.core.api.enums.McVersion;
@@ -319,9 +320,10 @@ public interface OnlineUser extends User {
      * If he chooses nothing, the callback isn't called.
      * If he's only permissioned to transfer money from one account, he will not be asked (The callback will be called immediately with the account).
      *
-     * @param callback callback with the chosen bank account
+     * @param callback            callback with the chosen bank account
+     * @param requiredPermissions permissions that need to be granted to this user to let him choose the specific bank account
      */
-    void askForBankAccount(Consumer<BankAccount> callback);
+    void askForBankAccount(Consumer<BankAccount> callback, AccountUser.BankAccountUserPermission... requiredPermissions);
 
     // FractionService
 
