@@ -195,6 +195,8 @@ public interface CoreServer {
 
     Region createRegion(List<Area> included, List<Area> excluded);
 
+    void reloadRegion(int id);
+
     List<Region> getRegions(Block block);
 
     Residence getResidence(int id);
