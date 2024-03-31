@@ -1144,15 +1144,6 @@ public final class Core {
     }
 
     /**
-     * Reload region with specific id from database
-     *
-     * @param id regions id
-     */
-    public static void reloadRegion(int id) {
-        server.reloadRegion(id);
-    }
-
-    /**
      * Gets the region in which this location lies in.
      *
      * @param location location to get region
