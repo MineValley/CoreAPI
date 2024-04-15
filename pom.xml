@@ -61,8 +61,8 @@
     <dependencies>
         <!-- MineValley APIs -->
         <dependency>
-            <groupId>minevalley.smart</groupId>
-            <artifactId>api</artifactId>
+            <groupId>com.github.MineValley</groupId>
+            <artifactId>SmartAPI</artifactId>
             <version>${smart-api.version}</version>
             <scope>compile</scope>
         </dependency>
