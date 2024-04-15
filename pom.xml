@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <version>1.282.3</version>
+        <version>1.282.4</version>
 
         <smart-api.version>1.61.2</smart-api.version>
 
@@ -16,7 +16,7 @@
 
     <groupId>minevalley.core</groupId>
     <artifactId>api</artifactId>
-    <version>1.282.3</version>
+    <version>${version}</version>
     <packaging>jar</packaging>
 
     <build>
