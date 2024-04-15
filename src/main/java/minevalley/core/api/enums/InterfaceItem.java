@@ -20,7 +20,12 @@ public enum InterfaceItem {
     /**
      * Hides the selected slot and the one underneath.
      */
+    @Deprecated
     DOUBLE_SPACER(2),
+
+    DOUBLE_SPACER_UP(2),
+
+    DOUBLE_SPACER_DOWN(36),
 
     DOUBLE_SPACER_LEFT(32),
 
