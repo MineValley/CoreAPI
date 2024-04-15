@@ -4,6 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <version>1.282.3</version>
+        <smart-api.version>1.61.1</smart-api.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <groupId>minevalley.core</groupId>
     <artifactId>api</artifactId>
     <version>1.282.3</version>
@@ -38,14 +47,6 @@
         </repository>
     </distributionManagement>
 
-    <properties>
-        <smart-api.version>1.60</smart-api.version>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
     <repositories>
         <repository>
             <id>paper-mc</id>
@@ -60,8 +61,8 @@
     <dependencies>
         <!-- MineValley APIs -->
         <dependency>
-            <groupId>com.github.MineValley</groupId>
-            <artifactId>SmartAPI</artifactId>
+            <groupId>minevalley.smart</groupId>
+            <artifactId>api</artifactId>
             <version>${smart-api.version}</version>
             <scope>compile</scope>
         </dependency>
