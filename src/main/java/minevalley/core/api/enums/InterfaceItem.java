@@ -23,9 +23,9 @@ public enum InterfaceItem {
     @Deprecated
     DOUBLE_SPACER(2),
 
-    DOUBLE_SPACER_UP(2),
+    DOUBLE_SPACER_UP(36),
 
-    DOUBLE_SPACER_DOWN(36),
+    DOUBLE_SPACER_DOWN(2),
 
     DOUBLE_SPACER_LEFT(32),
 
