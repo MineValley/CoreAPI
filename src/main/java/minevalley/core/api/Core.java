@@ -124,41 +124,12 @@ public final class Core {
         server.cancelTask(taskId);
     }
 
-    /**
-     * @param cls      class of event
-     * @param listener listener to register
-     * @deprecated use {@link #registerListener(Class, EventListener)} instead!
-     */
-    @Deprecated
-    public static void registerEvent(Class<? extends Event> cls, EventListener listener) {
-        server.registerListener(cls, listener);
-    }
-
     public static void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener) {
         server.registerListener(cls, listener);
     }
 
-    /**
-     * @param cls      class of event
-     * @param listener listener to unregister
-     * @deprecated use {@link #unregisterListener(Class, EventListener)} instead!
-     */
-    @Deprecated
-    public static void unregisterEvent(Class<? extends Event> cls, EventListener listener) {
-        server.unregisterListener(cls, listener);
-    }
-
     public static void unregisterListener(Class<? extends Event> cls, EventListener<? extends Event> listener) {
         server.unregisterListener(cls, listener);
-    }
-
-    /**
-     * @param listener listener to register
-     * @deprecated use {@link #registerListener(Listener)} instead!
-     */
-    @Deprecated
-    public static void registerListeners(Listener listener) {
-        server.registerListener(listener);
     }
 
     public static void registerListener(Listener listener) {
@@ -1211,29 +1182,6 @@ public final class Core {
     public static Apartment createApartment(Region region, ApartmentBlock block, int rent, Sign apartmentSign,
                                             Block mailbox) {
         return server.createApartment(region, block, rent, apartmentSign, mailbox);
-    }
-
-    // TODO: 05.06.2023
-    @Deprecated
-    public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord,
-                                                      int fertility, Block mailboxBlock, Area mailboxConnectedBlocks,
-                                                      Sign apartmentBlockSign, Sign bellSign, int maxFloors,
-                                                      int defaultFloor, Area defaultFloorShadow, List<Area> roofShadows,
-                                                      Area constructionFloorShadow, Vector constructionWorkerLocation,
-                                                      List<Location> craftsmanLocations, Block[] damagedFloorBlocks) {
-        return server.createApartmentBlock(street, teleportLocation, landlord, fertility, mailboxBlock,
-                mailboxConnectedBlocks, apartmentBlockSign, bellSign, maxFloors, defaultFloor, defaultFloorShadow,
-                roofShadows, constructionFloorShadow, constructionWorkerLocation, craftsmanLocations, damagedFloorBlocks);
-    }
-
-    // TODO: 05.06.2023
-    @Deprecated
-    public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord,
-                                                      int fertility, Block mailboxBlock, Area mailboxConnectedBlocks,
-                                                      Sign apartmentBlockSign, Sign bellSign, int floors,
-                                                      List<Location> craftsmanLocations, Block[] damagedFloorBlocks) {
-        return server.createApartmentBlock(street, teleportLocation, landlord, fertility, mailboxBlock,
-                mailboxConnectedBlocks, apartmentBlockSign, bellSign, floors, craftsmanLocations, damagedFloorBlocks);
     }
 
     public static List<Residence> getLoadedResidences() {
