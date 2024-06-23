@@ -6,6 +6,8 @@ import minevalley.core.api.economy.BankAccount;
 
 public interface Apartment extends Residence {
 
+    int getAppartmentNumber();
+
     boolean isPremiumOnly();
 
     Registrant getLandlord();
@@ -19,8 +21,6 @@ public interface Apartment extends Residence {
     int getRent();
 
     void changeRent(int rent);
-
-    boolean isClearedWhenUnrented();
 
     /**
      * Is null, when this apartment is not part of an apartment block!

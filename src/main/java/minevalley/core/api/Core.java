@@ -1197,9 +1197,9 @@ public final class Core {
         return (Apartment) getResidences(block).stream().filter(r -> r instanceof Apartment).findFirst().orElse(null);
     }
 
-    public static Plot createPlot(Region region, Street street, int plotNumber, Registrant owner, int fertility, Sign plotSign,
-                                  Location teleportLocation, int defaultPrice) {
-        return server.createPlot(region, street, plotNumber, owner, fertility, plotSign, teleportLocation, defaultPrice);
+    public static Plot createPlot(Region region, Street street, int houseNumber, Registrant owner, Sign plotSign,
+                                  Location teleportLocation) {
+        return server.createPlot(region, street, houseNumber, owner, plotSign, teleportLocation);
     }
 
     public static Apartment createApartment(Region region, Registrant landlord, int fertility, int rent,

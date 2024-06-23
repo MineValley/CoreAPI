@@ -201,8 +201,7 @@ public interface CoreServer {
 
     Residence getResidence(Region region);
 
-    Plot createPlot(Region region, Street street, int plotNumber, Registrant owner, int fertility, Sign plotSign,
-                    Location teleportLocation, int defaultPrice);
+    Plot createPlot(Region region, Street street, int houseNumber, Registrant owner, Sign plotSign, Location teleportLocation);
 
     Apartment createApartment(Region region, Registrant landlord, int fertility, int rent, Sign apartmentSign,
                               Block mailbox);

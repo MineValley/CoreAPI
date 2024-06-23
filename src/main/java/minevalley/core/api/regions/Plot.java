@@ -6,27 +6,12 @@ import minevalley.core.api.economy.BankAccount;
 
 public interface Plot extends Residence {
 
-    /**
-     * The worth of a plot is calculated automatically by its latest selling price.
-     * <br>
-     * It's used to calculate the upcoming taxes.
-     *
-     * @return this plots worth as integer.
-     */
-    int getWorth();
+    int getHouseNumber();
 
-    void setWorth();
-
-    /**
-     * The sale defines the price this plot is sold for.
-     * <br>
-     * The sale price is set to -1 if the plot isn't for sale.
-     *
-     * @return this plots sale price as integer.
-     */
-    int getSale();
-
-    int getTaxes();
+    @Override
+    default String getAddressShortcut() {
+        return getStreet().getShortName() + getHouseNumber();
+    }
 
     /**
      * The PlotMerge defines the way this plot is merged with other plots.
@@ -64,6 +49,4 @@ public interface Plot extends Residence {
      * @return true, if the buying-process was successful
      */
     boolean buy(@NonNull Registrant registrant, @NonNull BankAccount account);
-
-    boolean isLocked();
 }

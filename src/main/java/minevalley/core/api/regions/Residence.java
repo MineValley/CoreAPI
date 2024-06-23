@@ -26,6 +26,8 @@ public interface Residence extends PlayerLocation, Address {
      */
     int getId();
 
+    float getWorthFactor();
+
     /**
      * Every Residence is associated with a region. This region defines the habitat in which the user is allowed to build.
      * <br>
@@ -60,6 +62,8 @@ public interface Residence extends PlayerLocation, Address {
      */
     ResidenceSign getSign();
 
+    void setSign(Block block);
+
     /**
      * Every residence has a specific location. When creating new plots or apartments, the teamer has to define this location.
      * It is used for teamlers to teleport to a specific residence and is used as navigation target,
@@ -78,6 +82,8 @@ public interface Residence extends PlayerLocation, Address {
      * @return this residences' street.
      */
     Street getStreet();
+
+    String getAddressShortcut();
 
     /**
      * The owner has full permission over his residence. The ownership only changes if the residence is sold or transmitted.
@@ -327,16 +333,6 @@ public interface Residence extends PlayerLocation, Address {
      */
     void removeAllTerminations();
 
-    /**
-     * Reloads all the data from the database.
-     * this is only needed if there are some changes directly put into the database.
-     * All variable values (such as the ones that are changeable in this interface) are updated automatically.
-     */
-    void updateFromDatabase();
-
     // setup-method
     void remove();
-
-    // setup-method
-    void setRegion(Region region);
 }

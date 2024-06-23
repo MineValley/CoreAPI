@@ -18,10 +18,6 @@ public abstract class ResidenceSign {
 
     public abstract void setBell(boolean worksAsBell);
 
-    public abstract void place();
-
-    public abstract void remove();
-
     @Getter
     @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
     public enum Direction {
