@@ -26,7 +26,7 @@ import minevalley.core.api.users.User;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.*;
 import minevalley.core.api.utils.armorstand.FakeArmorStand;
-import minevalley.core.api.utils.command.PlayerCommand;
+import minevalley.core.api.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
 import minevalley.core.api.utils.gui.MultiPageGui;

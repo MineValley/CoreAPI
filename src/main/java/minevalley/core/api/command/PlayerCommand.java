@@ -1,4 +1,4 @@
-package minevalley.core.api.utils.command;
+package minevalley.core.api.command;
 
 import lombok.Getter;
 import minevalley.core.api.Core;
