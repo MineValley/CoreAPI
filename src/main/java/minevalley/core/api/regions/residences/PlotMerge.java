@@ -54,7 +54,7 @@ public interface PlotMerge {
      * <br>
      * If the other plot was never merged in this PlotMerge, nothing happens.
      * <br>
-     * <b>Ruling:</b> In many cases (e. g. in plot-chains), unmerging one plot results in disconnecting
+     * <b>Ruling:</b> In many cases (e.g. in plot-chains), unmerging one plot results in disconnecting
      * some plots from the main plot of this PlotMerge.
      * In this case, the other plots (including the one that was explicitly unmerged here)
      * will be added to a new PlotMerge with the unmerged plot as main plot.

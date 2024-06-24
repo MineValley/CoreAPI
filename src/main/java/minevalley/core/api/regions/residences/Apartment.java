@@ -6,7 +6,7 @@ import minevalley.core.api.economy.BankAccount;
 
 public interface Apartment extends Residence {
 
-    int getAppartmentNumber();
+    int getApartmentNumber();
 
     boolean isPremiumOnly();
 

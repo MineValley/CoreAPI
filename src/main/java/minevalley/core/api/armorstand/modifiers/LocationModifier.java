@@ -12,7 +12,7 @@ public interface LocationModifier {
     Location getLocation();
 
     /**
-     * Sets the armorstand's location.
+     * Sets the armorstands location.
      * <br>
      * <b>Note:</b> This ignores the yaw and pitch values.
      *

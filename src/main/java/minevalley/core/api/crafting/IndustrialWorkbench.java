@@ -60,7 +60,7 @@ public interface IndustrialWorkbench {
     /**
      * Gets the workbench power level
      *
-     * @return Powerlevel of the workbench
+     * @return Power level of the workbench
      */
     int getPowerLevel();
 
