@@ -1,8 +1,6 @@
 package minevalley.core.api.command;
 
 import lombok.NonNull;
-import minevalley.core.api.users.enums.FractionService;
-import minevalley.core.api.users.enums.TeamRank;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -42,39 +40,6 @@ public @interface CommandOptions {
      * Don't use this method, if the player shouldn't get printed any message on success.
      */
     String successMessage() default "";
-
-    /**
-     * If this is true, the parameters player-rank, fractions and team-ranks are ignored. Every user is able to execute the command.
-     * <p>
-     * <b>Note: </b> This doesn't affect the requireSupportService()-parameter.
-     */
-    boolean ignoreRanks() default false;
-
-    /**
-     * Every player who is in service of one of the fractions listed here is able to execute this command
-     * If everybody is allowed to use this command, add all existing values of this enum.
-     * If nobody is allowed to use this command, return an empty list (or don't use this setting).
-     */
-    FractionService[] fractions() default {};
-
-    /**
-     * Every player who has one of the team-ranks listed here is able to execute this command
-     * Note: The ranks are not staggered. The SERVER_LEAD does not have the authorization just because ADMINISTRATION has them
-     * If nobody is allowed to use this command, return an empty list (or don't use this setting).
-     */
-    TeamRank[] teamRanks() default {};
-
-    /**
-     * If this is enabled, users aren't allowed to use this command, if they aren't in team service.
-     * This is used for commands, that are only accessible for team members. Use this instead of adding every possible team rank into the teamRanks-option!
-     */
-    boolean requireTeamService() default false;
-
-    /**
-     * If this is enabled, users (in this case only team members) aren't allowed to use this command, if they aren't in support service.
-     */
-    boolean requireSupportService() default false;
-
 
     /**
      * If this is enabled, users that are allowed to use this command are also allowed to tab it.
