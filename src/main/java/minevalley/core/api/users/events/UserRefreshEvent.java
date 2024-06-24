@@ -1,4 +1,4 @@
-package minevalley.core.api.events;
+package minevalley.core.api.users.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -7,13 +7,16 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 /**
- * This event gets called when a user is frozen.
+ * This event is called, when a user is loaded or reloaded from the database.
+ * It is used to change user-dependent data in modules when that user's data has been updated.
+ * You can update a user manually by calling the refresh()-method.
  */
-@Getter
 @RequiredArgsConstructor
-public class UserFreezeEvent extends Event {
+@Getter
+public final class UserRefreshEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
+
     private final User user;
 
     public static HandlerList getHandlerList() {

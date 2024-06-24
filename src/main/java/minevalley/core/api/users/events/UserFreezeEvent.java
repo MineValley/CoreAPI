@@ -1,20 +1,20 @@
-package minevalley.core.api.events;
+package minevalley.core.api.users.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.User;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 /**
- * This event gets called when a user is marked as idle (afk).
+ * This event gets called when a user is frozen.
  */
 @Getter
 @RequiredArgsConstructor
-public class UserIdleEvent extends Event {
+public class UserFreezeEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
-    private final OnlineUser user;
+    private final User user;
 
     public static HandlerList getHandlerList() {
         return HANDLER_LIST;

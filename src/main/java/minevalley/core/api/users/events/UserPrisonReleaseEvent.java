@@ -1,20 +1,20 @@
-package minevalley.core.api.events;
+package minevalley.core.api.users.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.users.User;
+import minevalley.core.api.users.OnlineUser;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 /**
- * This event gets called when a user is unfreezed.
+ * This event gets called when a user is released from prison.
  */
 @Getter
 @RequiredArgsConstructor
-public class UserUnfreezeEvent extends Event {
+public class UserPrisonReleaseEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
-    private final User user;
+    private final OnlineUser user;
 
     public static HandlerList getHandlerList() {
         return HANDLER_LIST;
