@@ -34,7 +34,10 @@ import minevalley.smart.api.Session;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.apache.logging.log4j.util.TriConsumer;
-import org.bukkit.*;
+import org.bukkit.Chunk;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -199,16 +202,6 @@ public interface CoreServer {
                               Block mailbox);
 
     Apartment createApartment(Region region, ApartmentBlock block, int rent, Sign apartmentSign, Block mailbox);
-
-    ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord, int fertility,
-                                        Block mailboxBlock, Area mailboxConnectedBlocks, Sign apartmentBlockSign,
-                                        Sign bellSign, int maxFloors, int defaultFloor, Area defaultFloorShadow,
-                                        List<Area> roofShadows, Area constructionFloorShadow, Vector constructionWorkerLocation,
-                                        List<Location> craftsmanLocations, Block[] damagedFloorBlocks);
-
-    ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord, int fertility,
-                                        Block mailboxBlock, Area mailboxConnectedBlocks, Sign apartmentBlockSign,
-                                        Sign bellSign, int floors, List<Location> craftsmanLocations, Block[] damagedFloorBlocks);
 
     List<Residence> getLoadedResidences();
 
