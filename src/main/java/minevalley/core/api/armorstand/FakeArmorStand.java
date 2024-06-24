@@ -44,8 +44,20 @@ public interface FakeArmorStand extends EquipmentModifier, LocationModifier, Met
      */
     void setVisibilityRange(int visibilityRange);
 
+    /**
+     * Defines the action when a player interacts with the armorstand
+     *
+     * @param consumer is called whenever a user interacts with the armorstand
+     */
     void onClick(BiConsumer<OnlineUser, InteractType> consumer);
 
+    /**
+     * Defines which users can see the armorstand
+     * <br>
+     * <b>Default:</b> Everyone can see the armorstand
+     *
+     * @param function defines whether a specific user can see the armorstand
+     */
     void isSeeing(Function<OnlineUser, Boolean> function);
 
     enum InteractType {
