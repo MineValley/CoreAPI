@@ -37,6 +37,7 @@ public interface Area {
 
     /**
      * Converts this area to a string
+     *
      * @return string that represents this area
      */
     @Deprecated

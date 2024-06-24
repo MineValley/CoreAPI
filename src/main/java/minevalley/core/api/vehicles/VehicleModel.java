@@ -1,7 +1,7 @@
 package minevalley.core.api.vehicles;
 
-import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.Registrant;
+import minevalley.core.api.users.OnlineUser;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;

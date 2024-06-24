@@ -2,7 +2,6 @@ package minevalley.core.api.regions;
 
 import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.users.OnlineUser;
-import org.bukkit.block.Block;
 
 public interface Mailbox {
 

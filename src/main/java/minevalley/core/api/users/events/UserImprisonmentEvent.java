@@ -1,7 +1,6 @@
 package minevalley.core.api.users.events;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import minevalley.core.api.users.User;
 
 /**

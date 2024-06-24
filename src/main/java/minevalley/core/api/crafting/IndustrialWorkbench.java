@@ -28,13 +28,11 @@ public interface IndustrialWorkbench {
 
     /**
      * Perform the craft in the workbench
-     *
      */
     void craft();
 
     /**
      * Closes the Workbench and stores the items into the shulker
-     *
      */
     void close();
 

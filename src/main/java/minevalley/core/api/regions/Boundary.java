@@ -63,12 +63,14 @@ public interface Boundary {
 
     /**
      * Defines the callback, that is called, if a player clicks the boundary.
+     *
      * @param callback will be called when clicked
      */
     void onCall(@NonNull Consumer<PlayerInteractEvent> callback);
 
     /**
      * Gets whether this boundary is activated.
+     *
      * @return true, if this boundary is activated
      */
     boolean isActivated();

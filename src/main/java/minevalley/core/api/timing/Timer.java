@@ -47,8 +47,9 @@ public interface Timer {
     /**
      * Checks whether this timer has already expired.
      * <p>
-     *     <b>Note:</b> Timers expire even though they are deactivated. This method only checks whether the planned expiry time is in the past.
+     * <b>Note:</b> Timers expire even though they are deactivated. This method only checks whether the planned expiry time is in the past.
      * </p>
+     *
      * @return true, if this timer expired
      */
     boolean hasExpired();
@@ -69,9 +70,10 @@ public interface Timer {
     /**
      * Checks whether this timer is activated.
      * <p>
-     *     <b>Note:</b> This will still be true, when the timer expires and can only be changed by calling
-     *     {@link #deactivate()}
+     * <b>Note:</b> This will still be true, when the timer expires and can only be changed by calling
+     * {@link #deactivate()}
      * </p>
+     *
      * @return true, if this timer is activated
      */
     boolean isActivated();

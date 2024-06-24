@@ -12,12 +12,14 @@ public interface Street {
 
     /**
      * Every street will be assigned an ID. It should be used to refer to this street.
+     *
      * @return id as integer.
      */
     int getId();
 
     /**
      * Gets this streets name. Don't use it to refer to the street. Names might change in the future. Use getId instead!
+     *
      * @return name as string.
      */
     String getName();

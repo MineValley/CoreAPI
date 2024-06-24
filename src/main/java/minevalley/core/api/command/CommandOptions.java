@@ -15,6 +15,7 @@ public @interface CommandOptions {
 
     /**
      * This list is used to make all the strings usable command-variations. It should contain each alias and the original spelling of the command
+     *
      * @return array of all command varies and its aliases
      */
     @NonNull

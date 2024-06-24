@@ -13,8 +13,8 @@ public class Warning {
      * <br>
      * expiration - timestamp of expiration of this warning.
      * <p>
-     *     If the expiration-date is reached, there is a message sent to the team, to check whether the warning is still justified.
-     *     If necessary, the residence will be reset.
+     * If the expiration-date is reached, there is a message sent to the team, to check whether the warning is still justified.
+     * If necessary, the residence will be reset.
      * </p>
      */
     private final long date, expiration;
