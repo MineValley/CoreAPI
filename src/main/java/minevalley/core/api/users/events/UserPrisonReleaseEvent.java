@@ -3,6 +3,7 @@ package minevalley.core.api.users.events;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.User;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
@@ -10,18 +11,9 @@ import org.bukkit.event.HandlerList;
  * This event gets called when a user is released from prison.
  */
 @Getter
-@RequiredArgsConstructor
-public class UserPrisonReleaseEvent extends Event {
+public class UserPrisonReleaseEvent extends UserEvent {
 
-    public static final HandlerList HANDLER_LIST = new HandlerList();
-    private final OnlineUser user;
-
-    public static HandlerList getHandlerList() {
-        return HANDLER_LIST;
-    }
-
-    @Override
-    public HandlerList getHandlers() {
-        return HANDLER_LIST;
+    public UserPrisonReleaseEvent(User user) {
+        super(user);
     }
 }
