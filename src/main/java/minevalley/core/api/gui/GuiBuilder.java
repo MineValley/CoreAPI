@@ -1,11 +1,10 @@
-package minevalley.core.api.utils.gui;
+package minevalley.core.api.gui;
 
 import minevalley.core.api.enums.InterfaceItem;
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 

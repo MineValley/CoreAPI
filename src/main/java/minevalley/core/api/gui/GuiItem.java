@@ -1,4 +1,4 @@
-package minevalley.core.api.utils.gui;
+package minevalley.core.api.gui;
 
 import org.bukkit.inventory.ItemStack;
 
