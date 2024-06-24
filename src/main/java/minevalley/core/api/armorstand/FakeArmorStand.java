@@ -10,9 +10,9 @@ public interface FakeArmorStand extends EquipmentModifier, LocationModifier, Met
         PoseModifier, RotationModifier {
 
     /**
-     * get the custom id from the armorstand
+     * Get the custom id from the armorstand
      *
-     * @return int
+     * @return id as int
      */
     int getId();
 
@@ -23,6 +23,8 @@ public interface FakeArmorStand extends EquipmentModifier, LocationModifier, Met
 
     /**
      * Destroys/de-spawn the armorstand
+     * <br>
+     * <b>Note:</b> Armorstand can be simply respawned with {@link #spawn()}
      */
     void destroy();
 
