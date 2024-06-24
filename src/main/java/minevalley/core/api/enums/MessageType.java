@@ -27,6 +27,8 @@ public enum MessageType {
 
     INFO_BW(" §f" + CustomCharacter.MV_BW + " §8━ §7"),
 
+    WARNING(" §e§l! §8━ §7"),
+
     /**
      * Used to signal the success of a process or action, by using the action-bar.
      */
