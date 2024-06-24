@@ -1,5 +1,6 @@
-package minevalley.core.api.utils.armorstand;
+package minevalley.core.api.armorstand;
 
+import minevalley.core.api.armorstand.modifiers.*;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.utils.armorstand.modifiers.*;
 

@@ -23,7 +23,7 @@ import minevalley.core.api.timing.Timer;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
 import minevalley.core.api.utils.*;
-import minevalley.core.api.utils.armorstand.FakeArmorStand;
+import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.command.PlayerCommand;
 import minevalley.core.api.utils.gui.GuiBuilder;
 import minevalley.core.api.utils.gui.GuiItem;
