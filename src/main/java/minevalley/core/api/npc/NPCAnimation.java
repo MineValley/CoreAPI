@@ -1,4 +1,4 @@
-package minevalley.core.api.enums;
+package minevalley.core.api.npc;
 
 import lombok.AccessLevel;
 import lombok.Getter;

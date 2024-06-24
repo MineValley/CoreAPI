@@ -15,6 +15,7 @@ import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.Server;
+import minevalley.core.api.npc.NPC;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.*;
 import minevalley.core.api.timing.Reminder;

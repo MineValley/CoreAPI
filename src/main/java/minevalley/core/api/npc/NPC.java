@@ -1,10 +1,9 @@
-package minevalley.core.api.utils;
+package minevalley.core.api.npc;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import minevalley.core.api.ChatMenu;
 import minevalley.core.api.users.OnlineUser;
-import minevalley.core.api.enums.NPCAnimation;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.Location;
