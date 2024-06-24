@@ -39,7 +39,10 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import org.apache.logging.log4j.util.TriConsumer;
-import org.bukkit.*;
+import org.bukkit.Chunk;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -617,40 +620,12 @@ public final class Core {
     }
 
     /**
-     * Creates new countdown-object.
-     * Note: Don't use this method to realize cooldowns for player-actions. Use schedulers instead!
-     *
-     * @return new countdown-object
-     */
-    public static Countdown createCountdown() {
-        return server.createCountdown();
-    }
-
-    /**
-     * Starts the specific countdown.
-     *
-     * @param countdown countdown to start
-     */
-    public static void startCountdown(Countdown countdown) {
-        server.startCountdown(countdown);
-    }
-
-    /**
-     * Stops the specific countdown.
-     *
-     * @param countdown countdown to stop
-     */
-    public static void stopCountdown(Countdown countdown) {
-        server.stopCountdown(countdown);
-    }
-
-    /**
      * Gets the servers main map.
      *
      * @return main map
      */
     public static World getMainWorld() {
-        return Bukkit.getWorld("world");
+        return server.getMainWorld();
     }
 
     /**
@@ -659,36 +634,11 @@ public final class Core {
      * @return building map
      */
     public static World getBuildingWorld() {
-        return Bukkit.getWorld("bauteam");
-    }
-
-    public static World getPreBuildWorld() {
-        return Bukkit.getWorld("prebuild");
+        return server.getBuildingWorld();
     }
 
     public static World getPresetsWorld() {
-        return Bukkit.getWorld("presets");
-    }
-
-    public static World getMineWorld() {
-        return Bukkit.getWorld("mine");
-    }
-
-    public static World getDefaultMineWorld() {
-        return Bukkit.getWorld("default_mine");
-    }
-
-    /**
-     * Gets the shadow map.
-     *
-     * @return shadow map
-     */
-    public static World getShadowWorld() {
-        return Bukkit.getWorld("shadow");
-    }
-
-    public static void transferFromShadowWorld(Area... areas) {
-        server.transferFromShadow(areas);
+        return server.getPresetsWorld();
     }
 
     public static void loadPreset(Area presetArea, Block presetPivot, Block mainWorldPivot) {

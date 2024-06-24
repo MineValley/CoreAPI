@@ -34,9 +34,7 @@ import minevalley.smart.api.Session;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.apache.logging.log4j.util.TriConsumer;
-import org.bukkit.Chunk;
-import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -159,12 +157,6 @@ public interface CoreServer {
 
     GuiItem createAdvancedGuiItem(ItemStack itemStack, TriConsumer<OnlineUser, ClickType, Inventory> consumer);
 
-    Countdown createCountdown();
-
-    void startCountdown(Countdown countdown);
-
-    void stopCountdown(Countdown countdown);
-
     ItemBuilder createItem(ItemStack itemStack);
 
     ItemBuilder createItem(Material material);
@@ -242,7 +234,11 @@ public interface CoreServer {
 
     Area getArea(Block loc1, Block loc2);
 
-    void transferFromShadow(Area... areas);
+    World getMainWorld();
+
+    World getBuildingWorld();
+
+    World getPresetsWorld();
 
     void loadPreset(Area presetArea, Block presetPivot, Block mainWorldPivot);
 
