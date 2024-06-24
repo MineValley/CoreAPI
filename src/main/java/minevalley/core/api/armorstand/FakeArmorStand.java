@@ -47,6 +47,6 @@ public interface FakeArmorStand extends EquipmentModifier, LocationModifier, Met
     void isSeeing(Function<OnlineUser, Boolean> function);
 
     enum InteractType {
-        LEFT_CLICK, RIGHT_CLICK;
+        LEFT_CLICK, RIGHT_CLICK
     }
 }
