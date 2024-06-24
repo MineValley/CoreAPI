@@ -6,12 +6,14 @@ public interface EquipmentModifier {
 
     /**
      * Get the item in the armorstand's left hand
+     *
      * @return item in left hand
      */
     ItemStack getLeftHand();
 
     /**
      * Set the item in the armorstand's left hand
+     *
      * @param itemStack item to set
      * @return this
      */
@@ -19,12 +21,14 @@ public interface EquipmentModifier {
 
     /**
      * Get the item in the armorstand's right hand
+     *
      * @return item in right hand
      */
     ItemStack getRightHand();
 
     /**
      * Set the item in the armorstand's right hand
+     *
      * @param itemStack item to set
      * @return this
      */
@@ -32,12 +36,14 @@ public interface EquipmentModifier {
 
     /**
      * Get the item in the armorstand's helmet slot
+     *
      * @return item in helmet slot
      */
     ItemStack getHelmet();
 
     /**
      * Set the item in the armorstand's helmet slot
+     *
      * @param helmet item to set
      * @return this
      */
@@ -45,12 +51,14 @@ public interface EquipmentModifier {
 
     /**
      * Get the item in the armorstand's chestplate slot
+     *
      * @return item in chestplate slot
      */
     ItemStack getChestplate();
 
     /**
      * Set the item in the armorstand's chestplate slot
+     *
      * @param chestplate item to set
      * @return this
      */
@@ -58,12 +66,14 @@ public interface EquipmentModifier {
 
     /**
      * Get the item in the armorstand's leggings slot
+     *
      * @return item in leggings slot
      */
     ItemStack getLeggings();
 
     /**
      * Set the item in the armorstand's leggings slot
+     *
      * @param leggings item to set
      * @return this
      */
@@ -71,12 +81,14 @@ public interface EquipmentModifier {
 
     /**
      * Get the item in the armorstand's boots slot
+     *
      * @return item in boots slot
      */
     ItemStack getBoots();
 
     /**
      * Set the item in the armorstand's boots slot
+     *
      * @param boots item to set
      * @return this
      */

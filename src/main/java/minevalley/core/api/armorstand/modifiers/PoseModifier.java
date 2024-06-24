@@ -29,7 +29,6 @@ public interface PoseModifier {
     PoseModifier setHeadPose(EulerAngle headPose);
 
 
-
     /**
      * Gets the left arm pose of the armor stand.
      *
@@ -44,7 +43,6 @@ public interface PoseModifier {
      * @return The pose modifier.
      */
     PoseModifier setLeftArmPose(EulerAngle leftArmPose);
-
 
 
     /**
@@ -63,7 +61,6 @@ public interface PoseModifier {
     PoseModifier setRightArmPose(EulerAngle rightArmPose);
 
 
-
     /**
      * Gets the left leg pose of the armor stand.
      *
@@ -78,7 +75,6 @@ public interface PoseModifier {
      * @return The pose modifier.
      */
     PoseModifier setBodyPose(EulerAngle bodyPose);
-
 
 
     /**
@@ -97,7 +93,6 @@ public interface PoseModifier {
     PoseModifier setLeftLegPose(EulerAngle leftLegPose);
 
 
-
     /**
      * Gets the right leg pose of the armor stand.
      *
@@ -112,7 +107,6 @@ public interface PoseModifier {
      * @return The pose modifier.
      */
     PoseModifier setRightLegPose(EulerAngle rightLegPose);
-
 
 
     /**
