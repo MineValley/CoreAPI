@@ -1,4 +1,4 @@
-package minevalley.core.api.regions;
+package minevalley.core.api.regions.utils;
 
 import org.bukkit.Location;
 import org.bukkit.block.Block;

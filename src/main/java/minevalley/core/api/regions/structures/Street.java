@@ -1,9 +1,10 @@
-package minevalley.core.api.regions;
+package minevalley.core.api.regions.structures;
 
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import minevalley.core.api.regions.utils.PlayerLocation;
 import org.bukkit.Location;
 
 import java.util.List;

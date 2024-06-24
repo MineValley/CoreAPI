@@ -10,7 +10,7 @@ import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.MessageType;
 import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
-import minevalley.core.api.regions.PlayerLocation;
+import minevalley.core.api.regions.utils.PlayerLocation;
 import minevalley.core.api.users.enums.FractionService;
 import minevalley.core.api.users.enums.McVersion;
 import minevalley.core.api.users.enums.TeamRank;

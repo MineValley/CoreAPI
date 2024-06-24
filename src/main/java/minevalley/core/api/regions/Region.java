@@ -1,5 +1,7 @@
 package minevalley.core.api.regions;
 
+import minevalley.core.api.regions.residences.Residence;
+import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.Chunk;
 import org.bukkit.Location;

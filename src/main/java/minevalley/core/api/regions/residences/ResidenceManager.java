@@ -1,4 +1,4 @@
-package minevalley.core.api.regions;
+package minevalley.core.api.regions.residences;
 
 import lombok.Setter;
 import minevalley.core.api.Registrant;

@@ -1,4 +1,4 @@
-package minevalley.core.api.regions;
+package minevalley.core.api.regions.residences;
 
 import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.users.OnlineUser;

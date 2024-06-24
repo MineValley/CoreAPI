@@ -1,5 +1,6 @@
-package minevalley.core.api.regions;
+package minevalley.core.api.regions.structures;
 
+import minevalley.core.api.regions.utils.PlayerLocation;
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.Chunk;
 

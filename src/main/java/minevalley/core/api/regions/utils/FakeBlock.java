@@ -1,4 +1,4 @@
-package minevalley.core.api.regions;
+package minevalley.core.api.regions.utils;
 
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.entity.Player;

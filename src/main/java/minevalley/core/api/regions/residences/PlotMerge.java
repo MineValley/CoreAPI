@@ -1,5 +1,6 @@
-package minevalley.core.api.regions;
+package minevalley.core.api.regions.residences;
 
+import minevalley.core.api.regions.Region;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 
