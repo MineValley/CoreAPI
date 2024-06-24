@@ -15,7 +15,7 @@
     </properties>
 
     <groupId>minevalley.core</groupId>
-    <artifactId>api</artifactId>
+    <artifactId>CoreAPI</artifactId>
     <version>${version}</version>
     <packaging>jar</packaging>
 
