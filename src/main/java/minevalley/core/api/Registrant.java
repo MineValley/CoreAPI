@@ -1,12 +1,12 @@
 package minevalley.core.api;
 
-import minevalley.core.api.corporations.business.Aktiengesellschaft;
-import minevalley.core.api.corporations.business.Kapitalgesellschaft;
+import minevalley.core.api.corporations.companies.Aktiengesellschaft;
+import minevalley.core.api.corporations.companies.Kapitalgesellschaft;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.mail.Parcel;
-import minevalley.core.api.regions.Address;
-import minevalley.core.api.regions.Residence;
+import minevalley.core.api.regions.residences.Address;
+import minevalley.core.api.regions.residences.Residence;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
 import minevalley.core.api.vehicles.Vehicle;

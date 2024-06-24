@@ -46,7 +46,7 @@ jobs:
       - name: Upload assets to release
         if: ${{ inputs.isRelease }}
         uses: softprops/action-gh-release@v0.1.15
-        with: 
+        with:
           files: |
             target/api-${{ inputs.version }}.jar
             target/api-${{ inputs.version }}-sources.jar

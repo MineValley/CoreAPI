@@ -2,12 +2,14 @@ package minevalley.core.api;
 
 import com.google.gson.Gson;
 import lombok.NonNull;
+import minevalley.core.api.armorstand.FakeArmorStand;
+import minevalley.core.api.command.PlayerCommand;
 import minevalley.core.api.corporations.Group;
-import minevalley.core.api.corporations.StateCompany;
-import minevalley.core.api.corporations.business.Aktiengesellschaft;
-import minevalley.core.api.corporations.business.Einzelunternehmen;
-import minevalley.core.api.corporations.business.Kapitalgesellschaft;
-import minevalley.core.api.corporations.business.Personengesellschaft;
+import minevalley.core.api.corporations.companies.StateCompany;
+import minevalley.core.api.corporations.companies.Aktiengesellschaft;
+import minevalley.core.api.corporations.companies.Einzelunternehmen;
+import minevalley.core.api.corporations.companies.Kapitalgesellschaft;
+import minevalley.core.api.corporations.companies.Personengesellschaft;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
@@ -16,22 +18,31 @@ import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.InterfaceItem;
 import minevalley.core.api.enums.Server;
-import minevalley.core.api.modulepipeline.Container;
-import minevalley.core.api.modulepipeline.PipelineReceiver;
+import minevalley.core.api.gui.GuiBuilder;
+import minevalley.core.api.gui.GuiItem;
+import minevalley.core.api.gui.MultiPageGui;
+import minevalley.core.api.npc.NPC;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.*;
+import minevalley.core.api.regions.residences.Apartment;
+import minevalley.core.api.regions.residences.ApartmentBlock;
+import minevalley.core.api.regions.residences.Plot;
+import minevalley.core.api.regions.residences.Residence;
+import minevalley.core.api.regions.structures.District;
+import minevalley.core.api.regions.structures.RadioMast;
+import minevalley.core.api.regions.structures.Street;
+import minevalley.core.api.regions.utils.Area;
+import minevalley.core.api.regions.utils.Boundary;
+import minevalley.core.api.regions.utils.FakeBlock;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
+import minevalley.core.api.utils.CarBarrier;
 import minevalley.core.api.utils.EventListener;
-import minevalley.core.api.utils.*;
-import minevalley.core.api.utils.armorstand.FakeArmorStand;
-import minevalley.core.api.utils.command.PlayerCommand;
-import minevalley.core.api.utils.gui.GuiBuilder;
-import minevalley.core.api.utils.gui.GuiItem;
-import minevalley.core.api.utils.gui.MultiPageGui;
+import minevalley.core.api.utils.Hologram;
+import minevalley.core.api.utils.ItemBuilder;
 import minevalley.smart.api.Session;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.ChatColor;
@@ -39,7 +50,10 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import org.apache.logging.log4j.util.TriConsumer;
-import org.bukkit.*;
+import org.bukkit.Chunk;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -61,6 +75,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("unused")
 public final class Core {
 
     private static CoreServer server;
@@ -123,53 +138,16 @@ public final class Core {
         server.cancelTask(taskId);
     }
 
-    /**
-     * @param cls      class of event
-     * @param listener listener to register
-     * @deprecated use {@link #registerListener(Class, EventListener)} instead!
-     */
-    @Deprecated
-    public static void registerEvent(Class<? extends Event> cls, EventListener listener) {
-        server.registerListener(cls, listener);
-    }
-
     public static void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener) {
         server.registerListener(cls, listener);
-    }
-
-    /**
-     * @param cls      class of event
-     * @param listener listener to unregister
-     * @deprecated use {@link #unregisterListener(Class, EventListener)} instead!
-     */
-    @Deprecated
-    public static void unregisterEvent(Class<? extends Event> cls, EventListener listener) {
-        server.unregisterListener(cls, listener);
     }
 
     public static void unregisterListener(Class<? extends Event> cls, EventListener<? extends Event> listener) {
         server.unregisterListener(cls, listener);
     }
 
-    /**
-     * @param listener listener to register
-     * @deprecated use {@link #registerListener(Listener)} instead!
-     */
-    @Deprecated
-    public static void registerListeners(Listener listener) {
-        server.registerListener(listener);
-    }
-
     public static void registerListener(Listener listener) {
         server.registerListener(listener);
-    }
-
-    public static void registerPipeline(PipelineReceiver pipelineReceiver) {
-        server.registerPipelineReceiver(pipelineReceiver);
-    }
-
-    public static void sendPipelineContainer(String pipelineName, Container container) {
-        server.sendPipelineContainer(pipelineName, container);
     }
 
     public static void registerCommand(PlayerCommand command) {
@@ -645,40 +623,12 @@ public final class Core {
     }
 
     /**
-     * Creates new countdown-object.
-     * Note: Don't use this method to realize cooldowns for player-actions. Use schedulers instead!
-     *
-     * @return new countdown-object
-     */
-    public static Countdown createCountdown() {
-        return server.createCountdown();
-    }
-
-    /**
-     * Starts the specific countdown.
-     *
-     * @param countdown countdown to start
-     */
-    public static void startCountdown(Countdown countdown) {
-        server.startCountdown(countdown);
-    }
-
-    /**
-     * Stops the specific countdown.
-     *
-     * @param countdown countdown to stop
-     */
-    public static void stopCountdown(Countdown countdown) {
-        server.stopCountdown(countdown);
-    }
-
-    /**
      * Gets the servers main map.
      *
      * @return main map
      */
     public static World getMainWorld() {
-        return Bukkit.getWorld("world");
+        return server.getMainWorld();
     }
 
     /**
@@ -687,36 +637,11 @@ public final class Core {
      * @return building map
      */
     public static World getBuildingWorld() {
-        return Bukkit.getWorld("bauteam");
-    }
-
-    public static World getPreBuildWorld() {
-        return Bukkit.getWorld("prebuild");
+        return server.getBuildingWorld();
     }
 
     public static World getPresetsWorld() {
-        return Bukkit.getWorld("presets");
-    }
-
-    public static World getMineWorld() {
-        return Bukkit.getWorld("mine");
-    }
-
-    public static World getDefaultMineWorld() {
-        return Bukkit.getWorld("default_mine");
-    }
-
-    /**
-     * Gets the shadow map.
-     *
-     * @return shadow map
-     */
-    public static World getShadowWorld() {
-        return Bukkit.getWorld("shadow");
-    }
-
-    public static void transferFromShadowWorld(Area... areas) {
-        server.transferFromShadow(areas);
+        return server.getPresetsWorld();
     }
 
     public static void loadPreset(Area presetArea, Block presetPivot, Block mainWorldPivot) {
@@ -1210,29 +1135,6 @@ public final class Core {
     public static Apartment createApartment(Region region, ApartmentBlock block, int rent, Sign apartmentSign,
                                             Block mailbox) {
         return server.createApartment(region, block, rent, apartmentSign, mailbox);
-    }
-
-    // TODO: 05.06.2023
-    @Deprecated
-    public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord,
-                                                      int fertility, Block mailboxBlock, Area mailboxConnectedBlocks,
-                                                      Sign apartmentBlockSign, Sign bellSign, int maxFloors,
-                                                      int defaultFloor, Area defaultFloorShadow, List<Area> roofShadows,
-                                                      Area constructionFloorShadow, Vector constructionWorkerLocation,
-                                                      List<Location> craftsmanLocations, Block[] damagedFloorBlocks) {
-        return server.createApartmentBlock(street, teleportLocation, landlord, fertility, mailboxBlock,
-                mailboxConnectedBlocks, apartmentBlockSign, bellSign, maxFloors, defaultFloor, defaultFloorShadow,
-                roofShadows, constructionFloorShadow, constructionWorkerLocation, craftsmanLocations, damagedFloorBlocks);
-    }
-
-    // TODO: 05.06.2023
-    @Deprecated
-    public static ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord,
-                                                      int fertility, Block mailboxBlock, Area mailboxConnectedBlocks,
-                                                      Sign apartmentBlockSign, Sign bellSign, int floors,
-                                                      List<Location> craftsmanLocations, Block[] damagedFloorBlocks) {
-        return server.createApartmentBlock(street, teleportLocation, landlord, fertility, mailboxBlock,
-                mailboxConnectedBlocks, apartmentBlockSign, bellSign, floors, craftsmanLocations, damagedFloorBlocks);
     }
 
     public static List<Residence> getLoadedResidences() {

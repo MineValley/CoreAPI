@@ -2,12 +2,14 @@ package minevalley.core.api;
 
 import com.google.gson.Gson;
 import lombok.NonNull;
+import minevalley.core.api.armorstand.FakeArmorStand;
+import minevalley.core.api.command.PlayerCommand;
 import minevalley.core.api.corporations.Group;
-import minevalley.core.api.corporations.StateCompany;
-import minevalley.core.api.corporations.business.Aktiengesellschaft;
-import minevalley.core.api.corporations.business.Einzelunternehmen;
-import minevalley.core.api.corporations.business.Kapitalgesellschaft;
-import minevalley.core.api.corporations.business.Personengesellschaft;
+import minevalley.core.api.corporations.companies.StateCompany;
+import minevalley.core.api.corporations.companies.Aktiengesellschaft;
+import minevalley.core.api.corporations.companies.Einzelunternehmen;
+import minevalley.core.api.corporations.companies.Kapitalgesellschaft;
+import minevalley.core.api.corporations.companies.Personengesellschaft;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
@@ -15,21 +17,31 @@ import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.Server;
-import minevalley.core.api.modulepipeline.Container;
-import minevalley.core.api.modulepipeline.PipelineReceiver;
+import minevalley.core.api.gui.GuiBuilder;
+import minevalley.core.api.gui.GuiItem;
+import minevalley.core.api.gui.MultiPageGui;
+import minevalley.core.api.npc.NPC;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.*;
+import minevalley.core.api.regions.residences.Apartment;
+import minevalley.core.api.regions.residences.ApartmentBlock;
+import minevalley.core.api.regions.residences.Plot;
+import minevalley.core.api.regions.residences.Residence;
+import minevalley.core.api.regions.structures.District;
+import minevalley.core.api.regions.structures.RadioMast;
+import minevalley.core.api.regions.structures.Street;
+import minevalley.core.api.regions.utils.Area;
+import minevalley.core.api.regions.utils.Boundary;
+import minevalley.core.api.regions.utils.FakeBlock;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
-import minevalley.core.api.utils.*;
-import minevalley.core.api.utils.armorstand.FakeArmorStand;
-import minevalley.core.api.utils.command.PlayerCommand;
-import minevalley.core.api.utils.gui.GuiBuilder;
-import minevalley.core.api.utils.gui.GuiItem;
-import minevalley.core.api.utils.gui.MultiPageGui;
+import minevalley.core.api.utils.CarBarrier;
+import minevalley.core.api.utils.EventListener;
+import minevalley.core.api.utils.Hologram;
+import minevalley.core.api.utils.ItemBuilder;
 import minevalley.smart.api.Session;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -37,6 +49,7 @@ import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -73,15 +86,11 @@ public interface CoreServer {
 
     void cancelTask(int taskId);
 
-    void registerListener(Class<? extends Event> cls, EventListener listener);
+    void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener);
 
-    void unregisterListener(Class<? extends Event> cls, EventListener listener);
+    void unregisterListener(Class<? extends Event> cls, EventListener<? extends Event> listener);
 
     void registerListener(Listener listener);
-
-    void registerPipelineReceiver(PipelineReceiver pipeLineManager);
-
-    void sendPipelineContainer(String pipelineName, Container container);
 
     void registerCommand(PlayerCommand command);
 
@@ -159,12 +168,6 @@ public interface CoreServer {
 
     GuiItem createAdvancedGuiItem(ItemStack itemStack, TriConsumer<OnlineUser, ClickType, Inventory> consumer);
 
-    Countdown createCountdown();
-
-    void startCountdown(Countdown countdown);
-
-    void stopCountdown(Countdown countdown);
-
     ItemBuilder createItem(ItemStack itemStack);
 
     ItemBuilder createItem(Material material);
@@ -208,16 +211,6 @@ public interface CoreServer {
 
     Apartment createApartment(Region region, ApartmentBlock block, int rent, Sign apartmentSign, Block mailbox);
 
-    ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord, int fertility,
-                                        Block mailboxBlock, Area mailboxConnectedBlocks, Sign apartmentBlockSign,
-                                        Sign bellSign, int maxFloors, int defaultFloor, Area defaultFloorShadow,
-                                        List<Area> roofShadows, Area constructionFloorShadow, Vector constructionWorkerLocation,
-                                        List<Location> craftsmanLocations, Block[] damagedFloorBlocks);
-
-    ApartmentBlock createApartmentBlock(Street street, Location teleportLocation, Registrant landlord, int fertility,
-                                        Block mailboxBlock, Area mailboxConnectedBlocks, Sign apartmentBlockSign,
-                                        Sign bellSign, int floors, List<Location> craftsmanLocations, Block[] damagedFloorBlocks);
-
     List<Residence> getLoadedResidences();
 
     List<Street> getStreets();
@@ -242,7 +235,11 @@ public interface CoreServer {
 
     Area getArea(Block loc1, Block loc2);
 
-    void transferFromShadow(Area... areas);
+    World getMainWorld();
+
+    World getBuildingWorld();
+
+    World getPresetsWorld();
 
     void loadPreset(Area presetArea, Block presetPivot, Block mainWorldPivot);
 

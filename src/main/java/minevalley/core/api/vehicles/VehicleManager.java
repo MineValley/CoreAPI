@@ -1,8 +1,8 @@
 package minevalley.core.api.vehicles;
 
 import lombok.Setter;
-import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.Registrant;
+import minevalley.core.api.users.OnlineUser;
 import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.ArmorStand;
