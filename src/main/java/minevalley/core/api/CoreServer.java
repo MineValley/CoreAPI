@@ -71,9 +71,9 @@ public interface CoreServer {
 
     void cancelTask(int taskId);
 
-    void registerListener(Class<? extends Event> cls, EventListener listener);
+    void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener);
 
-    void unregisterListener(Class<? extends Event> cls, EventListener listener);
+    void unregisterListener(Class<? extends Event> cls, EventListener<? extends Event> listener);
 
     void registerListener(Listener listener);
 
