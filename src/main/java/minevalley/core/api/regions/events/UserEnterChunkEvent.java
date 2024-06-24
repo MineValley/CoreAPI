@@ -1,24 +1,27 @@
-package minevalley.core.api.events;
+package minevalley.core.api.regions.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.users.OnlineUser;
-import minevalley.core.api.regions.Region;
+import org.bukkit.Chunk;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+import org.bukkit.event.player.PlayerMoveEvent;
+
 
 /**
- * This event is called when a user enters a region, no matter what type of region it is.
+ * This event is called when a user enters a cuboid.
  */
 @RequiredArgsConstructor
 @Getter
-public class UserEnterRegionEvent extends Event implements Cancellable {
+public class UserEnterChunkEvent extends Event implements Cancellable {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
 
     private final OnlineUser user;
-    private final Region region;
+    private final Chunk from, to;
+    private final PlayerMoveEvent event;
     private boolean cancelled = false;
 
     public static HandlerList getHandlerList() {
@@ -31,12 +34,9 @@ public class UserEnterRegionEvent extends Event implements Cancellable {
     }
 
     @Override
-    public boolean isCancelled() {
-        return cancelled;
-    }
-
-    @Override
     public void setCancelled(boolean cancel) {
-        cancelled = cancel;
+        this.cancelled = true;
+        event.setCancelled(true);
+        user.getPlayer().setVelocity(event.getFrom().toVector().subtract(event.getTo().toVector()));
     }
 }

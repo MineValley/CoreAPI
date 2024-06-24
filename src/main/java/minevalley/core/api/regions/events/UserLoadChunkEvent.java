@@ -1,23 +1,19 @@
-package minevalley.core.api.events;
+package minevalley.core.api.regions.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.users.OnlineUser;
-import minevalley.core.api.regions.District;
+import org.bukkit.Chunk;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-/**
- * This event is called when a user enters a district.
- */
-@RequiredArgsConstructor
 @Getter
-public class UserEnterDistrictEvent extends Event {
+@RequiredArgsConstructor
+public class UserLoadChunkEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
-
     private final OnlineUser user;
-    private final District district;
+    private final Chunk chunk;
 
     public static HandlerList getHandlerList() {
         return HANDLER_LIST;
