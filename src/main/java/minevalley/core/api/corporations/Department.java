@@ -1,6 +1,7 @@
 package minevalley.core.api.corporations;
 
 import minevalley.core.api.Registrant;
+import minevalley.core.api.corporations.tasks.Task;
 import minevalley.core.api.users.User;
 
 import java.util.List;

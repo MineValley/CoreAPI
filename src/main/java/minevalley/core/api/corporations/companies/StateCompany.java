@@ -1,9 +1,8 @@
-package minevalley.core.api.corporations;
+package minevalley.core.api.corporations.companies;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.corporations.business.Kapitalgesellschaft;
 
 public interface StateCompany extends Kapitalgesellschaft {
 

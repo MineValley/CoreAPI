@@ -2,7 +2,6 @@ package minevalley.core.api.corporations.tasks;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import minevalley.core.api.corporations.Task;
 import org.bukkit.Material;
 
 import java.util.List;
