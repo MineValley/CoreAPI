@@ -1,4 +1,4 @@
-name: Core-API | Release Builder
+name: CoreAPI | Release Builder
 
 on:
   release:
