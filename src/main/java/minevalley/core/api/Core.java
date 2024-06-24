@@ -16,8 +16,6 @@ import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.InterfaceItem;
 import minevalley.core.api.enums.Server;
-import minevalley.core.api.modulepipeline.Container;
-import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.*;
 import minevalley.core.api.timing.Reminder;
@@ -137,14 +135,6 @@ public final class Core {
 
     public static void registerListener(Listener listener) {
         server.registerListener(listener);
-    }
-
-    public static void registerPipeline(PipelineReceiver pipelineReceiver) {
-        server.registerPipelineReceiver(pipelineReceiver);
-    }
-
-    public static void sendPipelineContainer(String pipelineName, Container container) {
-        server.sendPipelineContainer(pipelineName, container);
     }
 
     public static void registerCommand(PlayerCommand command) {

@@ -15,8 +15,6 @@ import minevalley.core.api.database.Value;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.Server;
-import minevalley.core.api.modulepipeline.Container;
-import minevalley.core.api.modulepipeline.PipelineReceiver;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.regions.*;
 import minevalley.core.api.timing.Reminder;
@@ -79,10 +77,6 @@ public interface CoreServer {
     void unregisterListener(Class<? extends Event> cls, EventListener<? extends Event> listener);
 
     void registerListener(Listener listener);
-
-    void registerPipelineReceiver(PipelineReceiver pipeLineManager);
-
-    void sendPipelineContainer(String pipelineName, Container container);
 
     void registerCommand(PlayerCommand command);
 
