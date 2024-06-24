@@ -4,9 +4,10 @@ import minevalley.core.api.armorstand.modifiers.*;
 import minevalley.core.api.users.OnlineUser;
 
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 public interface FakeArmorStand extends EquipmentModifier, LocationModifier, MetadataModifier, PassengerModifier,
-        PoseModifier, RotationModifier, VisibilityModifier {
+        PoseModifier, RotationModifier {
 
     /**
      * get the custom id from the armorstand
@@ -42,6 +43,8 @@ public interface FakeArmorStand extends EquipmentModifier, LocationModifier, Met
     void setVisibilityRange(int visibilityRange);
 
     void onClick(BiConsumer<OnlineUser, InteractType> consumer);
+
+    void isSeeing(Function<OnlineUser, Boolean> function);
 
     enum InteractType {
         LEFT_CLICK, RIGHT_CLICK;
