@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <version>1.282.5</version>
+        <version>1.282.6</version>
 
         <smart-api.version>1.61.2</smart-api.version>
 
