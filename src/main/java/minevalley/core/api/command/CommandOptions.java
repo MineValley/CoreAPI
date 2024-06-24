@@ -1,8 +1,8 @@
 package minevalley.core.api.command;
 
 import lombok.NonNull;
-import minevalley.core.api.enums.FractionService;
-import minevalley.core.api.enums.TeamRank;
+import minevalley.core.api.users.enums.FractionService;
+import minevalley.core.api.users.enums.TeamRank;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
