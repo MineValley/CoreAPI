@@ -41,7 +41,7 @@
         <repository>
             <id>github</id>
             <name>GitHub MineValley Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/MineValley/Core-API</url>
+            <url>https://maven.pkg.github.com/MineValley/CoreAPI</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>

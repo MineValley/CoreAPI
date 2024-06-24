@@ -1,4 +1,4 @@
-name: Core-API | Nightly Builder
+name: CoreAPI | Nightly Builder
 
 on:
   push:
