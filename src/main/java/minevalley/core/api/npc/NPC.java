@@ -14,22 +14,36 @@ import org.bukkit.util.Vector;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public interface NPC {
 
     String getName();
 
-    void show(Player player);
+    /**
+     * Defines which users can see the npc
+     * <br>
+     * <b>Default:</b> Everyone can see the npc
+     *
+     * @param function defines whether a specific user can see the npc
+     */
+    void setVisibility(Function<OnlineUser, Boolean> function);
 
-    void show(OnlineUser user);
+    /**
+     * Updates the visibility of the npc
+     * <br>
+     * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for every user that the npc is or could be visible to
+     */
+    void updateVisibility();
 
-    void hide(Player player);
-
-    void hide(OnlineUser user);
-
-    boolean canSee(Player player);
-
-    boolean canSee(OnlineUser user);
+    /**
+     * Updates the visibility of the npc for a specific user
+     * <br>
+     * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for this user
+     *
+     * @param user to update the visibility for
+     */
+    void updateVisibility(OnlineUser user);
 
     boolean focusNearPlayers();
 
