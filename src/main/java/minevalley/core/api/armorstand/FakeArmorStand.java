@@ -58,7 +58,23 @@ public interface FakeArmorStand extends EquipmentModifier, LocationModifier, Met
      *
      * @param function defines whether a specific user can see the armorstand
      */
-    void isSeeing(Function<OnlineUser, Boolean> function);
+    void setVisibility(Function<OnlineUser, Boolean> function);
+
+    /**
+     * Updates the visibility of the armorstand
+     * <br>
+     * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for every user that the armorstand is or could be visible to
+     */
+    void updateVisibility();
+
+    /**
+     * Updates the visibility of the armorstand for a specific user
+     * <br>
+     * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for this user
+     *
+     * @param user to update the visibility for
+     */
+    void updateVisibility(OnlineUser user);
 
     enum InteractType {
         LEFT_CLICK, RIGHT_CLICK
