@@ -149,7 +149,7 @@ public interface NPC {
 
         @Getter
         @AllArgsConstructor
-        static class Chance {
+        public static class Chance {
 
             // 1 - 100
             private final int percentage;
