@@ -1,6 +1,7 @@
 package minevalley.core.api.vehicles;
 
 import lombok.Setter;
+import minevalley.core.api.Depends;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.Location;
@@ -15,6 +16,7 @@ import java.util.List;
  * Due to the circumstance that your module might load before this manager's handler, it is necessary not to call any
  * of the functions below on module start without using a scheduler!
  */
+@Depends("FastCar")
 public final class VehicleManager {
 
     @Setter
