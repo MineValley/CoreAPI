@@ -1,6 +1,7 @@
-package minevalley.core.api.users.events;
+package minevalley.core.api.users.events.punishment;
 
 import minevalley.core.api.users.User;
+import minevalley.core.api.users.events.UserEvent;
 
 /**
  * This event gets called when a user is unfreezed.
