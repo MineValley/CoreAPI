@@ -1,8 +1,11 @@
 package minevalley.core.api;
 
-import lombok.RequiredArgsConstructor;
-
 public @interface Depends {
 
+    /**
+     * The name of the module.
+     *
+     * @return module name
+     */
     String value();
 }
