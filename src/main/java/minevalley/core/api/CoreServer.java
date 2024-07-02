@@ -74,13 +74,13 @@ public interface CoreServer {
 
     JavaPlugin getInstance();
 
-    int runSyncTaskLater(String taskName, long delay, Runnable runnable);
+    int runSyncTaskLater(long delay, Runnable runnable);
 
-    int runAsyncTaskLater(String taskName, long delay, Runnable runnable);
+    int runAsyncTaskLater(long delay, Runnable runnable);
 
-    int runSyncTaskPeriodically(String taskName, long delay, long period, Runnable runnable);
+    int runSyncTaskPeriodically(long delay, long period, Runnable runnable);
 
-    int runAsyncTaskPeriodically(String taskName, long delay, long period, Runnable runnable);
+    int runAsyncTaskPeriodically(long delay, long period, Runnable runnable);
 
     boolean isCurrentlyRunning(int taskId);
 

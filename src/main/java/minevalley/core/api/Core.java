@@ -80,28 +80,28 @@ public final class Core {
         return server.getInstance();
     }
 
-    public static int runSyncTaskNow(String taskName, Runnable runnable) {
-        return runSyncTaskLater(taskName, 0, runnable);
+    public static int runSyncTaskNow(Runnable runnable) {
+        return server.runSyncTaskLater(0, runnable);
     }
 
-    public static int runAsyncTaskNow(String taskName, Runnable runnable) {
-        return runAsyncTaskLater(taskName, 0, runnable);
+    public static int runAsyncTaskNow(Runnable runnable) {
+        return server.runAsyncTaskLater(0, runnable);
     }
 
-    public static int runSyncTaskLater(String taskName, long delay, Runnable runnable) {
-        return server.runSyncTaskLater(taskName, delay, runnable);
+    public static int runSyncTaskLater(long delay, Runnable runnable) {
+        return server.runSyncTaskLater(delay, runnable);
     }
 
-    public static int runAsyncTaskLater(String taskName, long delay, Runnable runnable) {
-        return server.runAsyncTaskLater(taskName, delay, runnable);
+    public static int runAsyncTaskLater(long delay, Runnable runnable) {
+        return server.runAsyncTaskLater(delay, runnable);
     }
 
-    public static int runSyncTaskPeriodically(String taskName, long delay, long period, Runnable runnable) {
-        return server.runSyncTaskPeriodically(taskName, delay, period, runnable);
+    public static int runSyncTaskPeriodically(long delay, long period, Runnable runnable) {
+        return server.runSyncTaskPeriodically(delay, period, runnable);
     }
 
-    public static int runAsyncTaskPeriodically(String taskName, long delay, long period, Runnable runnable) {
-        return server.runAsyncTaskPeriodically(taskName, delay, period, runnable);
+    public static int runAsyncTaskPeriodically(long delay, long period, Runnable runnable) {
+        return server.runAsyncTaskPeriodically(delay, period, runnable);
     }
 
     /**
