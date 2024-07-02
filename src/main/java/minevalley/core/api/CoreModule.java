@@ -1,22 +1,6 @@
 package minevalley.core.api;
 
-import lombok.Getter;
-
-import java.util.Objects;
-
-@Getter
 public abstract class CoreModule {
-
-    @Getter
-    private static CoreServer server;
-    private final Description description;
-
-    public CoreModule(CoreServer coreServer) {
-        server = coreServer;
-        this.description = Objects.requireNonNull(getClass().getAnnotation(Description.class),
-                "Description-Annotation nicht vorhanden!");
-        new Core(server);
-    }
 
     /**
      * Is called when the module is enabled.
