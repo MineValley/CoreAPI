@@ -142,6 +142,10 @@ public final class Core {
         server.registerListener(listener);
     }
 
+    public static void callEvent(Event event) {
+        server.callEvent(event);
+    }
+
     public static void registerCommand(PlayerCommand command) {
         server.registerCommand(command);
     }

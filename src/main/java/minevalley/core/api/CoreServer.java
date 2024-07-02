@@ -5,11 +5,7 @@ import lombok.NonNull;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.command.PlayerCommand;
 import minevalley.core.api.corporations.Group;
-import minevalley.core.api.corporations.companies.StateCompany;
-import minevalley.core.api.corporations.companies.Aktiengesellschaft;
-import minevalley.core.api.corporations.companies.Einzelunternehmen;
-import minevalley.core.api.corporations.companies.Kapitalgesellschaft;
-import minevalley.core.api.corporations.companies.Personengesellschaft;
+import minevalley.core.api.corporations.companies.*;
 import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
@@ -22,7 +18,7 @@ import minevalley.core.api.gui.GuiItem;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.npc.NPC;
 import minevalley.core.api.phone.Telephone;
-import minevalley.core.api.regions.*;
+import minevalley.core.api.regions.Region;
 import minevalley.core.api.regions.residences.Apartment;
 import minevalley.core.api.regions.residences.ApartmentBlock;
 import minevalley.core.api.regions.residences.Plot;
@@ -91,6 +87,8 @@ public interface CoreServer {
     void unregisterListener(Class<? extends Event> cls, EventListener<? extends Event> listener);
 
     void registerListener(Listener listener);
+
+    void callEvent(Event event);
 
     void registerCommand(PlayerCommand command);
 
