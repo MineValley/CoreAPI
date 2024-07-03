@@ -30,8 +30,20 @@ Falls nicht bereits erledigt, muss zuvor ein Token in der settings.xml hinterleg
 Auch wenn die API öffentlich zugänglich ist, ist für die Verwendung der Repository leider ein GitHub-Account notwendig.
 Ist ein solcher vorhanden, muss ein Token erstellt werden:
 ### Token erstellen
-Gehe hierfür ...
-
+Gehe hierfür in die GitHub-Settings (Rechts oben Profilbild &gt; 'Settings'). 
+<br>
+Klicke ganz unten auf 'Developer settings' &gt; 'Personal access tokens' &gt; 'Tokens (classic)'.
+<br>
+Erstelle nun per Klick auf 'Generate new Token' einen neuen Token. Wähle im Dropdown 'Generate new token (classic)' aus.
+<br>
+Gebe dem Token einen sinnvollen Namen ('MineValley', 'CoreAPI', o. ä.) im Feld 'Note'.
+<br>
+Bei 'Expiration' wählst du einen geeigneten Zeitraum aus, für den du diesen Token nutzen wirst.
+Nach Ablauf des Zeitraums wirst du einen neuen Token erstellen müssen. Du hast auch die Möglichkeit 'No expiration' auszuwählen.
+<br>
+Setze einen Haken bei 'read:packages' und klicke ganz unten auf 'Generate token'.
+<br>
+Du kannst den Token nun kopieren.
 ### Token einfügen
 Ist der Token vorhanden, so kannst du ihn in die settings.xml-Datei[^settings] deiner Maven-Installation einfügen.
 Die untenstehende Vorlage kann dir dabei helfen. Ersetze dabei USERNAME mit deinem GitHub-Benutzernamen und TOKEN mit dem eben erstellten Token.
