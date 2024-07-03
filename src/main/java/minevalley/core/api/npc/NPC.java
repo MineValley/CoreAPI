@@ -5,7 +5,6 @@ import lombok.Getter;
 import minevalley.core.api.ChatMenu;
 import minevalley.core.api.users.OnlineUser;
 import net.md_5.bungee.api.chat.BaseComponent;
-import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -79,9 +78,9 @@ public interface NPC {
 
     void setSneaking(boolean sneaking);
 
-    NPC onClick(TriConsumer<OnlineUser, Click, NPC> callback);
+    NPC onClick(BiConsumer<OnlineUser, Click> callback);
 
-    NPC onComingClose(BiConsumer<OnlineUser, NPC> callback);
+    NPC onComingClose(Consumer<OnlineUser> callback);
 
     String getChatName();
 
