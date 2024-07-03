@@ -30,9 +30,9 @@ Falls nicht bereits erledigt, muss zuvor ein Token in der settings.xml hinterleg
 Auch wenn die API öffentlich zugänglich ist, ist für die Verwendung der Repository leider ein GitHub-Account notwendig.
 Ist ein solcher vorhanden, muss ein Token erstellt werden:
 ### Token erstellen
-Gehe hierfür in die GitHub-Settings (Rechts oben Profilbild &gt; 'Settings'). 
+Gehe hierfür in die GitHub-Settings (Rechts oben Profilbild &rarr; 'Settings'). 
 <br>
-Klicke ganz unten auf 'Developer settings' &gt; 'Personal access tokens' &gt; 'Tokens (classic)'.
+Klicke ganz unten auf 'Developer settings' &rarr; 'Personal access tokens' &rarr; 'Tokens (classic)'.
 <br>
 Erstelle nun per Klick auf 'Generate new Token' einen neuen Token. Wähle im Dropdown 'Generate new token (classic)' aus.
 <br>
@@ -44,6 +44,7 @@ Nach Ablauf des Zeitraums wirst du einen neuen Token erstellen müssen. Du hast 
 Setze einen Haken bei 'read:packages' und klicke ganz unten auf 'Generate token'.
 <br>
 Du kannst den Token nun kopieren.
+
 ### Token einfügen
 Ist der Token vorhanden, so kannst du ihn in die settings.xml-Datei[^settings] deiner Maven-Installation einfügen.
 Die untenstehende Vorlage kann dir dabei helfen. Ersetze dabei USERNAME mit deinem GitHub-Benutzernamen und TOKEN mit dem eben erstellten Token.
@@ -66,24 +67,24 @@ Die untenstehende Vorlage kann dir dabei helfen. Ersetze dabei USERNAME mit dein
 ## Troubleshooting / FAQ
 
 <details>
-<summary>Ich habe Probleme mit Eclipse</summary>
-Nutze IntelliJ
+    <summary>Ich habe Probleme mit Eclipse</summary>
+    Nutze IntelliJ.
 </details>
 
 
 <details>
-<summary>Ich weiß nicht, ob ich den richtigen Benutzernamen ausgewählt habe</summary>
-Du findest den korrekten Github-Nutzernamen auf deinem GitHub-Profil. Bist du dir unsicher, log dich neu ein: 
-Kannst du dich mit dem Benutzernamen einloggen, ist es der richtige.
+    <summary>Ich weiß nicht, ob ich den richtigen Benutzernamen ausgewählt habe</summary>
+    Du findest den korrekten Github-Nutzernamen auf deinem GitHub-Profil. Bist du dir unsicher, log dich neu ein: 
+    Kannst du dich mit dem Benutzernamen einloggen, ist es der richtige.
 </details>
 
 <details>
-<summary>Kann ich den Inhalt von &lt;id&gt; frei wählen?</summary>
-Ja. Sowohl in &lt;server&gt; in der settings.xml, als auch bei &lt;repository&gt; in der pom.xml.
+    <summary>Kann ich den Inhalt von &lt;id&gt; frei wählen?</summary>
+    Ja. Sowohl in &lt;server&gt; in der settings.xml, als auch bei &lt;repository&gt; in der pom.xml.
 </details>
 
 <details>
-<summary>Ich habe alles befolgt, aber die Dependency konnte nicht gefunden werden.</summary>
-Klicke rechts auf Maven und dann links oben auf den 'Reload All Maven Projects'-Button. 
-Funktioniert es weiterhin nicht, klicke links oben im Fenster auf 'File' &gt; 'Invalidate Caches ...' &gt; 'Invalidate and Restart'.
+    <summary>Ich habe alles befolgt, aber die Dependency konnte nicht gefunden werden.</summary>
+    Klicke in der rechten Seitenleiste auf 'Maven' und dann links oben auf den 'Reload All Maven Projects'-Button. 
+    Funktioniert es weiterhin nicht, klicke links oben im Fenster auf 'File' &rarr; 'Invalidate Caches ...' &rarr; 'Invalidate and Restart'.
 </details>
