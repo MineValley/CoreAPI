@@ -41,7 +41,6 @@ import minevalley.core.api.utils.ItemBuilder;
 import minevalley.smart.api.Session;
 import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.chat.BaseComponent;
-import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -51,7 +50,7 @@ import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -162,9 +161,7 @@ public interface CoreServer {
 
     GuiItem createGuiItem(ItemStack itemStack, Consumer<OnlineUser> consumer);
 
-    GuiItem createAdvancedGuiItem(ItemStack itemStack, BiConsumer<OnlineUser, ClickType> consumer);
-
-    GuiItem createAdvancedGuiItem(ItemStack itemStack, TriConsumer<OnlineUser, ClickType, Inventory> consumer);
+    GuiItem createAdvancedGuiItem(ItemStack itemStack, BiConsumer<OnlineUser, InventoryClickEvent> callback);
 
     ItemBuilder createItem(ItemStack itemStack);
 
