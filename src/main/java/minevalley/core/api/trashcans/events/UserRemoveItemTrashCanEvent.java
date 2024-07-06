@@ -10,8 +10,13 @@ public class UserRemoveItemTrashCanEvent extends UserInteractTrashCanEvent {
 
     private final ItemStack itemStack;
 
-    public UserRemoveItemTrashCanEvent(User user, TrashCanInteraction trashCanInteraction, ItemStack itemStack) {
-        super(user, trashCanInteraction);
+    /**
+     * Constructor for {@code UserRemoveItemTrashCanEvent.}
+     * @param user the user performing the interaction
+     * @param itemStack the removed item
+     */
+    public UserRemoveItemTrashCanEvent(User user, ItemStack itemStack) {
+        super(user, TrashCanInteraction.REMOVE_ITEM);
         this.itemStack = itemStack;
     }
 }

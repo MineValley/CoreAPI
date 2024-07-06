@@ -8,7 +8,11 @@ import minevalley.core.api.users.User;
 @Getter
 public class FractionalClearTrashCanEvent extends UserInteractTrashCanEvent {
 
-    public FractionalClearTrashCanEvent(User user, TrashCanInteraction trashCanInteraction) {
-        super(user, trashCanInteraction);
+    /**
+     * Constructor for {@code FractionalClearTrashCanEvent.}
+     * @param user the user performing the interaction
+     */
+    public FractionalClearTrashCanEvent(User user) {
+        super(user, TrashCanInteraction.CLEAR);
     }
 }
