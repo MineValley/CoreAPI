@@ -11,6 +11,6 @@ public enum TrashCanInteraction {
     ADD_ITEM,
     CLEAR,
     CLICK,
-    REMOVE_ITEM,
+    REMOVE_ITEM
 
 }
