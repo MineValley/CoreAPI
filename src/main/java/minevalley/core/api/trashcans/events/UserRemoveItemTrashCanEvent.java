@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 @Getter
 public class UserRemoveItemTrashCanEvent extends UserInteractTrashCanEvent {
 
-    private final ItemStack itemStack;
+    private ItemStack itemStack;
 
     /**
      * Constructor for {@code UserRemoveItemTrashCanEvent.}
@@ -16,6 +16,10 @@ public class UserRemoveItemTrashCanEvent extends UserInteractTrashCanEvent {
      */
     public UserRemoveItemTrashCanEvent(User user, ItemStack itemStack) {
         super(user);
+        this.itemStack = itemStack;
+    }
+
+    public void setItemStack(ItemStack itemStack) {
         this.itemStack = itemStack;
     }
 }
