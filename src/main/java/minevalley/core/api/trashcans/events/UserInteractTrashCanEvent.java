@@ -31,24 +31,4 @@ public abstract class UserInteractTrashCanEvent extends UserEvent implements Can
         super(user);
         this.block = block;
     }
-
-    /**
-     * Returns whether the event is cancelled.
-     *
-     * @return {@code true} if the event is cancelled, {@code false} otherwise.
-     */
-    @Override
-    public boolean isCancelled() {
-        return cancelled;
-    }
-
-    /**
-     * Sets whether the event is cancelled.
-     *
-     * @param cancel {@code true} to cancel the event, {@code false} otherwise.
-     */
-    @Override
-    public void setCancelled(boolean cancel) {
-        this.cancelled = cancel;
-    }
 }
