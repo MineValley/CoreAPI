@@ -1,7 +1,6 @@
 package minevalley.core.api.trashcans.events.services.fractions;
 
 import lombok.Getter;
-import minevalley.core.api.trashcans.enums.TrashCanInteraction;
 import minevalley.core.api.trashcans.events.UserInteractTrashCanEvent;
 import minevalley.core.api.users.User;
 
@@ -13,6 +12,6 @@ public class FractionalClearTrashCanEvent extends UserInteractTrashCanEvent {
      * @param user the user performing the interaction
      */
     public FractionalClearTrashCanEvent(User user) {
-        super(user, TrashCanInteraction.CLEAR);
+        super(user);
     }
 }

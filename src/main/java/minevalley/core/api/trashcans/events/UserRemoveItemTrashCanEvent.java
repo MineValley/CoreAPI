@@ -1,7 +1,6 @@
 package minevalley.core.api.trashcans.events;
 
 import lombok.Getter;
-import minevalley.core.api.trashcans.enums.TrashCanInteraction;
 import minevalley.core.api.users.User;
 import org.bukkit.inventory.ItemStack;
 
@@ -16,7 +15,7 @@ public class UserRemoveItemTrashCanEvent extends UserInteractTrashCanEvent {
      * @param itemStack the removed item
      */
     public UserRemoveItemTrashCanEvent(User user, ItemStack itemStack) {
-        super(user, TrashCanInteraction.REMOVE_ITEM);
+        super(user);
         this.itemStack = itemStack;
     }
 }
