@@ -4,6 +4,11 @@ import lombok.Getter;
 import minevalley.core.api.users.User;
 import org.bukkit.inventory.ItemStack;
 
+/** The {@code UserAddItemTrashCanEvent} is triggered when a user adds an item to a trash can.
+ *  This event is only triggered when the action is allowed by the system, for example, when the trash can is not full.
+ *
+ * @see UserInteractTrashCanEvent
+ */
 @Getter
 public class UserAddItemTrashCanEvent extends UserInteractTrashCanEvent {
 
@@ -19,6 +24,10 @@ public class UserAddItemTrashCanEvent extends UserInteractTrashCanEvent {
         this.itemStack = itemStack;
     }
 
+    /**
+     * Changes the item stack that was added to the trash can.
+     * @param itemStack the new item stack
+     */
     public void setItemStack(ItemStack itemStack) {
         this.itemStack = itemStack;
     }

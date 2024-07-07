@@ -5,7 +5,7 @@ import minevalley.core.api.users.User;
 import minevalley.core.api.users.events.UserEvent;
 import org.bukkit.event.Cancellable;
 
-/**The {@code UserInteractTrashCanEvent} class represents a user interaction with a trash can.
+/**The {@code UserInteractTrashCanEvent} is triggered on any interaction with a trash can.
         * This event is the base class for all trash can interaction events.
  * @see minevalley.core.api.trashcans.events.services.fractions.FractionalClearTrashCanEvent
  * @see minevalley.core.api.trashcans.events.UserAddItemTrashCanEvent
@@ -25,11 +25,19 @@ public class UserInteractTrashCanEvent extends UserEvent implements Cancellable 
         super(user);
     }
 
+    /**
+     * Returns whether the event is cancelled.
+     * @return {@code true} if the event is cancelled, {@code false} otherwise.
+     */
     @Override
     public boolean isCancelled() {
         return cancelled;
     }
 
+/**
+     * Sets whether the event is cancelled.
+     * @param cancel {@code true} to cancel the event, {@code false} otherwise.
+     */
     @Override
     public void setCancelled(boolean cancel) {
         this.cancelled = cancel;
