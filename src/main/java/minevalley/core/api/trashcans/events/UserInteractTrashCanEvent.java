@@ -3,6 +3,7 @@ package minevalley.core.api.trashcans.events;
 import lombok.Getter;
 import minevalley.core.api.users.User;
 import minevalley.core.api.users.events.UserEvent;
+import org.bukkit.block.Block;
 import org.bukkit.event.Cancellable;
 
 /**
@@ -16,6 +17,7 @@ import org.bukkit.event.Cancellable;
 @Getter
 public abstract class UserInteractTrashCanEvent extends UserEvent implements Cancellable {
 
+    private final Block block;
     private boolean cancelled;
 
     /**
@@ -23,8 +25,9 @@ public abstract class UserInteractTrashCanEvent extends UserEvent implements Can
      *
      * @param user The user interacting with the trash can.
      */
-    public UserInteractTrashCanEvent(User user) {
+    public UserInteractTrashCanEvent(User user, Block block) {
         super(user);
+        this.block = block;
     }
 
     /**

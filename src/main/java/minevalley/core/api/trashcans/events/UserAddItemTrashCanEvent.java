@@ -3,6 +3,7 @@ package minevalley.core.api.trashcans.events;
 import lombok.Getter;
 import lombok.Setter;
 import minevalley.core.api.users.User;
+import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -21,10 +22,11 @@ public class UserAddItemTrashCanEvent extends UserInteractTrashCanEvent {
      * Constructor for {@code UserAddItemTrashCanEvent.}
      *
      * @param user      the user performing the interaction
+     * @param block     the block of the trash can
      * @param itemStack the added item
      */
-    public UserAddItemTrashCanEvent(User user, ItemStack itemStack) {
-        super(user);
+    public UserAddItemTrashCanEvent(User user, Block block, ItemStack itemStack) {
+        super(user, block);
         this.itemStack = itemStack;
     }
 }
