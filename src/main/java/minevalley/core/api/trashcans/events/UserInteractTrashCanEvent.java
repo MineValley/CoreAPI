@@ -1,6 +1,7 @@
 package minevalley.core.api.trashcans.events;
 
 import lombok.Getter;
+import lombok.Setter;
 import minevalley.core.api.users.User;
 import minevalley.core.api.users.events.UserEvent;
 import org.bukkit.block.Block;
@@ -14,6 +15,7 @@ import org.bukkit.event.Cancellable;
  * @see minevalley.core.api.trashcans.events.UserAddItemTrashCanEvent
  * @see minevalley.core.api.trashcans.events.UserRemoveItemTrashCanEvent
  */
+@Setter
 @Getter
 public abstract class UserInteractTrashCanEvent extends UserEvent implements Cancellable {
 
