@@ -25,8 +25,9 @@ public class TrashCanManager {
      * @param block     the block of the trash can
      * @param itemStack the item to add
      *                  <p><b>Note:</b> If the {@code amount} of the {@code itemStack} is greater than 1, the item will be split into multiple ItemStacks.</p>
+     * @throws IllegalArgumentException  if the block is not a trash can
      */
-    public static void addItem(Block block, ItemStack itemStack) {
+    public static void addItem(Block block, ItemStack itemStack) throws IllegalArgumentException  {
         manager.addItem(block, itemStack);
     }
 
@@ -35,8 +36,10 @@ public class TrashCanManager {
      * <br>
      * <p>
      * <b>Note:</b> Every replica of the ItemStack will be removed. The order or the amount of the ItemStacks in the TrashCan does not matter.
+     *
+     * @throws IllegalArgumentException if the block is not a trash can
      */
-    public static void removeItem(Block block, ItemStack itemStack) {
+    public static void removeItem(Block block, ItemStack itemStack) throws IllegalArgumentException  {
         manager.removeItem(block, itemStack);
     }
 
@@ -44,8 +47,9 @@ public class TrashCanManager {
      * Clears the trash can at given block.
      *
      * @param block the block of the trash can
+     * @throws IllegalArgumentException if the block is not a trash can
      */
-    public static void clear(Block block) {
+    public static void clear(Block block) throws IllegalArgumentException  {
         manager.clear(block);
     }
 
@@ -60,12 +64,13 @@ public class TrashCanManager {
     }
 
     /**
-     * Returns the peak ItemStack of the trash can. If the trash can is empty a {@code NullPointerException} will be thrown.
+     * Returns the peak ItemStack of the trash can.
      *
      * @param block the block of the trash can
-     * @return the peak ItemStack
+     * @return the peak ItemStack - if empty {@code null} will be returned.
+     * @throws IllegalArgumentException if the block is not a trash can
      */
-    public static ItemStack getPeak(Block block) {
+    public static ItemStack getPeak(Block block) throws IllegalArgumentException  {
         return manager.getPeak(block);
     }
 
@@ -80,22 +85,24 @@ public class TrashCanManager {
     }
 
     /**
-     * Returns whether the trash can is full. If the block is not a trash can a {@code NullPointerException} will be thrown.
+     * Returns whether the trash can is full.
      *
      * @param block the block of the trash can
      * @return {@code true} if the trash can is full, {@code false} otherwise
+     * @throws IllegalArgumentException if the block is not a trash can
      */
-    public static boolean isFull(Block block) {
+    public static boolean isFull(Block block) throws IllegalArgumentException  {
         return manager.isFull(block);
     }
 
     /**
-     * Returns whether the trash can is empty. If the block is not a trash can a {@code NullPointerException} will be thrown.
+     * Returns whether the trash can is empty.
      *
      * @param block the block of the trash can
      * @return {@code true} if the trash can is empty, {@code false} otherwise
+     * @throws IllegalArgumentException if the block is not a trash can
      */
-    public static boolean isEmpty(Block block) {
+    public static boolean isEmpty(Block block) throws IllegalArgumentException  {
         return manager.isEmpty(block);
     }
 
