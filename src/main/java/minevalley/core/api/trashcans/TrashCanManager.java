@@ -6,6 +6,8 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nullable;
+
 /**
  * This manager is handled by another module! Do not change the manager-attribute.
  * <br>
@@ -70,6 +72,7 @@ public class TrashCanManager {
      * @return the peak ItemStack - if empty {@code null} will be returned.
      * @throws IllegalArgumentException if the block is not a trash can
      */
+    @Nullable
     public static ItemStack getPeak(Block block) throws IllegalArgumentException {
         return manager.getPeak(block);
     }
