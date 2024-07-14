@@ -1,6 +1,5 @@
 package minevalley.core.api.trashcans.events;
 
-import lombok.Getter;
 import minevalley.core.api.users.User;
 import org.bukkit.block.Block;
 
@@ -10,7 +9,6 @@ import org.bukkit.block.Block;
  *
  * @see UserInteractTrashCanEvent
  */
-@Getter
 public class TrashCanClearEvent extends UserInteractTrashCanEvent {
 
     /**
