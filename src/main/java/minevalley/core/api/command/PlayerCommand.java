@@ -4,7 +4,6 @@ import lombok.Getter;
 import minevalley.core.api.users.OnlineUser;
 
 import java.util.List;
-import java.util.Objects;
 
 @Getter
 public abstract class PlayerCommand implements Command {
@@ -12,8 +11,11 @@ public abstract class PlayerCommand implements Command {
     private final CommandOptions description;
 
     public PlayerCommand() {
-        this.description = Objects.requireNonNull(
-                getClass().getAnnotation(CommandOptions.class), "CommandOptions-Annotation is missing!");
+        final Class<? extends PlayerCommand> clazz = getClass();
+        if (!clazz.isAnnotationPresent(CommandOptions.class)) {
+            throw new IllegalArgumentException("CommandOptions annotation is missing in " + clazz.getSimpleName());
+        }
+        this.description = clazz.getAnnotation(CommandOptions.class);
     }
 
     @Override
