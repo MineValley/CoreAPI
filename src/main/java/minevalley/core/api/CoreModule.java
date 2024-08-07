@@ -25,10 +25,10 @@ public abstract class CoreModule {
      * Is called when the module is disabled.
      */
     public void onDisable() {
-
+        // do nothing
     }
 
     public void onCleanup() {
-
+        // do nothing
     }
 }
