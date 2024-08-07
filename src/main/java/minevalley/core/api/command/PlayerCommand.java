@@ -1,7 +1,6 @@
 package minevalley.core.api.command;
 
 import lombok.Getter;
-import minevalley.core.api.Core;
 import minevalley.core.api.users.OnlineUser;
 
 import java.util.List;
@@ -15,7 +14,6 @@ public abstract class PlayerCommand implements Command {
     public PlayerCommand() {
         this.description = Objects.requireNonNull(
                 getClass().getAnnotation(CommandOptions.class), "CommandOptions-Annotation is missing!");
-        Core.registerCommand(this);
     }
 
     @Override
