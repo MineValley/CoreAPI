@@ -3,6 +3,7 @@ package minevalley.core.api;
 import lombok.Getter;
 
 @Getter
+@SuppressWarnings("unused")
 public abstract class CoreModule {
 
     private final Description description;
