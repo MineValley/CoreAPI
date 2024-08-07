@@ -6,14 +6,14 @@ import lombok.Getter;
 @SuppressWarnings("unused")
 public abstract class CoreModule {
 
-    private final Description description;
+    private final Module description;
 
     public CoreModule() {
         final Class<? extends CoreModule> clazz = getClass();
-        if (!clazz.isAnnotationPresent(Description.class)) {
+        if (!clazz.isAnnotationPresent(Module.class)) {
             throw new IllegalArgumentException("Description annotation is missing in module '" + clazz.getSimpleName() + "'");
         }
-        this.description = clazz.getAnnotation(Description.class);
+        this.description = clazz.getAnnotation(Module.class);
     }
 
     /**
