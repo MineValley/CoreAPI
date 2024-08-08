@@ -272,7 +272,7 @@ public interface OnlineUser extends User {
      */
     void sendError();
 
-    // ChatInterface
+    // ChatInput
 
     /**
      * Asks the player for any type of input via a chat-interface. The player can leave this interface. If he writes something into this interface, the callback gets called.
