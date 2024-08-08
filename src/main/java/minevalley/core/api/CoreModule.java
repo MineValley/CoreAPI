@@ -19,7 +19,9 @@ public abstract class CoreModule {
     /**
      * Is called when the module is enabled.
      */
-    public abstract void onEnable();
+    public void onEnable() {
+        // do nothing
+    }
 
     /**
      * Is called when the module is disabled.
