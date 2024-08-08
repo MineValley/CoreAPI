@@ -44,6 +44,7 @@ public interface OnlineUser extends User {
 
     /**
      * Gets whether this user is currently logged in via labymod.
+     * <br>
      * <b>Note:</b> When joining, this boolean isn't set immediately. Make sure to use a delay, when using this method in a PlayerJoinListener!
      *
      * @return true, if this user is using labymod
