@@ -44,6 +44,7 @@ public interface OnlineUser extends User {
 
     /**
      * Gets whether this user is currently logged in via labymod.
+     * <br>
      * <b>Note:</b> When joining, this boolean isn't set immediately. Make sure to use a delay, when using this method in a PlayerJoinListener!
      *
      * @return true, if this user is using labymod
@@ -271,7 +272,7 @@ public interface OnlineUser extends User {
      */
     void sendError();
 
-    // ChatInterface
+    // ChatInput
 
     /**
      * Asks the player for any type of input via a chat-interface. The player can leave this interface. If he writes something into this interface, the callback gets called.
@@ -285,29 +286,8 @@ public interface OnlineUser extends User {
      * Gets whether the user is currently in a chat input.
      *
      * @return true, if the user is in a chat input
-     * @deprecated use isInChatInput()!
-     */
-    @Deprecated
-    default boolean isInChatInterface() {
-        return isInChatInput();
-    }
-
-    /**
-     * Gets whether the user is currently in a chat input.
-     *
-     * @return true, if the user is in a chat input
      */
     boolean isInChatInput();
-
-    /**
-     * Lets the user leave his current chat input
-     *
-     * @deprecated use leaveChatInput instead!
-     */
-    @Deprecated
-    default void leaveInterface() {
-        leaveChatInput();
-    }
 
     /**
      * Lets the user leave his current chat input
