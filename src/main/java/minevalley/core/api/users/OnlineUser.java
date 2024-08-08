@@ -285,29 +285,8 @@ public interface OnlineUser extends User {
      * Gets whether the user is currently in a chat input.
      *
      * @return true, if the user is in a chat input
-     * @deprecated use isInChatInput()!
-     */
-    @Deprecated
-    default boolean isInChatInterface() {
-        return isInChatInput();
-    }
-
-    /**
-     * Gets whether the user is currently in a chat input.
-     *
-     * @return true, if the user is in a chat input
      */
     boolean isInChatInput();
-
-    /**
-     * Lets the user leave his current chat input
-     *
-     * @deprecated use leaveChatInput instead!
-     */
-    @Deprecated
-    default void leaveInterface() {
-        leaveChatInput();
-    }
 
     /**
      * Lets the user leave his current chat input
