@@ -10,7 +10,7 @@ Falls nicht bereits erledigt, muss zuvor ein Token in der settings.xml hinterleg
 
 ```xml
 <repository>
-    <id>MineValley-CoreAPI</id>
+    <id>github</id>
     <url>https://maven.pkg.github.com/MineValley/CoreAPI</url>
     <snapshots>
         <enabled>true</enabled>
