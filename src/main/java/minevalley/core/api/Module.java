@@ -1,5 +1,7 @@
 package minevalley.core.api;
 
+import minevalley.core.api.enums.Server;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
@@ -13,4 +15,6 @@ public @interface Module {
     String version();
 
     String[] authors();
+
+    Server[] servers() default {};
 }
