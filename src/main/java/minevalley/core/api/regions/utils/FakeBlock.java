@@ -21,4 +21,13 @@ public interface FakeBlock {
      * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for every user that the fake block is or could be visible to
      */
     void updateVisibility();
+
+    /**
+     * Updates the visibility of the fake block for a specific user
+     * <br>
+     * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for this user
+     *
+     * @param user to update the visibility for
+     */
+    void updateVisibility(OnlineUser user);
 }
