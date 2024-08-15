@@ -1,11 +1,11 @@
 package minevalley.core.api.users.events.services.support;
 
-import minevalley.core.api.users.User;
-import minevalley.core.api.users.events.UserEvent;
+import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.events.OnlineUserEvent;
 
-public abstract class UserUpdateSupportServiceEvent extends UserEvent {
+public abstract class UserUpdateSupportServiceEvent extends OnlineUserEvent {
 
-    public UserUpdateSupportServiceEvent(User user) {
+    public UserUpdateSupportServiceEvent(OnlineUser user) {
         super(user);
     }
 }
