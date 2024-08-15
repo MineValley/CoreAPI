@@ -3,7 +3,7 @@ package minevalley.core.api.regions.residences;
 import lombok.NonNull;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.economy.BankAccount;
-import minevalley.core.api.regions.*;
+import minevalley.core.api.regions.Region;
 import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.PlayerLocation;
 import minevalley.core.api.users.User;
