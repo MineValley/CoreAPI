@@ -1,10 +1,10 @@
 package minevalley.core.api.users.events.services.team;
 
-import minevalley.core.api.users.User;
+import minevalley.core.api.users.OnlineUser;
 
 public class UserLeaveTeamServiceEvent extends UserUpdateTeamServiceEvent {
 
-    public UserLeaveTeamServiceEvent(User user) {
+    public UserLeaveTeamServiceEvent(OnlineUser user) {
         super(user);
     }
 }
