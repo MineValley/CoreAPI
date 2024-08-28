@@ -944,16 +944,12 @@ public final class Core {
      * @param visibleToEveryone if true, this npc is visible to every player (you can't hide this npc from specific players when choosing this option!)
      * @return npc with specific parameters
      */
-    public static NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone) {
-        return server.createNPC(skinUniqueId, name, location, focusNearPlayers, visibleToEveryone);
+    public static NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers) {
+        return server.createNPC(skinUniqueId, name, location, focusNearPlayers);
     }
 
-    public static NPC createNPC(UUID skinUniqueId, UUID uniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone) {
-        return server.createNPC(skinUniqueId, uniqueId, name, location, focusNearPlayers, visibleToEveryone);
-    }
-
-    public static NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone) {
-        return server.createNPC(value, signature, name, location, focusNearPlayers, visibleToEveryone);
+    public static NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers) {
+        return server.createNPC(value, signature, name, location, focusNearPlayers);
     }
 
     public static void registerSmartApp(SmartApp app) {
