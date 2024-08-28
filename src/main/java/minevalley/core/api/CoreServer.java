@@ -10,6 +10,8 @@ import minevalley.core.api.database.DatabaseEntry;
 import minevalley.core.api.database.DatabaseEntryCollection;
 import minevalley.core.api.database.DatabaseTable;
 import minevalley.core.api.database.Value;
+import minevalley.core.api.discord.EmbeddedMessage;
+import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.Server;
@@ -262,7 +264,7 @@ public interface CoreServer {
 
     Webhook createWebhook(String url);
 
-    Webhook.EmbeddedMessage createEmbeddedMessage();
+    EmbeddedMessage createEmbeddedMessage();
 
     boolean isMaintenance();
 
