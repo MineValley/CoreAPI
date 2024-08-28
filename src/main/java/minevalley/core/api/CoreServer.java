@@ -266,11 +266,9 @@ public interface CoreServer {
 
     boolean isMaintenance();
 
-    NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
+    NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers);
 
-    NPC createNPC(UUID skinUniqueId, UUID uniqueId, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
-
-    NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers, boolean visibleToEveryone);
+    NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers);
 
     void registerSmartApp(SmartApp app);
 
