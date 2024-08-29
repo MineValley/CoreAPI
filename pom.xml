@@ -62,14 +62,6 @@
     </repositories>
 
     <dependencies>
-        <!-- MineValley APIs -->
-        <dependency>
-            <groupId>com.github.MineValley</groupId>
-            <artifactId>SmartAPI</artifactId>
-            <version>${smart-api.version}</version>
-            <scope>compile</scope>
-        </dependency>
-
         <!-- Paper -->
         <dependency>
             <groupId>com.destroystokyo.paper</groupId>
