@@ -1,10 +1,10 @@
 package minevalley.core.api.smart;
 
-import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.User;
 
 public interface Session {
 
-    OnlineUser getUser();
+    User getUser();
 
     void end();
 
