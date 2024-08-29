@@ -269,8 +269,6 @@ public interface CoreServer {
 
     NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers);
 
-    void registerSmartApp(SmartApp app);
-
     List<SmartApp> getSmartApps();
 
     List<OnlineUser> getOnlineUsers();
