@@ -32,6 +32,7 @@ import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.regions.utils.FakeBlock;
+import minevalley.core.api.smart.SmartApp;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
@@ -41,8 +42,6 @@ import minevalley.core.api.utils.CarBarrier;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.Hologram;
 import minevalley.core.api.utils.ItemBuilder;
-import minevalley.smart.api.Session;
-import minevalley.smart.api.SmartApp;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -358,10 +357,6 @@ public final class Core {
 
     public static OnlineUser getOnlineUser(Player player) {
         return server.getOnlineUser(player);
-    }
-
-    public static OnlineUser getOnlineUser(Session session) {
-        return server.getOnlineUser(session);
     }
 
     /**
