@@ -948,10 +948,6 @@ public final class Core {
         return server.createNPC(value, signature, name, location, focusNearPlayers);
     }
 
-    public static void registerSmartApp(SmartApp app) {
-        server.registerSmartApp(app);
-    }
-
     public static List<SmartApp> getSmartApps() {
         return server.getSmartApps();
     }
