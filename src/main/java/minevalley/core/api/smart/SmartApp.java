@@ -20,5 +20,5 @@ public abstract class SmartApp {
      *
      * @param session new created session
      */
-    public abstract void onSessionCreate(AppSession session);
+    public abstract void onSessionCreate(Session session);
 }
