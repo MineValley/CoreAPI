@@ -947,10 +947,6 @@ public final class Core {
         return server.createNPC(value, signature, name, location, focusNearPlayers);
     }
 
-    public static List<SmartApp> getSmartApps() {
-        return server.getSmartApps();
-    }
-
     public static List<OnlineUser> getOnlineUsers() {
         return server.getOnlineUsers();
     }

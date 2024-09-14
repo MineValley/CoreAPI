@@ -31,7 +31,6 @@ import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.regions.utils.FakeBlock;
-import minevalley.core.api.smart.SmartApp;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
@@ -268,8 +267,6 @@ public interface CoreServer {
     NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers);
 
     NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers);
-
-    List<SmartApp> getSmartApps();
 
     List<OnlineUser> getOnlineUsers();
 
