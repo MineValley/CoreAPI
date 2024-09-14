@@ -32,7 +32,6 @@ import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.regions.utils.FakeBlock;
-import minevalley.core.api.smart.SmartApp;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
@@ -946,10 +945,6 @@ public final class Core {
 
     public static NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers) {
         return server.createNPC(value, signature, name, location, focusNearPlayers);
-    }
-
-    public static List<SmartApp> getSmartApps() {
-        return server.getSmartApps();
     }
 
     public static List<OnlineUser> getOnlineUsers() {
