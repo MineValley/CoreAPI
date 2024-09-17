@@ -544,13 +544,36 @@ public interface OnlineUser extends User {
     /**
      * Checks whether the user is in a virtual box whose span in each direction is twice the specified range.
      * <br>
-     * Use this method instead of the distance()-method. It is significantly more powerful, but not recommended for precise applications
+     * Use this method instead of the distance()-method. It is significantly faster, but not recommended for precise applications
      *
      * @param location location to check distance from
      * @param range    maximum range for the result to be true
      * @return true, if user is in range
      */
     boolean isInCubicRange(Location location, int range);
+
+    /**
+     * Checks whether the user is in a virtual sphere whose radius is the square root of specified range.
+     * <p>
+     * <b>Note:</b> This method is significantly faster than the distance()-method. Especially when checking for constant distances.
+     * </p>
+     *
+     * @param location     location to check distance from
+     * @param rangeSquared maximum range for the result to be true
+     * @return true, if user is in range
+     */
+    boolean isInSquaredRange(Location location, int rangeSquared);
+
+    /**
+     * Checks whether the user is in a virtual sphere whose radius is the specified range.
+     *
+     * @param location location to check distance from
+     * @param range    maximum range for the result to be true
+     * @return true, if user is in range
+     */
+    default boolean isInRange(Location location, int range) {
+        return isInSquaredRange(location, range * range);
+    }
 
     @Getter
     @Setter
