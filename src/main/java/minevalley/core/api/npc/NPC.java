@@ -150,9 +150,7 @@ public interface NPC {
         @AllArgsConstructor
         public static class Chance {
 
-            // 1 - 100
-            private final int percentage;
-
+            private final float factor;
             private final String text;
         }
     }
