@@ -2,6 +2,7 @@ package minevalley.core.api.npc;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import minevalley.core.api.ChatMenu;
 import minevalley.core.api.users.OnlineUser;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -106,13 +107,13 @@ public interface NPC {
 
     void say(OnlineUser user, BaseComponent[] baseComponent, ChatMenu chatMenu, OnlineUser.Notice notice);
 
-    void say(OnlineUser user, RandomText text);
+    void say(OnlineUser user, RandomText... text);
 
-    void say(OnlineUser user, RandomText text, ChatMenu chatMenu);
+    void say(OnlineUser user, ChatMenu chatMenu, RandomText... text);
 
-    void say(OnlineUser user, RandomText text, OnlineUser.Notice notice);
+    void say(OnlineUser user, OnlineUser.Notice notice, RandomText... text);
 
-    void say(OnlineUser user, RandomText text, ChatMenu chatMenu, OnlineUser.Notice notice);
+    void say(OnlineUser user, ChatMenu chatMenu, OnlineUser.Notice notice, RandomText... text);
 
     OnlineUser.Notice getTalkWithMeNotice();
 
@@ -132,26 +133,11 @@ public interface NPC {
     }
 
     @Getter
+    @AllArgsConstructor
+    @RequiredArgsConstructor
     class RandomText {
-        private final String[] texts;
-        private final Chance[] chanceTexts;
 
-        public RandomText(String... texts) {
-            this.texts = texts;
-            this.chanceTexts = new Chance[0];
-        }
-
-        public RandomText(Chance... texts) {
-            this.texts = new String[0];
-            this.chanceTexts = texts;
-        }
-
-        @Getter
-        @AllArgsConstructor
-        public static class Chance {
-
-            private final float factor;
-            private final String text;
-        }
+        private float factor = 1;
+        private final String text;
     }
 }
