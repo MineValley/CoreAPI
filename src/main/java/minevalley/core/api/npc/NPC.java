@@ -9,6 +9,7 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
 import java.util.List;
@@ -45,6 +46,11 @@ public interface NPC {
      */
     void updateVisibility(OnlineUser user);
 
+    /**
+     * Sets & updates the equipment of the npc for everyone
+     */
+    void updateEquipment();
+
     boolean focusNearPlayers();
 
     void setFocusNearPlayers(boolean focusNearPlayers);
@@ -78,6 +84,30 @@ public interface NPC {
     boolean isSneaking();
 
     void setSneaking(boolean sneaking);
+
+    ItemStack getLeftHand();
+
+    NPC setLeftHand(ItemStack itemStack);
+
+    ItemStack getRightHand();
+
+    NPC setRightHand(ItemStack itemStack);
+
+    ItemStack getHelmet();
+
+    NPC setHelmet(ItemStack helmet);
+
+    ItemStack getChestplate();
+
+    NPC setChestplate(ItemStack chestplate);
+
+    ItemStack getLeggings();
+
+    NPC setLeggings(ItemStack leggings);
+
+    ItemStack getBoots();
+
+    NPC setBoots(ItemStack boots);
 
     NPC onClick(BiConsumer<OnlineUser, Click> callback);
 
