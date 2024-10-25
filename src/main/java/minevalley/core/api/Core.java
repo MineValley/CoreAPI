@@ -786,6 +786,15 @@ public final class Core {
     }
 
     /**
+     * Get all loaded groups.
+     *
+     * @return list of all groups
+     */
+    public static List<Group> getGroups() {
+        return server.getGroups();
+    }
+
+    /**
      * Gets the group (organization/company) with the specific name.
      *
      * @param name name as string

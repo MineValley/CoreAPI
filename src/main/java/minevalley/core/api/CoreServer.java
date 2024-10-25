@@ -185,6 +185,8 @@ public interface CoreServer {
 
     BankAccount createBankAccount(Registrant holder);
 
+    List<Group> getGroups();
+
     Group getGroup(String name);
 
     Region getRegion(int id);
