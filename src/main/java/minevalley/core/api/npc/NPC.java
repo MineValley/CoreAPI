@@ -90,6 +90,8 @@ public interface NPC {
 
     void unRide();
 
+    FakeArmorStand getRiddenFakeArmorStand();
+
     boolean isRiding();
 
     ItemStack getLeftHand();
