@@ -88,6 +88,10 @@ public interface NPC {
 
     void ride(FakeArmorStand fakeArmorStand);
 
+    void unRide();
+
+    boolean isRiding();
+
     ItemStack getLeftHand();
 
     NPC setLeftHand(ItemStack itemStack);
