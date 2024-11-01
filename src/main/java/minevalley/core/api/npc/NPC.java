@@ -79,8 +79,8 @@ public interface NPC {
     void lookAt(Vector vector);
 
     void sneak();
-
-    void unSneak();
+    
+    void exitVehicle();
 
     boolean isSneaking();
 
