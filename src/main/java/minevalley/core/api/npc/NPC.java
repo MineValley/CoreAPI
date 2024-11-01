@@ -88,7 +88,7 @@ public interface NPC {
 
     void ride(FakeArmorStand fakeArmorStand);
 
-    void unRide();
+    void exitVehicle();
 
     FakeArmorStand getRiddenFakeArmorStand();
 
