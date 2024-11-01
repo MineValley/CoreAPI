@@ -80,7 +80,7 @@ public interface NPC {
 
     void sneak();
     
-    void exitVehicle();
+    void unSneak();
 
     boolean isSneaking();
 
