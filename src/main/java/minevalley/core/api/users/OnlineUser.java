@@ -13,6 +13,7 @@ import minevalley.core.api.enums.sounds.Sound;
 import minevalley.core.api.regions.utils.PlayerLocation;
 import minevalley.core.api.users.enums.FractionService;
 import minevalley.core.api.users.enums.McVersion;
+import minevalley.core.api.users.enums.TabListView;
 import minevalley.core.api.users.enums.TeamRank;
 import minevalley.core.api.utils.ChatHandler;
 import minevalley.core.api.utils.ClickableMessage;
@@ -113,6 +114,20 @@ public interface OnlineUser extends User {
     void sendCredits();
 
     void sendActionBar(@NonNull String message);
+
+    /**
+     * Sends a tab-list view to this user.
+     *
+     * @param view   view to be sent
+     */
+    void sendTabListView(@NonNull TabListView view);
+
+    /**
+     * Gets the current tab-list view of this user.
+     *
+     * @return current tab-list view
+     */
+    TabListView getTabListView();
 
     /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
