@@ -15,5 +15,4 @@ public enum TabListView {
     POLICE,
     TEAM,
     SUPPORT
-
 }
