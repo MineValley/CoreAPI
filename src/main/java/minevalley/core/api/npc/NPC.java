@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.ChatMenu;
+import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.users.OnlineUser;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Location;
@@ -78,12 +79,20 @@ public interface NPC {
     void lookAt(Vector vector);
 
     void sneak();
-
+    
     void unSneak();
 
     boolean isSneaking();
 
     void setSneaking(boolean sneaking);
+
+    void ride(FakeArmorStand fakeArmorStand);
+
+    void exitVehicle();
+
+    FakeArmorStand getRiddenFakeArmorStand();
+
+    boolean isRiding();
 
     ItemStack getLeftHand();
 
