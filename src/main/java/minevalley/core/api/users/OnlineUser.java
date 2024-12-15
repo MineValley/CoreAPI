@@ -11,7 +11,7 @@ import minevalley.core.api.enums.MessageType;
 import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
 import minevalley.core.api.regions.utils.PlayerLocation;
-import minevalley.core.api.users.enums.FractionService;
+import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.McVersion;
 import minevalley.core.api.users.enums.TabListView;
 import minevalley.core.api.users.enums.TeamRank;
@@ -328,9 +328,9 @@ public interface OnlineUser extends User {
      *
      * @return users fraction
      */
-    FractionService getFractionService();
+    Fraction getFractionService();
 
-    void enterFractionService(FractionService service);
+    void enterFractionService(Fraction service);
 
     void leaveFractionService();
 
