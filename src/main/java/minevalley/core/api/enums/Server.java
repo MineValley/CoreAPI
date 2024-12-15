@@ -4,6 +4,5 @@ public enum Server {
 
     MAIN,
     HUB,
-    DEV,
     BUILDING_APPLY
 }
