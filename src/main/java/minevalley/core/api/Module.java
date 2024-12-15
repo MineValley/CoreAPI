@@ -13,8 +13,6 @@ public @interface Module {
 
     String name();
 
-    String version();
-
     String[] authors();
 
     Server[] servers() default {};
