@@ -3,7 +3,6 @@ package minevalley.core.api.enums;
 public enum Server {
 
     MAIN,
-    VERIFY,
-    DEV,
+    HUB,
     BUILDING_APPLY
 }
