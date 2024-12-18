@@ -3,7 +3,7 @@
 The CoreAPI provides essential features and access to the internal server core of MineValleyEU, used in all modules.
 
 > [!NOTE]\
-> **Note**: The documentation for this API is still a work in progress.
+> The documentation for this API is still a work in progress and does not yet cover the entire functionality. We are working on adding more Javadoc to make the API easier to use.
 
 ## Maven Integration
 
@@ -33,6 +33,11 @@ Before proceeding, ensure you’ve added a token to your `settings.xml` file (de
 ## Linking Your GitHub Account
 
 While the API is publicly accessible, a GitHub account is required to access the repository. If you already have an account, follow these steps to create a token:
+
+
+> [!IMPORTANT]\
+> Use a separate token for each purpose or device to minimize risk. Reusing the same token across multiple purposes or devices significantly increases the potential damage in the event of a leak. \
+> Opting for a token with no expiration increases the likelihood of unauthorized access and should be carefully considered.
 
 ### Creating a Personal Access Token
 
