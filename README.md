@@ -36,8 +36,8 @@ While the API is publicly accessible, a GitHub account is required to access the
 
 
 > [!IMPORTANT]\
-> Use a separate token for each purpose or device to minimize risk. Reusing the same token across multiple purposes or devices significantly increases the potential damage in the event of a leak. \
-> Opting for a token with no expiration increases the likelihood of unauthorized access and should be carefully considered.
+> Opting for a token with no expiration increases the likelihood of unauthorized access and should be carefully considered.\
+> Reusing the same token across multiple purposes or devices significantly increases the potential damage in the event of a leak.
 
 ### Creating a Personal Access Token
 
@@ -87,7 +87,7 @@ You can find your GitHub username on your profile page. If in doubt, try logging
 
 <details>
 <summary><strong>Can I choose the content of &lt;id&gt; freely?</strong></summary>
-Yes, the content of `<id>` in both the `settings.xml` and `pom.xml` files can be freely chosen.
+Yes, the content of `&lt;id&gt;` in both the `settings.xml` and `pom.xml` files can be freely chosen.
 </details>
 
 <details>
