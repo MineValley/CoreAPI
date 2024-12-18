@@ -16,9 +16,9 @@ public interface Vehicle {
 
     int getDurability();
 
-    VehicleColor getColor();
+    Color getColor();
 
-    void changeColor(VehicleColor color);
+    void changeColor(Color color);
 
     void createNewKey(OnlineUser user);
 
@@ -50,5 +50,8 @@ public interface Vehicle {
 
     default boolean isLoaded() {
         return getLoadedVehicle() != null;
+    }
+
+    record Color(String name, String hex) {
     }
 }

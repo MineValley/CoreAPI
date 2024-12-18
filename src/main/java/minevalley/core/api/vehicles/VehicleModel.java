@@ -14,7 +14,7 @@ public interface VehicleModel {
 
     VehicleBrand getBrand();
 
-    List<VehicleColor> getColors();
+    List<Vehicle.Color> getColors();
 
     int getFuelTank();
 
@@ -26,7 +26,7 @@ public interface VehicleModel {
 
     ItemStack getItemStack();
 
-    ItemStack getItemStack(VehicleColor color);
+    ItemStack getItemStack(Vehicle.Color color);
 
-    Vehicle createNew(Registrant registrant, OnlineUser user, VehicleColor color);
+    Vehicle createNew(Registrant registrant, OnlineUser user, Vehicle.Color color);
 }
