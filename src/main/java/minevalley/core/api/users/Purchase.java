@@ -1,14 +1,6 @@
 package minevalley.core.api.users;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
-@Getter
-@RequiredArgsConstructor
-public class Purchase {
-
-    private final String code;
-    private final Type type;
+public record Purchase(String code, Type type) {
 
     public enum Type {
         CAR_SKIN,
