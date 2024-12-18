@@ -350,7 +350,7 @@ public final class Core {
      * @param uniqueId uniqueId to get user from
      * @return user object of the given uniqueId
      */
-    public static User getUser(String uniqueId) {
+    public static User getUser(UUID uniqueId) {
         return server.getUser(uniqueId);
     }
 
@@ -364,7 +364,7 @@ public final class Core {
      * @param uniqueId unique id of the player
      * @return name of the player
      */
-    public static String getName(String uniqueId) {
+    public static String getName(UUID uniqueId) {
         return server.getName(uniqueId);
     }
 
@@ -374,7 +374,7 @@ public final class Core {
      * @param name name of the player
      * @return unique id of the player
      */
-    public static String getUniqueId(String name) {
+    public static UUID getUniqueId(String name) {
         return server.getUniqueId(name);
     }
 
