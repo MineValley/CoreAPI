@@ -1,40 +1,36 @@
 package minevalley.core.api.utils;
 
 import minevalley.core.api.users.OnlineUser;
-import minevalley.core.api.users.User;
 import org.bukkit.Location;
 
 import java.util.List;
+import java.util.function.Function;
 
 public interface Hologram {
+
+    String[] getLines();
+
+    default String getLine(int line) {
+        return getLines()[line];
+    }
+
+    default void addLine(String text) {
+        addLineAfter(getLines().length - 1, text);
+    }
+
+    void addLineAfter(int line, String text);
 
     void changeLine(int line, String text);
 
     void removeLine(int line);
 
-    void addLine(String text);
+    void setVisibility(Function<OnlineUser, Boolean> visibilityFunction);
 
-    void addLineAfter(int line, String text);
+    void updateVisibility();
 
-    String getLine(int line);
-
-    String[] getLines();
-
-    List<User> getViewingUsers();
+    void updateVisibility(OnlineUser user);
 
     List<OnlineUser> getNearbyViewingUsers();
-
-    void show(User user);
-
-    void hide(User user);
-
-    void hideFromEveryone();
-
-    boolean isVisibleToEveryone();
-
-    void setVisibleToEveryone(boolean visibleToEveryone);
-
-    boolean canSee(User user);
 
     Location getLocation();
 
