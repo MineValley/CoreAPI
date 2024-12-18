@@ -1,12 +1,14 @@
 # ![Logo](https://cdn.minevalley.eu/branding/logo_64px_cropped.png) - CoreAPI
 
-This api grants important features and access to the internal server-core of MineValleyEU, that is used in any module.
+The CoreAPI provides essential features and access to the internal server core of MineValleyEU, used in all modules.
 
-The wiki to this api is still work in progress.
+> [!NOTE]\
+> The documentation for this API is still a work in progress and does not yet cover the entire functionality. We are working on adding more Javadoc to make the API easier to use.
 
-## Maven
-Um die CoreAPI in einem Modul nutzbar zu machen, bieten wir eine Maven-Repository via GitHub an.
-Falls nicht bereits erledigt, muss zuvor ein Token in der settings.xml hinterlegt werden (mehr dazu unten).
+## Maven Integration
+
+To use the CoreAPI in your module, we provide a Maven repository hosted on GitHub.  
+Before proceeding, ensure you’ve added a token to your `settings.xml` file (details below).
 
 ```xml
 <repository>
@@ -26,28 +28,33 @@ Falls nicht bereits erledigt, muss zuvor ein Token in der settings.xml hinterleg
 </dependency>
 ```
 
-## GitHub-Account verknüpfen
-Auch wenn die API öffentlich zugänglich ist, ist für die Verwendung der Repository leider ein GitHub-Account notwendig.
-Ist ein solcher vorhanden, muss ein Token erstellt werden:
-### Token erstellen
-Gehe hierfür in die GitHub-Settings (Rechts oben Profilbild &rarr; 'Settings'). 
-<br>
-Klicke ganz unten auf 'Developer settings' &rarr; 'Personal access tokens' &rarr; 'Tokens (classic)'.
-<br>
-Erstelle nun per Klick auf 'Generate new Token' einen neuen Token. Wähle im Dropdown 'Generate new token (classic)' aus.
-<br>
-Gebe dem Token einen sinnvollen Namen ('MineValley', 'CoreAPI', o. ä.) im Feld 'Note'.
-<br>
-Bei 'Expiration' wählst du einen geeigneten Zeitraum aus, für den du diesen Token nutzen wirst.
-Nach Ablauf des Zeitraums wirst du einen neuen Token erstellen müssen. Du hast auch die Möglichkeit 'No expiration' auszuwählen.
-<br>
-Setze einen Haken bei 'read:packages' und klicke ganz unten auf 'Generate token'.
-<br>
-Du kannst den Token nun kopieren.
+---
 
-### Token einfügen
-Ist der Token vorhanden, so kannst du ihn in die settings.xml-Datei[^settings] deiner Maven-Installation einfügen.
-Die untenstehende Vorlage kann dir dabei helfen. Ersetze dabei USERNAME mit deinem GitHub-Benutzernamen und TOKEN mit dem eben erstellten Token.
+## Linking Your GitHub Account
+
+While the API is publicly accessible, a GitHub account is required to access the repository. If you already have an account, follow these steps to create a token:
+
+
+> [!IMPORTANT]\
+> Opting for a token with no expiration increases the likelihood of unauthorized access and should be carefully considered.\
+> Reusing the same token across multiple purposes or devices significantly increases the potential damage in the event of a leak.
+
+### Creating a Personal Access Token
+
+1. Go to **Settings** on GitHub (top-right corner, click your profile picture → **Settings**).
+2. Scroll down and select **Developer settings** → **Personal access tokens** → **Tokens (classic)**.
+3. Click **Generate new token** and choose **Generate new token (classic)** from the dropdown.
+4. Add a meaningful name in the **Note** field (e.g., "MineValley" or "CoreAPI").
+5. Under **Expiration**, select a valid duration for the token. Once expired, you'll need to create a new token.  
+   Alternatively, you can select **No expiration** for permanent use.
+6. Check the box for **read:packages**.
+7. Click **Generate token** and copy the token.
+
+---
+
+### Adding the Token to Your Maven Settings
+
+Once you have your token, add it to the `settings.xml` file of your Maven installation. Replace `USERNAME` with your GitHub username and `TOKEN` with the generated token.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -62,29 +69,30 @@ Die untenstehende Vorlage kann dir dabei helfen. Ersetze dabei USERNAME mit dein
     </servers>
 </settings>
 ```
-[^settings]: IntelliJ: Rechtsklick auf die pom.xml eines beliebigen Projekts und wähle 'Create settings.xml'.
+> **Tip**: In IntelliJ, you can create a `settings.xml` file by right-clicking on the `pom.xml` of any project and selecting **Create settings.xml**.
+
+---
 
 ## Troubleshooting / FAQ
 
 <details>
-    <summary>Ich habe Probleme mit Eclipse</summary>
-    Nutze IntelliJ.
-</details>
-
-
-<details>
-    <summary>Ich weiß nicht, ob ich den richtigen Benutzernamen ausgewählt habe</summary>
-    Du findest den korrekten Github-Nutzernamen auf deinem GitHub-Profil. Bist du dir unsicher, log dich neu ein: 
-    Kannst du dich mit dem Benutzernamen einloggen, ist es der richtige.
+<summary><strong>I'm having issues with Eclipse.</strong></summary>
+Consider switching to IntelliJ for better compatibility.
 </details>
 
 <details>
-    <summary>Kann ich den Inhalt von &lt;id&gt; frei wählen?</summary>
-    Ja. Sowohl in &lt;server&gt; in der settings.xml, als auch bei &lt;repository&gt; in der pom.xml.
+<summary><strong>I’m unsure if I used the correct GitHub username.</strong></summary>
+You can find your GitHub username on your profile page. If in doubt, try logging in with your username. If it works, it’s correct.
 </details>
 
 <details>
-    <summary>Ich habe alles befolgt, aber die Dependency konnte nicht gefunden werden.</summary>
-    Klicke in der rechten Seitenleiste auf 'Maven' und dann links oben auf den 'Reload All Maven Projects'-Button. 
-    Funktioniert es weiterhin nicht, klicke links oben im Fenster auf 'File' &rarr; 'Invalidate Caches ...' &rarr; 'Invalidate and Restart'.
+<summary><strong>Can I choose the content of &lt;id&gt; freely?</strong></summary>
+Yes, the content of `&lt;id&gt;` in both the `settings.xml` and `pom.xml` files can be freely chosen, but it must be identical in both files.
+</details>
+
+<details>
+<summary><strong>I followed all steps, but the dependency could not be found.</strong></summary>
+1. Click **Maven** in the right-hand sidebar.  
+2. Press the **Reload All Maven Projects** button (top-left).  
+3. If the problem persists, go to **File** → **Invalidate Caches ...** → **Invalidate and Restart**.
 </details>
