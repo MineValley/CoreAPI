@@ -28,8 +28,6 @@ Before proceeding, ensure you’ve added a token to your `settings.xml` file (de
 </dependency>
 ```
 
----
-
 ## Linking Your GitHub Account
 
 While the API is publicly accessible, a GitHub account is required to access the repository. If you already have an account, follow these steps to create a token:
@@ -50,8 +48,6 @@ While the API is publicly accessible, a GitHub account is required to access the
 6. Check the box for **read:packages**.
 7. Click **Generate token** and copy the token.
 
----
-
 ### Adding the Token to Your Maven Settings
 
 Once you have your token, add it to the `settings.xml` file of your Maven installation. Replace `USERNAME` with your GitHub username and `TOKEN` with the generated token.
@@ -70,8 +66,6 @@ Once you have your token, add it to the `settings.xml` file of your Maven instal
 </settings>
 ```
 > **Tip**: In IntelliJ, you can create a `settings.xml` file by right-clicking on the `pom.xml` of any project and selecting **Create settings.xml**.
-
----
 
 ## Troubleshooting / FAQ
 
