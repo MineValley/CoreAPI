@@ -1,12 +1,9 @@
 package minevalley.core.api.utils;
 
-import minevalley.core.api.users.OnlineUser;
-import org.bukkit.Location;
+import minevalley.core.api.modifiers.LocationModifier;
+import minevalley.core.api.modifiers.VisibilityModifier;
 
-import java.util.List;
-import java.util.function.Function;
-
-public interface Hologram {
+public interface Hologram extends LocationModifier, VisibilityModifier {
 
     String[] getLines();
 
@@ -23,18 +20,6 @@ public interface Hologram {
     void changeLine(int line, String text);
 
     void removeLine(int line);
-
-    void setVisibility(Function<OnlineUser, Boolean> visibilityFunction);
-
-    void updateVisibility();
-
-    void updateVisibility(OnlineUser user);
-
-    List<OnlineUser> getNearbyViewingUsers();
-
-    Location getLocation();
-
-    void move(Location location);
 
     void delete();
 }

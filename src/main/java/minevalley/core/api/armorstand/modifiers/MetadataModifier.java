@@ -1,5 +1,6 @@
 package minevalley.core.api.armorstand.modifiers;
 
+@SuppressWarnings("unused")
 public interface MetadataModifier {
 
     /**
