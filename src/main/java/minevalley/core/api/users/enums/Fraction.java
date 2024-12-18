@@ -16,6 +16,7 @@ public enum Fraction {
     private final String name;
 
     public static Fraction getFraction(int value) {
-        return value >= values().length ? null : values()[value];
+        if (value >= values().length || value < 0) return null;
+        return values()[value];
     }
 }
