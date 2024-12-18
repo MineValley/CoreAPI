@@ -5,8 +5,6 @@ The CoreAPI provides essential features and access to the internal server core o
 > [!NOTE]\
 > **Note**: The documentation for this API is still a work in progress.
 
----
-
 ## Maven Integration
 
 To use the CoreAPI in your module, we provide a Maven repository hosted on GitHub.  
