@@ -87,7 +87,7 @@ You can find your GitHub username on your profile page. If in doubt, try logging
 
 <details>
 <summary><strong>Can I choose the content of &lt;id&gt; freely?</strong></summary>
-Yes, the content of `&lt;id&gt;` in both the `settings.xml` and `pom.xml` files can be freely chosen.
+Yes, the content of `&lt;id&gt;` in both the `settings.xml` and `pom.xml` files can be freely chosen, but it must be identical in both files.
 </details>
 
 <details>
