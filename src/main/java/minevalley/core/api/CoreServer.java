@@ -119,7 +119,7 @@ public interface CoreServer {
 
     double getStatistic(String key);
 
-    User getUser(String uuid);
+    User getUser(UUID uuid);
 
     OnlineUser getOnlineUser(Player player);
 
@@ -135,9 +135,9 @@ public interface CoreServer {
 
     Gson getGson();
 
-    String getName(String uniqueId);
+    String getName(UUID uniqueId);
 
-    String getUniqueId(String name);
+    UUID getUniqueId(String name);
 
     String removeColorCodes(String text);
 

@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public interface User extends Registrant {
 
@@ -24,7 +25,7 @@ public interface User extends Registrant {
      *
      * @return unique id as string
      */
-    String getUniqueId();
+    UUID getUniqueId();
 
     String getName();
 
