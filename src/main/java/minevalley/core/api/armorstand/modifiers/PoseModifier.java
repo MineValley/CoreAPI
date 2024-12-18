@@ -2,6 +2,7 @@ package minevalley.core.api.armorstand.modifiers;
 
 import org.bukkit.util.EulerAngle;
 
+@SuppressWarnings("unused")
 public interface PoseModifier {
 
     /**

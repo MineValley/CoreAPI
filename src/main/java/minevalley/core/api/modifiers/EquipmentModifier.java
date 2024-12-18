@@ -1,18 +1,19 @@
-package minevalley.core.api.armorstand.modifiers;
+package minevalley.core.api.modifiers;
 
 import org.bukkit.inventory.ItemStack;
 
+@SuppressWarnings("unused")
 public interface EquipmentModifier {
 
     /**
-     * Get the item in the armorstands left hand
+     * Get the item in the left hand
      *
      * @return item in left hand
      */
     ItemStack getLeftHand();
 
     /**
-     * Set the item in the armorstands left hand
+     * Set the item in the left hand
      *
      * @param itemStack item to set
      * @return this
@@ -20,14 +21,14 @@ public interface EquipmentModifier {
     EquipmentModifier setLeftHand(ItemStack itemStack);
 
     /**
-     * Get the item in the armorstands right hand
+     * Get the item in the right hand
      *
      * @return item in right hand
      */
     ItemStack getRightHand();
 
     /**
-     * Set the item in the armorstands right hand
+     * Set the item in the right hand
      *
      * @param itemStack item to set
      * @return this
@@ -35,14 +36,14 @@ public interface EquipmentModifier {
     EquipmentModifier setRightHand(ItemStack itemStack);
 
     /**
-     * Get the item in the armorstands helmet slot
+     * Get the item in the helmet slot
      *
      * @return item in helmet slot
      */
     ItemStack getHelmet();
 
     /**
-     * Set the item in the armorstands helmet slot
+     * Set the item in the helmet slot
      *
      * @param helmet item to set
      * @return this
@@ -50,14 +51,14 @@ public interface EquipmentModifier {
     EquipmentModifier setHelmet(ItemStack helmet);
 
     /**
-     * Get the item in the armorstands chestplate slot
+     * Get the item in the chestplate slot
      *
      * @return item in chestplate slot
      */
     ItemStack getChestplate();
 
     /**
-     * Set the item in the armorstands chestplate slot
+     * Set the item in the chestplate slot
      *
      * @param chestplate item to set
      * @return this
@@ -65,14 +66,14 @@ public interface EquipmentModifier {
     EquipmentModifier setChestplate(ItemStack chestplate);
 
     /**
-     * Get the item in the armorstands leggings slot
+     * Get the item in the leggings slot
      *
      * @return item in leggings slot
      */
     ItemStack getLeggings();
 
     /**
-     * Set the item in the armorstands leggings slot
+     * Set the item in the leggings slot
      *
      * @param leggings item to set
      * @return this
@@ -80,14 +81,14 @@ public interface EquipmentModifier {
     EquipmentModifier setLeggings(ItemStack leggings);
 
     /**
-     * Get the item in the armorstands boots slot
+     * Get the item in the boots slot
      *
      * @return item in boots slot
      */
     ItemStack getBoots();
 
     /**
-     * Set the item in the armorstands boots slot
+     * Set the item in the boots slot
      *
      * @param boots item to set
      * @return this
@@ -95,7 +96,7 @@ public interface EquipmentModifier {
     EquipmentModifier setBoots(ItemStack boots);
 
     /**
-     * Update the armorstands equipment
+     * Update the equipment
      */
     void updateEquipment();
 }

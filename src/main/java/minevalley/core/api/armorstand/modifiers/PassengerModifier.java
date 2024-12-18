@@ -4,10 +4,11 @@ import org.bukkit.entity.Entity;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface PassengerModifier {
 
     /**
-     * get the current passenger list
+     * Get the current passenger list
      *
      * @return a list with the passengers as entities
      */

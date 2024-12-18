@@ -1,27 +1,28 @@
-package minevalley.core.api.armorstand.modifiers;
+package minevalley.core.api.modifiers;
 
 import org.bukkit.Location;
 
+@SuppressWarnings("unused")
 public interface LocationModifier {
 
     /**
-     * Get the location of the armorstand
+     * Get the location
      *
      * @return location
      */
     Location getLocation();
 
     /**
-     * Sets the armorstands location.
+     * Sets the location
      * <br>
      * <b>Note:</b> This ignores the yaw and pitch values.
      *
-     * @param location new location of the armorstand.
+     * @param location new location.
      */
     LocationModifier setLocation(Location location);
 
     /**
-     * Update the location of the armorstand
+     * Update the location
      */
     void updateLocation();
 }

@@ -5,52 +5,25 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.ChatMenu;
 import minevalley.core.api.armorstand.FakeArmorStand;
+import minevalley.core.api.modifiers.EquipmentModifier;
+import minevalley.core.api.modifiers.InteractionModifier;
+import minevalley.core.api.modifiers.LocationModifier;
+import minevalley.core.api.modifiers.VisibilityModifier;
 import minevalley.core.api.users.OnlineUser;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
-public interface NPC {
+@SuppressWarnings("unused")
+public interface NPC extends EquipmentModifier, InteractionModifier, LocationModifier, VisibilityModifier {
 
     String getName();
-
-    /**
-     * Defines which users can see the npc
-     * <br>
-     * <b>Default:</b> Everyone can see the npc
-     *
-     * @param function defines whether a specific user can see the npc
-     */
-    void setVisibility(Function<OnlineUser, Boolean> function);
-
-    /**
-     * Updates the visibility of the npc
-     * <br>
-     * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for every user that the npc is or could be visible to
-     */
-    void updateVisibility();
-
-    /**
-     * Updates the visibility of the npc for a specific user
-     * <br>
-     * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for this user
-     *
-     * @param user to update the visibility for
-     */
-    void updateVisibility(OnlineUser user);
-
-    /**
-     * Sets & updates the equipment of the npc for everyone
-     */
-    void updateEquipment();
 
     boolean focusNearPlayers();
 
@@ -79,7 +52,7 @@ public interface NPC {
     void lookAt(Vector vector);
 
     void sneak();
-    
+
     void unSneak();
 
     boolean isSneaking();
@@ -93,32 +66,6 @@ public interface NPC {
     FakeArmorStand getRiddenFakeArmorStand();
 
     boolean isRiding();
-
-    ItemStack getLeftHand();
-
-    NPC setLeftHand(ItemStack itemStack);
-
-    ItemStack getRightHand();
-
-    NPC setRightHand(ItemStack itemStack);
-
-    ItemStack getHelmet();
-
-    NPC setHelmet(ItemStack helmet);
-
-    ItemStack getChestplate();
-
-    NPC setChestplate(ItemStack chestplate);
-
-    ItemStack getLeggings();
-
-    NPC setLeggings(ItemStack leggings);
-
-    ItemStack getBoots();
-
-    NPC setBoots(ItemStack boots);
-
-    NPC onClick(BiConsumer<OnlineUser, Click> callback);
 
     NPC onComingClose(Consumer<OnlineUser> callback);
 
@@ -165,11 +112,6 @@ public interface NPC {
     boolean isNameTagHidden();
 
     void hideNameTag(boolean hidden);
-
-    enum Click {
-        RIGHT_CLICK,
-        LEFT_CLICK
-    }
 
     @Getter
     @AllArgsConstructor

@@ -1,13 +1,16 @@
 package minevalley.core.api.armorstand;
 
-import minevalley.core.api.armorstand.modifiers.*;
-import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.armorstand.modifiers.MetadataModifier;
+import minevalley.core.api.armorstand.modifiers.PassengerModifier;
+import minevalley.core.api.armorstand.modifiers.PoseModifier;
+import minevalley.core.api.armorstand.modifiers.RotationModifier;
+import minevalley.core.api.modifiers.EquipmentModifier;
+import minevalley.core.api.modifiers.InteractionModifier;
+import minevalley.core.api.modifiers.LocationModifier;
+import minevalley.core.api.modifiers.VisibilityModifier;
 
-import java.util.function.BiConsumer;
-import java.util.function.Function;
-
-public interface FakeArmorStand extends EquipmentModifier, LocationModifier, MetadataModifier, PassengerModifier,
-        PoseModifier, RotationModifier {
+public interface FakeArmorStand extends MetadataModifier, PassengerModifier, PoseModifier, RotationModifier,
+        EquipmentModifier, InteractionModifier, LocationModifier, VisibilityModifier {
 
     /**
      * Get the custom id from the armorstand
@@ -43,40 +46,4 @@ public interface FakeArmorStand extends EquipmentModifier, LocationModifier, Met
      * @param visibilityRange range in blocks
      */
     void setVisibilityRange(int visibilityRange);
-
-    /**
-     * Defines the action when a player interacts with the armorstand
-     *
-     * @param consumer is called whenever a user interacts with the armorstand
-     */
-    void onClick(BiConsumer<OnlineUser, InteractType> consumer);
-
-    /**
-     * Defines which users can see the armorstand
-     * <br>
-     * <b>Default:</b> Everyone can see the armorstand
-     *
-     * @param function defines whether a specific user can see the armorstand
-     */
-    void setVisibility(Function<OnlineUser, Boolean> function);
-
-    /**
-     * Updates the visibility of the armorstand
-     * <br>
-     * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for every user that the armorstand is or could be visible to
-     */
-    void updateVisibility();
-
-    /**
-     * Updates the visibility of the armorstand for a specific user
-     * <br>
-     * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for this user
-     *
-     * @param user to update the visibility for
-     */
-    void updateVisibility(OnlineUser user);
-
-    enum InteractType {
-        LEFT_CLICK, RIGHT_CLICK
-    }
 }
