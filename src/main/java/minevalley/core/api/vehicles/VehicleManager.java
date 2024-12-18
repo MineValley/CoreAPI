@@ -77,7 +77,7 @@ public final class VehicleManager {
      * @param location    location to spawn
      * @param orientation orientation to spawn
      */
-    public static LoadedVehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registrant registrant,
+    public static LoadedVehicle addVehicle(VehicleModel model, Vehicle.Color color, OnlineUser user, Registrant registrant,
                                            Location location, BlockFace orientation) {
         return manager.addVehicle(model, color, user, registrant, location, orientation);
     }
@@ -89,7 +89,7 @@ public final class VehicleManager {
      * @param location    location to spawn
      * @param orientation orientation to spawn
      */
-    public static LoadedVehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Location location,
+    public static LoadedVehicle addVehicle(VehicleModel model, Vehicle.Color color, OnlineUser user, Location location,
                                            BlockFace orientation) {
         return manager.addVehicle(model, color, user, user, location, orientation);
     }
@@ -116,7 +116,7 @@ public final class VehicleManager {
 
         List<VehicleModel> getAllVehicleModels();
 
-        LoadedVehicle addVehicle(VehicleModel model, VehicleColor color, OnlineUser user, Registrant registrant,
+        LoadedVehicle addVehicle(VehicleModel model, Vehicle.Color color, OnlineUser user, Registrant registrant,
                                  Location location, BlockFace orientation);
 
         VehicleBrand getBrand(int id);
