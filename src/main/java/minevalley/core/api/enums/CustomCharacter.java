@@ -6,65 +6,61 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum CustomCharacter {
 
-    /*
-    https://www.ssec.wisc.edu/~tomw/java/unicode.html#x3040
-    https://en.wikipedia.org/wiki/List_of_Unicode_characters#East_Asian_writing_systems
-     */
+    MV('\uef00'),
+    MV_BW('\uef01'),
+    SUPPORT_QUESTION_MARK('\uef02'),
+    HELP_QUESTION_MARK('\uef03'),
+    TEAM('\uef04'),
 
-    MV('ぐ'),
-    MV_BW('け'),
-    SUPPORT_QUESTION_MARK('げ'),
-    HELP_QUESTION_MARK('こ'),
-    TEAM('ご'),
+    SUPPORT_QUESTION_MARK_TRANSPARENT('\uef05'),
 
-    SUPPORT_QUESTION_MARK_TRANSPARENT('ヱ'),
+    MEDICS('\uef06'),
+    COPS('\uef07'),
+    MAIL('\uef08'),
+    DISPOSAL('\uef09'),
+    HANDCUFFS('\uef10'),
 
-    MEDICS('だ'),
-    COPS('ち'),
-    MAIL('ぢ'),
-    DISPOSAL('っ'),
-    HANDCUFFS('つ'),
+    MEDICS_TRANSPARENT('\uef11'),
+    COPS_TRANSPARENT('\uef12'),
+    MAIL_TRANSPARENT('\uef13'),
+    DISPOSAL_TRANSPARENT('\uef14'),
+    HANDCUFFS_TRANSPARENT('\uef15'),
 
-    MEDICS_TRANSPARENT('ム'),
-    COPS_TRANSPARENT('メ'),
-    MAIL_TRANSPARENT('モ'),
-    DISPOSAL_TRANSPARENT('ャ'),
-    HANDCUFFS_TRANSPARENT('ヤ'),
-
-    EURO_NOTES('ば'),
-    BELL('ぱ'),
-    DRIFTING_CAR('ひ'),
+    EURO_NOTES('\uef16'),
+    BELL('\uef17'),
+    DRIFTING_CAR('\uef18'),
+    PHONE('\uef19'),
 
 
-    EMOJI_HEART('む'),
-    EMOJI_LAUGH('め'),
-    EMOJI_SMILE('も'),
-    EMOJI_GRIN('ゃ'),
-    EMOJI_WINK('や'),
-    EMOJI_WINKING_WITH_TONGUE('ゅ'),
-    EMOJI_KISSES('ゆ'),
-    EMOJI_SHOCK('ょ'),
-    EMOJI_BIG_SHOCK('よ'),
-    EMOJI_PAIN('ら'),
-    EMOJI_ANNOYED('り'),
-    EMOJI_CRYING('る'),
+    EMOJI_HEART('\uef20'),
+    EMOJI_LAUGH('\uef21'),
+    EMOJI_SMILE('\uef22'),
+    EMOJI_GRIN('\uef23'),
+    EMOJI_WINK('\uef24'),
+    EMOJI_WINKING_WITH_TONGUE('\uef25'),
+    EMOJI_KISSES('\uef26'),
+    EMOJI_SHOCK('\uef27'),
+    EMOJI_BIG_SHOCK('\uef28'),
+    EMOJI_PAIN('\uef29'),
+    EMOJI_ANNOYED('\uef30'),
+    EMOJI_CRYING('\uef31'),
 
-    PREMIUM('ゐ'),
+    PREMIUM('\uef32'),
 
-    RADIO('゠'),
-    SHOUT('ァ'),
-    CROSS('ア'),
-    CHECKMARK('ィ'),
-    LOG('イ'),
-    BUG('ゥ'),
-    EYE('ウ'),
-    WRENCH('ェ'),
-    CIRCLE('エ'),
-    HOUSE('ォ'),
+    RADIO('\uef33'),
+    SHOUT('\uef34'),
+    CROSS('\uef35'),
+    CHECKMARK('\uef36'),
+    LOG('\uef37'),
+    BUG('\uef38'),
+    EYE('\uef39'),
+    WRENCH('\uef40'),
+    CIRCLE('\uef41'),
+    HOUSE('\uef42'),
 
-    PREMIUM_TRANSPARENT('ヰ'),
+    PREMIUM_TRANSPARENT('\uef43'),
 
-    SINGLE_WHITE_SPACE('₶');
+    SINGLE_WHITE_SPACE('\uef44');
 
     private final char c;
 
