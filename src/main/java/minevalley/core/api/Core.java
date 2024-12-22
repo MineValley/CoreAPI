@@ -79,34 +79,99 @@ public final class Core {
         return server.getInstance();
     }
 
+    /**
+     * Returns a task that will run on the next server tick.
+     *
+     * @param task the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     @Nonnull
-    public static BukkitTask runSyncTaskNow(@Nonnull Runnable runnable) {
-        return server.runSyncTaskLater(0, runnable);
+    public static BukkitTask runSyncTaskNow(@Nonnull Runnable task) throws IllegalArgumentException {
+        return server.runSyncTaskLater(0, task);
     }
 
+    /**
+     * Returns a task that will run asynchronously.
+     * <br>
+     * <b>Note:</b> Asynchronous tasks should never access any API in Bukkit.
+     *
+     * @param task the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     @Nonnull
-    public static BukkitTask runAsyncTaskNow(@Nonnull Runnable runnable) {
-        return server.runAsyncTaskLater(0, runnable);
+    public static BukkitTask runAsyncTaskNow(@Nonnull Runnable task) throws IllegalArgumentException {
+        return server.runAsyncTaskLater(0, task);
     }
 
+    /**
+     * Returns a task that will run after the specified number of server
+     * ticks.
+     *
+     * @param delay the ticks to wait before running the task
+     * @param task  the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     @Nonnull
-    public static BukkitTask runSyncTaskLater(long delay, @Nonnull Runnable runnable) {
-        return server.runSyncTaskLater(delay, runnable);
+    public static BukkitTask runSyncTaskLater(long delay, @Nonnull Runnable task) throws IllegalArgumentException {
+        return server.runSyncTaskLater(delay, task);
     }
 
+    /**
+     * Returns a task that will run asynchronously after the specified number
+     * of server ticks.
+     * <br>
+     * <b>Note:</b> Asynchronous tasks should never access any API in Bukkit.
+     *
+     * @param task  the task to be run
+     * @param delay the ticks to wait before running the task
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     @Nonnull
-    public static BukkitTask runAsyncTaskLater(long delay, @Nonnull Runnable runnable) {
-        return server.runAsyncTaskLater(delay, runnable);
+    public static BukkitTask runAsyncTaskLater(long delay, @Nonnull Runnable task) throws IllegalArgumentException {
+        return server.runAsyncTaskLater(delay, task);
     }
 
+    /**
+     * Returns a task that will repeatedly run until cancelled, starting after
+     * the specified number of server ticks.
+     *
+     * @param delay  the ticks to wait before running the task
+     * @param period the ticks to wait between runs
+     * @param task   the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     @Nonnull
-    public static BukkitTask runSyncTaskPeriodically(long delay, long period, @Nonnull Runnable runnable) {
-        return server.runSyncTaskPeriodically(delay, period, runnable);
+    public static BukkitTask runSyncTaskPeriodically(long delay, long period, @Nonnull Runnable task) throws IllegalArgumentException {
+        return server.runSyncTaskPeriodically(delay, period, task);
     }
 
+    /**
+     * Returns a task that will repeatedly run asynchronously until cancelled,
+     * starting after the specified number of server ticks.
+     * <br>
+     * <b>Note:</b> Asynchronous tasks should never access any API in Bukkit.
+     *
+     * @param delay  the ticks to wait before running the task for the first
+     *               time
+     * @param period the ticks to wait between runs
+     * @param task   the task to be run
+     * @return a BukkitTask that contains the id number
+     * @throws IllegalArgumentException if plugin is null
+     * @throws IllegalArgumentException if task is null
+     */
     @Nonnull
-    public static BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable runnable) {
-        return server.runAsyncTaskPeriodically(delay, period, runnable);
+    public static BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable task) throws IllegalArgumentException {
+        return server.runAsyncTaskPeriodically(delay, period, task);
     }
 
     public static void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener) {
