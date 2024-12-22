@@ -3,7 +3,6 @@ package minevalley.core.api;
 import com.google.gson.Gson;
 import lombok.NonNull;
 import minevalley.core.api.armorstand.FakeArmorStand;
-import minevalley.core.api.command.PlayerCommand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
 import minevalley.core.api.database.DatabaseEntry;
@@ -58,8 +57,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.MetadataValue;
-import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
@@ -354,38 +351,6 @@ public final class Core {
      */
     public static double getStatistic(String key) {
         return server.getStatistic(key);
-    }
-
-    /**
-     * Adds this object as a metadata to the metadatable object.
-     *
-     * @param metadatable object to which the metadata should be added
-     * @param key         key under which the metadata can be found
-     * @param value       object to be added as metadata
-     */
-    public static void setMetadata(Metadatable metadatable, String key, Object value) {
-        server.setMetadata(metadatable, key, value);
-    }
-
-    /**
-     * Removes all metadata-objects with the given key from the specific metadatable object.
-     *
-     * @param metadatable object from which the metadata should be removed
-     * @param key         object
-     */
-    public static void removeMetadata(Metadatable metadatable, String key) {
-        server.removeMetadata(metadatable, key);
-    }
-
-    /**
-     * Gets a list of all metadata-values in link to the object.
-     *
-     * @param metadatable object to get linked data from
-     * @param key         key of the metadata
-     * @return list of all metadata-values
-     */
-    public static List<MetadataValue> getMetadata(Metadatable metadatable, String key) {
-        return server.getMetadata(metadatable, key);
     }
 
     /**
