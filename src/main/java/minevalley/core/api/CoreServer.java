@@ -68,16 +68,16 @@ public interface CoreServer {
     JavaPlugin getInstance();
 
     @NonNull
-    BukkitTask runSyncTaskLater(long delay, @NonNull Runnable runnable);
+    BukkitTask runSyncTaskLater(long delay, @NonNull Runnable runnable) throws IllegalStateException;
 
     @NonNull
-    BukkitTask runAsyncTaskLater(long delay, @NonNull Runnable runnable);
+    BukkitTask runAsyncTaskLater(long delay, @NonNull Runnable runnable) throws IllegalStateException;
 
     @NonNull
-    BukkitTask runSyncTaskPeriodically(long delay, long period, @NonNull Runnable runnable);
+    BukkitTask runSyncTaskPeriodically(long delay, long period, @NonNull Runnable runnable) throws IllegalStateException;
 
     @NonNull
-    BukkitTask runAsyncTaskPeriodically(long delay, long period, @NonNull Runnable runnable);
+    BukkitTask runAsyncTaskPeriodically(long delay, long period, @NonNull Runnable runnable) throws IllegalStateException;
 
     void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener);
 
