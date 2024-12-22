@@ -1,6 +1,7 @@
 package minevalley.core.api.users;
 
 import lombok.Setter;
+import minevalley.core.api.database.Value;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -20,6 +21,16 @@ public final class OnTimeHandler {
 
     public static int getOnTimeSinceRestartInMinutes(User user) {
         return manager.getOnTimeSinceRestartInMinutes(user);
+    }
+
+    public static void purgeOnTime() {
+        // TODO 22.12.2024: purgeOnTime() (OnTimeHandler)
+//        USER_BY_UUID.values().forEach(user -> {
+//            final int delta = OnTimeHandler.getOnTimeSinceRestartInMinutes(user);
+//            if (delta != 0) {
+//                user.getEntry().changeValue(new Value("ontime", user.totalOnTimeInMinutes + delta));
+//            }
+//        });
     }
 
     public interface Manager {
