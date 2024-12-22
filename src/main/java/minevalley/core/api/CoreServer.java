@@ -57,6 +57,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 import java.time.DayOfWeek;
@@ -69,17 +70,17 @@ public interface CoreServer {
 
     JavaPlugin getInstance();
 
-    int runSyncTaskLater(long delay, Runnable runnable);
+    @NonNull
+    BukkitTask runSyncTaskLater(long delay, @NonNull Runnable runnable);
 
-    int runAsyncTaskLater(long delay, Runnable runnable);
+    @NonNull
+    BukkitTask runAsyncTaskLater(long delay, @NonNull Runnable runnable);
 
-    int runSyncTaskPeriodically(long delay, long period, Runnable runnable);
+    @NonNull
+    BukkitTask runSyncTaskPeriodically(long delay, long period, @NonNull Runnable runnable);
 
-    int runAsyncTaskPeriodically(long delay, long period, Runnable runnable);
-
-    boolean isCurrentlyRunning(int taskId);
-
-    void cancelTask(int taskId);
+    @NonNull
+    BukkitTask runAsyncTaskPeriodically(long delay, long period, @NonNull Runnable runnable);
 
     void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener);
 
