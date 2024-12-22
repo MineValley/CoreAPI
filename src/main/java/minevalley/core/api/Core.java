@@ -61,6 +61,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 import javax.annotation.Nonnull;
@@ -72,7 +73,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "UnusedReturnValue"})
 public final class Core {
 
     private static CoreServer server;
@@ -81,54 +82,34 @@ public final class Core {
         return server.getInstance();
     }
 
-    public static int runSyncTaskNow(Runnable runnable) {
+    @Nonnull
+    public static BukkitTask runSyncTaskNow(@Nonnull Runnable runnable) {
         return server.runSyncTaskLater(0, runnable);
     }
 
-    public static int runAsyncTaskNow(Runnable runnable) {
+    @Nonnull
+    public static BukkitTask runAsyncTaskNow(@Nonnull Runnable runnable) {
         return server.runAsyncTaskLater(0, runnable);
     }
 
-    public static int runSyncTaskLater(long delay, Runnable runnable) {
+    @Nonnull
+    public static BukkitTask runSyncTaskLater(long delay, @Nonnull Runnable runnable) {
         return server.runSyncTaskLater(delay, runnable);
     }
 
-    public static int runAsyncTaskLater(long delay, Runnable runnable) {
+    @Nonnull
+    public static BukkitTask runAsyncTaskLater(long delay, @Nonnull Runnable runnable) {
         return server.runAsyncTaskLater(delay, runnable);
     }
 
-    public static int runSyncTaskPeriodically(long delay, long period, Runnable runnable) {
+    @Nonnull
+    public static BukkitTask runSyncTaskPeriodically(long delay, long period, @Nonnull Runnable runnable) {
         return server.runSyncTaskPeriodically(delay, period, runnable);
     }
 
-    public static int runAsyncTaskPeriodically(long delay, long period, Runnable runnable) {
+    @Nonnull
+    public static BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable runnable) {
         return server.runAsyncTaskPeriodically(delay, period, runnable);
-    }
-
-    /**
-     * Check if the task currently running.
-     * <p>
-     * A repeating task might not be running currently, but will be running in
-     * the future. A task that has finished, and does not repeat, will not be
-     * running ever again.
-     * <p>
-     * Explicitly, a task is running if there exists a thread for it, and that
-     * thread is alive.
-     *
-     * @param taskId The task to check.
-     * @return If the task is currently running.
-     */
-    public static boolean isCurrentlyRunning(int taskId) {
-        return server.isCurrentlyRunning(taskId);
-    }
-
-    /**
-     * Removes task from scheduler.
-     *
-     * @param taskId Id number of task to be removed
-     */
-    public static void cancelTask(int taskId) {
-        server.cancelTask(taskId);
     }
 
     public static void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener) {
@@ -198,11 +179,12 @@ public final class Core {
      * <br>
      * <strong>Note:</strong> If no player is found, this method returns null.
      * <p>
-     *     <strong>Runtime Optimization</strong>
+     * <strong>Runtime Optimization</strong>
      *     <ul>
      *         <li>This method uses an internal cache</li>
      *         <li>If the player is online, no use of the mojang api is taken</li>
      * </p>
+     *
      * @param name name of the player
      * @return unique id as UUID
      */
