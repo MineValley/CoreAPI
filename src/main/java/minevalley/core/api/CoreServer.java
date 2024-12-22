@@ -3,7 +3,6 @@ package minevalley.core.api;
 import com.google.gson.Gson;
 import lombok.NonNull;
 import minevalley.core.api.armorstand.FakeArmorStand;
-import minevalley.core.api.command.PlayerCommand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
 import minevalley.core.api.database.DatabaseEntry;
@@ -54,8 +53,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.MetadataValue;
-import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
@@ -129,12 +126,6 @@ public interface CoreServer {
     ChatMenu createChatMenu(ChatMenu.Option... options);
 
     ChatMenu createChatMenu();
-
-    void setMetadata(Metadatable metadatable, String key, Object value);
-
-    void removeMetadata(Metadatable metadatable, String key);
-
-    List<MetadataValue> getMetadata(Metadatable metadatable, String key);
 
     Gson getGson();
 
