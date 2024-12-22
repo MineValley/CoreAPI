@@ -90,6 +90,14 @@ public interface CoreServer {
 
     void callEvent(Event event);
 
+    User getUser(UUID uuid);
+
+    String getName(UUID uniqueId);
+
+    UUID getUniqueId(String name);
+
+    OnlineUser getOnlineUser(Player player);
+
     void registerCommand(PlayerCommand command);
 
     void sendTeamChatMessage(String message);
@@ -120,10 +128,6 @@ public interface CoreServer {
 
     double getStatistic(String key);
 
-    User getUser(UUID uuid);
-
-    OnlineUser getOnlineUser(Player player);
-
     ChatMenu createChatMenu(ChatMenu.Option... options);
 
     ChatMenu createChatMenu();
@@ -135,10 +139,6 @@ public interface CoreServer {
     List<MetadataValue> getMetadata(Metadatable metadatable, String key);
 
     Gson getGson();
-
-    String getName(UUID uniqueId);
-
-    UUID getUniqueId(String name);
 
     String removeColorCodes(String text);
 
