@@ -193,10 +193,6 @@ public final class Core {
         return server.getUniqueId(name);
     }
 
-    public static void registerCommand(PlayerCommand command) {
-        server.registerCommand(command);
-    }
-
     /**
      * Sends a message to all online team-members
      *

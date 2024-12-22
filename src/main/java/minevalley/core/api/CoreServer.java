@@ -98,8 +98,6 @@ public interface CoreServer {
 
     OnlineUser getOnlineUser(Player player);
 
-    void registerCommand(PlayerCommand command);
-
     void sendTeamChatMessage(String message);
 
     void sendTeamChatMessage(BaseComponent[] message);
