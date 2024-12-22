@@ -63,6 +63,8 @@ import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.util.*;
@@ -143,6 +145,70 @@ public final class Core {
 
     public static void callEvent(Event event) {
         server.callEvent(event);
+    }
+
+    /**
+     * Gets the user of with a specific unique id.
+     * <br>
+     * <strong>Note:</strong> If no user is found, this method returns null.
+     *
+     * @param uniqueId unique id to get user from
+     * @return user object of the given unique id
+     */
+    @Nullable
+    public static User getUser(@Nonnull UUID uniqueId) {
+        return server.getUser(uniqueId);
+    }
+
+    /**
+     * Gets the user of this specific player.
+     * <br>
+     * <strong>Note:</strong> If no user is found, a new one is created based on the player.
+     *
+     * @param player player to get user from
+     * @return user object of the given player
+     */
+    @NonNull
+    public static OnlineUser getOnlineUser(@Nonnull Player player) {
+        return server.getOnlineUser(player);
+    }
+
+    /**
+     * Gets the name of the player with the specific unique id.
+     * <br>
+     * <strong>Note:</strong> If no player is found, this method returns null.
+     * <p>
+     * <strong>Runtime Optimization</strong>
+     * <ul>
+     *     <li>This method uses an internal cache</li>
+     *     <li>If the player is online, no use of the mojang api is taken</li>
+     * </ul>
+     * </p>
+     *
+     * @param uniqueId unique id of the player
+     * @return name of the player
+     */
+    @Nullable
+    public static String getName(@Nonnull UUID uniqueId) {
+        return server.getName(uniqueId);
+    }
+
+    /**
+     * Gets the unique id of the player with the specific name.
+     * <br>
+     * <strong>Note:</strong> If no player is found, this method returns null.
+     * <p>
+     *     <strong>Runtime Optimization</strong>
+     *     <ul>
+     *         <li>This method uses an internal cache</li>
+     *         <li>If the player is online, no use of the mojang api is taken</li>
+     * </p>
+     * @param name name of the player
+     * @return unique id as UUID
+     */
+    @Nullable
+    public static UUID getUniqueId(@Nonnull String name) {
+        return server.getUniqueId(name);
     }
 
     public static void registerCommand(PlayerCommand command) {
@@ -342,40 +408,6 @@ public final class Core {
      */
     public static List<MetadataValue> getMetadata(Metadatable metadatable, String key) {
         return server.getMetadata(metadatable, key);
-    }
-
-    /**
-     * Gets a players user object
-     *
-     * @param uniqueId uniqueId to get user from
-     * @return user object of the given uniqueId
-     */
-    public static User getUser(UUID uniqueId) {
-        return server.getUser(uniqueId);
-    }
-
-    public static OnlineUser getOnlineUser(Player player) {
-        return server.getOnlineUser(player);
-    }
-
-    /**
-     * Gets the name of the player with the specific unique id
-     *
-     * @param uniqueId unique id of the player
-     * @return name of the player
-     */
-    public static String getName(UUID uniqueId) {
-        return server.getName(uniqueId);
-    }
-
-    /**
-     * Gets the unique id of the player with the specific name
-     *
-     * @param name name of the player
-     * @return unique id of the player
-     */
-    public static UUID getUniqueId(String name) {
-        return server.getUniqueId(name);
     }
 
     /**
