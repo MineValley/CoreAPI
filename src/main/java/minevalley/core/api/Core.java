@@ -1842,7 +1842,7 @@ public final class Core {
      * @throws IllegalArgumentException if the text contains characters that have no transparent representation
      */
     @Contract("null -> null")
-    public static String convertToTransparent(@Nullable String text) throws IllegalArgumentException{
+    public static String convertToTransparent(@Nullable String text) throws IllegalArgumentException {
         return server.convertToTransparent(text);
     }
 }
