@@ -1,7 +1,6 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import lombok.NonNull;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
@@ -60,7 +59,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
+import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Contract;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.text.SimpleDateFormat;
@@ -75,6 +77,14 @@ public final class Core {
 
     private static CoreServer server;
 
+    /**
+     * Get the JavaPlugin instance of CorePlugin.
+     * <br>
+     * This gives you access to some Bukkit features that rely on this instance.
+     *
+     * @return JavaPlugin instance of CorePlugin
+     */
+    @Nonnull
     public static JavaPlugin getInstance() {
         return server.getInstance();
     }
@@ -84,7 +94,6 @@ public final class Core {
      *
      * @param task the task to be run
      * @return a BukkitTask that contains the id number
-     * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
     @Nonnull
@@ -99,7 +108,6 @@ public final class Core {
      *
      * @param task the task to be run
      * @return a BukkitTask that contains the id number
-     * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
     @Nonnull
@@ -114,7 +122,6 @@ public final class Core {
      * @param delay the ticks to wait before running the task
      * @param task  the task to be run
      * @return a BukkitTask that contains the id number
-     * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
     @Nonnull
@@ -131,7 +138,6 @@ public final class Core {
      * @param task  the task to be run
      * @param delay the ticks to wait before running the task
      * @return a BukkitTask that contains the id number
-     * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
     @Nonnull
@@ -147,7 +153,6 @@ public final class Core {
      * @param period the ticks to wait between runs
      * @param task   the task to be run
      * @return a BukkitTask that contains the id number
-     * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
     @Nonnull
@@ -166,7 +171,6 @@ public final class Core {
      * @param period the ticks to wait between runs
      * @param task   the task to be run
      * @return a BukkitTask that contains the id number
-     * @throws IllegalArgumentException if plugin is null
      * @throws IllegalArgumentException if task is null
      */
     @Nonnull
@@ -174,19 +178,45 @@ public final class Core {
         return server.runAsyncTaskPeriodically(delay, period, task);
     }
 
-    public static void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener) {
+    /**
+     * Registers an event listener.
+     *
+     * @param cls      class of the event
+     * @param listener listener to register
+     * @throws IllegalArgumentException if the event class or listener is null
+     */
+    public static void registerListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException {
         server.registerListener(cls, listener);
     }
 
-    public static void unregisterListener(Class<? extends Event> cls, EventListener<? extends Event> listener) {
+    /**
+     * Unregisters an event listener.
+     *
+     * @param cls      class of the event
+     * @param listener listener to unregister
+     * @throws IllegalArgumentException if the event class or listener is null
+     */
+    public static void unregisterListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException {
         server.unregisterListener(cls, listener);
     }
 
-    public static void registerListener(Listener listener) {
+    /**
+     * Registers an event listener.
+     *
+     * @param listener listener to register
+     * @throws IllegalArgumentException if the listener is null
+     */
+    public static void registerListener(@Nonnull Listener listener) throws IllegalArgumentException {
         server.registerListener(listener);
     }
 
-    public static void callEvent(Event event) {
+    /**
+     * Calls an event.
+     *
+     * @param event event to call
+     * @throws IllegalArgumentException if the event is null
+     */
+    public static void callEvent(@Nonnull Event event) throws IllegalArgumentException {
         server.callEvent(event);
     }
 
@@ -199,7 +229,8 @@ public final class Core {
      * @return user object of the given unique id
      */
     @Nullable
-    public static User getUser(@Nonnull UUID uniqueId) {
+    @Contract("null -> null")
+    public static User getUser(@Nullable UUID uniqueId) {
         return server.getUser(uniqueId);
     }
 
@@ -210,9 +241,10 @@ public final class Core {
      *
      * @param player player to get user from
      * @return user object of the given player
+     * @throws IllegalArgumentException if the player is null
      */
-    @NonNull
-    public static OnlineUser getOnlineUser(@Nonnull Player player) {
+    @Nonnull
+    public static OnlineUser getOnlineUser(@Nonnull Player player) throws IllegalArgumentException {
         return server.getOnlineUser(player);
     }
 
@@ -232,7 +264,8 @@ public final class Core {
      * @return name of the player
      */
     @Nullable
-    public static String getName(@Nonnull UUID uniqueId) {
+    @Contract("null -> null")
+    public static String getName(@Nullable UUID uniqueId) {
         return server.getName(uniqueId);
     }
 
@@ -251,7 +284,8 @@ public final class Core {
      * @return unique id as UUID
      */
     @Nullable
-    public static UUID getUniqueId(@Nonnull String name) {
+    @Contract("null -> null")
+    public static UUID getUniqueId(@Nullable String name) {
         return server.getUniqueId(name);
     }
 
@@ -260,7 +294,7 @@ public final class Core {
      *
      * @param message message as string
      */
-    public static void sendTeamChatMessage(String message) {
+    public static void sendTeamChatMessage(@Nonnull String message) {
         server.sendTeamChatMessage(message);
     }
 
@@ -269,11 +303,18 @@ public final class Core {
      *
      * @param message message as base-component (useful for clickable messages)
      */
-    public static void sendTeamChatMessage(BaseComponent[] message) {
+    @Deprecated
+    public static void sendTeamChatMessage(@Nonnull BaseComponent[] message) {
         server.sendTeamChatMessage(message);
     }
 
-    public static void sendDebug(DebugType type, String message) {
+    /**
+     * Sends a debug message to the console and to every online team-member that enabled this debug type.
+     *
+     * @param type    type of the debug message
+     * @param message message as string
+     */
+    public static void sendDebug(@Nonnull DebugType type, @Nonnull String message) {
         server.sendDebug(type, removeColorCodes(message));
     }
 
@@ -369,8 +410,9 @@ public final class Core {
      *
      * @param key   string of the key
      * @param value string of the (new) value
+     * @throws IllegalArgumentException if the key or value is null
      */
-    public static void setSetting(String key, String value) {
+    public static void setSetting(@Nonnull String key, @Nonnull String value) throws IllegalArgumentException {
         server.setSetting(key, value);
     }
 
@@ -380,6 +422,8 @@ public final class Core {
      * @param key string of the key with which the setting is saved
      * @return setting as string from the specific key
      */
+    @Nullable
+    @Contract("null -> null")
     public static String getSetting(String key) {
         return server.getSetting(key);
     }
@@ -392,7 +436,8 @@ public final class Core {
      * @param defaultValue value that is returned, if the setting is null
      * @return setting as string from the specific key
      */
-    public static String getSetting(String key, String defaultValue) {
+    @Nonnull
+    public static String getSetting(String key, @Nonnull String defaultValue) {
         return Optional.ofNullable(server.getSetting(key)).orElse(defaultValue);
     }
 
@@ -403,8 +448,9 @@ public final class Core {
      *
      * @param key   string of the key
      * @param value double of the (new) value
+     * @throws IllegalArgumentException if the key is null
      */
-    public static void updateStatistic(String key, double value) {
+    public static void updateStatistic(@Nonnull String key, double value) throws IllegalArgumentException {
         server.updateStatistic(key, value);
     }
 
@@ -413,8 +459,9 @@ public final class Core {
      *
      * @param key string of the key with which the statistic is saved
      * @return statistic as double from the specific key
+     * @throws IllegalArgumentException if the key is null
      */
-    public static double getStatistic(String key) {
+    public static double getStatistic(@Nonnull String key) throws IllegalArgumentException {
         return server.getStatistic(key);
     }
 
@@ -424,7 +471,8 @@ public final class Core {
      * @param text string which could contain color-codes
      * @return string without any color-codes
      */
-    public static String removeColorCodes(String text) {
+    @Contract("null -> null")
+    public static String removeColorCodes(@Nullable String text) {
         return server.removeColorCodes(text);
     }
 
@@ -434,7 +482,8 @@ public final class Core {
      * @param text string which could contain chat-color-codes
      * @return string with converted color-codes
      */
-    public static String convertColorCodes(String text) {
+    @Contract("null -> null")
+    public static String convertColorCodes(@Nullable String text) {
         return server.convertColorCodes(text);
     }
 
@@ -444,7 +493,8 @@ public final class Core {
      * @param text text to check
      * @return true, if string contains forbidden words
      */
-    public static boolean containsForbiddenWords(String text) {
+    @Contract("null -> false")
+    public static boolean containsForbiddenWords(@Nullable String text) {
         return server.containsForForbiddenWords(text);
     }
 
@@ -454,6 +504,7 @@ public final class Core {
      *
      * @return an instance of Gson configured that fits in a page for pretty printing
      */
+    @Nonnull
     public static Gson getGson() {
         return server.getGson();
     }
@@ -463,9 +514,10 @@ public final class Core {
      *
      * @param chars number of chars
      * @return random integer
+     * @throws IllegalArgumentException if the chars are less than 1
      */
-    public static int getRandomInteger(int chars) {
-        return server.randomInteger(chars);
+    public static int getRandomInteger(int chars) throws IllegalArgumentException {
+        return server.getRandomInteger(chars);
     }
 
     /**
@@ -476,7 +528,8 @@ public final class Core {
      * @param string string to verify
      * @return true, if the given string is numeric
      */
-    public static boolean isInteger(String string) {
+    @Contract("null -> false")
+    public static boolean isInteger(@Nullable String string) {
         return server.isInteger(string);
     }
 
@@ -486,7 +539,8 @@ public final class Core {
      * @param string string to verify
      * @return true, if the given string is numeric
      */
-    public static boolean isDouble(String string) {
+    @Contract("null -> false")
+    public static boolean isDouble(@Nullable String string) {
         return server.isDouble(string);
     }
 
@@ -496,26 +550,32 @@ public final class Core {
      * @param amountInCents amount to convert
      * @return amount as x.xxx.xxx,xx€
      */
+    @Nonnull
     public static String formatMoney(int amountInCents) {
         return server.formatMoney(amountInCents);
     }
 
+    @Nonnull
     public static String getFormattedDate(long time) {
         return new SimpleDateFormat("dd. MMMM yyyy - HH:mm", Locale.GERMANY).format(new Date(time)) + " Uhr";
     }
 
+    @Nonnull
     public static String formatRelativeTimestamp(long timestamp) {
         return server.formatRelativeTimestamp(timestamp);
     }
 
+    @Nonnull
     public static String getCurrentTimeFormatted() {
         return getFormattedDate(System.currentTimeMillis());
     }
 
+    @Nonnull
     public static String getCurrentDayTimeFormatted() {
         return getFormattedTime(System.currentTimeMillis());
     }
 
+    @Nonnull
     public static String getFormattedTime(long time) {
         return new SimpleDateFormat("HH:mm", Locale.GERMANY).format(new Date(time)) + " Uhr";
     }
@@ -523,14 +583,24 @@ public final class Core {
     /**
      * Creates new gui-builder with the specific size.
      *
-     * @param size size of the inventory (has to be a multiple of 9)
+     * @param size size of the inventory
      * @return new gui-builder
+     * @throws IllegalArgumentException if the size is invalid (negative, higher than 54 or not a multiple of 9 while being higher than 6)
      */
-    public static GuiBuilder createGui(int size) {
+    @Nonnull
+    public static GuiBuilder createGui(@Nonnegative int size) throws IllegalArgumentException {
         return server.createGui(size);
     }
 
-    public static MultiPageGui createMultiPageGui(int size) {
+    /**
+     * Creates a gui with multiple pages and a specific size.
+     *
+     * @param size size of the inventory
+     * @return new gui-builder
+     * @throws IllegalArgumentException if the size is invalid (negative, higher than 54 or not a multiple of 9 while being higher than 6)
+     */
+    @Nonnull
+    public static MultiPageGui createMultiPageGui(@Nonnegative int size) throws IllegalArgumentException {
         return server.createMultiPageGui(size);
     }
 
@@ -542,7 +612,7 @@ public final class Core {
      * @param consumer  consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(ItemStack itemStack, Consumer<OnlineUser> consumer) {
+    public static GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable Consumer<OnlineUser> consumer) {
         return server.createGuiItem(itemStack, consumer);
     }
 
@@ -554,7 +624,7 @@ public final class Core {
      * @param callback    consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(ItemBuilder itemBuilder, Consumer<OnlineUser> callback) {
+    public static GuiItem createGuiItem(@Nonnull ItemBuilder itemBuilder, @Nullable Consumer<OnlineUser> callback) {
         return server.createGuiItem(itemBuilder.build(), callback);
     }
 
@@ -566,7 +636,7 @@ public final class Core {
      * @param callback consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(InterfaceItem item, Consumer<OnlineUser> callback) {
+    public static GuiItem createGuiItem(@Nonnull InterfaceItem item, @Nullable Consumer<OnlineUser> callback) {
         return server.createGuiItem(item.toItemStack(), callback);
     }
 
@@ -578,7 +648,7 @@ public final class Core {
      * @param callback  consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(ItemStack itemStack, BiConsumer<OnlineUser, InventoryClickEvent> callback) {
+    public static GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
         return server.createAdvancedGuiItem(itemStack, callback);
     }
 
@@ -590,7 +660,7 @@ public final class Core {
      * @param callback    consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(ItemBuilder itemBuilder, BiConsumer<OnlineUser, InventoryClickEvent> callback) {
+    public static GuiItem createGuiItem(@Nonnull ItemBuilder itemBuilder, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
         return server.createAdvancedGuiItem(itemBuilder.build(), callback);
     }
 
@@ -602,36 +672,64 @@ public final class Core {
      * @param callback consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
-    public static GuiItem createGuiItem(InterfaceItem item, BiConsumer<OnlineUser, InventoryClickEvent> callback) {
+    public static GuiItem createGuiItem(@Nonnull InterfaceItem item, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
         return server.createAdvancedGuiItem(item.toItemStack(), callback);
     }
 
     /**
-     * Gets the servers main map.
+     * Gets the main world.
      *
-     * @return main map
+     * @return main world
      */
+    @Nonnull
     public static World getMainWorld() {
         return server.getMainWorld();
     }
 
     /**
-     * Gets the building map.
+     * Gets the building world.
+     * <br>
+     * <b>Note:</b> This world only exists on main server.
      *
      * @return building map
+     * @throws IllegalStateException if the method is called on any server but the main server
      */
-    public static World getBuildingWorld() {
+    @Nonnull
+    public static World getBuildingWorld() throws IllegalStateException {
         return server.getBuildingWorld();
     }
 
-    public static World getPresetsWorld() {
+    /**
+     * Gets the presets world.
+     * <br>
+     * <b>Note:</b> This world only exists on main server.
+     *
+     * @return building map
+     * @throws IllegalStateException if the method is called on any server but the main server
+     */
+    @Nonnull
+    public static World getPresetsWorld() throws IllegalStateException {
         return server.getPresetsWorld();
     }
 
-    public static void loadPreset(Area presetArea, Block presetPivot, Block mainWorldPivot) {
+    /**
+     * Loads the given area from the presets world to the main world.
+     * <br>
+     * <b>Note:</b> This method only works on the main server.
+     *
+     * @param presetArea     area to load
+     * @param presetPivot    pivot of the area in the presets world
+     * @param mainWorldPivot pivot of the area in the main world
+     * @throws IllegalArgumentException if the area or pivot is null
+     * @throws IllegalStateException    if the method is called on any server but the main server
+     */
+    public static void loadPreset(@Nonnull Area presetArea, @Nonnull Block presetPivot, @Nonnull Block mainWorldPivot) throws IllegalArgumentException, IllegalStateException {
         server.loadPreset(presetArea, presetPivot, mainWorldPivot);
     }
 
+    /**
+     * Restarts the server and runs the cleanup process on start.
+     */
     public static void restartAndClean() {
         server.restartAndClean();
     }
@@ -643,8 +741,11 @@ public final class Core {
      * @param material fake block's material
      * @param data     defines the special data for this block
      * @return fake block with the specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null or data is invalid
      */
-    public static FakeBlock createFakeBlock(Block block, Material material, int data) {
+    @Nonnull
+    @Contract("_, _, _ -> new")
+    public static FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material, int data) throws IllegalArgumentException {
         return server.createFakeBlock(block, material, data);
     }
 
@@ -654,8 +755,11 @@ public final class Core {
      * @param block    block where the fake block is placed
      * @param material fake block's material
      * @return fake block with the specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null
      */
-    public static FakeBlock createFakeBlock(Block block, Material material) {
+    @Nonnull
+    @Contract("_, _ -> new")
+    public static FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material) throws IllegalArgumentException {
         return server.createFakeBlock(block, material, 0);
     }
 
@@ -664,8 +768,11 @@ public final class Core {
      *
      * @param itemStack itemstack the item-builder will base on
      * @return new item-builder
+     * @throws IllegalArgumentException if the itemstack is null
      */
-    public static ItemBuilder createItem(ItemStack itemStack) {
+    @Nonnull
+    @Contract("_ -> new")
+    public static ItemBuilder createItem(@Nonnull ItemStack itemStack) throws IllegalArgumentException {
         return server.createItem(itemStack);
     }
 
@@ -674,8 +781,11 @@ public final class Core {
      *
      * @param material material of the item to create
      * @return new item-builder
+     * @throws IllegalArgumentException if the material is null
      */
-    public static ItemBuilder createItem(Material material) {
+    @Nonnull
+    @Contract("_ -> new")
+    public static ItemBuilder createItem(@Nonnull Material material) throws IllegalArgumentException {
         return server.createItem(material);
     }
 
@@ -685,8 +795,11 @@ public final class Core {
      * @param material material of the item to create
      * @param data     specific data for the item as short
      * @return new item-builder
+     * @throws IllegalArgumentException if the material is null or data is invalid
      */
-    public static ItemBuilder createItem(Material material, int data) {
+    @Nonnull
+    @Contract("_, _ -> new")
+    public static ItemBuilder createItem(@Nonnull Material material, int data) throws IllegalArgumentException {
         return server.createItem(material, data);
     }
 
@@ -695,8 +808,11 @@ public final class Core {
      *
      * @param player player whose head is wanted
      * @return new item-builder
+     * @throws IllegalArgumentException if the player is null
      */
-    public static ItemBuilder createItem(Player player) {
+    @Nonnull
+    @Contract("_ -> new")
+    public static ItemBuilder createItem(@Nonnull Player player) throws IllegalArgumentException {
         return server.createItem(player);
     }
 
@@ -705,8 +821,11 @@ public final class Core {
      *
      * @param user user whose head is wanted
      * @return new item-builder
+     * @throws IllegalArgumentException if the user is null
      */
-    public static ItemBuilder createItem(OnlineUser user) {
+    @Nonnull
+    @Contract("_ -> new")
+    public static ItemBuilder createItem(@Nonnull OnlineUser user) throws IllegalArgumentException {
         return server.createItem(user.getPlayer());
     }
 
@@ -715,8 +834,11 @@ public final class Core {
      *
      * @param user user whose head is wanted
      * @return new item-builder
+     * @throws IllegalArgumentException if the user is null
      */
-    public static ItemBuilder createItem(User user) {
+    @Nonnull
+    @Contract("_ -> new")
+    public static ItemBuilder createItem(@Nonnull User user) throws IllegalArgumentException {
         return server.createItem(user.getPlayerHead());
     }
 
@@ -725,12 +847,25 @@ public final class Core {
      *
      * @param uniqueId unique id of the player whose head is wanted
      * @return new item-builder
+     * @throws IllegalArgumentException if the unique id is null or no player is found matching the unique id
      */
-    public static ItemBuilder createItem(UUID uniqueId) {
+    @Nonnull
+    @Contract("_ -> new")
+    public static ItemBuilder createItem(@Nonnull UUID uniqueId) throws IllegalArgumentException {
         return server.createItem(uniqueId);
     }
 
-    public static ItemBuilder createItem(String value, String signature) {
+    /**
+     * Creates a new item-builder based on the given value and signature.
+     *
+     * @param value     value of the item
+     * @param signature signature of the item
+     * @return new item-builder
+     * @throws IllegalArgumentException if the value or signature is null or no item could be created based on the given parameters
+     */
+    @Nonnull
+    @Contract("_, _ -> new")
+    public static ItemBuilder createItem(@Nonnull String value, @Nonnull String signature) throws IllegalArgumentException {
         return server.createItem(value, signature);
     }
 
@@ -747,8 +882,11 @@ public final class Core {
      *
      * @param url link to <span style="text-decoration:underline;">or</span> the id of the specific head
      * @return item-builder based on the chosen head
+     * @throws IllegalArgumentException if the url is null
      */
-    public static ItemBuilder createItem(String url) {
+    @Nonnull
+    @Contract("_ -> new")
+    public static ItemBuilder createItem(@Nonnull String url) throws IllegalArgumentException {
         return server.createItem(url);
     }
 
@@ -758,7 +896,10 @@ public final class Core {
      * @param text text to be displayed
      * @return HoverEvent object to be put into .event()
      */
-    public static HoverEvent createHoverText(String text) {
+    @Nonnull
+    @Contract("_ -> new")
+    @Deprecated(forRemoval = true)
+    public static HoverEvent createHoverText(@Nonnull String text) {
         return new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(text).color(ChatColor.GRAY).create());
     }
 
@@ -768,6 +909,7 @@ public final class Core {
      * @param options clickable options (message and clickable)
      * @return new chat menu
      */
+    @Contract("_ -> new")
     public static ChatMenu createChatMenu(ChatMenu.Option... options) {
         return server.createChatMenu(options);
     }
@@ -786,8 +928,10 @@ public final class Core {
      *
      * @param inventory string to convert to inventory
      * @return inventory object
+     * @throws IllegalArgumentException if the inventory is null or invalid
      */
-    public static Inventory getInventoryFromString(String inventory) {
+    @Nonnull
+    public static Inventory getInventoryFromString(@Nonnull String inventory) throws IllegalArgumentException {
         return server.getInventoryFromString(inventory);
     }
 
@@ -796,8 +940,10 @@ public final class Core {
      *
      * @param inventory inventory to convert
      * @return inventory from string
+     * @throws IllegalArgumentException if the inventory is null or invalid
      */
-    public static String getStringFromInventory(Inventory inventory) {
+    @Nonnull
+    public static String getStringFromInventory(@Nonnull Inventory inventory) throws IllegalArgumentException {
         return server.getStringFromInventory(inventory);
     }
 
@@ -807,11 +953,21 @@ public final class Core {
      * @param iban iban as string
      * @return bank account
      */
-    public static BankAccount getBankAccount(String iban) {
+    @Nullable
+    @Contract("null -> null")
+    public static BankAccount getBankAccount(@Nullable String iban) {
         return server.getBankAccount(iban);
     }
 
-    public static BankAccount getBankAccount(ItemStack bankCard) {
+    /**
+     * Gets the bank account with the specific bank card.
+     *
+     * @param bankCard bank card as itemstack
+     * @return bank account
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static BankAccount getBankAccount(@Nullable ItemStack bankCard) {
         return server.getBankAccount(bankCard);
     }
 
@@ -820,16 +976,20 @@ public final class Core {
      *
      * @param holder holder of this bank account
      * @return new bank account
+     * @throws IllegalArgumentException if the holder is null
      */
-    public static BankAccount createBankAccount(Registrant holder) {
+    @Nonnull
+    @Contract("_ -> new")
+    public static BankAccount createBankAccount(@Nonnull Registrant holder) throws IllegalArgumentException {
         return server.createBankAccount(holder);
     }
 
     /**
-     * Get all loaded groups.
+     * Get all groups.
      *
      * @return list of all groups
      */
+    @Nonnull
     public static List<Group> getGroups() {
         return server.getGroups();
     }
@@ -840,9 +1000,92 @@ public final class Core {
      * @param name name as string
      * @return group with the specific name
      */
-    public static Group getGroup(String name) {
+    @Nullable
+    public static Group getGroup(@Nullable String name) {
         return server.getGroup(name);
     }
+
+    /**
+     * Creates a new group of type 'Einzelunternehmen' with the given owner.
+     *
+     * @param owner owner of this group
+     * @return new group
+     * @throws IllegalArgumentException if the owner is null or is not allowed to create a group
+     */
+    @Nonnull
+    @Contract("_ -> new")
+    public static Einzelunternehmen createEinzelunternehmen(@Nonnull User owner) throws IllegalArgumentException {
+        return server.createEinzelunternehmen(owner);
+    }
+
+    /**
+     * Creates a new group of type 'Personengesellschaft' with the given owner and co-owners.
+     *
+     * @param owner    owner of this group
+     * @param coOwners co-owners of this group
+     * @return new group
+     * @throws IllegalArgumentException if one of the owners is null or not allowed to create a group
+     */
+    @Nonnull
+    @Contract("_, _ -> new")
+    @ApiStatus.Experimental
+    public static Personengesellschaft createPersonengesellschaft(@Nonnull User owner, @Nonnull List<User> coOwners) throws IllegalArgumentException {
+        return server.createPersonengesellschaft(owner, coOwners);
+    }
+
+    /**
+     * Creates a new group of type 'Kapitalgesellschaft' with the given address.
+     *
+     * @param address address of this group
+     * @return new group
+     * @throws IllegalArgumentException if the address cannot be found
+     */
+    @Nonnull
+    @Contract("_ -> new")
+    @ApiStatus.Experimental
+    public static Kapitalgesellschaft createKapitalgesellschaft(int address) throws IllegalArgumentException {
+        return server.createKapitalgesellschaft(address);
+    }
+
+    /**
+     * Creates a new group of type 'Staat' with the given address.
+     *
+     * @param address address of this group
+     * @return new group
+     * @throws IllegalArgumentException if the address cannot be found or the sector is null
+     */
+    @Nonnull
+    @Contract("_, _ -> new")
+    @ApiStatus.Experimental
+    public static StateCompany createStateCompany(int address, @Nonnull StateCompany.Sector sector) throws IllegalArgumentException {
+        return server.createStateCompany(address, sector);
+    }
+
+    /**
+     * Creates a new group of type 'Aktiengesellschaft' with the given address and stocks.
+     *
+     * @param address address of this group
+     * @param stocks  stocks of this group
+     * @return new group
+     * @throws IllegalArgumentException if the address cannot be found or stocks is less or equal to 0
+     */
+    @Nonnull
+    @Contract("_, _ -> new")
+    @ApiStatus.Experimental
+    public static Aktiengesellschaft createAktiengesellschaft(int address, int stocks) throws IllegalArgumentException {
+        return server.createAktiengesellschaft(address, stocks);
+    }
+
+    /**
+     * Gets all state companies.
+     *
+     * @return list of all state companies
+     */
+    @Nonnull
+    public static List<StateCompany> getStateCompanies() {
+        return server.getStateCompanies();
+    }
+
 
     /**
      * Gets the telephone with the specific telephone number.
@@ -850,7 +1093,9 @@ public final class Core {
      * @param telephoneNumber telephone number to get telephone from
      * @return telephone with the specific telephone number
      */
-    public static Telephone getTelephone(String telephoneNumber) {
+    @Nullable
+    @Contract("null -> null")
+    public static Telephone getTelephone(@Nullable String telephoneNumber) {
         return server.getTelephone(telephoneNumber);
     }
 
@@ -860,7 +1105,9 @@ public final class Core {
      * @param id registrant as string
      * @return represented registrant
      */
-    public static Registrant getRegistrant(String id) {
+    @Nullable
+    @Contract("null -> null")
+    public static Registrant getRegistrant(@Nullable String id) {
         return server.getRegistrant(id);
     }
 
@@ -871,8 +1118,11 @@ public final class Core {
      * @param pullPoint   pull-point which is used to form the cuboid with the anchorpoint
      * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
+     * @throws IllegalArgumentException if one of the parameters is null
      */
-    public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<PlayerInteractEvent> callback) {
+    @Nonnull
+    @Contract("_, _, _ -> new")
+    public static Boundary createBoundary(@Nonnull Location anchorPoint, @Nonnull Location pullPoint, @Nonnull Consumer<PlayerInteractEvent> callback) throws IllegalArgumentException {
         return server.createBoundary(anchorPoint, pullPoint, callback);
     }
 
@@ -883,8 +1133,11 @@ public final class Core {
      * @param vector      vector from anchor- to pull-point to form the cuboid
      * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
+     * @throws IllegalArgumentException if one of the parameters is null
      */
-    public static Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<PlayerInteractEvent> callback) {
+    @Nonnull
+    @Contract("_, _, _ -> new")
+    public static Boundary createBoundary(@Nonnull Location anchorPoint, @Nonnull Vector vector, @Nonnull Consumer<PlayerInteractEvent> callback) throws IllegalArgumentException {
         return server.createBoundary(anchorPoint, vector, callback);
     }
 
@@ -894,8 +1147,11 @@ public final class Core {
      * @param delay    delay after which this timer terminates (in minutes)
      * @param callback callback that is called when this timer terminates
      * @return timer with the specific parameters
+     * @throws IllegalArgumentException if the delay is less than 1 or the callback is null
      */
-    public static Timer startTimer(int delay, @NonNull Runnable callback) {
+    @Nonnull
+    @Contract("_, _ -> new")
+    public static Timer startTimer(int delay, @Nonnull Runnable callback) throws IllegalArgumentException {
         return server.startTimer(delay, callback);
     }
 
@@ -908,8 +1164,9 @@ public final class Core {
      * @param period   period in which this repeating timer is called (in minutes)
      * @param callback callback that is called when this repeating timer reaches a period
      * @return repeating timer with the specific parameters.
+     * @throws IllegalArgumentException if the period is less than 1 or the callback is null
      */
-    public static RepeatingTimer startRepeatingTimer(int period, @NonNull Runnable callback) {
+    public static RepeatingTimer startRepeatingTimer(int period, @Nonnull Runnable callback) throws IllegalArgumentException {
         return server.startRepeatingTimer(period, callback);
     }
 
@@ -921,8 +1178,9 @@ public final class Core {
      * @param callback callback that is called when the given date/time is reached
      * @param weekdays weekdays on which this reminder is active
      * @return reminder with the specific parameters.
+     * @throws IllegalArgumentException if the hours or minutes are invalid
      */
-    public static Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, DayOfWeek... weekdays) {
+    public static Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, DayOfWeek... weekdays) throws IllegalArgumentException {
         return server.createReminder(hours, minutes, callback, weekdays);
     }
 
@@ -934,8 +1192,12 @@ public final class Core {
      * @param callback callback that is called when the given date/time is reached
      * @param weekdays weekdays on which this reminder is active
      * @return reminder with the specific parameters.
+     * @throws IllegalArgumentException if the hours or minutes are invalid or the callback is null
+     * @deprecated use {@link #createReminder(int, int, Runnable, DayOfWeek...)} instead
      */
-    public static Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<DayOfWeek> weekdays) {
+    @Nonnull
+    @Deprecated(forRemoval = true)
+    public static Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, List<DayOfWeek> weekdays) throws IllegalArgumentException {
         return server.createReminder(hours, minutes, callback, weekdays);
     }
 
@@ -946,8 +1208,10 @@ public final class Core {
      * @param minutes  minutes on which this reminder is called
      * @param callback callback that is called when the given date/time is reached
      * @return reminder with the specific parameters.
+     * @throws IllegalArgumentException if the hours or minutes are invalid or the callback is null
      */
-    public static Reminder createReminder(int hours, int minutes, @NonNull Runnable callback) {
+    @Nonnull
+    public static Reminder createReminder(@Nonnegative int hours, @Nonnegative int minutes, @Nonnull Runnable callback) throws IllegalArgumentException {
         return server.createReminder(hours, minutes, callback, DayOfWeek.values());
     }
 
@@ -956,8 +1220,10 @@ public final class Core {
      *
      * @param url URL of Webhook
      * @return Webhook with given URL
+     * @throws IllegalArgumentException if the URL is null
      */
-    public static Webhook createWebhook(String url) {
+    @Nonnull
+    public static Webhook createWebhook(@Nonnull String url) throws IllegalArgumentException {
         return server.createWebhook(url);
     }
 
@@ -966,6 +1232,7 @@ public final class Core {
      *
      * @return embedded message
      */
+    @Nonnull
     public static EmbeddedMessage createEmbeddedMessage() {
         return server.createEmbeddedMessage();
     }
@@ -996,41 +1263,110 @@ public final class Core {
         return server.createNPC(value, signature, name, location, focusNearPlayers);
     }
 
+    @Nonnull
     public static List<OnlineUser> getOnlineUsers() {
         return server.getOnlineUsers();
     }
 
-    public static CarBarrier createCarBarrier(Location loc, int rotation, List<Block> barrierBlocks) {
+    /**
+     * Creates a new car barrier with the specific parameters.
+     *
+     * @param loc           location of the barrier
+     * @param rotation      rotation of the barrier
+     * @param barrierBlocks blocks that will be replaced with barrier blocks when the car barrier closes
+     * @return car barrier with the specific parameters
+     * @throws IllegalArgumentException if the location is null
+     */
+    @Nonnull
+    @Contract("_, _, _ -> new")
+    public static CarBarrier createCarBarrier(@Nonnull Location loc, int rotation, @Nonnull List<Block> barrierBlocks) throws IllegalArgumentException {
         while (rotation < 0) rotation += 360;
         rotation %= 360;
         return server.createCarBarrier(loc, rotation, barrierBlocks);
     }
 
-    public static Hologram createHologram(Location loc, boolean visibleToEveryone, String... lines) {
+    /**
+     * Creates a hologram with the specific parameters.
+     *
+     * @param loc               location of the hologram
+     * @param visibleToEveryone if true, the hologram is visible to everyone
+     * @param lines             lines of the hologram
+     * @return hologram with the specific parameters
+     * @throws IllegalArgumentException if the location is null or the lines are empty
+     */
+    public static Hologram createHologram(@Nonnull Location loc, boolean visibleToEveryone, @Nonnull String... lines) throws IllegalArgumentException {
         return server.createHologram(loc, visibleToEveryone, lines);
     }
 
-    public static String itemStackToString(ItemStack itemStack) {
+    /**
+     * Converts an itemstack to a string.
+     *
+     * @param itemStack itemstack to convert
+     * @return string of the itemstack
+     * @throws IllegalArgumentException if the itemstack is null
+     */
+    @Nonnull
+    public static String itemStackToString(@Nonnull ItemStack itemStack) throws IllegalArgumentException {
         return server.itemStackToString(itemStack);
     }
 
-    public static ItemStack itemStackFromString(String itemStack) {
+    /**
+     * Converts a string to an itemstack.
+     *
+     * @param itemStack string to convert
+     * @return itemstack of the string
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static ItemStack itemStackFromString(@Nullable String itemStack) {
         return server.itemStackFromString(itemStack);
     }
 
-    public static String locationToString(Location location) {
+    /**
+     * Converts a location to a string.
+     *
+     * @param location location to convert
+     * @return string of the location
+     * @throws IllegalArgumentException if the location is null
+     */
+    @Nonnull
+    public static String locationToString(@Nonnull Location location) throws IllegalArgumentException {
         return server.locationToString(location);
     }
 
-    public static Location locationFromString(String location) {
+    /**
+     * Converts a string to a location.
+     *
+     * @param location string to convert
+     * @return location of the string
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static Location locationFromString(@Nullable String location) {
         return server.locationFromString(location);
     }
 
-    public static String blockToString(Block block) {
+    /**
+     * Converts a block to a string.
+     *
+     * @param block block to convert
+     * @return string of the block
+     * @throws IllegalArgumentException if the block is null
+     */
+    @Nonnull
+    public static String blockToString(@Nonnull Block block) throws IllegalArgumentException {
         return server.blockToString(block);
     }
 
-    public static Block blockFromString(String block) {
+    /**
+     * Converts a string to a block.
+     *
+     * @param block string to convert
+     * @return block of the string
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static Block blockFromString(@Nullable String block) {
         return server.blockFromString(block);
     }
 
@@ -1040,128 +1376,378 @@ public final class Core {
      * @param id regions id
      * @return region with specific id
      */
+    @Nullable
     public static Region getRegion(int id) {
         return server.getRegion(id);
     }
 
-    public static Region createRegion(List<Area> included, List<Area> excluded) {
+    /**
+     * Creates a region with the specific parameters.
+     *
+     * @param included included areas
+     * @param excluded excluded areas
+     * @return region with the specific parameters
+     * @throws IllegalArgumentException if the included or excluded areas are null or if the included areas are empty
+     */
+    @Nonnull
+    @Contract("_, _ -> new")
+    public static Region createRegion(@Nonnull List<Area> included, @Nonnull List<Area> excluded) throws IllegalArgumentException {
         return server.createRegion(included, excluded);
     }
 
     /**
-     * Gets the region in which this location lies in.
+     * Gets the regions in which this location lies in.
+     * <br>
+     * <b>Note:</b> regions may overlap, that's why this method returns a list of regions.
      *
-     * @param location location to get region
-     * @return region in which this location lies in
+     * @param location location to get regions from
+     * @return list of all regions in which this location lies in
      */
-    public static List<Region> getRegions(Location location) {
+    @Nonnull
+    public static List<Region> getRegions(@Nonnull Location location) {
         return getRegions(location.getBlock());
     }
 
-    public static List<Region> getRegions(Block block) {
+    /**
+     * Gets the regions in which this block lies in.
+     * <br>
+     * <b>Note:</b> regions may overlap, that's why this method returns a list of regions.
+     *
+     * @param block block to get regions from
+     * @return list of all regions in which this block lies in
+     */
+    @Nonnull
+    public static List<Region> getRegions(@Nonnull Block block) {
         return server.getRegions(block);
     }
 
+    /**
+     * Gets the residence with the id.
+     *
+     * @param id id of the residence
+     * @return residence with the specific id
+     */
+    @Nullable
     public static Residence getResidence(int id) {
         return server.getResidence(id);
     }
 
-    public static Residence getResidence(Region region) {
+    /**
+     * Gets the residence with the specific region.
+     * <br>
+     * <b>Note:</b> Not all regions are residences.
+     *
+     * @param region region to get residence from
+     * @return residence with the specific region
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static Residence getResidence(@Nullable Region region) {
         return server.getResidence(region);
     }
 
-    public static List<Residence> getResidences(Location location) {
+    /**
+     * Gets the residences in which this location lies in.
+     * <br>
+     * <b>Note:</b> residences may overlap, that's why this method returns a list of residences.
+     *
+     * @param location location to get residences from
+     * @return list of all residences in which this location lies in
+     * @throws IllegalArgumentException if the location is null
+     */
+    @Nonnull
+    public static List<Residence> getResidences(@Nonnull Location location) throws IllegalArgumentException {
         return getResidences(location.getBlock());
     }
 
-    public static List<Residence> getResidences(Block block) {
+    /**
+     * Gets the residences in which this block lies in.
+     * <br>
+     * <b>Note:</b> residences may overlap, that's why this method returns a list of residences.
+     *
+     * @param block block to get residences from
+     * @return list of all residences in which this block lies in
+     * @throws IllegalArgumentException if the block is null
+     */
+    @Nonnull
+    public static List<Residence> getResidences(@Nonnull Block block) throws IllegalArgumentException {
         return getRegions(block).stream().map(Core::getResidence).filter(Objects::nonNull).collect(Collectors.toList());
     }
 
-    public static Residence getDominantResidence(Location location) {
+    /**
+     * Gets the dominant residence with the specific location.
+     *
+     * @param location location to get residence from
+     * @return most dominant residence in which the specific location lies in
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static Residence getDominantResidence(@Nullable Location location) {
+        if (location == null) return null;
         return getDominantResidence(location.getBlock());
     }
 
-    public static Residence getDominantResidence(Block block) {
+    /**
+     * Gets the most dominant residence with the specific block.
+     *
+     * @param block block to get residence from
+     * @return most dominant residence in which the specific block lies in
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static Residence getDominantResidence(@Nullable Block block) {
         return Optional.ofNullable((Residence) getApartment(block)).orElse(getPlot(block));
     }
 
-    public static Plot getPlot(Location location) {
+    /**
+     * Gets the plot with the specific location.
+     *
+     * @param location location to get plot from
+     * @return plot in which the specific location lies in
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static Plot getPlot(@Nullable Location location) {
+        if (location == null) return null;
         return getPlot(location.getBlock());
     }
 
-    public static Plot getPlot(Block block) {
-        return (Plot) getResidences(block).stream().filter(r -> r instanceof Plot).findFirst().orElse(null);
+    /**
+     * Gets the plot with the specific block.
+     *
+     * @param block block to get plot from
+     * @return plot in which the specific block lies in
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static Plot getPlot(@Nullable Block block) {
+        if (block == null) return null;
+        return (Plot) (getResidences(block)).stream().filter(r -> r instanceof Plot).findFirst().orElse(null);
     }
 
-    public static Apartment getApartment(Location location) {
+    /**
+     * Gets the apartment with the specific location.
+     *
+     * @param location location to get apartment from
+     * @return apartment in which the specific location lies in
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static Apartment getApartment(@Nullable Location location) {
+        if (location == null) return null;
         return getApartment(location.getBlock());
     }
 
+    /**
+     * Gets the apartment with the specific block.
+     *
+     * @param block block to get apartment from
+     * @return apartment in which the specific block lies in
+     */
+    @Nullable
+    @Contract("null -> null")
     public static Apartment getApartment(Block block) {
         return (Apartment) getResidences(block).stream().filter(r -> r instanceof Apartment).findFirst().orElse(null);
     }
 
-    public static Plot createPlot(Region region, Street street, int houseNumber, Registrant owner, Sign plotSign,
-                                  Location teleportLocation) {
+    /**
+     * Creates a new plot with the specific parameters.
+     *
+     * @param region           region of the plot
+     * @param street           street of the plot
+     * @param houseNumber      house number of the plot
+     * @param owner            owner of the plot
+     * @param plotSign         sign of the plot
+     * @param teleportLocation location to teleport to
+     * @return plot with the specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null or the house number is less or equal 0 or the region already belongs to a residence
+     */
+    @Nonnull
+    @Contract("_, _, _, _, _, _ -> new")
+    public static Plot createPlot(@Nonnull Region region, @Nonnull Street street, @Nonnegative int houseNumber,
+                                  @Nonnull Registrant owner, @Nonnull Sign plotSign, @Nonnull Location teleportLocation) throws IllegalArgumentException {
         return server.createPlot(region, street, houseNumber, owner, plotSign, teleportLocation);
     }
 
-    public static Apartment createApartment(Region region, Registrant landlord, int fertility, int rent,
-                                            Sign apartmentSign, Block mailbox) {
+    /**
+     * Creates a new apartment with the specific parameters.
+     *
+     * @param region        region of the apartment
+     * @param landlord      landlord of the apartment
+     * @param fertility     fertility of the apartment
+     * @param rent          rent of the apartment
+     * @param apartmentSign sign of the apartment
+     * @param mailbox       mailbox of the apartment
+     * @return apartment with the specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null or the fertility or rent is less than 0, or the region already belongs to a residence
+     */
+    @Nonnull
+    @Contract("_, _, _, _, _, _ -> new")
+    public static Apartment createApartment(@Nonnull Region region, @Nonnull Registrant landlord, int fertility, int rent,
+                                            @Nonnull Sign apartmentSign, @Nonnull Block mailbox) throws IllegalArgumentException {
         return server.createApartment(region, landlord, fertility, rent, apartmentSign, mailbox);
     }
 
-    public static Apartment createApartment(Region region, ApartmentBlock block, int rent, Sign apartmentSign,
-                                            Block mailbox) {
+    /**
+     * Creates a new apartment with the specific parameters.
+     *
+     * @param region        region of the apartment
+     * @param block         block of the apartment
+     * @param rent          rent of the apartment
+     * @param apartmentSign sign of the apartment
+     * @param mailbox       mailbox of the apartment
+     * @return apartment with the specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null or the rent is less than 0, or the region already belongs to a residence
+     */
+    @Nonnull
+    @Contract("_, _, _, _, _ -> new")
+    public static Apartment createApartment(@Nonnull Region region, @Nonnull ApartmentBlock block, int rent,
+                                            @Nonnull Sign apartmentSign, @Nonnull Block mailbox) throws IllegalArgumentException {
         return server.createApartment(region, block, rent, apartmentSign, mailbox);
     }
 
+    /**
+     * Gets all loaded residences.
+     *
+     * @return list of all loaded residences
+     */
+    @Nonnull
     public static List<Residence> getLoadedResidences() {
         return server.getLoadedResidences();
     }
 
+    /**
+     * Gets all streets.
+     *
+     * @return list of all loaded plots
+     */
+    @Nonnull
     public static List<Street> getStreets() {
         return server.getStreets();
     }
 
+    /**
+     * Gets the street with the specific id.
+     *
+     * @param id id of the street
+     * @return street with the specific id
+     */
+    @Nullable
     public static Street getStreet(int id) {
         return server.getStreet(id);
     }
 
-    public static Street createStreet(String name, String description) {
+    /**
+     * Creates a new street with the specific parameters.
+     * <br>
+     * <b>Note:</b> Street names aren't unique.
+     *
+     * @param name        name of the street
+     * @param description description of the street (optional)
+     * @return street with the specific parameters
+     * @throws IllegalArgumentException if the name is null or empty
+     */
+    @Nonnull
+    @Contract("_, _ -> new")
+    public static Street createStreet(@Nonnull String name, @Nullable String description) throws IllegalArgumentException {
         return server.createStreet(name, description);
     }
 
+    /**
+     * Gets a list of all districts.
+     *
+     * @return list of all districts
+     */
+    @Nonnull
     public static List<District> getDistricts() {
         return server.getDistricts();
     }
 
+    /**
+     * Gets the district with the specific id.
+     *
+     * @param id id of the district
+     * @return district with the specific id
+     */
+    @Nullable
     public static District getDistrict(int id) {
         return server.getDistrict(id);
     }
 
-    public static District getDistrict(Chunk chunk) {
+    /**
+     * Gets the district that contains the given chunk
+     *
+     * @param chunk chunk to get district from
+     * @return district that contains the given chunk
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static District getDistrict(@Nullable Chunk chunk) {
         return server.getDistrict(chunk);
     }
 
-    public static District getDistrict(Block block) {
+    /**
+     * Gets the district that contains the given block
+     *
+     * @param block block to get district from
+     * @return district that contains the given block
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static District getDistrict(@Nullable Block block) {
+        if (block == null) return null;
         return getDistrict(block.getChunk());
     }
 
+    /**
+     * Gets the district that contains the given location
+     *
+     * @param location location to get district from
+     * @return district that contains the given location
+     */
+    @Nullable
+    @Contract("null -> null")
     public static District getDistrict(Location location) {
+        if (location == null) return null;
         return getDistrict(location.getChunk());
     }
 
+    /**
+     * Updates all districts from database.
+     *
+     * @deprecated this method is deprecated and will be removed in the future
+     */
+    @Deprecated
     public static void updateDistricts() {
         server.updateDistricts();
     }
 
-    public static RadioMast createRadioMast(String name, Block location, int range) {
+    /**
+     * Creates a new radio mast with the specific parameters.
+     *
+     * @param name     name of the radio mast
+     * @param location location of the radio mast
+     * @param range    range of the radio mast
+     * @return district with the specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null or the range is less or equal than 0
+     */
+    @Nonnull
+    @Contract("_, _, _ -> new")
+    public static RadioMast createRadioMast(@Nonnull String name, @Nonnull Block location, @Nonnegative int range) throws IllegalArgumentException {
         return server.createRadioMast(name, location, range);
     }
 
-    public static RadioMast getNearestRadioMast(Location location) {
+    /**
+     * Gets the nearest radio mast to the specific location.
+     * <br>
+     * This may return null if the given location is null or no radio mast is found in the same world.
+     *
+     * @param location location to get the nearest radio mast from
+     * @return nearest radio mast to the specific location
+     */
+    @Nullable
+    @Contract("null -> null")
+    public static RadioMast getNearestRadioMast(@Nullable Location location) {
         return server.getNearestRadioMast(location);
     }
 
@@ -1171,8 +1757,11 @@ public final class Core {
      * @param loc1 first location as block
      * @param loc2 second location as block
      * @return area with the given locations
+     * @throws IllegalArgumentException if one of the blocks is null or if the locations are in different worlds
      */
-    public static Area getArea(Block loc1, Block loc2) {
+    @Contract("_, _ -> new")
+    @Nonnull
+    public static Area getArea(@Nonnull Block loc1, @Nonnull Block loc2) throws IllegalArgumentException {
         return server.getArea(loc1, loc2);
     }
 
@@ -1181,8 +1770,10 @@ public final class Core {
      *
      * @param block block to create the area from
      * @return area consisting of the one specific block
+     * @throws IllegalArgumentException if the block is null
      */
-    public static Area getAreaOfBlock(Block block) {
+    @Nonnull
+    public static Area getAreaOfBlock(@Nonnull Block block) throws IllegalArgumentException {
         return server.getArea(block, block);
     }
 
@@ -1192,36 +1783,21 @@ public final class Core {
      * @param rawArea area as string
      * @return area that is represented by the specific string
      */
-    public static Area getAreaFromString(String rawArea) {
+    @Nullable
+    @Contract("null -> null")
+    public static Area getAreaFromString(@Nullable String rawArea) {
         return server.getAreaFromString(rawArea);
     }
 
-    public static int convertHexToDecimalColor(String hex) {
+    /**
+     * Converts the given hex color code (with or without #) to a decimal color code.
+     *
+     * @param hex hex color code
+     * @return decimal color code
+     * @throws IllegalArgumentException if the hex color code is invalid or null
+     */
+    public static int convertHexToDecimalColor(@Nonnull String hex) throws IllegalArgumentException {
         return server.convertHexToDecimalColor(hex);
-    }
-
-    public static Einzelunternehmen createEinzelunternehmen(User owner) {
-        return server.createEinzelunternehmen(owner);
-    }
-
-    public static Personengesellschaft createPersonengesellschaft(User owner, List<User> coOwners) {
-        return server.createPersonengesellschaft(owner, coOwners);
-    }
-
-    public static Kapitalgesellschaft createKapitalgesellschaft(int address) {
-        return server.createKapitalgesellschaft(address);
-    }
-
-    public static StateCompany createStateCompany(int address, StateCompany.Sector sector) {
-        return server.createStateCompany(address, sector);
-    }
-
-    public static Aktiengesellschaft createAktiengesellschaft(int address, int stocks) {
-        return server.createAktiengesellschaft(address, stocks);
-    }
-
-    public static List<StateCompany> getStateCompanies() {
-        return server.getStateCompanies();
     }
 
     /**
@@ -1229,8 +1805,11 @@ public final class Core {
      *
      * @param location location to spawn the armorstand at.
      * @return ArmorStand instance
+     * @throws IllegalArgumentException if the location is null
      */
-    public static FakeArmorStand createFakeArmorStand(Location location) {
+    @Nonnull
+    @Contract("_ -> new")
+    public static FakeArmorStand createFakeArmorStand(@Nonnull Location location) throws IllegalArgumentException {
         return server.createFakeArmorStand(location);
     }
 
@@ -1240,15 +1819,30 @@ public final class Core {
      * @param id id of the armorstand
      * @return ArmorStand instance
      */
+    @Nullable
     public static FakeArmorStand getFakeArmorStand(int id) {
         return server.getFakeArmorStand(id);
     }
 
+    /**
+     * Gets the server type.
+     *
+     * @return server type
+     */
+    @Nonnull
     public static Server getServer() {
         return server.getServerType();
     }
 
-    public static String convertToTransparent(String text) {
+    /**
+     * Converts a string to a transparent string.
+     *
+     * @param text text to convert
+     * @return transparent text
+     * @throws IllegalArgumentException if the text contains characters that have no transparent representation
+     */
+    @Contract("null -> null")
+    public static String convertToTransparent(@Nullable String text) throws IllegalArgumentException {
         return server.convertToTransparent(text);
     }
 }

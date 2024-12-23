@@ -1,7 +1,6 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import lombok.NonNull;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
@@ -56,50 +55,61 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
+import org.jetbrains.annotations.ApiStatus;
 
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+@ApiStatus.Internal
 public interface CoreServer {
 
+    @Nonnull
     JavaPlugin getInstance();
 
-    @NonNull
-    BukkitTask runSyncTaskLater(long delay, @NonNull Runnable runnable) throws IllegalStateException;
+    @Nonnull
+    BukkitTask runSyncTaskLater(long delay, @Nonnull Runnable runnable) throws IllegalArgumentException;
 
-    @NonNull
-    BukkitTask runAsyncTaskLater(long delay, @NonNull Runnable runnable) throws IllegalStateException;
+    @Nonnull
+    BukkitTask runAsyncTaskLater(long delay, @Nonnull Runnable runnable) throws IllegalArgumentException;
 
-    @NonNull
-    BukkitTask runSyncTaskPeriodically(long delay, long period, @NonNull Runnable runnable) throws IllegalStateException;
+    @Nonnull
+    BukkitTask runSyncTaskPeriodically(long delay, long period, @Nonnull Runnable runnable) throws IllegalArgumentException;
 
-    @NonNull
-    BukkitTask runAsyncTaskPeriodically(long delay, long period, @NonNull Runnable runnable) throws IllegalStateException;
+    @Nonnull
+    BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable runnable) throws IllegalArgumentException;
 
-    void registerListener(Class<? extends Event> cls, EventListener<? extends Event> listener);
+    void registerListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException;
 
-    void unregisterListener(Class<? extends Event> cls, EventListener<? extends Event> listener);
+    void unregisterListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException;
 
-    void registerListener(Listener listener);
+    void registerListener(@Nonnull Listener listener) throws IllegalArgumentException;
 
-    void callEvent(Event event);
+    void callEvent(@Nonnull Event event) throws IllegalArgumentException;
 
-    User getUser(UUID uuid);
+    @Nullable
+    User getUser(@Nullable UUID uuid);
 
-    String getName(UUID uniqueId);
+    @Nonnull
+    OnlineUser getOnlineUser(@Nonnull Player player);
 
-    UUID getUniqueId(String name);
+    @Nullable
+    String getName(@Nullable UUID uniqueId);
 
-    OnlineUser getOnlineUser(Player player);
+    @Nullable
+    UUID getUniqueId(@Nullable String name);
 
-    void sendTeamChatMessage(String message);
+    void sendTeamChatMessage(@Nonnull String message);
 
-    void sendTeamChatMessage(BaseComponent[] message);
+    @Deprecated
+    void sendTeamChatMessage(@Nonnull BaseComponent[] message);
 
-    void sendDebug(DebugType type, String message);
+    void sendDebug(@Nonnull DebugType type, @Nonnull String message);
 
     DatabaseEntry getDatabaseEntry(String tableName, Value searchValue);
 
@@ -115,143 +125,155 @@ public interface CoreServer {
 
     DatabaseTable getDatabaseTable(String tableName);
 
-    void setSetting(String key, String value);
+    void setSetting(@Nonnull String key, @Nonnull String value) throws IllegalArgumentException;
 
     String getSetting(String key);
 
-    void updateStatistic(String key, double value);
+    void updateStatistic(@Nonnull String key, double value) throws IllegalArgumentException;
 
-    double getStatistic(String key);
+    double getStatistic(@Nonnull String key) throws IllegalArgumentException;
+
+    @Nullable
+    String removeColorCodes(@Nullable String text);
+
+    @Nullable
+    String convertColorCodes(@Nullable String text);
+
+    boolean containsForForbiddenWords(@Nullable String string);
+
+    @Nonnull
+    Gson getGson();
+
+    int getRandomInteger(int chars) throws IllegalArgumentException;
+
+    boolean isInteger(@Nullable String string);
+
+    boolean isDouble(@Nullable String string);
+
+    @Nonnull
+    String formatMoney(int amountInCents);
+
+    @Nonnull
+    String formatRelativeTimestamp(long time);
+
+    @Nonnull
+    GuiBuilder createGui(int size) throws IllegalArgumentException;
+
+    @Nonnull
+    MultiPageGui createMultiPageGui(int size) throws IllegalArgumentException;
+
+    GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable Consumer<OnlineUser> consumer);
+
+    GuiItem createAdvancedGuiItem(@Nonnull ItemStack itemStack, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback);
+
+    @Nonnull
+    World getMainWorld();
+
+    @Nonnull
+    World getBuildingWorld() throws IllegalStateException;
+
+    @Nonnull
+    World getPresetsWorld() throws IllegalStateException;
+
+    void loadPreset(@Nonnull Area presetArea, @Nonnull Block presetPivot, @Nonnull Block mainWorldPivot) throws IllegalArgumentException;
+
+    void restartAndClean();
+
+    @Nonnull
+    FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material, int data) throws IllegalArgumentException;
+
+    @Nonnull
+    ItemBuilder createItem(@Nonnull ItemStack itemStack) throws IllegalArgumentException;
+
+    @Nonnull
+    ItemBuilder createItem(@Nonnull Material material) throws IllegalArgumentException;
+
+    @Nonnull
+    ItemBuilder createItem(@Nonnull Material material, int data) throws IllegalArgumentException;
+
+    @Nonnull
+    ItemBuilder createItem(@Nonnull Player player) throws IllegalArgumentException;
+
+    @Nonnull
+    ItemBuilder createItem(@Nonnull UUID uniqueId) throws IllegalArgumentException;
+
+    @Nonnull
+    ItemBuilder createItem(@Nonnull String value, @Nonnull String signature) throws IllegalArgumentException;
+
+    @Nonnull
+    ItemBuilder createItem(String url) throws IllegalArgumentException;
 
     ChatMenu createChatMenu(ChatMenu.Option... options);
 
     ChatMenu createChatMenu();
 
-    Gson getGson();
+    @Nonnull
+    Inventory getInventoryFromString(@Nonnull String inventory) throws IllegalArgumentException;
 
-    String removeColorCodes(String text);
+    @Nonnull
+    String getStringFromInventory(@Nonnull Inventory inventory) throws IllegalArgumentException;
 
-    String convertColorCodes(String text);
+    @Nullable
+    BankAccount getBankAccount(@Nullable String iban);
 
-    int randomInteger(int chars);
+    @Nullable
+    BankAccount getBankAccount(@Nullable ItemStack bankingCard);
 
-    boolean isInteger(String string);
+    @Nonnull
+    BankAccount createBankAccount(Registrant holder) throws IllegalArgumentException;
 
-    boolean isDouble(String string);
-
-    String formatMoney(int amountInCents);
-
-    String formatRelativeTimestamp(long time);
-
-    GuiBuilder createGui(int size);
-
-    MultiPageGui createMultiPageGui(int size);
-
-    GuiItem createGuiItem(ItemStack itemStack, Consumer<OnlineUser> consumer);
-
-    GuiItem createAdvancedGuiItem(ItemStack itemStack, BiConsumer<OnlineUser, InventoryClickEvent> callback);
-
-    ItemBuilder createItem(ItemStack itemStack);
-
-    ItemBuilder createItem(Material material);
-
-    ItemBuilder createItem(Material material, int data);
-
-    ItemBuilder createItem(Player player);
-
-    ItemBuilder createItem(UUID uniqueId);
-
-    ItemBuilder createItem(String url);
-
-    ItemBuilder createItem(String value, String signature);
-
-    Inventory getInventoryFromString(String inventory);
-
-    String getStringFromInventory(Inventory inventory);
-
-    BankAccount getBankAccount(String iban);
-
-    BankAccount getBankAccount(ItemStack bankingCard);
-
-    BankAccount createBankAccount(Registrant holder);
-
+    @Nonnull
     List<Group> getGroups();
 
+    @Nullable
     Group getGroup(String name);
 
-    Region getRegion(int id);
+    @Nonnull
+    Einzelunternehmen createEinzelunternehmen(User owner) throws IllegalArgumentException;
 
-    Region createRegion(List<Area> included, List<Area> excluded);
+    @Nonnull
+    Personengesellschaft createPersonengesellschaft(User owner, List<User> coOwners) throws IllegalArgumentException;
 
-    List<Region> getRegions(Block block);
+    @Nonnull
+    Kapitalgesellschaft createKapitalgesellschaft(int address) throws IllegalArgumentException;
 
-    Residence getResidence(int id);
+    @Nonnull
+    StateCompany createStateCompany(int address, StateCompany.Sector sector) throws IllegalArgumentException;
 
-    Residence getResidence(Region region);
+    @Nonnull
+    Aktiengesellschaft createAktiengesellschaft(int address, int stocks) throws IllegalArgumentException;
 
-    Plot createPlot(Region region, Street street, int houseNumber, Registrant owner, Sign plotSign, Location teleportLocation);
+    @Nonnull
+    List<StateCompany> getStateCompanies();
 
-    Apartment createApartment(Region region, Registrant landlord, int fertility, int rent, Sign apartmentSign,
-                              Block mailbox);
+    @Nullable
+    Telephone getTelephone(@Nullable String telephoneNumber);
 
-    Apartment createApartment(Region region, ApartmentBlock block, int rent, Sign apartmentSign, Block mailbox);
+    @Nullable
+    Registrant getRegistrant(@Nullable String string);
 
-    List<Residence> getLoadedResidences();
+    @Nonnull
+    Boundary createBoundary(@Nonnull Location anchorPoint, @Nonnull Location pullPoint, @Nonnull Consumer<PlayerInteractEvent> callback) throws IllegalArgumentException;
 
-    List<Street> getStreets();
+    @Nonnull
+    Boundary createBoundary(@Nonnull Location anchorPoint, @Nonnull Vector vector, @Nonnull Consumer<PlayerInteractEvent> callback) throws IllegalArgumentException;
 
-    Street getStreet(int id);
+    @Nonnull
+    Timer startTimer(int delay, @Nonnull Runnable callback) throws IllegalArgumentException;
 
-    Street createStreet(String name, String description);
+    @Nonnull
+    RepeatingTimer startRepeatingTimer(int period, @Nonnull Runnable callback) throws IllegalArgumentException;
 
-    District getDistrict(int id);
+    @Nonnull
+    Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, DayOfWeek... weekdays) throws IllegalArgumentException;
 
-    District getDistrict(Chunk chunk);
+    @Nonnull
+    Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, List<DayOfWeek> weekdays) throws IllegalArgumentException;
 
-    void updateDistricts();
+    @Nonnull
+    Webhook createWebhook(@Nonnull String url) throws IllegalArgumentException;
 
-    List<District> getDistricts();
-
-    RadioMast createRadioMast(String name, Block location, int range);
-
-    RadioMast getNearestRadioMast(Location location);
-
-    Area getAreaFromString(String rawArea);
-
-    Area getArea(Block loc1, Block loc2);
-
-    World getMainWorld();
-
-    World getBuildingWorld();
-
-    World getPresetsWorld();
-
-    void loadPreset(Area presetArea, Block presetPivot, Block mainWorldPivot);
-
-    void restartAndClean();
-
-    FakeBlock createFakeBlock(Block block, Material material, int data);
-
-    boolean containsForForbiddenWords(String string);
-
-    Telephone getTelephone(String telephoneNumber);
-
-    Registrant getRegistrant(String string);
-
-    Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Location pullPoint, @NonNull Consumer<PlayerInteractEvent> callback);
-
-    Boundary createBoundary(@NonNull Location anchorPoint, @NonNull Vector vector, @NonNull Consumer<PlayerInteractEvent> callback);
-
-    Timer startTimer(int delay, @NonNull Runnable callback);
-
-    RepeatingTimer startRepeatingTimer(int period, @NonNull Runnable callback);
-
-    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, DayOfWeek... weekdays);
-
-    Reminder createReminder(int hours, int minutes, @NonNull Runnable callback, List<DayOfWeek> weekdays);
-
-    Webhook createWebhook(String url);
-
+    @Nonnull
     EmbeddedMessage createEmbeddedMessage();
 
     boolean isMaintenance();
@@ -260,44 +282,105 @@ public interface CoreServer {
 
     NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers);
 
+    @Nonnull
     List<OnlineUser> getOnlineUsers();
 
-    CarBarrier createCarBarrier(Location loc, int rotation, List<Block> barrierBlocks);
+    @Nonnull
+    CarBarrier createCarBarrier(@Nonnull Location loc, int rotation, @Nonnull List<Block> barrierBlocks) throws IllegalArgumentException;
 
-    Hologram createHologram(Location loc, boolean visibleToEveryone, String... lines);
+    @Nonnull
+    Hologram createHologram(@Nonnull Location loc, boolean visibleToEveryone, @Nonnull String... lines) throws IllegalArgumentException;
 
-    String itemStackToString(ItemStack itemStack);
+    @Nonnull
+    String itemStackToString(@Nonnull ItemStack itemStack) throws IllegalArgumentException;
 
-    ItemStack itemStackFromString(String itemStack);
+    @Nullable
+    ItemStack itemStackFromString(@Nullable String itemStack);
 
-    String locationToString(Location location);
+    @Nonnull
+    String locationToString(@Nonnull Location location) throws IllegalArgumentException;
 
-    Location locationFromString(String location);
+    @Nullable
+    Location locationFromString(@Nullable String location);
 
-    String blockToString(Block block);
+    @Nonnull
+    String blockToString(@Nonnull Block block) throws IllegalArgumentException;
 
-    Block blockFromString(String block);
+    @Nullable
+    Block blockFromString(@Nullable String block);
 
-    int convertHexToDecimalColor(String hex);
+    @Nullable
+    Region getRegion(int id);
 
-    Einzelunternehmen createEinzelunternehmen(User owner);
+    @Nonnull
+    Region createRegion(@Nonnull List<Area> included, @Nonnull List<Area> excluded) throws IllegalArgumentException;
 
-    Personengesellschaft createPersonengesellschaft(User owner, List<User> coOwners);
+    @Nonnull
+    List<Region> getRegions(@Nonnull Block block);
 
-    Kapitalgesellschaft createKapitalgesellschaft(int address);
+    @Nullable
+    Residence getResidence(int id);
 
-    StateCompany createStateCompany(int address, StateCompany.Sector sector);
+    @Nullable
+    Residence getResidence(@Nullable Region region);
 
-    Aktiengesellschaft createAktiengesellschaft(int address, int stocks);
+    @Nonnull
+    Plot createPlot(@Nonnull Region region, @Nonnull Street street, @Nonnegative int houseNumber,
+                    @Nonnull Registrant owner, @Nonnull Sign plotSign, @Nonnull Location teleportLocation) throws IllegalArgumentException;
 
-    List<StateCompany> getStateCompanies();
+    @Nonnull
+    Apartment createApartment(@Nonnull Region region, @Nonnull Registrant landlord, int fertility, int rent,
+                              @Nonnull Sign apartmentSign, @Nonnull Block mailbox) throws IllegalArgumentException;
 
-    FakeArmorStand createFakeArmorStand(Location location);
+    @Nonnull
+    Apartment createApartment(@Nonnull Region region, @Nonnull ApartmentBlock block, int rent, @Nonnull Sign apartmentSign, @Nonnull Block mailbox) throws IllegalArgumentException;
 
+    @Nonnull
+    List<Residence> getLoadedResidences();
+
+    @Nonnull
+    List<Street> getStreets();
+
+    @Nullable
+    Street getStreet(int id);
+
+    @Nonnull
+    Street createStreet(@Nonnull String name, @Nullable String description) throws IllegalArgumentException;
+
+    @Nonnull
+    List<District> getDistricts();
+
+    @Nullable
+    District getDistrict(int id);
+
+    @Nullable
+    District getDistrict(Chunk chunk);
+
+    void updateDistricts();
+
+    @Nonnull
+    RadioMast createRadioMast(@Nonnull String name, @Nonnull Block location, int range) throws IllegalArgumentException;
+
+    @Nullable
+    RadioMast getNearestRadioMast(@Nullable Location location);
+
+    @Nonnull
+    Area getArea(@Nonnull Block loc1, @Nonnull Block loc2) throws IllegalArgumentException;
+
+    @Nullable
+    Area getAreaFromString(@Nullable String rawArea);
+
+    int convertHexToDecimalColor(@Nonnull String hex) throws IllegalArgumentException;
+
+    @Nonnull
+    FakeArmorStand createFakeArmorStand(@Nonnull Location location) throws IllegalArgumentException;
+
+    @Nullable
     FakeArmorStand getFakeArmorStand(int id);
 
+    @Nonnull
     Server getServerType();
 
-    String convertToTransparent(String text);
-
+    @Nullable
+    String convertToTransparent(@Nullable String text) throws IllegalArgumentException;
 }
