@@ -55,6 +55,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
+import org.jetbrains.annotations.ApiStatus;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -65,6 +66,7 @@ import java.util.UUID;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+@ApiStatus.Internal
 public interface CoreServer {
 
     @Nonnull
