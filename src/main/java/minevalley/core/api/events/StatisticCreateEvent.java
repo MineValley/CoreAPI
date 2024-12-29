@@ -1,8 +1,6 @@
 package minevalley.core.api.events;
 
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.database.DatabaseEntry;
-import minevalley.core.api.database.Value;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
