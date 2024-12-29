@@ -107,20 +107,6 @@ public interface CoreServer {
 
     void sendDebug(@Nonnull DebugType type, @Nonnull String message);
 
-    DatabaseEntry getDatabaseEntry(String tableName, Value searchValue);
-
-    DatabaseEntry getDatabaseEntryAnd(String tableName, Value... searchValues);
-
-    DatabaseEntry getDatabaseEntryOr(String tableName, Value... searchValues);
-
-    DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue);
-
-    DatabaseEntryCollection getDatabaseEntryCollectionAnd(String tableName, Value... searchValues);
-
-    DatabaseEntryCollection getDatabaseEntryCollectionOr(String tableName, Value... searchValues);
-
-    DatabaseTable getDatabaseTable(String tableName);
-
     void setSetting(@Nonnull String key, @Nonnull String value) throws IllegalArgumentException;
 
     String getSetting(String key);

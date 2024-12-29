@@ -7,16 +7,12 @@ import org.bukkit.event.HandlerList;
 @RequiredArgsConstructor
 public class StatisticCreateEvent extends Event {
 
-    public static final HandlerList HANDLER_LIST = new HandlerList();
+    // TODO 29.12.2024: recently removed DatabaseEntry object due to rework of database util might not work anymore (StatisticCreateEvent)
 
-    private final DatabaseEntry entry;
+    public static final HandlerList HANDLER_LIST = new HandlerList();
 
     public static HandlerList getHandlerList() {
         return HANDLER_LIST;
-    }
-
-    public void setStatistic(String key, double value) {
-        entry.changeValue(new Value(key, value));
     }
 
     @Override
