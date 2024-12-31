@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
+import minevalley.core.api.database.StatementBuilder;
 import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
@@ -51,6 +52,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
+import org.intellij.lang.annotations.Language;
 import org.jetbrains.annotations.ApiStatus;
 
 import javax.annotation.Nonnegative;
@@ -79,6 +81,9 @@ public interface CoreServer {
 
     @Nonnull
     BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable runnable) throws IllegalArgumentException;
+
+    @Nonnull
+    StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql);
 
     void registerListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException;
 
