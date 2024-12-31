@@ -38,8 +38,8 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param type           the {@link ColumnType} of the parameter
-     * @return this {@link StatementBuilder} object
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @return this {@code StatementBuilder} object
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Nonnull
@@ -52,8 +52,8 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param bool           the {@code boolean} value to set
-     * @return this {@link StatementBuilder} object
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @return this {@code StatementBuilder} object
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Nonnull
@@ -66,8 +66,8 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param b              the {@code byte} value to set
-     * @return this {@link StatementBuilder} object
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @return this {@code StatementBuilder} object
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Nonnull
@@ -80,8 +80,8 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param s              the {@code short} value to set
-     * @return this {@link StatementBuilder} object
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @return this {@code StatementBuilder} object
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Nonnull
@@ -94,8 +94,8 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param i              the {@code int} value to set
-     * @return this {@link StatementBuilder} object
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @return this {@code StatementBuilder} object
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Nonnull
@@ -108,8 +108,8 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param l              the {@code long} value to set
-     * @return this {@link StatementBuilder} object
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @return this {@code StatementBuilder} object
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Nonnull
@@ -122,8 +122,8 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param f              the {@code float} value to set
-     * @return this {@link StatementBuilder} object
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @return this {@code StatementBuilder} object
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Nonnull
@@ -136,8 +136,8 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param d              the {@code double} value to set
-     * @return this {@link StatementBuilder} object
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @return this {@code StatementBuilder} object
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Nonnull
@@ -152,9 +152,9 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param bd             the {@link BigDecimal} value to set.
-     * @return this {@link StatementBuilder} object
+     * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code bd} is {@code null}
-     * @throws IllegalStateException    if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException             if a database access error occurs
      */
     @Nonnull
@@ -169,9 +169,9 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param s              the {@link String} value to set
-     * @return this {@link StatementBuilder} object
+     * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code s} is {@code null}
-     * @throws IllegalStateException    if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException             if a database access error occurs
      */
     @Nonnull
@@ -186,9 +186,9 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param bytes          the {@code byte} array to set
-     * @return this {@link StatementBuilder} object
+     * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code bytes} is {@code null}
-     * @throws IllegalStateException    if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException             if a database access error occurs
      */
     @Nonnull
@@ -203,9 +203,9 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param date           the {@link Date} value to set
-     * @return this {@link StatementBuilder} object
+     * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code date} is {@code null}
-     * @throws IllegalStateException    if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException             if a database access error occurs
      */
     @Nonnull
@@ -220,9 +220,9 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param time           the {@link Time} value to set
-     * @return this {@link StatementBuilder} object
+     * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code time} is {@code null}
-     * @throws IllegalStateException    if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException             if a database access error occurs
      */
     @Nonnull
@@ -237,9 +237,9 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param timestamp      the {@link Timestamp} value to set
-     * @return this {@link StatementBuilder} object
+     * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code timestamp} is {@code null}
-     * @throws IllegalStateException    if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException             if a database access error occurs
      */
     @Nonnull
@@ -258,9 +258,9 @@ public interface StatementBuilder extends AutoCloseable {
      *
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param obj            the {@link Object} value to set
-     * @return this {@link StatementBuilder} object
+     * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code obj} is {@code null}
-     * @throws IllegalStateException    if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException             if a database access error occurs
      */
     @Nonnull
@@ -279,9 +279,9 @@ public interface StatementBuilder extends AutoCloseable {
      * @param parameterIndex the index of the parameter to set, beginning with 1
      * @param obj            the {@link Object} value to set
      * @param type           the {@link ColumnType} of the parameter
-     * @return this {@link StatementBuilder} object
+     * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code obj} is {@code null}
-     * @throws IllegalStateException    if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException             if a database access error occurs
      */
     @Nonnull
@@ -291,8 +291,8 @@ public interface StatementBuilder extends AutoCloseable {
     /**
      * Clears all parameters that have been set so far.
      *
-     * @return this {@link StatementBuilder} object
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @return this {@code StatementBuilder} object
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Nonnull
@@ -304,7 +304,7 @@ public interface StatementBuilder extends AutoCloseable {
      * <p>
      * <b>Note:</b> This method should be used for queries that do not return a result set.
      *
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Contract(pure = true)
@@ -316,7 +316,7 @@ public interface StatementBuilder extends AutoCloseable {
      * <b>Note:</b> This method should be used for queries that do not return a result set.
      *
      * @return a {@link CompletableFuture} that will be completed once the query has been executed
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      */
     @Nonnull
     @Contract(pure = true)
@@ -328,7 +328,7 @@ public interface StatementBuilder extends AutoCloseable {
      * <b>Note:</b> This method should be used for queries that do not return a result set.
      *
      * @return the generated key
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs
      */
     @Contract(pure = true)
@@ -340,7 +340,7 @@ public interface StatementBuilder extends AutoCloseable {
      * <b>Note:</b> This method should be used for queries that do not return a result set.
      *
      * @return a {@link CompletableFuture} that will be completed once the query has been executed and the key has been retrieved
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      */
     @Nonnull
     @Contract(pure = true)
@@ -352,7 +352,7 @@ public interface StatementBuilder extends AutoCloseable {
      * <b>Note:</b> This method should be used for queries that return a result set.
      *
      * @return the result set
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      * @throws SQLException          if a database access error occurs or the query does not return a result set
      */
     @Nonnull
@@ -365,7 +365,7 @@ public interface StatementBuilder extends AutoCloseable {
      * <b>Note:</b> This method should be used for queries that return a result set.
      *
      * @return a {@link CompletableFuture} that will be completed once the query has been executed and the result set has been retrieved
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      */
     @Nonnull
     @Contract(pure = true)
@@ -377,11 +377,11 @@ public interface StatementBuilder extends AutoCloseable {
      * <b>Note:</b>
      * <ul>
      *     <li>This method should be used for methods that are not covered by this interface.</li>
-     *     <li>Modifying the {@link PreparedStatement} does not have any influence on the {@link StatementBuilder}</li>
+     *     <li>Modifying the {@link PreparedStatement} does not have any influence on the {@code StatementBuilder}</li>
      * </ul>
      *
      * @return a copy of the underlying {@link PreparedStatement} object
-     * @throws IllegalStateException if this method is called on a closed {@link StatementBuilder}
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
      */
     @Nonnull
     @Contract(pure = true)
