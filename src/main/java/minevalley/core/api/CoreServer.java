@@ -83,7 +83,7 @@ public interface CoreServer {
     BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable runnable) throws IllegalArgumentException;
 
     @Nonnull
-    StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql);
+    StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql, boolean retrieveGeneratedKeys);
 
     void registerListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException;
 

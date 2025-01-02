@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.sql.*;
 import java.util.concurrent.CompletableFuture;
 
-/**
+ /**
  * This interface covers some but not nearly all features of the {@link PreparedStatement} interface as provided by the JDBC API.
  * It's designed to provide some improvements such as an asynchronous execution and a builder pattern for setting parameters to reduce boilerplate code.
  * Such as the {@link PreparedStatement} interface, the results of the query can be retrieved using the {@link ResultSet} interface.

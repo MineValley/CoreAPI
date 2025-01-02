@@ -178,7 +178,12 @@ public final class Core {
 
     @Nonnull
     public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql) {
-        return server.prepareSQL(sql);
+        return server.prepareSQL(sql, false);
+    }
+
+    @Nonnull
+    public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql, boolean retrieveGeneratedKeys) {
+        return server.prepareSQL(sql, retrieveGeneratedKeys);
     }
 
     /**
