@@ -350,7 +350,7 @@ public interface StatementBuilder extends AutoCloseable {
      * <b>Note:</b> This method should be used for queries that do not return a result set.
      *
      * @return the generated key
-     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder} or this statement builder is not supposed to retrieve generated keys
      * @throws SQLException          if a database access error occurs
      */
     @Contract(pure = true)
@@ -362,7 +362,7 @@ public interface StatementBuilder extends AutoCloseable {
      * <b>Note:</b> This method should be used for queries that do not return a result set.
      *
      * @return a {@link CompletableFuture} that will be completed once the query has been executed and the key has been retrieved
-     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder} or this statement builder is not supposed to retrieve generated keys
      */
     @Nonnull
     @Contract(pure = true)
