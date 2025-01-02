@@ -62,7 +62,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @param type           the {@link ColumnType} of the parameter
      * @return this {@code StatementBuilder} object
      * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException          if a database access error occurs
+     * @throws SQLException          if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -76,7 +76,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @param bool           the {@code boolean} value to set
      * @return this {@code StatementBuilder} object
      * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException          if a database access error occurs
+     * @throws SQLException          if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -90,7 +90,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @param b              the {@code byte} value to set
      * @return this {@code StatementBuilder} object
      * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException          if a database access error occurs
+     * @throws SQLException          if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -104,7 +104,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @param s              the {@code short} value to set
      * @return this {@code StatementBuilder} object
      * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException          if a database access error occurs
+     * @throws SQLException          if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -118,7 +118,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @param i              the {@code int} value to set
      * @return this {@code StatementBuilder} object
      * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException          if a database access error occurs
+     * @throws SQLException          if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -132,7 +132,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @param l              the {@code long} value to set
      * @return this {@code StatementBuilder} object
      * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException          if a database access error occurs
+     * @throws SQLException          if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -146,7 +146,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @param f              the {@code float} value to set
      * @return this {@code StatementBuilder} object
      * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException          if a database access error occurs
+     * @throws SQLException          if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -160,7 +160,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @param d              the {@code double} value to set
      * @return this {@code StatementBuilder} object
      * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException          if a database access error occurs
+     * @throws SQLException          if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -177,7 +177,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code bd} is {@code null}
      * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException             if a database access error occurs
+     * @throws SQLException             if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -194,7 +194,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code s} is {@code null}
      * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException             if a database access error occurs
+     * @throws SQLException             if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -211,7 +211,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code bytes} is {@code null}
      * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException             if a database access error occurs
+     * @throws SQLException             if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -228,7 +228,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code date} is {@code null}
      * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException             if a database access error occurs
+     * @throws SQLException             if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -245,7 +245,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code time} is {@code null}
      * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException             if a database access error occurs
+     * @throws SQLException             if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -262,7 +262,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code timestamp} is {@code null}
      * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException             if a database access error occurs
+     * @throws SQLException             if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -283,7 +283,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code obj} is {@code null}
      * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException             if a database access error occurs
+     * @throws SQLException             if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _ -> this")
@@ -304,7 +304,7 @@ public interface StatementBuilder extends AutoCloseable {
      * @return this {@code StatementBuilder} object
      * @throws IllegalArgumentException if {@code obj} is {@code null}
      * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
-     * @throws SQLException             if a database access error occurs
+     * @throws SQLException             if a database access error occurs or if {@code parameterIndex} does not correspond to a parameter marker in the SQL statement
      */
     @Nonnull
     @Contract("_, _, _ -> this")
