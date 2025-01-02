@@ -1,6 +1,7 @@
 package minevalley.core.api.database;
 
 import minevalley.core.api.Core;
+import org.intellij.lang.annotations.Language;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -50,7 +51,7 @@ public interface StatementBuilder extends AutoCloseable {
      */
     @Nonnull
     @Contract("_ -> this")
-    StatementBuilder setSQL(@Nonnull String sql) throws IllegalArgumentException, IllegalStateException;
+    StatementBuilder setSQL(@Nonnull @Language("SQL") String sql) throws IllegalArgumentException, IllegalStateException;
 
     /**
      * Sets the parameter at the given index to SQL {@code NULL}.
