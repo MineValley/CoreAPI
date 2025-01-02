@@ -63,6 +63,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.util.*;
@@ -177,12 +178,12 @@ public final class Core {
     }
 
     @Nonnull
-    public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql) {
+    public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql) throws SQLException {
         return server.prepareSQL(sql, false);
     }
 
     @Nonnull
-    public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql, boolean retrieveGeneratedKeys) {
+    public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql, boolean retrieveGeneratedKeys) throws SQLException {
         return server.prepareSQL(sql, retrieveGeneratedKeys);
     }
 
