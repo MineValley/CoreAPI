@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.sql.*;
 import java.util.concurrent.CompletableFuture;
 
- /**
+/**
  * This interface covers some but not nearly all features of the {@link PreparedStatement} interface as provided by the JDBC API.
  * It's designed to provide some improvements such as an asynchronous execution and a builder pattern for setting parameters to reduce boilerplate code.
  * Such as the {@link PreparedStatement} interface, the results of the query can be retrieved using the {@link ResultSet} interface.
@@ -30,6 +30,27 @@ import java.util.concurrent.CompletableFuture;
  */
 @SuppressWarnings("unused")
 public interface StatementBuilder extends AutoCloseable {
+
+    /**
+     * Gets the SQL code that will be executed when calling one of the {@code execute} methods.
+     *
+     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
+     */
+    @Nonnull
+    @Contract(pure = true)
+    String getSQL() throws IllegalStateException;
+
+    /**
+     * Sets the SQL code that will be executed when calling one of the {@code execute} methods.
+     *
+     * @param sql the SQL code to set
+     * @return this {@code StatementBuilder} object
+     * @throws IllegalArgumentException if {@code sql} is {@code null}
+     * @throws IllegalStateException    if this method is called on a closed {@code StatementBuilder}
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    StatementBuilder setSQL(@Nonnull String sql) throws IllegalArgumentException, IllegalStateException;
 
     /**
      * Sets the parameter at the given index to SQL {@code NULL}.
