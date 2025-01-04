@@ -408,4 +408,12 @@ public interface StatementBuilder extends AutoCloseable {
     @Nonnull
     @Contract(pure = true)
     PreparedStatement unwrap() throws IllegalStateException;
+
+    /**
+     * Closes the {@code StatementBuilder} and releases any resources it holds.
+     *
+     * @throws SQLException if a database access error occurs
+     */
+    @Override
+    void close() throws SQLException;
 }
