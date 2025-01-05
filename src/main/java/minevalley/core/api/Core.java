@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
-import minevalley.core.api.database.DatabaseEntry;
-import minevalley.core.api.database.DatabaseEntryCollection;
-import minevalley.core.api.database.DatabaseTable;
-import minevalley.core.api.database.Value;
+import minevalley.core.api.database.StatementBuilder;
 import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
@@ -59,12 +56,14 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
+import org.intellij.lang.annotations.Language;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.util.*;
@@ -176,6 +175,48 @@ public final class Core {
     @Nonnull
     public static BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable task) throws IllegalArgumentException {
         return server.runAsyncTaskPeriodically(delay, period, task);
+    }
+
+    /**
+     * Create a {@link StatementBuilder} based on the given SQL code.
+     *
+     * @param sql SQL code to prepare
+     * @return a new {@link StatementBuilder} instance
+     * @throws SQLException if a database access error occurs
+     */
+    @Nonnull
+    @Contract("_ -> new")
+    public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql) throws SQLException {
+        return server.prepareSQL(sql, false);
+    }
+
+    /**
+     * Create a {@link StatementBuilder} based on the given SQL code.
+     *
+     * @param sql                   SQL code to prepare
+     * @param retrieveGeneratedKeys whether to retrieve generated keys
+     * @return a new {@link StatementBuilder} instance
+     * @throws SQLException if a database access error occurs
+     */
+    @Nonnull
+    @Contract("_, _ -> new")
+    public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql, boolean retrieveGeneratedKeys) throws SQLException {
+        return server.prepareSQL(sql, retrieveGeneratedKeys);
+    }
+
+    /**
+     * Generate a random id based on the given length that was not used in the given column and table.
+     *
+     * @param table         table to check
+     * @param column        column to check
+     * @param amountOfChars amount of chars the id should have
+     * @return a unique id
+     * @throws IllegalArgumentException if the table is null, column is null or the amount of chars is less than 1
+     * @throws SQLException             if a database access error occurs
+     */
+    @Contract("_, _, _ -> _")
+    public static int generateUniqueId(@Nonnull String table, @Nonnull String column, int amountOfChars) throws IllegalArgumentException, SQLException {
+        return server.generateUniqueId(table, column, amountOfChars);
     }
 
     /**
@@ -316,91 +357,6 @@ public final class Core {
      */
     public static void sendDebug(@Nonnull DebugType type, @Nonnull String message) {
         server.sendDebug(type, removeColorCodes(message));
-    }
-
-    /**
-     * Gets the specific database-entry from the specified table with the specified value in the column.
-     * If there are more than one entry, that math the given description, this gets the first one.
-     * If you want to get multiple entries, use database-collection, or database-table!
-     *
-     * @param tableName   name of the table as string
-     * @param searchValue value according to which the entries are filtered in a specific column
-     * @return the first database-entry that matches the given description
-     */
-    public static DatabaseEntry getDatabaseEntry(String tableName, Value searchValue) {
-        return server.getDatabaseEntry(tableName, searchValue);
-    }
-
-    /**
-     * Gets the specific database-entry from the specified table with the specified value in the column.
-     * If there are more than one entry, that math the given description, this gets the first one.
-     * If you want to get multiple entries, use database-collection, or database-table!
-     *
-     * @param tableName    name of the table as string
-     * @param searchValues value according to which the entries are filtered in a specific column
-     * @return the first database-entry that matches the given description
-     */
-    public static DatabaseEntry getDatabaseEntryAnd(String tableName, Value... searchValues) {
-        return server.getDatabaseEntryAnd(tableName, searchValues);
-    }
-
-    /**
-     * Gets the specific database-entry from the specified table with the specified value in the column.
-     * If there are more than one entry, that math the given description, this gets the first one.
-     * If you want to get multiple entries, use database-collection, or database-table!
-     *
-     * @param tableName    name of the table as string
-     * @param searchValues value according to which the entries are filtered in a specific column
-     * @return the first database-entry that matches the given description
-     */
-    public static DatabaseEntry getDatabaseEntryOr(String tableName, Value... searchValues) {
-        return server.getDatabaseEntryOr(tableName, searchValues);
-    }
-
-    /**
-     * Gets a database-collection from the specified table with the specified value in the column.
-     * This gets all the entries that match the description. If you're searching for one single entry, use database-entry!
-     *
-     * @param tableName   name of the table as string
-     * @param searchValue value according to which the entries are filtered in a specific column
-     * @return a collection of all database-entries in this table, that matches the given description
-     */
-    public static DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue) {
-        return server.getDatabaseEntryCollection(tableName, searchValue);
-    }
-
-    /**
-     * Gets a database-collection from the specified table with the specified value in the column.
-     * This gets all the entries that match the description. If you're searching for one single entry, use database-entry!
-     *
-     * @param tableName    name of the table as string
-     * @param searchValues value according to which the entries are filtered in a specific column
-     * @return a collection of all database-entries in this table, that matches the given description
-     */
-    public static DatabaseEntryCollection getDatabaseEntryCollectionAnd(String tableName, Value... searchValues) {
-        return server.getDatabaseEntryCollectionAnd(tableName, searchValues);
-    }
-
-    /**
-     * Gets a database-collection from the specified table with the specified value in the column.
-     * This gets all the entries that match the description. If you're searching for one single entry, use database-entry!
-     *
-     * @param tableName    name of the table as string
-     * @param searchValues value according to which the entries are filtered in a specific column
-     * @return a collection of all database-entries in this table, that matches the given description
-     */
-    public static DatabaseEntryCollection getDatabaseEntryCollectionOr(String tableName, Value... searchValues) {
-        return server.getDatabaseEntryCollectionOr(tableName, searchValues);
-    }
-
-    /**
-     * Gets the database-table with the specific name.
-     *
-     * @param tableName name of the database-table
-     * @return database-table with specific name
-     */
-    public static DatabaseTable getDatabaseTable(String tableName) {
-        return server.getDatabaseTable(tableName);
     }
 
     /**

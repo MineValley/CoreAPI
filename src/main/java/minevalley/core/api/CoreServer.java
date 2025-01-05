@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
-import minevalley.core.api.database.DatabaseEntry;
-import minevalley.core.api.database.DatabaseEntryCollection;
-import minevalley.core.api.database.DatabaseTable;
-import minevalley.core.api.database.Value;
+import minevalley.core.api.database.StatementBuilder;
 import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
@@ -55,11 +52,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
+import org.intellij.lang.annotations.Language;
 import org.jetbrains.annotations.ApiStatus;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.UUID;
@@ -83,6 +82,11 @@ public interface CoreServer {
 
     @Nonnull
     BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable runnable) throws IllegalArgumentException;
+
+    @Nonnull
+    StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql, boolean retrieveGeneratedKeys) throws SQLException;
+
+    int generateUniqueId(@Nonnull String table, @Nonnull String column, int amountOfChars) throws IllegalArgumentException, SQLException;
 
     void registerListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException;
 
@@ -110,20 +114,6 @@ public interface CoreServer {
     void sendTeamChatMessage(@Nonnull BaseComponent[] message);
 
     void sendDebug(@Nonnull DebugType type, @Nonnull String message);
-
-    DatabaseEntry getDatabaseEntry(String tableName, Value searchValue);
-
-    DatabaseEntry getDatabaseEntryAnd(String tableName, Value... searchValues);
-
-    DatabaseEntry getDatabaseEntryOr(String tableName, Value... searchValues);
-
-    DatabaseEntryCollection getDatabaseEntryCollection(String tableName, Value searchValue);
-
-    DatabaseEntryCollection getDatabaseEntryCollectionAnd(String tableName, Value... searchValues);
-
-    DatabaseEntryCollection getDatabaseEntryCollectionOr(String tableName, Value... searchValues);
-
-    DatabaseTable getDatabaseTable(String tableName);
 
     void setSetting(@Nonnull String key, @Nonnull String value) throws IllegalArgumentException;
 
