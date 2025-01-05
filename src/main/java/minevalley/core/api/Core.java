@@ -187,6 +187,10 @@ public final class Core {
         return server.prepareSQL(sql, retrieveGeneratedKeys);
     }
 
+    public static int generateUniqueId(@Nonnull String table, @Nonnull String column, int amountOfChars) throws IllegalArgumentException {
+        return server.generateUniqueId(table, column, amountOfChars);
+    }
+
     /**
      * Registers an event listener.
      *
