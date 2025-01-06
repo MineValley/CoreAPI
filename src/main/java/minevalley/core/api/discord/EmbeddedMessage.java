@@ -20,5 +20,7 @@ public interface EmbeddedMessage {
 
     EmbeddedMessage setFooter(String footer, String iconUrl);
 
-    EmbeddedMessage setFooter(String footer);
+    default EmbeddedMessage setFooter(String footer) {
+        return setFooter(footer, null);
+    }
 }
