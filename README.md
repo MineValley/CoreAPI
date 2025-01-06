@@ -92,7 +92,7 @@ it’s correct.</li>
 </ul>
 
 
-<strong>Can I choose the content of &lt;id&gt; freely?</strong>
+<strong>Can I choose the content of <code>&lt;id&gt;</code> freely?</strong>
 <ul>
    <li>Yes, the content of <code>&lt;id&gt;</code> in both the <code>settings.xml</code> and <code>pom.xml</code> files can be freely chosen, but it must be identical
 in both files.</li>
