@@ -9,6 +9,7 @@ import java.io.IOException;
  * This Webhook-builder is meant to help you to create discord-webhooks.
  * You can find helpful information <a href="https://birdie0.github.io/discord-webhooks-guide/discord_webhook.html">here</a>.
  */
+@SuppressWarnings("unused")
 public interface Webhook {
 
     /**
@@ -20,7 +21,7 @@ public interface Webhook {
      */
     @Nonnull
     @Contract("_ -> this")
-    Webhook setUsername(@Nonnull String username);
+    Webhook setUsername(@Nonnull String username) throws IllegalArgumentException;
 
     /**
      * Sets the avatar of the webhook.

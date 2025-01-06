@@ -5,6 +5,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 import java.awt.*;
 
+@SuppressWarnings("unused")
 public interface EmbeddedMessage {
 
     /**
