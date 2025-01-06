@@ -63,6 +63,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -1179,7 +1180,7 @@ public final class Core {
      * @throws IllegalArgumentException if the URL is null
      */
     @Nonnull
-    public static Webhook createWebhook(@Nonnull String url) throws IllegalArgumentException {
+    public static Webhook createWebhook(@Nonnull URL url) throws IllegalArgumentException {
         return server.createWebhook(url);
     }
 
