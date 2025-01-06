@@ -12,19 +12,19 @@ Before proceeding, ensure you’ve added a token to your `settings.xml` file (de
 
 ```xml
 <repository>
-    <id>github</id>
-    <url>https://maven.pkg.github.com/MineValley/CoreAPI</url>
-    <snapshots>
-        <enabled>true</enabled>
-    </snapshots>
+   <id>github</id>
+   <url>https://maven.pkg.github.com/MineValley/CoreAPI</url>
+   <snapshots>
+      <enabled>true</enabled>
+   </snapshots>
 </repository>
 ```
 
 ```xml
 <dependency>
-    <groupId>minevalley.core</groupId>
-    <artifactId>api</artifactId>
-    <version>LATEST</version>
+   <groupId>minevalley.core</groupId>
+   <artifactId>api</artifactId>
+   <version>LATEST</version>
 </dependency>
 ```
 
@@ -56,37 +56,39 @@ Once you have your token, add it to the `settings.xml` file of your Maven instal
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-    <servers>
-        <server>
-            <id>github</id>
-            <username>USERNAME</username>
-            <password>TOKEN</password>
-        </server>
-    </servers>
+   <servers>
+      <server>
+         <id>github</id>
+         <username>USERNAME</username>
+         <password>TOKEN</password>
+      </server>
+   </servers>
 </settings>
 ```
 > **Tip**: In IntelliJ, you can create a `settings.xml` file by right-clicking on the `pom.xml` of any project and selecting **Create settings.xml**.
 
 ## Troubleshooting / FAQ
 
-<details>
-<summary><strong>I'm having issues with Eclipse.</strong></summary>
-Consider switching to IntelliJ for better compatibility.
-</details>
 
-<details>
-<summary><strong>I’m unsure if I used the correct GitHub username.</strong></summary>
+<strong>I'm having issues with Eclipse.</strong>
+<br>
+Use IntelliJ.
+
+
+<strong>I’m unsure if I used the correct GitHub username.</strong>
+<br>
 You can find your GitHub username on your profile page. If in doubt, try logging in with your username. If it works, it’s correct.
-</details>
 
-<details>
-<summary><strong>Can I choose the content of &lt;id&gt; freely?</strong></summary>
+
+<strong>Can I choose the content of &lt;id&gt; freely?</strong>
+<br>
 Yes, the content of `&lt;id&gt;` in both the `settings.xml` and `pom.xml` files can be freely chosen, but it must be identical in both files.
-</details>
 
-<details>
-<summary><strong>I followed all steps, but the dependency could not be found.</strong></summary>
-1. Click **Maven** in the right-hand sidebar.  
-2. Press the **Reload All Maven Projects** button (top-left).  
+<strong>I followed all steps, but the dependency could not be found.</strong>
+<br>
+1. Click **Maven** in the right-hand sidebar.
+   <br>
+2. Press the **Reload All Maven Projects** button (top-left).
+   <br>
 3. If the problem persists, go to **File** → **Invalidate Caches ...** → **Invalidate and Restart**.
-</details>
+
