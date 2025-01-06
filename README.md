@@ -94,7 +94,7 @@ it’s correct.</li>
 
 <strong>Can I choose the content of &lt;id&gt; freely?</strong>
 <ul>
-   <li>Yes, the content of `<id>` in both the `settings.xml` and `pom.xml` files can be freely chosen, but it must be identical
+   <li>Yes, the content of `&lt;id&gt;` in both the `settings.xml` and `pom.xml` files can be freely chosen, but it must be identical
 in both files.</li>
 </ul>
 
