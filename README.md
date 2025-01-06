@@ -100,7 +100,7 @@ in both files.</li>
 
 <strong>I followed all steps, but the dependency could not be found.</strong>
 <ol>
-   <li>Click **Maven** in the right-hand sidebar.</li>
-   <li>Press the **Reload All Maven Projects** button (top-left).</li>
+   <li>Click <strong>Maven</strong> in the right-hand sidebar.</li>
+   <li>Press the <strong>Reload All Maven Projects</strong> button (top-left).</li>
    <li>If the problem persists, go to <strong>File</strong> → <strong>Invalidate Caches...</strong> → <strong>Invalidate and Restart</strong>.</li>
 </ol>
