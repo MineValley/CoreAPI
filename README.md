@@ -69,24 +69,26 @@ Once you have your token, add it to the `settings.xml` file of your Maven instal
 
 ## Troubleshooting / FAQ
 
-<details>
-<summary><strong>I'm having issues with Eclipse.</strong></summary>
-Consider switching to IntelliJ for better compatibility.
-</details>
 
-<details>
-<summary><strong>I’m unsure if I used the correct GitHub username.</strong></summary>
+<strong>I'm having issues with Eclipse.</strong>
+<br>
+Use IntelliJ.
+
+
+<strong>I’m unsure if I used the correct GitHub username.</strong>
+<br>
 You can find your GitHub username on your profile page. If in doubt, try logging in with your username. If it works, it’s correct.
-</details>
 
-<details>
-<summary><strong>Can I choose the content of &lt;id&gt; freely?</strong></summary>
+
+<strong>Can I choose the content of &lt;id&gt; freely?</strong>
+<br>
 Yes, the content of `&lt;id&gt;` in both the `settings.xml` and `pom.xml` files can be freely chosen, but it must be identical in both files.
-</details>
 
-<details>
-<summary><strong>I followed all steps, but the dependency could not be found.</strong></summary>
-1. Click **Maven** in the right-hand sidebar.  
-2. Press the **Reload All Maven Projects** button (top-left).  
+<strong>I followed all steps, but the dependency could not be found.</strong>
+<br>
+1. Click **Maven** in the right-hand sidebar.
+<br>
+2. Press the **Reload All Maven Projects** button (top-left).
+<br>
 3. If the problem persists, go to **File** → **Invalidate Caches ...** → **Invalidate and Restart**.
-</details>
+
