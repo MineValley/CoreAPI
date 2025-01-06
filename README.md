@@ -102,5 +102,5 @@ in both files.</li>
 <ol>
    <li>Click **Maven** in the right-hand sidebar.</li>
    <li>Press the **Reload All Maven Projects** button (top-left).</li>
-   <li>If the problem persists, go to **File** → **Invalidate Caches ...** → **Invalidate and Restart**.</li>
+   <li>If the problem persists, go to <strong>File</strong> → <strong>Invalidate Caches...</strong> → <strong>Invalidate and Restart</strong>.</li>
 </ol>
