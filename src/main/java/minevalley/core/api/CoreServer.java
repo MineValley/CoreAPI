@@ -58,6 +58,7 @@ import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.util.List;
@@ -261,7 +262,7 @@ public interface CoreServer {
     Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, List<DayOfWeek> weekdays) throws IllegalArgumentException;
 
     @Nonnull
-    Webhook createWebhook(@Nonnull String url) throws IllegalArgumentException;
+    Webhook createWebhook(@Nonnull URL url) throws IllegalArgumentException;
 
     @Nonnull
     EmbeddedMessage createEmbeddedMessage();
