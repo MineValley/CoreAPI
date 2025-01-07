@@ -4,6 +4,9 @@ import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
+import java.util.function.Function;
 
 /**
  * This Webhook-builder is meant to help you to create discord-webhooks.
@@ -35,12 +38,16 @@ public interface Webhook {
     Webhook setAvatar(@Nonnull String url) throws IllegalArgumentException;
 
     /**
-     * Sends the given messages to the discord-webhook.
+     * Sends the given messages to the discord-webhook asynchronously.
+     * <p>
+     * <b>Note:</b> Due to its asynchronous nature, this method may throw a {@link CompletionException} if the sending fails.
+     * This exception acts as a wrapper for the underlying exception and can be handled using {@link CompletableFuture#exceptionally(Function)}. To get to the underlying {@link IOException} use {@link CompletionException#getCause()}.
      *
      * @param message The messages to send.
-     * @throws IOException              If an I/O error occurs.
-     * @throws IllegalArgumentException If the message is null, or the given {@code EmbeddedMessage} is another implementation than our internal.
+     * @return A future that will be completed when the message was sent.
+     * @throws IllegalArgumentException If the message is null, no one is given or the given {@code EmbeddedMessage} is another implementation than our internal.
      */
+    @Nonnull
     @Contract(pure = true)
-    void send(@Nonnull EmbeddedMessage... message) throws IOException, IllegalArgumentException;
+    CompletableFuture<Void> send(@Nonnull EmbeddedMessage... message) throws IllegalArgumentException;
 }
