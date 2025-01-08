@@ -7,16 +7,29 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum McVersion {
+
+    @Deprecated(forRemoval = true)
     V1_12(335),
+    @Deprecated(forRemoval = true)
     V1_14(477),
+    @Deprecated(forRemoval = true)
     V1_16(735),
-    V1_18(757);
+    @Deprecated(forRemoval = true)
+    V1_18(757),
 
     /**
-     * <b>Note:</b> The client's protocol version may differ from those specified here.
-     * There are many sub-versions like 1.12.1 and 1.12.2. To get the currently used version,
-     * check if the client's protocol number is between two of those specified here.
-     * If the client is use a version lower than 1.12, it will not be able to join the server.
+     * 1.20.0 and 1.20.1 share the same protocol version and are therefore indistinguishable for the server.
      */
+    V1_20_1(763),
+
+    V1_20_2(764),
+
+    /**
+     * 1.20.3 and 1.20.4 share the same protocol version and are therefore indistinguishable for the server.
+     */
+    V1_20_4(765),
+
+    V1_20_5(766);
+
     private final int protocolVersion;
 }

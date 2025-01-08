@@ -1,6 +1,6 @@
 package minevalley.core.api.enums;
 
-public enum Server {
+public enum ServerType {
 
     MAIN,
     HUB,

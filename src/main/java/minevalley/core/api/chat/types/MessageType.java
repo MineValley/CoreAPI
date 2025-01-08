@@ -1,8 +1,9 @@
-package minevalley.core.api.enums;
+package minevalley.core.api.chat.types;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import minevalley.core.api.enums.CustomCharacter;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
@@ -21,7 +22,8 @@ public enum MessageType {
     /**
      * Used to signal a misspelled command.
      */
-    SYNTAX_ERROR(ERROR.getValue() + "Korrekte Verwendung: §e/"),
+    @Deprecated(forRemoval = true)
+    SYNTAX_ERROR(ERROR.getPrefix() + "Korrekte Verwendung: §e/"),
 
     INFO(" §f" + CustomCharacter.MV + " §8━ §7"),
 
@@ -32,12 +34,14 @@ public enum MessageType {
     /**
      * Used to signal the success of a process or action, by using the action-bar.
      */
+    @Deprecated(forRemoval = true)
     ACTION_BAR_SUCCESS("§a✔§8 ━ §7"),
 
     /**
      * Used to signal the failure of a process or action, by using the action-bar.
      */
+    @Deprecated(forRemoval = true)
     ACTION_BAR_ERROR("§c✘§8 ━ §7");
 
-    private final String value;
+    private final String prefix;
 }
