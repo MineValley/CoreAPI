@@ -107,7 +107,7 @@ public interface MessageReceiver {
      * @throws IllegalArgumentException if the message or menu is null
      */
     @Nonnull
-    @Contract(value = "_, _ -> new")
+    @Contract("_, _ -> new")
     ChatMenu sendMessage(@Nonnull ComponentLike message, @Nonnull ClickableOption... menu) throws IllegalArgumentException;
 
     /**
@@ -120,7 +120,7 @@ public interface MessageReceiver {
      * @throws IllegalArgumentException if the message, instruction or menu is null
      */
     @Nonnull
-    @Contract(value = "_, _, _ -> new")
+    @Contract("_, _, _ -> new")
     ChatMenu sendMessage(@Nonnull ComponentLike message, @Nonnull Instruction instruction, @Nonnull ClickableOption... menu) throws IllegalArgumentException;
 
     /**
@@ -152,7 +152,7 @@ public interface MessageReceiver {
      * @throws IllegalArgumentException if the type, message or menu is null
      */
     @Nonnull
-    @Contract(value = "_, _, _ -> new")
+    @Contract("_, _, _ -> new")
     ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull ClickableOption... menu) throws IllegalArgumentException;
 
     /**
@@ -166,7 +166,7 @@ public interface MessageReceiver {
      * @throws IllegalArgumentException if the type, message, instruction or menu is null
      */
     @Nonnull
-    @Contract(value = "_, _, _, _ -> new")
+    @Contract("_, _, _, _ -> new")
     ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction, @Nonnull ClickableOption... menu) throws IllegalArgumentException;
 
     /**
