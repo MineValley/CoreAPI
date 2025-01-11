@@ -2,6 +2,7 @@ package minevalley.core.api;
 
 import minevalley.core.api.utils.ClickableMessage;
 
+@Deprecated(forRemoval = true)
 public interface ChatMenu {
 
     /**

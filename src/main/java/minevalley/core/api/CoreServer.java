@@ -9,7 +9,7 @@ import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
-import minevalley.core.api.enums.Server;
+import minevalley.core.api.enums.ServerType;
 import minevalley.core.api.gui.GuiBuilder;
 import minevalley.core.api.gui.GuiItem;
 import minevalley.core.api.gui.MultiPageGui;
@@ -26,6 +26,7 @@ import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.regions.utils.FakeBlock;
+import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
@@ -54,6 +55,7 @@ import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 import org.intellij.lang.annotations.Language;
 import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -109,9 +111,12 @@ public interface CoreServer {
     @Nullable
     UUID getUniqueId(@Nullable String name);
 
+    Team team();
+
+    @Deprecated(forRemoval = true)
     void sendTeamChatMessage(@Nonnull String message);
 
-    @Deprecated
+    @Deprecated(forRemoval = true)
     void sendTeamChatMessage(@Nonnull BaseComponent[] message);
 
     void sendDebug(@Nonnull DebugType type, @Nonnull String message);
@@ -124,12 +129,13 @@ public interface CoreServer {
 
     double getStatistic(@Nonnull String key) throws IllegalArgumentException;
 
-    @Nullable
+    @Contract("null -> null")
     String removeColorCodes(@Nullable String text);
 
-    @Nullable
+    @Contract("null -> null")
     String convertColorCodes(@Nullable String text);
 
+    @Contract("null -> false")
     boolean containsForForbiddenWords(@Nullable String string);
 
     @Nonnull
@@ -137,8 +143,10 @@ public interface CoreServer {
 
     int getRandomInteger(int chars) throws IllegalArgumentException;
 
+    @Contract("null -> false")
     boolean isInteger(@Nullable String string);
 
+    @Contract("null -> false")
     boolean isDouble(@Nullable String string);
 
     @Nonnull
@@ -148,10 +156,10 @@ public interface CoreServer {
     String formatRelativeTimestamp(long time);
 
     @Nonnull
-    GuiBuilder createGui(int size) throws IllegalArgumentException;
+    GuiBuilder createGui(@Nonnegative int size) throws IllegalArgumentException;
 
     @Nonnull
-    MultiPageGui createMultiPageGui(int size) throws IllegalArgumentException;
+    MultiPageGui createMultiPageGui(@Nonnegative int size) throws IllegalArgumentException;
 
     GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable Consumer<OnlineUser> consumer);
 
@@ -174,28 +182,39 @@ public interface CoreServer {
     FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material, int data) throws IllegalArgumentException;
 
     @Nonnull
+    @Contract("_ -> new")
     ItemBuilder createItem(@Nonnull ItemStack itemStack) throws IllegalArgumentException;
 
     @Nonnull
+    @Contract("_ -> new")
     ItemBuilder createItem(@Nonnull Material material) throws IllegalArgumentException;
 
     @Nonnull
+    @Contract("_, _ -> new")
     ItemBuilder createItem(@Nonnull Material material, int data) throws IllegalArgumentException;
 
     @Nonnull
+    @Contract("_ -> new")
     ItemBuilder createItem(@Nonnull Player player) throws IllegalArgumentException;
 
     @Nonnull
+    @Contract("_ -> new")
     ItemBuilder createItem(@Nonnull UUID uniqueId) throws IllegalArgumentException;
 
     @Nonnull
+    @Contract("_, _ -> new")
     ItemBuilder createItem(@Nonnull String value, @Nonnull String signature) throws IllegalArgumentException;
 
     @Nonnull
+    @Contract("_ -> new")
     ItemBuilder createItem(String url) throws IllegalArgumentException;
 
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
     ChatMenu createChatMenu(ChatMenu.Option... options);
 
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
     ChatMenu createChatMenu();
 
     @Nonnull
@@ -370,7 +389,7 @@ public interface CoreServer {
     FakeArmorStand getFakeArmorStand(int id);
 
     @Nonnull
-    Server getServerType();
+    ServerType getServerType();
 
     @Nullable
     String convertToTransparent(@Nullable String text) throws IllegalArgumentException;

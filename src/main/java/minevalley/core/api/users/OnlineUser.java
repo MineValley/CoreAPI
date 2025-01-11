@@ -1,13 +1,10 @@
 package minevalley.core.api.users;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NonNull;
-import lombok.Setter;
-import minevalley.core.api.ChatMenu;
+import minevalley.core.api.chat.MessageReceiver;
+import minevalley.core.api.chat.types.MessageType;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
-import minevalley.core.api.enums.MessageType;
 import minevalley.core.api.enums.sounds.AmbientSound;
 import minevalley.core.api.enums.sounds.Sound;
 import minevalley.core.api.regions.utils.PlayerLocation;
@@ -27,21 +24,29 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.Contract;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.function.Consumer;
 
-public interface OnlineUser extends User {
+@SuppressWarnings("unused")
+public interface OnlineUser extends User, MessageReceiver {
 
     /**
-     * Gets the player-object of this user.
+     * Gets the player object of this user.
      *
-     * @return player-object of this user
+     * @return player object
      */
+    @Nonnull
     Player getPlayer();
 
-    User getUser();
-
-    void closeInventory();
+    /**
+     * Closes the inventory of this user.
+     */
+    default void closeInventory() {
+        getPlayer().closeInventory();
+    }
 
     /**
      * Gets whether this user is currently logged in via labymod.
@@ -50,30 +55,35 @@ public interface OnlineUser extends User {
      *
      * @return true, if this user is using labymod
      */
+    @Contract(pure = true)
     boolean isUsingLabyMod();
 
     /**
-     * Gets the version this user is currently playing with.
+     * Gets the version of the client this user is using.
      *
-     * @return current version
+     * @return client version
      */
+    @Nonnull
+    @Contract(pure = true)
     McVersion getVersion();
 
-    // Messages
+    // Sounds
 
     /**
      * Plays a specific sound.
      *
      * @param sound sound to be played
+     * @throws IllegalArgumentException if sound is null or an empty string
      */
-    void playSound(Sound sound);
+    void playSound(@Nonnull String sound) throws IllegalArgumentException;
 
     /**
      * Plays a specific sound.
      *
      * @param sound sound to be played
+     * @throws IllegalArgumentException if sound is null
      */
-    void playSound(String sound);
+    void playSound(@Nonnull Sound sound) throws IllegalArgumentException;
 
     /**
      * Plays a specific sound.
@@ -81,9 +91,9 @@ public interface OnlineUser extends User {
      * @param sound    sound to be played
      * @param location location where the sound will be played
      * @param spatial  defines whether the sound should be spatial
+     * @throws IllegalArgumentException if sound or location is null, or the location is not in the same world as the user
      */
-    void playSound(Sound sound, Location location, boolean spatial);
-
+    void playSound(@Nonnull Sound sound, @Nonnull Location location, boolean spatial) throws IllegalArgumentException;
 
     /**
      * Plays a specific sound.
@@ -91,42 +101,58 @@ public interface OnlineUser extends User {
      * @param sound    sound to be played
      * @param location location where the sound will be played
      * @param spatial  defines whether the sound should be spatial
+     * @throws IllegalArgumentException if sound or location is null, or the location is not in the same world as the user
      */
-    void playSound(String sound, Location location, boolean spatial);
+    void playSound(@Nonnull String sound, @Nonnull Location location, boolean spatial) throws IllegalArgumentException;
 
     /**
      * Gets the ambient this user is currently hearing
      *
      * @return ambient this user is hearing
      */
+    @Nonnull
+    @Contract(pure = true)
     AmbientSound getAmbient();
 
     /**
-     * Sets the current ambient, the user will hear
+     * Sets the ambient this user is hearing
      *
-     * @param ambient ambient for the user to hear
+     * @param ambient ambient to be set
+     * @throws IllegalArgumentException if ambient is null
      */
-    void setAmbient(AmbientSound ambient);
+    void setAmbient(@Nonnull AmbientSound ambient) throws IllegalArgumentException;
 
     /**
      * Starts the credits sequence.
      */
     void sendCredits();
 
-    void sendActionBar(@NonNull String message);
+    // Messages
 
     /**
-     * Sends a tab-list view to this user.
+     * Sends a message to the user that is displayed in the action bar.
      *
-     * @param view   view to be sent
+     * @param message message to be sent
+     * @throws IllegalArgumentException if message is null or an empty string
      */
-    void sendTabListView(@NonNull TabListView view);
+    @Deprecated(forRemoval = true)
+    void sendActionBar(@Nonnull String message) throws IllegalArgumentException;
+
+    /**
+     * Sets the tab-list view of this user.
+     *
+     * @param view tab-list view to be set
+     * @throws IllegalArgumentException if view is null
+     */
+    void setTabListView(@Nonnull TabListView view) throws IllegalArgumentException;
 
     /**
      * Gets the current tab-list view of this user.
      *
      * @return current tab-list view
      */
+    @Nonnull
+    @Contract(pure = true)
     TabListView getTabListView();
 
     /**
@@ -134,6 +160,7 @@ public interface OnlineUser extends User {
      *
      * @param message message to be sent as string
      */
+    @Deprecated(forRemoval = true)
     void sendMessage(@NonNull String message);
 
     /**
@@ -143,6 +170,7 @@ public interface OnlineUser extends User {
      * @param message message to be sent as string
      * @param notice  notice that is sent to the user
      */
+    @Deprecated(forRemoval = true)
     void sendMessage(@NonNull String message, @NonNull Notice notice);
 
     /**
@@ -151,6 +179,7 @@ public interface OnlineUser extends User {
      * @param messageType type of prefix to be displayed in front of the message
      * @param message     message to be sent as string
      */
+    @Deprecated(forRemoval = true)
     void sendMessage(@NonNull MessageType messageType, @NonNull String message);
 
     /**
@@ -161,6 +190,7 @@ public interface OnlineUser extends User {
      * @param message     message to be sent as string
      * @param notice      notice that is sent to the user
      */
+    @Deprecated(forRemoval = true)
     void sendMessage(@NonNull MessageType messageType, @NonNull String message, @NonNull Notice notice);
 
     /**
@@ -169,6 +199,7 @@ public interface OnlineUser extends User {
      * @param messageType   type of prefix to be displayed in front of the message
      * @param baseComponent message to be sent as string
      */
+    @Deprecated(forRemoval = true)
     void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent);
 
     /**
@@ -179,6 +210,7 @@ public interface OnlineUser extends User {
      * @param baseComponent message to be sent as string
      * @param notice        notice that is sent to the user
      */
+    @Deprecated(forRemoval = true)
     void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, @NonNull Notice notice);
 
     /**
@@ -186,6 +218,7 @@ public interface OnlineUser extends User {
      *
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
      */
+    @Deprecated(forRemoval = true)
     void sendMessage(@NonNull BaseComponent[] baseComponent);
 
     /**
@@ -195,6 +228,7 @@ public interface OnlineUser extends User {
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
      * @param notice        notice that is sent to the user
      */
+    @Deprecated(forRemoval = true)
     void sendMessage(@NonNull BaseComponent[] baseComponent, @NonNull Notice notice);
 
 
@@ -204,8 +238,9 @@ public interface OnlineUser extends User {
      * @param message  message to be sent as string
      * @param chatMenu menu to attach underneath the message
      */
-
-    void sendMessage(@NonNull String message, ChatMenu chatMenu);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void sendMessage(@NonNull String message, minevalley.core.api.ChatMenu chatMenu);
 
     /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
@@ -215,7 +250,9 @@ public interface OnlineUser extends User {
      * @param chatMenu menu to attach underneath the message
      * @param notice   notice that is sent to the user
      */
-    void sendMessage(@NonNull String message, ChatMenu chatMenu, @NonNull Notice notice);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void sendMessage(@NonNull String message, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
 
     /**
      * Sends a message to this user with a specific prefix.
@@ -224,7 +261,9 @@ public interface OnlineUser extends User {
      * @param message     message to be sent as string
      * @param chatMenu    menu to attach underneath the message
      */
-    void sendMessage(@NonNull MessageType messageType, @NonNull String message, ChatMenu chatMenu);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void sendMessage(@NonNull MessageType messageType, @NonNull String message, minevalley.core.api.ChatMenu chatMenu);
 
     /**
      * Sends a message to this user with a specific prefix.
@@ -235,7 +274,9 @@ public interface OnlineUser extends User {
      * @param chatMenu    menu to attach underneath the message
      * @param notice      notice that is sent to the user
      */
-    void sendMessage(@NonNull MessageType messageType, @NonNull String message, ChatMenu chatMenu, @NonNull Notice notice);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void sendMessage(@NonNull MessageType messageType, @NonNull String message, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
 
     /**
      * Sends a message to this user with a specific prefix, using ComponentBuilders.
@@ -244,7 +285,9 @@ public interface OnlineUser extends User {
      * @param baseComponent message to be sent as string
      * @param chatMenu      menu to attach underneath the message
      */
-    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, ChatMenu chatMenu);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu);
 
     /**
      * Sends a message to this user with a specific prefix, using ComponentBuilders.
@@ -255,7 +298,9 @@ public interface OnlineUser extends User {
      * @param chatMenu      menu to attach underneath the message
      * @param notice        notice that is sent to the user
      */
-    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, ChatMenu chatMenu, @NonNull Notice notice);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
 
     /**
      * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
@@ -263,7 +308,9 @@ public interface OnlineUser extends User {
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
      * @param chatMenu      menu to attach underneath the message
      */
-    void sendMessage(@NonNull BaseComponent[] baseComponent, ChatMenu chatMenu);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void sendMessage(@NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu);
 
     /**
      * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
@@ -273,18 +320,22 @@ public interface OnlineUser extends User {
      * @param chatMenu      menu to attach underneath the message
      * @param notice        notice that is sent to the user
      */
-    void sendMessage(@NonNull BaseComponent[] baseComponent, ChatMenu chatMenu, @NonNull Notice notice);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void sendMessage(@NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
 
     /**
      * Sends a message to the user providing useful side information. The user can click a button so that the message will not be sent the next time.
      *
      * @param notice notice that is sent to the user
      */
+    @Deprecated(forRemoval = true)
     void sendMessage(@NonNull Notice notice);
 
     /**
      * Sends the usual "Unbekannter Befehl!"-error to the user. Mostly used when a player is trying to execute a command that they are not allowed to do.
      */
+    @Deprecated(forRemoval = true)
     void sendError();
 
     // ChatInput
@@ -295,6 +346,7 @@ public interface OnlineUser extends User {
      * @param message  the message to be sent to the player. Normally containing a question or a request to put in any data
      * @param callback the callback that is called when the player makes an entry in the chat-interface. The consumer contains a string of the message.
      */
+    @Deprecated(forRemoval = true)
     void input(@NonNull String message, @NonNull Consumer<String> callback);
 
     /**
@@ -302,11 +354,14 @@ public interface OnlineUser extends User {
      *
      * @return true, if the user is in a chat input
      */
+    @Deprecated(forRemoval = true)
+    @Contract(pure = true)
     boolean isInChatInput();
 
     /**
      * Lets the user leave his current chat input
      */
+    @Deprecated(forRemoval = true)
     void leaveChatInput();
 
     /**
@@ -318,7 +373,7 @@ public interface OnlineUser extends User {
      * @param callback            callback with the chosen bank account
      * @param requiredPermissions permissions that need to be granted to this user to let him choose the specific bank account
      */
-    void askForBankAccount(Consumer<BankAccount> callback, AccountUser.BankAccountUserPermission... requiredPermissions);
+    void askForBankAccount(@Nonnull Consumer<BankAccount> callback, @Nonnull AccountUser.BankAccountUserPermission... requiredPermissions) throws IllegalArgumentException;
 
     // FractionService
 
@@ -328,9 +383,10 @@ public interface OnlineUser extends User {
      *
      * @return users fraction
      */
+    @Contract(pure = true)
     Fraction getFractionService();
 
-    void enterFractionService(Fraction service);
+    void enterFractionService(@Nonnull Fraction service) throws IllegalArgumentException;
 
     void leaveFractionService();
 
@@ -341,6 +397,7 @@ public interface OnlineUser extends User {
      *
      * @return true, if the user is part of the server-team (and in team-service)
      */
+    @Contract(pure = true)
     boolean isTeamler();
 
     /**
@@ -348,6 +405,7 @@ public interface OnlineUser extends User {
      *
      * @return true, if the user is team-plus-member
      */
+    @Contract(pure = true)
     boolean isTeamPlus();
 
     /**
@@ -355,6 +413,8 @@ public interface OnlineUser extends User {
      *
      * @return users team-rank
      */
+    @Nullable
+    @Contract(pure = true)
     TeamRank getTeamRank();
 
     /**
@@ -363,6 +423,8 @@ public interface OnlineUser extends User {
      *
      * @return [custom] team rank name
      */
+    @Nullable
+    @Contract(pure = true)
     String getCustomTeamRankName();
 
     /**
@@ -373,6 +435,7 @@ public interface OnlineUser extends User {
      *
      * @return true, if this user is displayed as team member in chat, tab list, etc.
      */
+    @Contract(pure = true)
     boolean isDisplayedAsTeamler();
 
     /**
@@ -381,13 +444,15 @@ public interface OnlineUser extends User {
      * @param ranks list of team-ranks to be checked for
      * @return true, if the user has one of the ranks
      */
-    boolean hasTeamRank(@NonNull TeamRank... ranks);
+    @Contract(pure = true)
+    boolean hasTeamRank(@Nonnull TeamRank... ranks);
 
     /**
      * Gets whether the user is allowed to use a general-key
      *
      * @return true, if the player is allowed to use a general-key
      */
+    @Contract(pure = true)
     boolean isAllowedToUseGeneralKey();
 
     /**
@@ -395,40 +460,43 @@ public interface OnlineUser extends User {
      *
      * @return true, if the player is using a general-key
      */
+    @Contract(pure = true)
     boolean isUsingGeneralKey();
 
     /**
      * Lets the user enter the team-service. If the user isn't teamler, nothing happens.
      */
-    void joinTeamService();
+    void joinTeamService() throws UnsupportedOperationException, IllegalStateException;
 
     /**
      * Lets the user leave the team-service.
      */
-    void leaveTeamService();
+    void leaveTeamService() throws IllegalStateException;
 
     /**
      * Gets whether the user is allowed to enter the support-service.
      *
      * @return true, if the user is allowed to enter the support-service
      */
+    @Contract(pure = true)
     boolean canEnterSupportService();
 
     /**
      * Lets the user enter the support-service. If the user isn't allowed to, nothing happens.
      */
-    void joinSupportService();
+    void joinSupportService() throws UnsupportedOperationException, IllegalStateException;
 
     /**
      * Lets the user leave the support-service.
      */
-    void leaveSupportService();
+    void leaveSupportService() throws IllegalStateException;
 
     /**
      * Gets whether the user is marked as server-operator (!= OP-permission)
      *
      * @return true, if the user is marked as server-operator
      */
+    @Contract(pure = true)
     boolean isOperator();
 
     /**
@@ -436,17 +504,19 @@ public interface OnlineUser extends User {
      *
      * @return true, if the user is in support-service
      */
+    @Contract(pure = true)
     boolean isInSupportService();
 
     void heal();
 
-    void revive();
+    void revive() throws IllegalStateException;
 
     /**
      * Gets whether the user has reached the maximum idle time and is marked as afk.
      *
      * @return true, if the user reached the maximum idle time
      */
+    @Contract(pure = true)
     boolean isIdle();
 
     /**
@@ -454,6 +524,7 @@ public interface OnlineUser extends User {
      *
      * @return true, if this user is vanished
      */
+    @Contract(pure = true)
     boolean isVanish();
 
     /**
@@ -462,25 +533,26 @@ public interface OnlineUser extends User {
      *
      * @param vanish vanish state
      */
-    void setVanish(boolean vanish);
+    void setVanish(boolean vanish) throws UnsupportedOperationException;
 
     /**
      * Imprisons this user.
      *
      * @param duration duration in minutes
      */
-    void imprison(int duration);
+    void imprison(int duration) throws UnsupportedOperationException, IllegalStateException;
 
     /**
      * Releases this user from prison (im imprisoned).
      */
-    void releaseFromPrison();
+    void releaseFromPrison() throws IllegalStateException;
 
     /**
      * Gets whether the user has completed registration on our network.
      *
      * @return true, if the user is registered
      */
+    @Contract(pure = true)
     boolean isRegistered();
 
     /**
@@ -489,18 +561,20 @@ public interface OnlineUser extends User {
      * @param block block to check
      * @return true, if this user is allowed to break/place/use a block here
      */
+    @Contract(pure = true)
     boolean isAllowedToUse(Block block);
 
-    void changeSign(Block block, final String line1, final String line2, final String line3, final String line4);
+    void changeSign(@Nonnull Block block, @Nonnull String line1, @Nonnull String line2, @Nonnull String line3, @Nonnull String line4) throws IllegalArgumentException;
 
-    void resetSign(Block block);
+    void resetSign(@Nonnull Block block) throws IllegalArgumentException;
 
-    void setNavigationTarget(Location location);
+    void setNavigationTarget(@Nonnull Location location) throws IllegalArgumentException;
 
     void resetNavigationTarget();
 
     void updateLatestJoin();
 
+    @Contract(pure = true)
     default LoadedVehicle getVehicle() {
         final Entity vehicle = getPlayer().getVehicle();
         if (vehicle == null) return null;
@@ -510,24 +584,28 @@ public interface OnlineUser extends User {
 
     void checkRegistration();
 
-    default void chat(ChatType type, String message) {
+    default void chat(@Nonnull ChatType type, @Nonnull String message) throws IllegalArgumentException {
         ChatHandler.chat(this, type, message);
     }
 
-    default void chat(String message) {
-        chat(ChatType.NORMAL, message);
+    default void chat(@Nonnull String message) throws IllegalArgumentException {
+        ChatHandler.chat(this, ChatType.NORMAL, message);
     }
 
-    void performCommand(String command);
+    void performCommand(@Nonnull String command) throws IllegalArgumentException;
 
-    boolean addItem(ItemStack item);
+    boolean addItem(@Nonnull ItemStack item) throws IllegalArgumentException;
 
+    @Contract(pure = true)
     int getAmountOfFreeInventorySlots();
 
+    @Contract(pure = true)
     default boolean hasFreeInventorySlot() {
         return getAmountOfFreeInventorySlots() != 0;
     }
 
+    @Contract(pure = true)
+    @Nonnull
     PlayerLocation getLocation();
 
     /**
@@ -554,6 +632,7 @@ public interface OnlineUser extends User {
      */
     ClickableMessage createClickableMessage(boolean selfCancelling, Runnable callback);
 
+    @Deprecated(forRemoval = true)
     ClickEvent createClickEvent(boolean selfCancelling, Runnable callback);
 
     /**
@@ -565,7 +644,7 @@ public interface OnlineUser extends User {
      * @param range    maximum range for the result to be true
      * @return true, if user is in range
      */
-    boolean isInCubicRange(Location location, int range);
+    boolean isInCubicRange(@Nonnull Location location, int range) throws IllegalArgumentException;
 
     /**
      * Checks whether the user is in a virtual sphere whose radius is the square root of specified range.
@@ -577,7 +656,7 @@ public interface OnlineUser extends User {
      * @param rangeSquared maximum range for the result to be true
      * @return true, if user is in range
      */
-    boolean isInSquaredRange(Location location, int rangeSquared);
+    boolean isInSquaredRange(@Nonnull Location location, int rangeSquared) throws IllegalArgumentException;
 
     /**
      * Checks whether the user is in a virtual sphere whose radius is the specified range.
@@ -586,15 +665,11 @@ public interface OnlineUser extends User {
      * @param range    maximum range for the result to be true
      * @return true, if user is in range
      */
-    default boolean isInRange(Location location, int range) {
+    default boolean isInRange(@Nonnull Location location, int range) throws IllegalArgumentException {
         return isInSquaredRange(location, range * range);
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    class Notice {
-        String id, message;
+    record Notice(@Nonnull String id, @Nonnull String message) {
     }
 
     enum ChatType {

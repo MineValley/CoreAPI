@@ -10,7 +10,7 @@ import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.InterfaceItem;
-import minevalley.core.api.enums.Server;
+import minevalley.core.api.enums.ServerType;
 import minevalley.core.api.gui.GuiBuilder;
 import minevalley.core.api.gui.GuiItem;
 import minevalley.core.api.gui.MultiPageGui;
@@ -27,6 +27,7 @@ import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.regions.utils.FakeBlock;
+import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
@@ -331,11 +332,17 @@ public final class Core {
         return server.getUniqueId(name);
     }
 
+    public static Team team() {
+        return server.team();
+    }
+
     /**
      * Sends a message to all online team-members
      *
      * @param message message as string
      */
+    @Deprecated(forRemoval = true)
+    @SuppressWarnings("removal")
     public static void sendTeamChatMessage(@Nonnull String message) {
         server.sendTeamChatMessage(message);
     }
@@ -345,7 +352,8 @@ public final class Core {
      *
      * @param message message as base-component (useful for clickable messages)
      */
-    @Deprecated
+    @Deprecated(forRemoval = true)
+    @SuppressWarnings("removal")
     public static void sendTeamChatMessage(@Nonnull BaseComponent[] message) {
         server.sendTeamChatMessage(message);
     }
@@ -867,6 +875,8 @@ public final class Core {
      * @return new chat menu
      */
     @Contract("_ -> new")
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
     public static ChatMenu createChatMenu(ChatMenu.Option... options) {
         return server.createChatMenu(options);
     }
@@ -876,6 +886,8 @@ public final class Core {
      *
      * @return new chat menu
      */
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
     public static ChatMenu createChatMenu() {
         return server.createChatMenu();
     }
@@ -1787,7 +1799,18 @@ public final class Core {
      * @return server type
      */
     @Nonnull
-    public static Server getServer() {
+    @Deprecated(forRemoval = true)
+    public static ServerType getServer() {
+        return server.getServerType();
+    }
+
+    /**
+     * Gets the server type.
+     *
+     * @return server type
+     */
+    @Nonnull
+    public static ServerType getServerType() {
         return server.getServerType();
     }
 

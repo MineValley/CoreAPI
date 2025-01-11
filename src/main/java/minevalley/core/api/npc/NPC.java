@@ -3,8 +3,8 @@ package minevalley.core.api.npc;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.ChatMenu;
 import minevalley.core.api.armorstand.FakeArmorStand;
+import minevalley.core.api.chat.MessageSender;
 import minevalley.core.api.modifiers.EquipmentModifier;
 import minevalley.core.api.modifiers.InteractionModifier;
 import minevalley.core.api.modifiers.LocationModifier;
@@ -17,11 +17,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import java.util.List;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public interface NPC extends EquipmentModifier, InteractionModifier, LocationModifier, VisibilityModifier {
+public interface NPC extends MessageSender, EquipmentModifier, InteractionModifier, LocationModifier, VisibilityModifier {
 
     String getName();
 
@@ -77,29 +76,47 @@ public interface NPC extends EquipmentModifier, InteractionModifier, LocationMod
 
     NPC setChatPrefix(String prefix);
 
+    @Deprecated(forRemoval = true)
     void say(OnlineUser user, String text);
 
+    @Deprecated(forRemoval = true)
     void say(OnlineUser user, BaseComponent[] baseComponent);
 
-    void say(OnlineUser user, String text, ChatMenu chatMenu);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void say(OnlineUser user, String text, minevalley.core.api.ChatMenu chatMenu);
 
-    void say(OnlineUser user, BaseComponent[] baseComponent, ChatMenu chatMenu);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void say(OnlineUser user, BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu);
 
+    @Deprecated(forRemoval = true)
     void say(OnlineUser user, String text, OnlineUser.Notice notice);
 
+    @Deprecated(forRemoval = true)
     void say(OnlineUser user, BaseComponent[] baseComponent, OnlineUser.Notice notice);
 
-    void say(OnlineUser user, String text, ChatMenu chatMenu, OnlineUser.Notice notice);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void say(OnlineUser user, String text, minevalley.core.api.ChatMenu chatMenu, OnlineUser.Notice notice);
 
-    void say(OnlineUser user, BaseComponent[] baseComponent, ChatMenu chatMenu, OnlineUser.Notice notice);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void say(OnlineUser user, BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu, OnlineUser.Notice notice);
 
+    @Deprecated(forRemoval = true)
     void say(OnlineUser user, RandomText... text);
 
-    void say(OnlineUser user, ChatMenu chatMenu, RandomText... text);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void say(OnlineUser user, minevalley.core.api.ChatMenu chatMenu, RandomText... text);
 
+    @Deprecated(forRemoval = true)
     void say(OnlineUser user, OnlineUser.Notice notice, RandomText... text);
 
-    void say(OnlineUser user, ChatMenu chatMenu, OnlineUser.Notice notice, RandomText... text);
+    @SuppressWarnings("removal")
+    @Deprecated(forRemoval = true)
+    void say(OnlineUser user, minevalley.core.api.ChatMenu chatMenu, OnlineUser.Notice notice, RandomText... text);
 
     OnlineUser.Notice getTalkWithMeNotice();
 

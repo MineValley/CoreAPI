@@ -1,6 +1,6 @@
 package minevalley.core.api;
 
-import minevalley.core.api.enums.Server;
+import minevalley.core.api.enums.ServerType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -15,5 +15,5 @@ public @interface Module {
 
     String[] authors();
 
-    Server[] servers() default {};
+    ServerType[] servers() default {};
 }
