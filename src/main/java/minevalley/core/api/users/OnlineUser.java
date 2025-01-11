@@ -1,7 +1,6 @@
 package minevalley.core.api.users;
 
 import lombok.NonNull;
-import minevalley.core.api.ChatMenu;
 import minevalley.core.api.chat.MessageReceiver;
 import minevalley.core.api.chat.types.MessageType;
 import minevalley.core.api.economy.AccountUser;
@@ -239,8 +238,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param message  message to be sent as string
      * @param chatMenu menu to attach underneath the message
      */
+    @SuppressWarnings("removal")
     @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull String message, ChatMenu chatMenu);
+    void sendMessage(@NonNull String message, minevalley.core.api.ChatMenu chatMenu);
 
     /**
      * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
@@ -250,8 +250,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param chatMenu menu to attach underneath the message
      * @param notice   notice that is sent to the user
      */
+    @SuppressWarnings("removal")
     @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull String message, ChatMenu chatMenu, @NonNull Notice notice);
+    void sendMessage(@NonNull String message, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
 
     /**
      * Sends a message to this user with a specific prefix.
@@ -260,8 +261,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param message     message to be sent as string
      * @param chatMenu    menu to attach underneath the message
      */
+    @SuppressWarnings("removal")
     @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull String message, ChatMenu chatMenu);
+    void sendMessage(@NonNull MessageType messageType, @NonNull String message, minevalley.core.api.ChatMenu chatMenu);
 
     /**
      * Sends a message to this user with a specific prefix.
@@ -272,8 +274,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param chatMenu    menu to attach underneath the message
      * @param notice      notice that is sent to the user
      */
+    @SuppressWarnings("removal")
     @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull String message, ChatMenu chatMenu, @NonNull Notice notice);
+    void sendMessage(@NonNull MessageType messageType, @NonNull String message, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
 
     /**
      * Sends a message to this user with a specific prefix, using ComponentBuilders.
@@ -282,8 +285,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param baseComponent message to be sent as string
      * @param chatMenu      menu to attach underneath the message
      */
+    @SuppressWarnings("removal")
     @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, ChatMenu chatMenu);
+    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu);
 
     /**
      * Sends a message to this user with a specific prefix, using ComponentBuilders.
@@ -294,8 +298,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param chatMenu      menu to attach underneath the message
      * @param notice        notice that is sent to the user
      */
+    @SuppressWarnings("removal")
     @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, ChatMenu chatMenu, @NonNull Notice notice);
+    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
 
     /**
      * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
@@ -303,8 +308,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
      * @param chatMenu      menu to attach underneath the message
      */
+    @SuppressWarnings("removal")
     @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull BaseComponent[] baseComponent, ChatMenu chatMenu);
+    void sendMessage(@NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu);
 
     /**
      * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
@@ -314,8 +320,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param chatMenu      menu to attach underneath the message
      * @param notice        notice that is sent to the user
      */
+    @SuppressWarnings("removal")
     @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull BaseComponent[] baseComponent, ChatMenu chatMenu, @NonNull Notice notice);
+    void sendMessage(@NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
 
     /**
      * Sends a message to the user providing useful side information. The user can click a button so that the message will not be sent the next time.

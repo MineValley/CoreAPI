@@ -209,9 +209,11 @@ public interface CoreServer {
     @Contract("_ -> new")
     ItemBuilder createItem(String url) throws IllegalArgumentException;
 
+    @SuppressWarnings("removal")
     @Deprecated(forRemoval = true)
     ChatMenu createChatMenu(ChatMenu.Option... options);
 
+    @SuppressWarnings("removal")
     @Deprecated(forRemoval = true)
     ChatMenu createChatMenu();
 
