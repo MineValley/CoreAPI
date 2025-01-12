@@ -413,7 +413,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return users team-rank
      */
-    @Nullable
+    @Nonnull
     @Contract(pure = true)
     TeamRank getTeamRank();
 
