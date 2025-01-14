@@ -392,6 +392,9 @@ public interface OnlineUser extends User, MessageReceiver {
 
     // TeamRank
 
+    @Nonnull
+    TeamMember team();
+
     /**
      * Gets if the player has any type of team-rank.
      *
@@ -405,6 +408,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the user is team-plus-member
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isTeamPlus();
 
@@ -413,6 +417,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return users team-rank
      */
+    @Deprecated(forRemoval = true)
     @Nonnull
     @Contract(pure = true)
     TeamRank getTeamRank();
@@ -423,6 +428,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return [custom] team rank name
      */
+    @Deprecated(forRemoval = true)
     @Nullable
     @Contract(pure = true)
     String getCustomTeamRankName();
@@ -435,6 +441,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if this user is displayed as team member in chat, tab list, etc.
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isDisplayedAsTeamler();
 
@@ -444,6 +451,7 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param ranks list of team-ranks to be checked for
      * @return true, if the user has one of the ranks
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean hasTeamRank(@Nonnull TeamRank... ranks);
 
@@ -452,6 +460,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the player is allowed to use a general-key
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isAllowedToUseGeneralKey();
 
@@ -460,6 +469,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the player is using a general-key
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isUsingGeneralKey();
 
@@ -471,6 +481,7 @@ public interface OnlineUser extends User, MessageReceiver {
     /**
      * Lets the user leave the team-service.
      */
+    @Deprecated(forRemoval = true)
     void leaveTeamService() throws IllegalStateException;
 
     /**
@@ -478,17 +489,20 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the user is allowed to enter the support-service
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean canEnterSupportService();
 
     /**
      * Lets the user enter the support-service. If the user isn't allowed to, nothing happens.
      */
+    @Deprecated(forRemoval = true)
     void joinSupportService() throws UnsupportedOperationException, IllegalStateException;
 
     /**
      * Lets the user leave the support-service.
      */
+    @Deprecated(forRemoval = true)
     void leaveSupportService() throws IllegalStateException;
 
     /**
@@ -496,6 +510,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the user is marked as server-operator
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isOperator();
 
@@ -504,6 +519,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the user is in support-service
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isInSupportService();
 

@@ -16,6 +16,9 @@ import java.util.UUID;
 
 public interface User extends Registrant {
 
+    OnlineUser online();
+
+    @Deprecated(forRemoval = true)
     OnlineUser getOnlineUser();
 
     boolean isOnline();
