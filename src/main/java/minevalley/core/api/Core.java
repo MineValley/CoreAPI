@@ -10,7 +10,6 @@ import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.InterfaceItem;
-import minevalley.core.api.enums.ServerType;
 import minevalley.core.api.gui.GuiBuilder;
 import minevalley.core.api.gui.GuiItem;
 import minevalley.core.api.gui.MultiPageGui;
@@ -27,6 +26,7 @@ import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.regions.utils.FakeBlock;
+import minevalley.core.api.server.ServerType;
 import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
@@ -695,6 +695,7 @@ public final class Core {
     /**
      * Restarts the server and runs the cleanup process on start.
      */
+    @Deprecated
     public static void restartAndClean() {
         server.restartAndClean();
     }
@@ -1211,6 +1212,7 @@ public final class Core {
      *
      * @return true, if the server is in maintenance
      */
+    @Deprecated
     public static boolean isMaintenance() {
         return server.isMaintenance();
     }
@@ -1810,6 +1812,7 @@ public final class Core {
      * @return server type
      */
     @Nonnull
+    @Deprecated
     public static ServerType getServerType() {
         return server.getServerType();
     }

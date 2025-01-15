@@ -1,6 +1,6 @@
 package minevalley.core.api;
 
-import minevalley.core.api.enums.ServerType;
+import minevalley.core.api.server.ServerType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
