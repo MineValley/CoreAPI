@@ -17,6 +17,8 @@ public interface Server extends MessageReceiver {
 
     /**
      * Gets whether the server is in development mode.
+     * <p>
+     * <b>Note:</b> the development mode is set inside the server properties and cannot be changed during runtime.
      *
      * @return true, if the server is in development mode
      */
