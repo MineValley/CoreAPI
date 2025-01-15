@@ -161,8 +161,10 @@ public interface CoreServer {
     @Nonnull
     MultiPageGui createMultiPageGui(@Nonnegative int size) throws IllegalArgumentException;
 
+    @Deprecated
     GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable Consumer<OnlineUser> consumer);
 
+    @Deprecated
     GuiItem createAdvancedGuiItem(@Nonnull ItemStack itemStack, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback);
 
     @Nonnull

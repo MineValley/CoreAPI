@@ -577,6 +577,7 @@ public final class Core {
      * @param consumer  consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable Consumer<OnlineUser> consumer) {
         return server.createGuiItem(itemStack, consumer);
     }
@@ -589,6 +590,7 @@ public final class Core {
      * @param callback    consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull ItemBuilder itemBuilder, @Nullable Consumer<OnlineUser> callback) {
         return server.createGuiItem(itemBuilder.build(), callback);
     }
@@ -601,6 +603,7 @@ public final class Core {
      * @param callback consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull InterfaceItem item, @Nullable Consumer<OnlineUser> callback) {
         return server.createGuiItem(item.toItemStack(), callback);
     }
@@ -613,6 +616,7 @@ public final class Core {
      * @param callback  consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
         return server.createAdvancedGuiItem(itemStack, callback);
     }
@@ -625,6 +629,7 @@ public final class Core {
      * @param callback    consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull ItemBuilder itemBuilder, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
         return server.createAdvancedGuiItem(itemBuilder.build(), callback);
     }
@@ -637,6 +642,7 @@ public final class Core {
      * @param callback consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull InterfaceItem item, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
         return server.createAdvancedGuiItem(item.toItemStack(), callback);
     }

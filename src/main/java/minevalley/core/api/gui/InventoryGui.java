@@ -14,9 +14,11 @@ public interface InventoryGui {
 
     InventoryGui unlockSlot(int slot);
 
+    @Deprecated
     GuiItem getItem(int slot);
 
     Inventory getInventory();
 
+    @Deprecated
     void setItem(int slot, GuiItem item);
 }
