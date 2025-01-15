@@ -10,7 +10,7 @@ import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.InterfaceItem;
-import minevalley.core.api.enums.ServerType;
+import minevalley.core.api.server.ServerType;
 import minevalley.core.api.gui.GuiBuilder;
 import minevalley.core.api.gui.GuiItem;
 import minevalley.core.api.gui.MultiPageGui;
