@@ -4,11 +4,13 @@ import minevalley.core.api.Registrant;
 import minevalley.core.api.corporations.Member;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.phone.Telephone;
+import minevalley.core.api.users.exceptions.UserNotOnlineException;
 import minevalley.core.api.users.friends.FriendRequest;
 import minevalley.core.api.users.friends.Friendship;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +18,14 @@ import java.util.UUID;
 
 public interface User extends Registrant {
 
-    OnlineUser online();
+    /**
+     * Gets the online user-object of this user.
+     *
+     * @return online user-object
+     * @throws UserNotOnlineException if the user is not online
+     */
+    @Nonnull
+    OnlineUser online() throws UserNotOnlineException;
 
     @Deprecated(forRemoval = true)
     OnlineUser getOnlineUser();
