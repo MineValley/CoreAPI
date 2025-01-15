@@ -600,7 +600,7 @@ public interface OnlineUser extends User, MessageReceiver {
     @Contract(pure = true)
     boolean isAllowedToUse(Block block);
 
-    void changeSign(@Nonnull Block block, @Nonnull String line1, @Nonnull String line2, @Nonnull String line3, @Nonnull String line4) throws IllegalArgumentException;
+    void changeSign(@Nonnull Block block, @Nullable String line1, @Nullable String line2, @Nullable String line3, @Nullable String line4) throws IllegalArgumentException;
 
     void resetSign(@Nonnull Block block) throws IllegalArgumentException;
 
