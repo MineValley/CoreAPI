@@ -12,6 +12,7 @@ import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.McVersion;
 import minevalley.core.api.users.enums.TabListView;
 import minevalley.core.api.users.enums.TeamRank;
+import minevalley.core.api.users.exceptions.UserNotPermittedException;
 import minevalley.core.api.utils.ChatHandler;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.vehicles.LoadedVehicle;
@@ -386,11 +387,33 @@ public interface OnlineUser extends User, MessageReceiver {
     @Contract(pure = true)
     Fraction getFractionService();
 
-    void enterFractionService(@Nonnull Fraction service) throws IllegalArgumentException;
+    /**
+     * Sets the user's current fraction service.
+     *
+     * @param service fraction to enter service
+     * @throws IllegalArgumentException  if the service is null
+     * @throws UserNotPermittedException if the user is not allowed to enter the service
+     * @throws IllegalStateException     if the user is already in a service
+     */
+    void enterFractionService(@Nonnull Fraction service) throws IllegalArgumentException, UserNotPermittedException, IllegalStateException;
 
-    void leaveFractionService();
+    /**
+     * Lets the user leave the fraction-service.
+     *
+     * @throws IllegalStateException if the user is not in a service
+     */
+    void leaveFractionService() throws IllegalStateException;
 
     // TeamRank
+
+    /**
+     * Gets the team-member object of this user.
+     *
+     * @return team-member object
+     * @throws UserNotPermittedException if the user is no team-member
+     */
+    @Nonnull
+    TeamMember team() throws UserNotPermittedException;
 
     /**
      * Gets if the player has any type of team-rank.
@@ -405,6 +428,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the user is team-plus-member
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isTeamPlus();
 
@@ -413,7 +437,8 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return users team-rank
      */
-    @Nullable
+    @Deprecated(forRemoval = true)
+    @Nonnull
     @Contract(pure = true)
     TeamRank getTeamRank();
 
@@ -423,6 +448,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return [custom] team rank name
      */
+    @Deprecated(forRemoval = true)
     @Nullable
     @Contract(pure = true)
     String getCustomTeamRankName();
@@ -435,6 +461,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if this user is displayed as team member in chat, tab list, etc.
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isDisplayedAsTeamler();
 
@@ -444,6 +471,7 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param ranks list of team-ranks to be checked for
      * @return true, if the user has one of the ranks
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean hasTeamRank(@Nonnull TeamRank... ranks);
 
@@ -452,6 +480,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the player is allowed to use a general-key
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isAllowedToUseGeneralKey();
 
@@ -460,6 +489,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the player is using a general-key
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isUsingGeneralKey();
 
@@ -471,6 +501,7 @@ public interface OnlineUser extends User, MessageReceiver {
     /**
      * Lets the user leave the team-service.
      */
+    @Deprecated(forRemoval = true)
     void leaveTeamService() throws IllegalStateException;
 
     /**
@@ -478,17 +509,20 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the user is allowed to enter the support-service
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean canEnterSupportService();
 
     /**
      * Lets the user enter the support-service. If the user isn't allowed to, nothing happens.
      */
+    @Deprecated(forRemoval = true)
     void joinSupportService() throws UnsupportedOperationException, IllegalStateException;
 
     /**
      * Lets the user leave the support-service.
      */
+    @Deprecated(forRemoval = true)
     void leaveSupportService() throws IllegalStateException;
 
     /**
@@ -496,6 +530,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the user is marked as server-operator
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isOperator();
 
@@ -504,6 +539,7 @@ public interface OnlineUser extends User, MessageReceiver {
      *
      * @return true, if the user is in support-service
      */
+    @Deprecated(forRemoval = true)
     @Contract(pure = true)
     boolean isInSupportService();
 
@@ -564,7 +600,7 @@ public interface OnlineUser extends User, MessageReceiver {
     @Contract(pure = true)
     boolean isAllowedToUse(Block block);
 
-    void changeSign(@Nonnull Block block, @Nonnull String line1, @Nonnull String line2, @Nonnull String line3, @Nonnull String line4) throws IllegalArgumentException;
+    void changeSign(@Nonnull Block block, @Nullable String line1, @Nullable String line2, @Nullable String line3, @Nullable String line4) throws IllegalArgumentException;
 
     void resetSign(@Nonnull Block block) throws IllegalArgumentException;
 
