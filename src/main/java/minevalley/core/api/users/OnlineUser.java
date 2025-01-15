@@ -387,9 +387,22 @@ public interface OnlineUser extends User, MessageReceiver {
     @Contract(pure = true)
     Fraction getFractionService();
 
-    void enterFractionService(@Nonnull Fraction service) throws IllegalArgumentException;
+    /**
+     * Sets the user's current fraction service.
+     *
+     * @param service fraction to enter service
+     * @throws IllegalArgumentException  if the service is null
+     * @throws UserNotPermittedException if the user is not allowed to enter the service
+     * @throws IllegalStateException     if the user is already in a service
+     */
+    void enterFractionService(@Nonnull Fraction service) throws IllegalArgumentException, UserNotPermittedException, IllegalStateException;
 
-    void leaveFractionService();
+    /**
+     * Lets the user leave the fraction-service.
+     *
+     * @throws IllegalStateException if the user is not in a service
+     */
+    void leaveFractionService() throws IllegalStateException;
 
     // TeamRank
 
