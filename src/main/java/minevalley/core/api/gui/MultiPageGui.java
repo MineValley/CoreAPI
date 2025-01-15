@@ -16,6 +16,7 @@ import java.util.function.Function;
  * <br>
  * <b>%o</b> will be replaced with the amount of pages
  */
+@SuppressWarnings("unused")
 public interface MultiPageGui {
 
     MultiPageGui setTitle(String title);

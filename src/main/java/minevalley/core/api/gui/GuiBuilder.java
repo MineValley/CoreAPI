@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+@SuppressWarnings("unused")
 public interface GuiBuilder {
 
     GuiBuilder setTitle(String title);
