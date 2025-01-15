@@ -21,14 +21,17 @@ public interface MultiPageGui {
 
     MultiPageGui setTitle(String title);
 
+    @Deprecated
     MultiPageGui setItem(int slot, GuiItem guiItem);
 
     MultiPageGui setItem(int slot, ItemStack itemStack);
 
     MultiPageGui setItem(int slot, InterfaceItem item);
 
+    @Deprecated
     MultiPageGui setPageDependantItem(int slot, Function<Integer, GuiItem> guiItemGenerator);
 
+    @Deprecated
     MultiPageGui addItem(GuiItem guiItem);
 
     MultiPageGui addItem(ItemStack itemStack);
@@ -45,6 +48,7 @@ public interface MultiPageGui {
 
     MultiPageGui removeFillSlots(int... slots);
 
+    @Deprecated
     MultiPageGui fillWith(List<GuiItem> guiItems);
 
     MultiPageGui addCloser();
