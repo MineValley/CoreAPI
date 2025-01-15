@@ -12,6 +12,7 @@ import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.InterfaceItem;
 import minevalley.core.api.gui.GuiBuilder;
 import minevalley.core.api.gui.GuiItem;
+import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.npc.NPC;
 import minevalley.core.api.phone.Telephone;
@@ -37,6 +38,7 @@ import minevalley.core.api.utils.CarBarrier;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.Hologram;
 import minevalley.core.api.utils.ItemBuilder;
+import net.kyori.adventure.text.Component;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -552,20 +554,40 @@ public final class Core {
      * @return new gui-builder
      * @throws IllegalArgumentException if the size is invalid (negative, higher than 54 or not a multiple of 9 while being higher than 6)
      */
+    @Deprecated
     @Nonnull
     public static GuiBuilder createGui(@Nonnegative int size) throws IllegalArgumentException {
         return server.createGui(size);
     }
 
     /**
-     * Creates a gui with multiple pages and a specific size.
+     * Creates a gui with a specific size.
      *
      * @param size size of the inventory
      * @return new gui-builder
      * @throws IllegalArgumentException if the size is invalid (negative, higher than 54 or not a multiple of 9 while being higher than 6)
      */
     @Nonnull
-    public static MultiPageGui createMultiPageGui(@Nonnegative int size) throws IllegalArgumentException {
+    public static InventoryGui createGui(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException {
+        return server.createGUI(title, size);
+    }
+
+    /**
+     * Creates a gui with multiple pages and a specific size.
+     * <p>
+     * The title of the inventory holds two variables:
+     * <br>
+     * {@code %i%} will be replaced with the current page number
+     * <br>
+     * {@code %o%} will be replaced with the amount of pages
+     *
+     * @param title title of the inventory
+     * @param size  size of the inventory
+     * @return new gui-builder
+     * @throws IllegalArgumentException if the size is invalid (negative, higher than 54 or not a multiple of 9 while being higher than 6)
+     */
+    @Nonnull
+    public static MultiPageGui createMultiPageGui(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException {
         return server.createMultiPageGui(size);
     }
 
