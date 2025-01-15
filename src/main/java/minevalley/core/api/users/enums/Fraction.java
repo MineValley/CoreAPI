@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+@SuppressWarnings("unused")
 public enum Fraction {
 
     POLICE("Polizei"),
