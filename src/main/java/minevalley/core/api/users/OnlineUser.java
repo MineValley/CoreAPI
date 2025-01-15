@@ -12,6 +12,7 @@ import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.McVersion;
 import minevalley.core.api.users.enums.TabListView;
 import minevalley.core.api.users.enums.TeamRank;
+import minevalley.core.api.users.exceptions.UserNotPermittedException;
 import minevalley.core.api.utils.ChatHandler;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.vehicles.LoadedVehicle;
@@ -392,8 +393,14 @@ public interface OnlineUser extends User, MessageReceiver {
 
     // TeamRank
 
+    /**
+     * Gets the team-member object of this user.
+     *
+     * @return team-member object
+     * @throws UserNotPermittedException if the user is no team-member
+     */
     @Nonnull
-    TeamMember team();
+    TeamMember team() throws UserNotPermittedException;
 
     /**
      * Gets if the player has any type of team-rank.
