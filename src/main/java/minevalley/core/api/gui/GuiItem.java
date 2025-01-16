@@ -2,6 +2,7 @@ package minevalley.core.api.gui;
 
 import org.bukkit.inventory.ItemStack;
 
+@Deprecated
 public interface GuiItem {
 
     /**

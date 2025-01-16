@@ -12,6 +12,7 @@ import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.enums.InterfaceItem;
 import minevalley.core.api.gui.GuiBuilder;
 import minevalley.core.api.gui.GuiItem;
+import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.npc.NPC;
 import minevalley.core.api.phone.Telephone;
@@ -37,6 +38,7 @@ import minevalley.core.api.utils.CarBarrier;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.Hologram;
 import minevalley.core.api.utils.ItemBuilder;
+import net.kyori.adventure.text.Component;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -552,20 +554,40 @@ public final class Core {
      * @return new gui-builder
      * @throws IllegalArgumentException if the size is invalid (negative, higher than 54 or not a multiple of 9 while being higher than 6)
      */
+    @Deprecated
     @Nonnull
     public static GuiBuilder createGui(@Nonnegative int size) throws IllegalArgumentException {
         return server.createGui(size);
     }
 
     /**
-     * Creates a gui with multiple pages and a specific size.
+     * Creates a gui with a specific size.
      *
      * @param size size of the inventory
      * @return new gui-builder
      * @throws IllegalArgumentException if the size is invalid (negative, higher than 54 or not a multiple of 9 while being higher than 6)
      */
     @Nonnull
-    public static MultiPageGui createMultiPageGui(@Nonnegative int size) throws IllegalArgumentException {
+    public static InventoryGui createGui(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException {
+        return server.createGUI(title, size);
+    }
+
+    /**
+     * Creates a gui with multiple pages and a specific size.
+     * <p>
+     * The title of the inventory holds two variables:
+     * <br>
+     * {@code %i%} will be replaced with the current page number
+     * <br>
+     * {@code %o%} will be replaced with the amount of pages
+     *
+     * @param title title of the inventory
+     * @param size  size of the inventory
+     * @return new gui-builder
+     * @throws IllegalArgumentException if the size is invalid (negative, higher than 54 or not a multiple of 9 while being higher than 6)
+     */
+    @Nonnull
+    public static MultiPageGui createMultiPageGui(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException {
         return server.createMultiPageGui(size);
     }
 
@@ -577,6 +599,7 @@ public final class Core {
      * @param consumer  consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable Consumer<OnlineUser> consumer) {
         return server.createGuiItem(itemStack, consumer);
     }
@@ -589,6 +612,7 @@ public final class Core {
      * @param callback    consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull ItemBuilder itemBuilder, @Nullable Consumer<OnlineUser> callback) {
         return server.createGuiItem(itemBuilder.build(), callback);
     }
@@ -601,6 +625,7 @@ public final class Core {
      * @param callback consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull InterfaceItem item, @Nullable Consumer<OnlineUser> callback) {
         return server.createGuiItem(item.toItemStack(), callback);
     }
@@ -613,6 +638,7 @@ public final class Core {
      * @param callback  consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
         return server.createAdvancedGuiItem(itemStack, callback);
     }
@@ -625,6 +651,7 @@ public final class Core {
      * @param callback    consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull ItemBuilder itemBuilder, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
         return server.createAdvancedGuiItem(itemBuilder.build(), callback);
     }
@@ -637,6 +664,7 @@ public final class Core {
      * @param callback consumer which gets called if a player clicks the item
      * @return gui-item-object to add to the gui-builder
      */
+    @Deprecated
     public static GuiItem createGuiItem(@Nonnull InterfaceItem item, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
         return server.createAdvancedGuiItem(item.toItemStack(), callback);
     }
@@ -753,20 +781,6 @@ public final class Core {
     @Contract("_ -> new")
     public static ItemBuilder createItem(@Nonnull Material material) throws IllegalArgumentException {
         return server.createItem(material);
-    }
-
-    /**
-     * Creates a new item-builder based on a specific material and data.
-     *
-     * @param material material of the item to create
-     * @param data     specific data for the item as short
-     * @return new item-builder
-     * @throws IllegalArgumentException if the material is null or data is invalid
-     */
-    @Nonnull
-    @Contract("_, _ -> new")
-    public static ItemBuilder createItem(@Nonnull Material material, int data) throws IllegalArgumentException {
-        return server.createItem(material, data);
     }
 
     /**

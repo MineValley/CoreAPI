@@ -11,6 +11,7 @@ import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.gui.GuiBuilder;
 import minevalley.core.api.gui.GuiItem;
+import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.npc.NPC;
 import minevalley.core.api.phone.Telephone;
@@ -36,6 +37,7 @@ import minevalley.core.api.utils.CarBarrier;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.Hologram;
 import minevalley.core.api.utils.ItemBuilder;
+import net.kyori.adventure.text.Component;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -156,13 +158,19 @@ public interface CoreServer {
     String formatRelativeTimestamp(long time);
 
     @Nonnull
+    InventoryGui createGUI(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException;
+
+    @Deprecated
+    @Nonnull
     GuiBuilder createGui(@Nonnegative int size) throws IllegalArgumentException;
 
     @Nonnull
     MultiPageGui createMultiPageGui(@Nonnegative int size) throws IllegalArgumentException;
 
+    @Deprecated
     GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable Consumer<OnlineUser> consumer);
 
+    @Deprecated
     GuiItem createAdvancedGuiItem(@Nonnull ItemStack itemStack, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback);
 
     @Nonnull
@@ -189,10 +197,6 @@ public interface CoreServer {
     @Nonnull
     @Contract("_ -> new")
     ItemBuilder createItem(@Nonnull Material material) throws IllegalArgumentException;
-
-    @Nonnull
-    @Contract("_, _ -> new")
-    ItemBuilder createItem(@Nonnull Material material, int data) throws IllegalArgumentException;
 
     @Nonnull
     @Contract("_ -> new")

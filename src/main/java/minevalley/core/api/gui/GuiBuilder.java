@@ -8,16 +8,20 @@ import org.bukkit.inventory.ItemStack;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+@Deprecated
+@SuppressWarnings("unused")
 public interface GuiBuilder {
 
     GuiBuilder setTitle(String title);
 
+    @Deprecated
     GuiBuilder setItem(int slot, GuiItem guiItem);
 
     GuiBuilder setItem(int slot, ItemStack itemStack);
 
     GuiBuilder setItem(int slot, InterfaceItem item);
 
+    @Deprecated
     GuiBuilder addItem(GuiItem guiItem);
 
     GuiBuilder addItem(ItemStack itemStack);
@@ -38,6 +42,7 @@ public interface GuiBuilder {
 
     GuiBuilder onCloseButton(Consumer<OnlineUser> callback);
 
+    @Deprecated
     GuiItem getItem(int slot);
 
     int getSize();
