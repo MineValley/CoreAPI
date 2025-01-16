@@ -47,17 +47,6 @@ public interface ItemBuilder {
     ItemBuilder setDurability(@Nonnegative int durability) throws IllegalArgumentException, UnsupportedOperationException;
 
     /**
-     * Sets the item's data.
-     *
-     * @param data data of the item as integer
-     * @return this item-builder
-     * @throws IllegalArgumentException if the data is negative
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    ItemBuilder setData(@Nonnegative int data) throws IllegalArgumentException;
-
-    /**
      * Sets the item's custom model data.
      * @param customModelData custom model data of the item as integer
      * @return this item-builder

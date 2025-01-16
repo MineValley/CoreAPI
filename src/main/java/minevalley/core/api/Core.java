@@ -784,20 +784,6 @@ public final class Core {
     }
 
     /**
-     * Creates a new item-builder based on a specific material and data.
-     *
-     * @param material material of the item to create
-     * @param data     specific data for the item as short
-     * @return new item-builder
-     * @throws IllegalArgumentException if the material is null or data is invalid
-     */
-    @Nonnull
-    @Contract("_, _ -> new")
-    public static ItemBuilder createItem(@Nonnull Material material, int data) throws IllegalArgumentException {
-        return server.createItem(material, data);
-    }
-
-    /**
      * Creates a new item-builder from the players head.
      *
      * @param player player whose head is wanted

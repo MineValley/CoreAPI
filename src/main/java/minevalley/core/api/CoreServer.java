@@ -199,10 +199,6 @@ public interface CoreServer {
     ItemBuilder createItem(@Nonnull Material material) throws IllegalArgumentException;
 
     @Nonnull
-    @Contract("_, _ -> new")
-    ItemBuilder createItem(@Nonnull Material material, int data) throws IllegalArgumentException;
-
-    @Nonnull
     @Contract("_ -> new")
     ItemBuilder createItem(@Nonnull Player player) throws IllegalArgumentException;
 
