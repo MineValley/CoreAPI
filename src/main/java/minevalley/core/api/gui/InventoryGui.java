@@ -40,6 +40,20 @@ public interface InventoryGui {
     InventoryGui setItem(@Nonnegative int slot, @Nonnull ItemStack item) throws IllegalArgumentException;
 
     /**
+     * Sets the interface item in the specified slot.
+     *
+     * @param slot the slot to set the item in
+     * @param item the interface item to set
+     * @return this GUI
+     * @throws IllegalArgumentException if the slot is out of bounds, or the interface item is null
+     */
+    @Nonnull
+    @Contract("_, _ -> this")
+    default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item) throws IllegalArgumentException {
+        return setItem(slot, item.toItemStack());
+    }
+
+    /**
      * Sets the item in the specified slot.
      *
      * @param slot    the slot to set the item in
@@ -53,6 +67,21 @@ public interface InventoryGui {
     InventoryGui setItem(@Nonnegative int slot, @Nonnull ItemStack item, @Nonnull Consumer<OnlineUser> onClick) throws IllegalArgumentException;
 
     /**
+     * Sets the interface item in the specified slot.
+     *
+     * @param slot    the slot to set the interface item in
+     * @param item    the item to set
+     * @param onClick the consumer to run when the item is clicked
+     * @return this GUI
+     * @throws IllegalArgumentException if the slot is out of bounds, or the interface item or onClick is null
+     */
+    @Nonnull
+    @Contract("_, _, _ -> this")
+    default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item, @Nonnull Consumer<OnlineUser> onClick) throws IllegalArgumentException {
+        return setItem(slot, item.toItemStack(), onClick);
+    }
+
+    /**
      * Sets the item in the specified slot.
      *
      * @param slot    the slot to set the item in
@@ -64,6 +93,21 @@ public interface InventoryGui {
     @Nonnull
     @Contract("_, _, _ -> this")
     InventoryGui setItem(@Nonnegative int slot, @Nonnull ItemStack item, @Nonnull BiConsumer<OnlineUser, InventoryClickEvent> onClick) throws IllegalArgumentException;
+
+    /**
+     * Sets the interface item in the specified slot.
+     *
+     * @param slot    the slot to set the interface item in
+     * @param item    the item to set
+     * @param onClick the consumer to run when the item is clicked
+     * @return this GUI
+     * @throws IllegalArgumentException if the slot is out of bounds, or the interface item or onClick is null
+     */
+    @Nonnull
+    @Contract("_, _, _ -> this")
+    default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item, @Nonnull BiConsumer<OnlineUser, InventoryClickEvent> onClick) throws IllegalArgumentException {
+        return setItem(slot, item.toItemStack(), onClick);
+    }
 
     /**
      * Placed the specified interface item in the specified slots.
