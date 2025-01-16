@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import java.util.List;
+import java.util.Set;
 
 @SuppressWarnings("unused")
 public interface ItemBuilder {
@@ -106,7 +107,7 @@ public interface ItemBuilder {
      */
     @Nonnull
     @Contract(pure = true)
-    List<ItemFlag> getItemFlags();
+    Set<ItemFlag> getItemFlags();
 
     /**
      * Sets the item's color.
