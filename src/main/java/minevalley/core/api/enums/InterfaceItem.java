@@ -4,11 +4,13 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.Core;
 import minevalley.core.api.utils.ItemBuilder;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Arrays;
+import javax.annotation.Nonnull;
 
+@SuppressWarnings("unused")
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum InterfaceItem {
 
@@ -17,111 +19,196 @@ public enum InterfaceItem {
      */
     SPACER(1),
 
-    DOUBLE_SPACER_UP(36),
 
-    DOUBLE_SPACER_DOWN(2),
+    /**
+     * Hides the selected slot and the one above.
+     */
+    DOUBLE_SPACER_UP(2),
 
-    DOUBLE_SPACER_LEFT(32),
+    /**
+     * Hides the selected slot and the one underneath.
+     */
+    DOUBLE_SPACER_DOWN(3),
 
-    DOUBLE_SPACER_RIGHT(33),
+    /**
+     * Hides the selected slot and the one to the left.
+     */
+    DOUBLE_SPACER_LEFT(4),
+
+    /**
+     * Hides the selected slot and the one to the right.
+     */
+    DOUBLE_SPACER_RIGHT(5),
+
+
+    /**
+     * Hides the selected slot and highlights the item above.
+     */
+    HIGHLIGHTER_UP(6),
 
     /**
      * Hides the selected slot and highlights the item underneath.
      */
-    HIGHLIGHTED_SPACER(3),
+    HIGHLIGHTER_DOWN(7),
+
+    /**
+     * Hides the selected slot and highlights the item to the left.
+     */
+    HIGHLIGHTER_LEFT(8),
+
+    /**
+     * Hides the selected slot and highlights the item to the right.
+     */
+    HIGHLIGHTER_RIGHT(9),
+
+
+    /**
+     * Hides the selected slot and the one above, but highlights the item above the selected slot.
+     */
+    HIGHLIGHTED_DOUBLE_SPACER_UP(10),
 
     /**
      * Hides the selected slot and the one underneath, but highlights the item under the selected slot.
      */
-    HIGHLIGHTED_DOUBLE_SPACER(4),
+    HIGHLIGHTED_DOUBLE_SPACER_DOWN(11),
 
     /**
-     * Highlights the item under the selected slot without hiding its own slot.
+     * Hides the selected slot and the one to the left, but highlights the item to the left of the selected slot.
      */
-    HIGHLIGHTER(29),
+    HIGHLIGHTED_DOUBLE_SPACER_LEFT(12),
+
+    /**
+     * Hides the selected slot and the one to the right, but highlights the item to the right of the selected slot.
+     */
+    HIGHLIGHTED_DOUBLE_SPACER_RIGHT(13),
+
 
     /**
      * Hides the selected slot and displays a green hook.
      */
-    CHECKMARK(5),
+    CHECKMARK(14),
 
     /**
      * Hides the selected slot and displays a red cross.
      */
-    CROSS(6),
+    CROSS(15),
+
 
     /**
-     * Hides the selected slot and displays a red cross. Mostly used on the eighth slot of an inventory to symbolize a close-button.
+     * Hides the selected slot and displays a blue return arrow.
      */
-    CLOSE(CROSS.getBuilder().setDisplayName("§c§lSchließen")),
+    RETURN(16),
+
 
     /**
      * Is used to scroll back a page in an inventory.
      */
-    PREVIOUS(7),
+    PREVIOUS(17),
 
     /**
      * Is used to scroll forward a page in an inventory.
      */
-    NEXT(8),
+    NEXT(18),
 
-    UP(34),
+    /**
+     * Is used to scroll up in an inventory.
+     */
+    UP(19),
 
-    DOWN(35),
+    /**
+     * Is used to scroll down in an inventory.
+     */
+    DOWN(20),
+
 
     /**
      * Is used to signalize an empty power slot.
      */
-    INACTIVE_CELL(9),
+    INACTIVE_CELL(21),
 
     /**
      * Is used to signalize a full power slot.
      */
-    ACTIVE_CELL(10),
+    ACTIVE_CELL(22),
+
 
     /**
-     * Hides the selected slot and displays two small arrows pointing to the right side.
+     * Hides the selected slot and displays an arrow on the slot above.
      */
-    ARROWS(11),
+    BUTTON_UP(23),
 
     /**
-     * Hides the selected slot and displays the background of a button underneath.
+     * Hides the selected slot and displays an arrow on the slot underneath.
      */
-    BUTTON(12),
-
-    BUTTON_LEFT(30),
-
-    BUTTON_RIGHT(31),
+    BUTTON_DOWN(24),
 
     /**
-     * Hides the selected slot and displays a blue return button.
+     * Hides the selected slot and displays an arrow on the slot to the left.
      */
-    RETURN(15),
+    BUTTON_LEFT(25),
 
-    DIGIT_0(16),
-
-    DIGIT_1(17),
-
-    DIGIT_2(18),
-
-    DIGIT_3(19),
-
-    DIGIT_4(20),
-
-    DIGIT_5(21),
-
-    DIGIT_6(22),
-
-    DIGIT_7(23),
-
-    DIGIT_8(24),
-
-    DIGIT_9(25),
-
-    COLON(26);
+    /**
+     * Hides the selected slot and displays an arrow on the slot to the right.
+     */
+    BUTTON_RIGHT(26),
 
 
-    private final Object object;
+    /**
+     * Is used to display the digit 0.
+     */
+    DIGIT_0(27),
+
+    /**
+     * Is used to display the digit 1.
+     */
+    DIGIT_1(28),
+
+    /**
+     * Is used to display the digit 2.
+     */
+    DIGIT_2(29),
+
+    /**
+     * Is used to display the digit 3.
+     */
+    DIGIT_3(30),
+
+    /**
+     * Is used to display the digit 4.
+     */
+    DIGIT_4(31),
+
+    /**
+     * Is used to display the digit 5.
+     */
+    DIGIT_5(32),
+
+    /**
+     * Is used to display the digit 6.
+     */
+    DIGIT_6(33),
+
+    /**
+     * Is used to display the digit 7.
+     */
+    DIGIT_7(34),
+
+    /**
+     * Is used to display the digit 8.
+     */
+    DIGIT_8(35),
+
+    /**
+     * Is used to display the digit 9.
+     */
+    DIGIT_9(36),
+
+    /**
+     * Is used to display a colon.
+     */
+    COLON(37);
+
+    private final int customModelData;
 
     /**
      * Gets the interface-item as an item-builder.
@@ -129,15 +216,14 @@ public enum InterfaceItem {
      * @return interface-item as item-builder
      */
     public ItemBuilder getBuilder() {
-        return object instanceof ItemBuilder ? (ItemBuilder) object : Core.createItem(Material.WOODEN_SWORD)
-                .setDurability((int) object).hideAttributes().setDisplayName(" ");
+        return Core.createItem(Material.PAPER).setCustomModelData(customModelData).setDisplayName(Component.empty());
     }
 
-    public static InterfaceItem getDigit(int digit) {
-        assert digit >= 0;
-        assert digit <= 9;
-        return Arrays.stream(InterfaceItem.values()).filter(interfaceItem -> interfaceItem.object instanceof Integer)
-                .filter(interfaceItem -> (int) interfaceItem.object == 16 + digit).findFirst().orElse(null);
+    @Nonnull
+    public static InterfaceItem getDigit(int digit) throws IllegalArgumentException {
+        if (digit < 0) throw new IllegalArgumentException("Digit must be greater than or equal to 0.");
+        if (digit > 9) throw new IllegalArgumentException("Digit must be less than or equal to 9.");
+        return values()[27 + digit];
     }
 
     /**
