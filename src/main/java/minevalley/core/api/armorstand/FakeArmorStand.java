@@ -9,6 +9,7 @@ import minevalley.core.api.modifiers.InteractionModifier;
 import minevalley.core.api.modifiers.LocationModifier;
 import minevalley.core.api.modifiers.VisibilityModifier;
 
+@SuppressWarnings("unused")
 public interface FakeArmorStand extends MetadataModifier, PassengerModifier, PoseModifier, RotationModifier,
         EquipmentModifier, InteractionModifier, LocationModifier, VisibilityModifier {
 

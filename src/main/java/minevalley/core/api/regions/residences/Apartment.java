@@ -1,9 +1,11 @@
 package minevalley.core.api.regions.residences;
 
-import lombok.NonNull;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.economy.BankAccount;
 
+import javax.annotation.Nonnull;
+
+@SuppressWarnings("unused")
 public interface Apartment extends Residence {
 
     int getApartmentNumber();
@@ -12,11 +14,11 @@ public interface Apartment extends Residence {
 
     Registrant getLandlord();
 
-    void setLandlord(@NonNull Registrant landlord);
+    void setLandlord(@Nonnull Registrant landlord);
 
     BankAccount getLandLordBankAccount();
 
-    void changeLandlordBankAccount(@NonNull BankAccount bankAccount);
+    void changeLandlordBankAccount(@Nonnull BankAccount bankAccount);
 
     int getRent();
 

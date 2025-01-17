@@ -7,8 +7,9 @@ import minevalley.core.api.users.OnlineUser;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-@RequiredArgsConstructor
+@SuppressWarnings("unused")
 @Getter
+@RequiredArgsConstructor
 public class PlaySoundEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();

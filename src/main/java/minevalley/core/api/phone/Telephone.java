@@ -4,6 +4,7 @@ import minevalley.core.api.Registrant;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface Telephone {
 
     /**

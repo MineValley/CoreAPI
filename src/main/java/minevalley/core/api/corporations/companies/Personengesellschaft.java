@@ -5,6 +5,7 @@ import minevalley.core.api.users.User;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface Personengesellschaft extends Group {
 
     User getOwner();

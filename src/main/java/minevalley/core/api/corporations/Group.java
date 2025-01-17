@@ -6,6 +6,7 @@ import minevalley.core.api.users.User;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface Group extends Registrant {
 
     /**

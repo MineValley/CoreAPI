@@ -7,6 +7,7 @@ import minevalley.core.api.regions.residences.ApartmentBlock;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface Aktiengesellschaft extends Group, RealEstateGroup {
 
     List<Stockholder> getStockholders();

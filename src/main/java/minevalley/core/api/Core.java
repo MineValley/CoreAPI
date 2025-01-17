@@ -9,9 +9,6 @@ import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
-import minevalley.core.api.enums.InterfaceItem;
-import minevalley.core.api.gui.GuiBuilder;
-import minevalley.core.api.gui.GuiItem;
 import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.npc.NPC;
@@ -27,7 +24,6 @@ import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.regions.utils.FakeBlock;
-import minevalley.core.api.server.ServerType;
 import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
@@ -39,10 +35,6 @@ import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.Hologram;
 import minevalley.core.api.utils.ItemBuilder;
 import net.kyori.adventure.text.Component;
-import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.ComponentBuilder;
-import net.md_5.bungee.api.chat.HoverEvent;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -52,7 +44,6 @@ import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -71,7 +62,6 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.util.*;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -339,28 +329,6 @@ public final class Core {
     }
 
     /**
-     * Sends a message to all online team-members
-     *
-     * @param message message as string
-     */
-    @Deprecated(forRemoval = true)
-    @SuppressWarnings("removal")
-    public static void sendTeamChatMessage(@Nonnull String message) {
-        server.sendTeamChatMessage(message);
-    }
-
-    /**
-     * Sends a message to all online team-members
-     *
-     * @param message message as base-component (useful for clickable messages)
-     */
-    @Deprecated(forRemoval = true)
-    @SuppressWarnings("removal")
-    public static void sendTeamChatMessage(@Nonnull BaseComponent[] message) {
-        server.sendTeamChatMessage(message);
-    }
-
-    /**
      * Sends a debug message to the console and to every online team-member that enabled this debug type.
      *
      * @param type    type of the debug message
@@ -548,19 +516,6 @@ public final class Core {
     }
 
     /**
-     * Creates new gui-builder with the specific size.
-     *
-     * @param size size of the inventory
-     * @return new gui-builder
-     * @throws IllegalArgumentException if the size is invalid (negative, higher than 54 or not a multiple of 9 while being higher than 6)
-     */
-    @Deprecated
-    @Nonnull
-    public static GuiBuilder createGui(@Nonnegative int size) throws IllegalArgumentException {
-        return server.createGui(size);
-    }
-
-    /**
      * Creates a gui with a specific size.
      *
      * @param size size of the inventory
@@ -589,84 +544,6 @@ public final class Core {
     @Nonnull
     public static MultiPageGui createMultiPageGui(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException {
         return server.createMultiPageGui(size);
-    }
-
-    /**
-     * Creates new gui-item, based on a specific itemstack with a specific callback.
-     * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
-     *
-     * @param itemStack item which should be displayed in the inventory
-     * @param consumer  consumer which gets called if a player clicks the item
-     * @return gui-item-object to add to the gui-builder
-     */
-    @Deprecated
-    public static GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable Consumer<OnlineUser> consumer) {
-        return server.createGuiItem(itemStack, consumer);
-    }
-
-    /**
-     * Creates new gui-item, based on a specific itemstack with a specific callback.
-     * Gui-items can be added to inventory-guis (built by gui-builder).
-     *
-     * @param itemBuilder item which should be displayed in the inventory
-     * @param callback    consumer which gets called if a player clicks the item
-     * @return gui-item-object to add to the gui-builder
-     */
-    @Deprecated
-    public static GuiItem createGuiItem(@Nonnull ItemBuilder itemBuilder, @Nullable Consumer<OnlineUser> callback) {
-        return server.createGuiItem(itemBuilder.build(), callback);
-    }
-
-    /**
-     * Creates new gui-item, based on a specific itemstack with a specific callback.
-     * Gui-items can be added to inventory-guis (built by gui-builder).
-     *
-     * @param item     item which should be displayed in the inventory
-     * @param callback consumer which gets called if a player clicks the item
-     * @return gui-item-object to add to the gui-builder
-     */
-    @Deprecated
-    public static GuiItem createGuiItem(@Nonnull InterfaceItem item, @Nullable Consumer<OnlineUser> callback) {
-        return server.createGuiItem(item.toItemStack(), callback);
-    }
-
-    /**
-     * Creates new gui-item, based on a specific itemstack with a specific callback.
-     * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
-     *
-     * @param itemStack item which should be displayed in the inventory
-     * @param callback  consumer which gets called if a player clicks the item
-     * @return gui-item-object to add to the gui-builder
-     */
-    @Deprecated
-    public static GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
-        return server.createAdvancedGuiItem(itemStack, callback);
-    }
-
-    /**
-     * Creates new gui-item, based on a specific itemstack with a specific callback.
-     * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
-     *
-     * @param itemBuilder item which should be displayed in the inventory
-     * @param callback    consumer which gets called if a player clicks the item
-     * @return gui-item-object to add to the gui-builder
-     */
-    @Deprecated
-    public static GuiItem createGuiItem(@Nonnull ItemBuilder itemBuilder, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
-        return server.createAdvancedGuiItem(itemBuilder.build(), callback);
-    }
-
-    /**
-     * Creates new gui-item, based on a specific itemstack with a specific callback.
-     * Gui-items can be added to inventory-guis (built by gui-builder). If a player clicks the gui-item, the callback is called with the player-object.
-     *
-     * @param item     item which should be displayed in the inventory
-     * @param callback consumer which gets called if a player clicks the item
-     * @return gui-item-object to add to the gui-builder
-     */
-    @Deprecated
-    public static GuiItem createGuiItem(@Nonnull InterfaceItem item, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback) {
-        return server.createAdvancedGuiItem(item.toItemStack(), callback);
     }
 
     /**
@@ -718,14 +595,6 @@ public final class Core {
      */
     public static void loadPreset(@Nonnull Area presetArea, @Nonnull Block presetPivot, @Nonnull Block mainWorldPivot) throws IllegalArgumentException, IllegalStateException {
         server.loadPreset(presetArea, presetPivot, mainWorldPivot);
-    }
-
-    /**
-     * Restarts the server and runs the cleanup process on start.
-     */
-    @Deprecated
-    public static void restartAndClean() {
-        server.restartAndClean();
     }
 
     /**
@@ -868,43 +737,6 @@ public final class Core {
     @Contract("_ -> new")
     public static ItemBuilder createItem(@Nonnull String url) throws IllegalArgumentException {
         return server.createItem(url);
-    }
-
-    /**
-     * Creates the often used gray hover text to display a clickable message in chat.
-     *
-     * @param text text to be displayed
-     * @return HoverEvent object to be put into .event()
-     */
-    @Nonnull
-    @Contract("_ -> new")
-    @Deprecated(forRemoval = true)
-    public static HoverEvent createHoverText(@Nonnull String text) {
-        return new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(text).color(ChatColor.GRAY).create());
-    }
-
-    /**
-     * Creates a menu which can be sent to users chat.
-     *
-     * @param options clickable options (message and clickable)
-     * @return new chat menu
-     */
-    @Contract("_ -> new")
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    public static ChatMenu createChatMenu(ChatMenu.Option... options) {
-        return server.createChatMenu(options);
-    }
-
-    /**
-     * Creates a menu which can be sent to users chat.
-     *
-     * @return new chat menu
-     */
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    public static ChatMenu createChatMenu() {
-        return server.createChatMenu();
     }
 
     /**
@@ -1174,23 +1006,6 @@ public final class Core {
      * @param hours    hours on which this reminder is called
      * @param minutes  minutes on which this reminder is called
      * @param callback callback that is called when the given date/time is reached
-     * @param weekdays weekdays on which this reminder is active
-     * @return reminder with the specific parameters.
-     * @throws IllegalArgumentException if the hours or minutes are invalid or the callback is null
-     * @deprecated use {@link #createReminder(int, int, Runnable, DayOfWeek...)} instead
-     */
-    @Nonnull
-    @Deprecated(forRemoval = true)
-    public static Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, List<DayOfWeek> weekdays) throws IllegalArgumentException {
-        return server.createReminder(hours, minutes, callback, weekdays);
-    }
-
-    /**
-     * Creates a reminder with the specific parameters.
-     *
-     * @param hours    hours on which this reminder is called
-     * @param minutes  minutes on which this reminder is called
-     * @param callback callback that is called when the given date/time is reached
      * @return reminder with the specific parameters.
      * @throws IllegalArgumentException if the hours or minutes are invalid or the callback is null
      */
@@ -1219,16 +1034,6 @@ public final class Core {
     @Nonnull
     public static EmbeddedMessage createEmbeddedMessage() {
         return server.createEmbeddedMessage();
-    }
-
-    /**
-     * Gets whether the server is currently in maintenance.
-     *
-     * @return true, if the server is in maintenance
-     */
-    @Deprecated
-    public static boolean isMaintenance() {
-        return server.isMaintenance();
     }
 
     /**
@@ -1698,16 +1503,6 @@ public final class Core {
     }
 
     /**
-     * Updates all districts from database.
-     *
-     * @deprecated this method is deprecated and will be removed in the future
-     */
-    @Deprecated
-    public static void updateDistricts() {
-        server.updateDistricts();
-    }
-
-    /**
      * Creates a new radio mast with the specific parameters.
      *
      * @param name     name of the radio mast
@@ -1807,28 +1602,6 @@ public final class Core {
     @Nullable
     public static FakeArmorStand getFakeArmorStand(int id) {
         return server.getFakeArmorStand(id);
-    }
-
-    /**
-     * Gets the server type.
-     *
-     * @return server type
-     */
-    @Nonnull
-    @Deprecated(forRemoval = true)
-    public static ServerType getServer() {
-        return server.getServerType();
-    }
-
-    /**
-     * Gets the server type.
-     *
-     * @return server type
-     */
-    @Nonnull
-    @Deprecated
-    public static ServerType getServerType() {
-        return server.getServerType();
     }
 
     /**

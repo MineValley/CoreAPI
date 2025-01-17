@@ -6,12 +6,13 @@ import org.bukkit.Material;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface MaterialTask extends Task {
 
     List<MaterialSet> getMaterialSets();
 
-    @AllArgsConstructor
     @Getter
+    @AllArgsConstructor
     class MaterialSet {
 
         private final Material material;

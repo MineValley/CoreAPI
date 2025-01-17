@@ -14,8 +14,8 @@ import minevalley.core.api.weapons.Weapon;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface Registrant {
-
 
     String getId();
 

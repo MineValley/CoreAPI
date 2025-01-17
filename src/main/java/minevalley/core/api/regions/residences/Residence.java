@@ -10,6 +10,7 @@ import minevalley.core.api.users.User;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 
+import javax.annotation.Nonnull;
 import java.time.DayOfWeek;
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
  * <b>Note:</b> Plots may have been merged! Even if they are, every plot still consists of its residence.
  * When dealing with plots, always take note of merged plots.
  */
+@SuppressWarnings("unused")
 public interface Residence extends PlayerLocation, Address {
 
     /**
@@ -188,7 +190,7 @@ public interface Residence extends PlayerLocation, Address {
      * @param registrant new owner
      * @param account    bank account of new owner to withdraw taxes from
      */
-    void transmit(User user, @NonNull Registrant registrant, @NonNull BankAccount account);
+    void transmit(User user, @Nonnull Registrant registrant, @Nonnull BankAccount account);
 
     /**
      * Residences can be locked by a teamler or by the system.

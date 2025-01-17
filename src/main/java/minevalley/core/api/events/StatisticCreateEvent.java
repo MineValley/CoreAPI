@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+@SuppressWarnings("unused")
 @RequiredArgsConstructor
 public class StatisticCreateEvent extends Event {
 

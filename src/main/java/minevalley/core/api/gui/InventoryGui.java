@@ -264,10 +264,4 @@ public interface InventoryGui {
      */
     @Contract(pure = true)
     void open(@Nonnull OnlineUser user) throws IllegalArgumentException;
-
-    @Deprecated
-    void setItem(int slot, GuiItem item);
-
-    @Deprecated
-    void updateTitle(String title);
 }

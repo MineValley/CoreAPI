@@ -9,8 +9,6 @@ import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
-import minevalley.core.api.gui.GuiBuilder;
-import minevalley.core.api.gui.GuiItem;
 import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.npc.NPC;
@@ -26,7 +24,6 @@ import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.regions.utils.FakeBlock;
-import minevalley.core.api.server.ServerType;
 import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
@@ -38,7 +35,6 @@ import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.Hologram;
 import minevalley.core.api.utils.ItemBuilder;
 import net.kyori.adventure.text.Component;
-import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -48,7 +44,6 @@ import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -67,7 +62,6 @@ import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 @ApiStatus.Internal
@@ -113,13 +107,8 @@ public interface CoreServer {
     @Nullable
     UUID getUniqueId(@Nullable String name);
 
+    @Nonnull
     Team team();
-
-    @Deprecated(forRemoval = true)
-    void sendTeamChatMessage(@Nonnull String message);
-
-    @Deprecated(forRemoval = true)
-    void sendTeamChatMessage(@Nonnull BaseComponent[] message);
 
     void sendDebug(@Nonnull DebugType type, @Nonnull String message);
 
@@ -160,18 +149,8 @@ public interface CoreServer {
     @Nonnull
     InventoryGui createGUI(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException;
 
-    @Deprecated
-    @Nonnull
-    GuiBuilder createGui(@Nonnegative int size) throws IllegalArgumentException;
-
     @Nonnull
     MultiPageGui createMultiPageGui(@Nonnegative int size) throws IllegalArgumentException;
-
-    @Deprecated
-    GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable Consumer<OnlineUser> consumer);
-
-    @Deprecated
-    GuiItem createAdvancedGuiItem(@Nonnull ItemStack itemStack, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback);
 
     @Nonnull
     World getMainWorld();
@@ -183,9 +162,6 @@ public interface CoreServer {
     World getPresetsWorld() throws IllegalStateException;
 
     void loadPreset(@Nonnull Area presetArea, @Nonnull Block presetPivot, @Nonnull Block mainWorldPivot) throws IllegalArgumentException;
-
-    @Deprecated
-    void restartAndClean();
 
     @Nonnull
     FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material, int data) throws IllegalArgumentException;
@@ -213,14 +189,6 @@ public interface CoreServer {
     @Nonnull
     @Contract("_ -> new")
     ItemBuilder createItem(String url) throws IllegalArgumentException;
-
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    ChatMenu createChatMenu(ChatMenu.Option... options);
-
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    ChatMenu createChatMenu();
 
     @Nonnull
     Inventory getInventoryFromString(@Nonnull String inventory) throws IllegalArgumentException;
@@ -392,10 +360,6 @@ public interface CoreServer {
 
     @Nullable
     FakeArmorStand getFakeArmorStand(int id);
-
-    @Nonnull
-    @Deprecated
-    ServerType getServerType();
 
     @Nullable
     String convertToTransparent(@Nullable String text) throws IllegalArgumentException;

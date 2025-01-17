@@ -17,6 +17,7 @@ import java.util.List;
  * of the functions below on module start without using a scheduler!
  */
 @Depends("FastCar")
+@SuppressWarnings("unused")
 public final class VehicleManager {
 
     @Setter

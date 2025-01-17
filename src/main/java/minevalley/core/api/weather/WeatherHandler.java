@@ -3,6 +3,7 @@ package minevalley.core.api.weather;
 import lombok.Setter;
 import org.bukkit.Chunk;
 
+@SuppressWarnings("unused")
 public class WeatherHandler {
 
     @Setter

@@ -1,5 +1,6 @@
 package minevalley.core.api.tickets;
 
+@SuppressWarnings("unused")
 public class TicketManager {
 
     private static TicketManagerInterface ticketManager;

@@ -1,6 +1,5 @@
 package minevalley.core.api.chat;
 
-import lombok.NonNull;
 import minevalley.core.api.chat.clickable.ChatMenu;
 import minevalley.core.api.chat.clickable.ClickableOption;
 import minevalley.core.api.chat.instruction.Instruction;
@@ -197,7 +196,7 @@ public interface MessageReceiver {
      * @param callback the callback to call when the user inputs something
      * @throws IllegalArgumentException if the text or callback is null
      */
-    void input(@NonNull String text, @NonNull Consumer<String> callback) throws IllegalArgumentException;
+    void input(@Nonnull String text, @Nonnull Consumer<String> callback) throws IllegalArgumentException;
 
     /**
      * Sends a message to the receiver and waits for an input.
@@ -207,7 +206,7 @@ public interface MessageReceiver {
      * @param callback    the callback to call when the user inputs something
      * @throws IllegalArgumentException if the text, instruction or callback is null
      */
-    void input(@NonNull String text, @Nonnull Instruction instruction, @NonNull Consumer<String> callback) throws IllegalArgumentException;
+    void input(@Nonnull String text, @Nonnull Instruction instruction, @Nonnull Consumer<String> callback) throws IllegalArgumentException;
 
     /**
      * Checks if the receiver is currently in a chat input.

@@ -1,7 +1,6 @@
 package minevalley.core.api.timing;
 
-import lombok.NonNull;
-
+import javax.annotation.Nonnull;
 import java.time.DayOfWeek;
 import java.util.List;
 
@@ -9,6 +8,7 @@ import java.util.List;
  * Reminders are used to time specific events that depend on real time.
  * They are called exactly at the time, they are supposed to.
  */
+@SuppressWarnings("unused")
 public interface Reminder {
 
     /**
@@ -23,7 +23,7 @@ public interface Reminder {
      *
      * @param callback callback to be called, when specific time is reached
      */
-    void setCallback(@NonNull Runnable callback);
+    void setCallback(@Nonnull Runnable callback);
 
     /**
      * Gets the selected weekdays.

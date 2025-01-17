@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+@SuppressWarnings("unused")
 public interface User extends Registrant {
 
     /**
@@ -26,9 +27,6 @@ public interface User extends Registrant {
      */
     @Nonnull
     OnlineUser online() throws UserNotOnlineException;
-
-    @Deprecated(forRemoval = true)
-    OnlineUser getOnlineUser();
 
     boolean isOnline();
 
@@ -217,22 +215,6 @@ public interface User extends Registrant {
      * @return true, if the transaction was successful. If the user doesn't have enough money, this is false
      */
     boolean payCash(int amountInCents);
-
-    /**
-     * Gets the wanted-level of the user.
-     *
-     * @return wanted-level of the user. 0 if the player isn't wanted
-     */
-    @Deprecated
-    int getWantedLevel();
-
-    /**
-     * Sets the wanted-level of the user
-     *
-     * @param level new wanted-level
-     */
-    @Deprecated
-    void setWantedLevel(int level);
 
     /**
      * Gets whether the user is knocked out.

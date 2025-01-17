@@ -1,5 +1,6 @@
 package minevalley.core.api.tickets;
 
+@SuppressWarnings("unused")
 public interface SystemTicket {
 
     void send();

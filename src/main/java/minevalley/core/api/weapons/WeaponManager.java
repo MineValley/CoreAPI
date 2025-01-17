@@ -5,6 +5,7 @@ import minevalley.core.api.Registrant;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class WeaponManager {
 
     @Setter

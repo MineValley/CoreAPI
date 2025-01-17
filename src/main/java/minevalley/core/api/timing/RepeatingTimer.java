@@ -1,10 +1,11 @@
 package minevalley.core.api.timing;
 
-import lombok.NonNull;
+import javax.annotation.Nonnull;
 
 /**
  * Repeating timers are used to call continuous actions that are supposed to be called in a period longer than 2 minutes (for shorter spans use schedulers).
  */
+@SuppressWarnings("unused")
 public interface RepeatingTimer {
 
     /**
@@ -19,7 +20,7 @@ public interface RepeatingTimer {
      *
      * @param runnable callback that will be called when the timer terminates
      */
-    void setCallback(@NonNull Runnable runnable);
+    void setCallback(@Nonnull Runnable runnable);
 
     /**
      * Gets this timers period.

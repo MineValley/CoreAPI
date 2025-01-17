@@ -3,6 +3,7 @@ package minevalley.core.api.mail;
 import minevalley.core.api.Registrant;
 import org.bukkit.inventory.ItemStack;
 
+@SuppressWarnings("unused")
 public interface Parcel {
 
     /**

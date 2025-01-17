@@ -6,6 +6,7 @@ import org.bukkit.Chunk;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface District extends PlayerLocation {
 
     int getId();

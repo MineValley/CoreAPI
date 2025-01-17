@@ -1,9 +1,11 @@
 package minevalley.core.api.regions.residences;
 
-import lombok.NonNull;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.economy.BankAccount;
 
+import javax.annotation.Nonnull;
+
+@SuppressWarnings("unused")
 public interface Plot extends Residence {
 
     int getHouseNumber();
@@ -48,5 +50,5 @@ public interface Plot extends Residence {
      * @param account    new owners bank account
      * @return true, if the buying-process was successful
      */
-    boolean buy(@NonNull Registrant registrant, @NonNull BankAccount account);
+    boolean buy(@Nonnull Registrant registrant, @Nonnull BankAccount account);
 }

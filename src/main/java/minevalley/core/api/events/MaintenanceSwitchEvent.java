@@ -7,6 +7,7 @@ import org.bukkit.event.HandlerList;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 @RequiredArgsConstructor
 public class MaintenanceSwitchEvent extends Event {
 

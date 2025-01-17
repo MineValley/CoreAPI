@@ -4,6 +4,7 @@ import minevalley.core.api.crafting.recipe.Recipe;
 import minevalley.core.api.crafting.recipe.builder.RecipeBuilder;
 import minevalley.core.api.crafting.recipe.builder.RecipeItemBuilder;
 
+@SuppressWarnings("unused")
 public interface CraftSystemManager {
 
     /**

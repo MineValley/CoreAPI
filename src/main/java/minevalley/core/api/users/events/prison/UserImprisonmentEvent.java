@@ -8,6 +8,7 @@ import minevalley.core.api.users.events.OnlineUserEvent;
  * This event gets called when a user is getting imprisoned.
  */
 @Getter
+@SuppressWarnings("unused")
 public class UserImprisonmentEvent extends OnlineUserEvent {
 
     public UserImprisonmentEvent(OnlineUser user) {
