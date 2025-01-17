@@ -15,7 +15,6 @@ public interface TeamMember extends OnlineUser {
      * @return true, if the user is team-plus-member
      */
     @Contract(pure = true)
-    @SuppressWarnings("removal")
     boolean isTeamPlus();
 
     /**
@@ -25,7 +24,6 @@ public interface TeamMember extends OnlineUser {
      */
     @Nonnull
     @Contract(pure = true)
-    @SuppressWarnings("removal")
     TeamRank getTeamRank();
 
     /**
@@ -36,7 +34,6 @@ public interface TeamMember extends OnlineUser {
      */
     @Nullable
     @Contract(pure = true)
-    @SuppressWarnings("removal")
     String getCustomTeamRankName();
 
     /**
@@ -48,7 +45,6 @@ public interface TeamMember extends OnlineUser {
      * @return true, if this user is displayed as team member in chat, tab list, etc.
      */
     @Contract(pure = true)
-    @SuppressWarnings("removal")
     boolean isDisplayedAsTeamler();
 
     /**
@@ -58,7 +54,6 @@ public interface TeamMember extends OnlineUser {
      * @return true, if the user has one of the ranks
      */
     @Contract(pure = true)
-    @SuppressWarnings("removal")
     boolean hasTeamRank(@Nonnull TeamRank... ranks);
 
     /**
@@ -67,7 +62,6 @@ public interface TeamMember extends OnlineUser {
      * @return true, if the player is allowed to use a general-key
      */
     @Contract(pure = true)
-    @SuppressWarnings("removal")
     boolean isAllowedToUseGeneralKey();
 
     /**
@@ -76,13 +70,11 @@ public interface TeamMember extends OnlineUser {
      * @return true, if the player is using a general-key
      */
     @Contract(pure = true)
-    @SuppressWarnings("removal")
     boolean isUsingGeneralKey();
 
     /**
      * Lets the user leave the team-service.
      */
-    @SuppressWarnings("removal")
     void leaveTeamService() throws IllegalStateException;
 
     /**
@@ -91,19 +83,16 @@ public interface TeamMember extends OnlineUser {
      * @return true, if the user is allowed to enter the support-service
      */
     @Contract(pure = true)
-    @SuppressWarnings("removal")
     boolean canEnterSupportService();
 
     /**
      * Lets the user enter the support-service. If the user isn't allowed to, nothing happens.
      */
-    @SuppressWarnings("removal")
     void joinSupportService() throws UnsupportedOperationException, IllegalStateException;
 
     /**
      * Lets the user leave the support-service.
      */
-    @SuppressWarnings("removal")
     void leaveSupportService() throws IllegalStateException;
 
     /**
@@ -112,7 +101,6 @@ public interface TeamMember extends OnlineUser {
      * @return true, if the user is marked as server-operator
      */
     @Contract(pure = true)
-    @SuppressWarnings("removal")
     boolean isOperator();
 
     /**
@@ -121,6 +109,5 @@ public interface TeamMember extends OnlineUser {
      * @return true, if the user is in support-service
      */
     @Contract(pure = true)
-    @SuppressWarnings("removal")
     boolean isInSupportService();
 }

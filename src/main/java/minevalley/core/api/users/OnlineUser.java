@@ -1,8 +1,6 @@
 package minevalley.core.api.users;
 
-import lombok.NonNull;
 import minevalley.core.api.chat.MessageReceiver;
-import minevalley.core.api.chat.types.MessageType;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.sounds.AmbientSound;
@@ -11,14 +9,11 @@ import minevalley.core.api.regions.utils.PlayerLocation;
 import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.McVersion;
 import minevalley.core.api.users.enums.TabListView;
-import minevalley.core.api.users.enums.TeamRank;
 import minevalley.core.api.users.exceptions.UserNotPermittedException;
 import minevalley.core.api.utils.ChatHandler;
 import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.vehicles.LoadedVehicle;
 import minevalley.core.api.vehicles.VehicleManager;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.ClickEvent;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
@@ -128,17 +123,6 @@ public interface OnlineUser extends User, MessageReceiver {
      */
     void sendCredits();
 
-    // Messages
-
-    /**
-     * Sends a message to the user that is displayed in the action bar.
-     *
-     * @param message message to be sent
-     * @throws IllegalArgumentException if message is null or an empty string
-     */
-    @Deprecated(forRemoval = true)
-    void sendActionBar(@Nonnull String message) throws IllegalArgumentException;
-
     /**
      * Sets the tab-list view of this user.
      *
@@ -155,215 +139,6 @@ public interface OnlineUser extends User, MessageReceiver {
     @Nonnull
     @Contract(pure = true)
     TabListView getTabListView();
-
-    /**
-     * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
-     *
-     * @param message message to be sent as string
-     */
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull String message);
-
-    /**
-     * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
-     * The message includes a notice that the user can click to get more information about the message.
-     *
-     * @param message message to be sent as string
-     * @param notice  notice that is sent to the user
-     */
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull String message, @NonNull Notice notice);
-
-    /**
-     * Sends a message to this user with a specific prefix.
-     *
-     * @param messageType type of prefix to be displayed in front of the message
-     * @param message     message to be sent as string
-     */
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull String message);
-
-    /**
-     * Sends a message to this user with a specific prefix.
-     * The message includes a notice that the user can click to get more information about the message.
-     *
-     * @param messageType type of prefix to be displayed in front of the message
-     * @param message     message to be sent as string
-     * @param notice      notice that is sent to the user
-     */
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull String message, @NonNull Notice notice);
-
-    /**
-     * Sends a message to this user with a specific prefix, using ComponentBuilders.
-     *
-     * @param messageType   type of prefix to be displayed in front of the message
-     * @param baseComponent message to be sent as string
-     */
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent);
-
-    /**
-     * Sends a message to this user with a specific prefix, using ComponentBuilders.
-     * The message includes a notice that the user can click to get more information about the message.
-     *
-     * @param messageType   type of prefix to be displayed in front of the message
-     * @param baseComponent message to be sent as string
-     * @param notice        notice that is sent to the user
-     */
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, @NonNull Notice notice);
-
-    /**
-     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
-     *
-     * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
-     */
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull BaseComponent[] baseComponent);
-
-    /**
-     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
-     * The message includes a notice that the user can click to get more information about the message.
-     *
-     * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
-     * @param notice        notice that is sent to the user
-     */
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull BaseComponent[] baseComponent, @NonNull Notice notice);
-
-
-    /**
-     * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
-     *
-     * @param message  message to be sent as string
-     * @param chatMenu menu to attach underneath the message
-     */
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull String message, minevalley.core.api.ChatMenu chatMenu);
-
-    /**
-     * Sends a message to this user like the default player.sendMessage()-method. Without any prefix or color.
-     * The message includes a notice that the user can click to get more information about the message.
-     *
-     * @param message  message to be sent as string
-     * @param chatMenu menu to attach underneath the message
-     * @param notice   notice that is sent to the user
-     */
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull String message, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
-
-    /**
-     * Sends a message to this user with a specific prefix.
-     *
-     * @param messageType type of prefix to be displayed in front of the message
-     * @param message     message to be sent as string
-     * @param chatMenu    menu to attach underneath the message
-     */
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull String message, minevalley.core.api.ChatMenu chatMenu);
-
-    /**
-     * Sends a message to this user with a specific prefix.
-     * The message includes a notice that the user can click to get more information about the message.
-     *
-     * @param messageType type of prefix to be displayed in front of the message
-     * @param message     message to be sent as string
-     * @param chatMenu    menu to attach underneath the message
-     * @param notice      notice that is sent to the user
-     */
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull String message, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
-
-    /**
-     * Sends a message to this user with a specific prefix, using ComponentBuilders.
-     *
-     * @param messageType   type of prefix to be displayed in front of the message
-     * @param baseComponent message to be sent as string
-     * @param chatMenu      menu to attach underneath the message
-     */
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu);
-
-    /**
-     * Sends a message to this user with a specific prefix, using ComponentBuilders.
-     * The message includes a notice that the user can click to get more information about the message.
-     *
-     * @param messageType   type of prefix to be displayed in front of the message
-     * @param baseComponent message to be sent as string
-     * @param chatMenu      menu to attach underneath the message
-     * @param notice        notice that is sent to the user
-     */
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull MessageType messageType, @NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
-
-    /**
-     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
-     *
-     * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
-     * @param chatMenu      menu to attach underneath the message
-     */
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu);
-
-    /**
-     * Sends a message to this user, with using ComponentBuilders. This way you can use hover and click-events and can take advantage of the clickable messages.
-     * The message includes a notice that the user can click to get more information about the message.
-     *
-     * @param baseComponent base-component which can be created by "new ComponentBuilder().create()"
-     * @param chatMenu      menu to attach underneath the message
-     * @param notice        notice that is sent to the user
-     */
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu, @NonNull Notice notice);
-
-    /**
-     * Sends a message to the user providing useful side information. The user can click a button so that the message will not be sent the next time.
-     *
-     * @param notice notice that is sent to the user
-     */
-    @Deprecated(forRemoval = true)
-    void sendMessage(@NonNull Notice notice);
-
-    /**
-     * Sends the usual "Unbekannter Befehl!"-error to the user. Mostly used when a player is trying to execute a command that they are not allowed to do.
-     */
-    @Deprecated(forRemoval = true)
-    void sendError();
-
-    // ChatInput
-
-    /**
-     * Asks the player for any type of input via a chat-interface. The player can leave this interface. If he writes something into this interface, the callback gets called.
-     *
-     * @param message  the message to be sent to the player. Normally containing a question or a request to put in any data
-     * @param callback the callback that is called when the player makes an entry in the chat-interface. The consumer contains a string of the message.
-     */
-    @Deprecated(forRemoval = true)
-    void input(@NonNull String message, @NonNull Consumer<String> callback);
-
-    /**
-     * Gets whether the user is currently in a chat input.
-     *
-     * @return true, if the user is in a chat input
-     */
-    @Deprecated(forRemoval = true)
-    @Contract(pure = true)
-    boolean isInChatInput();
-
-    /**
-     * Lets the user leave his current chat input
-     */
-    @Deprecated(forRemoval = true)
-    void leaveChatInput();
 
     /**
      * Asks the user which bank account he wants to use (e.g. to pay sth)
@@ -424,124 +199,9 @@ public interface OnlineUser extends User, MessageReceiver {
     boolean isTeamler();
 
     /**
-     * Gets whether the player is team-member with the plus-rank.
-     *
-     * @return true, if the user is team-plus-member
-     */
-    @Deprecated(forRemoval = true)
-    @Contract(pure = true)
-    boolean isTeamPlus();
-
-    /**
-     * Gets the team-rank of this user.
-     *
-     * @return users team-rank
-     */
-    @Deprecated(forRemoval = true)
-    @Nonnull
-    @Contract(pure = true)
-    TeamRank getTeamRank();
-
-    /**
-     * Gets the custom team rank name.
-     * If no custom name is defined, this returns the name of the users team rank.
-     *
-     * @return [custom] team rank name
-     */
-    @Deprecated(forRemoval = true)
-    @Nullable
-    @Contract(pure = true)
-    String getCustomTeamRankName();
-
-    /**
-     * Sometimes a player is assigned a team rank to grant them permission or access.
-     * Because team members are highlighted in the chat and tab list,
-     * they appear representative of the project and players may assume they have the permission and knowledge
-     * to guide other players. Therefore, the rank assigned to the player can be hidden.
-     *
-     * @return true, if this user is displayed as team member in chat, tab list, etc.
-     */
-    @Deprecated(forRemoval = true)
-    @Contract(pure = true)
-    boolean isDisplayedAsTeamler();
-
-    /**
-     * Gets whether the user has any of the listed team-ranks.
-     *
-     * @param ranks list of team-ranks to be checked for
-     * @return true, if the user has one of the ranks
-     */
-    @Deprecated(forRemoval = true)
-    @Contract(pure = true)
-    boolean hasTeamRank(@Nonnull TeamRank... ranks);
-
-    /**
-     * Gets whether the user is allowed to use a general-key
-     *
-     * @return true, if the player is allowed to use a general-key
-     */
-    @Deprecated(forRemoval = true)
-    @Contract(pure = true)
-    boolean isAllowedToUseGeneralKey();
-
-    /**
-     * Gets whether the user is using a general-key at the moment, by checking the item in his hand. If he is using a general-key without the permission to do, his key gets removed automatically.
-     *
-     * @return true, if the player is using a general-key
-     */
-    @Deprecated(forRemoval = true)
-    @Contract(pure = true)
-    boolean isUsingGeneralKey();
-
-    /**
      * Lets the user enter the team-service. If the user isn't teamler, nothing happens.
      */
     void joinTeamService() throws UnsupportedOperationException, IllegalStateException;
-
-    /**
-     * Lets the user leave the team-service.
-     */
-    @Deprecated(forRemoval = true)
-    void leaveTeamService() throws IllegalStateException;
-
-    /**
-     * Gets whether the user is allowed to enter the support-service.
-     *
-     * @return true, if the user is allowed to enter the support-service
-     */
-    @Deprecated(forRemoval = true)
-    @Contract(pure = true)
-    boolean canEnterSupportService();
-
-    /**
-     * Lets the user enter the support-service. If the user isn't allowed to, nothing happens.
-     */
-    @Deprecated(forRemoval = true)
-    void joinSupportService() throws UnsupportedOperationException, IllegalStateException;
-
-    /**
-     * Lets the user leave the support-service.
-     */
-    @Deprecated(forRemoval = true)
-    void leaveSupportService() throws IllegalStateException;
-
-    /**
-     * Gets whether the user is marked as server-operator (!= OP-permission)
-     *
-     * @return true, if the user is marked as server-operator
-     */
-    @Deprecated(forRemoval = true)
-    @Contract(pure = true)
-    boolean isOperator();
-
-    /**
-     * Gets whether the user is in support-service
-     *
-     * @return true, if the user is in support-service
-     */
-    @Deprecated(forRemoval = true)
-    @Contract(pure = true)
-    boolean isInSupportService();
 
     void heal();
 
@@ -640,8 +300,8 @@ public interface OnlineUser extends User, MessageReceiver {
         return getAmountOfFreeInventorySlots() != 0;
     }
 
-    @Contract(pure = true)
     @Nonnull
+    @Contract(pure = true)
     PlayerLocation getLocation();
 
     /**
@@ -667,9 +327,6 @@ public interface OnlineUser extends User, MessageReceiver {
      * @return new clickable message
      */
     ClickableMessage createClickableMessage(boolean selfCancelling, Runnable callback);
-
-    @Deprecated(forRemoval = true)
-    ClickEvent createClickEvent(boolean selfCancelling, Runnable callback);
 
     /**
      * Checks whether the user is in a virtual box whose span in each direction is twice the specified range.

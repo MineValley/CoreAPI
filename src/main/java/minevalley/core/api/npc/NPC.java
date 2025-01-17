@@ -10,7 +10,6 @@ import minevalley.core.api.modifiers.InteractionModifier;
 import minevalley.core.api.modifiers.LocationModifier;
 import minevalley.core.api.modifiers.VisibilityModifier;
 import minevalley.core.api.users.OnlineUser;
-import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -75,48 +74,6 @@ public interface NPC extends MessageSender, EquipmentModifier, InteractionModifi
     String getChatPrefix();
 
     NPC setChatPrefix(String prefix);
-
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, String text);
-
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, BaseComponent[] baseComponent);
-
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, String text, minevalley.core.api.ChatMenu chatMenu);
-
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu);
-
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, String text, OnlineUser.Notice notice);
-
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, BaseComponent[] baseComponent, OnlineUser.Notice notice);
-
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, String text, minevalley.core.api.ChatMenu chatMenu, OnlineUser.Notice notice);
-
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, BaseComponent[] baseComponent, minevalley.core.api.ChatMenu chatMenu, OnlineUser.Notice notice);
-
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, RandomText... text);
-
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, minevalley.core.api.ChatMenu chatMenu, RandomText... text);
-
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, OnlineUser.Notice notice, RandomText... text);
-
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    void say(OnlineUser user, minevalley.core.api.ChatMenu chatMenu, OnlineUser.Notice notice, RandomText... text);
 
     OnlineUser.Notice getTalkWithMeNotice();
 

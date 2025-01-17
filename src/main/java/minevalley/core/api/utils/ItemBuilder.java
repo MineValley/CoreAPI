@@ -7,7 +7,6 @@ import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
-import java.util.List;
 import java.util.Set;
 
 @SuppressWarnings("unused")
@@ -49,6 +48,7 @@ public interface ItemBuilder {
 
     /**
      * Sets the item's custom model data.
+     *
      * @param customModelData custom model data of the item as integer
      * @return this item-builder
      * @throws IllegalArgumentException if the custom model data is negative
