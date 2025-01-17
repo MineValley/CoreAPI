@@ -52,15 +52,6 @@ public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable
     }
 
     /**
-     * Returns the action type
-     *
-     * @return Action returns the type of interaction
-     */
-    public Action getAction() {
-        return action;
-    }
-
-    /**
      * Gets the cancellation state of this event. Set to true if you want to
      * prevent buckets from placing water and so forth
      *
@@ -83,15 +74,6 @@ public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable
     public void setCancelled(boolean cancel) {
         setUseInteractedBlock(cancel ? Result.DENY : useInteractedBlock() == Result.DENY ? Result.DEFAULT : useInteractedBlock());
         setUseItemInHand(cancel ? Result.DENY : useItemInHand() == Result.DENY ? Result.DEFAULT : useItemInHand());
-    }
-
-    /**
-     * Returns the item in hand represented by this event
-     *
-     * @return ItemStack the item used
-     */
-    public ItemStack getItem() {
-        return this.item;
     }
 
     /**
@@ -147,15 +129,6 @@ public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable
     }
 
     /**
-     * Returns the face of the block that was clicked
-     *
-     * @return BlockFace returns the face of the block that was clicked
-     */
-    public BlockFace getBlockFace() {
-        return blockFace;
-    }
-
-    /**
      * This controls the action to take with the block (if any) that was
      * clicked on. This event gets processed for all blocks, but most don't
      * have a default action
@@ -183,23 +156,6 @@ public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable
      */
     public Result useItemInHand() {
         return useItemInHand;
-    }
-
-    /**
-     * @param useItemInHand the action to take with the item in hand
-     */
-    public void setUseItemInHand(Result useItemInHand) {
-        this.useItemInHand = useItemInHand;
-    }
-
-    /**
-     * The hand used to perform this interaction. May be null in the case of
-     * {@link Action#PHYSICAL}.
-     *
-     * @return the hand used to interact. May be null.
-     */
-    public EquipmentSlot getHand() {
-        return hand;
     }
 
     @Override

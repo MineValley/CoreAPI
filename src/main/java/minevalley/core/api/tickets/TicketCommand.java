@@ -1,6 +1,5 @@
 package minevalley.core.api.tickets;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;

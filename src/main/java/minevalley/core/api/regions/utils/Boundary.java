@@ -1,10 +1,10 @@
 package minevalley.core.api.regions.utils;
 
-import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
+import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
@@ -29,28 +29,28 @@ public interface Boundary {
      *
      * @param location first location
      */
-    void updateFirstLocation(@NonNull Location location);
+    void updateFirstLocation(@Nonnull Location location);
 
     /**
      * Updates the second location of this boundary.
      *
      * @param location second location
      */
-    void updateSecondLocation(@NonNull Location location);
+    void updateSecondLocation(@Nonnull Location location);
 
     /**
      * Moves this boundary in direction of the given boundary.
      *
      * @param vector vector to move this boundary
      */
-    void move(@NonNull Vector vector);
+    void move(@Nonnull Vector vector);
 
     /**
      * Moves this boundary to a specific location (given location is used then as first location).
      *
      * @param location new first location
      */
-    void move(@NonNull Location location);
+    void move(@Nonnull Location location);
 
     /**
      * Deactivates this boundary.
@@ -67,7 +67,7 @@ public interface Boundary {
      *
      * @param callback will be called when clicked
      */
-    void onCall(@NonNull Consumer<PlayerInteractEvent> callback);
+    void onCall(@Nonnull Consumer<PlayerInteractEvent> callback);
 
     /**
      * Gets whether this boundary is activated.

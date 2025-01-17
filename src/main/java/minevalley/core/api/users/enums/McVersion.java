@@ -8,15 +8,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum McVersion {
 
-    @Deprecated(forRemoval = true)
-    V1_12(335),
-    @Deprecated(forRemoval = true)
-    V1_14(477),
-    @Deprecated(forRemoval = true)
-    V1_16(735),
-    @Deprecated(forRemoval = true)
-    V1_18(757),
-
     /**
      * 1.20.0 and 1.20.1 share the same protocol version and are therefore indistinguishable for the server.
      */

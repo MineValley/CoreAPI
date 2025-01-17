@@ -4,6 +4,7 @@ import minevalley.core.api.crafting.recipe.RecipeItem;
 import minevalley.core.api.crafting.recipe.requirements.Requirement;
 import org.bukkit.inventory.ItemStack;
 
+@SuppressWarnings("unused")
 public interface RecipeItemBuilder {
 
     /**

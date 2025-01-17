@@ -1,6 +1,6 @@
 package minevalley.core.api.timing;
 
-import lombok.NonNull;
+import javax.annotation.Nonnull;
 
 /**
  * Timers are used to measure time periods in a more performant way than schedulers. Don't use them when measuring spans less than 2 minutes (use schedulers).
@@ -22,7 +22,7 @@ public interface Timer {
      *
      * @param runnable callback that will be called when the timer terminates
      */
-    void setCallback(@NonNull Runnable runnable);
+    void setCallback(@Nonnull Runnable runnable);
 
     /**
      * Gets this timers delay in seconds.

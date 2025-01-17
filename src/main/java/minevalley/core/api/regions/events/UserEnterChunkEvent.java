@@ -9,7 +9,6 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerMoveEvent;
 
-
 /**
  * This event is called when a user enters a cuboid.
  */

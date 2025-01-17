@@ -4,6 +4,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public interface Recipe {
 
     /**

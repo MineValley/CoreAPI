@@ -10,6 +10,7 @@ import minevalley.core.api.users.User;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 
+import javax.annotation.Nonnull;
 import java.time.DayOfWeek;
 import java.util.List;
 
@@ -189,7 +190,7 @@ public interface Residence extends PlayerLocation, Address {
      * @param registrant new owner
      * @param account    bank account of new owner to withdraw taxes from
      */
-    void transmit(User user, @NonNull Registrant registrant, @NonNull BankAccount account);
+    void transmit(User user, @Nonnull Registrant registrant, @Nonnull BankAccount account);
 
     /**
      * Residences can be locked by a teamler or by the system.
