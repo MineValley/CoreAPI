@@ -24,6 +24,7 @@ import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.regions.utils.FakeBlock;
+import minevalley.core.api.server.Server;
 import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
@@ -69,6 +70,9 @@ public interface CoreServer {
 
     @Nonnull
     JavaPlugin getInstance();
+
+    @Nonnull
+    Server getServer();
 
     @Nonnull
     BukkitTask runSyncTaskLater(long delay, @Nonnull Runnable runnable) throws IllegalArgumentException;
