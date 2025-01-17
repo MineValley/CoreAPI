@@ -1,6 +1,7 @@
 package minevalley.core.api.events;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -32,6 +33,7 @@ public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable
     protected Block blockClicked;
     protected BlockFace blockFace;
     private Result useClickedBlock;
+    @Setter
     private Result useItemInHand;
     private final EquipmentSlot hand;
 
