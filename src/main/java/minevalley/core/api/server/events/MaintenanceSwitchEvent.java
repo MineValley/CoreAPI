@@ -1,41 +1,49 @@
-package minevalley.core.api.events;
+package minevalley.core.api.server.events;
 
 import com.google.common.collect.Lists;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.List;
 
-@SuppressWarnings("unused")
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class MaintenanceSwitchEvent extends Event {
 
-    public static final HandlerList HANDLER_LIST = new HandlerList();
-    private final boolean enabling;
-    public final List<Runnable> callbacks = Lists.newArrayList();
-    public String interruptMessage;
+    /**
+     * Checks whether the maintenance will be enabled or disabled.
+     * <p>
+     * <b>Note:</b> The maintenance mode transition could still be interrupted!
+     */
+    private final @Getter boolean enabling;
+    private final @Getter(onMethod_ = @Nonnull) List<Runnable> callbacks = Lists.newArrayList();
+    public @Getter(onMethod_ = @Nullable) String interruptMessage;
 
-    public static HandlerList getHandlerList() {
-        return HANDLER_LIST;
-    }
+    private static final @Getter(onMethod_ = @Nonnull) HandlerList handlerList = new HandlerList();
 
     @Override
-    public HandlerList getHandlers() {
-        return HANDLER_LIST;
+    public @Nonnull HandlerList getHandlers() {
+        return handlerList;
     }
 
     /**
      * By calling this method, the maintenance mode switch will be interrupted.
      * Only use this method if there would be some kind of conflict with switching maintenance mode.
+     * <p>
      * <b>Note:</b> This method can only be used, when disabling maintenance mode.
      * There is no way to interrupt the activation of maintenance mode.
      *
      * @param message clarifying information on how to avoid the existing conflict to switch maintenance mode successfully.
      *                If there are multiple interruptions, only the first one's message will be displayed.
      */
-    public void interrupt(String message) {
-        if (interruptMessage == null && !enabling) interruptMessage = message;
+    public void interrupt(@Nonnull String message) throws IllegalArgumentException, IllegalStateException {
+        if (message == null) throw new IllegalArgumentException("The message cannot be null!");
+        if (enabling) throw new IllegalStateException("Tried to interrupt enabling maintenance mode!");
+        interruptMessage = message;
     }
 
     /**
@@ -48,20 +56,10 @@ public class MaintenanceSwitchEvent extends Event {
      * your code will be called without the maintenance mode switching.
      *
      * @param callback logic that will be called when the maintenance switch was successful
+     * @throws IllegalArgumentException if the callback is null
      */
-    public void ifNotInterrupted(Runnable callback) {
+    public void ifNotInterrupted(@Nonnull Runnable callback) throws IllegalArgumentException {
+        if (callback == null) throw new IllegalArgumentException("The callback cannot be null!");
         callbacks.add(callback);
-    }
-
-    /**
-     * Checks whether the maintenance will be enabled or disabled.
-     * <p>
-     * <b>Note:</b> The maintenance mode transition could still be interrupted!
-     * </p>
-     *
-     * @return true, if the maintenance will be enabled
-     */
-    public boolean isEnabling() {
-        return enabling;
     }
 }

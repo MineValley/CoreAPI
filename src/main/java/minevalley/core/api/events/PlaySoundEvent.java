@@ -1,32 +1,27 @@
 package minevalley.core.api.events;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import javax.annotation.Nonnull;
+
 @SuppressWarnings("unused")
-@Getter
 @RequiredArgsConstructor
 public class PlaySoundEvent extends Event {
 
-    public static final HandlerList HANDLER_LIST = new HandlerList();
+    private final @Getter(onMethod_ = @Nonnull) OnlineUser user;
+    private final @Getter(onMethod_ = @Nonnull) String sound;
 
-    private final OnlineUser user;
-    private final String sound;
+    private @Getter boolean muffled;
 
-    @Getter(AccessLevel.NONE)
-    private boolean muffled;
-
-    public static HandlerList getHandlerList() {
-        return HANDLER_LIST;
-    }
+    private final static @Getter(onMethod_ = @Nonnull) HandlerList handlerList = new HandlerList();
 
     @Override
-    public HandlerList getHandlers() {
-        return HANDLER_LIST;
+    public @Nonnull HandlerList getHandlers() {
+        return handlerList;
     }
 
     public void muffle() {
