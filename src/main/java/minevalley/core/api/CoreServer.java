@@ -38,7 +38,6 @@ import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.Hologram;
 import minevalley.core.api.utils.ItemBuilder;
 import net.kyori.adventure.text.Component;
-import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -113,13 +112,8 @@ public interface CoreServer {
     @Nullable
     UUID getUniqueId(@Nullable String name);
 
+    @Nonnull
     Team team();
-
-    @Deprecated(forRemoval = true)
-    void sendTeamChatMessage(@Nonnull String message);
-
-    @Deprecated(forRemoval = true)
-    void sendTeamChatMessage(@Nonnull BaseComponent[] message);
 
     void sendDebug(@Nonnull DebugType type, @Nonnull String message);
 
@@ -160,18 +154,8 @@ public interface CoreServer {
     @Nonnull
     InventoryGui createGUI(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException;
 
-    @Deprecated
-    @Nonnull
-    GuiBuilder createGui(@Nonnegative int size) throws IllegalArgumentException;
-
     @Nonnull
     MultiPageGui createMultiPageGui(@Nonnegative int size) throws IllegalArgumentException;
-
-    @Deprecated
-    GuiItem createGuiItem(@Nonnull ItemStack itemStack, @Nullable Consumer<OnlineUser> consumer);
-
-    @Deprecated
-    GuiItem createAdvancedGuiItem(@Nonnull ItemStack itemStack, @Nullable BiConsumer<OnlineUser, InventoryClickEvent> callback);
 
     @Nonnull
     World getMainWorld();
@@ -183,9 +167,6 @@ public interface CoreServer {
     World getPresetsWorld() throws IllegalStateException;
 
     void loadPreset(@Nonnull Area presetArea, @Nonnull Block presetPivot, @Nonnull Block mainWorldPivot) throws IllegalArgumentException;
-
-    @Deprecated
-    void restartAndClean();
 
     @Nonnull
     FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material, int data) throws IllegalArgumentException;
@@ -213,14 +194,6 @@ public interface CoreServer {
     @Nonnull
     @Contract("_ -> new")
     ItemBuilder createItem(String url) throws IllegalArgumentException;
-
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    ChatMenu createChatMenu(ChatMenu.Option... options);
-
-    @SuppressWarnings("removal")
-    @Deprecated(forRemoval = true)
-    ChatMenu createChatMenu();
 
     @Nonnull
     Inventory getInventoryFromString(@Nonnull String inventory) throws IllegalArgumentException;
@@ -392,10 +365,6 @@ public interface CoreServer {
 
     @Nullable
     FakeArmorStand getFakeArmorStand(int id);
-
-    @Nonnull
-    @Deprecated
-    ServerType getServerType();
 
     @Nullable
     String convertToTransparent(@Nullable String text) throws IllegalArgumentException;
