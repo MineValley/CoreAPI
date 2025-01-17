@@ -24,6 +24,7 @@ import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.regions.utils.FakeBlock;
+import minevalley.core.api.server.Server;
 import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;
 import minevalley.core.api.timing.RepeatingTimer;
@@ -80,6 +81,16 @@ public final class Core {
     @Nonnull
     public static JavaPlugin getInstance() {
         return server.getInstance();
+    }
+
+    /**
+     * Get the {@link Server} object, granting access to all server-related features.
+     *
+     * @return Server object
+     */
+    @Nonnull
+    public static Server getServer() {
+        return server.getServer();
     }
 
     /**
