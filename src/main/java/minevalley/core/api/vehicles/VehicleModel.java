@@ -6,6 +6,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface VehicleModel {
 
     int getId();

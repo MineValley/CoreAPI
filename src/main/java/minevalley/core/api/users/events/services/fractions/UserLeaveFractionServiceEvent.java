@@ -5,6 +5,7 @@ import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.enums.Fraction;
 
 @Getter
+@SuppressWarnings("unused")
 public class UserLeaveFractionServiceEvent extends UserUpdateFractionServiceEvent {
 
     public UserLeaveFractionServiceEvent(OnlineUser user, Fraction fractionService) {

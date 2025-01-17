@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+@SuppressWarnings("unused")
 public interface TeamMember extends OnlineUser {
 
     /**

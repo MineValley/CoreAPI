@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+@SuppressWarnings("unused")
 public interface StateCompany extends Kapitalgesellschaft {
 
     Sector getSector();

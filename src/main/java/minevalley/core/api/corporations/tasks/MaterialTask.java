@@ -6,6 +6,7 @@ import org.bukkit.Material;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface MaterialTask extends Task {
 
     List<MaterialSet> getMaterialSets();

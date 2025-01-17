@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 @Getter
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class Education {
 
     private final Subject subject;

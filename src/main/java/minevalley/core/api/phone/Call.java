@@ -2,6 +2,7 @@ package minevalley.core.api.phone;
 
 import java.time.Instant;
 
+@SuppressWarnings("unused")
 public interface Call {
 
     /**

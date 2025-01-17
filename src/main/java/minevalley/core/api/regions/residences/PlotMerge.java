@@ -4,6 +4,7 @@ import minevalley.core.api.regions.Region;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 
+@SuppressWarnings("unused")
 public interface PlotMerge {
 
     /**

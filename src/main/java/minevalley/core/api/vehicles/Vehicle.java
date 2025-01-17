@@ -4,6 +4,7 @@ import minevalley.core.api.Registrant;
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.inventory.ItemStack;
 
+@SuppressWarnings("unused")
 public interface Vehicle {
 
     VehicleModel getModel();

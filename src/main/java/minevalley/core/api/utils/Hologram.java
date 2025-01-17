@@ -3,6 +3,7 @@ package minevalley.core.api.utils;
 import minevalley.core.api.modifiers.LocationModifier;
 import minevalley.core.api.modifiers.VisibilityModifier;
 
+@SuppressWarnings("unused")
 public interface Hologram extends LocationModifier, VisibilityModifier {
 
     String[] getLines();

@@ -6,6 +6,7 @@ import minevalley.core.api.users.User;
 import javax.annotation.Nonnull;
 
 @Getter
+@SuppressWarnings("unused")
 public class UserNotPermittedException extends RuntimeException {
 
     private final User user;

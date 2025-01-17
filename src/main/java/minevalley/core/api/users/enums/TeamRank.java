@@ -71,6 +71,7 @@ public enum TeamRank {
      * @param value identification-number of the searched rank
      * @return the matching team-rank
      */
+    @SuppressWarnings("unused")
     public static TeamRank getRank(int value) {
         return Arrays.stream(values()).filter(teamRank -> teamRank.getValue() == value).findFirst().orElse(null);
     }

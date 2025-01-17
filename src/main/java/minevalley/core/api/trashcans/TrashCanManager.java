@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
  * of the functions below on module start without using a scheduler!
  */
 @Depends("TrashCans")
+@SuppressWarnings("unused")
 public class TrashCanManager {
 
     @Setter

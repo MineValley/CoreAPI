@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE_USE)
+@SuppressWarnings("unused")
 public @interface Command {
 
     /**

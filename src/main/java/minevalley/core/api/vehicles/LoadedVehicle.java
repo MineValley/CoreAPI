@@ -5,6 +5,7 @@ import org.bukkit.Location;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface LoadedVehicle extends Vehicle {
 
     void tow(String reason);

@@ -7,6 +7,7 @@ import lombok.NonNull;
  * <br>
  * For repeating timers use {@link RepeatingTimer}
  */
+@SuppressWarnings("unused")
 public interface Timer {
 
     /**

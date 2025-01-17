@@ -19,6 +19,7 @@ import java.util.List;
  * <b>Note:</b> Plots may have been merged! Even if they are, every plot still consists of its residence.
  * When dealing with plots, always take note of merged plots.
  */
+@SuppressWarnings("unused")
 public interface Residence extends PlayerLocation, Address {
 
     /**

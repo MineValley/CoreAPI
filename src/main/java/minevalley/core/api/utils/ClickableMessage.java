@@ -2,6 +2,7 @@ package minevalley.core.api.utils;
 
 import minevalley.core.api.users.OnlineUser;
 
+@SuppressWarnings("unused")
 public interface ClickableMessage {
 
     /**

@@ -7,6 +7,7 @@ import minevalley.core.api.users.User;
  * It is used to change user-dependent data in modules when that user's data has been updated.
  * You can update a user manually by calling the refresh()-method.
  */
+@SuppressWarnings("unused")
 public final class UserRefreshEvent extends UserEvent {
 
     public UserRefreshEvent(User user) {

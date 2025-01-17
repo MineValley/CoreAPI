@@ -9,6 +9,7 @@ import java.util.List;
  * Reminders are used to time specific events that depend on real time.
  * They are called exactly at the time, they are supposed to.
  */
+@SuppressWarnings("unused")
 public interface Reminder {
 
     /**

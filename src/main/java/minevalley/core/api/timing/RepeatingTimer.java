@@ -5,6 +5,7 @@ import lombok.NonNull;
 /**
  * Repeating timers are used to call continuous actions that are supposed to be called in a period longer than 2 minutes (for shorter spans use schedulers).
  */
+@SuppressWarnings("unused")
 public interface RepeatingTimer {
 
     /**

@@ -4,6 +4,7 @@ import lombok.NonNull;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.economy.BankAccount;
 
+@SuppressWarnings("unused")
 public interface Apartment extends Residence {
 
     int getApartmentNumber();

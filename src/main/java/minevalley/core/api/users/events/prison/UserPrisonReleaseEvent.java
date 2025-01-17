@@ -8,6 +8,7 @@ import minevalley.core.api.users.events.OnlineUserEvent;
  * This event gets called when a user is released from prison.
  */
 @Getter
+@SuppressWarnings("unused")
 public class UserPrisonReleaseEvent extends OnlineUserEvent {
 
     public UserPrisonReleaseEvent(OnlineUser user) {

@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@SuppressWarnings("unused")
 public enum Fraction {
 
     POLICE("Polizei"),
@@ -16,6 +15,7 @@ public enum Fraction {
 
     private final String name;
 
+    @SuppressWarnings("unused")
     public static Fraction getFraction(int value) {
         if (value >= values().length || value < 0) return null;
         return values()[value];

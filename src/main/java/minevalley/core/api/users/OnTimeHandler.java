@@ -5,6 +5,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public final class OnTimeHandler {
 
     @Setter
