@@ -13,6 +13,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
+
 /**
  * This event equals the PlayerInteractEvent. It is called when a player interacts with an object or air.
  * <p>
@@ -25,9 +27,9 @@ import org.bukkit.inventory.ItemStack;
  * <i>Credits: This class consists largely of Spigot's PlayerInteractEvent class.</i>
  */
 @Getter
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted"})
 public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable {
-    private static final HandlerList handlers = new HandlerList();
+
     protected ItemStack item;
     protected Action action;
     protected Block blockClicked;
@@ -36,6 +38,13 @@ public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable
     @Setter
     private Result useItemInHand;
     private final EquipmentSlot hand;
+
+    private final static @Getter(onMethod_ = @Nonnull) HandlerList handlerList = new HandlerList();
+
+    @Override
+    public @Nonnull HandlerList getHandlers() {
+        return handlerList;
+    }
 
     public FixedPlayerInteractEvent(PlayerInteractEvent e) {
         super(e.getPlayer());
@@ -47,10 +56,6 @@ public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable
 
         useItemInHand = Result.DEFAULT;
         useClickedBlock = e.getClickedBlock() == null ? Result.DENY : Result.ALLOW;
-    }
-
-    public static HandlerList getHandlerList() {
-        return handlers;
     }
 
     /**
@@ -158,11 +163,6 @@ public class FixedPlayerInteractEvent extends PlayerEvent implements Cancellable
      */
     public Result useItemInHand() {
         return useItemInHand;
-    }
-
-    @Override
-    public HandlerList getHandlers() {
-        return handlers;
     }
 }
 

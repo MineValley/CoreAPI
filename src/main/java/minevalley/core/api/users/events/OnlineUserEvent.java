@@ -6,19 +6,18 @@ import minevalley.core.api.users.OnlineUser;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import javax.annotation.Nonnull;
+
 @Getter
 @RequiredArgsConstructor
 public abstract class OnlineUserEvent extends Event {
 
-    public static final HandlerList HANDLER_LIST = new HandlerList();
     private final OnlineUser user;
 
-    public static HandlerList getHandlerList() {
-        return HANDLER_LIST;
-    }
+    private final static @Getter(onMethod_ = @Nonnull) HandlerList handlerList = new HandlerList();
 
     @Override
-    public HandlerList getHandlers() {
-        return HANDLER_LIST;
+    public @Nonnull HandlerList getHandlers() {
+        return handlerList;
     }
 }
