@@ -190,16 +190,6 @@ public interface InventoryGui {
     InventoryGui onClose(@Nullable Consumer<OnlineUser> callback);
 
     /**
-     * Adds a callback to be called when this GUI is closed.
-     *
-     * @param callback the callback to call
-     * @return this GUI
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    InventoryGui onClose(@Nullable BiConsumer<OnlineUser, Inventory> callback);
-
-    /**
      * Adds a callback to be called when the close button is clicked.
      *
      * @param callback the callback to call
