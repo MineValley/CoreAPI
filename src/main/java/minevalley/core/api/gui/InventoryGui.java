@@ -19,9 +19,9 @@ import java.util.function.Consumer;
 public interface InventoryGui {
 
     /**
-     * Gets a copy of the underlying inventory of this GUI.
+     * Gets the underlying inventory of this GUI.
      *
-     * @return a copy of the underlying inventory of this GUI
+     * @return the underlying inventory of this GUI
      */
     @Nonnull
     @Contract(pure = true)
@@ -180,14 +180,14 @@ public interface InventoryGui {
     InventoryGui onClickSlot(@Nonnegative int slot, @Nonnull BiConsumer<OnlineUser, InventoryClickEvent> onClick) throws IllegalArgumentException;
 
     /**
-     * Adds a callback to be called when this GUI is closed.
+     * Removes the callback for the specified slot.
      *
-     * @param callback the callback to call
+     * @param slot the slot to remove the callback for
      * @return this GUI
+     * @throws IllegalArgumentException if the slot is out of bounds
      */
     @Nonnull
-    @Contract("_ -> this")
-    InventoryGui onClose(@Nullable Consumer<OnlineUser> callback);
+    InventoryGui removeSlotCallback(@Nonnegative int slot) throws IllegalArgumentException;
 
     /**
      * Adds a callback to be called when this GUI is closed.
@@ -197,7 +197,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_ -> this")
-    InventoryGui onClose(@Nullable BiConsumer<OnlineUser, Inventory> callback);
+    InventoryGui onClose(@Nullable Consumer<OnlineUser> callback);
 
     /**
      * Adds a callback to be called when the close button is clicked.
@@ -235,17 +235,14 @@ public interface InventoryGui {
 
     /**
      * Updates the title of this GUI.
-     * This will send a packet to all viewers to update the title.
-     * <p>
-     * <b>Note:</b> calling this method only updates the title for users that already opened this GUI. If you want to update the title for upcoming users, set the {@code updateInventory} parameter to true.
      *
-     * @param title           the new title
-     * @param updateInventory whether to update the inventory
+     * @param title the new title
      * @return this GUI
      * @throws IllegalArgumentException if the title is null
      */
+    @Nonnull
     @Contract(pure = true)
-    InventoryGui updateTitle(@Nonnull Component title, boolean updateInventory) throws IllegalArgumentException;
+    InventoryGui updateTitle(@Nonnull Component title) throws IllegalArgumentException;
 
     /**
      * Opens this GUI for the specified player.
