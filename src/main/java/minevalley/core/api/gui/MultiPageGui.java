@@ -79,6 +79,7 @@ public interface MultiPageGui extends InventoryGui {
      * @return the inventory of the specified page
      * @throws IllegalArgumentException if the page is out of bounds
      */
+    @Nonnull
     Inventory getInventory(@Nonnegative int page) throws IllegalArgumentException;
 
     /**
@@ -111,8 +112,7 @@ public interface MultiPageGui extends InventoryGui {
      * @return a copy of the underlying inventory of this GUI
      */
     @Override
-    @Nonnull
-    default Inventory getInventory() {
+    default @Nonnull Inventory getInventory() {
         return getInventory(0);
     }
 
@@ -124,8 +124,8 @@ public interface MultiPageGui extends InventoryGui {
      * @return nothing
      */
     @Override
-    @Contract("_, _ -> fail")
-    default InventoryGui updateTitle(@Nonnull Component title, boolean updateInventory) {
+    @Contract("_ -> fail")
+    default @Nonnull InventoryGui updateTitle(@Nonnull Component title) {
         throw new UnsupportedOperationException("This GUI does not support updating the title.");
     }
 
