@@ -4,7 +4,6 @@ import minevalley.core.api.enums.InterfaceItem;
 import minevalley.core.api.users.OnlineUser;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
@@ -12,7 +11,6 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
@@ -64,7 +62,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_, _, _ -> this")
-    InventoryGui setItem(@Nonnegative int slot, @Nonnull ItemStack item, @Nonnull Consumer<OnlineUser> onClick) throws IllegalArgumentException;
+    InventoryGui setItem(@Nonnegative int slot, @Nonnull ItemStack item, @Nonnull Consumer<GuiItemClick> onClick) throws IllegalArgumentException;
 
     /**
      * Sets the interface item in the specified slot.
@@ -77,35 +75,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_, _, _ -> this")
-    default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item, @Nonnull Consumer<OnlineUser> onClick) throws IllegalArgumentException {
-        return setItem(slot, item.toItemStack(), onClick);
-    }
-
-    /**
-     * Sets the item in the specified slot.
-     *
-     * @param slot    the slot to set the item in
-     * @param item    the item to set
-     * @param onClick the consumer to run when the item is clicked
-     * @return this GUI
-     * @throws IllegalArgumentException if the slot is out of bounds, or the item or onClick is null
-     */
-    @Nonnull
-    @Contract("_, _, _ -> this")
-    InventoryGui setItem(@Nonnegative int slot, @Nonnull ItemStack item, @Nonnull BiConsumer<OnlineUser, InventoryClickEvent> onClick) throws IllegalArgumentException;
-
-    /**
-     * Sets the interface item in the specified slot.
-     *
-     * @param slot    the slot to set the interface item in
-     * @param item    the item to set
-     * @param onClick the consumer to run when the item is clicked
-     * @return this GUI
-     * @throws IllegalArgumentException if the slot is out of bounds, or the interface item or onClick is null
-     */
-    @Nonnull
-    @Contract("_, _, _ -> this")
-    default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item, @Nonnull BiConsumer<OnlineUser, InventoryClickEvent> onClick) throws IllegalArgumentException {
+    default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item, @Nonnull Consumer<GuiItemClick> onClick) throws IllegalArgumentException {
         return setItem(slot, item.toItemStack(), onClick);
     }
 
@@ -174,20 +144,7 @@ public interface InventoryGui {
      * @throws IllegalArgumentException if the slot is out of bounds, or the onClick is null
      */
     @Nonnull
-    InventoryGui onClickSlot(@Nonnegative int slot, @Nonnull Consumer<OnlineUser> onClick) throws IllegalArgumentException;
-
-    /**
-     * Sets a callback to be called when the specified slot is clicked.
-     * <p>
-     * <b>Note:</b> The callback can be overwritten by setting another callback for the same slot or an item on this slot.
-     *
-     * @param slot    the slot to set the callback for
-     * @param onClick the callback to call
-     * @return this GUI
-     * @throws IllegalArgumentException if the slot is out of bounds, or the onClick is null
-     */
-    @Nonnull
-    InventoryGui onClickSlot(@Nonnegative int slot, @Nonnull BiConsumer<OnlineUser, InventoryClickEvent> onClick) throws IllegalArgumentException;
+    InventoryGui onClickSlot(@Nonnegative int slot, @Nonnull Consumer<GuiItemClick> onClick) throws IllegalArgumentException;
 
     /**
      * Removes the callback for the specified slot.
