@@ -9,6 +9,7 @@ import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
+import minevalley.core.api.gui.FillItem;
 import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.npc.NPC;
@@ -547,14 +548,15 @@ public final class Core {
      * <br>
      * {@code %o%} will be replaced with the amount of pages
      *
-     * @param title title of the inventory
-     * @param size  size of the inventory
+     * @param title     title of the inventory
+     * @param size      size of the inventory
+     * @param fillItems items to fill the inventory with
      * @return new gui-builder
      * @throws IllegalArgumentException if the size is invalid (negative, higher than 54 or not a multiple of 9 while being higher than 6)
      */
     @Nonnull
-    public static MultiPageGui createMultiPageGui(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException {
-        return server.createMultiPageGui(size);
+    public static MultiPageGui createMultiPageGui(@Nonnull Component title, @Nonnegative int size, @Nonnull List<FillItem> fillItems) throws IllegalArgumentException {
+        return server.createMultiPageGui(title, size, fillItems);
     }
 
     /**

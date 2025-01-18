@@ -144,6 +144,16 @@ public interface InventoryGui {
     InventoryGui addCloser();
 
     /**
+     * Empties the specified slot.
+     *
+     * @param slot the slot to empty
+     * @return this GUI
+     * @throws IllegalArgumentException if the slot is out of bounds
+     */
+    @Nonnull
+    InventoryGui empty(@Nonnegative int slot) throws IllegalArgumentException;
+
+    /**
      * Gets the item in the specified slot.
      *
      * @param slot the slot to get the item from
