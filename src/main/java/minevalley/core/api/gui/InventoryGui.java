@@ -235,17 +235,13 @@ public interface InventoryGui {
 
     /**
      * Updates the title of this GUI.
-     * This will send a packet to all viewers to update the title.
-     * <p>
-     * <b>Note:</b> calling this method only updates the title for users that already opened this GUI. If you want to update the title for upcoming users, set the {@code updateInventory} parameter to true.
      *
-     * @param title           the new title
-     * @param updateInventory whether to update the inventory
+     * @param title the new title
      * @return this GUI
      * @throws IllegalArgumentException if the title is null
      */
     @Contract(pure = true)
-    InventoryGui updateTitle(@Nonnull Component title, boolean updateInventory) throws IllegalArgumentException;
+    InventoryGui updateTitle(@Nonnull Component title) throws IllegalArgumentException;
 
     /**
      * Opens this GUI for the specified player.
