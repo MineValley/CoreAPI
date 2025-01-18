@@ -119,8 +119,7 @@ public interface MultiPageGui extends InventoryGui {
     /**
      * Updating the title of GUIs with multiple pages is not supported.
      *
-     * @param title           ignored
-     * @param updateInventory ignored
+     * @param title ignored
      * @return nothing
      */
     @Override
