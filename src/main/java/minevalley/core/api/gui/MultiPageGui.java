@@ -1,7 +1,6 @@
 package minevalley.core.api.gui;
 
 import minevalley.core.api.users.OnlineUser;
-import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -114,18 +113,6 @@ public interface MultiPageGui extends InventoryGui {
     @Override
     default @Nonnull Inventory getInventory() {
         return getInventory(0);
-    }
-
-    /**
-     * Updating the title of GUIs with multiple pages is not supported.
-     *
-     * @param title ignored
-     * @return nothing
-     */
-    @Override
-    @Contract("_ -> fail")
-    default @Nonnull InventoryGui updateTitle(@Nonnull Component title) {
-        throw new UnsupportedOperationException("This GUI does not support updating the title.");
     }
 
     /**
