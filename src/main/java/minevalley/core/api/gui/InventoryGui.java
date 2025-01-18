@@ -19,9 +19,9 @@ import java.util.function.Consumer;
 public interface InventoryGui {
 
     /**
-     * Gets a copy of the underlying inventory of this GUI.
+     * Gets the underlying inventory of this GUI.
      *
-     * @return a copy of the underlying inventory of this GUI
+     * @return the underlying inventory of this GUI
      */
     @Nonnull
     @Contract(pure = true)
