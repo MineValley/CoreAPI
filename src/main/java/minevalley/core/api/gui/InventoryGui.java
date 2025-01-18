@@ -240,6 +240,7 @@ public interface InventoryGui {
      * @return this GUI
      * @throws IllegalArgumentException if the title is null
      */
+    @Nonnull
     @Contract(pure = true)
     InventoryGui updateTitle(@Nonnull Component title) throws IllegalArgumentException;
 
