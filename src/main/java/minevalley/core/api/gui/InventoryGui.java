@@ -180,6 +180,16 @@ public interface InventoryGui {
     InventoryGui onClickSlot(@Nonnegative int slot, @Nonnull BiConsumer<OnlineUser, InventoryClickEvent> onClick) throws IllegalArgumentException;
 
     /**
+     * Removes the callback for the specified slot.
+     *
+     * @param slot the slot to remove the callback for
+     * @return this GUI
+     * @throws IllegalArgumentException if the slot is out of bounds
+     */
+    @Nonnull
+    InventoryGui removeSlotCallback(@Nonnegative int slot) throws IllegalArgumentException;
+
+    /**
      * Adds a callback to be called when this GUI is closed.
      *
      * @param callback the callback to call
