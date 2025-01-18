@@ -9,6 +9,7 @@ import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
+import minevalley.core.api.gui.FillItem;
 import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.npc.NPC;
@@ -154,7 +155,7 @@ public interface CoreServer {
     InventoryGui createGUI(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException;
 
     @Nonnull
-    MultiPageGui createMultiPageGui(@Nonnegative int size) throws IllegalArgumentException;
+    MultiPageGui createMultiPageGui(@Nonnull Component title, @Nonnegative int size, @Nonnull List<FillItem> fillItems) throws IllegalArgumentException;
 
     @Nonnull
     World getMainWorld();
