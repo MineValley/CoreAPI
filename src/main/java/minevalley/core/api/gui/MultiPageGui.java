@@ -58,7 +58,7 @@ public interface MultiPageGui extends InventoryGui {
     @Nonnull
     @Contract("_, _, _ -> this")
     MultiPageGui setPageDependantItem(@Nonnegative int slot, @Nonnull Function<Integer, ItemStack> itemProvider,
-                                      @Nonnull Function<Integer, Consumer<OnlineUser>> callbackProvider) throws IllegalArgumentException;
+                                      @Nonnull Function<Integer, Consumer<GuiItemClick>> callbackProvider) throws IllegalArgumentException;
 
     /**
      * Get the amount of pages in this GUI.
