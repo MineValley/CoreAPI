@@ -9,6 +9,7 @@ import minevalley.core.api.regions.utils.PlayerLocation;
 import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.McVersion;
 import minevalley.core.api.users.enums.TabListView;
+import minevalley.core.api.users.enums.TeamRank;
 import minevalley.core.api.users.exceptions.UserNotPermittedException;
 import minevalley.core.api.utils.ChatHandler;
 import minevalley.core.api.utils.ClickableMessage;
@@ -179,17 +180,6 @@ public interface OnlineUser extends User, MessageReceiver {
      */
     void leaveFractionService() throws IllegalStateException;
 
-    // TeamRank
-
-    /**
-     * Gets the team-member object of this user.
-     *
-     * @return team-member object
-     * @throws UserNotPermittedException if the user is no team-member
-     */
-    @Nonnull
-    TeamMember team() throws UserNotPermittedException;
-
     /**
      * Gets if the player has any type of team-rank.
      *
@@ -197,6 +187,25 @@ public interface OnlineUser extends User, MessageReceiver {
      */
     @Contract(pure = true)
     boolean isTeamler();
+
+    /**
+     * Gets whether the user has any of the listed team-ranks.
+     *
+     * @param ranks list of team-ranks to be checked for
+     * @return true, if the user has one of the ranks
+     */
+    @Contract(pure = true)
+    boolean hasTeamRank(@Nonnull TeamRank... ranks);
+
+    /**
+     * Gets the team-member object of this user.
+     *
+     * @return team-member object
+     * @throws UserNotPermittedException if the user is no team-member
+     * @see #isTeamler()
+     */
+    @Nonnull
+    TeamMember team() throws UserNotPermittedException;
 
     /**
      * Lets the user enter the team-service. If the user isn't teamler, nothing happens.

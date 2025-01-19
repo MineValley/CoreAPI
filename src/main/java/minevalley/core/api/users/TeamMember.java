@@ -48,15 +48,6 @@ public interface TeamMember extends OnlineUser {
     boolean isDisplayedAsTeamler();
 
     /**
-     * Gets whether the user has any of the listed team-ranks.
-     *
-     * @param ranks list of team-ranks to be checked for
-     * @return true, if the user has one of the ranks
-     */
-    @Contract(pure = true)
-    boolean hasTeamRank(@Nonnull TeamRank... ranks);
-
-    /**
      * Gets whether the user is allowed to use a general-key
      *
      * @return true, if the player is allowed to use a general-key
