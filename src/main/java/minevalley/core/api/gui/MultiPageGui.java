@@ -25,6 +25,7 @@ public interface MultiPageGui extends InventoryGui {
      * @throws IllegalArgumentException if the slot is out of bounds
      */
     @Nullable
+    @Contract(pure = true)
     ItemStack getItem(@Nonnegative int page, @Nonnegative int slot) throws IllegalArgumentException;
 
     /**
@@ -35,6 +36,7 @@ public interface MultiPageGui extends InventoryGui {
      * @throws IllegalArgumentException if the slot is out of bounds
      */
     @Override
+    @Contract(pure = true)
     default @Nullable ItemStack getItem(@Nonnegative int slot) throws IllegalArgumentException {
         return getItem(0, slot);
     }
@@ -103,6 +105,7 @@ public interface MultiPageGui extends InventoryGui {
      * @throws IllegalArgumentException if the page is out of bounds
      */
     @Nonnull
+    @Contract("_ -> new")
     InventoryGui getInventory(@Nonnegative int page) throws IllegalArgumentException;
 
     /**
@@ -135,6 +138,7 @@ public interface MultiPageGui extends InventoryGui {
      * @return a copy of the underlying inventory of this GUI
      */
     @Override
+    @Contract("-> new")
     default @Nonnull Inventory getInventory() {
         return getInventory(0).getInventory();
     }
