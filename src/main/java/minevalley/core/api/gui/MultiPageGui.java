@@ -103,7 +103,7 @@ public interface MultiPageGui extends InventoryGui {
      * @throws IllegalArgumentException if the page is out of bounds
      */
     @Nonnull
-    Inventory getInventory(@Nonnegative int page) throws IllegalArgumentException;
+    InventoryGui getInventory(@Nonnegative int page) throws IllegalArgumentException;
 
     /**
      * Opens this GUI for the specified player on the specified page.
@@ -136,7 +136,7 @@ public interface MultiPageGui extends InventoryGui {
      */
     @Override
     default @Nonnull Inventory getInventory() {
-        return getInventory(0);
+        return getInventory(0).getInventory();
     }
 
     /**
