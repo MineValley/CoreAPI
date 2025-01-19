@@ -8,12 +8,36 @@ import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
 @SuppressWarnings("unused")
 public interface MultiPageGui extends InventoryGui {
+
+    /**
+     * Gets the item in the specified slot.
+     *
+     * @param page the page to get the item from
+     * @param slot the slot to get the item from
+     * @return the item in the specified slot, or null if the slot is empty
+     * @throws IllegalArgumentException if the slot is out of bounds
+     */
+    @Nullable
+    ItemStack getItem(@Nonnegative int page, @Nonnegative int slot) throws IllegalArgumentException;
+
+    /**
+     * Gets the item in the specified slot as it's placed on the first page.
+     *
+     * @param slot the slot to get the item from
+     * @return the item in the specified slot, or null if the slot is empty
+     * @throws IllegalArgumentException if the slot is out of bounds
+     */
+    @Override
+    default @Nullable ItemStack getItem(@Nonnegative int slot) throws IllegalArgumentException {
+        return getItem(0, slot);
+    }
 
     /**
      * Adds the specified slots to the fill slots.
