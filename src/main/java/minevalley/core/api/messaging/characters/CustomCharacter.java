@@ -1,4 +1,4 @@
-package minevalley.core.api.enums;
+package minevalley.core.api.messaging.characters;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -25,13 +25,15 @@ public enum CustomCharacter {
     CROSS('\uea03'),
     CHECKMARK('\uea04'),
     LOG('\uea05'),
-    BUG('\uea06'),
-    EYE('\uea07'),
-    WRENCH('\uea08'),
-    CIRCLE('\uea09'),
-    HOUSE('\uea10'),
-    EURO_NOTES('\uea11'),
-    DRIFTING_CAR('\uea12'),
+    INPUT('\uea06'),
+    BUG('\uea07'),
+    EYE('\uea08'),
+    WRENCH('\uea09'),
+    CIRCLE('\uea10'),
+    HOUSE('\uea11'),
+    EURO_NOTES('\uea12'),
+    DRIFTING_CAR('\uea13'),
+    NPC('\uea14'),
 
     BELL('\ueb00'),
     PHONE('\ueb01'),
