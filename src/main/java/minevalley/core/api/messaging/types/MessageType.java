@@ -42,8 +42,8 @@ public enum MessageType {
      */
     INFO_BW(MV_BW, WHITE);
 
-    private final @Nonnull CustomCharacter symbol;
-    private final @Nonnull NamedTextColor color;
+    private final CustomCharacter symbol;
+    private final NamedTextColor color;
 
     @SuppressWarnings("unused")
     public TextComponent getPrefix() {

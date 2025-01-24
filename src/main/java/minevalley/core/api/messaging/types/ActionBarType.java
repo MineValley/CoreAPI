@@ -28,8 +28,8 @@ public enum ActionBarType {
      */
     SUCCESS(CHECKMARK, GREEN);
 
-    private final @Nonnull CustomCharacter symbol;
-    private final @Nonnull NamedTextColor color;
+    private final CustomCharacter symbol;
+    private final NamedTextColor color;
 
     @SuppressWarnings("unused")
     public TextComponent getPrefix() {
