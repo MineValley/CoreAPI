@@ -11,6 +11,7 @@ import net.kyori.adventure.text.TextComponent;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import java.time.Duration;
 import java.util.function.Consumer;
 
 /**
@@ -107,7 +108,8 @@ public interface MessageReceiver {
      */
     @Nonnull
     @Contract("_, _ -> new")
-    ChatMenu sendMessage(@Nonnull ComponentLike message, @Nonnull ClickableOption... menu) throws IllegalArgumentException;
+    ChatMenu sendMessage(@Nonnull ComponentLike message, @Nonnull ClickableOption... menu)
+            throws IllegalArgumentException;
 
     /**
      * Sends a message to the receiver.
@@ -120,7 +122,8 @@ public interface MessageReceiver {
      */
     @Nonnull
     @Contract("_, _, _ -> new")
-    ChatMenu sendMessage(@Nonnull ComponentLike message, @Nonnull Instruction instruction, @Nonnull ClickableOption... menu) throws IllegalArgumentException;
+    ChatMenu sendMessage(@Nonnull ComponentLike message, @Nonnull Instruction instruction,
+                         @Nonnull ClickableOption... menu) throws IllegalArgumentException;
 
     /**
      * Sends a message to the receiver.
@@ -139,7 +142,8 @@ public interface MessageReceiver {
      * @param instruction the instruction to send
      * @throws IllegalArgumentException if the type, message or instruction is null
      */
-    void sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction) throws IllegalArgumentException;
+    void sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction)
+            throws IllegalArgumentException;
 
     /**
      * Sends a message to the receiver.
@@ -152,7 +156,8 @@ public interface MessageReceiver {
      */
     @Nonnull
     @Contract("_, _, _ -> new")
-    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull ClickableOption... menu) throws IllegalArgumentException;
+    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull ClickableOption... menu)
+            throws IllegalArgumentException;
 
     /**
      * Sends a message to the receiver.
@@ -166,7 +171,8 @@ public interface MessageReceiver {
      */
     @Nonnull
     @Contract("_, _, _, _ -> new")
-    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction, @Nonnull ClickableOption... menu) throws IllegalArgumentException;
+    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction,
+                         @Nonnull ClickableOption... menu) throws IllegalArgumentException;
 
     /**
      * Shows a title to the receiver.
@@ -175,7 +181,7 @@ public interface MessageReceiver {
      * @param subtitle the subtitle to show
      * @throws IllegalArgumentException if the title or subtitle is null
      */
-    void showTitle(@Nonnull ComponentLike title, @Nonnull ComponentLike subtitle) throws IllegalArgumentException;
+    void showTitle(@Nonnull Component title, @Nonnull Component subtitle) throws IllegalArgumentException;
 
     /**
      * Shows a title to the receiver.
@@ -187,7 +193,8 @@ public interface MessageReceiver {
      * @param fadeOut  the time in ticks for the title to fade out
      * @throws IllegalArgumentException if the title or subtitle is null
      */
-    void showTitle(@Nonnull ComponentLike title, @Nonnull ComponentLike subtitle, int fadeIn, int stay, int fadeOut) throws IllegalArgumentException;
+    void showTitle(@Nonnull Component title, @Nonnull Component subtitle, @Nonnull Duration fadeIn,
+                   @Nonnull Duration stay, @Nonnull Duration fadeOut) throws IllegalArgumentException;
 
     /**
      * Sends a message to the receiver and waits for an input.
@@ -206,7 +213,8 @@ public interface MessageReceiver {
      * @param callback    the callback to call when the user inputs something
      * @throws IllegalArgumentException if the text, instruction or callback is null
      */
-    void input(@Nonnull String text, @Nonnull Instruction instruction, @Nonnull Consumer<String> callback) throws IllegalArgumentException;
+    void input(@Nonnull String text, @Nonnull Instruction instruction, @Nonnull Consumer<String> callback)
+            throws IllegalArgumentException;
 
     /**
      * Checks if the receiver is currently in a chat input.
