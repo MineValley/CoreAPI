@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.armorstand.FakeArmorStand;
-import minevalley.core.api.chat.MessageSender;
+import minevalley.core.api.messaging.MessageSender;
 import minevalley.core.api.modifiers.EquipmentModifier;
 import minevalley.core.api.modifiers.InteractionModifier;
 import minevalley.core.api.modifiers.LocationModifier;

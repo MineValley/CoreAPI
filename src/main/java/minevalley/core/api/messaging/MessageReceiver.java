@@ -1,10 +1,10 @@
-package minevalley.core.api.chat;
+package minevalley.core.api.messaging;
 
-import minevalley.core.api.chat.clickable.ChatMenu;
-import minevalley.core.api.chat.clickable.ClickableOption;
-import minevalley.core.api.chat.instruction.Instruction;
-import minevalley.core.api.chat.types.ActionBarType;
-import minevalley.core.api.chat.types.MessageType;
+import minevalley.core.api.messaging.clickable.ChatMenu;
+import minevalley.core.api.messaging.clickable.ClickableOption;
+import minevalley.core.api.messaging.instruction.Instruction;
+import minevalley.core.api.messaging.types.ActionBarType;
+import minevalley.core.api.messaging.types.MessageType;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
 import net.kyori.adventure.text.TextComponent;

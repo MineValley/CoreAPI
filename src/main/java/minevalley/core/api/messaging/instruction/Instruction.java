@@ -1,6 +1,6 @@
-package minevalley.core.api.chat.instruction;
+package minevalley.core.api.messaging.instruction;
 
-import minevalley.core.api.chat.MessageReceiver;
+import minevalley.core.api.messaging.MessageReceiver;
 
 import javax.annotation.Nonnull;
 

@@ -1,6 +1,6 @@
 package minevalley.core.api.users;
 
-import minevalley.core.api.chat.MessageReceiver;
+import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.sounds.AmbientSound;

@@ -1,8 +1,8 @@
-package minevalley.core.api.chat;
+package minevalley.core.api.messaging;
 
-import minevalley.core.api.chat.clickable.ChatMenu;
-import minevalley.core.api.chat.clickable.ClickableOption;
-import minevalley.core.api.chat.instruction.Instruction;
+import minevalley.core.api.messaging.clickable.ChatMenu;
+import minevalley.core.api.messaging.clickable.ClickableOption;
+import minevalley.core.api.messaging.instruction.Instruction;
 import minevalley.core.api.utils.ClickableMessage;
 import net.kyori.adventure.text.ComponentLike;
 import org.jetbrains.annotations.Contract;
