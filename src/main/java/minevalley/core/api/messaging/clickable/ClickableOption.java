@@ -1,6 +1,6 @@
-package minevalley.core.api.chat.clickable;
+package minevalley.core.api.messaging.clickable;
 
-import minevalley.core.api.chat.MessageReceiver;
+import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.users.OnlineUser;
 import net.kyori.adventure.text.ComponentLike;
 

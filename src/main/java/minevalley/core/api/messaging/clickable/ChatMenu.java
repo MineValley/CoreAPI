@@ -1,6 +1,6 @@
-package minevalley.core.api.chat.clickable;
+package minevalley.core.api.messaging.clickable;
 
-import minevalley.core.api.chat.MessageReceiver;
+import minevalley.core.api.messaging.MessageReceiver;
 
 /**
  * The {@code ChatMenu} is an interface that represents a chat menu that was sent to a {@link MessageReceiver}.
