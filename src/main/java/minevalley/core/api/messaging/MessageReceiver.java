@@ -11,6 +11,7 @@ import net.kyori.adventure.text.TextComponent;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import java.time.Duration;
 import java.util.function.Consumer;
 
 /**
@@ -175,7 +176,7 @@ public interface MessageReceiver {
      * @param subtitle the subtitle to show
      * @throws IllegalArgumentException if the title or subtitle is null
      */
-    void showTitle(@Nonnull ComponentLike title, @Nonnull ComponentLike subtitle) throws IllegalArgumentException;
+    void showTitle(@Nonnull Component title, @Nonnull Component subtitle) throws IllegalArgumentException;
 
     /**
      * Shows a title to the receiver.
@@ -187,7 +188,8 @@ public interface MessageReceiver {
      * @param fadeOut  the time in ticks for the title to fade out
      * @throws IllegalArgumentException if the title or subtitle is null
      */
-    void showTitle(@Nonnull ComponentLike title, @Nonnull ComponentLike subtitle, int fadeIn, int stay, int fadeOut) throws IllegalArgumentException;
+    void showTitle(@Nonnull Component title, @Nonnull Component subtitle, @Nonnull Duration fadeIn,
+                   @Nonnull Duration stay, @Nonnull Duration fadeOut) throws IllegalArgumentException;
 
     /**
      * Sends a message to the receiver and waits for an input.
