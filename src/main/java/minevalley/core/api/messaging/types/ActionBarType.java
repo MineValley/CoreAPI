@@ -3,20 +3,38 @@ package minevalley.core.api.messaging.types;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import minevalley.core.api.enums.CustomCharacter;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.NamedTextColor;
 
-@Getter
+import javax.annotation.Nonnull;
+
+import static minevalley.core.api.enums.CustomCharacter.CHECKMARK;
+import static minevalley.core.api.enums.CustomCharacter.CROSS;
+import static net.kyori.adventure.text.format.NamedTextColor.*;
+
+@Getter(onMethod_ = @Nonnull)
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum ActionBarType {
 
     /**
-     * Used to signal the success of a process or action, by using the action-bar.
+     * Used to signal the failure of a process or an action.
      */
-    SUCCESS("§a✔§8 ━ §7"),
+    ERROR(CROSS, RED),
 
     /**
-     * Used to signal the failure of a process or action, by using the action-bar.
+     * Used to signal the success of a process or action.
      */
-    ERROR("§c✘§8 ━ §7");
+    SUCCESS(CHECKMARK, GREEN);
 
-    private final String prefix;
+    private final @Nonnull CustomCharacter symbol;
+    private final @Nonnull NamedTextColor color;
+
+    @SuppressWarnings("unused")
+    public TextComponent getPrefix() {
+        return Component.space()
+                .append(Component.text(symbol.getChar(), color))
+                .append(Component.text(" ━ ", DARK_GRAY));
+    }
 }

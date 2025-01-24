@@ -4,26 +4,51 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.enums.CustomCharacter;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.NamedTextColor;
 
-@Getter
+import javax.annotation.Nonnull;
+
+import static minevalley.core.api.enums.CustomCharacter.*;
+import static net.kyori.adventure.text.format.NamedTextColor.*;
+
+@Getter(onMethod_ = @Nonnull)
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum MessageType {
 
     /**
-     * Used to signal the success of a process or action.
+     * Used to signal a warning.
      */
-    SUCCESS(" §a✔§8 ━ §7"),
+    WARNING(EXCLAMATION_MARK, YELLOW),
 
     /**
      * Used to signal the failure of a process or an action.
      */
-    ERROR(" §c§l!§8 ━ §7"),
+    ERROR(CROSS, RED),
 
-    INFO(" §f" + CustomCharacter.MV + " §8━ §7"),
+    /**
+     * Used to signal the success of a process or action.
+     */
+    SUCCESS(CHECKMARK, GREEN),
 
-    INFO_BW(" §f" + CustomCharacter.MV_BW + " §8━ §7"),
+    /**
+     * Used to signal an information.
+     */
+    INFO(MV, WHITE),
 
-    WARNING(" §e§l! §8━ §7");
+    /**
+     * Used to signal an information in black and white.
+     */
+    INFO_BW(MV_BW, WHITE);
 
-    private final String prefix;
+    private final @Nonnull CustomCharacter symbol;
+    private final @Nonnull NamedTextColor color;
+
+    @SuppressWarnings("unused")
+    public TextComponent getPrefix() {
+        return Component.space()
+                .append(Component.text(symbol.getChar(), color))
+                .append(Component.text(" ━ ", DARK_GRAY));
+    }
 }
