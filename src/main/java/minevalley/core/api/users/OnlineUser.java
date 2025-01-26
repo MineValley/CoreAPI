@@ -350,10 +350,12 @@ public interface OnlineUser extends User, MessageReceiver {
     void checkRegistration();
 
     default void chat(@Nonnull ChatType type, @Nonnull String message) throws IllegalArgumentException {
+        if (type == null) throw new IllegalArgumentException("Type cannot be null");
         ChatHandler.chat(this, type, message);
     }
 
     default void chat(@Nonnull String message) throws IllegalArgumentException {
+        if (message == null) throw new IllegalArgumentException("Message cannot be null");
         ChatHandler.chat(this, ChatType.NORMAL, message);
     }
 
@@ -403,7 +405,7 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param range    maximum range for the result to be true
      * @return true, if user is in range
      */
-    boolean isInCubicRange(@Nonnull Location location, int range) throws IllegalArgumentException;
+    boolean isInCubicRange(@Nonnull Location location, @Nonnegative int range) throws IllegalArgumentException;
 
     /**
      * Checks whether the user is in a virtual sphere whose radius is the square root of specified range.
@@ -415,7 +417,7 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param rangeSquared maximum range for the result to be true
      * @return true, if user is in range
      */
-    boolean isInSquaredRange(@Nonnull Location location, int rangeSquared) throws IllegalArgumentException;
+    boolean isInSquaredRange(@Nonnull Location location, @Nonnegative int rangeSquared) throws IllegalArgumentException;
 
     /**
      * Checks whether the user is in a virtual sphere whose radius is the specified range.
@@ -424,7 +426,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param range    maximum range for the result to be true
      * @return true, if user is in range
      */
-    default boolean isInRange(@Nonnull Location location, int range) throws IllegalArgumentException {
+    default boolean isInRange(@Nonnull Location location, @Nonnegative int range) throws IllegalArgumentException {
+        if (location == null) throw new IllegalArgumentException("Location cannot be null");
+        if (range < 0) throw new IllegalArgumentException("Range cannot be negative");
         return isInSquaredRange(location, range * range);
     }
 
