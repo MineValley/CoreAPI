@@ -688,7 +688,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static ItemBuilder createItem(@Nonnull OnlineUser user) throws IllegalArgumentException {
-        return server.createItem(user.getPlayer());
+        return server.createItem(user.player());
     }
 
     /**
