@@ -24,8 +24,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.time.Duration;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
@@ -37,13 +39,48 @@ public interface OnlineUser extends User, MessageReceiver {
      * @return player object
      */
     @Nonnull
-    Player getPlayer();
+    Player player();
+
+    /**
+     * Gets if the player has any type of team-rank.
+     *
+     * @return true, if the user is part of the server-team (and in team-service)
+     */
+    @Contract(pure = true)
+    boolean isTeamler();
+
+    /**
+     * Gets whether the user has any of the listed team-ranks.
+     *
+     * @param ranks list of team-ranks to be checked for
+     * @return true, if the user has one of the ranks
+     */
+    @Contract(pure = true)
+    boolean hasTeamRank(@Nonnull TeamRank... ranks);
+
+    /**
+     * Gets the team-member object of this user.
+     *
+     * @return team-member object
+     * @throws UserNotPermittedException if the user is no team-member
+     * @see #isTeamler()
+     */
+    @Nonnull
+    TeamMember team() throws UserNotPermittedException;
+
+    /**
+     * Joins the team-service.
+     *
+     * @throws UnsupportedOperationException if the user is not allowed to join the team-service
+     * @throws IllegalStateException         if the user is already in a service
+     */
+    void joinTeamService() throws UnsupportedOperationException, IllegalStateException;
 
     /**
      * Closes the inventory of this user.
      */
     default void closeInventory() {
-        getPlayer().closeInventory();
+        player().closeInventory();
     }
 
     /**
@@ -186,7 +223,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param callback            callback with the chosen bank account
      * @param requiredPermissions permissions that need to be granted to this user to let him choose the specific bank account
      */
-    void askForBankAccount(@Nonnull Consumer<BankAccount> callback, @Nonnull AccountUser.BankAccountUserPermission... requiredPermissions) throws IllegalArgumentException;
+    void askForBankAccount(@Nonnull Consumer<BankAccount> callback,
+                           @Nonnull AccountUser.BankAccountUserPermission... requiredPermissions)
+            throws IllegalArgumentException;
 
     // FractionService
 
@@ -207,7 +246,8 @@ public interface OnlineUser extends User, MessageReceiver {
      * @throws UserNotPermittedException if the user is not allowed to enter the service
      * @throws IllegalStateException     if the user is already in a service
      */
-    void enterFractionService(@Nonnull Fraction service) throws IllegalArgumentException, UserNotPermittedException, IllegalStateException;
+    void enterFractionService(@Nonnull Fraction service) throws IllegalArgumentException, UserNotPermittedException,
+            IllegalStateException;
 
     /**
      * Lets the user leave the fraction-service.
@@ -217,39 +257,18 @@ public interface OnlineUser extends User, MessageReceiver {
     void leaveFractionService() throws IllegalStateException;
 
     /**
-     * Gets if the player has any type of team-rank.
+     * Sets the user's health to the maximum.
      *
-     * @return true, if the user is part of the server-team (and in team-service)
+     * @return the amount of half hearts the user was healed
      */
-    @Contract(pure = true)
-    boolean isTeamler();
+    @Nonnegative
+    int heal();
 
     /**
-     * Gets whether the user has any of the listed team-ranks.
+     * Revives the user if he's dead.
      *
-     * @param ranks list of team-ranks to be checked for
-     * @return true, if the user has one of the ranks
+     * @throws IllegalStateException if the user is not dead
      */
-    @Contract(pure = true)
-    boolean hasTeamRank(@Nonnull TeamRank... ranks);
-
-    /**
-     * Gets the team-member object of this user.
-     *
-     * @return team-member object
-     * @throws UserNotPermittedException if the user is no team-member
-     * @see #isTeamler()
-     */
-    @Nonnull
-    TeamMember team() throws UserNotPermittedException;
-
-    /**
-     * Lets the user enter the team-service. If the user isn't teamler, nothing happens.
-     */
-    void joinTeamService() throws UnsupportedOperationException, IllegalStateException;
-
-    void heal();
-
     void revive() throws IllegalStateException;
 
     /**
@@ -269,22 +288,26 @@ public interface OnlineUser extends User, MessageReceiver {
     boolean isVanish();
 
     /**
-     * Defines whether this user is vanished.
-     * <b>Note:</b> this method only changes the state (The user is still visible)
+     * Sets whether this user is vanished.
      *
-     * @param vanish vanish state
+     * @param vanish true, if this user should be vanished
+     * @throws UnsupportedOperationException if the user is not allowed to vanish
      */
     void setVanish(boolean vanish) throws UnsupportedOperationException;
 
     /**
-     * Imprisons this user.
+     * Imprisons this user for the given duration.
      *
-     * @param duration duration in minutes
+     * @param duration duration of the imprisonment
+     * @throws UnsupportedOperationException if the user cannot be imprisoned (e.g. because he's a team-member)
+     * @throws IllegalStateException         if the user is already in prison
      */
-    void imprison(int duration) throws UnsupportedOperationException, IllegalStateException;
+    void imprison(@Nonnull Duration duration) throws UnsupportedOperationException, IllegalStateException;
 
     /**
-     * Releases this user from prison (im imprisoned).
+     * Releases this user from prison.
+     *
+     * @throws IllegalStateException if the user is not in prison
      */
     void releaseFromPrison() throws IllegalStateException;
 
@@ -305,7 +328,8 @@ public interface OnlineUser extends User, MessageReceiver {
     @Contract(pure = true)
     boolean isAllowedToUse(Block block);
 
-    void changeSign(@Nonnull Block block, @Nullable String line1, @Nullable String line2, @Nullable String line3, @Nullable String line4) throws IllegalArgumentException;
+    void changeSign(@Nonnull Block block, @Nullable String line1, @Nullable String line2, @Nullable String line3,
+                    @Nullable String line4) throws IllegalArgumentException;
 
     void resetSign(@Nonnull Block block) throws IllegalArgumentException;
 
@@ -317,7 +341,7 @@ public interface OnlineUser extends User, MessageReceiver {
 
     @Contract(pure = true)
     default LoadedVehicle getVehicle() {
-        final Entity vehicle = getPlayer().getVehicle();
+        final Entity vehicle = player().getVehicle();
         if (vehicle == null) return null;
         if (!(vehicle instanceof ArmorStand)) return null;
         return VehicleManager.getVehicle((ArmorStand) vehicle);
@@ -326,10 +350,12 @@ public interface OnlineUser extends User, MessageReceiver {
     void checkRegistration();
 
     default void chat(@Nonnull ChatType type, @Nonnull String message) throws IllegalArgumentException {
+        if (type == null) throw new IllegalArgumentException("Type cannot be null");
         ChatHandler.chat(this, type, message);
     }
 
     default void chat(@Nonnull String message) throws IllegalArgumentException {
+        if (message == null) throw new IllegalArgumentException("Message cannot be null");
         ChatHandler.chat(this, ChatType.NORMAL, message);
     }
 
@@ -350,19 +376,14 @@ public interface OnlineUser extends User, MessageReceiver {
     PlayerLocation getLocation();
 
     /**
-     * Creates a clickable message without any specifications.
+     * Creates a clickable message that executes the given callback, and is only clickable once (if selfCancelling is true).
      *
+     * @param selfCancelling defines if the message is clickable multiple times
      * @return new clickable message
      */
-    ClickableMessage createClickableMessage();
-
-    /**
-     * Creates a clickable message that executes the given callback.
-     *
-     * @param callback callback to be executed if player clicks the message
-     * @return new clickable message
-     */
-    ClickableMessage createClickableMessage(Runnable callback);
+    @Nonnull
+    @Contract("_ -> new")
+    ClickableMessage createClickableMessage(boolean selfCancelling);
 
     /**
      * Creates a clickable message that executes the given callback, and is only clickable once (if selfCancelling is true).
@@ -371,7 +392,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param callback       callback to be executed if player clicks the message
      * @return new clickable message
      */
-    ClickableMessage createClickableMessage(boolean selfCancelling, Runnable callback);
+    @Nonnull
+    @Contract("_, _ -> new")
+    ClickableMessage createClickableMessage(boolean selfCancelling, @Nonnull Runnable callback);
 
     /**
      * Checks whether the user is in a virtual box whose span in each direction is twice the specified range.
@@ -382,7 +405,7 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param range    maximum range for the result to be true
      * @return true, if user is in range
      */
-    boolean isInCubicRange(@Nonnull Location location, int range) throws IllegalArgumentException;
+    boolean isInCubicRange(@Nonnull Location location, @Nonnegative int range) throws IllegalArgumentException;
 
     /**
      * Checks whether the user is in a virtual sphere whose radius is the square root of specified range.
@@ -394,7 +417,7 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param rangeSquared maximum range for the result to be true
      * @return true, if user is in range
      */
-    boolean isInSquaredRange(@Nonnull Location location, int rangeSquared) throws IllegalArgumentException;
+    boolean isInSquaredRange(@Nonnull Location location, @Nonnegative int rangeSquared) throws IllegalArgumentException;
 
     /**
      * Checks whether the user is in a virtual sphere whose radius is the specified range.
@@ -403,7 +426,9 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param range    maximum range for the result to be true
      * @return true, if user is in range
      */
-    default boolean isInRange(@Nonnull Location location, int range) throws IllegalArgumentException {
+    default boolean isInRange(@Nonnull Location location, @Nonnegative int range) throws IllegalArgumentException {
+        if (location == null) throw new IllegalArgumentException("Location cannot be null");
+        if (range < 0) throw new IllegalArgumentException("Range cannot be negative");
         return isInSquaredRange(location, range * range);
     }
 
