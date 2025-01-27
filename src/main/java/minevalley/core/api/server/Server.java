@@ -1,11 +1,12 @@
 package minevalley.core.api.server;
 
+import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
 
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface Server extends MessageReceiver {
+public interface Server extends MessageReceiver, SoundReceiver {
 
     /**
      * Get the server type.

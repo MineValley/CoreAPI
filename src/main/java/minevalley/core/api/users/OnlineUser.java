@@ -1,5 +1,6 @@
 package minevalley.core.api.users;
 
+import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.messaging.MessageReceiver;
@@ -29,7 +30,7 @@ import java.time.Duration;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public interface OnlineUser extends User, MessageReceiver {
+public interface OnlineUser extends User, MessageReceiver, SoundReceiver {
 
     /**
      * Gets the player object of this user.
