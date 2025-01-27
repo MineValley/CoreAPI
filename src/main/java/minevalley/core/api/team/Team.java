@@ -1,12 +1,13 @@
 package minevalley.core.api.team;
 
+import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.messaging.instruction.Instruction;
 
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface Team extends MessageReceiver {
+public interface Team extends MessageReceiver, SoundReceiver {
 
     /**
      * Send a message to the team chat.

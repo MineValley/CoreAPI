@@ -1,9 +1,8 @@
 package minevalley.core.api.users;
 
+import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
-import minevalley.core.api.enums.sounds.AmbientSound;
-import minevalley.core.api.enums.sounds.Sound;
 import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.messaging.instruction.Instruction;
 import minevalley.core.api.regions.utils.PlayerLocation;
@@ -31,7 +30,7 @@ import java.time.Duration;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public interface OnlineUser extends User, MessageReceiver {
+public interface OnlineUser extends User, MessageReceiver, SoundReceiver {
 
     /**
      * Gets the player object of this user.
@@ -137,44 +136,6 @@ public interface OnlineUser extends User, MessageReceiver {
     @Contract(pure = true)
     McVersion getVersion();
 
-    // Sounds
-
-    /**
-     * Plays a specific sound.
-     *
-     * @param sound sound to be played
-     * @throws IllegalArgumentException if sound is null or an empty string
-     */
-    void playSound(@Nonnull String sound) throws IllegalArgumentException;
-
-    /**
-     * Plays a specific sound.
-     *
-     * @param sound sound to be played
-     * @throws IllegalArgumentException if sound is null
-     */
-    void playSound(@Nonnull Sound sound) throws IllegalArgumentException;
-
-    /**
-     * Plays a specific sound.
-     *
-     * @param sound    sound to be played
-     * @param location location where the sound will be played
-     * @param spatial  defines whether the sound should be spatial
-     * @throws IllegalArgumentException if sound or location is null, or the location is not in the same world as the user
-     */
-    void playSound(@Nonnull Sound sound, @Nonnull Location location, boolean spatial) throws IllegalArgumentException;
-
-    /**
-     * Plays a specific sound.
-     *
-     * @param sound    sound to be played
-     * @param location location where the sound will be played
-     * @param spatial  defines whether the sound should be spatial
-     * @throws IllegalArgumentException if sound or location is null, or the location is not in the same world as the user
-     */
-    void playSound(@Nonnull String sound, @Nonnull Location location, boolean spatial) throws IllegalArgumentException;
-
     /**
      * Gets the ambient this user is currently hearing
      *
@@ -182,7 +143,7 @@ public interface OnlineUser extends User, MessageReceiver {
      */
     @Nonnull
     @Contract(pure = true)
-    AmbientSound getAmbient();
+    Ambient getAmbient();
 
     /**
      * Sets the ambient this user is hearing
@@ -190,7 +151,7 @@ public interface OnlineUser extends User, MessageReceiver {
      * @param ambient ambient to be set
      * @throws IllegalArgumentException if ambient is null
      */
-    void setAmbient(@Nonnull AmbientSound ambient) throws IllegalArgumentException;
+    void setAmbient(@Nonnull Ambient ambient) throws IllegalArgumentException;
 
     /**
      * Starts the credits sequence.

@@ -1,12 +1,16 @@
-package minevalley.core.api.enums.sounds;
+package minevalley.core.api.audio.sounds;
 
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import net.kyori.adventure.key.Key;
+import net.kyori.adventure.sound.Sound;
+import org.bukkit.NamespacedKey;
 
-@Getter
+import javax.annotation.Nonnull;
+
+@SuppressWarnings("unused")
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public enum Sound {
+public enum SystemSound implements Sound.Type {
 
     /**
      * Used to get the user's attention.
@@ -23,5 +27,10 @@ public enum Sound {
      */
     NOTIFICATION_ERROR("notification_error");
 
-    private final String name;
+    private final String key;
+
+    @Override
+    public @Nonnull Key key() {
+        return new NamespacedKey("minevalley", key);
+    }
 }
