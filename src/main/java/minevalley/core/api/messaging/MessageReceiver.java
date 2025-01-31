@@ -100,33 +100,6 @@ public interface MessageReceiver {
     /**
      * Sends a message to the receiver.
      *
-     * @param message the message to send
-     * @param menu    the menu to send
-     * @return the menu that was sent
-     * @throws IllegalArgumentException if the message or menu is null
-     */
-    @Nonnull
-    @Contract("_, _ -> new")
-    ChatMenu sendMessage(@Nonnull ComponentLike message, @Nonnull ClickableOption... menu)
-            throws IllegalArgumentException;
-
-    /**
-     * Sends a message to the receiver.
-     *
-     * @param message     the message to send
-     * @param instruction the instruction to send
-     * @param menu        the menu to send
-     * @return the menu that was sent
-     * @throws IllegalArgumentException if the message, instruction or menu is null
-     */
-    @Nonnull
-    @Contract("_, _, _ -> new")
-    ChatMenu sendMessage(@Nonnull ComponentLike message, @Nonnull Instruction instruction,
-                         @Nonnull ClickableOption... menu) throws IllegalArgumentException;
-
-    /**
-     * Sends a message to the receiver.
-     *
      * @param type    the type of message
      * @param message the message to send
      * @throws IllegalArgumentException if the type or message is null
@@ -143,35 +116,6 @@ public interface MessageReceiver {
      */
     void sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction)
             throws IllegalArgumentException;
-
-    /**
-     * Sends a message to the receiver.
-     *
-     * @param type    the type of message
-     * @param message the message to send
-     * @param menu    the menu to send
-     * @return the menu that was sent
-     * @throws IllegalArgumentException if the type, message or menu is null
-     */
-    @Nonnull
-    @Contract("_, _, _ -> new")
-    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull ClickableOption... menu)
-            throws IllegalArgumentException;
-
-    /**
-     * Sends a message to the receiver.
-     *
-     * @param type        the type of message
-     * @param message     the message to send
-     * @param instruction the instruction to send
-     * @param menu        the menu to send
-     * @return the menu that was sent
-     * @throws IllegalArgumentException if the type, message, instruction or menu is null
-     */
-    @Nonnull
-    @Contract("_, _, _, _ -> new")
-    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction,
-                         @Nonnull ClickableOption... menu) throws IllegalArgumentException;
 
     /**
      * Shows a title to the receiver.

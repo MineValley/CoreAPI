@@ -3,6 +3,7 @@ package minevalley.core.api.users;
 import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.messaging.DialogReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.messaging.instruction.Instruction;
 import minevalley.core.api.regions.utils.PlayerLocation;
@@ -30,7 +31,7 @@ import java.time.Duration;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public interface OnlineUser extends User, MessageReceiver, SoundReceiver {
+public interface OnlineUser extends User, DialogReceiver, MessageReceiver, SoundReceiver {
 
     /**
      * Gets the player object of this user.
@@ -81,41 +82,6 @@ public interface OnlineUser extends User, MessageReceiver, SoundReceiver {
     default void closeInventory() {
         player().closeInventory();
     }
-
-    /**
-     * Sends a message to the receiver and waits for an input.
-     *
-     * @param text     the text to send
-     * @param callback the callback to call when the user inputs something
-     * @throws IllegalArgumentException if the text or callback is null
-     */
-    void input(@Nonnull String text, @Nonnull Consumer<String> callback) throws IllegalArgumentException;
-
-    /**
-     * Sends a message to the receiver and waits for an input.
-     *
-     * @param text        the text to send
-     * @param instruction the instruction to send
-     * @param callback    the callback to call when the user inputs something
-     * @throws IllegalArgumentException if the text, instruction or callback is null
-     */
-    void input(@Nonnull String text, @Nonnull Instruction instruction, @Nonnull Consumer<String> callback)
-            throws IllegalArgumentException;
-
-    /**
-     * Checks if the receiver is currently in a chat input.
-     *
-     * @return true if the receiver is in a chat input, false otherwise
-     */
-    @Contract(pure = true)
-    boolean isInChatInput();
-
-    /**
-     * Leaves the current chat input.
-     * <p>
-     * If the receiver is not in a chat input, this method does nothing.
-     */
-    void leaveChatInput();
 
     /**
      * Gets whether this user is currently logged in via labymod.
