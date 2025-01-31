@@ -2,11 +2,21 @@ package minevalley.core.api.server;
 
 import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
+import minevalley.core.api.users.OnlineUser;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
 @SuppressWarnings("unused")
 public interface Server extends MessageReceiver, SoundReceiver {
+
+    /**
+     * Gets a list of all online users.
+     *
+     * @return a list of all online users
+     */
+    @Nonnull
+    List<OnlineUser> onlineUsers();
 
     /**
      * Get the server type.
@@ -14,7 +24,7 @@ public interface Server extends MessageReceiver, SoundReceiver {
      * @return the server type
      */
     @Nonnull
-    ServerType getType();
+    ServerType type();
 
     /**
      * Gets whether the server is in development mode.

@@ -1066,11 +1066,6 @@ public final class Core {
         return server.createNPC(value, signature, name, location, focusNearPlayers);
     }
 
-    @Nonnull
-    public static List<OnlineUser> getOnlineUsers() {
-        return server.getOnlineUsers();
-    }
-
     /**
      * Creates a new car barrier with the specific parameters.
      *

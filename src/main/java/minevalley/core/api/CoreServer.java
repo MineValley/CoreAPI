@@ -256,22 +256,14 @@ public interface CoreServer {
     Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, DayOfWeek... weekdays) throws IllegalArgumentException;
 
     @Nonnull
-    Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, List<DayOfWeek> weekdays) throws IllegalArgumentException;
-
-    @Nonnull
     Webhook createWebhook(@Nonnull URL url) throws IllegalArgumentException;
 
     @Nonnull
     EmbeddedMessage createEmbeddedMessage();
 
-    boolean isMaintenance();
-
     NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers);
 
     NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers);
-
-    @Nonnull
-    List<OnlineUser> getOnlineUsers();
 
     @Nonnull
     CarBarrier createCarBarrier(@Nonnull Location loc, int rotation, @Nonnull List<Block> barrierBlocks) throws IllegalArgumentException;
@@ -343,8 +335,6 @@ public interface CoreServer {
 
     @Nullable
     District getDistrict(Chunk chunk);
-
-    void updateDistricts();
 
     @Nonnull
     RadioMast createRadioMast(@Nonnull String name, @Nonnull Block location, int range) throws IllegalArgumentException;
