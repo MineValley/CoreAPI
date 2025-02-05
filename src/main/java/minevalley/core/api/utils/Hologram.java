@@ -54,9 +54,4 @@ public interface Hologram extends LocationModifier, VisibilityModifier {
      * @param line the index of the line.
      */
     void removeLine(int line);
-
-    /**
-     * Removes the hologram.
-     */
-    void delete();
 }
