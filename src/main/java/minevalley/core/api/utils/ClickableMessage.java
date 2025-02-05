@@ -12,7 +12,7 @@ public interface ClickableMessage {
      * Defines if this clickable message gets disabled automatically when the player clicks it.
      *
      * @param isSelfCancelling boolean that defines if this clickable message is self cancelling
-     * @return this clickable message
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
@@ -21,12 +21,12 @@ public interface ClickableMessage {
     /**
      * Defines the callback which is called when the player clicks this message.
      *
-     * @param runnable will be called if the player clicks the message
-     * @return runnable
+     * @param callback will be called if the player clicks the message
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    ClickableMessage setCallback(@Nonnull Runnable callback);
+    ClickableMessage setCallback(@Nonnull Runnable callback) throws IllegalArgumentException;
 
     /**
      * Disables this clickable message
