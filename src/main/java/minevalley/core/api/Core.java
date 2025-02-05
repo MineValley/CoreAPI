@@ -90,8 +90,8 @@ public final class Core {
      * @return Server object
      */
     @Nonnull
-    public static Server getServer() {
-        return server.getServer();
+    public static Server server() {
+        return server.server();
     }
 
     /**

@@ -73,7 +73,7 @@ public interface CoreServer {
     JavaPlugin getInstance();
 
     @Nonnull
-    Server getServer();
+    Server server();
 
     @Nonnull
     BukkitTask runSyncTaskLater(long delay, @Nonnull Runnable runnable) throws IllegalArgumentException;
