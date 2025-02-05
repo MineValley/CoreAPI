@@ -1,4 +1,4 @@
-package minevalley.core.api.regions.utils;
+package minevalley.core.api.utils;
 
 import minevalley.core.api.modifiers.VisibilityModifier;
 
