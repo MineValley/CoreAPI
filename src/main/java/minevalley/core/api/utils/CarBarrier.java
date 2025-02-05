@@ -1,7 +1,9 @@
 package minevalley.core.api.utils;
 
+import minevalley.core.api.modifiers.VisibilityModifier;
+
 @SuppressWarnings("unused")
-public interface CarBarrier {
+public interface CarBarrier extends VisibilityModifier {
 
     /**
      * Opens the barrier.
@@ -16,11 +18,4 @@ public interface CarBarrier {
      * @throws IllegalStateException if the barrier is already closed or removed.
      */
     void close() throws IllegalStateException;
-
-    /**
-     * Removes the barrier.
-     *
-     * @throws IllegalStateException if the barrier is already removed.
-     */
-    void remove() throws IllegalStateException;
 }
