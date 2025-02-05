@@ -2,6 +2,7 @@ package minevalley.core.api.utils;
 
 import minevalley.core.api.modifiers.LocationModifier;
 import minevalley.core.api.modifiers.VisibilityModifier;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -15,6 +16,7 @@ public interface Hologram extends LocationModifier, VisibilityModifier {
      * @return the lines of the hologram.
      */
     @Nonnull
+    @Contract(pure = true)
     String[] getLines();
 
     /**
@@ -24,6 +26,7 @@ public interface Hologram extends LocationModifier, VisibilityModifier {
      * @return the line at the specified index.
      * @throws IndexOutOfBoundsException if the line is out of bounds.
      */
+    @Contract(pure = true)
     default String getLine(@Nonnegative int line) throws IndexOutOfBoundsException {
         return getLines()[line];
     }
