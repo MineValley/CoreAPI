@@ -3,9 +3,24 @@ package minevalley.core.api.utils;
 @SuppressWarnings("unused")
 public interface CarBarrier {
 
-    void open();
+    /**
+     * Opens the barrier.
+     *
+     * @throws IllegalStateException if the barrier is already open or removed.
+     */
+    void open() throws IllegalStateException;
 
-    void close();
+    /**
+     * Closes the barrier.
+     *
+     * @throws IllegalStateException if the barrier is already closed or removed.
+     */
+    void close() throws IllegalStateException;
 
-    void remove();
+    /**
+     * Removes the barrier.
+     *
+     * @throws IllegalStateException if the barrier is already removed.
+     */
+    void remove() throws IllegalStateException;
 }
