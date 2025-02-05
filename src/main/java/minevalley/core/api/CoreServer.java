@@ -24,7 +24,7 @@ import minevalley.core.api.regions.structures.RadioMast;
 import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
-import minevalley.core.api.regions.utils.FakeBlock;
+import minevalley.core.api.utils.FakeBlock;
 import minevalley.core.api.server.Server;
 import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;

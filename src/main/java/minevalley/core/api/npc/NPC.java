@@ -81,8 +81,6 @@ public interface NPC extends MessageSender, EquipmentModifier, InteractionModifi
 
     Location getLocation();
 
-    void remove();
-
     boolean isNameTagHidden();
 
     void hideNameTag(boolean hidden);
