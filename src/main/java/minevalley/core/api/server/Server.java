@@ -11,20 +11,20 @@ import java.util.List;
 public interface Server extends MessageReceiver, SoundReceiver {
 
     /**
-     * Gets a list of all online users.
-     *
-     * @return a list of all online users
-     */
-    @Nonnull
-    List<OnlineUser> onlineUsers();
-
-    /**
      * Get the server type.
      *
      * @return the server type
      */
     @Nonnull
     ServerType type();
+
+    /**
+     * Gets a list of all online users.
+     *
+     * @return a list of all online users
+     */
+    @Nonnull
+    List<OnlineUser> getOnlineUsers();
 
     /**
      * Gets whether the server is in development mode.
