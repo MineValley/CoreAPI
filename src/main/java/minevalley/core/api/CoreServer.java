@@ -7,6 +7,9 @@ import minevalley.core.api.corporations.companies.*;
 import minevalley.core.api.database.StatementBuilder;
 import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
+import minevalley.core.api.displays.BlockDisplay;
+import minevalley.core.api.displays.ItemDisplay;
+import minevalley.core.api.displays.TextDisplay;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.gui.FillItem;
@@ -42,6 +45,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -170,6 +174,15 @@ public interface CoreServer {
 
     @Nonnull
     FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material, int data) throws IllegalArgumentException;
+
+    @Nonnull
+    BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull BlockState blockState) throws IllegalArgumentException;
+
+    @Nonnull
+    ItemDisplay createItemDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ItemStack itemStack) throws IllegalArgumentException;
+
+    @Nonnull
+    TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull String text) throws IllegalArgumentException;
 
     @Nonnull
     @Contract("_ -> new")
