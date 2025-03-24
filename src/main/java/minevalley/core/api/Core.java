@@ -7,6 +7,9 @@ import minevalley.core.api.corporations.companies.*;
 import minevalley.core.api.database.StatementBuilder;
 import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
+import minevalley.core.api.displays.BlockDisplay;
+import minevalley.core.api.displays.ItemDisplay;
+import minevalley.core.api.displays.TextDisplay;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.gui.FillItem;
@@ -42,6 +45,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -637,6 +641,50 @@ public final class Core {
     @Contract("_, _ -> new")
     public static FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material) throws IllegalArgumentException {
         return server.createFakeBlock(block, material, 0);
+    }
+
+    /**
+     * Creates a block which is only visible to specific players.
+     *
+     * @param location  location where the BlockDisplay is placed
+     * @param scale    scale of the BlockDisplay
+     * @param blockState block state of the BlockDisplay
+     * @return BlockDisplay with the specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null or data is invalid
+     */
+    @Nonnull
+    @Contract("_, _, _-> new")
+    public static BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull BlockState blockState) throws IllegalArgumentException {
+        return server.createBlockDisplay(location, scale, blockState);
+    }
+
+    /**
+     * Creates a ItemDisplay which is only visible to specific players.
+     * @param location location where the ItemDisplay is placed
+     * @param scale scale of the ItemDisplay
+     * @param itemStack item stack of the ItemDisplay
+     * @return ItemDisplay with the specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null or data is invalid
+     */
+    @Nonnull
+    @Contract("_, _, _ -> new")
+    public static ItemDisplay createItemDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ItemStack itemStack) throws IllegalArgumentException {
+        return server.createItemDisplay(location, scale, itemStack);
+    }
+
+    /**
+     * Creates a text display which is only visible to specific players.
+     *
+     * @param location location where the TextDisplay is placed
+     * @param scale scale of the TextDisplay
+     * @param message message of the TextDisplay
+     * @return TextDisplay with the specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null or data is invalid
+     */
+    @Nonnull
+    @Contract("_, _, _ -> new")
+    public static TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull String message) throws IllegalArgumentException {
+        return server.createTextDisplay(location, scale, message);
     }
 
     /**
