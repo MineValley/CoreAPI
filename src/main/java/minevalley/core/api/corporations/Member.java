@@ -3,11 +3,13 @@ package minevalley.core.api.corporations;
 import minevalley.core.api.corporations.tasks.Task;
 import minevalley.core.api.users.User;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 @SuppressWarnings("unused")
 public interface Member {
 
+    @Nonnull
     String getId();
 
     /**
@@ -15,6 +17,7 @@ public interface Member {
      *
      * @return user object
      */
+    @Nonnull
     User getUser();
 
     /**
@@ -22,25 +25,28 @@ public interface Member {
      *
      * @return this members department
      */
+    @Nonnull
     Department getDepartment();
 
-    void switchDepartment(Department department);
+    void switchDepartment(@Nonnull Department department) throws IllegalArgumentException;
 
     int getBaseWageInCents();
 
-    void setBaseWageInCents(int baseWageInCents);
+    void setBaseWageInCents(int baseWageInCents) throws IllegalArgumentException;
 
+    @Nonnull
     List<Task> getAvailableTasks();
 
-    void addTask(Task task);
+    void addTask(@Nonnull Task task) throws IllegalArgumentException;
 
-    void removeTask(Task task);
+    void removeTask(@Nonnull Task task) throws IllegalArgumentException;
 
+    @Nonnull
     List<MemberPermission> getMemberPermissions();
 
-    void addPermission(MemberPermission permission);
+    void addPermission(@Nonnull MemberPermission permission) throws IllegalArgumentException;
 
-    void revokePermission(MemberPermission permission);
+    void revokePermission(@Nonnull MemberPermission permission) throws IllegalArgumentException;
 
     void kick();
 }
