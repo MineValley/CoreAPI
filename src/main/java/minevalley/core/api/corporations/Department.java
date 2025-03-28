@@ -3,7 +3,10 @@ package minevalley.core.api.corporations;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.corporations.tasks.Task;
 import minevalley.core.api.users.User;
+import org.jetbrains.annotations.Contract;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 
@@ -15,20 +18,25 @@ public interface Department extends Registrant {
      *
      * @return name as string
      */
+    @Nonnull
+    @Contract(pure = true)
     String getName();
 
     /**
      * Sets this departments name.
      *
      * @param name name as string
+     * @throws IllegalArgumentException if the name is null
      */
-    void setName(String name);
+    void setName(@Nonnull String name) throws IllegalArgumentException;
 
     /**
      * Gets this department's description.
      *
      * @return description as string
      */
+    @Nonnull
+    @Contract(pure = true)
     String getDescription();
 
     /**
@@ -36,17 +44,21 @@ public interface Department extends Registrant {
      *
      * @param description description as string
      */
-    void setDescription(String description);
+    void setDescription(@Nonnull String description);
 
     /**
      * Gets the holder of this department.
      *
      * @return holder of this department (company/organization)
      */
+    @Nonnull
+    @Contract(pure = true)
     Group getHolder();
 
+    @Nonnull
     Department getParentDepartment();
 
+    @Nonnull
     List<Department> getChildDepartments();
 
     /**
@@ -61,9 +73,12 @@ public interface Department extends Registrant {
      *
      * @return list with all members of this department
      */
+    @Nonnull
     List<Member> getMembers();
 
-    Member getMember(User user);
+    @Nullable
+    @Contract(value = "null -> null", pure = true)
+    Member getMember(@Nullable User user);
 
     int getDefaultBaseWageInCents();
 

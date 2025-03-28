@@ -3,7 +3,10 @@ package minevalley.core.api.corporations;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.users.User;
+import org.jetbrains.annotations.Contract;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -14,6 +17,8 @@ public interface Group extends Registrant {
      *
      * @return name of group
      */
+    @Nonnull
+    @Contract(pure = true)
     String getName();
 
     /**
@@ -21,6 +26,8 @@ public interface Group extends Registrant {
      *
      * @return description as string
      */
+    @Nonnull
+    @Contract(pure = true)
     String getDescription();
 
     /**
@@ -28,8 +35,10 @@ public interface Group extends Registrant {
      *
      * @param name new name
      * @return Result of rename
+     * @throws IllegalArgumentException if the name is null
      */
-    RenameFeedback changeName(String name);
+    @Nonnull
+    RenameFeedback changeName(@Nonnull String name) throws IllegalArgumentException;
 
     /**
      * Changes the description of this group. Max. length = 150 chars; Min. length = 15 chars
@@ -37,13 +46,16 @@ public interface Group extends Registrant {
      * @param description description as string
      * @return result of the description change
      */
-    RenameFeedback changeDescription(String description);
+    @Nonnull
+    RenameFeedback changeDescription(@Nonnull String description) throws IllegalArgumentException;
 
     /**
      * Gets the department, which is markes as default.
      *
      * @return group's default department
      */
+    @Nonnull
+    @Contract(pure = true)
     Department getDefaultDepartment();
 
     /**
@@ -51,14 +63,17 @@ public interface Group extends Registrant {
      *
      * @return departments as list
      */
+    @Nonnull
+    @Contract(pure = true)
     List<Department> getDepartments();
 
     /**
      * Removes the member with the specific unique id from this group.
      *
      * @param user member to remove
+     * @throws IllegalArgumentException if the user is null
      */
-    void removeMember(User user);
+    void removeMember(@Nonnull User user) throws IllegalArgumentException;
 
     /**
      * Adds a member to this group.
@@ -67,19 +82,30 @@ public interface Group extends Registrant {
      *
      * @param user member to add as user
      * @return member object representing this user
+     * @throws IllegalArgumentException if the user is null
      */
-    Member addMember(User user);
+    @Nonnull
+    Member addMember(@Nonnull User user) throws IllegalArgumentException;
 
-    Member getMember(User user);
+    @Nullable
+    @Contract(value = "null -> null", pure = true)
+    Member getMember(@Nullable User user);
 
     /**
      * Gets the bank account of this group.
      *
      * @return bank account of group
      */
+    @Nullable
+    @Contract(pure = true)
     BankAccount getBankAccount();
 
-    void delete();
+    /**
+     * Deletes this group.
+     *
+     * @throws IllegalStateException if the group is already deleted
+     */
+    void delete() throws IllegalStateException;
 
     enum RenameFeedback {
         FORBIDDEN_CHARACTERS,
