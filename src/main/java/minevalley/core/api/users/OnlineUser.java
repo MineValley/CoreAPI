@@ -5,7 +5,6 @@ import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.messaging.DialogReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
-import minevalley.core.api.messaging.instruction.Instruction;
 import minevalley.core.api.regions.utils.PlayerLocation;
 import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.McVersion;
@@ -101,6 +100,15 @@ public interface OnlineUser extends User, DialogReceiver, MessageReceiver, Sound
     @Nonnull
     @Contract(pure = true)
     McVersion getVersion();
+
+    /**
+     * Update the list of commands sent to the client.
+     * <p>
+     * Generally useful to ensure the client has a complete list of commands
+     * after permission changes are done.
+     * </p>
+     */
+    void updateCommands();
 
     /**
      * Gets the ambient this user is currently hearing
