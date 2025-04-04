@@ -2,7 +2,7 @@ package minevalley.core.api.displays;
 
 import javax.annotation.Nonnull;
 
-public interface TextDisplay {
+public interface TextDisplay extends Display {
 
     /**
      * Set the text of the display

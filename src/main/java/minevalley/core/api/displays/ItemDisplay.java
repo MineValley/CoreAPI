@@ -4,7 +4,7 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 
-public interface ItemDisplay {
+public interface ItemDisplay extends Display {
 
     /**
      * Set the item stack of the display
