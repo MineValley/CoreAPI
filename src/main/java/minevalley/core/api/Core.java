@@ -1,6 +1,8 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
+import com.mojang.brigadier.tree.LiteralCommandNode;
+import io.papermc.paper.command.brigadier.CommandSourceStack;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
@@ -27,7 +29,6 @@ import minevalley.core.api.regions.structures.RadioMast;
 import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
-import minevalley.core.api.utils.FakeBlock;
 import minevalley.core.api.server.Server;
 import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;
@@ -35,10 +36,8 @@ import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
-import minevalley.core.api.utils.CarBarrier;
 import minevalley.core.api.utils.EventListener;
-import minevalley.core.api.utils.Hologram;
-import minevalley.core.api.utils.ItemBuilder;
+import minevalley.core.api.utils.*;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -227,6 +226,11 @@ public final class Core {
     @Contract("_, _, _ -> _")
     public static int generateUniqueId(@Nonnull String table, @Nonnull String column, int amountOfChars) throws IllegalArgumentException, SQLException {
         return server.generateUniqueId(table, column, amountOfChars);
+    }
+
+    @SuppressWarnings("UnstableApiUsage")
+    public static void registerCommand(@Nonnull LiteralCommandNode<CommandSourceStack> command) throws IllegalArgumentException {
+        server.registerCommand(command);
     }
 
     /**
@@ -646,8 +650,8 @@ public final class Core {
     /**
      * Creates a block which is only visible to specific players.
      *
-     * @param location  location where the BlockDisplay is placed
-     * @param scale    scale of the BlockDisplay
+     * @param location   location where the BlockDisplay is placed
+     * @param scale      scale of the BlockDisplay
      * @param blockState block state of the BlockDisplay
      * @return BlockDisplay with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null or data is invalid
@@ -660,8 +664,9 @@ public final class Core {
 
     /**
      * Creates a ItemDisplay which is only visible to specific players.
-     * @param location location where the ItemDisplay is placed
-     * @param scale scale of the ItemDisplay
+     *
+     * @param location  location where the ItemDisplay is placed
+     * @param scale     scale of the ItemDisplay
      * @param itemStack item stack of the ItemDisplay
      * @return ItemDisplay with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null or data is invalid
@@ -676,8 +681,8 @@ public final class Core {
      * Creates a text display which is only visible to specific players.
      *
      * @param location location where the TextDisplay is placed
-     * @param scale scale of the TextDisplay
-     * @param message message of the TextDisplay
+     * @param scale    scale of the TextDisplay
+     * @param message  message of the TextDisplay
      * @return TextDisplay with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null or data is invalid
      */
