@@ -37,19 +37,6 @@ public interface CommandBuilder {
     CommandBuilder requires(@Nonnull Predicate<OnlineUser> requirement) throws IllegalArgumentException;
 
     /**
-     * Sets whether the command is executable if the user is frozen.
-     * <p>
-     * <b>Note:</b> By default the command is <b>not</b> executable if the user is frozen.
-     * </p>
-     *
-     * @param executable true if the command should be executable when the user is frozen, false otherwise.
-     * @return this
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    CommandBuilder executableIfFrozen(boolean executable);
-
-    /**
      * Defines what happens, whenever the command is caused correctly with someone with the required permissions.
      *
      * @param execution the function to be executed when the command is executed.
@@ -63,7 +50,28 @@ public interface CommandBuilder {
      * <b>Note:</b> When doing this on the run, the users commands have to be updated manually using {@link OnlineUser#updateCommands()} for them to see this command.
      * </p>
      *
+     * @param executableIfFrozen sets whether the command can be executed when the user is frozen.
      * @see OnlineUser#updateCommands()
      */
-    void register();
+    void register(boolean executableIfFrozen);
+
+    /**
+     * Registers the command so it is accessible to the users.
+     * <p>
+     * <b>Note:</b>
+     * <ul>
+     *     <li>
+     *         When doing this on the run, the users commands have to be updated manually using {@link OnlineUser#updateCommands()} for them to see this command.
+     *     </li>
+     *     <li>
+     *         If you want to set the command to be executable when the user is frozen, use {@link #register(boolean)}.
+     *     </li>
+     * </ul>
+     * </p>
+     *
+     * @see OnlineUser#updateCommands()
+     */
+    default void register() {
+        register(false);
+    }
 }
