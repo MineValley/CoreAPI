@@ -5,11 +5,12 @@ import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import minevalley.core.api.users.OnlineUser;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
+import java.util.function.BiFunction;
 
 /**
  * A command argument is a branch in the command tree that requests and requires an input by the user.
@@ -40,5 +41,5 @@ public abstract class CommandArgument<T> implements CommandBuilder {
      */
     @Nonnull
     @Contract("_ -> this")
-    public abstract CommandArgument<T> suggests(@Nonnull Function<SuggestionsBuilder, CompletableFuture<Suggestions>> provider) throws IllegalArgumentException;
+    public abstract CommandArgument<T> suggests(@Nonnull BiFunction<OnlineUser, SuggestionsBuilder, CompletableFuture<Suggestions>> provider) throws IllegalArgumentException;
 }
