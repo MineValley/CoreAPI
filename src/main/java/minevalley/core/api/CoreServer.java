@@ -1,6 +1,8 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
+import com.mojang.brigadier.tree.LiteralCommandNode;
+import io.papermc.paper.command.brigadier.CommandSourceStack;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
@@ -95,6 +97,9 @@ public interface CoreServer {
     StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql, boolean retrieveGeneratedKeys) throws SQLException;
 
     int generateUniqueId(@Nonnull String table, @Nonnull String column, int amountOfChars) throws IllegalArgumentException, SQLException;
+
+    @SuppressWarnings("UnstableApiUsage")
+    void registerCommand(@Nonnull LiteralCommandNode<CommandSourceStack> command) throws IllegalArgumentException;
 
     void registerListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException;
 
