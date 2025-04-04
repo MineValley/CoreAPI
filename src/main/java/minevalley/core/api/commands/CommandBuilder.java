@@ -1,4 +1,4 @@
-package minevalley.core.api.command;
+package minevalley.core.api.commands;
 
 import minevalley.core.api.users.OnlineUser;
 import org.jetbrains.annotations.Contract;

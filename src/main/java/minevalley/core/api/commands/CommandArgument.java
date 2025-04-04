@@ -1,4 +1,4 @@
-package minevalley.core.api.command;
+package minevalley.core.api.commands;
 
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.suggestion.Suggestions;
