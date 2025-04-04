@@ -28,7 +28,7 @@ public final class CommandResponse {
      *
      * @see MessageType
      */
-    public final @Nonnull MessageType type;
+    private final @Nonnull MessageType type;
 
     /**
      * The message to send.
@@ -38,7 +38,7 @@ public final class CommandResponse {
      *
      * @see CustomColor
      */
-    public final @Nonnull Component message;
+    private final @Nonnull Component message;
 
     /**
      * Creates a new command response.
