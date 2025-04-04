@@ -5,7 +5,6 @@ import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import minevalley.core.api.users.OnlineUser;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -41,5 +40,5 @@ public abstract class CommandArgument<T> implements CommandBuilder {
      */
     @Nonnull
     @Contract("_ -> this")
-    public abstract CommandArgument<T> suggests(@Nonnull BiFunction<OnlineUser, SuggestionsBuilder, CompletableFuture<Suggestions>> provider) throws IllegalArgumentException;
+    public abstract CommandArgument<T> suggests(@Nonnull BiFunction<Context, SuggestionsBuilder, CompletableFuture<Suggestions>> provider) throws IllegalArgumentException;
 }

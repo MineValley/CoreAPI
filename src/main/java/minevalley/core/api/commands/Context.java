@@ -5,7 +5,7 @@ import minevalley.core.api.users.OnlineUser;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface CommandContext {
+public interface Context {
 
     /**
      * Gets the sender of the command.
