@@ -38,7 +38,7 @@ public final class Commands {
     }
 
     @ApiStatus.Internal
-    private interface CommandManager {
+    public interface CommandManager {
 
         @Nonnull
         CommandLiteral literal(@Nonnull String name) throws IllegalArgumentException;
