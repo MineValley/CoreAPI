@@ -55,7 +55,7 @@ public interface CommandBuilder {
      * @param execution the function to be executed when the command is executed.
      * @throws IllegalArgumentException if the execution is null.
      */
-    void execute(@Nonnull BiFunction<OnlineUser, CommandContext, CommandResponse> execution) throws IllegalArgumentException;
+    void executes(@Nonnull BiFunction<OnlineUser, CommandContext, CommandResponse> execution) throws IllegalArgumentException;
 
     /**
      * Registers the command so it is accessible to the users.
