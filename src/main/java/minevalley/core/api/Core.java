@@ -1,8 +1,6 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import com.mojang.brigadier.tree.LiteralCommandNode;
-import io.papermc.paper.command.brigadier.CommandSourceStack;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
@@ -226,11 +224,6 @@ public final class Core {
     @Contract("_, _, _ -> _")
     public static int generateUniqueId(@Nonnull String table, @Nonnull String column, int amountOfChars) throws IllegalArgumentException, SQLException {
         return server.generateUniqueId(table, column, amountOfChars);
-    }
-
-    @SuppressWarnings("UnstableApiUsage")
-    public static void registerCommand(@Nonnull LiteralCommandNode<CommandSourceStack> command) throws IllegalArgumentException {
-        server.registerCommand(command);
     }
 
     /**
