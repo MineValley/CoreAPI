@@ -1,8 +1,6 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import com.mojang.brigadier.tree.LiteralCommandNode;
-import io.papermc.paper.command.brigadier.CommandSourceStack;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
@@ -29,7 +27,6 @@ import minevalley.core.api.regions.structures.RadioMast;
 import minevalley.core.api.regions.structures.Street;
 import minevalley.core.api.regions.utils.Area;
 import minevalley.core.api.regions.utils.Boundary;
-import minevalley.core.api.utils.FakeBlock;
 import minevalley.core.api.server.Server;
 import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;
@@ -37,10 +34,7 @@ import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
-import minevalley.core.api.utils.CarBarrier;
-import minevalley.core.api.utils.EventListener;
-import minevalley.core.api.utils.Hologram;
-import minevalley.core.api.utils.ItemBuilder;
+import minevalley.core.api.utils.*;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -97,9 +91,6 @@ public interface CoreServer {
     StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql, boolean retrieveGeneratedKeys) throws SQLException;
 
     int generateUniqueId(@Nonnull String table, @Nonnull String column, int amountOfChars) throws IllegalArgumentException, SQLException;
-
-    @SuppressWarnings("UnstableApiUsage")
-    void registerCommand(@Nonnull LiteralCommandNode<CommandSourceStack> command) throws IllegalArgumentException;
 
     void registerListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException;
 
