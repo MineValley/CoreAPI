@@ -42,5 +42,5 @@ public interface CommandBuilder<T extends CommandBuilder<T>> {
      * @param execution the function to be executed when the command is executed.
      * @throws IllegalArgumentException if the execution is null.
      */
-    void executes(@Nonnull BiFunction<OnlineUser, Context, CommandResponse> execution) throws IllegalArgumentException;
+    T executes(@Nonnull BiFunction<OnlineUser, Context, CommandResponse> execution) throws IllegalArgumentException;
 }
