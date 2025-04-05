@@ -3,8 +3,6 @@ package minevalley.core.api.commands;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -16,20 +14,22 @@ import java.util.function.BiFunction;
  *
  * @param <T> the type of the argument
  */
-@Getter
-@AllArgsConstructor
 @SuppressWarnings("unused")
-public abstract class CommandArgument<T> implements CommandBuilder {
+public interface CommandArgument<T> extends CommandBuilder {
 
     /**
-     * The name of the argument.
+     * Gets the name of the argument.
      */
-    private final String name;
+    @Nonnull
+    @Contract(pure = true)
+    String getName();
 
     /**
-     * The type of the argument.
+     * Gets the argument type.
      */
-    private final ArgumentType<T> type;
+    @Nonnull
+    @Contract(pure = true)
+    ArgumentType<T> getType();
 
     /**
      * Sets suggestions for this specific argument.
@@ -40,5 +40,5 @@ public abstract class CommandArgument<T> implements CommandBuilder {
      */
     @Nonnull
     @Contract("_ -> this")
-    public abstract CommandArgument<T> suggests(@Nonnull BiFunction<Context, SuggestionsBuilder, CompletableFuture<Suggestions>> provider) throws IllegalArgumentException;
+    CommandArgument<T> suggests(@Nonnull BiFunction<Context, SuggestionsBuilder, CompletableFuture<Suggestions>> provider) throws IllegalArgumentException;
 }
