@@ -15,7 +15,7 @@ import java.util.function.BiFunction;
  * @param <T> the type of the argument
  */
 @SuppressWarnings("unused")
-public interface CommandArgument<T> extends CommandBuilder {
+public interface CommandArgument<T> extends CommandBuilder<CommandArgument<T>> {
 
     /**
      * Gets the name of the argument.

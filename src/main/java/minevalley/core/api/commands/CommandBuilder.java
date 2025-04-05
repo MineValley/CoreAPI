@@ -8,7 +8,7 @@ import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
 @SuppressWarnings("unused")
-public interface CommandBuilder {
+public interface CommandBuilder<T extends CommandBuilder<T>> {
 
     /**
      * Add a new branch to the command tree.
@@ -19,7 +19,7 @@ public interface CommandBuilder {
      */
     @Nonnull
     @Contract("_ -> this")
-    CommandBuilder then(@Nonnull CommandBuilder branch) throws IllegalArgumentException;
+    T then(@Nonnull CommandBuilder<?> branch) throws IllegalArgumentException;
 
     /**
      * Sets whether the command can be executed by a given user.
@@ -34,7 +34,7 @@ public interface CommandBuilder {
      */
     @Nonnull
     @Contract("_ -> this")
-    CommandBuilder requires(@Nonnull Predicate<OnlineUser> requirement) throws IllegalArgumentException;
+    T requires(@Nonnull Predicate<OnlineUser> requirement) throws IllegalArgumentException;
 
     /**
      * Defines what happens, whenever the command is caused correctly with someone with the required permissions.
