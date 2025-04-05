@@ -43,35 +43,4 @@ public interface CommandBuilder {
      * @throws IllegalArgumentException if the execution is null.
      */
     void executes(@Nonnull BiFunction<OnlineUser, Context, CommandResponse> execution) throws IllegalArgumentException;
-
-    /**
-     * Registers the command so it is accessible to the users.
-     * <p>
-     * <b>Note:</b> When doing this on the run, the users commands have to be updated manually using {@link OnlineUser#updateCommands()} for them to see this command.
-     * </p>
-     *
-     * @param executableIfFrozen sets whether the command can be executed when the user is frozen.
-     * @see OnlineUser#updateCommands()
-     */
-    void register(boolean executableIfFrozen);
-
-    /**
-     * Registers the command so it is accessible to the users.
-     * <p>
-     * <b>Note:</b>
-     * <ul>
-     *     <li>
-     *         When doing this on the run, the users commands have to be updated manually using {@link OnlineUser#updateCommands()} for them to see this command.
-     *     </li>
-     *     <li>
-     *         If you want to set the command to be executable when the user is frozen, use {@link #register(boolean)}.
-     *     </li>
-     * </ul>
-     * </p>
-     *
-     * @see OnlineUser#updateCommands()
-     */
-    default void register() {
-        register(false);
-    }
 }
