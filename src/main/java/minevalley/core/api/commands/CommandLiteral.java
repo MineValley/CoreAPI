@@ -10,7 +10,7 @@ import javax.annotation.Nonnull;
  * It can be used to create the root command or any sub-command.
  */
 @SuppressWarnings("unused")
-public interface CommandLiteral extends CommandBuilder {
+public interface CommandLiteral extends CommandBuilder<CommandLiteral> {
 
     /**
      * Gets the literal.
