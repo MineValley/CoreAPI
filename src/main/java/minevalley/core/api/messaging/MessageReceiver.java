@@ -9,6 +9,7 @@ import minevalley.core.api.messaging.types.MessageType;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
 import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.NamedTextColor;
 
 import javax.annotation.Nonnull;
 import java.time.Duration;
@@ -82,7 +83,9 @@ public interface MessageReceiver {
      * @param message the message to send
      * @throws IllegalArgumentException if the type or message is null
      */
-    void sendActionBar(@Nonnull ActionBarType type, @Nonnull String message) throws IllegalArgumentException;
+    default void sendActionBar(@Nonnull ActionBarType type, @Nonnull String message) throws IllegalArgumentException {
+        sendActionBar(type, Component.text(message, NamedTextColor.GRAY));
+    }
 
     /**
      * Sends an instruction to the receiver.
@@ -132,7 +135,9 @@ public interface MessageReceiver {
      * @param message the message to send
      * @throws IllegalArgumentException if the type or message is null
      */
-    void sendMessage(@Nonnull MessageType type, @Nonnull String message) throws IllegalArgumentException;
+    default void sendMessage(@Nonnull MessageType type, @Nonnull String message) throws IllegalArgumentException {
+        sendMessage(type, Component.text(message, type.getMessageColor()));
+    }
 
     /**
      * Sends a message to the receiver.
@@ -160,8 +165,10 @@ public interface MessageReceiver {
      * @param instruction the instruction to send
      * @throws IllegalArgumentException if the type, message or instruction is null
      */
-    void sendMessage(@Nonnull MessageType type, @Nonnull String message, @Nonnull Instruction instruction)
-            throws IllegalArgumentException;
+    default void sendMessage(@Nonnull MessageType type, @Nonnull String message, @Nonnull Instruction instruction)
+            throws IllegalArgumentException {
+        sendMessage(type, Component.text(message, type.getMessageColor()), instruction);
+    }
 
     /**
      * Shows a title to the receiver.

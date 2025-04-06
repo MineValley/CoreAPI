@@ -5,6 +5,7 @@ import minevalley.core.api.messaging.clickable.ClickableOption;
 import minevalley.core.api.messaging.colors.CustomColor;
 import minevalley.core.api.messaging.instruction.Instruction;
 import minevalley.core.api.messaging.types.MessageType;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
 import org.jetbrains.annotations.Contract;
 
@@ -73,8 +74,10 @@ public interface DialogReceiver {
      */
     @Nonnull
     @Contract("_, _, _ -> new")
-    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull String message, @Nonnull ClickableOption... menu)
-            throws IllegalArgumentException;
+    default ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull String message, @Nonnull ClickableOption... menu)
+            throws IllegalArgumentException {
+        return sendMessage(type, Component.text(message, type.getMessageColor()), menu);
+    }
 
     /**
      * Sends a message to the receiver.
@@ -110,8 +113,10 @@ public interface DialogReceiver {
      */
     @Nonnull
     @Contract("_, _, _, _ -> new")
-    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull String message, @Nonnull Instruction instruction,
-                         @Nonnull ClickableOption... menu) throws IllegalArgumentException;
+    default ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull String message, @Nonnull Instruction instruction,
+                                 @Nonnull ClickableOption... menu) throws IllegalArgumentException {
+        return sendMessage(type, Component.text(message, type.getMessageColor()), instruction, menu);
+    }
 
     /**
      * Sends a message to the receiver and waits for an input.
