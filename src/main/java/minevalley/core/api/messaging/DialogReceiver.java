@@ -2,6 +2,7 @@ package minevalley.core.api.messaging;
 
 import minevalley.core.api.messaging.clickable.ChatMenu;
 import minevalley.core.api.messaging.clickable.ClickableOption;
+import minevalley.core.api.messaging.colors.CustomColor;
 import minevalley.core.api.messaging.instruction.Instruction;
 import minevalley.core.api.messaging.types.MessageType;
 import net.kyori.adventure.text.ComponentLike;
@@ -42,6 +43,27 @@ public interface DialogReceiver {
 
     /**
      * Sends a message to the receiver.
+     * <p>
+     * <b>Note:</b> When using ComponentLike the MessageType-color is not applied and has to be added manually!
+     * </p>
+     *
+     * @param type    the type of message
+     * @param message the message to send
+     * @param menu    the menu to send
+     * @return the menu that was sent
+     * @throws IllegalArgumentException if the type, message or menu is null
+     * @see CustomColor
+     */
+    @Nonnull
+    @Contract("_, _, _ -> new")
+    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull ClickableOption... menu)
+            throws IllegalArgumentException;
+
+    /**
+     * Sends a message to the receiver.
+     * <p>
+     * <b>Note:</b> When using Strings no color is needed/allowed!
+     * </p>
      *
      * @param type    the type of message
      * @param message the message to send
@@ -51,11 +73,33 @@ public interface DialogReceiver {
      */
     @Nonnull
     @Contract("_, _, _ -> new")
-    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull ClickableOption... menu)
+    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull String message, @Nonnull ClickableOption... menu)
             throws IllegalArgumentException;
 
     /**
      * Sends a message to the receiver.
+     * <p>
+     * <b>Note:</b> When using ComponentLike the MessageType-color is not applied and has to be added manually!
+     * </p>
+     *
+     * @param type        the type of message
+     * @param message     the message to send
+     * @param instruction the instruction to send
+     * @param menu        the menu to send
+     * @return the menu that was sent
+     * @throws IllegalArgumentException if the type, message, instruction or menu is null
+     * @see CustomColor
+     */
+    @Nonnull
+    @Contract("_, _, _, _ -> new")
+    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction,
+                         @Nonnull ClickableOption... menu) throws IllegalArgumentException;
+
+    /**
+     * Sends a message to the receiver.
+     * <p>
+     * <b>Note:</b> When using Strings no color is needed/allowed!
+     * </p>
      *
      * @param type        the type of message
      * @param message     the message to send
@@ -66,11 +110,14 @@ public interface DialogReceiver {
      */
     @Nonnull
     @Contract("_, _, _, _ -> new")
-    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction,
+    ChatMenu sendMessage(@Nonnull MessageType type, @Nonnull String message, @Nonnull Instruction instruction,
                          @Nonnull ClickableOption... menu) throws IllegalArgumentException;
 
     /**
      * Sends a message to the receiver and waits for an input.
+     * <p>
+     * <b>Note:</b> When using Strings no color is needed/allowed!
+     * </p>
      *
      * @param text     the text to send
      * @param callback the callback to call when the user inputs something
@@ -80,6 +127,9 @@ public interface DialogReceiver {
 
     /**
      * Sends a message to the receiver and waits for an input.
+     * <p>
+     * <b>Note:</b> When using Strings no color is needed/allowed!
+     * </p>
      *
      * @param text        the text to send
      * @param instruction the instruction to send

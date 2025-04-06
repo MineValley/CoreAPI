@@ -2,13 +2,13 @@ package minevalley.core.api.messaging;
 
 import minevalley.core.api.messaging.clickable.ChatMenu;
 import minevalley.core.api.messaging.clickable.ClickableOption;
+import minevalley.core.api.messaging.colors.CustomColor;
 import minevalley.core.api.messaging.instruction.Instruction;
 import minevalley.core.api.messaging.types.ActionBarType;
 import minevalley.core.api.messaging.types.MessageType;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
 import net.kyori.adventure.text.TextComponent;
-import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 import java.time.Duration;
@@ -73,6 +73,18 @@ public interface MessageReceiver {
     void sendActionBar(@Nonnull ActionBarType type, @Nonnull ComponentLike message) throws IllegalArgumentException;
 
     /**
+     * Displays the given message in the receivers action bar.
+     * <p>
+     * <b>Note:</b> When using Strings no color is needed/allowed!
+     * </p>
+     *
+     * @param type    the type of message (defines the prefix)
+     * @param message the message to send
+     * @throws IllegalArgumentException if the type or message is null
+     */
+    void sendActionBar(@Nonnull ActionBarType type, @Nonnull String message) throws IllegalArgumentException;
+
+    /**
      * Sends an instruction to the receiver.
      *
      * @param instruction the instruction to send
@@ -99,22 +111,56 @@ public interface MessageReceiver {
 
     /**
      * Sends a message to the receiver.
+     * <p>
+     * <b>Note:</b> When using ComponentLike the MessageType-color is not applied and has to be added manually!
+     * </p>
      *
      * @param type    the type of message
      * @param message the message to send
      * @throws IllegalArgumentException if the type or message is null
+     * @see CustomColor
      */
     void sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message) throws IllegalArgumentException;
 
     /**
      * Sends a message to the receiver.
+     * <p>
+     * <b>Note:</b> When using Strings no color is needed/allowed!
+     * </p>
+     *
+     * @param type    the type of message
+     * @param message the message to send
+     * @throws IllegalArgumentException if the type or message is null
+     */
+    void sendMessage(@Nonnull MessageType type, @Nonnull String message) throws IllegalArgumentException;
+
+    /**
+     * Sends a message to the receiver.
+     * <p>
+     * <b>Note:</b> When using ComponentLike the MessageType-color is not applied and has to be added manually!
+     * </p>
+     *
+     * @param type        the type of message
+     * @param message     the message to send
+     * @param instruction the instruction to send
+     * @throws IllegalArgumentException if the type, message or instruction is null
+     * @see CustomColor
+     */
+    void sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction)
+            throws IllegalArgumentException;
+
+    /**
+     * Sends a message to the receiver.
+     * <p>
+     * <b>Note:</b> When using Strings no color is needed/allowed!
+     * </p>
      *
      * @param type        the type of message
      * @param message     the message to send
      * @param instruction the instruction to send
      * @throws IllegalArgumentException if the type, message or instruction is null
      */
-    void sendMessage(@Nonnull MessageType type, @Nonnull ComponentLike message, @Nonnull Instruction instruction)
+    void sendMessage(@Nonnull MessageType type, @Nonnull String message, @Nonnull Instruction instruction)
             throws IllegalArgumentException;
 
     /**
