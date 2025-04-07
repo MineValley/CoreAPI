@@ -63,6 +63,7 @@ public interface CommandLiteral extends CommandBuilder<CommandLiteral> {
      *
      * @param executableIfFrozen sets whether the command can be executed when the user is frozen.
      * @param aliases            the aliases of the command.
+     * @throws IllegalArgumentException if the aliases are null.
      */
-    void register(boolean executableIfFrozen, @Nonnull Collection<String> aliases);
+    void register(boolean executableIfFrozen, @Nonnull Collection<String> aliases) throws IllegalArgumentException;
 }
