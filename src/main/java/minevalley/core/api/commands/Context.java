@@ -1,6 +1,7 @@
 package minevalley.core.api.commands;
 
 import minevalley.core.api.users.OnlineUser;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
@@ -13,6 +14,7 @@ public interface Context {
      * @return the sender of the command
      */
     @Nonnull
+    @Contract(pure = true)
     OnlineUser getSender();
 
     /**
@@ -25,5 +27,6 @@ public interface Context {
      * @throws IllegalArgumentException if the argument is not of the given type or if the argument is not existing
      */
     @Nonnull
+    @Contract(pure = true)
     <V> V getArgument(@Nonnull String name, @Nonnull Class<V> clazz) throws IllegalArgumentException;
 }

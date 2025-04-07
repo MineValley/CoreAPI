@@ -1,9 +1,10 @@
 package minevalley.core.api.commands;
 
-import minevalley.core.api.users.OnlineUser;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * A command literal is a string that represents a (sub-) command.
@@ -24,31 +25,45 @@ public interface CommandLiteral extends CommandBuilder<CommandLiteral> {
     /**
      * Registers the command so it is accessible to the users.
      * <p>
-     * <b>Note:</b> When doing this on the run, the users commands have to be updated manually using {@link OnlineUser#updateCommands()} for them to see this command.
+     * <b>Note:</b>
+     * <ul>
+     * <li>
+     * Registering a command should always be done directly after the module initialization. Registering a command inside a scheduler or after some other kind of action (other commands, events...) is not possible.
+     * Register the command and rule the access via the requirements if needed.
+     * </li>
+     * <li>
+     * If you want to set the command to be executable when the user is frozen, use {@link #register(boolean)}.
+     * </li>
+     * </ul>
      * </p>
-     *
-     * @param executableIfFrozen sets whether the command can be executed when the user is frozen.
-     * @see OnlineUser#updateCommands()
      */
-    void register(boolean executableIfFrozen);
+    default void register() {
+        register(false, Collections.emptyList());
+    }
 
     /**
      * Registers the command so it is accessible to the users.
      * <p>
-     * <b>Note:</b>
-     * <ul>
-     *     <li>
-     *         When doing this on the run, the users commands have to be updated manually using {@link OnlineUser#updateCommands()} for them to see this command.
-     *     </li>
-     *     <li>
-     *         If you want to set the command to be executable when the user is frozen, use {@link #register(boolean)}.
-     *     </li>
-     * </ul>
+     * <b>Note:</b> Registering a command should always be done directly after the module initialization. Registering a command inside a scheduler or after some other kind of action (other commands, events...) is not possible.
+     * Register the command and rule the access via the requirements if needed.
      * </p>
      *
-     * @see OnlineUser#updateCommands()
+     * @param executableIfFrozen sets whether the command can be executed when the user is frozen.
      */
-    default void register() {
-        register(false);
+    default void register(boolean executableIfFrozen) {
+        register(executableIfFrozen, Collections.emptyList());
     }
+
+    /**
+     * Registers the command so it is accessible to the users.
+     * <p>
+     * <b>Note:</b> Registering a command should always be done directly after the module initialization. Registering a command inside a scheduler or after some other kind of action (other commands, events...) is not possible.
+     * Register the command and rule the access via the requirements if needed.
+     * </p>
+     *
+     * @param executableIfFrozen sets whether the command can be executed when the user is frozen.
+     * @param aliases            the aliases of the command.
+     * @throws IllegalArgumentException if the aliases are null.
+     */
+    void register(boolean executableIfFrozen, @Nonnull Collection<String> aliases) throws IllegalArgumentException;
 }
