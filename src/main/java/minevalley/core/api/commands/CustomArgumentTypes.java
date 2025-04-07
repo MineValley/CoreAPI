@@ -80,7 +80,7 @@ public final class CustomArgumentTypes {
         return ArgumentTypes.time(minTime);
     }
 
-    private interface Manager {
+    public interface Manager {
 
         @Nonnull
         ArgumentType<BlockSelectorArgumentResolver> block();
