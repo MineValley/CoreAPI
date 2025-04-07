@@ -4,7 +4,7 @@ import minevalley.core.api.users.OnlineUser;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
-import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 @SuppressWarnings("unused")
@@ -44,5 +44,5 @@ public interface CommandBuilder<T extends CommandBuilder<T>> {
      */
     @Nonnull
     @Contract("_ -> this")
-    T executes(@Nonnull BiFunction<OnlineUser, Context, CommandResponse> execution) throws IllegalArgumentException;
+    T executes(@Nonnull Function<Context, CommandResponse> execution) throws IllegalArgumentException;
 }
