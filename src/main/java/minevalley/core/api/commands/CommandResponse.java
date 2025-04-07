@@ -62,6 +62,6 @@ public final class CommandResponse {
      * @throws IllegalArgumentException if type or message is null
      */
     public CommandResponse(@Nonnull MessageType type, @Nonnull String message) throws IllegalArgumentException {
-        this(type, Component.text(message));
+        this(type, Component.text(message, type.getMessageColor()));
     }
 }
