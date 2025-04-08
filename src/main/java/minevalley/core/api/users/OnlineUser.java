@@ -49,15 +49,6 @@ public interface OnlineUser extends User, DialogReceiver, MessageReceiver, Sound
     boolean isTeamler();
 
     /**
-     * Gets whether the user has any of the listed team-ranks.
-     *
-     * @param ranks list of team-ranks to be checked for
-     * @return true, if the user has one of the ranks
-     */
-    @Contract(pure = true)
-    boolean hasTeamRank(@Nonnull TeamRank... ranks);
-
-    /**
      * Gets the team-member object of this user.
      *
      * @return team-member object

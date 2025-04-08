@@ -27,6 +27,15 @@ public interface TeamMember extends OnlineUser {
     TeamRank getTeamRank();
 
     /**
+     * Gets whether the user has any of the listed team-ranks.
+     *
+     * @param ranks list of team-ranks to be checked for
+     * @return true, if the user has one of the ranks
+     */
+    @Contract(pure = true)
+    boolean hasTeamRank(@Nonnull TeamRank... ranks);
+
+    /**
      * Gets the custom team rank name.
      * If no custom name is defined, this returns the name of the users team rank.
      *
