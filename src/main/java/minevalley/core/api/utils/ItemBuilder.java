@@ -1,13 +1,18 @@
 package minevalley.core.api.utils;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
 public interface ItemBuilder {
@@ -24,6 +29,22 @@ public interface ItemBuilder {
     ItemBuilder setDisplayName(@Nonnull Component displayName) throws IllegalArgumentException;
 
     /**
+     * Sets the item's display name.
+     *
+     * @param displayName display name
+     * @param color       color that will be applied on the display name
+     * @param decorations text decorations that will be applied on the display name
+     * @return this item-builder
+     * @throws IllegalArgumentException if the display name, color or decorations is null
+     */
+    @Nonnull
+    @Contract("_, _, _ -> this")
+    default ItemBuilder setDisplayName(@Nonnull String displayName, @Nonnull TextColor color, @Nonnull TextDecoration... decorations) throws IllegalArgumentException {
+        return setDisplayName(Component.text(displayName, color).decoration(TextDecoration.ITALIC, false)
+                .decorations(Arrays.stream(decorations).collect(Collectors.toMap(decoration -> decoration, decoration -> TextDecoration.State.TRUE))));
+    }
+
+    /**
      * Sets the item's lore.
      *
      * @param lore lore as {@link Component}
@@ -32,7 +53,34 @@ public interface ItemBuilder {
      */
     @Nonnull
     @Contract("_ -> this")
-    ItemBuilder setLore(@Nonnull Component... lore) throws IllegalArgumentException;
+    ItemBuilder setLore(@Nonnull List<? extends Component> lore) throws IllegalArgumentException;
+
+    /**
+     * Sets the item's lore.
+     *
+     * @param lore lore as {@link Component}
+     * @return this item-builder
+     * @throws IllegalArgumentException if the lore is null
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    default ItemBuilder setLore(@Nonnull Component... lore) throws IllegalArgumentException {
+        return setLore(Arrays.asList(lore));
+    }
+
+    /**
+     * Sets the item's lore.
+     *
+     * @param color color that will be applied on every line of the lore
+     * @param lore  lore as {@link Component}
+     * @return this item-builder
+     * @throws IllegalArgumentException if lore or color is null
+     */
+    @Nonnull
+    @Contract("_, _ -> this")
+    default ItemBuilder setLore(@Nonnull TextColor color, @Nonnull String... lore) throws IllegalArgumentException {
+        return setLore(Arrays.stream(lore).map(s -> Component.text(s, color).decoration(TextDecoration.ITALIC, false)).toList());
+    }
 
     /**
      * Sets the item's durability.
