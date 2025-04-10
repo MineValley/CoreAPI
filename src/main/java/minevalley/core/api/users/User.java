@@ -194,7 +194,7 @@ public interface User extends Registrant {
      * @param newValue new value of the setting
      * @throws IllegalArgumentException if the key or value is null or empty
      */
-    void changeUserSetting(@Nonnull String key, @Nullable String newValue) throws IllegalArgumentException;
+    void changeUserSetting(@Nonnull String key, @Nonnull String newValue) throws IllegalArgumentException;
 
     /**
      * Gets whether the user is allowed to join team service.
