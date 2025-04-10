@@ -1,12 +1,14 @@
 package minevalley.core.api.commands;
 
 import lombok.Getter;
-import minevalley.core.api.messaging.colors.CustomColor;
+import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.messaging.types.MessageType;
+import minevalley.core.api.users.OnlineUser;
 import net.kyori.adventure.text.Component;
 import org.jetbrains.annotations.ApiStatus;
 
 import javax.annotation.Nonnull;
+import java.util.function.Consumer;
 
 /**
  * Represents a response to a command.
@@ -20,25 +22,7 @@ import javax.annotation.Nonnull;
 @SuppressWarnings("unused")
 public final class CommandResponse {
 
-    /**
-     * The type of message to send.
-     * <p>
-     * Most of the time this will either be {@link MessageType#SUCCESS} or {@link MessageType#ERROR}.
-     * </p>
-     *
-     * @see MessageType
-     */
-    private final @Nonnull MessageType type;
-
-    /**
-     * The message to send.
-     * <p>
-     * <b>Note:</b> When using styling, keep in mind to use the default chat colors {@link CustomColor#CHAT_SUCCESS} and {@link CustomColor#CHAT_ERROR} for success and error messages respectively.
-     * </p>
-     *
-     * @see CustomColor
-     */
-    private final @Nonnull Component message;
+    private final Consumer<OnlineUser> response;
 
     /**
      * Creates a new command response.
@@ -50,8 +34,7 @@ public final class CommandResponse {
     public CommandResponse(@Nonnull MessageType type, @Nonnull Component message) throws IllegalArgumentException {
         if (type == null) throw new IllegalArgumentException("MessageType cannot be null");
         if (message == null) throw new IllegalArgumentException("Message cannot be null");
-        this.type = type;
-        this.message = message;
+        response = user -> user.sendMessage(type, message);
     }
 
     /**
@@ -63,5 +46,16 @@ public final class CommandResponse {
      */
     public CommandResponse(@Nonnull MessageType type, @Nonnull String message) throws IllegalArgumentException {
         this(type, Component.text(message, type.getMessageColor()));
+    }
+
+    /**
+     * Creates a new command response.
+     *
+     * @param gui The GUI to open.
+     * @throws IllegalArgumentException if gui is null
+     */
+    public CommandResponse(@Nonnull InventoryGui gui) throws IllegalArgumentException {
+        if (gui == null) throw new IllegalArgumentException("GUI cannot be null");
+        this.response = gui::open;
     }
 }
