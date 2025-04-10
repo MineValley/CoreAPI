@@ -9,7 +9,6 @@ import minevalley.core.api.regions.utils.PlayerLocation;
 import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.McVersion;
 import minevalley.core.api.users.enums.TabListView;
-import minevalley.core.api.users.enums.TeamRank;
 import minevalley.core.api.users.exceptions.UserNotPermittedException;
 import minevalley.core.api.utils.ChatHandler;
 import minevalley.core.api.utils.ClickableMessage;
@@ -356,9 +355,6 @@ public interface OnlineUser extends User, DialogReceiver, MessageReceiver, Sound
         if (location == null) throw new IllegalArgumentException("Location cannot be null");
         if (range < 0) throw new IllegalArgumentException("Range cannot be negative");
         return isInSquaredRange(location, range * range);
-    }
-
-    record Notice(@Nonnull String id, @Nonnull String message) {
     }
 
     enum ChatType {
