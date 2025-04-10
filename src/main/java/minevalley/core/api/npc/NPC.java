@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.messaging.MessageSender;
+import minevalley.core.api.messaging.instruction.Instruction;
 import minevalley.core.api.modifiers.EquipmentModifier;
 import minevalley.core.api.modifiers.InteractionModifier;
 import minevalley.core.api.modifiers.LocationModifier;
@@ -75,7 +76,7 @@ public interface NPC extends MessageSender, EquipmentModifier, InteractionModifi
 
     NPC setChatPrefix(String prefix);
 
-    OnlineUser.Notice getTalkWithMeNotice();
+    Instruction getTalkWithMeInstruction();
 
     List<Player> getSeeingPlayers();
 
