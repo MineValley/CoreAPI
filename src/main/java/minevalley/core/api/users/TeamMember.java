@@ -1,10 +1,10 @@
 package minevalley.core.api.users;
 
 import minevalley.core.api.users.enums.TeamRank;
+import net.kyori.adventure.text.Component;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
 public interface TeamMember extends OnlineUser {
@@ -36,14 +36,14 @@ public interface TeamMember extends OnlineUser {
     boolean hasTeamRank(@Nonnull TeamRank... ranks);
 
     /**
-     * Gets the custom team rank name.
-     * If no custom name is defined, this returns the name of the users team rank.
+     * Gets the team rank name.
+     * If the user has a custom team rank name, it is returned. Otherwise, the default name of it's rank is returned.
      *
      * @return [custom] team rank name
      */
-    @Nullable
+    @Nonnull
     @Contract(pure = true)
-    String getCustomTeamRankName();
+    Component getTeamRankName();
 
     /**
      * Sometimes a player is assigned a team rank to grant them permission or access.
