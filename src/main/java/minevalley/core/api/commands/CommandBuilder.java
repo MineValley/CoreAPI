@@ -5,7 +5,6 @@ import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.Predicate;
 
 @SuppressWarnings("unused")
@@ -36,16 +35,6 @@ public interface CommandBuilder<T extends CommandBuilder<T>> {
     @Nonnull
     @Contract("_ -> this")
     T requires(@Nonnull Predicate<OnlineUser> requirement) throws IllegalArgumentException;
-
-    /**
-     * Defines what happens, whenever the command is caused correctly with someone with the required permissions.
-     *
-     * @param execution the function to be executed when the command is executed.
-     * @throws IllegalArgumentException if the execution is null.
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    T executes(@Nonnull Function<Context, CommandResponse> execution) throws IllegalArgumentException;
 
     /**
      * Defines what happens, whenever the command is caused correctly with someone with the required permissions.
