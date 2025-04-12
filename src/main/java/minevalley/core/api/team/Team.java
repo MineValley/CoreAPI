@@ -3,9 +3,12 @@ package minevalley.core.api.team;
 import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.messaging.instruction.Instruction;
+import minevalley.core.api.users.TeamMember;
 import net.kyori.adventure.text.ComponentLike;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
 public interface Team extends MessageReceiver, SoundReceiver {
@@ -43,4 +46,31 @@ public interface Team extends MessageReceiver, SoundReceiver {
      * @throws IllegalArgumentException if the message or instruction is null
      */
     void sendTeamChatMessage(@Nonnull ComponentLike message, @Nonnull Instruction instruction) throws IllegalArgumentException;
+
+    /**
+     * Gets a stream of all users that are currently in team service.
+     *
+     * @return team members
+     */
+    @Nonnull
+    @Contract(pure = true)
+    Stream<TeamMember> getTeamMembers();
+
+    /**
+     * Gets a stream of all users that are currently in team service and vanished.
+     *
+     * @return vanished team members
+     */
+    @Nonnull
+    @Contract(pure = true)
+    Stream<TeamMember> getVanishedTeamMembers();
+
+    /**
+     * Gets a stream of all users that are currently in team and support service.
+     *
+     * @return team members in support service
+     */
+    @Nonnull
+    @Contract(pure = true)
+    Stream<TeamMember> getTeamMembersInSupportService();
 }
