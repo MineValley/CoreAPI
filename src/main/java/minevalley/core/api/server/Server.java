@@ -5,7 +5,7 @@ import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.users.OnlineUser;
 
 import javax.annotation.Nonnull;
-import java.util.List;
+import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
 public interface Server extends MessageReceiver, SoundReceiver {
@@ -19,12 +19,12 @@ public interface Server extends MessageReceiver, SoundReceiver {
     ServerType type();
 
     /**
-     * Gets a list of all online users.
+     * Gets a stream of all online users.
      *
-     * @return a list of all online users
+     * @return a stream of all online users
      */
     @Nonnull
-    List<OnlineUser> getOnlineUsers();
+    Stream<OnlineUser> getOnlineUsers();
 
     /**
      * Gets whether the server is in development mode.
