@@ -14,7 +14,7 @@ public interface TranslationModifier {
     ScaleModifier setTranslation(@Nonnull Vector<Float> translation);
 
     /**
-     * Update the scale.
+     * Update the translation.
      */
     void updateTranslation();
 }
