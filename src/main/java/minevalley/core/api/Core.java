@@ -675,14 +675,14 @@ public final class Core {
      *
      * @param location location where the TextDisplay is placed
      * @param scale    scale of the TextDisplay
-     * @param message  message of the TextDisplay
+     * @param text  text of the TextDisplay
      * @return TextDisplay with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null or data is invalid
      */
     @Nonnull
     @Contract("_, _, _ -> new")
-    public static TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull String message) throws IllegalArgumentException {
-        return server.createTextDisplay(location, scale, message);
+    public static TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull Component text) throws IllegalArgumentException {
+        return server.createTextDisplay(location, scale, text);
     }
 
     /**
