@@ -1,14 +1,11 @@
 package minevalley.core.api.displays;
 
-import minevalley.core.api.modifiers.InteractionModifier;
-import minevalley.core.api.modifiers.LocationModifier;
-import minevalley.core.api.modifiers.ScaleModifier;
-import minevalley.core.api.modifiers.VisibilityModifier;
+import minevalley.core.api.modifiers.*;
 import org.bukkit.Location;
 
 import javax.annotation.Nonnull;
 
-public interface Display extends InteractionModifier, LocationModifier, ScaleModifier, VisibilityModifier  {
+public interface Display extends InteractionModifier, LocationModifier, ScaleModifier, TranslationModifier, VisibilityModifier  {
 
     /**
      * Set the location of the display
