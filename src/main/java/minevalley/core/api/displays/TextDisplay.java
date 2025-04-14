@@ -1,5 +1,7 @@
 package minevalley.core.api.displays;
 
+import org.bukkit.Color;
+
 import javax.annotation.Nonnull;
 
 public interface TextDisplay extends Display {
@@ -11,6 +13,14 @@ public interface TextDisplay extends Display {
      * @return the current instance
      */
     TextDisplay setText(@Nonnull String text);
+
+    /**
+     * Set the background color of the text
+     *
+     * @param color the color
+     * @return the current instance
+     */
+    TextDisplay setBackgroundColor(@Nonnull Color color);
 
     /**
      * Update the text of the display.
