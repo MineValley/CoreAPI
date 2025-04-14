@@ -178,7 +178,7 @@ public interface CoreServer {
     ItemDisplay createItemDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ItemStack itemStack) throws IllegalArgumentException;
 
     @Nonnull
-    TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull String text) throws IllegalArgumentException;
+    TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull Component text) throws IllegalArgumentException;
 
     @Nonnull
     @Contract("_ -> new")
