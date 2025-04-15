@@ -37,6 +37,7 @@ import minevalley.core.api.users.User;
 import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.*;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.ComponentLike;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -681,7 +682,7 @@ public final class Core {
      */
     @Nonnull
     @Contract("_, _, _ -> new")
-    public static TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull Component text) throws IllegalArgumentException {
+    public static TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ComponentLike text) throws IllegalArgumentException {
         return server.createTextDisplay(location, scale, text);
     }
 

@@ -1,9 +1,9 @@
 package minevalley.core.api.displays;
 
+import net.kyori.adventure.text.ComponentLike;
 import org.bukkit.Color;
 
 import javax.annotation.Nonnull;
-import java.awt.*;
 
 public interface TextDisplay extends Display {
 
@@ -13,7 +13,7 @@ public interface TextDisplay extends Display {
      * @param text the text
      * @return the current instance
      */
-    TextDisplay setText(@Nonnull Component text);
+    TextDisplay setText(@Nonnull ComponentLike text);
 
     /**
      * Set the background color of the text
