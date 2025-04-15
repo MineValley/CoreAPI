@@ -7,7 +7,6 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 import java.math.BigDecimal;
 import java.sql.*;
-import java.util.concurrent.CompletableFuture;
 
 /**
  * This interface covers some but not nearly all features of the {@link PreparedStatement} interface as provided by the JDBC API.
@@ -333,18 +332,6 @@ public interface StatementBuilder extends AutoCloseable {
     void executeUpdate() throws IllegalStateException, SQLException;
 
     /**
-     * Executes the SQL query that has been built so far asynchronously.
-     * <p>
-     * <b>Note:</b> This method should be used for queries that do not return a result set.
-     *
-     * @return a {@link CompletableFuture} that will be completed once the query has been executed
-     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
-     */
-    @Nonnull
-    @Contract(pure = true)
-    CompletableFuture<Void> executeUpdateAsync() throws IllegalStateException;
-
-    /**
      * Executes the SQL query that has been built so far and retrieves the generated key.
      * <p>
      * <b>Note:</b> This method should be used for queries that do not return a result set.
@@ -355,18 +342,6 @@ public interface StatementBuilder extends AutoCloseable {
      */
     @Contract(pure = true)
     int executeUpdateAndRetrieveKey() throws IllegalStateException, SQLException;
-
-    /**
-     * Executes the SQL query that has been built so far and retrieves the generated key asynchronously.
-     * <p>
-     * <b>Note:</b> This method should be used for queries that do not return a result set.
-     *
-     * @return a {@link CompletableFuture} that will be completed once the query has been executed and the key has been retrieved
-     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder} or this statement builder is not supposed to retrieve generated keys
-     */
-    @Nonnull
-    @Contract(pure = true)
-    CompletableFuture<Integer> executeUpdateAndRetrieveKeyAsync() throws IllegalStateException;
 
     /**
      * Executes the SQL query that has been built so far and returns the result set.
@@ -380,18 +355,6 @@ public interface StatementBuilder extends AutoCloseable {
     @Nonnull
     @Contract(pure = true)
     ResultSet executeQuery() throws IllegalStateException, SQLException;
-
-    /**
-     * Executes the SQL query that has been built so far and returns the result set asynchronously.
-     * <p>
-     * <b>Note:</b> This method should be used for queries that return a result set.
-     *
-     * @return a {@link CompletableFuture} that will be completed once the query has been executed and the result set has been retrieved
-     * @throws IllegalStateException if this method is called on a closed {@code StatementBuilder}
-     */
-    @Nonnull
-    @Contract(pure = true)
-    CompletableFuture<ResultSet> executeQueryAsync() throws IllegalStateException;
 
     /**
      * Returns a copy of the underlying {@link PreparedStatement} object.
