@@ -120,93 +120,113 @@ public enum InterfaceItem {
      */
     DOWN(20),
 
+    /**
+     * Is used to scroll back a page in an inventory.
+     */
+    PREVIOUS_CLICKED(21),
+
+    /**
+     * Is used to scroll forward a page in an inventory.
+     */
+    NEXT_CLICKED(22),
+
+    /**
+     * Is used to scroll up in an inventory.
+     */
+    UP_CLICKED(23),
+
+    /**
+     * Is used to scroll down in an inventory.
+     */
+    DOWN_CLICKED(24),
+
 
     /**
      * Is used to signalize an empty power slot.
      */
-    INACTIVE_CELL(21),
+    INACTIVE_CELL(25),
 
     /**
      * Is used to signalize a full power slot.
      */
-    ACTIVE_CELL(22),
+    ACTIVE_CELL(26),
 
 
     /**
      * Hides the selected slot and displays an arrow on the slot above.
      */
-    BUTTON_UP(23),
+    BUTTON_UP(27),
 
     /**
      * Hides the selected slot and displays an arrow on the slot underneath.
      */
-    BUTTON_DOWN(24),
+    BUTTON_DOWN(28),
 
     /**
      * Hides the selected slot and displays an arrow on the slot to the left.
      */
-    BUTTON_LEFT(25),
+    BUTTON_LEFT(29),
 
     /**
      * Hides the selected slot and displays an arrow on the slot to the right.
      */
-    BUTTON_RIGHT(26),
+    BUTTON_RIGHT(30),
 
 
     /**
      * Is used to display the digit 0.
      */
-    DIGIT_0(27),
+    DIGIT_0(31),
 
     /**
      * Is used to display the digit 1.
      */
-    DIGIT_1(28),
+    DIGIT_1(32),
 
     /**
      * Is used to display the digit 2.
      */
-    DIGIT_2(29),
+    DIGIT_2(33),
 
     /**
      * Is used to display the digit 3.
      */
-    DIGIT_3(30),
+    DIGIT_3(34),
 
     /**
      * Is used to display the digit 4.
      */
-    DIGIT_4(31),
+    DIGIT_4(35),
 
     /**
      * Is used to display the digit 5.
      */
-    DIGIT_5(32),
+    DIGIT_5(36),
 
     /**
      * Is used to display the digit 6.
      */
-    DIGIT_6(33),
+    DIGIT_6(37),
 
     /**
      * Is used to display the digit 7.
      */
-    DIGIT_7(34),
+    DIGIT_7(38),
 
     /**
      * Is used to display the digit 8.
      */
-    DIGIT_8(35),
+    DIGIT_8(39),
 
     /**
      * Is used to display the digit 9.
      */
-    DIGIT_9(36),
+    DIGIT_9(40),
 
     /**
      * Is used to display a colon.
      */
-    COLON(37);
+    COLON(41);
 
     private final int customModelData;
 
