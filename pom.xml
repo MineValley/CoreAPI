@@ -7,7 +7,7 @@
     <name>CoreAPI</name>
 
     <properties>
-        <version>1.290.20</version>
+        <version>1.290.21</version>
 
         <smart-api.version>1.61.2</smart-api.version>
 
