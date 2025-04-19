@@ -2,13 +2,6 @@ package minevalley.core.api.users;
 
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
-import minevalley.core.api.regions.utils.PlayerLocation;
-import minevalley.core.api.users.enums.Fraction;
-import minevalley.core.api.users.enums.McVersion;
-import minevalley.core.api.users.enums.TabListView;
-import minevalley.core.api.users.exceptions.UserNotPermittedException;
-import minevalley.core.api.utils.ChatHandler;
-import minevalley.core.api.utils.ClickableMessage;
 import minevalley.core.api.vehicles.LoadedVehicle;
 import minevalley.core.api.vehicles.VehicleManager;
 import org.bukkit.Location;
@@ -16,13 +9,11 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.time.Duration;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
@@ -102,7 +93,7 @@ public interface OnlineUser extends ProxyUser {
      * @return true, if this user is allowed to break/place/use a block here
      */
     @Contract(pure = true)
-    boolean isAllowedToUse(Block block);
+    boolean isAllowedToUse(@Nonnull Block block);
 
     void changeSign(@Nonnull Block block, @Nullable String line1, @Nullable String line2, @Nullable String line3,
                     @Nullable String line4) throws IllegalArgumentException;
