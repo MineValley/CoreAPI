@@ -1,8 +1,6 @@
 package minevalley.core.api.users;
 
 import minevalley.core.api.audio.SoundReceiver;
-import minevalley.core.api.economy.AccountUser;
-import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.messaging.DialogReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.regions.utils.PlayerLocation;
@@ -12,21 +10,12 @@ import minevalley.core.api.users.enums.TabListView;
 import minevalley.core.api.users.exceptions.UserNotPermittedException;
 import minevalley.core.api.utils.ChatHandler;
 import minevalley.core.api.utils.ClickableMessage;
-import minevalley.core.api.vehicles.LoadedVehicle;
-import minevalley.core.api.vehicles.VehicleManager;
-import org.bukkit.Location;
-import org.bukkit.block.Block;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.time.Duration;
-import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 public interface ProxyUser extends User, DialogReceiver, MessageReceiver, SoundReceiver {
@@ -175,32 +164,77 @@ public interface ProxyUser extends User, DialogReceiver, MessageReceiver, SoundR
     @Contract(pure = true)
     boolean isRegistered();
 
+    /**
+     * Clears the registration cache of this user and checks if he is now registered.
+     */
     void checkRegistration();
 
+    /**
+     * Adds an item to the users inventory.
+     *
+     * @param item item to add
+     * @return true, if the item was added. False if the user does not have any empty slot.
+     * @throws IllegalArgumentException if the item is null
+     */
     boolean addItem(@Nonnull ItemStack item) throws IllegalArgumentException;
 
+    /**
+     * Gets the amount of free slots in the users inventory (equipment slots not included).
+     *
+     * @return empty slots as integer
+     */
+    @Nonnegative
     @Contract(pure = true)
     int getAmountOfFreeInventorySlots();
 
+    /**
+     * Checks for any free slots in the users inventory (equipment slots not included)
+     *
+     * @return true, if the user has free slots
+     */
     @Contract(pure = true)
     default boolean hasFreeInventorySlot() {
         return getAmountOfFreeInventorySlots() != 0;
     }
 
+    /**
+     * Gets this users player location.
+     *
+     * @return player location
+     */
     @Nonnull
     @Contract(pure = true)
     PlayerLocation getLocation();
 
+    /**
+     * Sends a message to the chat in the name of this user.
+     *
+     * @param type    type of the chat message
+     * @param message message to send
+     * @throws IllegalArgumentException if either the type or the message is null
+     */
     default void chat(@Nonnull OnlineUser.ChatType type, @Nonnull String message) throws IllegalArgumentException {
         if (type == null) throw new IllegalArgumentException("Type cannot be null");
         ChatHandler.chat(this, type, message);
     }
 
+    /**
+     * Sends a normal chat message in the name of this user.
+     *
+     * @param message message to send
+     * @throws IllegalArgumentException if either the type or the message is null
+     */
     default void chat(@Nonnull String message) throws IllegalArgumentException {
         if (message == null) throw new IllegalArgumentException("Message cannot be null");
         ChatHandler.chat(this, OnlineUser.ChatType.NORMAL, message);
     }
 
+    /**
+     * Performs a command in the name of the user
+     *
+     * @param command command with the slash
+     * @throws IllegalArgumentException if the command is null, or does not start with a slash
+     */
     void performCommand(@Nonnull String command) throws IllegalArgumentException;
 
     /**

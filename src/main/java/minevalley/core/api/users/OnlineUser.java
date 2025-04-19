@@ -95,17 +95,51 @@ public interface OnlineUser extends ProxyUser {
     @Contract(pure = true)
     boolean isAllowedToUse(@Nonnull Block block);
 
+    /**
+     * Send a sign change to this user.
+     *
+     * @param block sign to change
+     * @param line1 first line
+     * @param line2 second line
+     * @param line3 third line
+     * @param line4 fourth line
+     * @throws IllegalArgumentException if the sign is null or not a sign.
+     */
     void changeSign(@Nonnull Block block, @Nullable String line1, @Nullable String line2, @Nullable String line3,
                     @Nullable String line4) throws IllegalArgumentException;
 
+    /**
+     * Resets a previously changed sign to its original state.
+     *
+     * @param block sign to reset
+     * @throws IllegalArgumentException if the sign is null or not a sign.
+     */
     void resetSign(@Nonnull Block block) throws IllegalArgumentException;
 
+    /**
+     * Sets this users navigation target.
+     *
+     * @param location location to set the target to
+     * @throws IllegalArgumentException if the location is null
+     */
     void setNavigationTarget(@Nonnull Location location) throws IllegalArgumentException;
 
+    /**
+     * Resets the navigation target.
+     */
     void resetNavigationTarget();
 
+    /**
+     * Sets the latest join to now.
+     */
     void updateLatestJoin();
 
+    /**
+     * Gets the vehicle this user is in.
+     *
+     * @return vehicle the user is in
+     */
+    @Nullable
     @Contract(pure = true)
     default LoadedVehicle getVehicle() {
         final Entity vehicle = player().getVehicle();
