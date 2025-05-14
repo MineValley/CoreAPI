@@ -73,6 +73,7 @@ import java.util.stream.Collectors;
 public final class Core {
 
     private static CoreServer server;
+    private static Proxy proxy;
 
     /**
      * Get the JavaPlugin instance of CorePlugin.
@@ -94,6 +95,16 @@ public final class Core {
     @Nonnull
     public static Server server() {
         return server.server();
+    }
+
+    /**
+     * Get the {@link Proxy} object, granting access to all proxy-related features.
+     *
+     * @return Proxy object
+     */
+    @Nonnull
+    public static Proxy proxy() {
+        return proxy;
     }
 
     /**
