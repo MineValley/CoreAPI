@@ -676,7 +676,7 @@ public final class Core {
      *
      * @param location location where the TextDisplay is placed
      * @param scale    scale of the TextDisplay
-     * @param text  text of the TextDisplay
+     * @param text     text of the TextDisplay
      * @return TextDisplay with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null or data is invalid
      */
@@ -1555,6 +1555,10 @@ public final class Core {
     public static District getDistrict(Location location) {
         if (location == null) return null;
         return getDistrict(location.getChunk());
+    }
+
+    public static District createDistrict(@Nonnull String name, @Nonnull String description) {
+        return server.createDistrict(name, description);
     }
 
     /**
