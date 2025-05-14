@@ -344,7 +344,10 @@ public interface CoreServer {
     District getDistrict(int id);
 
     @Nullable
-    District getDistrict(Chunk chunk);
+    District getDistrict(@Nonnull Chunk chunk);
+
+    @Nonnull
+    District createDistrict(@Nonnull String name, @Nonnull String description);
 
     @Nonnull
     RadioMast createRadioMast(@Nonnull String name, @Nonnull Block location, int range) throws IllegalArgumentException;
@@ -368,4 +371,5 @@ public interface CoreServer {
 
     @Nullable
     String convertToTransparent(@Nullable String text) throws IllegalArgumentException;
+
 }
