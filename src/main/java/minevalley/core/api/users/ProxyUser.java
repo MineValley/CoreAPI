@@ -16,6 +16,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import java.time.Duration;
+import java.util.function.BiConsumer;
 
 @SuppressWarnings("unused")
 public interface ProxyUser extends User, DialogReceiver, MessageReceiver, SoundReceiver {
@@ -173,28 +174,31 @@ public interface ProxyUser extends User, DialogReceiver, MessageReceiver, SoundR
      * Adds an item to the users inventory.
      *
      * @param item item to add
-     * @return true, if the item was added. False if the user does not have any empty slot.
+     * @param callback callback to be executed after the item was added
      * @throws IllegalArgumentException if the item is null
      */
-    boolean addItem(@Nonnull ItemStack item) throws IllegalArgumentException;
+    void addItem(@Nonnull ItemStack item, @Nonnull BiConsumer<ProxyUser, Boolean> callback) throws IllegalArgumentException;
 
     /**
      * Gets the amount of free slots in the users inventory (equipment slots not included).
      *
-     * @return empty slots as integer
+     * @param callback callback to be executed after the amount was calculated
      */
     @Nonnegative
     @Contract(pure = true)
-    int getAmountOfFreeInventorySlots();
+    void getAmountOfFreeInventorySlots(@Nonnull BiConsumer<ProxyUser, Integer> callback);
 
     /**
      * Checks for any free slots in the users inventory (equipment slots not included)
      *
-     * @return true, if the user has free slots
+     * @param callback callback to be executed after the check
      */
     @Contract(pure = true)
-    default boolean hasFreeInventorySlot() {
-        return getAmountOfFreeInventorySlots() != 0;
+    default void hasFreeInventorySlot(@Nonnull BiConsumer<ProxyUser, Boolean> callback) {
+        getAmountOfFreeInventorySlots((user, amount) -> {
+            if (amount > 0) callback.accept(user, true);
+            else callback.accept(user, false);
+        });
     }
 
     /**
