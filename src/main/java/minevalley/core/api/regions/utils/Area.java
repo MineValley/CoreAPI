@@ -8,23 +8,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface Area {
 
-    /**
-     * Gets the first location that defines this area.
-     *
-     * @return first location of this area
-     */
-    @Deprecated
-    Block getFirstLocation();
-
     Block getMinBlock();
-
-    /**
-     * Gets the second location that defines this area.
-     *
-     * @return second location of this area
-     */
-    @Deprecated
-    Block getSecondLocation();
 
     Block getMaxBlock();
 
@@ -36,11 +20,4 @@ public interface Area {
         return contains(location.getBlock());
     }
 
-    /**
-     * Converts this area to a string
-     *
-     * @return string that represents this area
-     */
-    @Deprecated
-    String toString();
 }
