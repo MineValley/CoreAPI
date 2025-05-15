@@ -1,26 +1,20 @@
 package minevalley.core.api.regions.events;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.events.OnlineUserEvent;
 import org.bukkit.Chunk;
-import org.bukkit.event.Event;
-import org.bukkit.event.HandlerList;
+
+import javax.annotation.Nonnull;
 
 @Getter
-@RequiredArgsConstructor
-public class UserLoadChunkEvent extends Event {
+@SuppressWarnings("unused")
+public class UserLoadChunkEvent extends OnlineUserEvent {
 
-    public static final HandlerList HANDLER_LIST = new HandlerList();
-    private final OnlineUser user;
     private final Chunk chunk;
 
-    public static HandlerList getHandlerList() {
-        return HANDLER_LIST;
-    }
-
-    @Override
-    public HandlerList getHandlers() {
-        return HANDLER_LIST;
+    public UserLoadChunkEvent(@Nonnull OnlineUser user, @Nonnull Chunk chunk) {
+        super(user);
+        this.chunk = chunk;
     }
 }
