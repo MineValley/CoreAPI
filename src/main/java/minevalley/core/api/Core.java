@@ -1006,8 +1006,10 @@ public final class Core {
      * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
      * @throws IllegalArgumentException if one of the parameters is null
+     * @deprecated use item displays
      */
     @Nonnull
+    @Deprecated
     @Contract("_, _, _ -> new")
     public static Boundary createBoundary(@Nonnull Location anchorPoint, @Nonnull Location pullPoint, @Nonnull Consumer<PlayerInteractEvent> callback) throws IllegalArgumentException {
         return server.createBoundary(anchorPoint, pullPoint, callback);
@@ -1021,8 +1023,10 @@ public final class Core {
      * @param callback    callback that is called if a player clicks this boundary
      * @return boundary with given parameters
      * @throws IllegalArgumentException if one of the parameters is null
+     * @deprecated use item displays
      */
     @Nonnull
+    @Deprecated
     @Contract("_, _, _ -> new")
     public static Boundary createBoundary(@Nonnull Location anchorPoint, @Nonnull Vector vector, @Nonnull Consumer<PlayerInteractEvent> callback) throws IllegalArgumentException {
         return server.createBoundary(anchorPoint, vector, callback);

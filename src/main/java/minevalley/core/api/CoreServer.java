@@ -251,9 +251,11 @@ public interface CoreServer {
     Registrant getRegistrant(@Nullable String string);
 
     @Nonnull
+    @Deprecated
     Boundary createBoundary(@Nonnull Location anchorPoint, @Nonnull Location pullPoint, @Nonnull Consumer<PlayerInteractEvent> callback) throws IllegalArgumentException;
 
     @Nonnull
+    @Deprecated
     Boundary createBoundary(@Nonnull Location anchorPoint, @Nonnull Vector vector, @Nonnull Consumer<PlayerInteractEvent> callback) throws IllegalArgumentException;
 
     @Nonnull
