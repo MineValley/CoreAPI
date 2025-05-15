@@ -1,41 +1,28 @@
 package minevalley.core.api.regions.events;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.events.OnlineUserEvent;
 import org.bukkit.Chunk;
 import org.bukkit.event.Cancellable;
-import org.bukkit.event.Event;
-import org.bukkit.event.HandlerList;
-import org.bukkit.event.player.PlayerMoveEvent;
+
+import javax.annotation.Nonnull;
 
 /**
- * This event is called when a user enters a cuboid.
+ * This event is called when a user enters a chunk.
  */
-@RequiredArgsConstructor
 @Getter
-public class UserEnterChunkEvent extends Event implements Cancellable {
+@SuppressWarnings("unused")
+public class UserEnterChunkEvent extends OnlineUserEvent implements Cancellable {
 
-    public static final HandlerList HANDLER_LIST = new HandlerList();
-
-    private final OnlineUser user;
-    private final Chunk from, to;
-    private final PlayerMoveEvent event;
+    @Setter
     private boolean cancelled = false;
+    private final Chunk from, to;
 
-    public static HandlerList getHandlerList() {
-        return HANDLER_LIST;
-    }
-
-    @Override
-    public HandlerList getHandlers() {
-        return HANDLER_LIST;
-    }
-
-    @Override
-    public void setCancelled(boolean cancel) {
-        this.cancelled = true;
-        event.setCancelled(true);
-        user.player().setVelocity(event.getFrom().toVector().subtract(event.getTo().toVector()));
+    public UserEnterChunkEvent(@Nonnull OnlineUser user, @Nonnull Chunk from, @Nonnull Chunk to) {
+        super(user);
+        this.from = from;
+        this.to = to;
     }
 }
