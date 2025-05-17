@@ -1,7 +1,7 @@
 package minevalley.core.api.messaging.clickable;
 
 import minevalley.core.api.messaging.MessageReceiver;
-import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.ProxyUser;
 import net.kyori.adventure.text.ComponentLike;
 
 import javax.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.function.Consumer;
  * @see ChatMenu
  */
 public record ClickableOption(@Nonnull ComponentLike text, @Nonnull String hoverText, boolean singleUse,
-                              @Nonnull Consumer<OnlineUser> callback) {
+                              @Nonnull Consumer<ProxyUser> callback) {
 
     public ClickableOption {
         if (text == null) {
