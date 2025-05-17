@@ -204,11 +204,10 @@ public interface ProxyUser extends User, DialogReceiver, MessageReceiver, SoundR
     /**
      * Gets this users player location.
      *
-     * @return player location
+     * @param callback callback to be executed after the location was retrieved
      */
-    @Nonnull
     @Contract(pure = true)
-    PlayerLocation getLocation();
+    void getLocation(@Nonnull BiConsumer<ProxyUser, PlayerLocation> callback);
 
     /**
      * Sends a message to the chat in the name of this user.
