@@ -7,7 +7,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface TeamMember extends OnlineUser {
+public interface TeamMember extends ProxyUser {
 
     /**
      * Gets whether the player is team-member with the plus-rank.
