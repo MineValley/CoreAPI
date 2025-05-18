@@ -6,11 +6,15 @@ import org.bukkit.Chunk;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import javax.annotation.Nonnull;
+
+@Getter
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class ServerStartChunkLoadEvent extends Event {
 
     public static final HandlerList HANDLER_LIST = new HandlerList();
-    @Getter
+
     private final Chunk chunk;
 
     public static HandlerList getHandlerList() {
@@ -18,7 +22,7 @@ public class ServerStartChunkLoadEvent extends Event {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @Nonnull HandlerList getHandlers() {
         return HANDLER_LIST;
     }
 }
