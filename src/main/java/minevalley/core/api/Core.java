@@ -663,8 +663,8 @@ public final class Core {
      */
     @Nonnull
     @Contract("_, _, _-> new")
-    public static BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull BlockState blockState) throws IllegalArgumentException {
-        return server.createBlockDisplay(location, scale, blockState);
+    public static BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull Material material) throws IllegalArgumentException {
+        return server.createBlockDisplay(location, scale, material);
     }
 
     /**
