@@ -1,18 +1,18 @@
 package minevalley.core.api.displays;
 
-import org.bukkit.block.BlockState;
+import org.bukkit.Material;
 
 import javax.annotation.Nonnull;
 
 public interface BlockDisplay extends Display {
 
     /**
-     * Set the block state of the display
+     * Set the material of the display
      *
-     * @param blockState the block state
+     * @param material the material
      * @return the current instance
      */
-    BlockDisplay setBlockState(@Nonnull BlockState blockState);
+    BlockDisplay setBlockState(@Nonnull Material material);
 
     /**
      * Update the block state of the display.
