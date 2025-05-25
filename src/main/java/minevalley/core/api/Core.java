@@ -657,14 +657,14 @@ public final class Core {
      *
      * @param location   location where the BlockDisplay is placed
      * @param scale      scale of the BlockDisplay
-     * @param blockState block state of the BlockDisplay
+     * @param material   material of the BlockDisplay
      * @return BlockDisplay with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null or data is invalid
      */
     @Nonnull
     @Contract("_, _, _-> new")
-    public static BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull BlockState blockState) throws IllegalArgumentException {
-        return server.createBlockDisplay(location, scale, blockState);
+    public static BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull Material material) throws IllegalArgumentException {
+        return server.createBlockDisplay(location, scale, material);
     }
 
     /**

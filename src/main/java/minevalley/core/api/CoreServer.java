@@ -173,7 +173,7 @@ public interface CoreServer {
     FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material, int data) throws IllegalArgumentException;
 
     @Nonnull
-    BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull BlockState blockState) throws IllegalArgumentException;
+    BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull Material material) throws IllegalArgumentException;
 
     @Nonnull
     ItemDisplay createItemDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ItemStack itemStack) throws IllegalArgumentException;

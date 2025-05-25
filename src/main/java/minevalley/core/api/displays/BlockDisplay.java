@@ -12,7 +12,7 @@ public interface BlockDisplay extends Display {
      * @param material the material
      * @return the current instance
      */
-    BlockDisplay setBlockState(@Nonnull Material material);
+    BlockDisplay setMaterial(@Nonnull Material material);
 
     /**
      * Update the block state of the display.
