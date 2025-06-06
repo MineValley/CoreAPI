@@ -8,6 +8,7 @@ import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
+@Deprecated
 public interface Boundary {
 
     /**
@@ -15,6 +16,7 @@ public interface Boundary {
      *
      * @return first location of this boundary
      */
+    @Nonnull
     Location getFirstLocation();
 
     /**
@@ -22,6 +24,7 @@ public interface Boundary {
      *
      * @return second location of this boundary
      */
+    @Nonnull
     Location getSecondLocation();
 
     /**
@@ -75,5 +78,4 @@ public interface Boundary {
      * @return true, if this boundary is activated
      */
     boolean isActivated();
-
 }
