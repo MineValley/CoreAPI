@@ -4,6 +4,7 @@ import minevalley.core.api.corporations.companies.Aktiengesellschaft;
 import minevalley.core.api.corporations.companies.Kapitalgesellschaft;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.localization.Address;
 import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
@@ -61,6 +62,17 @@ public interface Registrant {
     @Nonnull
     @Contract(pure = true)
     List<OnlineUser> getOnlineUsers();
+
+    /**
+     * Gets the address of this registrant.
+     * If this registrant is a department without its own address, this will return the groups address.
+     * If this registrant is a group without its own address, this will return the address of the owner.
+     *
+     * @return this registrants address as residence
+     */
+    @Nullable
+    @Contract(pure = true)
+    Address getAddress();
 
     /**
      * Gets the bank account that is associated with this registrant.
