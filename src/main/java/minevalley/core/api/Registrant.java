@@ -5,8 +5,6 @@ import minevalley.core.api.corporations.companies.Kapitalgesellschaft;
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
 import minevalley.core.api.mail.Parcel;
-import minevalley.core.api.regions.residences.Address;
-import minevalley.core.api.regions.residences.Residence;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
 import minevalley.core.api.vehicles.Vehicle;
@@ -88,17 +86,6 @@ public interface Registrant {
     List<Kapitalgesellschaft.Shareholder> getRelatedShareholders();
 
     /**
-     * Gets the address of this registrant.
-     * If this registrant is a department without its own address, this will return the groups address.
-     * If this registrant is a group without its own address, this will return the address of the owner.
-     *
-     * @return this registrants address as residence
-     */
-    @Nullable
-    @Contract(pure = true)
-    Address getAddress();
-
-    /**
      * Delivers the given parcel securely. If this registrant doesn't have an address, it is sent to...
      * <br>
      * if registrant is a department: to the associated group.
@@ -118,9 +105,4 @@ public interface Registrant {
     @Nonnull
     @Contract(pure = true)
     List<Weapon> getWeapons();
-
-    @Nonnull
-    @Contract(pure = true)
-    List<Residence> getResidences();
-
 }

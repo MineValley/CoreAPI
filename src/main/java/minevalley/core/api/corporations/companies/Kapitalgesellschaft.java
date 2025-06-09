@@ -3,7 +3,6 @@ package minevalley.core.api.corporations.companies;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.RealEstateGroup;
-import minevalley.core.api.regions.residences.ApartmentBlock;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
@@ -18,10 +17,6 @@ public interface Kapitalgesellschaft extends Group, RealEstateGroup {
     List<Shareholder> getShareholders();
 
     void distribution(@Nonnegative int distributionInCents) throws IllegalArgumentException;
-
-    @Nonnull
-    @Contract(pure = true)
-    List<ApartmentBlock> getApartmentBlocks();
 
     interface Shareholder {
 
