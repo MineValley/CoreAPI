@@ -17,16 +17,6 @@ import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.npc.NPC;
 import minevalley.core.api.phone.Telephone;
-import minevalley.core.api.regions.Region;
-import minevalley.core.api.regions.residences.Apartment;
-import minevalley.core.api.regions.residences.ApartmentBlock;
-import minevalley.core.api.regions.residences.Plot;
-import minevalley.core.api.regions.residences.Residence;
-import minevalley.core.api.regions.structures.District;
-import minevalley.core.api.regions.structures.RadioMast;
-import minevalley.core.api.regions.structures.Street;
-import minevalley.core.api.regions.utils.Area;
-import minevalley.core.api.regions.utils.Boundary;
 import minevalley.core.api.server.Server;
 import minevalley.core.api.team.Team;
 import minevalley.core.api.timing.Reminder;
@@ -37,22 +27,18 @@ import minevalley.core.api.users.User;
 import minevalley.core.api.utils.*;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
-import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
-import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
-import org.bukkit.util.Vector;
 import org.intellij.lang.annotations.Language;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Contract;
@@ -65,7 +51,6 @@ import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Consumer;
 
 @ApiStatus.Internal
 public interface CoreServer {
@@ -167,8 +152,6 @@ public interface CoreServer {
     @Nonnull
     World getPresetsWorld() throws IllegalStateException;
 
-    void loadPreset(@Nonnull Area presetArea, @Nonnull Block presetPivot, @Nonnull Block mainWorldPivot) throws IllegalArgumentException;
-
     @Nonnull
     FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material, int data) throws IllegalArgumentException;
 
@@ -251,14 +234,6 @@ public interface CoreServer {
     Registrant getRegistrant(@Nullable String string);
 
     @Nonnull
-    @Deprecated
-    Boundary createBoundary(@Nonnull Location anchorPoint, @Nonnull Location pullPoint, @Nonnull Consumer<PlayerInteractEvent> callback) throws IllegalArgumentException;
-
-    @Nonnull
-    @Deprecated
-    Boundary createBoundary(@Nonnull Location anchorPoint, @Nonnull Vector vector, @Nonnull Consumer<PlayerInteractEvent> callback) throws IllegalArgumentException;
-
-    @Nonnull
     Timer startTimer(int delay, @Nonnull Runnable callback) throws IllegalArgumentException;
 
     @Nonnull
@@ -300,68 +275,6 @@ public interface CoreServer {
 
     @Nullable
     Block blockFromString(@Nullable String block);
-
-    @Nullable
-    Region getRegion(int id);
-
-    @Nonnull
-    Region createRegion(@Nonnull List<Area> included, @Nonnull List<Area> excluded) throws IllegalArgumentException;
-
-    @Nonnull
-    List<Region> getRegions(@Nonnull Block block);
-
-    @Nullable
-    Residence getResidence(int id);
-
-    @Nullable
-    Residence getResidence(@Nullable Region region);
-
-    @Nonnull
-    Plot createPlot(@Nonnull Region region, @Nonnull Street street, @Nonnegative int houseNumber,
-                    @Nonnull Registrant owner, @Nonnull Sign plotSign, @Nonnull Location teleportLocation) throws IllegalArgumentException;
-
-    @Nonnull
-    Apartment createApartment(@Nonnull Region region, @Nonnull Registrant landlord, int fertility, int rent,
-                              @Nonnull Sign apartmentSign, @Nonnull Block mailbox) throws IllegalArgumentException;
-
-    @Nonnull
-    Apartment createApartment(@Nonnull Region region, @Nonnull ApartmentBlock block, int rent, @Nonnull Sign apartmentSign, @Nonnull Block mailbox) throws IllegalArgumentException;
-
-    @Nonnull
-    List<Residence> getLoadedResidences();
-
-    @Nonnull
-    List<Street> getStreets();
-
-    @Nullable
-    Street getStreet(int id);
-
-    @Nonnull
-    Street createStreet(@Nonnull String name, @Nullable String description) throws IllegalArgumentException;
-
-    @Nonnull
-    List<District> getDistricts();
-
-    @Nullable
-    District getDistrict(int id);
-
-    @Nullable
-    District getDistrict(@Nonnull Chunk chunk);
-
-    @Nonnull
-    District createDistrict(@Nonnull String name, @Nonnull String description);
-
-    @Nonnull
-    RadioMast createRadioMast(@Nonnull String name, @Nonnull Block location, int range) throws IllegalArgumentException;
-
-    @Nullable
-    RadioMast getNearestRadioMast(@Nullable Location location);
-
-    @Nonnull
-    Area getArea(@Nonnull Block loc1, @Nonnull Block loc2) throws IllegalArgumentException;
-
-    @Nullable
-    Area getAreaFromString(@Nullable String rawArea);
 
     int convertHexToDecimalColor(@Nonnull String hex) throws IllegalArgumentException;
 
