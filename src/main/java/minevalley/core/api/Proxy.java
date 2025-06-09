@@ -4,9 +4,18 @@ import minevalley.core.api.users.ProxyUser;
 
 import javax.annotation.Nonnull;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
 public interface Proxy {
+
+    /**
+     * Gets a stream of all proxy users.
+     *
+     * @return a stream of all proxy users
+     */
+    @Nonnull
+    Stream<ProxyUser> getProxyUsers();
 
     /**
      * Gets the ProxyUser of this specific uuid.
