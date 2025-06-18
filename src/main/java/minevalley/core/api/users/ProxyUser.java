@@ -1,9 +1,9 @@
 package minevalley.core.api.users;
 
 import minevalley.core.api.audio.SoundReceiver;
+import minevalley.core.api.localization.PlayerLocation;
 import minevalley.core.api.messaging.DialogReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
-import minevalley.core.api.regions.utils.PlayerLocation;
 import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.McVersion;
 import minevalley.core.api.users.enums.TabListView;
@@ -173,7 +173,7 @@ public interface ProxyUser extends User, DialogReceiver, MessageReceiver, SoundR
     /**
      * Adds an item to the users inventory.
      *
-     * @param item item to add
+     * @param item     item to add
      * @param callback callback to be executed after the item was added
      * @throws IllegalArgumentException if the item is null
      */
