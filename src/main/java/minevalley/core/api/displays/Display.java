@@ -5,7 +5,7 @@ import org.bukkit.Location;
 
 import javax.annotation.Nonnull;
 
-public interface Display extends DisplayRotationModifier, InteractionModifier, LocationModifier, ScaleModifier, TranslationModifier, VisibilityModifier  {
+public interface Display extends InteractionModifier, LocationModifier, RotationModifier, ScaleModifier, TranslationModifier, VisibilityModifier  {
 
     /**
      * Set the location of the display
