@@ -1,7 +1,7 @@
 package minevalley.core.api.modifiers;
 
 @SuppressWarnings("unused")
-public interface DisplayRotationModifier {
+public interface RotationModifier {
 
     /**
      * Set the rotation
@@ -11,7 +11,7 @@ public interface DisplayRotationModifier {
      * @param roll  roll rotation
      * @return this
      */
-    DisplayRotationModifier setRotation(float yaw, float pitch, float roll);
+    RotationModifier setRotation(float yaw, float pitch, float roll);
 
     /**
      * Get yaw
@@ -26,7 +26,7 @@ public interface DisplayRotationModifier {
      * @param yaw the yaw to set
      * @return this
      */
-    DisplayRotationModifier setYaw(float yaw);
+    RotationModifier setYaw(float yaw);
 
     /**
      * Get pitch
@@ -41,7 +41,7 @@ public interface DisplayRotationModifier {
      * @param pitch the pitch to set
      * @return this
      */
-    DisplayRotationModifier setPitch(float pitch);
+    RotationModifier setPitch(float pitch);
 
     /**
      * Get roll
@@ -56,7 +56,7 @@ public interface DisplayRotationModifier {
      * @param roll the roll to set
      * @return this
      */
-    DisplayRotationModifier setRoll(float roll);
+    RotationModifier setRoll(float roll);
 
     /**
      * Update the rotation
