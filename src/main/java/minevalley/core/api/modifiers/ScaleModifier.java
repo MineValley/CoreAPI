@@ -1,8 +1,11 @@
 package minevalley.core.api.modifiers;
 
+import org.jetbrains.annotations.Contract;
+
 import javax.annotation.Nonnull;
 import java.util.Vector;
 
+@SuppressWarnings("unused")
 public interface ScaleModifier {
 
     /**
@@ -10,8 +13,11 @@ public interface ScaleModifier {
      *
      * @param scale the scale, default is (1.0, 1.0, 1.0)
      * @return the current instance
+     * @throws IllegalArgumentException if the scale is null
      */
-    ScaleModifier setScale(@Nonnull Vector<Float> scale);
+    @Nonnull
+    @Contract("_ -> this")
+    ScaleModifier setScale(@Nonnull Vector<Float> scale) throws IllegalArgumentException;
 
     /**
      * Update the scale.

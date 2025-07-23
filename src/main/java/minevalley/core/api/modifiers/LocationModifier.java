@@ -1,6 +1,9 @@
 package minevalley.core.api.modifiers;
 
 import org.bukkit.Location;
+import org.jetbrains.annotations.Contract;
+
+import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 public interface LocationModifier {
@@ -10,6 +13,8 @@ public interface LocationModifier {
      *
      * @return location
      */
+    @Nonnull
+    @Contract(pure = true)
     Location getLocation();
 
     /**
@@ -18,8 +23,11 @@ public interface LocationModifier {
      * <b>Note:</b> This ignores the yaw and pitch values.
      *
      * @param location new location.
+     * @throws IllegalArgumentException if the location is null or invalid.
      */
-    LocationModifier setLocation(Location location);
+    @Contract("_ -> this")
+    @Nonnull
+    LocationModifier setLocation(@Nonnull Location location) throws IllegalArgumentException;
 
     /**
      * Update the location

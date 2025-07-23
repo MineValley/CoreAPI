@@ -1,8 +1,11 @@
 package minevalley.core.api.modifiers;
 
+import org.jetbrains.annotations.Contract;
+
 import javax.annotation.Nonnull;
 import java.util.Vector;
 
+@SuppressWarnings("unused")
 public interface TranslationModifier {
 
     /**
@@ -10,8 +13,11 @@ public interface TranslationModifier {
      *
      * @param translation the translation, default is (0, 0, 0)
      * @return the current instance
+     * @throws IllegalArgumentException if the translation is null
      */
-    ScaleModifier setTranslation(@Nonnull Vector<Float> translation);
+    @Nonnull
+    @Contract("_ -> this")
+    ScaleModifier setTranslation(@Nonnull Vector<Float> translation) throws IllegalArgumentException;
 
     /**
      * Update the translation.
