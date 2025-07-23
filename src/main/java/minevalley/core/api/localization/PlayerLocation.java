@@ -11,5 +11,5 @@ public interface PlayerLocation {
      * @return name as string
      */
     @Nonnull
-    String name();
+    String toString();
 }
