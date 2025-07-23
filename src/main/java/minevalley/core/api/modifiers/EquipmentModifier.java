@@ -1,6 +1,10 @@
 package minevalley.core.api.modifiers;
 
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.Contract;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
 public interface EquipmentModifier {
@@ -10,6 +14,8 @@ public interface EquipmentModifier {
      *
      * @return item in left hand
      */
+    @Nullable
+    @Contract(pure = true)
     ItemStack getLeftHand();
 
     /**
@@ -18,13 +24,17 @@ public interface EquipmentModifier {
      * @param itemStack item to set
      * @return this
      */
-    EquipmentModifier setLeftHand(ItemStack itemStack);
+    @Nonnull
+    @Contract("_ -> this")
+    EquipmentModifier setLeftHand(@Nullable ItemStack itemStack);
 
     /**
      * Get the item in the right hand
      *
      * @return item in right hand
      */
+    @Nullable
+    @Contract(pure = true)
     ItemStack getRightHand();
 
     /**
@@ -33,13 +43,17 @@ public interface EquipmentModifier {
      * @param itemStack item to set
      * @return this
      */
-    EquipmentModifier setRightHand(ItemStack itemStack);
+    @Nonnull
+    @Contract("_ -> this")
+    EquipmentModifier setRightHand(@Nullable ItemStack itemStack);
 
     /**
      * Get the item in the helmet slot
      *
      * @return item in helmet slot
      */
+    @Nullable
+    @Contract(pure = true)
     ItemStack getHelmet();
 
     /**
@@ -48,13 +62,16 @@ public interface EquipmentModifier {
      * @param helmet item to set
      * @return this
      */
-    EquipmentModifier setHelmet(ItemStack helmet);
+    @Nonnull
+    @Contract("_ -> this")
+    EquipmentModifier setHelmet(@Nullable ItemStack helmet);
 
     /**
      * Get the item in the chestplate slot
      *
      * @return item in chestplate slot
      */
+    @Nullable
     ItemStack getChestplate();
 
     /**
@@ -63,13 +80,17 @@ public interface EquipmentModifier {
      * @param chestplate item to set
      * @return this
      */
-    EquipmentModifier setChestplate(ItemStack chestplate);
+    @Nonnull
+    @Contract("_ -> this")
+    EquipmentModifier setChestplate(@Nullable ItemStack chestplate);
 
     /**
      * Get the item in the leggings slot
      *
      * @return item in leggings slot
      */
+    @Nullable
+    @Contract(pure = true)
     ItemStack getLeggings();
 
     /**
@@ -78,13 +99,17 @@ public interface EquipmentModifier {
      * @param leggings item to set
      * @return this
      */
-    EquipmentModifier setLeggings(ItemStack leggings);
+    @Nonnull
+    @Contract("_ -> this")
+    EquipmentModifier setLeggings(@Nullable ItemStack leggings);
 
     /**
      * Get the item in the boots slot
      *
      * @return item in boots slot
      */
+    @Nullable
+    @Contract(pure = true)
     ItemStack getBoots();
 
     /**
@@ -93,7 +118,9 @@ public interface EquipmentModifier {
      * @param boots item to set
      * @return this
      */
-    EquipmentModifier setBoots(ItemStack boots);
+    @Nonnull
+    @Contract("_ -> this")
+    EquipmentModifier setBoots(@Nullable ItemStack boots);
 
     /**
      * Update the equipment

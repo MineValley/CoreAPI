@@ -21,7 +21,9 @@ public interface VisibilityModifier {
      * @throws IllegalStateException if the object is already visible
      * @see #isVisible()
      */
-    void show() throws IllegalStateException;
+    @Nonnull
+    @Contract(" -> this")
+    VisibilityModifier show() throws IllegalStateException;
 
     /**
      * Hide this object from everyone who can see it.
@@ -36,7 +38,9 @@ public interface VisibilityModifier {
      * @throws IllegalStateException if the object is already hidden
      * @see #isVisible()
      */
-    void hide() throws IllegalStateException;
+    @Nonnull
+    @Contract(" -> this")
+    VisibilityModifier hide() throws IllegalStateException;
 
     /**
      * Returns whether this object is visible
@@ -61,25 +65,29 @@ public interface VisibilityModifier {
      * @throws IllegalArgumentException if visibility is null
      * @see #isVisible()
      */
-    void setVisibility(@Nonnull Function<OnlineUser, Boolean> visibility) throws IllegalArgumentException;
+    @Nonnull
+    @Contract("_ -> this")
+    VisibilityModifier setVisibility(@Nonnull Function<OnlineUser, Boolean> visibility) throws IllegalArgumentException;
 
     /**
      * Sets the visibility of this object to everyone.
      */
-    default void setVisibleToEveryone() {
-        setVisibility(user -> true);
+    @Nonnull
+    @Contract(" -> this")
+    default VisibilityModifier setVisibleToEveryone() {
+        return setVisibility(user -> true);
     }
 
     /**
      * Updates the visibility of this object
-     * <br>
+     * <p>
      * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for every user that this object is or could be visible to
      */
     void updateVisibility();
 
     /**
      * Updates the visibility of this object for a specific user
-     * <br>
+     * <p>
      * <b>Note:</b> This simply calls the function defined in {@link #setVisibility(Function)} for this user
      *
      * @param user to update the visibility for

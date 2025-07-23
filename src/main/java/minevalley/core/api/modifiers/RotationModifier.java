@@ -1,5 +1,9 @@
 package minevalley.core.api.modifiers;
 
+import org.jetbrains.annotations.Contract;
+
+import javax.annotation.Nonnull;
+
 @SuppressWarnings("unused")
 public interface RotationModifier {
 
@@ -11,6 +15,8 @@ public interface RotationModifier {
      * @param roll  roll rotation
      * @return this
      */
+    @Nonnull
+    @Contract(pure = true)
     RotationModifier setRotation(float yaw, float pitch, float roll);
 
     /**
@@ -26,6 +32,8 @@ public interface RotationModifier {
      * @param yaw the yaw to set
      * @return this
      */
+    @Nonnull
+    @Contract("_ -> this")
     RotationModifier setYaw(float yaw);
 
     /**
@@ -41,6 +49,8 @@ public interface RotationModifier {
      * @param pitch the pitch to set
      * @return this
      */
+    @Nonnull
+    @Contract("_ -> this")
     RotationModifier setPitch(float pitch);
 
     /**
@@ -56,6 +66,8 @@ public interface RotationModifier {
      * @param roll the roll to set
      * @return this
      */
+    @Nonnull
+    @Contract("_ -> this")
     RotationModifier setRoll(float roll);
 
     /**
