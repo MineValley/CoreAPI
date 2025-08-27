@@ -58,7 +58,7 @@ import java.util.function.Consumer;
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 public final class Core {
 
-    private static CoreServer server;
+    private static CoreProvider server;
     private static Proxy proxy;
 
     /**
