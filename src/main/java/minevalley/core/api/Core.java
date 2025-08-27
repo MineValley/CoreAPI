@@ -15,6 +15,7 @@ import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.gui.FillItem;
 import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
+import minevalley.core.api.interaction.InteractionTrigger;
 import minevalley.core.api.npc.NPC;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.server.Server;
@@ -32,10 +33,10 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -52,6 +53,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.util.*;
+import java.util.function.Consumer;
 
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 public final class Core {
@@ -624,9 +626,9 @@ public final class Core {
     /**
      * Creates a block which is only visible to specific players.
      *
-     * @param location   location where the BlockDisplay is placed
-     * @param scale      scale of the BlockDisplay
-     * @param material   material of the BlockDisplay
+     * @param location location where the BlockDisplay is placed
+     * @param scale    scale of the BlockDisplay
+     * @param material material of the BlockDisplay
      * @return BlockDisplay with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null or data is invalid
      */
@@ -1210,5 +1212,27 @@ public final class Core {
     @Contract("null -> null")
     public static String convertToTransparent(@Nullable String text) throws IllegalArgumentException {
         return server.convertToTransparent(text);
+    }
+
+    /**
+     * Creates an interaction trigger with the specific parameters.
+     *
+     * @param world    world in which this trigger is located
+     * @param minX     minimum x value
+     * @param minY     minimum y value
+     * @param minZ     minimum z value
+     * @param maxX     maximum x value
+     * @param maxY     maximum y value
+     * @param maxZ     maximum z value
+     * @param callback callback that is called when a player interacts with this trigger
+     * @return interaction trigger with the specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null or the max values are smaller than the min values
+     */
+    public static InteractionTrigger createInteractionTrigger(@Nonnull World world,
+                                                              double minX, double minY, double minZ,
+                                                              double maxX, double maxY, double maxZ,
+                                                              @Nonnull Consumer<PlayerInteractEvent> callback)
+            throws IllegalArgumentException {
+        return server.createInteractionTrigger(world, minX, minY, minZ, maxX, maxY, maxZ, callback);
     }
 }
