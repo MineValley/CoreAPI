@@ -1120,30 +1120,6 @@ public final class Core {
     }
 
     /**
-     * Converts a location to a string.
-     *
-     * @param location location to convert
-     * @return string of the location
-     * @throws IllegalArgumentException if the location is null
-     */
-    @Nonnull
-    public static String locationToString(@Nonnull Location location) throws IllegalArgumentException {
-        return server.locationToString(location);
-    }
-
-    /**
-     * Converts a string to a location.
-     *
-     * @param location string to convert
-     * @return location of the string
-     */
-    @Nullable
-    @Contract("null -> null")
-    public static Location locationFromString(@Nullable String location) {
-        return server.locationFromString(location);
-    }
-
-    /**
      * Converts a block to a string.
      *
      * @param block block to convert

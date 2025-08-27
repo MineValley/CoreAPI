@@ -267,12 +267,6 @@ public interface CoreServer {
     ItemStack itemStackFromString(@Nullable String itemStack);
 
     @Nonnull
-    String locationToString(@Nonnull Location location) throws IllegalArgumentException;
-
-    @Nullable
-    Location locationFromString(@Nullable String location);
-
-    @Nonnull
     String blockToString(@Nonnull Block block) throws IllegalArgumentException;
 
     @Nullable
