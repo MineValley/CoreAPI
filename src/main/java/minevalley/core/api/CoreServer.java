@@ -15,6 +15,7 @@ import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.gui.FillItem;
 import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
+import minevalley.core.api.interaction.InteractionTrigger;
 import minevalley.core.api.npc.NPC;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.server.Server;
@@ -31,10 +32,10 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -51,6 +52,7 @@ import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 @ApiStatus.Internal
 public interface CoreServer {
@@ -287,4 +289,10 @@ public interface CoreServer {
     @Nullable
     String convertToTransparent(@Nullable String text) throws IllegalArgumentException;
 
+    @Nonnull
+    InteractionTrigger createInteractionTrigger(@Nonnull World world,
+                                                double minX, double minY, double minZ,
+                                                double maxX, double maxY, double maxZ,
+                                                @Nonnull Consumer<PlayerInteractEvent> callback)
+            throws IllegalArgumentException;
 }
