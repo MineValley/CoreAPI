@@ -3,10 +3,6 @@ package minevalley.core.api.discord;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
-import java.io.IOException;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CompletionException;
-import java.util.function.Function;
 
 /**
  * This Webhook-builder is meant to help you to create discord-webhooks.
@@ -39,15 +35,18 @@ public interface Webhook {
 
     /**
      * Sends the given messages to the discord-webhook asynchronously.
-     * <p>
-     * <b>Note:</b> Due to its asynchronous nature, this method may throw a {@link CompletionException} if the sending fails.
-     * This exception acts as a wrapper for the underlying exception and can be handled using {@link CompletableFuture#exceptionally(Function)}. To get to the underlying {@link IOException} use {@link CompletionException#getCause()}.
      *
      * @param message The messages to send.
-     * @return A future that will be completed when the message was sent.
-     * @throws IllegalArgumentException If the message is null, no one is given or the given {@code EmbeddedMessage} is another implementation than our internal.
+     * @throws IllegalArgumentException If the message is null, or the given {@code EmbeddedMessage} is another implementation than our internal.
      */
-    @Nonnull
-    @Contract(pure = true)
-    CompletableFuture<Void> send(@Nonnull EmbeddedMessage... message) throws IllegalArgumentException;
+    void send(@Nonnull EmbeddedMessage... message) throws IllegalArgumentException;
+
+    /**
+     * Sends the given messages to the discord-webhook asynchronously.
+     *
+     * @param callback The callback to run when the sending is done successfully.
+     * @param message  The messages to send.
+     * @throws IllegalArgumentException If the message is null, or the given {@code EmbeddedMessage} is another implementation than our internal.
+     */
+    void send(@Nonnull Runnable callback, @Nonnull EmbeddedMessage... message) throws IllegalArgumentException;
 }
