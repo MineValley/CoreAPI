@@ -1,11 +1,11 @@
 package minevalley.core.api.interaction;
 
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
-import javax.xml.stream.Location;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
@@ -41,23 +41,29 @@ public interface InteractionTrigger {
     /**
      * Updates the min location of this trigger.
      *
-     * @param location min location
+     * @param x x coordinate of the new min location
+     * @param y y coordinate of the new min location
+     * @param z z coordinate of the new min location
      */
-    void updateMinLocation(@Nonnull Location location);
+    void updateMinLocation(double x, double y, double z);
 
     /**
      * Updates the max location of this trigger.
      *
-     * @param location max location
+     * @param x x coordinate of the new max location
+     * @param y y coordinate of the new max location
+     * @param z z coordinate of the new max location
      */
-    void updateMaxLocation(@Nonnull Location location);
+    void updateMaxLocation(double x, double y, double z);
 
     /**
      * Moves this trigger so that its min corner equals the given location without changing its dimensions.
      *
-     * @param minLocation new min location
+     * @param x x coordinate of the new min location
+     * @param y y coordinate of the new min location
+     * @param z z coordinate of the new min location
      */
-    void move(@Nonnull Location minLocation);
+    void move(double x, double y, double z);
 
     /**
      * Deactivates this trigger.
