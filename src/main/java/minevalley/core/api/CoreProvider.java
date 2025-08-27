@@ -55,7 +55,7 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 @ApiStatus.Internal
-public interface CoreServer {
+public interface CoreProvider {
 
     @Nonnull
     JavaPlugin getInstance();
