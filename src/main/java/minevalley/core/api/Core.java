@@ -58,7 +58,7 @@ import java.util.function.Consumer;
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 public final class Core {
 
-    private static CoreProvider server;
+    private static CoreProvider provider;
     private static Proxy proxy;
 
     /**
@@ -70,7 +70,7 @@ public final class Core {
      */
     @Nonnull
     public static JavaPlugin getInstance() {
-        return server.getInstance();
+        return provider.getInstance();
     }
 
     /**
@@ -80,7 +80,7 @@ public final class Core {
      */
     @Nonnull
     public static Server server() {
-        return server.server();
+        return provider.server();
     }
 
     /**
@@ -102,7 +102,7 @@ public final class Core {
      */
     @Nonnull
     public static BukkitTask runSyncTaskNow(@Nonnull Runnable task) throws IllegalArgumentException {
-        return server.runSyncTaskLater(0, task);
+        return provider.runSyncTaskLater(0, task);
     }
 
     /**
@@ -116,7 +116,7 @@ public final class Core {
      */
     @Nonnull
     public static BukkitTask runAsyncTaskNow(@Nonnull Runnable task) throws IllegalArgumentException {
-        return server.runAsyncTaskLater(0, task);
+        return provider.runAsyncTaskLater(0, task);
     }
 
     /**
@@ -130,7 +130,7 @@ public final class Core {
      */
     @Nonnull
     public static BukkitTask runSyncTaskLater(long delay, @Nonnull Runnable task) throws IllegalArgumentException {
-        return server.runSyncTaskLater(delay, task);
+        return provider.runSyncTaskLater(delay, task);
     }
 
     /**
@@ -146,7 +146,7 @@ public final class Core {
      */
     @Nonnull
     public static BukkitTask runAsyncTaskLater(long delay, @Nonnull Runnable task) throws IllegalArgumentException {
-        return server.runAsyncTaskLater(delay, task);
+        return provider.runAsyncTaskLater(delay, task);
     }
 
     /**
@@ -161,7 +161,7 @@ public final class Core {
      */
     @Nonnull
     public static BukkitTask runSyncTaskPeriodically(long delay, long period, @Nonnull Runnable task) throws IllegalArgumentException {
-        return server.runSyncTaskPeriodically(delay, period, task);
+        return provider.runSyncTaskPeriodically(delay, period, task);
     }
 
     /**
@@ -179,7 +179,7 @@ public final class Core {
      */
     @Nonnull
     public static BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable task) throws IllegalArgumentException {
-        return server.runAsyncTaskPeriodically(delay, period, task);
+        return provider.runAsyncTaskPeriodically(delay, period, task);
     }
 
     /**
@@ -192,7 +192,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql) throws SQLException {
-        return server.prepareSQL(sql, false);
+        return provider.prepareSQL(sql, false);
     }
 
     /**
@@ -206,7 +206,7 @@ public final class Core {
     @Nonnull
     @Contract("_, _ -> new")
     public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql, boolean retrieveGeneratedKeys) throws SQLException {
-        return server.prepareSQL(sql, retrieveGeneratedKeys);
+        return provider.prepareSQL(sql, retrieveGeneratedKeys);
     }
 
     /**
@@ -221,7 +221,7 @@ public final class Core {
      */
     @Contract("_, _, _ -> _")
     public static int generateUniqueId(@Nonnull String table, @Nonnull String column, int amountOfChars) throws IllegalArgumentException, SQLException {
-        return server.generateUniqueId(table, column, amountOfChars);
+        return provider.generateUniqueId(table, column, amountOfChars);
     }
 
     /**
@@ -232,7 +232,7 @@ public final class Core {
      * @throws IllegalArgumentException if the event class or listener is null
      */
     public static void registerListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException {
-        server.registerListener(cls, listener);
+        provider.registerListener(cls, listener);
     }
 
     /**
@@ -243,7 +243,7 @@ public final class Core {
      * @throws IllegalArgumentException if the event class or listener is null
      */
     public static void unregisterListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException {
-        server.unregisterListener(cls, listener);
+        provider.unregisterListener(cls, listener);
     }
 
     /**
@@ -253,7 +253,7 @@ public final class Core {
      * @throws IllegalArgumentException if the listener is null
      */
     public static void registerListener(@Nonnull Listener listener) throws IllegalArgumentException {
-        server.registerListener(listener);
+        provider.registerListener(listener);
     }
 
     /**
@@ -263,7 +263,7 @@ public final class Core {
      * @throws IllegalArgumentException if the event is null
      */
     public static void callEvent(@Nonnull Event event) throws IllegalArgumentException {
-        server.callEvent(event);
+        provider.callEvent(event);
     }
 
     /**
@@ -277,7 +277,7 @@ public final class Core {
     @Nullable
     @Contract("null -> null")
     public static User getUser(@Nullable UUID uniqueId) {
-        return server.getUser(uniqueId);
+        return provider.getUser(uniqueId);
     }
 
     /**
@@ -291,7 +291,7 @@ public final class Core {
      */
     @Nonnull
     public static OnlineUser getOnlineUser(@Nonnull Player player) throws IllegalArgumentException {
-        return server.getOnlineUser(player);
+        return provider.getOnlineUser(player);
     }
 
     /**
@@ -312,7 +312,7 @@ public final class Core {
     @Nullable
     @Contract("null -> null")
     public static String getName(@Nullable UUID uniqueId) {
-        return server.getName(uniqueId);
+        return provider.getName(uniqueId);
     }
 
     /**
@@ -332,11 +332,11 @@ public final class Core {
     @Nullable
     @Contract("null -> null")
     public static UUID getUniqueId(@Nullable String name) {
-        return server.getUniqueId(name);
+        return provider.getUniqueId(name);
     }
 
     public static Team team() {
-        return server.team();
+        return provider.team();
     }
 
     /**
@@ -346,7 +346,7 @@ public final class Core {
      * @param message message as string
      */
     public static void sendDebug(@Nonnull DebugType type, @Nonnull String message) {
-        server.sendDebug(type, removeColorCodes(message));
+        provider.sendDebug(type, removeColorCodes(message));
     }
 
     /**
@@ -359,7 +359,7 @@ public final class Core {
      * @throws IllegalArgumentException if the key or value is null
      */
     public static void setSetting(@Nonnull String key, @Nonnull String value) throws IllegalArgumentException {
-        server.setSetting(key, value);
+        provider.setSetting(key, value);
     }
 
     /**
@@ -371,7 +371,7 @@ public final class Core {
     @Nullable
     @Contract("null -> null")
     public static String getSetting(String key) {
-        return server.getSetting(key);
+        return provider.getSetting(key);
     }
 
 
@@ -384,7 +384,7 @@ public final class Core {
      */
     @Nonnull
     public static String getSetting(String key, @Nonnull String defaultValue) {
-        return Optional.ofNullable(server.getSetting(key)).orElse(defaultValue);
+        return Optional.ofNullable(provider.getSetting(key)).orElse(defaultValue);
     }
 
     /**
@@ -397,7 +397,7 @@ public final class Core {
      * @throws IllegalArgumentException if the key is null
      */
     public static void updateStatistic(@Nonnull String key, double value) throws IllegalArgumentException {
-        server.updateStatistic(key, value);
+        provider.updateStatistic(key, value);
     }
 
     /**
@@ -408,7 +408,7 @@ public final class Core {
      * @throws IllegalArgumentException if the key is null
      */
     public static double getStatistic(@Nonnull String key) throws IllegalArgumentException {
-        return server.getStatistic(key);
+        return provider.getStatistic(key);
     }
 
     /**
@@ -419,7 +419,7 @@ public final class Core {
      */
     @Contract("null -> null")
     public static String removeColorCodes(@Nullable String text) {
-        return server.removeColorCodes(text);
+        return provider.removeColorCodes(text);
     }
 
     /**
@@ -430,7 +430,7 @@ public final class Core {
      */
     @Contract("null -> null")
     public static String convertColorCodes(@Nullable String text) {
-        return server.convertColorCodes(text);
+        return provider.convertColorCodes(text);
     }
 
     /**
@@ -441,7 +441,7 @@ public final class Core {
      */
     @Contract("null -> false")
     public static boolean containsForbiddenWords(@Nullable String text) {
-        return server.containsForForbiddenWords(text);
+        return provider.containsForForbiddenWords(text);
     }
 
     /**
@@ -452,7 +452,7 @@ public final class Core {
      */
     @Nonnull
     public static Gson getGson() {
-        return server.getGson();
+        return provider.getGson();
     }
 
     /**
@@ -463,7 +463,7 @@ public final class Core {
      * @throws IllegalArgumentException if the chars are less than 1
      */
     public static int getRandomInteger(int chars) throws IllegalArgumentException {
-        return server.getRandomInteger(chars);
+        return provider.getRandomInteger(chars);
     }
 
     /**
@@ -476,7 +476,7 @@ public final class Core {
      */
     @Contract("null -> false")
     public static boolean isInteger(@Nullable String string) {
-        return server.isInteger(string);
+        return provider.isInteger(string);
     }
 
     /**
@@ -487,7 +487,7 @@ public final class Core {
      */
     @Contract("null -> false")
     public static boolean isDouble(@Nullable String string) {
-        return server.isDouble(string);
+        return provider.isDouble(string);
     }
 
     /**
@@ -498,7 +498,7 @@ public final class Core {
      */
     @Nonnull
     public static String formatMoney(int amountInCents) {
-        return server.formatMoney(amountInCents);
+        return provider.formatMoney(amountInCents);
     }
 
     @Nonnull
@@ -508,7 +508,7 @@ public final class Core {
 
     @Nonnull
     public static String formatRelativeTimestamp(long timestamp) {
-        return server.formatRelativeTimestamp(timestamp);
+        return provider.formatRelativeTimestamp(timestamp);
     }
 
     @Nonnull
@@ -535,7 +535,7 @@ public final class Core {
      */
     @Nonnull
     public static InventoryGui createGui(@Nonnull Component title, @Nonnegative int size) throws IllegalArgumentException {
-        return server.createGUI(title, size);
+        return provider.createGUI(title, size);
     }
 
     /**
@@ -555,7 +555,7 @@ public final class Core {
      */
     @Nonnull
     public static MultiPageGui createMultiPageGui(@Nonnull Component title, @Nonnegative int size, @Nonnull List<FillItem> fillItems) throws IllegalArgumentException {
-        return server.createMultiPageGui(title, size, fillItems);
+        return provider.createMultiPageGui(title, size, fillItems);
     }
 
     /**
@@ -565,7 +565,7 @@ public final class Core {
      */
     @Nonnull
     public static World getMainWorld() {
-        return server.getMainWorld();
+        return provider.getMainWorld();
     }
 
     /**
@@ -578,7 +578,7 @@ public final class Core {
      */
     @Nonnull
     public static World getBuildingWorld() throws IllegalStateException {
-        return server.getBuildingWorld();
+        return provider.getBuildingWorld();
     }
 
     /**
@@ -591,7 +591,7 @@ public final class Core {
      */
     @Nonnull
     public static World getPresetsWorld() throws IllegalStateException {
-        return server.getPresetsWorld();
+        return provider.getPresetsWorld();
     }
 
     /**
@@ -606,7 +606,7 @@ public final class Core {
     @Nonnull
     @Contract("_, _, _ -> new")
     public static FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material, int data) throws IllegalArgumentException {
-        return server.createFakeBlock(block, material, data);
+        return provider.createFakeBlock(block, material, data);
     }
 
     /**
@@ -620,7 +620,7 @@ public final class Core {
     @Nonnull
     @Contract("_, _ -> new")
     public static FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material) throws IllegalArgumentException {
-        return server.createFakeBlock(block, material, 0);
+        return provider.createFakeBlock(block, material, 0);
     }
 
     /**
@@ -635,7 +635,7 @@ public final class Core {
     @Nonnull
     @Contract("_, _, _-> new")
     public static BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull Material material) throws IllegalArgumentException {
-        return server.createBlockDisplay(location, scale, material);
+        return provider.createBlockDisplay(location, scale, material);
     }
 
     /**
@@ -650,7 +650,7 @@ public final class Core {
     @Nonnull
     @Contract("_, _, _ -> new")
     public static ItemDisplay createItemDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ItemStack itemStack) throws IllegalArgumentException {
-        return server.createItemDisplay(location, scale, itemStack);
+        return provider.createItemDisplay(location, scale, itemStack);
     }
 
     /**
@@ -665,7 +665,7 @@ public final class Core {
     @Nonnull
     @Contract("_, _, _ -> new")
     public static TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ComponentLike text) throws IllegalArgumentException {
-        return server.createTextDisplay(location, scale, text);
+        return provider.createTextDisplay(location, scale, text);
     }
 
     /**
@@ -678,7 +678,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static ItemBuilder createItem(@Nonnull ItemStack itemStack) throws IllegalArgumentException {
-        return server.createItem(itemStack);
+        return provider.createItem(itemStack);
     }
 
     /**
@@ -691,7 +691,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static ItemBuilder createItem(@Nonnull Material material) throws IllegalArgumentException {
-        return server.createItem(material);
+        return provider.createItem(material);
     }
 
     /**
@@ -704,7 +704,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static ItemBuilder createItem(@Nonnull Player player) throws IllegalArgumentException {
-        return server.createItem(player);
+        return provider.createItem(player);
     }
 
     /**
@@ -717,7 +717,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static ItemBuilder createItem(@Nonnull OnlineUser user) throws IllegalArgumentException {
-        return server.createItem(user.player());
+        return provider.createItem(user.player());
     }
 
     /**
@@ -730,7 +730,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static ItemBuilder createItem(@Nonnull User user) throws IllegalArgumentException {
-        return server.createItem(user.getPlayerHead());
+        return provider.createItem(user.getPlayerHead());
     }
 
     /**
@@ -743,7 +743,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static ItemBuilder createItem(@Nonnull UUID uniqueId) throws IllegalArgumentException {
-        return server.createItem(uniqueId);
+        return provider.createItem(uniqueId);
     }
 
     /**
@@ -757,7 +757,7 @@ public final class Core {
     @Nonnull
     @Contract("_, _ -> new")
     public static ItemBuilder createItem(@Nonnull String value, @Nonnull String signature) throws IllegalArgumentException {
-        return server.createItem(value, signature);
+        return provider.createItem(value, signature);
     }
 
     /**
@@ -778,7 +778,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static ItemBuilder createItem(@Nonnull String url) throws IllegalArgumentException {
-        return server.createItem(url);
+        return provider.createItem(url);
     }
 
     /**
@@ -790,7 +790,7 @@ public final class Core {
      */
     @Nonnull
     public static Inventory getInventoryFromString(@Nonnull String inventory) throws IllegalArgumentException {
-        return server.getInventoryFromString(inventory);
+        return provider.getInventoryFromString(inventory);
     }
 
     /**
@@ -802,7 +802,7 @@ public final class Core {
      */
     @Nonnull
     public static String getStringFromInventory(@Nonnull Inventory inventory) throws IllegalArgumentException {
-        return server.getStringFromInventory(inventory);
+        return provider.getStringFromInventory(inventory);
     }
 
     /**
@@ -814,7 +814,7 @@ public final class Core {
     @Nullable
     @Contract("null -> null")
     public static BankAccount getBankAccount(@Nullable String iban) {
-        return server.getBankAccount(iban);
+        return provider.getBankAccount(iban);
     }
 
     /**
@@ -826,7 +826,7 @@ public final class Core {
     @Nullable
     @Contract("null -> null")
     public static BankAccount getBankAccount(@Nullable ItemStack bankCard) {
-        return server.getBankAccount(bankCard);
+        return provider.getBankAccount(bankCard);
     }
 
     /**
@@ -839,7 +839,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static BankAccount createBankAccount(@Nonnull Registrant holder) throws IllegalArgumentException {
-        return server.createBankAccount(holder);
+        return provider.createBankAccount(holder);
     }
 
     /**
@@ -849,7 +849,7 @@ public final class Core {
      */
     @Nonnull
     public static List<Group> getGroups() {
-        return server.getGroups();
+        return provider.getGroups();
     }
 
     /**
@@ -860,7 +860,7 @@ public final class Core {
      */
     @Nullable
     public static Group getGroup(@Nullable String name) {
-        return server.getGroup(name);
+        return provider.getGroup(name);
     }
 
     /**
@@ -873,7 +873,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static Einzelunternehmen createEinzelunternehmen(@Nonnull User owner) throws IllegalArgumentException {
-        return server.createEinzelunternehmen(owner);
+        return provider.createEinzelunternehmen(owner);
     }
 
     /**
@@ -888,7 +888,7 @@ public final class Core {
     @Contract("_, _ -> new")
     @ApiStatus.Experimental
     public static Personengesellschaft createPersonengesellschaft(@Nonnull User owner, @Nonnull List<User> coOwners) throws IllegalArgumentException {
-        return server.createPersonengesellschaft(owner, coOwners);
+        return provider.createPersonengesellschaft(owner, coOwners);
     }
 
     /**
@@ -902,7 +902,7 @@ public final class Core {
     @Contract("_ -> new")
     @ApiStatus.Experimental
     public static Kapitalgesellschaft createKapitalgesellschaft(int address) throws IllegalArgumentException {
-        return server.createKapitalgesellschaft(address);
+        return provider.createKapitalgesellschaft(address);
     }
 
     /**
@@ -916,7 +916,7 @@ public final class Core {
     @Contract("_, _ -> new")
     @ApiStatus.Experimental
     public static StateCompany createStateCompany(int address, @Nonnull StateCompany.Sector sector) throws IllegalArgumentException {
-        return server.createStateCompany(address, sector);
+        return provider.createStateCompany(address, sector);
     }
 
     /**
@@ -931,7 +931,7 @@ public final class Core {
     @Contract("_, _ -> new")
     @ApiStatus.Experimental
     public static Aktiengesellschaft createAktiengesellschaft(int address, int stocks) throws IllegalArgumentException {
-        return server.createAktiengesellschaft(address, stocks);
+        return provider.createAktiengesellschaft(address, stocks);
     }
 
     /**
@@ -941,7 +941,7 @@ public final class Core {
      */
     @Nonnull
     public static List<StateCompany> getStateCompanies() {
-        return server.getStateCompanies();
+        return provider.getStateCompanies();
     }
 
 
@@ -954,7 +954,7 @@ public final class Core {
     @Nullable
     @Contract("null -> null")
     public static Telephone getTelephone(@Nullable String telephoneNumber) {
-        return server.getTelephone(telephoneNumber);
+        return provider.getTelephone(telephoneNumber);
     }
 
     /**
@@ -966,7 +966,7 @@ public final class Core {
     @Nullable
     @Contract("null -> null")
     public static Registrant getRegistrant(@Nullable String id) {
-        return server.getRegistrant(id);
+        return provider.getRegistrant(id);
     }
 
     /**
@@ -980,7 +980,7 @@ public final class Core {
     @Nonnull
     @Contract("_, _ -> new")
     public static Timer startTimer(int delay, @Nonnull Runnable callback) throws IllegalArgumentException {
-        return server.startTimer(delay, callback);
+        return provider.startTimer(delay, callback);
     }
 
     /**
@@ -995,7 +995,7 @@ public final class Core {
      * @throws IllegalArgumentException if the period is less than 1 or the callback is null
      */
     public static RepeatingTimer startRepeatingTimer(int period, @Nonnull Runnable callback) throws IllegalArgumentException {
-        return server.startRepeatingTimer(period, callback);
+        return provider.startRepeatingTimer(period, callback);
     }
 
     /**
@@ -1009,7 +1009,7 @@ public final class Core {
      * @throws IllegalArgumentException if the hours or minutes are invalid
      */
     public static Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, DayOfWeek... weekdays) throws IllegalArgumentException {
-        return server.createReminder(hours, minutes, callback, weekdays);
+        return provider.createReminder(hours, minutes, callback, weekdays);
     }
 
     /**
@@ -1023,7 +1023,7 @@ public final class Core {
      */
     @Nonnull
     public static Reminder createReminder(@Nonnegative int hours, @Nonnegative int minutes, @Nonnull Runnable callback) throws IllegalArgumentException {
-        return server.createReminder(hours, minutes, callback, DayOfWeek.values());
+        return provider.createReminder(hours, minutes, callback, DayOfWeek.values());
     }
 
     /**
@@ -1035,7 +1035,7 @@ public final class Core {
      */
     @Nonnull
     public static Webhook createWebhook(@Nonnull URL url) throws IllegalArgumentException {
-        return server.createWebhook(url);
+        return provider.createWebhook(url);
     }
 
     /**
@@ -1045,7 +1045,7 @@ public final class Core {
      */
     @Nonnull
     public static EmbeddedMessage createEmbeddedMessage() {
-        return server.createEmbeddedMessage();
+        return provider.createEmbeddedMessage();
     }
 
     /**
@@ -1058,11 +1058,11 @@ public final class Core {
      * @return npc with specific parameters
      */
     public static NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers) {
-        return server.createNPC(skinUniqueId, name, location, focusNearPlayers);
+        return provider.createNPC(skinUniqueId, name, location, focusNearPlayers);
     }
 
     public static NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers) {
-        return server.createNPC(value, signature, name, location, focusNearPlayers);
+        return provider.createNPC(value, signature, name, location, focusNearPlayers);
     }
 
     /**
@@ -1079,7 +1079,7 @@ public final class Core {
     public static CarBarrier createCarBarrier(@Nonnull Location loc, int rotation, @Nonnull List<Block> barrierBlocks) throws IllegalArgumentException {
         while (rotation < 0) rotation += 360;
         rotation %= 360;
-        return server.createCarBarrier(loc, rotation, barrierBlocks);
+        return provider.createCarBarrier(loc, rotation, barrierBlocks);
     }
 
     /**
@@ -1092,7 +1092,7 @@ public final class Core {
      * @throws IllegalArgumentException if the location is null or the lines are empty
      */
     public static Hologram createHologram(@Nonnull Location loc, boolean visibleToEveryone, @Nonnull String... lines) throws IllegalArgumentException {
-        return server.createHologram(loc, visibleToEveryone, lines);
+        return provider.createHologram(loc, visibleToEveryone, lines);
     }
 
     /**
@@ -1104,7 +1104,7 @@ public final class Core {
      */
     @Nonnull
     public static String itemStackToString(@Nonnull ItemStack itemStack) throws IllegalArgumentException {
-        return server.itemStackToString(itemStack);
+        return provider.itemStackToString(itemStack);
     }
 
     /**
@@ -1116,7 +1116,7 @@ public final class Core {
     @Nullable
     @Contract("null -> null")
     public static ItemStack itemStackFromString(@Nullable String itemStack) {
-        return server.itemStackFromString(itemStack);
+        return provider.itemStackFromString(itemStack);
     }
 
     /**
@@ -1127,7 +1127,7 @@ public final class Core {
      * @throws IllegalArgumentException if the hex color code is invalid or null
      */
     public static int convertHexToDecimalColor(@Nonnull String hex) throws IllegalArgumentException {
-        return server.convertHexToDecimalColor(hex);
+        return provider.convertHexToDecimalColor(hex);
     }
 
     /**
@@ -1140,7 +1140,7 @@ public final class Core {
     @Nonnull
     @Contract("_ -> new")
     public static FakeArmorStand createFakeArmorStand(@Nonnull Location location) throws IllegalArgumentException {
-        return server.createFakeArmorStand(location);
+        return provider.createFakeArmorStand(location);
     }
 
     /**
@@ -1151,7 +1151,7 @@ public final class Core {
      */
     @Nullable
     public static FakeArmorStand getFakeArmorStand(int id) {
-        return server.getFakeArmorStand(id);
+        return provider.getFakeArmorStand(id);
     }
 
     /**
@@ -1163,7 +1163,7 @@ public final class Core {
      */
     @Contract("null -> null")
     public static String convertToTransparent(@Nullable String text) throws IllegalArgumentException {
-        return server.convertToTransparent(text);
+        return provider.convertToTransparent(text);
     }
 
     /**
@@ -1187,6 +1187,6 @@ public final class Core {
                                                               @Nonnull Consumer<PlayerInteractEvent> callback,
                                                               @Nonnegative double range)
             throws IllegalArgumentException {
-        return server.createInteractionTrigger(world, minX, minY, minZ, maxX, maxY, maxZ, callback, range);
+        return provider.createInteractionTrigger(world, minX, minY, minZ, maxX, maxY, maxZ, callback, range);
     }
 }
