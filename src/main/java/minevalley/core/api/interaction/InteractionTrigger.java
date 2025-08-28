@@ -40,15 +40,6 @@ public interface InteractionTrigger {
     Location maxLocation();
 
     /**
-     * Gets the range of this trigger, defined as the longest distance this trigger can be clicked from.
-     *
-     * @return range of this trigger
-     */
-    @Nonnegative
-    @Contract(pure = true)
-    double range();
-
-    /**
      * Updates the min location of this trigger.
      *
      * @param x x coordinate of the new min location
@@ -98,4 +89,22 @@ public interface InteractionTrigger {
      * @param callback will be called when clicked
      */
     void onCall(@Nonnull Consumer<PlayerInteractEvent> callback);
+
+    /**
+     * Gets the range of this trigger, defined as the longest distance this trigger can be clicked from.
+     *
+     * @return range of this trigger
+     */
+    @Nonnegative
+    @Contract(pure = true)
+    double range();
+
+    /**
+     * Sets the range of the trigger.
+     * The range defines the longest distance this trigger can be clicked from.
+     *
+     * @param range new range of this trigger
+     * @throws IllegalArgumentException if the given range is negative
+     */
+    void setRange(@Nonnegative double range) throws IllegalArgumentException;
 }
