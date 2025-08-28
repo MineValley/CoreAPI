@@ -1120,30 +1120,6 @@ public final class Core {
     }
 
     /**
-     * Converts a block to a string.
-     *
-     * @param block block to convert
-     * @return string of the block
-     * @throws IllegalArgumentException if the block is null
-     */
-    @Nonnull
-    public static String blockToString(@Nonnull Block block) throws IllegalArgumentException {
-        return server.blockToString(block);
-    }
-
-    /**
-     * Converts a string to a block.
-     *
-     * @param block string to convert
-     * @return block of the string
-     */
-    @Nullable
-    @Contract("null -> null")
-    public static Block blockFromString(@Nullable String block) {
-        return server.blockFromString(block);
-    }
-
-    /**
      * Converts the given hex color code (with or without #) to a decimal color code.
      *
      * @param hex hex color code

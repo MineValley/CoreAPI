@@ -266,12 +266,6 @@ public interface CoreProvider {
     @Nullable
     ItemStack itemStackFromString(@Nullable String itemStack);
 
-    @Nonnull
-    String blockToString(@Nonnull Block block) throws IllegalArgumentException;
-
-    @Nullable
-    Block blockFromString(@Nullable String block);
-
     int convertHexToDecimalColor(@Nonnull String hex) throws IllegalArgumentException;
 
     @Nonnull
