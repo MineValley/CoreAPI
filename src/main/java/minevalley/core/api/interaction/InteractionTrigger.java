@@ -5,6 +5,7 @@ import org.bukkit.World;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.jetbrains.annotations.Contract;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 
@@ -37,6 +38,10 @@ public interface InteractionTrigger {
     @Nonnull
     @Contract(pure = true)
     Location maxLocation();
+
+    @Nonnegative
+    @Contract(pure = true)
+    double range();
 
     /**
      * Updates the min location of this trigger.
