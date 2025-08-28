@@ -39,6 +39,11 @@ public interface InteractionTrigger {
     @Contract(pure = true)
     Location maxLocation();
 
+    /**
+     * Gets the range of this trigger, defined as the longest distance this trigger can be clicked from.
+     *
+     * @return range of this trigger
+     */
     @Nonnegative
     @Contract(pure = true)
     double range();
