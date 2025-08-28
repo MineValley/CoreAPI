@@ -281,6 +281,7 @@ public interface CoreProvider {
     InteractionTrigger createInteractionTrigger(@Nonnull World world,
                                                 double minX, double minY, double minZ,
                                                 double maxX, double maxY, double maxZ,
-                                                @Nonnull Consumer<PlayerInteractEvent> callback)
+                                                @Nonnull Consumer<PlayerInteractEvent> callback,
+                                                @Nonnegative double range)
             throws IllegalArgumentException;
 }

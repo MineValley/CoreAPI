@@ -1177,14 +1177,16 @@ public final class Core {
      * @param maxY     maximum y value
      * @param maxZ     maximum z value
      * @param callback callback that is called when a player interacts with this trigger
+     * @param range    range in which a player can interact with this trigger
      * @return interaction trigger with the specific parameters
-     * @throws IllegalArgumentException if one of the parameters is null or the max values are smaller than the min values
+     * @throws IllegalArgumentException if one of the parameters is null, the max values are smaller than the min values or the range is negative
      */
     public static InteractionTrigger createInteractionTrigger(@Nonnull World world,
                                                               double minX, double minY, double minZ,
                                                               double maxX, double maxY, double maxZ,
-                                                              @Nonnull Consumer<PlayerInteractEvent> callback)
+                                                              @Nonnull Consumer<PlayerInteractEvent> callback,
+                                                              @Nonnegative double range)
             throws IllegalArgumentException {
-        return server.createInteractionTrigger(world, minX, minY, minZ, maxX, maxY, maxZ, callback);
+        return server.createInteractionTrigger(world, minX, minY, minZ, maxX, maxY, maxZ, callback, range);
     }
 }
