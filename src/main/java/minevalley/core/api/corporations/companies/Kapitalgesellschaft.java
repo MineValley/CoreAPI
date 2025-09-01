@@ -1,7 +1,6 @@
 package minevalley.core.api.corporations.companies;
 
 import minevalley.core.api.Registrant;
-import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.RealEstateGroup;
 import org.jetbrains.annotations.Contract;
 
@@ -10,7 +9,7 @@ import javax.annotation.Nonnull;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public interface Kapitalgesellschaft extends Group, RealEstateGroup {
+public interface Kapitalgesellschaft extends RealEstateGroup {
 
     @Nonnull
     @Contract(pure = true)

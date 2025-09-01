@@ -1,4 +1,4 @@
 package minevalley.core.api.corporations;
 
-public interface RealEstateGroup {
+public interface RealEstateGroup extends Group {
 }
