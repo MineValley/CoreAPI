@@ -1,7 +1,6 @@
 package minevalley.core.api.users.events.idle;
 
 import minevalley.core.api.users.ProxyUser;
-import minevalley.core.api.users.events.ProxyUserEvent;
 
 import javax.annotation.Nonnull;
 
@@ -9,7 +8,7 @@ import javax.annotation.Nonnull;
  * This event gets called when a proxy user is no longer marked as idle (afk).
  */
 @SuppressWarnings("unused")
-public class UserQuitIdleStateEvent extends ProxyUserEvent {
+public class UserQuitIdleStateEvent extends UserUpdateIdleStateEvent {
 
     public UserQuitIdleStateEvent(@Nonnull ProxyUser user) {
         super(user);
