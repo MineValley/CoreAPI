@@ -1,12 +1,14 @@
 package minevalley.core.api.users.events.services.support;
 
-import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.ProxyUser;
 import minevalley.core.api.users.events.services.team.UserUpdateTeamServiceEvent;
 
-@SuppressWarnings("unused")
-public class UserLeaveSupportServiceEvent extends UserUpdateTeamServiceEvent {
+import javax.annotation.Nonnull;
 
-    public UserLeaveSupportServiceEvent(OnlineUser user) {
+@SuppressWarnings("unused")
+public class UserLeaveSupportServiceEvent extends UserUpdateSupportServiceEvent {
+
+    public UserLeaveSupportServiceEvent(@Nonnull ProxyUser user) {
         super(user);
     }
 }
