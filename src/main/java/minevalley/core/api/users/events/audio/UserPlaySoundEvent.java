@@ -2,7 +2,6 @@ package minevalley.core.api.users.events.audio;
 
 import lombok.Getter;
 import minevalley.core.api.audio.SoundReceiver;
-import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.ProxyUser;
 import minevalley.core.api.users.events.ProxyUserEvent;
 import net.kyori.adventure.sound.Sound;
