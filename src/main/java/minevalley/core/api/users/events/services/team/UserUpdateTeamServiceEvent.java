@@ -1,11 +1,13 @@
 package minevalley.core.api.users.events.services.team;
 
-import minevalley.core.api.users.OnlineUser;
-import minevalley.core.api.users.events.OnlineUserEvent;
+import minevalley.core.api.users.ProxyUser;
+import minevalley.core.api.users.events.ProxyUserEvent;
 
-public abstract class UserUpdateTeamServiceEvent extends OnlineUserEvent {
+import javax.annotation.Nonnull;
 
-    public UserUpdateTeamServiceEvent(OnlineUser user) {
+public abstract class UserUpdateTeamServiceEvent extends ProxyUserEvent {
+
+    public UserUpdateTeamServiceEvent(@Nonnull ProxyUser user) {
         super(user);
     }
 }

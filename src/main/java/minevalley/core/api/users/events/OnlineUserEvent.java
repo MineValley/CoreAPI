@@ -8,11 +8,10 @@ import org.bukkit.event.HandlerList;
 
 import javax.annotation.Nonnull;
 
-@Getter
 @RequiredArgsConstructor
 public abstract class OnlineUserEvent extends Event {
 
-    private final OnlineUser user;
+    private final @Getter(onMethod_ = @Nonnull) OnlineUser user;
 
     private final static @Getter(onMethod_ = @Nonnull) HandlerList handlerList = new HandlerList();
 
