@@ -54,6 +54,11 @@ public interface BankAccount {
      */
     boolean isPermissioned(User user);
 
+    /**
+     * Gets the type of this bank account.
+     *
+     * @return type of this bank account
+     */
     AccountType getType();
 
     /**
@@ -81,6 +86,11 @@ public interface BankAccount {
      */
     TransferResult transfer(BankAccount target, int amountInCents, String usage);
 
+    /**
+     * Gets the bank card item of this account.
+     *
+     * @return the bank card item as ItemStack
+     */
     ItemStack getBankCard();
 
     @Getter
@@ -94,18 +104,13 @@ public interface BankAccount {
         private final String prefix;
 
         public static AccountType getAccountType(String iban) {
-            switch (iban.split("-")[0]) {
-                case "DE00":
-                    return USER;
-                case "DE01":
-                    return SECOND_ACCOUNT;
-                case "DE02":
-                    return COMPANY;
-                case "DE03":
-                    return ASSOCIATION;
-                default:
-                    return null;
-            }
+            return switch (iban.split("-")[0]) {
+                case "DE00" -> USER;
+                case "DE01" -> SECOND_ACCOUNT;
+                case "DE02" -> COMPANY;
+                case "DE03" -> ASSOCIATION;
+                default -> null;
+            };
         }
     }
 
