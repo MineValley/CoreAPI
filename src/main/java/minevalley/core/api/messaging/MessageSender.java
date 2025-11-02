@@ -4,7 +4,6 @@ import minevalley.core.api.messaging.clickable.ChatMenu;
 import minevalley.core.api.messaging.clickable.ClickableOption;
 import minevalley.core.api.messaging.instruction.Instruction;
 import minevalley.core.api.utils.ClickableMessage;
-import net.kyori.adventure.text.ComponentLike;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -29,7 +28,8 @@ public interface MessageSender {
      * @param instruction instruction to send
      * @throws IllegalArgumentException if the receiver, message or instruction is null
      */
-    void send(@Nonnull MessageReceiver receiver, @Nonnull String message, @Nonnull Instruction instruction) throws IllegalArgumentException;
+    void send(@Nonnull MessageReceiver receiver, @Nonnull String message, @Nonnull Instruction instruction)
+            throws IllegalArgumentException;
 
     /**
      * Sends a message to a receiver with a menu.
@@ -42,7 +42,8 @@ public interface MessageSender {
      */
     @Nonnull
     @Contract("_, _, _ -> new")
-    ChatMenu send(@Nonnull MessageReceiver receiver, @Nonnull String message, @Nonnull ClickableOption... menu) throws IllegalArgumentException;
+    ChatMenu send(@Nonnull DialogReceiver receiver, @Nonnull String message, @Nonnull ClickableOption... menu)
+            throws IllegalArgumentException;
 
     /**
      * Sends a message to a receiver with an instruction and a menu.
@@ -56,5 +57,6 @@ public interface MessageSender {
      */
     @Nonnull
     @Contract("_, _, _, _ -> new")
-    ChatMenu send(@Nonnull MessageReceiver receiver, @Nonnull String message, @Nonnull Instruction instruction, @Nonnull ClickableMessage... menu) throws IllegalArgumentException;
+    ChatMenu send(@Nonnull DialogReceiver receiver, @Nonnull String message, @Nonnull Instruction instruction,
+                  @Nonnull ClickableMessage... menu) throws IllegalArgumentException;
 }
