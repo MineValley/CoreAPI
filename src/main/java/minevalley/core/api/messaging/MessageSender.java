@@ -3,7 +3,6 @@ package minevalley.core.api.messaging;
 import minevalley.core.api.messaging.clickable.ChatMenu;
 import minevalley.core.api.messaging.clickable.ClickableOption;
 import minevalley.core.api.messaging.instruction.Instruction;
-import minevalley.core.api.utils.ClickableMessage;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -58,5 +57,5 @@ public interface MessageSender {
     @Nonnull
     @Contract("_, _, _, _ -> new")
     ChatMenu send(@Nonnull DialogReceiver receiver, @Nonnull String message, @Nonnull Instruction instruction,
-                  @Nonnull ClickableMessage... menu) throws IllegalArgumentException;
+                  @Nonnull ClickableOption... menu) throws IllegalArgumentException;
 }
