@@ -256,11 +256,4 @@ public interface NPC extends MessageSender, EquipmentModifier, InteractionModifi
      * @param hidden true to hide the name tag, false to show it
      */
     void hideNameTag(boolean hidden);
-
-    record RandomText(float factor, @Nonnull String text) {
-
-        public RandomText(@Nonnull String text) {
-            this(1.0f, text);
-        }
-    }
 }
