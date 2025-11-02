@@ -250,9 +250,13 @@ public interface CoreProvider {
     @Nonnull
     EmbeddedMessage createEmbeddedMessage();
 
-    NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers);
+    @Nonnull
+    NPC createNPC(@Nonnull UUID skinUniqueId, @Nonnull String name, @Nonnull Location location)
+            throws IllegalArgumentException;
 
-    NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers);
+    @Nonnull
+    NPC createNPC(@Nonnull String value, @Nonnull String signature, @Nonnull String name, @Nonnull Location location)
+            throws IllegalArgumentException;
 
     @Nonnull
     CarBarrier createCarBarrier(@Nonnull Location loc, int rotation, @Nonnull List<Block> barrierBlocks) throws IllegalArgumentException;

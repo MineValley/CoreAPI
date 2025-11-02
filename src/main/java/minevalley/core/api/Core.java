@@ -1051,18 +1051,32 @@ public final class Core {
     /**
      * Creates a NPC with the specific parameters.
      *
-     * @param skinUniqueId     unique id of the player that this npc adapts the skin from.
-     * @param name             name that will be displayed above the head
-     * @param location         location to spawn this npc to
-     * @param focusNearPlayers if true, this npc looks at nearby players
+     * @param skinUniqueId unique id of the player that this npc adapts the skin from.
+     * @param name         name that will be displayed above the head
+     * @param location     location to spawn this npc to
      * @return npc with specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null
      */
-    public static NPC createNPC(UUID skinUniqueId, String name, Location location, boolean focusNearPlayers) {
-        return provider.createNPC(skinUniqueId, name, location, focusNearPlayers);
+    @Nonnull
+    public static NPC createNPC(@Nonnull UUID skinUniqueId, @Nonnull String name, @Nonnull Location location)
+            throws IllegalArgumentException {
+        return provider.createNPC(skinUniqueId, name, location);
     }
 
-    public static NPC createNPC(String value, String signature, String name, Location location, boolean focusNearPlayers) {
-        return provider.createNPC(value, signature, name, location, focusNearPlayers);
+    /**
+     * Creates a NPC with the specific parameters.
+     *
+     * @param skinValue     value of the skin to apply
+     * @param skinSignature signature of the skin to apply
+     * @param name          name that will be displayed above the head
+     * @param location      location to spawn this npc to
+     * @return npc with specific parameters
+     * @throws IllegalArgumentException if one of the parameters is null
+     */
+    @Nonnull
+    public static NPC createNPC(@Nonnull String skinValue, @Nonnull String skinSignature,
+                                @Nonnull String name, @Nonnull Location location) throws IllegalArgumentException {
+        return provider.createNPC(skinValue, skinSignature, name, location);
     }
 
     /**
