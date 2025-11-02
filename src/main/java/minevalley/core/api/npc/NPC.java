@@ -40,7 +40,7 @@ public interface NPC extends MessageSender, EquipmentModifier, InteractionModifi
     /**
      * Sets whether the NPC should focus on nearby players.
      *
-     * @param focusNearPlayers
+     * @param focusNearPlayers true to focus on nearby players, false otherwise
      */
     void setFocusNearPlayers(boolean focusNearPlayers);
 
