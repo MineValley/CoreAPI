@@ -150,7 +150,7 @@ public final class Core {
     }
 
     /**
-     * Returns a task that will repeatedly run until cancelled, starting after
+     * Returns a task that will repeatedly run until canceled, starting after
      * the specified number of server ticks.
      *
      * @param delay  the ticks to wait before running the task
@@ -165,7 +165,7 @@ public final class Core {
     }
 
     /**
-     * Returns a task that will repeatedly run asynchronously until cancelled,
+     * Returns a task that will repeatedly run asynchronously until canceled,
      * starting after the specified number of server ticks.
      * <br>
      * <b>Note:</b> Asynchronous tasks should never access any API in Bukkit.
@@ -214,7 +214,7 @@ public final class Core {
      *
      * @param table         table to check
      * @param column        column to check
-     * @param amountOfChars amount of chars the id should have
+     * @param amountOfChars the amount of chars the id should have
      * @return a unique id
      * @throws IllegalArgumentException if the table is null, column is null or the amount of chars is less than 1
      * @throws SQLException             if a database access error occurs
@@ -446,7 +446,7 @@ public final class Core {
 
     /**
      * Creates a {@link Gson} instance that fits in a page for pretty printing.
-     * Use this, to convert json-strings to specific objects and vice versa.
+     * Use this to convert json-strings to specific objects and vice versa.
      *
      * @return an instance of Gson configured that fits in a page for pretty printing
      */
@@ -571,7 +571,7 @@ public final class Core {
     /**
      * Gets the building world.
      * <br>
-     * <b>Note:</b> This world only exists on main server.
+     * <b>Note:</b> This world only exists on the main server.
      *
      * @return building map
      * @throws IllegalStateException if the method is called on any server but the main server
@@ -584,7 +584,7 @@ public final class Core {
     /**
      * Gets the presets world.
      * <br>
-     * <b>Note:</b> This world only exists on main server.
+     * <b>Note:</b> This world only exists on the main server.
      *
      * @return building map
      * @throws IllegalStateException if the method is called on any server but the main server
@@ -639,7 +639,7 @@ public final class Core {
     }
 
     /**
-     * Creates a ItemDisplay which is only visible to specific players.
+     * Creates an ItemDisplay which is only visible to specific players.
      *
      * @param location  location where the ItemDisplay is placed
      * @param scale     scale of the ItemDisplay
@@ -769,7 +769,7 @@ public final class Core {
      * <p>
      * You can use this url to get the head. It doesn't matter whether you're using the whole link (starting with "textures.minecraft.net") or just using the number, as shown above.
      * <p>
-     * Note: Always cache heads you already created! Getting/creating new heads can be a waste of server-performance. A simple way to cash all heads used in inventories, is to load the with the onEnable()-method.
+     * Note: Always cache heads you already created! Getting/creating new heads can be a waste of server performance. A simple way to cash all heads used in inventories is to load the with the onEnable()-method.
      *
      * @param url link to <span style="text-decoration:underline;">or</span> the id of the specific head
      * @return item-builder based on the chosen head
