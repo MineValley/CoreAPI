@@ -2,12 +2,8 @@ package minevalley.core.api.users;
 
 import minevalley.core.api.economy.AccountUser;
 import minevalley.core.api.economy.BankAccount;
-import minevalley.core.api.vehicles.LoadedVehicle;
-import minevalley.core.api.vehicles.VehicleManager;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Contract;
 
@@ -133,20 +129,6 @@ public interface OnlineUser extends ProxyUser {
      * Sets the latest join to now.
      */
     void updateLatestJoin();
-
-    /**
-     * Gets the vehicle this user is in.
-     *
-     * @return vehicle the user is in
-     */
-    @Nullable
-    @Contract(pure = true)
-    default LoadedVehicle getVehicle() {
-        final Entity vehicle = player().getVehicle();
-        if (vehicle == null) return null;
-        if (!(vehicle instanceof ArmorStand)) return null;
-        return VehicleManager.getVehicle((ArmorStand) vehicle);
-    }
 
     /**
      * Checks whether the user is in a virtual box whose span in each direction is twice the specified range.
