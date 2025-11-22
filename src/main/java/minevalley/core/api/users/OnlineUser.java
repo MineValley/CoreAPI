@@ -65,7 +65,8 @@ public interface OnlineUser extends ProxyUser {
      * Asks the user which bank account he wants to use (e.g. to pay sth)
      * He can choose from every bank account he's permissioned to transfer money from.
      * If he chooses nothing, the callback isn't called.
-     * If he's only permissioned to transfer money from one account, he will not be asked (The callback will be called immediately with the account).
+     * If he's allowed to transfer money from only one account, he will not be asked
+     * (The callback will be called immediately with the account).
      *
      * @param callback            callback with the chosen bank account
      * @param requiredPermissions permissions that need to be granted to this user to let him choose the specific bank account
@@ -137,19 +138,19 @@ public interface OnlineUser extends ProxyUser {
      *
      * @param location location to check distance from
      * @param range    maximum range for the result to be true
-     * @return true, if user is in range
+     * @return true, if the user is in range
      */
     boolean isInCubicRange(@Nonnull Location location, @Nonnegative int range) throws IllegalArgumentException;
 
     /**
-     * Checks whether the user is in a virtual sphere whose radius is the square root of specified range.
+     * Checks whether the user is in a virtual sphere whose radius is the square root of the specified range.
      * <p>
      * <b>Note:</b> This method is significantly faster than the distance()-method. Especially when checking for constant distances.
      * </p>
      *
      * @param location     location to check distance from
      * @param rangeSquared maximum range for the result to be true
-     * @return true, if user is in range
+     * @return true, if the user is in range
      */
     boolean isInSquaredRange(@Nonnull Location location, @Nonnegative int rangeSquared) throws IllegalArgumentException;
 
@@ -158,7 +159,7 @@ public interface OnlineUser extends ProxyUser {
      *
      * @param location location to check distance from
      * @param range    maximum range for the result to be true
-     * @return true, if user is in range
+     * @return true, if the user is in range
      */
     default boolean isInRange(@Nonnull Location location, @Nonnegative int range) throws IllegalArgumentException {
         if (location == null) throw new IllegalArgumentException("Location cannot be null");
