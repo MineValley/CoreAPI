@@ -8,7 +8,6 @@ import minevalley.core.api.localization.Address;
 import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
-import minevalley.core.api.vehicles.Vehicle;
 import minevalley.core.api.weapons.Weapon;
 import org.jetbrains.annotations.Contract;
 
@@ -109,10 +108,6 @@ public interface Registrant {
      * @param parcel parcel to deliver
      */
     void deliverParcel(@Nonnull Parcel parcel) throws IllegalArgumentException;
-
-    @Nonnull
-    @Contract(pure = true)
-    List<Vehicle> getVehicles();
 
     @Nonnull
     @Contract(pure = true)
