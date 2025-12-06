@@ -87,6 +87,7 @@
 
     <dependencies>
         <!-- Paper -->
+        <!--suppress VulnerableLibrariesLocal -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
