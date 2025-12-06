@@ -1,5 +1,7 @@
 package minevalley.core.api;
 
+import minevalley.core.api.server.ServerType;
+
 import javax.annotation.Nonnull;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -21,4 +23,14 @@ public @interface Module {
      * @return The module name.
      */
     @Nonnull String name();
+
+    /**
+     * Servers, this module should be loaded on.
+     * If empty, the module is loaded on all server types.
+     * <p>
+     * <b>Usage:</b> This can be used to restrict a module to specific server types.
+     *
+     * @return The server types.
+     */
+    @Nonnull ServerType[] servers() default {};
 }
