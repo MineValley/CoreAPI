@@ -2,6 +2,7 @@ package minevalley.core.api.users.events.transfer;
 
 import lombok.Getter;
 import minevalley.core.api.server.Server;
+import minevalley.core.api.server.ServerType;
 import minevalley.core.api.users.ProxyUser;
 import minevalley.core.api.users.events.ProxyUserEvent;
 
@@ -13,9 +14,9 @@ import javax.annotation.Nonnull;
 @SuppressWarnings("unused")
 public class UserEnterNetworkEvent extends ProxyUserEvent {
 
-    private final @Getter(onMethod_ = @Nonnull) Server server;
+    private final @Getter(onMethod_ = @Nonnull) ServerType server;
 
-    public UserEnterNetworkEvent(@Nonnull ProxyUser user, @Nonnull Server server) {
+    public UserEnterNetworkEvent(@Nonnull ProxyUser user, @Nonnull ServerType server) {
         super(user);
         this.server = server;
     }
