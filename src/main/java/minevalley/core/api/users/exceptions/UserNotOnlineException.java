@@ -5,9 +5,15 @@ import minevalley.core.api.users.User;
 
 import javax.annotation.Nonnull;
 
+/**
+ * Exception thrown when a user is not online but an operation requires them to be.
+ */
 @Getter
 public class UserNotOnlineException extends RuntimeException {
 
+    /**
+     * The user who is not online.
+     */
     private final User user;
 
     public UserNotOnlineException(@Nonnull User user) {
