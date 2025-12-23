@@ -3,9 +3,9 @@ package minevalley.core.api.users.events.messaging.title;
 import lombok.Getter;
 import minevalley.core.api.users.ProxyUser;
 import minevalley.core.api.users.events.ProxyUserEvent;
+import net.kyori.adventure.text.Component;
 
 import javax.annotation.Nonnull;
-import java.awt.*;
 
 /**
  * This event is called when a title is to be sent to a user.
