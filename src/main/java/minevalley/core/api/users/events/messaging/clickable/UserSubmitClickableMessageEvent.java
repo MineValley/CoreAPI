@@ -12,10 +12,10 @@ import javax.annotation.Nonnull;
 @SuppressWarnings("unused")
 public class UserSubmitClickableMessageEvent extends ProxyUserEvent {
 
-    private final @Getter(onMethod_ = @Nonnull) String choice;
+    private final @Getter(onMethod_ = @Nonnull) String command;
 
-    public UserSubmitClickableMessageEvent(@Nonnull ProxyUser user, @Nonnull String choice) {
+    public UserSubmitClickableMessageEvent(@Nonnull ProxyUser user, @Nonnull String command) {
         super(user);
-        this.choice = choice;
+        this.command = command;
     }
 }
