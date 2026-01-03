@@ -1,6 +1,6 @@
 package minevalley.core.api.utils;
 
-import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.ProxyUser;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -47,5 +47,5 @@ public interface ClickableMessage {
      * @return the user who this clickable message is made for
      */
     @Nonnull
-    OnlineUser getUser();
+    ProxyUser getUser();
 }
