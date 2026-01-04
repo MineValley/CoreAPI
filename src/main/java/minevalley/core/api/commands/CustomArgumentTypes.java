@@ -15,6 +15,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.GameMode;
 import org.bukkit.block.BlockState;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
@@ -29,7 +30,9 @@ public final class CustomArgumentTypes {
      *
      * @return the online user argument type
      */
-    public static @Nonnull ArgumentType<OnlineUser> onlineUser() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<OnlineUser> onlineUser() {
         return manager.onlineUser();
     }
 
@@ -38,7 +41,9 @@ public final class CustomArgumentTypes {
      *
      * @return the online users selector argument type
      */
-    public static @Nonnull ArgumentType<OnlineUsersSelectorArgumentResolver> onlineUsers() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<OnlineUsersSelectorArgumentResolver> onlineUsers() {
         return manager.onlineUsers();
     }
 
@@ -47,17 +52,20 @@ public final class CustomArgumentTypes {
      *
      * @return the group argument type
      */
-    public static @Nonnull ArgumentType<Group> group() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<Group> group() {
         return manager.group();
     }
-
 
     /**
      * Gets an argument type that resolves a fraction.
      *
      * @return the fraction argument type
      */
-    public static @Nonnull ArgumentType<Fraction> fraction() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<Fraction> fraction() {
         return manager.fraction();
     }
 
@@ -66,7 +74,9 @@ public final class CustomArgumentTypes {
      *
      * @return the team rank argument type
      */
-    public static @Nonnull ArgumentType<TeamRank> teamRank() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<TeamRank> teamRank() {
         return manager.teamRank();
     }
 
@@ -75,7 +85,9 @@ public final class CustomArgumentTypes {
      *
      * @return the server type argument type
      */
-    public static @Nonnull ArgumentType<ServerType> server() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<ServerType> server() {
         return manager.server();
     }
 
@@ -84,7 +96,9 @@ public final class CustomArgumentTypes {
      *
      * @return the block selector argument type
      */
-    public static @Nonnull ArgumentType<BlockSelectorArgumentResolver> block() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<BlockSelectorArgumentResolver> block() {
         return manager.block();
     }
 
@@ -93,7 +107,9 @@ public final class CustomArgumentTypes {
      *
      * @return the block state argument type
      */
-    public static @Nonnull ArgumentType<BlockState> blockState() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<BlockState> blockState() {
         return ArgumentTypes.blockState();
     }
 
@@ -102,7 +118,9 @@ public final class CustomArgumentTypes {
      *
      * @return the item stack argument type
      */
-    public static @Nonnull ArgumentType<ItemStack> itemStack() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<ItemStack> itemStack() {
         return ArgumentTypes.itemStack();
     }
 
@@ -111,7 +129,9 @@ public final class CustomArgumentTypes {
      *
      * @return the named text color argument type
      */
-    public static @Nonnull ArgumentType<NamedTextColor> namedColor() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<NamedTextColor> namedColor() {
         return ArgumentTypes.namedColor();
     }
 
@@ -120,7 +140,9 @@ public final class CustomArgumentTypes {
      *
      * @return the component argument type
      */
-    public static @Nonnull ArgumentType<Component> component() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<Component> component() {
         return ArgumentTypes.component();
     }
 
@@ -129,7 +151,9 @@ public final class CustomArgumentTypes {
      *
      * @return the game mode argument type
      */
-    public static @Nonnull ArgumentType<GameMode> gameMode() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<GameMode> gameMode() {
         return ArgumentTypes.gameMode();
     }
 
@@ -138,7 +162,9 @@ public final class CustomArgumentTypes {
      *
      * @return the time argument type
      */
-    public static @Nonnull ArgumentType<Integer> time() {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<Integer> time() {
         return ArgumentTypes.time();
     }
 
@@ -148,31 +174,40 @@ public final class CustomArgumentTypes {
      * @param minTime the minimum time in ticks
      * @return the time argument type
      */
-    public static @Nonnull ArgumentType<Integer> time(final int minTime) {
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<Integer> time(final int minTime) {
         return ArgumentTypes.time(minTime);
     }
 
     public interface Manager {
 
         @Nonnull
+        @Contract(pure = true)
         ArgumentType<BlockSelectorArgumentResolver> block();
 
         @Nonnull
+        @Contract(pure = true)
         ArgumentType<Fraction> fraction();
 
         @Nonnull
+        @Contract(pure = true)
         ArgumentType<OnlineUser> onlineUser();
 
         @Nonnull
+        @Contract(pure = true)
         ArgumentType<OnlineUsersSelectorArgumentResolver> onlineUsers();
 
         @Nonnull
+        @Contract(pure = true)
         ArgumentType<ServerType> server();
 
         @Nonnull
+        @Contract(pure = true)
         ArgumentType<TeamRank> teamRank();
 
         @Nonnull
+        @Contract(pure = true)
         ArgumentType<Group> group();
     }
 }
