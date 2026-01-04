@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
-public interface MetadataModifier {
+public interface MetadataModifier<T extends MetadataModifier<T>> {
 
     /**
      * Checks if the armor stand has a baseplate
@@ -35,7 +35,7 @@ public interface MetadataModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setBasePlate(boolean baseplate);
+    T setBasePlate(boolean baseplate);
 
     /**
      * Checks if the armor stand is small
@@ -49,11 +49,11 @@ public interface MetadataModifier {
      * Sets if the armor stand is small
      *
      * @param small true if the armor stand should be small
-     * @return the MetadataModifier
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setSmall(boolean small);
+    T setSmall(boolean small);
 
     /**
      * Checks if the armor stand has arms
@@ -65,11 +65,11 @@ public interface MetadataModifier {
 
     /**
      * @param arms true if the armor stand should have arms
-     * @return the MetadataModifier
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setArms(boolean arms);
+    T setArms(boolean arms);
 
     /**
      * Checks if the armor stand is a marker
@@ -82,11 +82,11 @@ public interface MetadataModifier {
      * Sets if the armor stand is a marker
      *
      * @param marker true if the armor stand should be a marker
-     * @return the MetadataModifier
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setMarker(boolean marker);
+    T setMarker(boolean marker);
 
     /**
      * Checks if the armor stand is on fire
@@ -102,11 +102,11 @@ public interface MetadataModifier {
      * Sets if the armor stand is on fire
      *
      * @param onFire true if the armor stand should be on fire
-     * @return the MetadataModifier
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setOnFire(boolean onFire);
+    T setOnFire(boolean onFire);
 
     /**
      * Checks if the armor stand is visible
@@ -123,11 +123,11 @@ public interface MetadataModifier {
      * <b>Note:</b> This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}
      *
      * @param visible true if the armor stand should be visible
-     * @return the MetadataModifier
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setVisible(boolean visible);
+    T setVisible(boolean visible);
 
     /**
      * Checks if the armor stand is glowing
@@ -140,11 +140,11 @@ public interface MetadataModifier {
      * Sets if the armor stand is glowing
      *
      * @param glowing true if the armor stand should be glowing
-     * @return the MetadataModifier
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setGlowing(boolean glowing);
+    T setGlowing(boolean glowing);
 
     /**
      * Checks if the armor stand is affected by gravity
@@ -157,11 +157,11 @@ public interface MetadataModifier {
      * Sets if the armor stand is affected by gravity
      *
      * @param gravity true if the armor stand should be affected by gravity
-     * @return the MetadataModifier
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setGravity(boolean gravity);
+    T setGravity(boolean gravity);
 
     /**
      * Gets the custom name of the armor stand, if existing
@@ -175,11 +175,11 @@ public interface MetadataModifier {
      * Sets the custom name of the armor stand
      *
      * @param customName custom name of the armor stand
-     * @return the MetadataModifier
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setCustomName(@Nullable String customName);
+    T setCustomName(@Nullable String customName);
 
     /**
      * Checks if the custom name is visible
@@ -192,11 +192,11 @@ public interface MetadataModifier {
      * Sets if the custom name is visible
      *
      * @param customNameVisible true if the custom name should be visible
-     * @return the MetadataModifier
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setCustomNameVisible(boolean customNameVisible);
+    T setCustomNameVisible(boolean customNameVisible);
 
     /**
      * Checks if the armor stand is silent
@@ -209,11 +209,11 @@ public interface MetadataModifier {
      * Sets if the armor stand is silent
      *
      * @param silent true if the armor stand should be silent
-     * @return the MetadataModifier
+     * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    MetadataModifier setSilent(boolean silent);
+    T setSilent(boolean silent);
 
     /**
      * Updates the metadata of the armor stand
