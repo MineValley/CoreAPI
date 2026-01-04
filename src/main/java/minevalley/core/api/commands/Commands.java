@@ -3,6 +3,7 @@ package minevalley.core.api.commands;
 import com.mojang.brigadier.arguments.ArgumentType;
 import lombok.Setter;
 import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
@@ -20,7 +21,9 @@ public final class Commands {
      * @return a {@link CommandLiteral} object representing the (sub-) command
      * @throws IllegalArgumentException if the name is null or empty
      */
-    public static @Nonnull CommandLiteral literal(@Nonnull String name) throws IllegalArgumentException {
+    @Nonnull
+    @Contract(pure = true)
+    public static CommandLiteral literal(@Nonnull String name) throws IllegalArgumentException {
         return commandManager.literal(name);
     }
 
@@ -33,7 +36,9 @@ public final class Commands {
      * @return a {@link CommandArgument} object representing the argument
      * @throws IllegalArgumentException if the name is null or empty, or if the type is null
      */
-    public static <T> @Nonnull CommandArgument<T> argument(@Nonnull String name, @Nonnull ArgumentType<T> type) throws IllegalArgumentException {
+    @Nonnull
+    @Contract(pure = true)
+    public static <T> CommandArgument<T> argument(@Nonnull String name, @Nonnull ArgumentType<T> type) throws IllegalArgumentException {
         return commandManager.argument(name, type);
     }
 
@@ -41,8 +46,11 @@ public final class Commands {
     public interface CommandManager {
 
         @Nonnull
+        @Contract(pure = true)
         CommandLiteral literal(@Nonnull String name) throws IllegalArgumentException;
 
-        <T> @Nonnull CommandArgument<T> argument(@Nonnull String name, @Nonnull ArgumentType<T> type) throws IllegalArgumentException;
+        @Nonnull
+        @Contract(pure = true)
+        <T> CommandArgument<T> argument(@Nonnull String name, @Nonnull ArgumentType<T> type) throws IllegalArgumentException;
     }
 }
