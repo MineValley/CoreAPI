@@ -10,7 +10,8 @@ import minevalley.core.api.modifiers.LocationModifier;
 import minevalley.core.api.modifiers.VisibilityModifier;
 
 @SuppressWarnings("unused")
-public interface FakeArmorStand extends MetadataModifier, PassengerModifier, PoseModifier, RotationModifier,
+public interface FakeArmorStand extends MetadataModifier<FakeArmorStand>, PassengerModifier<FakeArmorStand>,
+        PoseModifier<FakeArmorStand>, RotationModifier<FakeArmorStand>,
         EquipmentModifier, InteractionModifier, LocationModifier, VisibilityModifier {
 
     /**
