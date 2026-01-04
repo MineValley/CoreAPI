@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public interface PassengerModifier {
+public interface PassengerModifier<T extends PassengerModifier<T>> {
 
     /**
      * Get the current passenger list
@@ -27,7 +27,7 @@ public interface PassengerModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    PassengerModifier addPassenger(@Nonnull Entity entity) throws IllegalArgumentException;
+    T addPassenger(@Nonnull Entity entity) throws IllegalArgumentException;
 
     /**
      * Remove a passenger
@@ -38,7 +38,7 @@ public interface PassengerModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    PassengerModifier removePassenger(@Nonnull Entity entity) throws IllegalArgumentException;
+    T removePassenger(@Nonnull Entity entity) throws IllegalArgumentException;
 
     /**
      * Update the passengers
