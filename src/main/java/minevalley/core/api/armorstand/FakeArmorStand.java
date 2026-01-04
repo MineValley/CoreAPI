@@ -8,6 +8,10 @@ import minevalley.core.api.modifiers.EquipmentModifier;
 import minevalley.core.api.modifiers.InteractionModifier;
 import minevalley.core.api.modifiers.LocationModifier;
 import minevalley.core.api.modifiers.VisibilityModifier;
+import org.jetbrains.annotations.Contract;
+
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 public interface FakeArmorStand extends MetadataModifier<FakeArmorStand>, PassengerModifier<FakeArmorStand>,
@@ -15,37 +19,42 @@ public interface FakeArmorStand extends MetadataModifier<FakeArmorStand>, Passen
         EquipmentModifier, InteractionModifier, LocationModifier, VisibilityModifier {
 
     /**
-     * Get the custom id from the armorstand
+     * Get the custom id from the armor stand
      *
      * @return id as int
      */
+    @Contract(pure = true)
     int getId();
 
     /**
-     * Spawns the armorstand
+     * Spawns the armor stand
      */
     void spawn();
 
     /**
-     * Destroys/de-spawn the armorstand
+     * Destroys/de-spawn the armor stand
      * <br>
-     * <b>Note:</b> Armorstand can be simply respawned with {@link #spawn()}
+     * <b>Note:</b> Armor stand can be simply respawned with {@link #spawn()}
      */
     void destroy();
 
     /**
-     * Gets the visibility range of the armorstand
+     * Gets the visibility range of the armor stand
      *
      * @return range in blocks
      */
+    @Nonnegative
     int getVisibilityRange();
 
     /**
-     * Sets the visibility range of the armorstand
+     * Sets the visibility range of the armor stand
      * <br>
      * <b>Default:</b> 50
      *
      * @param visibilityRange range in blocks
+     * @return this
      */
-    void setVisibilityRange(int visibilityRange);
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setVisibilityRange(int visibilityRange);
 }
