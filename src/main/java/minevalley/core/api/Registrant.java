@@ -2,8 +2,8 @@ package minevalley.core.api;
 
 import minevalley.core.api.corporations.companies.Aktiengesellschaft;
 import minevalley.core.api.corporations.companies.Kapitalgesellschaft;
-import minevalley.core.api.economy.AccountUser;
-import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.banking.AccountUser;
+import minevalley.core.api.banking.BankAccount;
 import minevalley.core.api.localization.Address;
 import minevalley.core.api.mail.Parcel;
 import minevalley.core.api.users.OnlineUser;

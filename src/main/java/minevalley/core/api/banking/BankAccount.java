@@ -1,4 +1,4 @@
-package minevalley.core.api.economy;
+package minevalley.core.api.banking;
 
 import lombok.AccessLevel;
 import lombok.Getter;

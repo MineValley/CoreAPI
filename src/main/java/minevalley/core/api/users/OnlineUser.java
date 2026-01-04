@@ -1,7 +1,7 @@
 package minevalley.core.api.users;
 
-import minevalley.core.api.economy.AccountUser;
-import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.banking.AccountUser;
+import minevalley.core.api.banking.BankAccount;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

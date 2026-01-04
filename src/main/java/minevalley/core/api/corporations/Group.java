@@ -1,7 +1,7 @@
 package minevalley.core.api.corporations;
 
 import minevalley.core.api.Registrant;
-import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.banking.BankAccount;
 import minevalley.core.api.users.User;
 import org.jetbrains.annotations.Contract;
 
