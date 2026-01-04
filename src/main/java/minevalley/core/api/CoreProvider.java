@@ -10,7 +10,7 @@ import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.displays.BlockDisplay;
 import minevalley.core.api.displays.ItemDisplay;
 import minevalley.core.api.displays.TextDisplay;
-import minevalley.core.api.economy.BankAccount;
+import minevalley.core.api.banking.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.gui.FillItem;
 import minevalley.core.api.gui.InventoryGui;
