@@ -24,6 +24,7 @@ public interface RotationModifier<T extends RotationModifier<T>> {
      *
      * @return yaw
      */
+    @Contract(pure = true)
     float getYaw();
 
     /**
@@ -41,6 +42,7 @@ public interface RotationModifier<T extends RotationModifier<T>> {
      *
      * @return pitch
      */
+    @Contract(pure = true)
     float getPitch();
 
     /**
@@ -58,6 +60,7 @@ public interface RotationModifier<T extends RotationModifier<T>> {
      *
      * @return roll
      */
+    @Contract(pure = true)
     float getRoll();
 
     /**
