@@ -1,5 +1,7 @@
 package minevalley.core.api.localization;
 
+import org.jetbrains.annotations.Contract;
+
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
@@ -11,5 +13,7 @@ public interface PlayerLocation {
      * @return name as string
      */
     @Nonnull
+    @Override
+    @Contract(pure = true)
     String toString();
 }
