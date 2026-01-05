@@ -19,7 +19,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public interface NPC extends MessageSender, EquipmentModifier, InteractionModifier, LocationModifier, VisibilityModifier {
+public interface NPC extends MessageSender, EquipmentModifier<NPC>, InteractionModifier<NPC>, LocationModifier<NPC>,
+        VisibilityModifier<NPC> {
 
     /**
      * Gets the name of the NPC.
