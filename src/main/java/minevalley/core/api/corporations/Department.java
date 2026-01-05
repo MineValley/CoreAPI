@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @SuppressWarnings("unused")
 public interface Department extends Registrant {
@@ -35,7 +36,7 @@ public interface Department extends Registrant {
      *
      * @return description as string
      */
-    @Nonnull
+    @Nullable
     @Contract(pure = true)
     String getDescription();
 
@@ -44,7 +45,7 @@ public interface Department extends Registrant {
      *
      * @param description description as string
      */
-    void setDescription(@Nonnull String description);
+    void setDescription(@Nullable String description);
 
     /**
      * Gets the holder of this department.
@@ -55,10 +56,22 @@ public interface Department extends Registrant {
     @Contract(pure = true)
     Group getHolder();
 
+    /**
+     * Gets the parent department of this department.
+     *
+     * @return parent department
+     */
     @Nonnull
+    @Contract(pure = true)
     Department getParentDepartment();
 
+    /**
+     * Gets the child departments of this department.
+     *
+     * @return list with all child departments
+     */
     @Nonnull
+    @Contract(pure = true)
     List<Department> getChildDepartments();
 
     /**
@@ -66,6 +79,7 @@ public interface Department extends Registrant {
      *
      * @return true, if this department is the main department
      */
+    @Contract(pure = true)
     boolean isDefaultDepartment();
 
     /**
@@ -74,35 +88,126 @@ public interface Department extends Registrant {
      * @return list with all members of this department
      */
     @Nonnull
+    @Contract(pure = true)
     List<Member> getMembers();
 
+    /**
+     * Gets the member of this department for the given user.
+     *
+     * @param user the user
+     * @return the member or null, if the user is not a member of this department
+     */
     @Nullable
     @Contract(value = "null -> null", pure = true)
     Member getMember(@Nullable User user);
 
+    /**
+     * Gets the default base wage of this department in cents.
+     *
+     * @return base wage in cents
+     */
+    @Contract(pure = true)
     int getDefaultBaseWageInCents();
 
-    void setDefaultBaseWageInCents(int baseWageInCents);
+    /**
+     * Sets the default base wage of this department in cents.
+     *
+     * @param baseWageInCents base wage in cents
+     * @throws IllegalArgumentException if the base wage is negative
+     */
+    void setDefaultBaseWageInCents(int baseWageInCents) throws IllegalArgumentException;
 
+    /**
+     * Gets all available tasks of this department.
+     *
+     * @return list with all available tasks
+     */
+    @Contract(pure = true)
     List<Task> getAvailableTasks();
 
-    void addTask(Task task);
+    /**
+     * Adds a new available task to this department.
+     *
+     * @param task the task to add
+     * @throws IllegalArgumentException if the task is null or already added
+     */
+    void addTask(@Nonnull Task task) throws IllegalArgumentException;
 
-    void removeTask(Task task);
+    /**
+     * Removes an available task from this department.
+     *
+     * @param task the task to remove
+     * @throws IllegalArgumentException if the task is null or not present
+     */
+    void removeTask(@Nonnull Task task) throws IllegalArgumentException;
 
-    List<MemberPermission> getDefaultMemberPermissions();
+    /**
+     * Gets the default member permissions of this department.
+     *
+     * @return set with all default member permissions
+     */
+    @Nonnull
+    @Contract(pure = true)
+    Set<MemberPermission> getDefaultMemberPermissions();
 
-    void addDefaultPermission(MemberPermission permission);
+    /**
+     * Adds a default member permission to this department.
+     *
+     * @param permission the permission to add
+     * @throws IllegalArgumentException if the permission is null
+     * @throws IllegalStateException    if the permission is already present
+     */
+    void addDefaultPermission(@Nonnull MemberPermission permission) throws IllegalArgumentException, IllegalStateException;
 
-    void revokeDefaultPermission(MemberPermission permission);
+    /**
+     * Revokes a default member permission from this department.
+     *
+     * @param permission the permission to revoke
+     * @throws IllegalArgumentException if the permission is null
+     * @throws IllegalStateException    if the permission is not present
+     */
+    void revokeDefaultPermission(@Nonnull MemberPermission permission) throws IllegalArgumentException, IllegalStateException;
 
+    /**
+     * Gets the department permissions with their necessary approval rates.
+     *
+     * @return map with all department permissions and their necessary approval rates
+     */
+    @Nonnull
+    @Contract(pure = true)
     Map<DepartmentPermission, Integer> getPermissions();
 
-    void addPermission(DepartmentPermission permission, int necessaryApprovalRate);
+    /**
+     * Adds a department permission with the given necessary approval rate.
+     *
+     * @param permission            the permission to add
+     * @param necessaryApprovalRate the necessary approval rate (0-100)
+     * @throws IllegalArgumentException if the permission is null or the necessary approval rate is out of bounds
+     * @throws IllegalStateException    if the permission is already present
+     */
+    void addPermission(@Nonnull DepartmentPermission permission, int necessaryApprovalRate)
+            throws IllegalArgumentException, IllegalStateException;
 
-    void revokePermission(DepartmentPermission permission);
+    /**
+     * Revokes a department permission.
+     *
+     * @param permission the permission to revoke
+     * @throws IllegalArgumentException if the permission is null
+     * @throws IllegalStateException    if the permission is not present
+     */
+    void revokePermission(@Nonnull DepartmentPermission permission)
+            throws IllegalArgumentException, IllegalStateException;
 
-    default void setNecessaryApprovalRate(DepartmentPermission permission, int necessaryApprovalRate) {
+    /**
+     * Sets the necessary approval rate for a department permission.
+     *
+     * @param permission            the permission to set the approval rate for
+     * @param necessaryApprovalRate the necessary approval rate (0-100)
+     * @throws IllegalArgumentException if the permission is null or the necessary approval rate is out of bounds
+     * @throws IllegalStateException    if the permission is not present
+     */
+    default void setNecessaryApprovalRate(@Nonnull DepartmentPermission permission, int necessaryApprovalRate)
+            throws IllegalArgumentException, IllegalStateException {
         revokePermission(permission);
         addPermission(permission, necessaryApprovalRate);
     }
