@@ -3,6 +3,7 @@ package minevalley.core.api.utils;
 import minevalley.core.api.modifiers.VisibilityModifier;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
@@ -15,6 +16,7 @@ public interface FakeBlock extends VisibilityModifier<FakeBlock> {
      * @return the block this fake block is placed on
      */
     @Nonnull
+    @Contract(pure = true)
     Block getBlock();
 
     /**
@@ -23,5 +25,6 @@ public interface FakeBlock extends VisibilityModifier<FakeBlock> {
      * @return the material of this fake block
      */
     @Nonnull
+    @Contract(pure = true)
     Material getMaterial();
 }
