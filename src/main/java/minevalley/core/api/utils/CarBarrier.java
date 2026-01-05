@@ -3,7 +3,7 @@ package minevalley.core.api.utils;
 import minevalley.core.api.modifiers.VisibilityModifier;
 
 @SuppressWarnings("unused")
-public interface CarBarrier extends VisibilityModifier {
+public interface CarBarrier extends VisibilityModifier<CarBarrier> {
 
     /**
      * Opens the barrier.
