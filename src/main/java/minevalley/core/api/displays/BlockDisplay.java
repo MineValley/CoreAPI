@@ -4,6 +4,7 @@ import org.bukkit.Material;
 
 import javax.annotation.Nonnull;
 
+@SuppressWarnings("unused")
 public interface BlockDisplay extends Display {
 
     /**
