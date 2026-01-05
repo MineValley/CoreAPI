@@ -6,7 +6,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface LocationModifier {
+public interface LocationModifier<T extends LocationModifier<T>> {
 
     /**
      * Get the location
@@ -23,11 +23,12 @@ public interface LocationModifier {
      * <b>Note:</b> This ignores the yaw and pitch values.
      *
      * @param location new location.
+     * @return this
      * @throws IllegalArgumentException if the location is null or invalid.
      */
     @Nonnull
     @Contract("_ -> this")
-    LocationModifier setLocation(@Nonnull Location location) throws IllegalArgumentException;
+    T setLocation(@Nonnull Location location) throws IllegalArgumentException;
 
     /**
      * Update the location
