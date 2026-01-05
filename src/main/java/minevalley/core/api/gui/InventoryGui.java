@@ -77,7 +77,7 @@ public interface InventoryGui {
      * @param item    the item to set
      * @param onClick the consumer to run when the item is clicked
      * @return this GUI
-     * @throws IllegalArgumentException if the interface item or onClick is null
+     * @throws IllegalArgumentException  if the interface item or onClick is null
      * @throws IndexOutOfBoundsException if the slot is out of bounds
      */
     @Nonnull
@@ -94,7 +94,7 @@ public interface InventoryGui {
      * @param item  the item to place
      * @param slots the slots to place the item in
      * @return this GUI
-     * @throws IllegalArgumentException if the item is null
+     * @throws IllegalArgumentException  if the item is null
      * @throws IndexOutOfBoundsException if any of the slots are out of bounds
      */
     @Nonnull
@@ -109,7 +109,7 @@ public interface InventoryGui {
      * @param from the start of the range (inclusively)
      * @param to   the end of the range (exclusively)
      * @return this GUI
-     * @throws IllegalArgumentException if the item is null
+     * @throws IllegalArgumentException  if the item is null
      * @throws IndexOutOfBoundsException if any of the slots are out of bounds
      */
     @Nonnull
@@ -227,6 +227,7 @@ public interface InventoryGui {
      * @throws IndexOutOfBoundsException if the slot is out of bounds
      */
     @Nonnull
+    @Contract("_ -> this")
     InventoryGui removeSlotCallback(@Nonnegative int slot) throws IndexOutOfBoundsException;
 
     /**
@@ -281,7 +282,7 @@ public interface InventoryGui {
      * @throws IllegalArgumentException if the title is null
      */
     @Nonnull
-    @Contract(pure = true)
+    @Contract("_ -> this")
     InventoryGui updateTitle(@Nonnull Component title) throws IllegalArgumentException;
 
     /**
@@ -290,7 +291,6 @@ public interface InventoryGui {
      * @param player the player to open the GUI for
      * @throws IllegalArgumentException if the player is null
      */
-    @Contract(pure = true)
     void open(@Nonnull Player player) throws IllegalArgumentException;
 
     /**
@@ -299,6 +299,5 @@ public interface InventoryGui {
      * @param user the user to open the GUI for
      * @throws IllegalArgumentException if the user is null
      */
-    @Contract(pure = true)
     void open(@Nonnull OnlineUser user) throws IllegalArgumentException;
 }
