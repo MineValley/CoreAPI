@@ -1,6 +1,7 @@
 package minevalley.core.api.displays;
 
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
@@ -11,9 +12,12 @@ public interface ItemDisplay extends Display {
      * Set the item stack of the display
      *
      * @param itemStack the item stack
-     * @return the current instance
+     * @return this
+     * @throws IllegalArgumentException if the item stack is null
      */
-    ItemDisplay setItemStack(@Nonnull ItemStack itemStack);
+    @Nonnull
+    @Contract("_ -> this")
+    ItemDisplay setItemStack(@Nonnull ItemStack itemStack) throws IllegalArgumentException;
 
     /**
      * Update the item stack of the display.
