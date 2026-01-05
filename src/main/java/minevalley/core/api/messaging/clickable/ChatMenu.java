@@ -1,6 +1,7 @@
 package minevalley.core.api.messaging.clickable;
 
 import minevalley.core.api.messaging.MessageReceiver;
+import org.jetbrains.annotations.Contract;
 
 /**
  * The {@code ChatMenu} is an interface that represents a chat menu that was sent to a {@link MessageReceiver}.
@@ -17,6 +18,7 @@ public interface ChatMenu {
      * @return true if the menu is still enabled, false otherwise
      * @see #disable()
      */
+    @Contract(pure = true)
     boolean isEnabled();
 
     /**
