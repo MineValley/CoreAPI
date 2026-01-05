@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
 import java.util.Vector;
 
 @SuppressWarnings("unused")
-public interface ScaleModifier {
+public interface ScaleModifier<T extends ScaleModifier<T>> {
 
     /**
      * Set the scale
@@ -17,7 +17,7 @@ public interface ScaleModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    ScaleModifier setScale(@Nonnull Vector<Float> scale) throws IllegalArgumentException;
+    T setScale(@Nonnull Vector<Float> scale) throws IllegalArgumentException;
 
     /**
      * Update the scale.
