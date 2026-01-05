@@ -7,7 +7,7 @@ import org.bukkit.block.Block;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface FakeBlock extends VisibilityModifier {
+public interface FakeBlock extends VisibilityModifier<FakeBlock> {
 
     /**
      * Get the block this fake block is placed on
