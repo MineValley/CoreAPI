@@ -5,7 +5,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface RotationModifier {
+public interface RotationModifier<T extends RotationModifier<T>> {
 
     /**
      * Set the rotation
@@ -17,7 +17,7 @@ public interface RotationModifier {
      */
     @Nonnull
     @Contract(pure = true)
-    RotationModifier setRotation(float yaw, float pitch, float roll);
+    T setRotation(float yaw, float pitch, float roll);
 
     /**
      * Get yaw
@@ -34,7 +34,7 @@ public interface RotationModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    RotationModifier setYaw(float yaw);
+    T setYaw(float yaw);
 
     /**
      * Get pitch
@@ -51,7 +51,7 @@ public interface RotationModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    RotationModifier setPitch(float pitch);
+    T setPitch(float pitch);
 
     /**
      * Get roll
@@ -68,7 +68,7 @@ public interface RotationModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    RotationModifier setRoll(float roll);
+    T setRoll(float roll);
 
     /**
      * Update the rotation
