@@ -2,6 +2,7 @@ package minevalley.core.api.displays;
 
 import minevalley.core.api.modifiers.*;
 import org.bukkit.Location;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
@@ -17,5 +18,7 @@ public interface Display extends InteractionModifier, LocationModifier, Rotation
      * @return the current instance
      */
     @Override
+    @Nonnull
+    @Contract("_ -> this")
     LocationModifier setLocation(@Nonnull Location location);
 }
