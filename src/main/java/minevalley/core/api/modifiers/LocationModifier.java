@@ -25,8 +25,8 @@ public interface LocationModifier {
      * @param location new location.
      * @throws IllegalArgumentException if the location is null or invalid.
      */
-    @Contract("_ -> this")
     @Nonnull
+    @Contract("_ -> this")
     LocationModifier setLocation(@Nonnull Location location) throws IllegalArgumentException;
 
     /**
