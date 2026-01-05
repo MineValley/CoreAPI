@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import java.util.function.Function;
 
 @SuppressWarnings("unused")
-public interface VisibilityModifier {
+public interface VisibilityModifier<T extends VisibilityModifier<T>> {
 
     /**
      * Shows this object to everyone who can see it.
@@ -18,12 +18,13 @@ public interface VisibilityModifier {
      *     <li>Hidden objects can be modified (lines of holograms, name of npc, ...). Changes will be visible after calling show()</li>
      * </ul>
      *
+     * @return this
      * @throws IllegalStateException if the object is already visible
      * @see #isVisible()
      */
     @Nonnull
     @Contract(" -> this")
-    VisibilityModifier show() throws IllegalStateException;
+    T show() throws IllegalStateException;
 
     /**
      * Hide this object from everyone who can see it.
@@ -40,7 +41,7 @@ public interface VisibilityModifier {
      */
     @Nonnull
     @Contract(" -> this")
-    VisibilityModifier hide() throws IllegalStateException;
+    T hide() throws IllegalStateException;
 
     /**
      * Returns whether this object is visible
@@ -67,14 +68,14 @@ public interface VisibilityModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    VisibilityModifier setVisibility(@Nonnull Function<OnlineUser, Boolean> visibility) throws IllegalArgumentException;
+    T setVisibility(@Nonnull Function<OnlineUser, Boolean> visibility) throws IllegalArgumentException;
 
     /**
      * Sets the visibility of this object to everyone.
      */
     @Nonnull
     @Contract(" -> this")
-    default VisibilityModifier setVisibleToEveryone() {
+    default T setVisibleToEveryone() {
         return setVisibility(user -> true);
     }
 
