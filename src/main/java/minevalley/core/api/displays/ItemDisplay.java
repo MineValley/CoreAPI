@@ -4,6 +4,7 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 
+@SuppressWarnings("unused")
 public interface ItemDisplay extends Display {
 
     /**
