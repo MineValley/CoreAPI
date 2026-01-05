@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
-public interface EquipmentModifier {
+public interface EquipmentModifier<T extends EquipmentModifier<T>> {
 
     /**
      * Get the item in the left hand
@@ -26,7 +26,7 @@ public interface EquipmentModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    EquipmentModifier setLeftHand(@Nullable ItemStack itemStack);
+    T setLeftHand(@Nullable ItemStack itemStack);
 
     /**
      * Get the item in the right hand
@@ -45,7 +45,7 @@ public interface EquipmentModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    EquipmentModifier setRightHand(@Nullable ItemStack itemStack);
+    T setRightHand(@Nullable ItemStack itemStack);
 
     /**
      * Get the item in the helmet slot
@@ -64,7 +64,7 @@ public interface EquipmentModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    EquipmentModifier setHelmet(@Nullable ItemStack helmet);
+    T setHelmet(@Nullable ItemStack helmet);
 
     /**
      * Get the item in the chestplate slot
@@ -82,7 +82,7 @@ public interface EquipmentModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    EquipmentModifier setChestplate(@Nullable ItemStack chestplate);
+    T setChestplate(@Nullable ItemStack chestplate);
 
     /**
      * Get the item in the leggings slot
@@ -101,7 +101,7 @@ public interface EquipmentModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    EquipmentModifier setLeggings(@Nullable ItemStack leggings);
+    T setLeggings(@Nullable ItemStack leggings);
 
     /**
      * Get the item in the boots slot
@@ -120,7 +120,7 @@ public interface EquipmentModifier {
      */
     @Nonnull
     @Contract("_ -> this")
-    EquipmentModifier setBoots(@Nullable ItemStack boots);
+    T setBoots(@Nullable ItemStack boots);
 
     /**
      * Update the equipment
