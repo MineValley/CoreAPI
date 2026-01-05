@@ -2,6 +2,9 @@ package minevalley.core.api.mail;
 
 import minevalley.core.api.Registrant;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.Contract;
+
+import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 public interface Parcel {
@@ -11,6 +14,8 @@ public interface Parcel {
      *
      * @return this parcels sender as registrant.
      */
+    @Nonnull
+    @Contract(pure = true)
     Registrant getSender();
 
     /**
@@ -18,6 +23,8 @@ public interface Parcel {
      *
      * @return this parcels target as registrant.
      */
+    @Nonnull
+    @Contract(pure = true)
     Registrant getTarget();
 
     /**
@@ -31,6 +38,7 @@ public interface Parcel {
      *
      * @return minutes until this parcel is delivered.
      */
+    @Contract(pure = true)
     int getRemainingMinutes();
 
     /**
@@ -38,6 +46,8 @@ public interface Parcel {
      *
      * @return this parcels item.
      */
+    @Nonnull
+    @Contract(value = "-> new", pure = true)
     ItemStack asItem();
 
     String toString();
