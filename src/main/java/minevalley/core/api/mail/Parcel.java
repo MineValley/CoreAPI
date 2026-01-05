@@ -49,6 +49,4 @@ public interface Parcel {
     @Nonnull
     @Contract(value = "-> new", pure = true)
     ItemStack asItem();
-
-    String toString();
 }
