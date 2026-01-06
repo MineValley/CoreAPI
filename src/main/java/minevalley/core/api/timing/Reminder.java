@@ -4,7 +4,7 @@ import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 import java.time.DayOfWeek;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Reminders are used to time specific events that depend on real time.
@@ -33,18 +33,18 @@ public interface Reminder {
     /**
      * Gets the selected weekdays.
      *
-     * @return list of all selected weekdays
+     * @return set of all selected weekdays
      */
     @Nonnull
     @Contract(pure = true)
-    List<DayOfWeek> getWeekdays();
+    Set<DayOfWeek> getWeekdays();
 
     /**
      * Sets the weekdays, this reminder is called on.
      *
      * @param weekdays weekdays, to call the callback on
      */
-    void setWeekdays(@Nonnull List<DayOfWeek> weekdays) throws IllegalArgumentException;
+    void setWeekdays(@Nonnull Set<DayOfWeek> weekdays) throws IllegalArgumentException;
 
     /**
      * Adds weekdays, this reminder is called on.
@@ -96,7 +96,7 @@ public interface Reminder {
     /**
      * Activates this reminder.
      * <p>
-     * <b>Note:</b> reminders are activated by default. Only use this method, if this reminder may have been deactivated.
+     * <b>Note:</b> reminders are activated by default. Only use this method if this reminder may have been deactivated.
      */
     void activate();
 
