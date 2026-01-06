@@ -1,6 +1,7 @@
 package minevalley.core.api;
 
 import minevalley.core.api.users.ProxyUser;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 import java.util.UUID;
@@ -15,6 +16,7 @@ public interface Proxy {
      * @return a stream of all proxy users
      */
     @Nonnull
+    @Contract(pure = true)
     Stream<ProxyUser> getProxyUsers();
 
     /**
@@ -25,7 +27,8 @@ public interface Proxy {
      * @throws IllegalArgumentException if the uuid is null or not found
      */
     @Nonnull
-    ProxyUser getProxyUser(UUID uuid) throws IllegalArgumentException;
+    @Contract(pure = true)
+    ProxyUser getProxyUser(@Nonnull UUID uuid) throws IllegalArgumentException;
 
     /**
      * Gets the ProxyUser of this specific id.
@@ -35,5 +38,6 @@ public interface Proxy {
      * @throws IllegalArgumentException if the id is null or not found
      */
     @Nonnull
-    ProxyUser getProxyUser(String id);
+    @Contract(pure = true)
+    ProxyUser getProxyUser(@Nonnull String id) throws IllegalArgumentException;
 }
