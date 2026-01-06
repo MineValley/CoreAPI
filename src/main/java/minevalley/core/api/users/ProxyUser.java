@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.time.Duration;
 import java.util.function.BiConsumer;
 
@@ -29,6 +30,7 @@ public interface ProxyUser extends User, DialogReceiver, MessageReceiver, SoundR
      * @see #isTeamler()
      */
     @Nonnull
+    @Contract(pure = true)
     TeamMember team() throws UserNotPermittedException;
 
     /**
@@ -89,6 +91,7 @@ public interface ProxyUser extends User, DialogReceiver, MessageReceiver, SoundR
      *
      * @return users fraction
      */
+    @Nullable
     @Contract(pure = true)
     Fraction getFractionService();
 
