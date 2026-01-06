@@ -67,6 +67,15 @@ public interface InteractionTrigger {
     void move(double x, double y, double z);
 
     /**
+     * Moves this trigger relatively by the given offsets.
+     *
+     * @param dx offset in x direction
+     * @param dy offset in y direction
+     * @param dz offset in z direction
+     */
+    void moveRelatively(double dx, double dy, double dz);
+
+    /**
      * Deactivates this trigger.
      */
     void deactivate();
