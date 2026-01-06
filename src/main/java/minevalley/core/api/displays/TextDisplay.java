@@ -7,7 +7,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface TextDisplay extends Display {
+public interface TextDisplay extends Display<TextDisplay> {
 
     /**
      * Set the text of the display

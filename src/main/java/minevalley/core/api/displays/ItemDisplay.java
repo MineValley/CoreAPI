@@ -6,7 +6,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface ItemDisplay extends Display {
+public interface ItemDisplay extends Display<ItemDisplay> {
 
     /**
      * Set the item stack of the display

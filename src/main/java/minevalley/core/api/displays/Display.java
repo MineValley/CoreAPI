@@ -6,7 +6,8 @@ import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
-public interface Display extends InteractionModifier, LocationModifier, RotationModifier, ScaleModifier, TranslationModifier, VisibilityModifier  {
+public interface Display<T extends Display<T>> extends InteractionModifier<T>, LocationModifier<T>, RotationModifier<T>,
+        ScaleModifier<T>, TranslationModifier<T>, VisibilityModifier<T>  {
 
     /**
      * Set the location of the display
@@ -20,5 +21,5 @@ public interface Display extends InteractionModifier, LocationModifier, Rotation
     @Override
     @Nonnull
     @Contract("_ -> this")
-    LocationModifier setLocation(@Nonnull Location location);
+    T setLocation(@Nonnull Location location);
 }

@@ -15,8 +15,8 @@ import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 public interface FakeArmorStand extends MetadataModifier<FakeArmorStand>, PassengerModifier<FakeArmorStand>,
-        PoseModifier<FakeArmorStand>, RotationModifier<FakeArmorStand>,
-        EquipmentModifier, InteractionModifier, LocationModifier, VisibilityModifier {
+        PoseModifier<FakeArmorStand>, RotationModifier<FakeArmorStand>, EquipmentModifier<FakeArmorStand>,
+        InteractionModifier<FakeArmorStand>, LocationModifier<FakeArmorStand>, VisibilityModifier<FakeArmorStand> {
 
     /**
      * Get the custom id from the armor stand
