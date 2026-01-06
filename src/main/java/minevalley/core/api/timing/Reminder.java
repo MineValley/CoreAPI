@@ -1,5 +1,7 @@
 package minevalley.core.api.timing;
 
+import org.jetbrains.annotations.Contract;
+
 import javax.annotation.Nonnull;
 import java.time.DayOfWeek;
 import java.util.List;
@@ -16,20 +18,25 @@ public interface Reminder {
      *
      * @return callback
      */
+    @Nonnull
+    @Contract(pure = true)
     Runnable getCallback();
 
     /**
      * Sets the callback that is called, when the reminder is called.
      *
-     * @param callback callback to be called, when specific time is reached
+     * @param callback callback to be called, when a specific time is reached
+     * @throws IllegalArgumentException if the callback is null
      */
-    void setCallback(@Nonnull Runnable callback);
+    void setCallback(@Nonnull Runnable callback) throws IllegalArgumentException;
 
     /**
      * Gets the selected weekdays.
      *
      * @return list of all selected weekdays
      */
+    @Nonnull
+    @Contract(pure = true)
     List<DayOfWeek> getWeekdays();
 
     /**
@@ -37,21 +44,21 @@ public interface Reminder {
      *
      * @param weekdays weekdays, to call the callback on
      */
-    void setWeekdays(List<DayOfWeek> weekdays);
+    void setWeekdays(@Nonnull List<DayOfWeek> weekdays) throws IllegalArgumentException;
 
     /**
      * Adds weekdays, this reminder is called on.
      *
      * @param weekdays weekdays, to call the callback on
      */
-    void addWeekdays(DayOfWeek... weekdays);
+    void addWeekdays(@Nonnull DayOfWeek... weekdays) throws IllegalArgumentException;
 
     /**
      * Removes weekdays, this reminder is called on.
      *
      * @param weekdays weekdays, to call the callback on
      */
-    void removeWeekDays(DayOfWeek... weekdays);
+    void removeWeekDays(@Nonnull DayOfWeek... weekdays) throws IllegalArgumentException;
 
     /**
      * Removes all weekdays, this reminder is called on.
