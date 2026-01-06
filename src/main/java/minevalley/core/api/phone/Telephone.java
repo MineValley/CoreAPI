@@ -1,7 +1,10 @@
 package minevalley.core.api.phone;
 
 import minevalley.core.api.Registrant;
+import org.jetbrains.annotations.Contract;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -36,6 +39,8 @@ public interface Telephone {
      *
      * @return the target telephone
      */
+    @Nonnull
+    @Contract(pure = true)
     Telephone getOutGoingCallTarget();
 
     /**
@@ -43,6 +48,8 @@ public interface Telephone {
      *
      * @return the calling telephone
      */
+    @Nonnull
+    @Contract(pure = true)
     Telephone getIncomingCaller();
 
     /**
@@ -52,6 +59,8 @@ public interface Telephone {
      *
      * @return list of all permissioned registrant
      */
+    @Nonnull
+    @Contract(pure = true)
     List<Registrant> getPermissioned();
 
     /**
@@ -59,6 +68,8 @@ public interface Telephone {
      *
      * @return owner as registrant
      */
+    @Nonnull
+    @Contract(pure = true)
     Registrant getOwner();
 
     /**
@@ -79,6 +90,8 @@ public interface Telephone {
      *
      * @return call-object of current call (null, if there is no call)
      */
+    @Nullable
+    @Contract(pure = true)
     Call getCall();
 
     /**
@@ -86,12 +99,15 @@ public interface Telephone {
      *
      * @return telephone number as string
      */
+    @Nonnull
+    @Contract(pure = true)
     String getTelephoneNumber();
 
     /**
      * Calls the given telephone.
      *
      * @param telephone telephone, to start call with
+     * @throws IllegalArgumentException if the telephone is null or the same as this telephone
      */
-    void call(Telephone telephone);
+    void call(@Nonnull Telephone telephone) throws IllegalArgumentException;
 }
