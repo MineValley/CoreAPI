@@ -276,6 +276,7 @@ public interface User extends Registrant {
      * Removes a purchase from this user's purchase list.
      *
      * @param purchase purchase to remove
+     * @throws IllegalArgumentException if purchase is null
      */
     void removePurchase(@Nonnull Purchase purchase) throws IllegalArgumentException;
 
