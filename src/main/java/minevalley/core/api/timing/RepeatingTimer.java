@@ -1,5 +1,7 @@
 package minevalley.core.api.timing;
 
+import org.jetbrains.annotations.Contract;
+
 import javax.annotation.Nonnull;
 
 /**
@@ -13,20 +15,24 @@ public interface RepeatingTimer {
      *
      * @return callback that is called then timer terminates
      */
+    @Nonnull
+    @Contract(pure = true)
     Runnable getCallback();
 
     /**
      * Sets this timer's callback.
      *
      * @param runnable callback that will be called when the timer terminates
+     * @throws IllegalArgumentException if the runnable is null
      */
-    void setCallback(@Nonnull Runnable runnable);
+    void setCallback(@Nonnull Runnable runnable) throws IllegalArgumentException;
 
     /**
      * Gets this timers period.
      *
      * @return period as int
      */
+    @Contract(pure = true)
     int getPeriod();
 
     /**
@@ -51,5 +57,6 @@ public interface RepeatingTimer {
      *
      * @return true, if this timer is activated
      */
+    @Contract(pure = true)
     boolean isActivated();
 }
