@@ -66,7 +66,7 @@ GitHub username and `TOKEN` with the generated token.
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <servers>
         <server>
-            <id>github</id>
+            <id>core-api</id>
             <username>USERNAME</username>
             <password>TOKEN</password>
         </server>
