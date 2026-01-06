@@ -5,6 +5,7 @@ import minevalley.core.api.Depends;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -64,6 +65,7 @@ public class TrashCanManager {
      * @return the nearest trash can
      */
     @Nullable
+    @Contract(pure = true)
     public static Block getNearestTrashCan(@Nonnull Location location) {
         return manager.getNearestTrashCan(location);
     }
@@ -76,6 +78,7 @@ public class TrashCanManager {
      * @throws IllegalArgumentException if the block is not a trash can
      */
     @Nullable
+    @Contract(pure = true)
     public static ItemStack getPeak(@Nonnull Block block) throws IllegalArgumentException {
         return manager.getPeak(block);
     }
@@ -86,6 +89,7 @@ public class TrashCanManager {
      * @param block the block to check
      * @return {@code true} if the block is a trash can, {@code false} otherwise
      */
+    @Contract(pure = true)
     public static boolean isTrashCan(@Nonnull Block block) {
         return manager.isTrashCan(block);
     }
@@ -97,6 +101,7 @@ public class TrashCanManager {
      * @return {@code true} if the trash can is full, {@code false} otherwise
      * @throws IllegalArgumentException if the block is not a trash can
      */
+    @Contract(pure = true)
     public static boolean isFull(@Nonnull Block block) throws IllegalArgumentException {
         return manager.isFull(block);
     }
@@ -108,6 +113,7 @@ public class TrashCanManager {
      * @return {@code true} if the trash can is empty, {@code false} otherwise
      * @throws IllegalArgumentException if the block is not a trash can
      */
+    @Contract(pure = true)
     public static boolean isEmpty(@Nonnull Block block) throws IllegalArgumentException {
         return manager.isEmpty(block);
     }
@@ -121,15 +127,20 @@ public class TrashCanManager {
         void clear(@Nonnull Block block);
 
         @Nullable
+        @Contract(pure = true)
         Block getNearestTrashCan(@Nonnull Location location);
 
         @Nullable
+        @Contract(pure = true)
         ItemStack getPeak(@Nonnull Block block);
 
+        @Contract(pure = true)
         boolean isTrashCan(@Nonnull Block block);
 
+        @Contract(pure = true)
         boolean isFull(@Nonnull Block block);
 
+        @Contract(pure = true)
         boolean isEmpty(@Nonnull Block block);
     }
 }
