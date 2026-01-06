@@ -21,6 +21,7 @@ public interface OnlineUser extends ProxyUser {
      * @return player object
      */
     @Nonnull
+    @Contract(pure = true)
     Player player();
 
     /**
@@ -70,6 +71,7 @@ public interface OnlineUser extends ProxyUser {
      *
      * @param callback            callback with the chosen bank account
      * @param requiredPermissions permissions that need to be granted to this user to let him choose the specific bank account
+     * @throws IllegalArgumentException if the callback or requiredPermissions are null
      */
     void askForBankAccount(@Nonnull Consumer<BankAccount> callback,
                            @Nonnull AccountUser.BankAccountUserPermission... requiredPermissions)
@@ -88,9 +90,10 @@ public interface OnlineUser extends ProxyUser {
      *
      * @param block block to check
      * @return true, if this user is allowed to break/place/use a block here
+     * @throws IllegalArgumentException if the block is null
      */
     @Contract(pure = true)
-    boolean isAllowedToUse(@Nonnull Block block);
+    boolean isAllowedToUse(@Nonnull Block block) throws IllegalArgumentException;
 
     /**
      * Send a sign change to this user.
@@ -139,6 +142,7 @@ public interface OnlineUser extends ProxyUser {
      * @param location location to check distance from
      * @param range    maximum range for the result to be true
      * @return true, if the user is in range
+     * @throws IllegalArgumentException if location is null or range is negative
      */
     boolean isInCubicRange(@Nonnull Location location, @Nonnegative int range) throws IllegalArgumentException;
 
@@ -151,6 +155,7 @@ public interface OnlineUser extends ProxyUser {
      * @param location     location to check distance from
      * @param rangeSquared maximum range for the result to be true
      * @return true, if the user is in range
+     * @throws IllegalArgumentException if location is null or rangeSquared is negative
      */
     boolean isInSquaredRange(@Nonnull Location location, @Nonnegative int rangeSquared) throws IllegalArgumentException;
 
@@ -160,6 +165,7 @@ public interface OnlineUser extends ProxyUser {
      * @param location location to check distance from
      * @param range    maximum range for the result to be true
      * @return true, if the user is in range
+     * @throws IllegalArgumentException if location is null or range is negative
      */
     default boolean isInRange(@Nonnull Location location, @Nonnegative int range) throws IllegalArgumentException {
         if (location == null) throw new IllegalArgumentException("Location cannot be null");
