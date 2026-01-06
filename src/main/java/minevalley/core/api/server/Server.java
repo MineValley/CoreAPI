@@ -3,6 +3,7 @@ package minevalley.core.api.server;
 import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.users.OnlineUser;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 import java.util.stream.Stream;
@@ -16,6 +17,7 @@ public interface Server extends MessageReceiver, SoundReceiver {
      * @return the server type
      */
     @Nonnull
+    @Contract(pure = true)
     ServerType type();
 
     /**
@@ -24,6 +26,7 @@ public interface Server extends MessageReceiver, SoundReceiver {
      * @return a stream of all online users
      */
     @Nonnull
+    @Contract(pure = true)
     Stream<OnlineUser> getOnlineUsers();
 
     /**
