@@ -14,7 +14,7 @@ Before proceeding, ensure you’ve added a token to your `settings.xml` file (de
 ```xml
 
 <repository>
-    <id>github</id>
+    <id>core-api</id>
     <url>https://maven.pkg.github.com/MineValley/CoreAPI</url>
     <snapshots>
         <enabled>true</enabled>
@@ -27,7 +27,7 @@ Before proceeding, ensure you’ve added a token to your `settings.xml` file (de
 <dependency>
     <groupId>minevalley.core</groupId>
     <artifactId>api</artifactId>
-    <version>LATEST</version>
+    <version>1.300.0</version>
 </dependency>
 ```
 
