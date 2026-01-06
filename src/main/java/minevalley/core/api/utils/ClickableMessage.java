@@ -39,6 +39,7 @@ public interface ClickableMessage {
      * @return the command as string
      */
     @Nonnull
+    @Contract(pure = true)
     String getCommand();
 
     /**
@@ -47,5 +48,6 @@ public interface ClickableMessage {
      * @return the user who this clickable message is made for
      */
     @Nonnull
+    @Contract(pure = true)
     ProxyUser getUser();
 }
