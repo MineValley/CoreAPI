@@ -8,7 +8,7 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface Hologram extends LocationModifier, VisibilityModifier {
+public interface Hologram extends LocationModifier<Hologram>, VisibilityModifier<Hologram> {
 
     /**
      * Returns the lines of the hologram.
