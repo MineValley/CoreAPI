@@ -70,28 +70,32 @@ public interface Reminder {
      *
      * @return hours as int in [0, 24]
      */
+    @Contract(pure = true)
     int getHours();
 
     /**
      * Sets the hours, this reminder is called on.
      *
      * @param hours hours as int in [0, 23]
+     * @throws IllegalArgumentException if the hours are out of bounds
      */
-    void setHours(int hours);
+    void setHours(int hours) throws IllegalArgumentException;
 
     /**
      * Gets the minutes, this reminder is called on.
      *
      * @return minutes as int in [0, 59]
      */
+    @Contract(pure = true)
     int getMinutes();
 
     /**
      * Sets the minutes, this reminder is called on.
      *
      * @param minutes minutes as int in [0, 59]
+     * @throws IllegalArgumentException if the minutes are out of bounds
      */
-    void setMinutes(int minutes);
+    void setMinutes(int minutes) throws IllegalArgumentException;
 
     /**
      * Activates this reminder.
@@ -110,5 +114,6 @@ public interface Reminder {
      *
      * @return true, if this reminder is activated
      */
+    @Contract(pure = true)
     boolean isActivated();
 }
