@@ -6,6 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
@@ -30,7 +31,7 @@ public class TrashCanManager {
      *                  <p><b>Note:</b> If the {@code amount} of the {@code itemStack} is greater than 1, the item will be split into multiple ItemStacks.</p>
      * @throws IllegalArgumentException if the block is not a trash can
      */
-    public static void addItem(Block block, ItemStack itemStack) throws IllegalArgumentException {
+    public static void addItem(@Nonnull Block block, @Nonnull ItemStack itemStack) throws IllegalArgumentException {
         manager.addItem(block, itemStack);
     }
 
@@ -42,7 +43,7 @@ public class TrashCanManager {
      *
      * @throws IllegalArgumentException if the block is not a trash can
      */
-    public static void removeItem(Block block, ItemStack itemStack) throws IllegalArgumentException {
+    public static void removeItem(@Nonnull Block block, @Nonnull ItemStack itemStack) throws IllegalArgumentException {
         manager.removeItem(block, itemStack);
     }
 
@@ -52,7 +53,7 @@ public class TrashCanManager {
      * @param block the block of the trash can
      * @throws IllegalArgumentException if the block is not a trash can
      */
-    public static void clear(Block block) throws IllegalArgumentException {
+    public static void clear(@Nonnull Block block) throws IllegalArgumentException {
         manager.clear(block);
     }
 
@@ -62,7 +63,8 @@ public class TrashCanManager {
      * @param location the location to search from
      * @return the nearest trash can
      */
-    public static Block getNearestTrashCan(Location location) {
+    @Nullable
+    public static Block getNearestTrashCan(@Nonnull Location location) {
         return manager.getNearestTrashCan(location);
     }
 
@@ -74,7 +76,7 @@ public class TrashCanManager {
      * @throws IllegalArgumentException if the block is not a trash can
      */
     @Nullable
-    public static ItemStack getPeak(Block block) throws IllegalArgumentException {
+    public static ItemStack getPeak(@Nonnull Block block) throws IllegalArgumentException {
         return manager.getPeak(block);
     }
 
@@ -84,7 +86,7 @@ public class TrashCanManager {
      * @param block the block to check
      * @return {@code true} if the block is a trash can, {@code false} otherwise
      */
-    public static boolean isTrashCan(Block block) {
+    public static boolean isTrashCan(@Nonnull Block block) {
         return manager.isTrashCan(block);
     }
 
@@ -95,7 +97,7 @@ public class TrashCanManager {
      * @return {@code true} if the trash can is full, {@code false} otherwise
      * @throws IllegalArgumentException if the block is not a trash can
      */
-    public static boolean isFull(Block block) throws IllegalArgumentException {
+    public static boolean isFull(@Nonnull Block block) throws IllegalArgumentException {
         return manager.isFull(block);
     }
 
@@ -106,27 +108,28 @@ public class TrashCanManager {
      * @return {@code true} if the trash can is empty, {@code false} otherwise
      * @throws IllegalArgumentException if the block is not a trash can
      */
-    public static boolean isEmpty(Block block) throws IllegalArgumentException {
+    public static boolean isEmpty(@Nonnull Block block) throws IllegalArgumentException {
         return manager.isEmpty(block);
     }
 
     public interface Manager {
 
-        void addItem(Block block, ItemStack itemStack);
+        void addItem(@Nonnull Block block, @Nonnull ItemStack itemStack);
 
-        void removeItem(Block block, ItemStack itemStack);
+        void removeItem(@Nonnull Block block, @Nonnull ItemStack itemStack);
 
-        void clear(Block block);
+        void clear(@Nonnull Block block);
 
-        Block getNearestTrashCan(Location location);
+        @Nullable
+        Block getNearestTrashCan(@Nonnull Location location);
 
-        ItemStack getPeak(Block block);
+        @Nullable
+        ItemStack getPeak(@Nonnull Block block);
 
-        boolean isTrashCan(Block block);
+        boolean isTrashCan(@Nonnull Block block);
 
-        boolean isFull(Block block);
+        boolean isFull(@Nonnull Block block);
 
-        boolean isEmpty(Block block);
-
+        boolean isEmpty(@Nonnull Block block);
     }
 }
