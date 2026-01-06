@@ -1,5 +1,8 @@
 package minevalley.core.api.phone;
 
+import org.jetbrains.annotations.Contract;
+
+import javax.annotation.Nonnull;
 import java.time.Instant;
 
 @SuppressWarnings("unused")
@@ -10,6 +13,8 @@ public interface Call {
      *
      * @return telephone that called the partner
      */
+    @Nonnull
+    @Contract(pure = true)
     Telephone getCaller();
 
     /**
@@ -17,6 +22,8 @@ public interface Call {
      *
      * @return telephone that was called by caller
      */
+    @Nonnull
+    @Contract(pure = true)
     Telephone getPartner();
 
     /**
@@ -24,6 +31,8 @@ public interface Call {
      *
      * @return time as instant-object
      */
+    @Nonnull
+    @Contract(pure = true)
     Instant getBegin();
 
     /**
