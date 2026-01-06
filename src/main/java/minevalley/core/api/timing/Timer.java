@@ -1,5 +1,7 @@
 package minevalley.core.api.timing;
 
+import org.jetbrains.annotations.Contract;
+
 import javax.annotation.Nonnull;
 
 /**
@@ -15,20 +17,24 @@ public interface Timer {
      *
      * @return callback that is called then timer terminates
      */
+    @Nonnull
+    @Contract(pure = true)
     Runnable getCallback();
 
     /**
      * Sets this timer's callback.
      *
      * @param runnable callback that will be called when the timer terminates
+     * @throws IllegalArgumentException if runnable is null
      */
-    void setCallback(@Nonnull Runnable runnable);
+    void setCallback(@Nonnull Runnable runnable) throws IllegalArgumentException;
 
     /**
      * Gets this timers delay in seconds.
      *
      * @return delay as int
      */
+    @Contract(pure = true)
     int getDelay();
 
     /**
@@ -36,7 +42,7 @@ public interface Timer {
      *
      * @param delay delay in seconds as int
      */
-    void setDelay(int delay);
+    void setDelay(int delay) throws IllegalArgumentException;
 
     /**
      * Triggers this timer if it hasn't already done so.
@@ -53,6 +59,7 @@ public interface Timer {
      *
      * @return true, if this timer expired
      */
+    @Contract(pure = true)
     boolean hasExpired();
 
     /**
@@ -77,6 +84,7 @@ public interface Timer {
      *
      * @return true, if this timer is activated
      */
+    @Contract(pure = true)
     boolean isActivated();
 
     /**
