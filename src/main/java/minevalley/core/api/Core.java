@@ -2,6 +2,7 @@ package minevalley.core.api;
 
 import com.google.gson.Gson;
 import minevalley.core.api.armorstand.FakeArmorStand;
+import minevalley.core.api.banking.BankAccount;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
 import minevalley.core.api.database.StatementBuilder;
@@ -10,7 +11,6 @@ import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.displays.BlockDisplay;
 import minevalley.core.api.displays.ItemDisplay;
 import minevalley.core.api.displays.TextDisplay;
-import minevalley.core.api.banking.BankAccount;
 import minevalley.core.api.enums.DebugType;
 import minevalley.core.api.gui.FillItem;
 import minevalley.core.api.gui.InventoryGui;

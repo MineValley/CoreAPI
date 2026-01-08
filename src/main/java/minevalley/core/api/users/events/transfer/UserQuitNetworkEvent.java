@@ -1,7 +1,6 @@
 package minevalley.core.api.users.events.transfer;
 
 import lombok.Getter;
-import minevalley.core.api.server.Server;
 import minevalley.core.api.server.ServerType;
 import minevalley.core.api.users.ProxyUser;
 import minevalley.core.api.users.events.ProxyUserEvent;
