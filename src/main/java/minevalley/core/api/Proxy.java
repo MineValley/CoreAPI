@@ -29,15 +29,4 @@ public interface Proxy {
     @Nonnull
     @Contract(pure = true)
     ProxyUser getProxyUser(@Nonnull UUID uuid) throws IllegalArgumentException;
-
-    /**
-     * Gets the ProxyUser of this specific id.
-     *
-     * @param id id to get user from
-     * @return user object of the given id
-     * @throws IllegalArgumentException if the id is null or not found
-     */
-    @Nonnull
-    @Contract(pure = true)
-    ProxyUser getProxyUser(@Nonnull String id) throws IllegalArgumentException;
 }
