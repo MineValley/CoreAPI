@@ -1,5 +1,6 @@
 package minevalley.core.api.modifiers;
 
+import org.bukkit.util.Vector;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -18,6 +19,16 @@ public interface RotationModifier<T extends RotationModifier<T>> {
     @Nonnull
     @Contract(pure = true)
     T setRotation(float yaw, float pitch, float roll);
+
+    /**
+     * Set the rotation
+     *
+     * @param rotation rotation vector (yaw, pitch, roll)
+     * @return this
+     */
+    @Nonnull
+    @Contract(pure = true)
+    T setRotation(Vector rotation);
 
     /**
      * Get yaw
