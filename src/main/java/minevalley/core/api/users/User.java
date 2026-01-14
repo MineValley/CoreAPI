@@ -1,5 +1,6 @@
 package minevalley.core.api.users;
 
+import minevalley.core.api.Depends;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.corporations.Member;
 import minevalley.core.api.enums.DebugType;
@@ -8,6 +9,7 @@ import minevalley.core.api.users.exceptions.UserNotOnlineException;
 import minevalley.core.api.users.exceptions.UserNotPermittedException;
 import minevalley.core.api.users.friends.FriendRequest;
 import minevalley.core.api.users.friends.Friendship;
+import minevalley.core.api.users.statistics.Statistics;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
@@ -15,9 +17,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @SuppressWarnings("unused")
@@ -32,6 +32,13 @@ public interface User extends Registrant {
     @Nonnull
     @Contract(pure = true)
     OnlineUser online() throws UserNotOnlineException;
+
+    @Nonnull
+    @Depends("UserStatistics")
+    @Contract(value = "-> new", pure = true)
+    default Statistics statistics() {
+        return new Statistics(this);
+    }
 
     /**
      * Gets whether this user is online.
@@ -456,35 +463,4 @@ public interface User extends Registrant {
     @Nonnull
     @Contract(pure = true)
     List<Member> getRelatedGroupMembers();
-
-    /**
-     * Gets the total online time of this user in minutes.
-     *
-     * @return total online time in minutes
-     */
-    @Nonnegative
-    @Contract(pure = true)
-    int getTotalOnTimeInMinutes();
-
-    /**
-     * Gets the minutes this user was online today.
-     *
-     * @return minutes this user was online today
-     */
-    @Nonnegative
-    @Contract(pure = true)
-    default int getTodayOnTimeInMinutes() {
-        return OnTimeHandler.getTodayOnTimeInMinutes(this);
-    }
-
-    /**
-     * Gets a map of the today's online time in minutes of the last 30 days.
-     *
-     * @return map of the today's online time in minutes of the last 30 days
-     */
-    @Nonnegative
-    @Contract(pure = true)
-    default Map<LocalDate, Integer> getThirtyDaysOnTimeInMinutes() {
-        return OnTimeHandler.getThirtyDaysOnTimeInMinutes(this);
-    }
 }
