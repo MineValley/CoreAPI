@@ -259,7 +259,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_ -> this")
-    InventoryGui onReturn(@Nullable Consumer<InventoryGui> callback);
+    InventoryGui onReturn(@Nullable Consumer<OnlineUser> callback);
 
     /**
      * Locks the specified slot, preventing items from being placed or removed.
