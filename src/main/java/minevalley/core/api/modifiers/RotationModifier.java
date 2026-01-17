@@ -25,10 +25,11 @@ public interface RotationModifier<T extends RotationModifier<T>> {
      *
      * @param rotation rotation vector (yaw, pitch, roll)
      * @return this
+     * @throws IllegalArgumentException if the vector is null
      */
     @Nonnull
     @Contract(pure = true)
-    T setRotation(Vector rotation);
+    T setRotation(@Nonnull Vector rotation) throws IllegalArgumentException;
 
     /**
      * Get yaw
