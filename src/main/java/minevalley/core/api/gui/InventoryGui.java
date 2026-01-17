@@ -251,6 +251,17 @@ public interface InventoryGui {
     InventoryGui onCloseButton(@Nullable Consumer<OnlineUser> callback);
 
     /**
+     * Places a return button on the slot before the close button (index 7).
+     * <p><b>Note:</b> When the callback is null, the button vanishes.
+     *
+     * @param callback the callback to call when the return button is clicked
+     * @return this GUI
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    InventoryGui onReturn(@Nullable Consumer<InventoryGui> callback);
+
+    /**
      * Locks the specified slot, preventing items from being placed or removed.
      * <p>
      * <b>Note:</b> By default, all slots are locked.
