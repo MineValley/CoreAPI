@@ -5,9 +5,11 @@ import io.papermc.paper.command.brigadier.argument.ArgumentTypes;
 import lombok.Setter;
 import minevalley.core.api.commands.resolvers.BlockSelectorArgumentResolver;
 import minevalley.core.api.commands.resolvers.OnlineUsersSelectorArgumentResolver;
+import minevalley.core.api.commands.resolvers.UserSelectorArgumentResolver;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.server.ServerType;
 import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.users.User;
 import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.TeamRank;
 import net.kyori.adventure.text.Component;
@@ -45,6 +47,17 @@ public final class CustomArgumentTypes {
     @Contract(pure = true)
     public static ArgumentType<OnlineUsersSelectorArgumentResolver> onlineUsers() {
         return manager.onlineUsers();
+    }
+
+    /**
+     * Gets an argument type that resolves a single user based on a selector.
+     *
+     * @return the user selector argument type
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<UserSelectorArgumentResolver> user() {
+        return manager.user();
     }
 
     /**
@@ -197,6 +210,10 @@ public final class CustomArgumentTypes {
         @Nonnull
         @Contract(pure = true)
         ArgumentType<OnlineUsersSelectorArgumentResolver> onlineUsers();
+
+        @Nonnull
+        @Contract(pure = true)
+        ArgumentType<UserSelectorArgumentResolver> user();
 
         @Nonnull
         @Contract(pure = true)
