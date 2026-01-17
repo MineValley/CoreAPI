@@ -33,6 +33,9 @@ public class UserPlaySoundEvent extends ProxyUserEvent {
         this.sound = sound.key().asString();
     }
 
+    /**
+     * Muffles the sound for this user, applying a muffle effect when it is played.
+     */
     public void muffle() {
         this.muffled = true;
     }

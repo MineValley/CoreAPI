@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 /**
  * This event is called when an action bar message is to be sent to a user.
  */
+@SuppressWarnings("unused")
 public class UserPreReceiveActionBarEvent extends ProxyUserEvent {
 
     private final @Getter(onMethod_ = @Nonnull) Component message;
