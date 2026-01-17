@@ -172,12 +172,4 @@ public interface OnlineUser extends ProxyUser {
         if (range < 0) throw new IllegalArgumentException("Range cannot be negative");
         return isInSquaredRange(location, range * range);
     }
-
-    enum ChatType {
-        NORMAL,
-        WHISPER,
-        SHOUT,
-        FRACTION_CHAT,
-        ACTION
-    }
 }

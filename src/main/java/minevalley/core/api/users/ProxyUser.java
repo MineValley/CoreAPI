@@ -4,11 +4,12 @@ import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.localization.PlayerLocation;
 import minevalley.core.api.messaging.DialogReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
+import minevalley.core.api.users.chat.ChatProvider;
+import minevalley.core.api.users.chat.ChatType;
 import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.McVersion;
 import minevalley.core.api.users.enums.TabListView;
 import minevalley.core.api.users.exceptions.UserNotPermittedException;
-import minevalley.core.api.utils.ChatHandler;
 import minevalley.core.api.utils.ClickableMessage;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
@@ -213,26 +214,24 @@ public interface ProxyUser extends User, DialogReceiver, MessageReceiver, SoundR
     void getLocation(@Nonnull BiConsumer<ProxyUser, PlayerLocation> callback);
 
     /**
-     * Sends a message to the chat in the name of this user.
+     * Sends a chat message as the specified user.
      *
      * @param type    type of the chat message
      * @param message message to send
-     * @throws IllegalArgumentException if either the type or the message is null
+     * @throws IllegalArgumentException if either the type or message is null, or if the message is empty
      */
-    default void chat(@Nonnull OnlineUser.ChatType type, @Nonnull String message) throws IllegalArgumentException {
-        if (type == null) throw new IllegalArgumentException("Type cannot be null");
-        ChatHandler.chat(this, type, message);
+    default void chat(@Nonnull ChatType type, @Nonnull String message) throws IllegalArgumentException {
+        ChatProvider.chat(this, type, message);
     }
 
     /**
-     * Sends a normal chat message in the name of this user.
+     * Sends a normal chat message as the specified user.
      *
      * @param message message to send
-     * @throws IllegalArgumentException if either the type or the message is null
+     * @throws IllegalArgumentException if the message is null or empty
      */
     default void chat(@Nonnull String message) throws IllegalArgumentException {
-        if (message == null) throw new IllegalArgumentException("Message cannot be null");
-        ChatHandler.chat(this, OnlineUser.ChatType.NORMAL, message);
+        ChatProvider.chat(this, ChatType.NORMAL, message);
     }
 
     /**
