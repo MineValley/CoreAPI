@@ -158,13 +158,13 @@ public interface CoreProvider {
     FakeBlock createFakeBlock(@Nonnull Block block, @Nonnull Material material, int data) throws IllegalArgumentException;
 
     @Nonnull
-    BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull Material material) throws IllegalArgumentException;
+    BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull Material material) throws IllegalArgumentException;
 
     @Nonnull
-    ItemDisplay createItemDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ItemStack itemStack) throws IllegalArgumentException;
+    ItemDisplay createItemDisplay(@Nonnull Location location, @Nonnull ItemStack itemStack) throws IllegalArgumentException;
 
     @Nonnull
-    TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ComponentLike text) throws IllegalArgumentException;
+    TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull ComponentLike text) throws IllegalArgumentException;
 
     @Nonnull
     @Contract("_ -> new")
