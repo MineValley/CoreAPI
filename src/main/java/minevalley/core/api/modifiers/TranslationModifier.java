@@ -11,9 +11,9 @@ public interface TranslationModifier<T extends TranslationModifier<T>> {
     /**
      * Set the translation
      *
-     * @param x  x translation
-     * @param y  y translation
-     * @param z  z translation
+     * @param x x translation
+     * @param y y translation
+     * @param z z translation
      * @return the current instance
      */
     @Nonnull

@@ -11,9 +11,9 @@ public interface ScaleModifier<T extends ScaleModifier<T>> {
     /**
      * Set the scale
      *
-     * @param x  x scale
-     * @param y  y scale
-     * @param z  z scale
+     * @param x x scale
+     * @param y y scale
+     * @param z z scale
      * @return the current instance
      */
     @Nonnull
