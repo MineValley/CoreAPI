@@ -1,7 +1,7 @@
 package minevalley.core.api.armorstand;
 
 import minevalley.core.api.armorstand.modifiers.MetadataModifier;
-import minevalley.core.api.armorstand.modifiers.PassengerModifier;
+import minevalley.core.api.modifiers.PassengerModifier;
 import minevalley.core.api.armorstand.modifiers.PoseModifier;
 import minevalley.core.api.armorstand.modifiers.RotationModifier;
 import minevalley.core.api.modifiers.EquipmentModifier;
