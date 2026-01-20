@@ -627,45 +627,42 @@ public final class Core {
      * Creates a block which is only visible to specific players.
      *
      * @param location location where the BlockDisplay is placed
-     * @param scale    scale of the BlockDisplay
      * @param material material of the BlockDisplay
      * @return BlockDisplay with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null or data is invalid
      */
     @Nonnull
-    @Contract("_, _, _-> new")
-    public static BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull Material material) throws IllegalArgumentException {
-        return provider.createBlockDisplay(location, scale, material);
+    @Contract("_, _-> new")
+    public static BlockDisplay createBlockDisplay(@Nonnull Location location, @Nonnull Material material) throws IllegalArgumentException {
+        return provider.createBlockDisplay(location, material);
     }
 
     /**
      * Creates an ItemDisplay which is only visible to specific players.
      *
      * @param location  location where the ItemDisplay is placed
-     * @param scale     scale of the ItemDisplay
      * @param itemStack item stack of the ItemDisplay
      * @return ItemDisplay with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null or data is invalid
      */
     @Nonnull
-    @Contract("_, _, _ -> new")
-    public static ItemDisplay createItemDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ItemStack itemStack) throws IllegalArgumentException {
-        return provider.createItemDisplay(location, scale, itemStack);
+    @Contract("_, _ -> new")
+    public static ItemDisplay createItemDisplay(@Nonnull Location location, @Nonnull ItemStack itemStack) throws IllegalArgumentException {
+        return provider.createItemDisplay(location, itemStack);
     }
 
     /**
      * Creates a text display which is only visible to specific players.
      *
      * @param location location where the TextDisplay is placed
-     * @param scale    scale of the TextDisplay
      * @param text     text of the TextDisplay
      * @return TextDisplay with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null or data is invalid
      */
     @Nonnull
-    @Contract("_, _, _ -> new")
-    public static TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull java.util.Vector<Float> scale, @Nonnull ComponentLike text) throws IllegalArgumentException {
-        return provider.createTextDisplay(location, scale, text);
+    @Contract("_, _ -> new")
+    public static TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull ComponentLike text) throws IllegalArgumentException {
+        return provider.createTextDisplay(location, text);
     }
 
     /**
