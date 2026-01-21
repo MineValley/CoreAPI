@@ -1,5 +1,6 @@
 package minevalley.core.api.modifiers;
 
+import net.kyori.adventure.text.Component;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -41,7 +42,7 @@ public interface MetadataModifier<T extends MetadataModifier<T>> {
      * @return custom name of the object
      */
     @Nullable
-    String getCustomName();
+    Component getCustomName();
 
     /**
      * Sets the custom name of the object
@@ -51,7 +52,7 @@ public interface MetadataModifier<T extends MetadataModifier<T>> {
      */
     @Nonnull
     @Contract("_ -> this")
-    T setCustomName(@Nullable String customName);
+    T setCustomName(@Nullable Component customName);
 
     /**
      * Checks if the custom name is visible
