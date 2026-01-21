@@ -10,16 +10,6 @@ import javax.annotation.Nullable;
 public interface MetadataModifier<T extends MetadataModifier<T>> {
 
     /**
-     * Sets if object is glowing
-     *
-     * @param glowing true if the object should be glowing
-     * @return this
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    T setGlowing(boolean glowing);
-
-    /**
      * Checks if the object is affected by gravity
      *
      * @return true if the object is affected by gravity
