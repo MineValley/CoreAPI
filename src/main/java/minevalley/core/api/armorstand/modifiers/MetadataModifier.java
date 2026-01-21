@@ -4,10 +4,9 @@ import minevalley.core.api.modifiers.VisibilityModifier;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
-public interface MetadataModifier<T extends MetadataModifier<T>> {
+public interface MetadataModifier<T extends MetadataModifier<T>> extends minevalley.core.api.modifiers.MetadataModifier<T> {
 
     /**
      * Checks if the armor stand has a baseplate
@@ -145,78 +144,4 @@ public interface MetadataModifier<T extends MetadataModifier<T>> {
     @Nonnull
     @Contract("_ -> this")
     T setGlowing(boolean glowing);
-
-    /**
-     * Checks if the armor stand is affected by gravity
-     *
-     * @return true if the armor stand is affected by gravity
-     */
-    boolean hasGravity();
-
-    /**
-     * Sets if the armor stand is affected by gravity
-     *
-     * @param gravity true if the armor stand should be affected by gravity
-     * @return this
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    T setGravity(boolean gravity);
-
-    /**
-     * Gets the custom name of the armor stand, if existing
-     *
-     * @return custom name of the armor stand
-     */
-    @Nullable
-    String getCustomName();
-
-    /**
-     * Sets the custom name of the armor stand
-     *
-     * @param customName custom name of the armor stand
-     * @return this
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    T setCustomName(@Nullable String customName);
-
-    /**
-     * Checks if the custom name is visible
-     *
-     * @return true if the custom name is visible
-     */
-    boolean isCustomNameVisible();
-
-    /**
-     * Sets if the custom name is visible
-     *
-     * @param customNameVisible true if the custom name should be visible
-     * @return this
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    T setCustomNameVisible(boolean customNameVisible);
-
-    /**
-     * Checks if the armor stand is silent
-     *
-     * @return true if the armor stand is silent
-     */
-    boolean isSilent();
-
-    /**
-     * Sets if the armor stand is silent
-     *
-     * @param silent true if the armor stand should be silent
-     * @return this
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    T setSilent(boolean silent);
-
-    /**
-     * Updates the metadata of the armor stand
-     */
-    void updateMetadata();
 }
