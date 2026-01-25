@@ -1,6 +1,6 @@
 package minevalley.core.api.armorstand;
 
-import minevalley.core.api.armorstand.modifiers.PoseModifier;
+import minevalley.core.api.modifiers.PoseModifier;
 import minevalley.core.api.modifiers.*;
 import org.jetbrains.annotations.Contract;
 
