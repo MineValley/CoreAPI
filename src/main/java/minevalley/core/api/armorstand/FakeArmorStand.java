@@ -1,7 +1,6 @@
 package minevalley.core.api.armorstand;
 
 import minevalley.core.api.armorstand.modifiers.PoseModifier;
-import minevalley.core.api.armorstand.modifiers.RotationModifier;
 import minevalley.core.api.modifiers.*;
 import org.jetbrains.annotations.Contract;
 
@@ -10,7 +9,7 @@ import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 public interface FakeArmorStand extends MetadataModifier<FakeArmorStand>, PassengerModifier<FakeArmorStand>,
-        PoseModifier<FakeArmorStand>, RotationModifier<FakeArmorStand>, EquipmentModifier<FakeArmorStand>,
+        PoseModifier<FakeArmorStand>, EquipmentModifier<FakeArmorStand>,
         InteractionModifier<FakeArmorStand>, LocationModifier<FakeArmorStand>, VisibilityModifier<FakeArmorStand> {
 
     /**
@@ -189,4 +188,27 @@ public interface FakeArmorStand extends MetadataModifier<FakeArmorStand>, Passen
     @Nonnull
     @Contract("_ -> this")
     FakeArmorStand setGlowing(boolean glowing);
+
+    /**
+     * Sets the rotation of the armor stand
+     *
+     * @param rotation rotation in degrees
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setRotation(float rotation);
+
+    /**
+     * Gets the rotation of the armor stand in degrees
+     *
+     * @return the rotation of the armor stand
+     */
+    @Contract(pure = true)
+    float getRotation();
+
+    /**
+     * Updates the rotation of the armor stand
+     */
+    void updateRotation();
 }
