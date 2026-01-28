@@ -1,4 +1,4 @@
-package minevalley.core.api.armorstand.modifiers;
+package minevalley.core.api.modifiers;
 
 import org.bukkit.util.EulerAngle;
 import org.jetbrains.annotations.Contract;

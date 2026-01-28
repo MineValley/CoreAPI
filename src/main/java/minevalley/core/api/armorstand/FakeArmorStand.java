@@ -1,13 +1,7 @@
 package minevalley.core.api.armorstand;
 
-import minevalley.core.api.armorstand.modifiers.MetadataModifier;
-import minevalley.core.api.modifiers.PassengerModifier;
-import minevalley.core.api.armorstand.modifiers.PoseModifier;
-import minevalley.core.api.armorstand.modifiers.RotationModifier;
-import minevalley.core.api.modifiers.EquipmentModifier;
-import minevalley.core.api.modifiers.InteractionModifier;
-import minevalley.core.api.modifiers.LocationModifier;
-import minevalley.core.api.modifiers.VisibilityModifier;
+import minevalley.core.api.modifiers.PoseModifier;
+import minevalley.core.api.modifiers.*;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
@@ -15,7 +9,7 @@ import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 public interface FakeArmorStand extends MetadataModifier<FakeArmorStand>, PassengerModifier<FakeArmorStand>,
-        PoseModifier<FakeArmorStand>, RotationModifier<FakeArmorStand>, EquipmentModifier<FakeArmorStand>,
+        PoseModifier<FakeArmorStand>, EquipmentModifier<FakeArmorStand>,
         InteractionModifier<FakeArmorStand>, LocationModifier<FakeArmorStand>, VisibilityModifier<FakeArmorStand> {
 
     /**
@@ -57,4 +51,164 @@ public interface FakeArmorStand extends MetadataModifier<FakeArmorStand>, Passen
     @Nonnull
     @Contract("_ -> this")
     FakeArmorStand setVisibilityRange(int visibilityRange);
+
+    /**
+     * Checks if the armor stand has a baseplate
+     *
+     * @return true if the armor stand has a baseplate
+     * @see #hasBaseplate()
+     */
+    @Deprecated
+    @Contract(pure = true)
+    boolean hasBasePlate();
+
+    /**
+     * Checks if the armor stand has a baseplate
+     *
+     * @return true if the armor stand has a baseplate
+     */
+    @Contract(pure = true)
+    boolean hasBaseplate();
+
+    /**
+     * Sets if the armor stand has a baseplate
+     *
+     * @param baseplate true if the armor stand has a baseplate
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setBasePlate(boolean baseplate);
+
+    /**
+     * Checks if the armor stand is small
+     *
+     * @return true if the armor stand is small
+     */
+    @Contract(pure = true)
+    boolean isSmall();
+
+    /**
+     * Sets if the armor stand is small
+     *
+     * @param small true if the armor stand should be small
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setSmall(boolean small);
+
+    /**
+     * Checks if the armor stand has arms
+     *
+     * @return true if the armor stand has arms
+     */
+    @Contract(pure = true)
+    boolean hasArms();
+
+    /**
+     * @param arms true if the armor stand should have arms
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setArms(boolean arms);
+
+    /**
+     * Checks if the armor stand is a marker
+     *
+     * @return true if the armor stand is a marker
+     */
+    boolean isMarker();
+
+    /**
+     * Sets if the armor stand is a marker
+     *
+     * @param marker true if the armor stand should be a marker
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setMarker(boolean marker);
+
+    /**
+     * Checks if the armor stand is on fire
+     * <p>
+     * <b>Note:</b> This only affects the visual effect, not actual fire damage. This can only be changed via {@link #setOnFire(boolean)} not by setting the 'entity' on fire.
+     *
+     * @return true if the armor stand is on fire
+     */
+    @Contract(pure = true)
+    boolean isOnFire();
+
+    /**
+     * Sets if the armor stand is on fire
+     *
+     * @param onFire true if the armor stand should be on fire
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setOnFire(boolean onFire);
+
+    /**
+     * Checks if the armor stand is visible
+     * <p>
+     * <b>Note:</b> This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}
+     *
+     * @return true if the armor stand is visible
+     */
+    boolean isVisible();
+
+    /**
+     * Sets if the armor stand is visible
+     * <p>
+     * <b>Note:</b> This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}
+     *
+     * @param visible true if the armor stand should be visible
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setVisible(boolean visible);
+
+    /**
+     * Checks if the armor stand is glowing
+     *
+     * @return true if the armor stand is glowing
+     */
+    boolean isGlowing();
+
+    /**
+     * Sets if the armor stand is glowing
+     *
+     * @param glowing true if the armor stand should be glowing
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setGlowing(boolean glowing);
+
+    /**
+     * Sets the rotation of the armor stand
+     *
+     * @param rotation rotation in degrees
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setRotation(float rotation);
+
+    /**
+     * Gets the rotation of the armor stand in degrees
+     *
+     * @return the rotation of the armor stand
+     */
+    @Contract(pure = true)
+    float getRotation();
+
+    /**
+     * Updates the rotation of the armor stand
+     */
+    void updateRotation();
 }
