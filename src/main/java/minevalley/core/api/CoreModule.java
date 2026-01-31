@@ -1,6 +1,9 @@
 package minevalley.core.api;
 
 import lombok.Getter;
+import org.jetbrains.annotations.Contract;
+
+import javax.annotation.Nonnull;
 
 @Getter
 @SuppressWarnings("unused")
@@ -32,5 +35,16 @@ public abstract class CoreModule {
 
     public void onCleanup() {
         // do nothing
+    }
+
+    /**
+     * Gets the version of this module.
+     *
+     * @return the version
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public String getVersion() {
+        return getClass().getPackage().getImplementationVersion();
     }
 }
