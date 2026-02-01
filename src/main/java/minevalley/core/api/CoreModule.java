@@ -151,7 +151,9 @@ public abstract class CoreModule {
             
             // Try to construct likely paths based on package structure
             // Common pattern: package com.example.mymodule -> groupId: com.example, artifactId: mymodule
-            for (int i = packageParts.length; i >= 1; i--) {
+            // Limit search to avoid excessive resource lookups
+            int maxDepth = Math.min(packageParts.length, 4);
+            for (int i = maxDepth; i >= 1; i--) {
                 String groupId = String.join(".", java.util.Arrays.copyOfRange(packageParts, 0, i));
                 
                 // Try different artifactId possibilities
@@ -169,12 +171,6 @@ public abstract class CoreModule {
                 if (moduleClass.getClassLoader().getResource(path) != null) {
                     return path;
                 }
-            }
-            
-            // Fallback: search all pom.properties files
-            java.util.Enumeration<java.net.URL> resources = moduleClass.getClassLoader().getResources("META-INF/maven/");
-            while (resources.hasMoreElements()) {
-                // This is a fallback mechanism - in production, the above heuristics should work
             }
             
         } catch (Exception e) {
