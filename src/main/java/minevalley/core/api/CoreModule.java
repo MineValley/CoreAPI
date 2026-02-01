@@ -101,7 +101,10 @@ public abstract class CoreModule {
         
         for (int i = Math.min(parts.length, 4); i >= 1; i--) {
             String groupId = String.join(".", java.util.Arrays.copyOfRange(parts, 0, i));
-            String[] artifactIds = i < parts.length ? new String[]{parts[i], parts[parts.length - 1]} : new String[]{parts[parts.length - 1]};
+            String lastPart = parts[parts.length - 1];
+            String[] artifactIds = (i < parts.length && !parts[i].equals(lastPart)) 
+                ? new String[]{parts[i], lastPart} 
+                : new String[]{lastPart};
             
             for (String artifactId : artifactIds) {
                 String path = "META-INF/maven/" + groupId + "/" + artifactId + "/pom.properties";
@@ -111,7 +114,9 @@ public abstract class CoreModule {
                         props.load(stream);
                         return props;
                     }
-                } catch (Exception ignored) {}
+                } catch (Exception e) {
+                    System.err.println("Warning: Error reading pom.properties: " + e.getMessage());
+                }
             }
         }
         return null;
@@ -130,6 +135,10 @@ public abstract class CoreModule {
 
     private String getTextContent(Element parent, String tagName, String defaultValue) {
         NodeList nodes = parent.getElementsByTagName(tagName);
-        return nodes.getLength() > 0 ? nodes.item(0).getTextContent().trim() : defaultValue;
+        if (nodes.getLength() > 0) {
+            String content = nodes.item(0).getTextContent();
+            return content != null ? content.trim() : defaultValue;
+        }
+        return defaultValue;
     }
 }
