@@ -51,6 +51,6 @@ public abstract class CoreModule {
     @Nonnull
     @Contract(pure = true)
     public Developer[] getDevelopers() {
-        throw new UnsupportedOperationException("getDevelopers is not implemented yet");
+        return moduleDescription.developers();
     }
 }

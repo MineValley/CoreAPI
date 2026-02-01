@@ -33,4 +33,11 @@ public @interface Module {
      * @return The server types.
      */
     @Nonnull ServerType[] servers() default {};
+
+    /**
+     * The developers of the module.
+     *
+     * @return The developers.
+     */
+    @Nonnull Developer[] developers() default {};
 }
