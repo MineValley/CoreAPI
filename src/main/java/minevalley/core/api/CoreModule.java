@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
@@ -59,14 +60,20 @@ public abstract class CoreModule {
     @Nonnull
     @Contract(pure = true)
     public Developer[] getDevelopers() {
-        try {
-            // Try to load pom.xml from META-INF/maven/minevalley.core/api/pom.xml
-            InputStream pomStream = getClass().getClassLoader().getResourceAsStream("META-INF/maven/minevalley.core/api/pom.xml");
+        try (InputStream pomStream = getClass().getClassLoader().getResourceAsStream("META-INF/maven/minevalley.core/api/pom.xml")) {
             if (pomStream == null) {
                 return new Developer[0];
             }
 
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            // Secure XML parsing - prevent XXE attacks
+            factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+            factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+            factory.setXIncludeAware(false);
+            factory.setExpandEntityReferences(false);
+            
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(pomStream);
             doc.getDocumentElement().normalize();
@@ -92,10 +99,11 @@ public abstract class CoreModule {
                 developers.add(new Developer(name, uuid, discord));
             }
 
-            pomStream.close();
             return developers.toArray(new Developer[0]);
         } catch (Exception e) {
             // If we can't read the pom.xml, return empty array
+            // This could happen in development when running from IDE without packaged JAR
+            System.err.println("Warning: Could not load developers from pom.xml: " + e.getMessage());
             return new Developer[0];
         }
     }
