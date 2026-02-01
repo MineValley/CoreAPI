@@ -6,21 +6,10 @@
 
     <groupId>minevalley.core</groupId>
     <artifactId>api</artifactId>
-    <version>1.300.8</version>
+    <version>1.300.9</version>
     <packaging>jar</packaging>
 
     <name>CoreAPI</name>
-
-    <developers>
-        <developer>
-            <id>snabeldier</id>
-            <name>Snabeldier</name>
-            <properties>
-                <uuid>00000000-0000-0000-0000-000000000000</uuid>
-                <discord>snabeldier</discord>
-            </properties>
-        </developer>
-    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
