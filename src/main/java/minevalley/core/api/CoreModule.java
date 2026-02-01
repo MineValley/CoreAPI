@@ -62,129 +62,74 @@ public abstract class CoreModule {
     @Contract(pure = true)
     public Developer[] getDevelopers() {
         try {
-            // Get the actual module class (not CoreModule)
-            Class<?> moduleClass = getClass();
+            Properties props = loadPomProperties();
+            if (props == null) return new Developer[0];
             
-            // Try to find pom.properties for this module
-            String pomPropertiesPath = findPomPropertiesPath(moduleClass);
-            if (pomPropertiesPath == null) {
-                return new Developer[0];
-            }
-            
-            // Load pom.properties to get groupId and artifactId
-            Properties pomProperties = new Properties();
-            try (InputStream propsStream = moduleClass.getClassLoader().getResourceAsStream(pomPropertiesPath)) {
-                if (propsStream == null) {
-                    return new Developer[0];
-                }
-                pomProperties.load(propsStream);
-            }
-            
-            String groupId = pomProperties.getProperty("groupId");
-            String artifactId = pomProperties.getProperty("artifactId");
-            
-            if (groupId == null || artifactId == null) {
-                return new Developer[0];
-            }
-            
-            // Construct path to pom.xml
-            String pomPath = "META-INF/maven/" + groupId + "/" + artifactId + "/pom.xml";
-            
-            try (InputStream pomStream = moduleClass.getClassLoader().getResourceAsStream(pomPath)) {
-                if (pomStream == null) {
-                    return new Developer[0];
-                }
+            String pomPath = "META-INF/maven/" + props.getProperty("groupId") + "/" + props.getProperty("artifactId") + "/pom.xml";
+            try (InputStream pomStream = getClass().getClassLoader().getResourceAsStream(pomPath)) {
+                if (pomStream == null) return new Developer[0];
 
-                DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                // Secure XML parsing - prevent XXE attacks
-                factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-                factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-                factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
-                factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
-                factory.setXIncludeAware(false);
-                factory.setExpandEntityReferences(false);
-                
-                DocumentBuilder builder = factory.newDocumentBuilder();
-                Document doc = builder.parse(pomStream);
-                doc.getDocumentElement().normalize();
-
+                Document doc = createSecureDocumentBuilder().parse(pomStream);
                 NodeList developerNodes = doc.getElementsByTagName("developer");
                 List<Developer> developers = new ArrayList<>();
 
                 for (int i = 0; i < developerNodes.getLength(); i++) {
-                    Element developerElement = (Element) developerNodes.item(i);
-                    
-                    String name = getElementTextContent(developerElement, "name", "Unknown");
+                    Element dev = (Element) developerNodes.item(i);
+                    String name = getTextContent(dev, "name", "Unknown");
                     String uuid = "00000000-0000-0000-0000-000000000000";
                     String discord = "";
 
-                    // Try to get properties
-                    NodeList propertiesNodes = developerElement.getElementsByTagName("properties");
-                    if (propertiesNodes.getLength() > 0) {
-                        Element properties = (Element) propertiesNodes.item(0);
-                        uuid = getElementTextContent(properties, "uuid", uuid);
-                        discord = getElementTextContent(properties, "discord", discord);
+                    NodeList propsNodes = dev.getElementsByTagName("properties");
+                    if (propsNodes.getLength() > 0) {
+                        Element properties = (Element) propsNodes.item(0);
+                        uuid = getTextContent(properties, "uuid", uuid);
+                        discord = getTextContent(properties, "discord", discord);
                     }
-
                     developers.add(new Developer(name, uuid, discord));
                 }
-
                 return developers.toArray(new Developer[0]);
             }
         } catch (Exception e) {
-            // If we can't read the pom.xml, return empty array
-            // This could happen in development when running from IDE without packaged JAR
             System.err.println("Warning: Could not load developers from pom.xml: " + e.getMessage());
             return new Developer[0];
         }
     }
 
-    /**
-     * Finds the pom.properties file path for the given module class.
-     * This method looks for pom.properties in the same JAR/classpath as the module.
-     */
-    private String findPomPropertiesPath(Class<?> moduleClass) {
-        try {
-            // Get the package name of the module
-            String packageName = moduleClass.getPackage().getName();
-            String[] packageParts = packageName.split("\\.");
+    private Properties loadPomProperties() {
+        String packageName = getClass().getPackage().getName();
+        String[] parts = packageName.split("\\.");
+        
+        for (int i = Math.min(parts.length, 4); i >= 1; i--) {
+            String groupId = String.join(".", java.util.Arrays.copyOfRange(parts, 0, i));
+            String[] artifactIds = i < parts.length ? new String[]{parts[i], parts[parts.length - 1]} : new String[]{parts[parts.length - 1]};
             
-            // Try to construct likely paths based on package structure
-            // Common pattern: package com.example.mymodule -> groupId: com.example, artifactId: mymodule
-            // Limit search to avoid excessive resource lookups
-            int maxDepth = Math.min(packageParts.length, 4);
-            for (int i = maxDepth; i >= 1; i--) {
-                String groupId = String.join(".", java.util.Arrays.copyOfRange(packageParts, 0, i));
-                
-                // Try different artifactId possibilities
-                if (i < packageParts.length) {
-                    String artifactId = packageParts[i];
-                    String path = "META-INF/maven/" + groupId + "/" + artifactId + "/pom.properties";
-                    if (moduleClass.getClassLoader().getResource(path) != null) {
-                        return path;
+            for (String artifactId : artifactIds) {
+                String path = "META-INF/maven/" + groupId + "/" + artifactId + "/pom.properties";
+                try (InputStream stream = getClass().getClassLoader().getResourceAsStream(path)) {
+                    if (stream != null) {
+                        Properties props = new Properties();
+                        props.load(stream);
+                        return props;
                     }
-                }
-                
-                // Also try with the last package part as artifactId
-                String lastPart = packageParts[packageParts.length - 1];
-                String path = "META-INF/maven/" + groupId + "/" + lastPart + "/pom.properties";
-                if (moduleClass.getClassLoader().getResource(path) != null) {
-                    return path;
-                }
+                } catch (Exception ignored) {}
             }
-            
-        } catch (Exception e) {
-            System.err.println("Warning: Could not find pom.properties: " + e.getMessage());
         }
         return null;
     }
 
-    private String getElementTextContent(Element parent, String tagName, String defaultValue) {
+    private DocumentBuilder createSecureDocumentBuilder() throws Exception {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+        factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+        factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+        factory.setXIncludeAware(false);
+        factory.setExpandEntityReferences(false);
+        return factory.newDocumentBuilder();
+    }
+
+    private String getTextContent(Element parent, String tagName, String defaultValue) {
         NodeList nodes = parent.getElementsByTagName(tagName);
-        if (nodes.getLength() > 0) {
-            String content = nodes.item(0).getTextContent();
-            return content != null ? content.trim() : defaultValue;
-        }
-        return defaultValue;
+        return nodes.getLength() > 0 ? nodes.item(0).getTextContent().trim() : defaultValue;
     }
 }
