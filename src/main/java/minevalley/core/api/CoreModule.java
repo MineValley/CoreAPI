@@ -47,4 +47,10 @@ public abstract class CoreModule {
     public String getVersion() {
         return getClass().getPackage().getImplementationVersion();
     }
+
+    @Nonnull
+    @Contract(pure = true)
+    public Developer[] getDevelopers() {
+        throw new UnsupportedOperationException("getDevelopers is not implemented yet");
+    }
 }
