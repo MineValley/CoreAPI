@@ -64,6 +64,14 @@ public interface CoreProvider {
     Server server();
 
     @Nonnull
+    @Contract(pure = true)
+    String getVersion(@Nonnull CoreModule module) throws IllegalArgumentException;
+
+    @Nonnull
+    @Contract(pure = true)
+    Developer[] getDevelopers(@Nonnull CoreModule module) throws IllegalArgumentException;
+
+    @Nonnull
     BukkitTask runSyncTaskLater(long delay, @Nonnull Runnable runnable) throws IllegalArgumentException;
 
     @Nonnull

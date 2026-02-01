@@ -25,8 +25,8 @@ import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.User;
-import minevalley.core.api.utils.EventListener;
 import minevalley.core.api.utils.*;
+import minevalley.core.api.utils.EventListener;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
 import org.bukkit.Location;
@@ -91,6 +91,32 @@ public final class Core {
     @Nonnull
     public static Proxy proxy() {
         return proxy;
+    }
+
+    /**
+     * Gets the version of a specific module.
+     *
+     * @param module the module to get the version from
+     * @return the version of the module
+     * @throws IllegalArgumentException if module is null
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public static String getVersion(@Nonnull CoreModule module) throws IllegalArgumentException {
+        return provider.getVersion(module);
+    }
+
+    /**
+     * Gets the developers of a specific module.
+     *
+     * @param module the module to get the developers from
+     * @return the developers of the module
+     * @throws IllegalArgumentException if module is null
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public static Developer[] getDevelopers(@Nonnull CoreModule module) throws IllegalArgumentException {
+        return provider.getDevelopers(module);
     }
 
     /**

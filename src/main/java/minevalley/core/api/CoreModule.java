@@ -46,7 +46,7 @@ public abstract class CoreModule {
     public void onCleanup() {
         // do nothing
     }
-
+g
     /**
      * Gets the version of this module.
      *
