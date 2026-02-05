@@ -158,6 +158,37 @@ public interface ItemBuilder {
     Set<ItemFlag> getItemFlags();
 
     /**
+     * Adds custom item flags to the item.
+     *
+     * @param flags flags to add
+     * @return this
+     * @throws IllegalArgumentException if the flags are null
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    ItemBuilder addCustomItemFlags(@Nonnull CustomItemFlag... flags) throws IllegalArgumentException;
+
+    /**
+     * Removes custom item flags from the item.
+     *
+     * @param flags flags to remove
+     * @return this
+     * @throws IllegalArgumentException if the flags are null
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    ItemBuilder removeCustomItemFlags(@Nonnull CustomItemFlag... flags) throws IllegalArgumentException;
+
+    /**
+     * Gets a copy of the item's custom item flags list.
+     *
+     * @return copy of the item's custom item flags list
+     */
+    @Nonnull
+    @Contract(pure = true)
+    Set<CustomItemFlag> getCustomItemFlags();
+
+    /**
      * Sets the item's color.
      *
      * @param hexColor color as hex string
