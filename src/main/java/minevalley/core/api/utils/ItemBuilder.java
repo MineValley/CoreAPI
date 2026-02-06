@@ -213,6 +213,17 @@ public interface ItemBuilder {
     ItemBuilder setColor(@Nonnegative int decimalColor) throws IllegalArgumentException, UnsupportedOperationException;
 
     /**
+     * Sets the max stack size of the item.
+     *
+     * @param maxStackSize max stack size of the item as integer
+     * @return this item-builder
+     * @throws IllegalArgumentException if the max stack size is negative or above 64
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    ItemBuilder setMaxStackSize(@Nonnegative int maxStackSize) throws IllegalArgumentException;
+
+    /**
      * Converts this builder with its parameters into an itemstack
      *
      * @return built itemstack
