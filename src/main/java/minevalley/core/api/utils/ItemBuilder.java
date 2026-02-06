@@ -1,14 +1,19 @@
 package minevalley.core.api.utils;
 
+import io.papermc.paper.datacomponent.item.JukeboxPlayable;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.components.EquippableComponent;
+import org.bukkit.inventory.meta.components.FoodComponent;
+import org.bukkit.inventory.meta.components.ToolComponent;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -222,6 +227,80 @@ public interface ItemBuilder {
     @Nonnull
     @Contract("_ -> this")
     ItemBuilder setMaxStackSize(@Nonnegative int maxStackSize) throws IllegalArgumentException;
+
+    /**
+     * Sets whether the item's tooltip should be hidden.
+     *
+     * @param hideTooltip whether the item's tooltip should be hidden
+     * @return this item-builder
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    ItemBuilder setHideToolTip(boolean hideTooltip);
+
+    /**
+     * Sets whether the item should have the glider effect (elytra flying animation).
+     *
+     * @param glider whether the item should have the glider effect
+     * @return this item-builder
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    ItemBuilder setGlider(boolean glider);
+
+    /**
+     * Sets whether the item should be fire resistant.
+     *
+     * @param fireResistant whether the item should be fire resistant
+     * @return this item-builder
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    ItemBuilder setFireResistant(boolean fireResistant);
+
+    /**
+     * Sets the food component of the item. This will make the item edible and give it the specified food properties.
+     *
+     * @param food food component to set, or null to remove the food component from the item
+     * @return this item-builder
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    @SuppressWarnings("UnstableApiUsage")
+    ItemBuilder setFood(@Nullable FoodComponent food);
+
+    /**
+     * Sets the tool component of the item. This will make the item a tool and give it the specified tool properties.
+     *
+     * @param tool tool component to set, or null to remove the tool component from the item
+     * @return this item-builder
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    @SuppressWarnings("UnstableApiUsage")
+    ItemBuilder setTool(@Nullable ToolComponent tool);
+
+    /**
+     * Sets the equippable component of the item. This will make the item equippable and give it the specified equippable properties.
+     *
+     * @param equippable equippable component to set, or null to remove the equippable component from the item
+     * @return this item-builder
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    @SuppressWarnings("UnstableApiUsage")
+    ItemBuilder setEquippable(@Nullable EquippableComponent equippable);
+
+    /**
+     * Sets the jukebox playable component of the item. This will make the item playable in a jukebox and give it the specified jukebox playable properties.
+     *
+     * @param jukeboxPlayable jukebox playable component to set, or null to remove the jukebox playable component from the item
+     * @return this item-builder
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    @SuppressWarnings("UnstableApiUsage")
+    ItemBuilder setJukeboxPlayable(@Nullable JukeboxPlayable jukeboxPlayable);
 
     /**
      * Converts this builder with its parameters into an itemstack
