@@ -236,7 +236,8 @@ public enum InterfaceItem {
      * @return interface-item as item-builder
      */
     public ItemBuilder getBuilder() {
-        return Core.createItem(Material.PAPER).setCustomModelData(customModelData).setDisplayName(Component.empty());
+        return Core.createItem(Material.PAPER).setCustomModelData(customModelData).setHideToolTip(true)
+                .setDisplayName(Component.empty());
     }
 
     @Nonnull
