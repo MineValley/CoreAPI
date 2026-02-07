@@ -1,13 +1,15 @@
 package minevalley.core.api.utils;
 
-import io.papermc.paper.datacomponent.item.JukeboxPlayable;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import org.bukkit.Tag;
+import org.bukkit.damage.DamageType;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.components.EquippableComponent;
 import org.bukkit.inventory.meta.components.FoodComponent;
+import org.bukkit.inventory.meta.components.JukeboxPlayableComponent;
 import org.bukkit.inventory.meta.components.ToolComponent;
 import org.jetbrains.annotations.Contract;
 
@@ -249,14 +251,15 @@ public interface ItemBuilder {
     ItemBuilder setGlider(boolean glider);
 
     /**
-     * Sets whether the item should be fire resistant.
+     * Sets the damage resistant tag of the item. This will make the item resistant to the specified damage types.
      *
-     * @param fireResistant whether the item should be fire resistant
+     * @param tag damage resistant tag to set, or null to remove the damage resistant tag from the item
      * @return this item-builder
      */
     @Nonnull
     @Contract("_ -> this")
-    ItemBuilder setFireResistant(boolean fireResistant);
+    @SuppressWarnings("UnstableApiUsage")
+    ItemBuilder setDamageResistant(@Nullable Tag<DamageType> tag);
 
     /**
      * Sets the food component of the item. This will make the item edible and give it the specified food properties.
@@ -300,7 +303,7 @@ public interface ItemBuilder {
     @Nonnull
     @Contract("_ -> this")
     @SuppressWarnings("UnstableApiUsage")
-    ItemBuilder setJukeboxPlayable(@Nullable JukeboxPlayable jukeboxPlayable);
+    ItemBuilder setJukeboxPlayable(@Nullable JukeboxPlayableComponent jukeboxPlayable);
 
     /**
      * Converts this builder with its parameters into an itemstack
