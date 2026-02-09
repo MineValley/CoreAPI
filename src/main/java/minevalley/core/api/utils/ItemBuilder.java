@@ -3,6 +3,7 @@ package minevalley.core.api.utils;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import org.bukkit.NamespacedKey;
 import org.bukkit.Tag;
 import org.bukkit.damage.DamageType;
 import org.bukkit.inventory.ItemFlag;
@@ -304,6 +305,16 @@ public interface ItemBuilder {
     @Contract("_ -> this")
     @SuppressWarnings("UnstableApiUsage")
     ItemBuilder setJukeboxPlayable(@Nullable JukeboxPlayableComponent jukeboxPlayable);
+
+    /**
+     * Sets the tooltip style of the item. This will change the style of the item's tooltip to the specified style.
+     *
+     * @param tooltipStyle tooltip style to set, or null to remove the tooltip style from the item
+     * @return this item-builder
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    ItemBuilder setTooltipStyle(@Nullable NamespacedKey tooltipStyle);
 
     /**
      * Converts this builder with its parameters into an itemstack
