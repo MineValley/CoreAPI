@@ -3,6 +3,8 @@ package minevalley.core.api.npc;
 import minevalley.core.api.messaging.MessageSender;
 import minevalley.core.api.modifiers.*;
 import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.utils.Passenger;
+import minevalley.core.api.utils.Vehicle;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -15,8 +17,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public interface NPC extends MessageSender, EquipmentModifier<NPC>, InteractionModifier<NPC>, LocationModifier<NPC>,
-        PassengerModifier<NPC>, VisibilityModifier<NPC> {
+public interface NPC extends MessageSender, Passenger, Vehicle, EquipmentModifier<NPC>, InteractionModifier<NPC>, LocationModifier<NPC>,
+        PassengerModifier<NPC>, VehicleModifier<NPC>, VisibilityModifier<NPC> {
 
     /**
      * Gets the name of the NPC.
