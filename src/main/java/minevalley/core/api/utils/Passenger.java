@@ -1,7 +1,7 @@
 package minevalley.core.api.utils;
 
 /**
- * Represents an entity that can act as a passenger of another entity.
+ * Represents an entity that can act as a passenger of a {@link Vehicle}.
  */
 @SuppressWarnings("unused")
 public interface Passenger {
