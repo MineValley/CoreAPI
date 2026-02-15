@@ -1,5 +1,7 @@
 package minevalley.core.api.utils;
 
+import org.jetbrains.annotations.Contract;
+
 /**
  * Represents an entity that can act as a vehicle for a {@link Passenger}.
  */
@@ -11,5 +13,6 @@ public interface Vehicle {
      *
      * @return the entity id of the passenger.
      */
+    @Contract(pure = true)
     int getEntityId();
 }
