@@ -23,14 +23,14 @@ public interface PassengerModifier<T extends PassengerModifier<T>> {
     @Contract("_ -> this")
     T addPassenger(@Nonnull Entity entity) throws IllegalArgumentException;
 
-        /**
-        * Add a passenger to the object
-        *
-        * <P><strong>Note:</strong> Assigning a passenger via {@code Passenger} is only reliable while the vehicle remains stationary</P>
-        *
-        * @param passenger the passenger to be added
-        * @return this
-        */
+    /**
+     * Add a passenger to the object
+     *
+     * <P><strong>Note:</strong> Assigning a passenger via {@code Passenger} is only reliable while the vehicle remains stationary</P>
+     *
+     * @param passenger the passenger to be added
+     * @return this
+     */
     @Nonnull
     @Contract("_ -> this")
     T addPassenger(@Nonnull Passenger passenger) throws IllegalArgumentException;
