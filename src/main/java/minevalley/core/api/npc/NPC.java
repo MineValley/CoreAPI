@@ -1,11 +1,7 @@
 package minevalley.core.api.npc;
 
-import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.messaging.MessageSender;
-import minevalley.core.api.modifiers.EquipmentModifier;
-import minevalley.core.api.modifiers.InteractionModifier;
-import minevalley.core.api.modifiers.LocationModifier;
-import minevalley.core.api.modifiers.VisibilityModifier;
+import minevalley.core.api.modifiers.*;
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -20,7 +16,7 @@ import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 public interface NPC extends MessageSender, EquipmentModifier<NPC>, InteractionModifier<NPC>, LocationModifier<NPC>,
-        VisibilityModifier<NPC> {
+        PassengerModifier<NPC>, VisibilityModifier<NPC> {
 
     /**
      * Gets the name of the NPC.
@@ -152,37 +148,6 @@ public interface NPC extends MessageSender, EquipmentModifier<NPC>, InteractionM
      * @param sneaking true to make the NPC sneak, false to make it stop sneaking
      */
     void setSneaking(boolean sneaking);
-
-    /**
-     * Makes the NPC ride the given fake armor stand.
-     *
-     * @param fakeArmorStand the fake armor stand to ride
-     * @throws IllegalArgumentException if the fake armor stand is null or in a different world than the NPC
-     * @see #exitVehicle()
-     */
-    void ride(@Nonnull FakeArmorStand fakeArmorStand) throws IllegalArgumentException;
-
-    /**
-     * Makes the NPC exit its vehicle.
-     *
-     * @see #ride(FakeArmorStand)
-     */
-    void exitVehicle();
-
-    /**
-     * Gets the fake armor stand the NPC is riding, or null if it is not riding any.
-     *
-     * @return the fake armor stand the NPC is riding, or null if it is not riding any
-     */
-    @Nullable
-    FakeArmorStand getRiddenFakeArmorStand();
-
-    /**
-     * Checks if the NPC is riding a fake armor stand.
-     *
-     * @return true, if the NPC is riding a fake armor stand, false otherwise
-     */
-    boolean isRiding();
 
     /**
      * Sets a callback that is called when a user comes close to the NPC.

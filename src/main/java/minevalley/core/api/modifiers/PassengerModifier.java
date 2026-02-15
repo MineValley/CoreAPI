@@ -23,6 +23,8 @@ public interface PassengerModifier<T extends PassengerModifier<T>> {
     /**
      * Set the vehicle of the object by entity ID
      *
+     * <P><strong>Note:</strong> Assigning a vehicle by entity ID is only reliable while the vehicle remains stationary</P>
+     *
      * @param entityId the entity ID to be set as vehicle
      * @return this
      */
@@ -52,6 +54,8 @@ public interface PassengerModifier<T extends PassengerModifier<T>> {
 
     /**
      * Add a passenger to the object
+     *
+     * <P><strong>Note:</strong> Assigning a vehicle by entity ID is only reliable while the vehicle remains stationary</P>
      *
      * @param entity the entity to be added
      * @return this
