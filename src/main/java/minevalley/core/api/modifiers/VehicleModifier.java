@@ -1,5 +1,6 @@
 package minevalley.core.api.modifiers;
 
+import minevalley.core.api.utils.Vehicle;
 import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.Contract;
 
@@ -20,16 +21,16 @@ public interface VehicleModifier<T extends PassengerModifier<T>> {
     T setVehicle(@Nonnull Entity entity) throws IllegalArgumentException;
 
     /**
-     * Set the vehicle of the object by entity ID
+     * Set the vehicle of the object by {@code Vehicle}
      *
-     * <P><strong>Note:</strong> Assigning a vehicle by entity ID is only reliable while the vehicle remains stationary</P>
+     * <P><strong>Note:</strong> Assigning a vehicle by {@code Vehicle} is only reliable while the vehicle remains stationary</P>
      *
-     * @param entityId the entity ID to be set as vehicle
+     * @param vehicle the vehicle to be set
      * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    T setVehicle(int entityId);
+    T setVehicle(Vehicle vehicle);
 
     /**
      * Exit the current vehicle
