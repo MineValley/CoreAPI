@@ -154,37 +154,6 @@ public interface NPC extends MessageSender, EquipmentModifier<NPC>, InteractionM
     void setSneaking(boolean sneaking);
 
     /**
-     * Makes the NPC ride the given fake armor stand.
-     *
-     * @param fakeArmorStand the fake armor stand to ride
-     * @throws IllegalArgumentException if the fake armor stand is null or in a different world than the NPC
-     * @see #exitVehicle()
-     */
-    void ride(@Nonnull FakeArmorStand fakeArmorStand) throws IllegalArgumentException;
-
-    /**
-     * Makes the NPC exit its vehicle.
-     *
-     * @see #ride(FakeArmorStand)
-     */
-    void exitVehicle();
-
-    /**
-     * Gets the fake armor stand the NPC is riding, or null if it is not riding any.
-     *
-     * @return the fake armor stand the NPC is riding, or null if it is not riding any
-     */
-    @Nullable
-    FakeArmorStand getRiddenFakeArmorStand();
-
-    /**
-     * Checks if the NPC is riding a fake armor stand.
-     *
-     * @return true, if the NPC is riding a fake armor stand, false otherwise
-     */
-    boolean isRiding();
-
-    /**
      * Sets a callback that is called when a user comes close to the NPC.
      *
      * @param callback the callback to set, or null to remove the callback
