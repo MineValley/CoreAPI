@@ -1,14 +1,17 @@
 package minevalley.core.api.displays;
 
 import minevalley.core.api.modifiers.*;
+import minevalley.core.api.utils.Passenger;
+import minevalley.core.api.utils.Vehicle;
 import org.bukkit.Location;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
 public interface Display<T extends Display<T>> extends
-        InteractionModifier<T>, LocationModifier<T>, MetadataModifier<T>, PassengerModifier<T>,
-        RotationModifier<T>, ScaleModifier<T>, TranslationModifier<T>, VisibilityModifier<T> {
+        Passenger, Vehicle, InteractionModifier<T>, LocationModifier<T>, MetadataModifier<T>,
+        PassengerModifier<T>, RotationModifier<T>, ScaleModifier<T>, TranslationModifier<T>,
+        VehicleModifier<T>, VisibilityModifier<T> {
 
     /**
      * Set the location of the display
