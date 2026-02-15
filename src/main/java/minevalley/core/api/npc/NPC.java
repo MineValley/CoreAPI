@@ -1,11 +1,7 @@
 package minevalley.core.api.npc;
 
-import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.messaging.MessageSender;
-import minevalley.core.api.modifiers.EquipmentModifier;
-import minevalley.core.api.modifiers.InteractionModifier;
-import minevalley.core.api.modifiers.LocationModifier;
-import minevalley.core.api.modifiers.VisibilityModifier;
+import minevalley.core.api.modifiers.*;
 import minevalley.core.api.users.OnlineUser;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -20,7 +16,7 @@ import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 public interface NPC extends MessageSender, EquipmentModifier<NPC>, InteractionModifier<NPC>, LocationModifier<NPC>,
-        VisibilityModifier<NPC> {
+        PassengerModifier<NPC>, VisibilityModifier<NPC> {
 
     /**
      * Gets the name of the NPC.
