@@ -2,15 +2,18 @@ package minevalley.core.api.armorstand;
 
 import minevalley.core.api.modifiers.PoseModifier;
 import minevalley.core.api.modifiers.*;
+import minevalley.core.api.utils.Passenger;
+import minevalley.core.api.utils.Vehicle;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface FakeArmorStand extends MetadataModifier<FakeArmorStand>, PassengerModifier<FakeArmorStand>,
-        PoseModifier<FakeArmorStand>, EquipmentModifier<FakeArmorStand>,
-        InteractionModifier<FakeArmorStand>, LocationModifier<FakeArmorStand>, VisibilityModifier<FakeArmorStand> {
+public interface FakeArmorStand extends
+        Passenger, Vehicle, MetadataModifier<FakeArmorStand>, PassengerModifier<FakeArmorStand>,
+        PoseModifier<FakeArmorStand>, EquipmentModifier<FakeArmorStand>, InteractionModifier<FakeArmorStand>,
+        LocationModifier<FakeArmorStand>, VehicleModifier<FakeArmorStand>, VisibilityModifier<FakeArmorStand> {
 
     /**
      * Get the custom id from the armor stand
