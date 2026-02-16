@@ -63,9 +63,9 @@ public interface PassengerModifier<T extends PassengerModifier<T>> {
     /**
      * Get the current passenger list
      *
-     * @return a list with the passengers as entities
+     * @return a list with the current passengers
      */
     @Nonnull
     @Contract(pure = true)
-    List<Entity> getPassengers();
+    List<Passenger> getPassengers();
 }
