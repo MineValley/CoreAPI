@@ -5,6 +5,7 @@ import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
 public interface VehicleModifier<T extends PassengerModifier<T>> {
@@ -46,9 +47,11 @@ public interface VehicleModifier<T extends PassengerModifier<T>> {
     void updateVehicle();
 
     /**
-     * Get the current vehicle ID
+     * Get the current vehicle
      *
-     * @return the vehicle entity ID, or -1 if no vehicle is set
+     * @return the vehicle or null if no vehicle is assigned
      */
-    int getVehicleId();
+    @Nullable
+    @Contract(pure = true)
+    Vehicle getVehicle();
 }
