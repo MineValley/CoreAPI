@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
-public interface VehicleModifier<T extends PassengerModifier<T>> {
+public interface VehicleModifier<T extends VehicleModifier<T>> {
 
     /**
      * Set the vehicle of the object
