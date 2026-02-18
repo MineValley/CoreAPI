@@ -116,6 +116,7 @@ public interface FakeArmorStand extends
      *
      * @return true if the armor stand is a marker
      */
+    @Contract(pure = true)
     boolean isMarker();
 
     /**
@@ -174,10 +175,11 @@ public interface FakeArmorStand extends
      *
      * @return true if the armor stand is invisible
      */
+    @Contract(pure = true)
     boolean isInvisible();
 
     /**
-     * Sets if the armor stand is visible
+     * Sets if the armor stand is invisible
      *
      * <p>
      * <b>Note:</b>
@@ -185,7 +187,7 @@ public interface FakeArmorStand extends
      * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
-     * @param invisible true if the armor stand should be visible
+     * @param invisible true if the armor stand should be invisible
      * @return this
      */
     @Nonnull
@@ -202,6 +204,7 @@ public interface FakeArmorStand extends
      *
      * @return true if the armor stand is glowing
      */
+    @Contract(pure = true)
     boolean isGlowing();
 
     /**
