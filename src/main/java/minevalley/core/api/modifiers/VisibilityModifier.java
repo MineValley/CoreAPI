@@ -1,8 +1,10 @@
 package minevalley.core.api.modifiers;
 
+import minevalley.core.api.armorstand.FakeArmorStand;
 import minevalley.core.api.users.OnlineUser;
 import org.jetbrains.annotations.Contract;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import java.util.function.Function;
 
@@ -78,6 +80,27 @@ public interface VisibilityModifier<T extends VisibilityModifier<T>> {
     default T setVisibleToEveryone() {
         return setVisibility(user -> true);
     }
+
+    /**
+     * Gets the visibility range of this object
+     *
+     * @return range in blocks
+     */
+    @Nonnegative
+    int getVisibilityRange();
+
+    /**
+     * Sets the visibility range of this object
+     * <br>
+     * <b>Default:</b> 50
+     *
+     * @param visibilityRange range in blocks
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    FakeArmorStand setVisibilityRange(int visibilityRange);
+
 
     /**
      * Updates the visibility of this object
