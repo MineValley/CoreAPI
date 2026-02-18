@@ -5,7 +5,6 @@ import minevalley.core.api.utils.Passenger;
 import minevalley.core.api.utils.Vehicle;
 import org.jetbrains.annotations.Contract;
 
-import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
