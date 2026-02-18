@@ -23,18 +23,6 @@ public interface FakeArmorStand extends
     int getId();
 
     /**
-     * Spawns the armor stand
-     */
-    void spawn();
-
-    /**
-     * Destroys/de-spawn the armor stand
-     * <br>
-     * <b>Note:</b> Armor stand can be simply respawned with {@link #spawn()}
-     */
-    void destroy();
-
-    /**
      * Gets the visibility range of the armor stand
      *
      * @return range in blocks
@@ -58,29 +46,20 @@ public interface FakeArmorStand extends
      * Checks if the armor stand has a baseplate
      *
      * @return true if the armor stand has a baseplate
-     * @see #hasBaseplate()
      */
     @Deprecated
     @Contract(pure = true)
     boolean hasBasePlate();
 
     /**
-     * Checks if the armor stand has a baseplate
-     *
-     * @return true if the armor stand has a baseplate
-     */
-    @Contract(pure = true)
-    boolean hasBaseplate();
-
-    /**
      * Sets if the armor stand has a baseplate
      *
-     * @param baseplate true if the armor stand has a baseplate
+     * @param basePlate true if the armor stand has a baseplate
      * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setBasePlate(boolean baseplate);
+    FakeArmorStand setBasePlate(boolean basePlate);
 
     /**
      * Checks if the armor stand is small
@@ -154,25 +133,25 @@ public interface FakeArmorStand extends
     FakeArmorStand setOnFire(boolean onFire);
 
     /**
-     * Checks if the armor stand is visible
+     * Checks if the armor stand is invisible
      * <p>
      * <b>Note:</b> This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}
      *
-     * @return true if the armor stand is visible
+     * @return true if the armor stand is invisible
      */
-    boolean isVisible();
+    boolean isInvisible();
 
     /**
      * Sets if the armor stand is visible
      * <p>
      * <b>Note:</b> This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}
      *
-     * @param visible true if the armor stand should be visible
+     * @param invisible true if the armor stand should be visible
      * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setVisible(boolean visible);
+    FakeArmorStand setInvisible(boolean invisible);
 
     /**
      * Checks if the armor stand is glowing
