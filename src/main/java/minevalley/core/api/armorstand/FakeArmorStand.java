@@ -25,8 +25,8 @@ public interface FakeArmorStand extends
      * Checks if the armor stand has a baseplate
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @return true if the armor stand has a baseplate
@@ -39,8 +39,8 @@ public interface FakeArmorStand extends
      * Sets if the armor stand has a baseplate
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @param basePlate true if the armor stand has a baseplate
@@ -54,8 +54,8 @@ public interface FakeArmorStand extends
      * Checks if the armor stand is small
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @return true if the armor stand is small
@@ -67,8 +67,8 @@ public interface FakeArmorStand extends
      * Sets if the armor stand is small
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @param small true if the armor stand should be small
@@ -82,8 +82,8 @@ public interface FakeArmorStand extends
      * Checks if the armor stand has arms
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @return true if the armor stand has arms
@@ -95,8 +95,8 @@ public interface FakeArmorStand extends
      * Sets if the armor stand has arms
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @param arms true if the armor stand should have arms
@@ -110,8 +110,8 @@ public interface FakeArmorStand extends
      * Checks if the armor stand is a marker
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @return true if the armor stand is a marker
@@ -122,8 +122,8 @@ public interface FakeArmorStand extends
      * Sets if the armor stand is a marker
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @param marker true if the armor stand should be a marker
@@ -137,9 +137,9 @@ public interface FakeArmorStand extends
      * Checks if the armor stand is on fire
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This only affects the visual effect, not actual fire damage. This can only be changed via {@link #setOnFire(boolean)} not by setting the 'entity' on fire.</li>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This only affects the visual effect, not actual fire damage. This can only be changed via {@link #setOnFire(boolean)} not by setting the 'entity' on fire.</li>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @return true if the armor stand is on fire
@@ -151,9 +151,9 @@ public interface FakeArmorStand extends
      * Sets if the armor stand is on fire
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This only affects the visual effect, not actual fire damage. This can only be changed via {@link #setOnFire(boolean)} not by setting the 'entity' on fire.</li>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This only affects the visual effect, not actual fire damage. This can only be changed via {@link #setOnFire(boolean)} not by setting the 'entity' on fire.</li>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @param onFire true if the armor stand should be on fire
@@ -167,9 +167,9 @@ public interface FakeArmorStand extends
      * Checks if the armor stand is invisible
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}</li>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}</li>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @return true if the armor stand is invisible
@@ -180,9 +180,9 @@ public interface FakeArmorStand extends
      * Sets if the armor stand is visible
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}</li>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}</li>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @param invisible true if the armor stand should be visible
@@ -196,8 +196,8 @@ public interface FakeArmorStand extends
      * Checks if the armor stand is glowing
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @return true if the armor stand is glowing
@@ -208,8 +208,8 @@ public interface FakeArmorStand extends
      * Sets if the armor stand is glowing
      *
      * <p>
-     *     <b>Note:</b>
-     *     <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
      * @param glowing true if the armor stand should be glowing
