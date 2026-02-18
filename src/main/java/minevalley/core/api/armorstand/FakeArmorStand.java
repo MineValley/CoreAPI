@@ -23,26 +23,6 @@ public interface FakeArmorStand extends
     int getId();
 
     /**
-     * Gets the visibility range of the armor stand
-     *
-     * @return range in blocks
-     */
-    @Nonnegative
-    int getVisibilityRange();
-
-    /**
-     * Sets the visibility range of the armor stand
-     * <br>
-     * <b>Default:</b> 50
-     *
-     * @param visibilityRange range in blocks
-     * @return this
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    FakeArmorStand setVisibilityRange(int visibilityRange);
-
-    /**
      * Checks if the armor stand has a baseplate
      *
      * @return true if the armor stand has a baseplate
