@@ -152,7 +152,7 @@ public interface FakeArmorStand extends
      *
      * <p>
      * <b>Note:</b>
-     * <li>This only affects the visual effect, not actual fire damage. This can only be changed via {@link #setOnFire(boolean)} not by setting the 'entity' on fire.</li>
+     * <li>This only affects the visual effect, not actual fire damage.</li>
      * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
      * </p>
      *
