@@ -87,6 +87,7 @@ public interface VisibilityModifier<T extends VisibilityModifier<T>> {
      * @return range in blocks
      */
     @Nonnegative
+    @Contract(pure = true)
     int getVisibilityRange();
 
     /**
