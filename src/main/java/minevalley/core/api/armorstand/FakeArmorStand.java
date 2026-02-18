@@ -5,7 +5,6 @@ import minevalley.core.api.utils.Passenger;
 import minevalley.core.api.utils.Vehicle;
 import org.jetbrains.annotations.Contract;
 
-import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
@@ -23,67 +22,41 @@ public interface FakeArmorStand extends
     int getId();
 
     /**
-     * Spawns the armor stand
-     */
-    void spawn();
-
-    /**
-     * Destroys/de-spawn the armor stand
-     * <br>
-     * <b>Note:</b> Armor stand can be simply respawned with {@link #spawn()}
-     */
-    void destroy();
-
-    /**
-     * Gets the visibility range of the armor stand
-     *
-     * @return range in blocks
-     */
-    @Nonnegative
-    int getVisibilityRange();
-
-    /**
-     * Sets the visibility range of the armor stand
-     * <br>
-     * <b>Default:</b> 50
-     *
-     * @param visibilityRange range in blocks
-     * @return this
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    FakeArmorStand setVisibilityRange(int visibilityRange);
-
-    /**
      * Checks if the armor stand has a baseplate
      *
+     * <p>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
+     *
      * @return true if the armor stand has a baseplate
-     * @see #hasBaseplate()
      */
     @Deprecated
     @Contract(pure = true)
     boolean hasBasePlate();
 
     /**
-     * Checks if the armor stand has a baseplate
-     *
-     * @return true if the armor stand has a baseplate
-     */
-    @Contract(pure = true)
-    boolean hasBaseplate();
-
-    /**
      * Sets if the armor stand has a baseplate
      *
-     * @param baseplate true if the armor stand has a baseplate
+     * <p>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
+     *
+     * @param basePlate true if the armor stand has a baseplate
      * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setBasePlate(boolean baseplate);
+    FakeArmorStand setBasePlate(boolean basePlate);
 
     /**
      * Checks if the armor stand is small
+     *
+     * <p>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
      *
      * @return true if the armor stand is small
      */
@@ -92,6 +65,11 @@ public interface FakeArmorStand extends
 
     /**
      * Sets if the armor stand is small
+     *
+     * <p>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
      *
      * @param small true if the armor stand should be small
      * @return this
@@ -103,12 +81,24 @@ public interface FakeArmorStand extends
     /**
      * Checks if the armor stand has arms
      *
+     * <p>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
+     *
      * @return true if the armor stand has arms
      */
     @Contract(pure = true)
     boolean hasArms();
 
     /**
+     * Sets if the armor stand has arms
+     *
+     * <p>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
+     *
      * @param arms true if the armor stand should have arms
      * @return this
      */
@@ -119,12 +109,23 @@ public interface FakeArmorStand extends
     /**
      * Checks if the armor stand is a marker
      *
+     * <p>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
+     *
      * @return true if the armor stand is a marker
      */
+    @Contract(pure = true)
     boolean isMarker();
 
     /**
      * Sets if the armor stand is a marker
+     *
+     * <p>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
      *
      * @param marker true if the armor stand should be a marker
      * @return this
@@ -135,8 +136,12 @@ public interface FakeArmorStand extends
 
     /**
      * Checks if the armor stand is on fire
+     *
      * <p>
-     * <b>Note:</b> This only affects the visual effect, not actual fire damage. This can only be changed via {@link #setOnFire(boolean)} not by setting the 'entity' on fire.
+     * <b>Note:</b>
+     * <li>This only affects the visual effect, not actual fire damage. This can only be changed via {@link #setOnFire(boolean)} not by setting the 'entity' on fire.</li>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
      *
      * @return true if the armor stand is on fire
      */
@@ -146,6 +151,12 @@ public interface FakeArmorStand extends
     /**
      * Sets if the armor stand is on fire
      *
+     * <p>
+     * <b>Note:</b>
+     * <li>This only affects the visual effect, not actual fire damage.</li>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
+     *
      * @param onFire true if the armor stand should be on fire
      * @return this
      */
@@ -154,35 +165,55 @@ public interface FakeArmorStand extends
     FakeArmorStand setOnFire(boolean onFire);
 
     /**
-     * Checks if the armor stand is visible
-     * <p>
-     * <b>Note:</b> This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}
+     * Checks if the armor stand is invisible
      *
-     * @return true if the armor stand is visible
+     * <p>
+     * <b>Note:</b>
+     * <li>This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}</li>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
+     *
+     * @return true if the armor stand is invisible
      */
-    boolean isVisible();
+    @Contract(pure = true)
+    boolean isInvisible();
 
     /**
-     * Sets if the armor stand is visible
-     * <p>
-     * <b>Note:</b> This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}
+     * Sets if the armor stand is invisible
      *
-     * @param visible true if the armor stand should be visible
+     * <p>
+     * <b>Note:</b>
+     * <li>This only affects the visual effect, not actual visibility to players as in {@link VisibilityModifier}</li>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
+     *
+     * @param invisible true if the armor stand should be invisible
      * @return this
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setVisible(boolean visible);
+    FakeArmorStand setInvisible(boolean invisible);
 
     /**
      * Checks if the armor stand is glowing
      *
+     * <p>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
+     *
      * @return true if the armor stand is glowing
      */
+    @Contract(pure = true)
     boolean isGlowing();
 
     /**
      * Sets if the armor stand is glowing
+     *
+     * <p>
+     * <b>Note:</b>
+     * <li>This setting is part of the metadata and is only applied when metadata is updated via {@link MetadataModifier}.</li>
+     * </p>
      *
      * @param glowing true if the armor stand should be glowing
      * @return this
