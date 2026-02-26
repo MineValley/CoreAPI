@@ -18,6 +18,7 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @SuppressWarnings("unused")
@@ -258,10 +259,31 @@ public interface User extends Registrant {
     /**
      * Gets a list of the user's education.
      *
-     * @return array of users education
+     * @return set of users education
      */
     @Nonnull
-    Education[] getEducation();
+    @Contract(pure = true)
+    Set<Education> getEducation();
+
+    /**
+     * Gets whether the user is educated in a specific subject.
+     *
+     * @param subject subject to check
+     * @return true, if the user is educated in the specific subject
+     * @throws IllegalArgumentException if the subject is null
+     */
+    @Contract(pure = true)
+    boolean isEducated(@Nonnull Education.Subject subject) throws IllegalArgumentException;
+
+    /**
+     * Gets whether the user has a driver's license.
+     *
+     * @return true, if the user has a driver's license
+     */
+    @Contract(pure = true)
+    default boolean hasDriversLicense() {
+        return isEducated(Education.Subject.DRIVERS_LICENSE);
+    }
 
     /**
      * Gets a list of the active products, that this user bought.
@@ -294,32 +316,6 @@ public interface User extends Registrant {
      */
     @Contract(pure = true)
     boolean isPremium();
-
-    /**
-     * Gets whether the user has the specific education.
-     *
-     * @param education education to check
-     * @return true, if the user has the specific education
-     * @throws IllegalArgumentException if the education is null
-     */
-    @Contract(pure = true)
-    boolean hasEducation(@Nonnull Education.Subject education) throws IllegalArgumentException;
-
-    /**
-     * Gets whether the user has a driver's license.
-     *
-     * @return true, if the user has a driver's license
-     */
-    @Contract(pure = true)
-    boolean hasDriversLicense();
-
-    /**
-     * Gets the level of the users gun license.
-     *
-     * @return level of users gun license (0 &rarr; no license)
-     */
-    @Contract(pure = true)
-    int getGunLicense();
 
     /**
      * Gets the current amount of cash in the user's wallet.
