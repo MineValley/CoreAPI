@@ -290,6 +290,7 @@ public interface User extends Registrant {
      * @return set of purchases
      */
     @Nonnull
+    @Contract(pure = true)
     Set<Purchase> getPurchases();
 
     /**
@@ -364,6 +365,7 @@ public interface User extends Registrant {
      * @return true, if this user is allowed to break/place/use a block here
      * @throws IllegalArgumentException if the block is null
      */
+    @Contract(pure = true)
     boolean isAllowedToUse(@Nonnull Block block) throws IllegalArgumentException;
 
     /**
@@ -421,6 +423,7 @@ public interface User extends Registrant {
      *
      * @return true, if the user is in the tutorial
      */
+    @Contract(pure = true)
     default boolean isInTutorial() {
         return getTutorialStep() != -1;
     }
