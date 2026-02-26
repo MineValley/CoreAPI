@@ -331,8 +331,27 @@ public interface User extends Registrant {
      * @param amountInCents amount to remove
      * @return true, if the transaction was successful. If the user doesn't have enough money, this is false
      * @throws IllegalArgumentException if the amount is negative or zero
+     * @deprecated use {@link #decreaseCash(int)} instead, which is more intuitive
      */
+    @Deprecated
     boolean payCash(@Nonnegative int amountInCents) throws IllegalArgumentException;
+
+    /**
+     * Removes a certain amount of cash of the user's wallet.
+     *
+     * @param amountInCents amount to remove
+     * @return true, if the transaction was successful. If the user doesn't have enough money, this is false
+     * @throws IllegalArgumentException if the amount is negative or zero
+     */
+    boolean decreaseCash(@Nonnegative int amountInCents) throws IllegalArgumentException;
+
+    /**
+     * Adds a certain amount of cash to the user's wallet.
+     *
+     * @param amountInCents amount to add
+     * @throws IllegalArgumentException if the amount is negative or zero
+     */
+    void addCash(@Nonnegative int amountInCents) throws IllegalArgumentException;
 
     /**
      * Gets whether the user is knocked out.
