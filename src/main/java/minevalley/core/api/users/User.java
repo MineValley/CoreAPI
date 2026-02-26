@@ -102,9 +102,9 @@ public interface User extends Registrant {
     List<User> getFriends();
 
     /**
-     * Gets a list of the users friendships.
+     * Gets a list of the user's friendships.
      *
-     * @return list of the users friendships
+     * @return list of the user's friendships
      */
     @Nonnull
     @Contract(pure = true)
@@ -188,7 +188,7 @@ public interface User extends Registrant {
      *
      * @param key          key of the setting
      * @param defaultValue value that is returned, if the setting is null
-     * @return value of the settins
+     * @return value of the settings
      * @throws IllegalArgumentException if the key is null or empty or the default value is null
      */
     @Nonnull
