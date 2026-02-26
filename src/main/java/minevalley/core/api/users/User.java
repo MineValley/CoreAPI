@@ -93,40 +93,40 @@ public interface User extends Registrant {
     Telephone getTelephone();
 
     /**
-     * Gets a list of the users friends.
+     * Gets a set of the users friends.
      *
-     * @return list of the users friends
+     * @return set of the users friends
      */
     @Nonnull
     @Contract(pure = true)
-    List<User> getFriends();
+    Set<User> getFriends();
 
     /**
-     * Gets a list of the user's friendships.
+     * Gets a set of the user's friendships.
      *
-     * @return list of the user's friendships
+     * @return set of the user's friendships
      */
     @Nonnull
     @Contract(pure = true)
-    List<Friendship> getFriendships();
+    Set<Friendship> getFriendships();
 
     /**
-     * Gets a list of the users received friend requests.
+     * Gets a set of the users received friend requests.
      *
-     * @return list of the users received friend requests
+     * @return set of the users received friend requests
      */
     @Nonnull
     @Contract(pure = true)
-    List<FriendRequest> getReceivedFriendRequests();
+    Set<FriendRequest> getReceivedFriendRequests();
 
     /**
-     * Gets a list of the users sent friend requests.
+     * Gets a set of the users sent friend requests.
      *
-     * @return list of the users sent friend requests
+     * @return set of the users sent friend requests
      */
     @Nonnull
     @Contract(pure = true)
-    List<FriendRequest> getPendingFriendRequests();
+    Set<FriendRequest> getPendingFriendRequests();
 
     /**
      * Adds a user to this users friend list and vice versa.
@@ -146,13 +146,13 @@ public interface User extends Registrant {
     Marriage getMarriage();
 
     /**
-     * Gets a list of the blocked users.
+     * Gets a set of the blocked users.
      *
-     * @return list of the users, which were at this users bell blacklist
+     * @return set of the users, which were at this users bell blacklist
      */
     @Nonnull
     @Contract(pure = true)
-    List<User> getBellBlacklist();
+    Set<User> getBellBlacklist();
 
     /**
      * Adds the user to this users bell blacklist.
@@ -232,16 +232,16 @@ public interface User extends Registrant {
     boolean hasDebug(@Nonnull DebugType debugType) throws IllegalArgumentException;
 
     /**
-     * Gets a list of the user's debugs.
+     * Gets a set of the user's debugs.
      * <p>
      * <b>Note:</b> If the user is not allowed to receive debugs, this will return an empty list!
      * </p>
      *
-     * @return list of the user's debugs
+     * @return set of the user's debugs
      */
     @Nonnull
     @Contract(pure = true)
-    List<DebugType> getDebugs();
+    Set<DebugType> getDebugs();
 
     /**
      * Removes a debug from this user's debug list.
@@ -286,12 +286,12 @@ public interface User extends Registrant {
     }
 
     /**
-     * Gets a list of the active products, that this user bought.
+     * Gets a set of the active products, that this user bought.
      *
-     * @return array of purchases
+     * @return set of purchases
      */
     @Nonnull
-    Purchase[] getPurchases();
+    Set<Purchase> getPurchases();
 
     /**
      * Adds a purchase to this user's purchase list.
@@ -433,7 +433,7 @@ public interface User extends Registrant {
      */
     @Nonnull
     @Contract(pure = true)
-    List<String> getInstalledSmartApps();
+    Set<String> getInstalledSmartApps();
 
     /**
      * Installs a smart app this user's phone.
@@ -452,11 +452,11 @@ public interface User extends Registrant {
     void uninstallSmartApp(@Nonnull String systemName) throws IllegalArgumentException;
 
     /**
-     * Gets a list of all the Member objects that are related to this user.
+     * Gets a set of all the Member objects that are related to this user.
      *
-     * @return list of all the Member objects that are related to this user
+     * @return set of all the Member objects that are related to this user
      */
     @Nonnull
     @Contract(pure = true)
-    List<Member> getRelatedGroupMembers();
+    Set<Member> getRelatedGroupMembers();
 }
