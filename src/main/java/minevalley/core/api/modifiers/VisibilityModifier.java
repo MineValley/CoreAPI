@@ -100,7 +100,7 @@ public interface VisibilityModifier<T extends VisibilityModifier<T>> {
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setVisibilityRange(int visibilityRange);
+    T setVisibilityRange(int visibilityRange);
 
 
     /**
