@@ -1,4 +1,4 @@
-package minevalley.core.api.registrant;
+package minevalley.core.api.audio;
 
 public enum Ambient {
 
