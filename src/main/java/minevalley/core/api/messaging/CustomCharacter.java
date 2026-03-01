@@ -1,4 +1,4 @@
-package minevalley.core.api.messaging.characters;
+package minevalley.core.api.messaging;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
