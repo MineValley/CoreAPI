@@ -1,4 +1,4 @@
-package minevalley.core.api.packet.display;
+package minevalley.core.api.virtual.display;
 
 import org.bukkit.Material;
 import org.jetbrains.annotations.Contract;

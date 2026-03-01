@@ -1,11 +1,11 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import minevalley.core.api.packet.ArmorStandDisplay;
-import minevalley.core.api.packet.CarBarrier;
-import minevalley.core.api.packet.FakeBlock;
-import minevalley.core.api.packet.Hologram;
-import minevalley.core.api.packet.display.*;
+import minevalley.core.api.virtual.ArmorStandDisplay;
+import minevalley.core.api.virtual.CarBarrier;
+import minevalley.core.api.virtual.FakeBlock;
+import minevalley.core.api.virtual.Hologram;
+import minevalley.core.api.virtual.display.*;
 import minevalley.core.api.banking.BankAccount;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;
@@ -16,7 +16,7 @@ import minevalley.core.api.gui.FillItem;
 import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.interaction.InteractionTrigger;
-import minevalley.core.api.packet.npc.NPC;
+import minevalley.core.api.virtual.npc.NPC;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.server.Server;
 import minevalley.core.api.team.Team;

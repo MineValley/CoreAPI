@@ -1,6 +1,6 @@
-package minevalley.core.api.packet;
+package minevalley.core.api.virtual;
 
-import minevalley.core.api.packet.modifiers.VisibilityModifier;
+import minevalley.core.api.virtual.modifiers.VisibilityModifier;
 
 @SuppressWarnings("unused")
 public interface CarBarrier extends VisibilityModifier<CarBarrier> {

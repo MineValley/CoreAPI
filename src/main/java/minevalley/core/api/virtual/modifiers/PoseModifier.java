@@ -1,4 +1,4 @@
-package minevalley.core.api.packet.modifiers;
+package minevalley.core.api.virtual.modifiers;
 
 import org.bukkit.util.EulerAngle;
 import org.jetbrains.annotations.Contract;

@@ -1,4 +1,4 @@
-package minevalley.core.api.packet.display;
+package minevalley.core.api.virtual.display;
 
 import net.kyori.adventure.text.ComponentLike;
 import org.bukkit.Color;

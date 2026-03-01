@@ -1,6 +1,6 @@
-package minevalley.core.api.packet.display;
+package minevalley.core.api.virtual.display;
 
-import minevalley.core.api.packet.modifiers.*;
+import minevalley.core.api.virtual.modifiers.*;
 import minevalley.core.api.utils.Passenger;
 import minevalley.core.api.utils.Vehicle;
 import org.bukkit.Location;

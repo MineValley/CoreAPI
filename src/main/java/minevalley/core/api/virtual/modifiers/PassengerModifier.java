@@ -1,4 +1,4 @@
-package minevalley.core.api.packet.modifiers;
+package minevalley.core.api.virtual.modifiers;
 
 import minevalley.core.api.utils.Passenger;
 import org.bukkit.entity.Entity;

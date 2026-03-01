@@ -1,7 +1,7 @@
-package minevalley.core.api.packet;
+package minevalley.core.api.virtual;
 
-import minevalley.core.api.packet.modifiers.LocationModifier;
-import minevalley.core.api.packet.modifiers.VisibilityModifier;
+import minevalley.core.api.virtual.modifiers.LocationModifier;
+import minevalley.core.api.virtual.modifiers.VisibilityModifier;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;
