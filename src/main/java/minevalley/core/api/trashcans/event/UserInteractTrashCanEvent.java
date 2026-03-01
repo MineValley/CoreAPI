@@ -1,4 +1,4 @@
-package minevalley.core.api.trashcans.events;
+package minevalley.core.api.trashcans.event;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,9 +11,9 @@ import org.bukkit.event.Cancellable;
  * The {@code UserInteractTrashCanEvent} is triggered on any interaction with a trash can.
  * This event is the base class for all trash can interaction events.
  *
- * @see minevalley.core.api.trashcans.events.TrashCanClearEvent
- * @see minevalley.core.api.trashcans.events.UserAddItemTrashCanEvent
- * @see minevalley.core.api.trashcans.events.UserRemoveItemTrashCanEvent
+ * @see minevalley.core.api.trashcans.event.TrashCanClearEvent
+ * @see minevalley.core.api.trashcans.event.UserAddItemTrashCanEvent
+ * @see minevalley.core.api.trashcans.event.UserRemoveItemTrashCanEvent
  */
 @Setter
 @Getter

@@ -1,4 +1,4 @@
-package minevalley.core.api.trashcans.events;
+package minevalley.core.api.trashcans.event;
 
 import lombok.Getter;
 import lombok.Setter;
