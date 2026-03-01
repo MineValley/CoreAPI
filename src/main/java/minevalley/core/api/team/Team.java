@@ -3,7 +3,7 @@ package minevalley.core.api.team;
 import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.messaging.instruction.Instruction;
-import minevalley.core.api.user.TeamMember;
+import minevalley.core.api.user.team.TeamMember;
 import net.kyori.adventure.text.ComponentLike;
 import org.jetbrains.annotations.Contract;
 

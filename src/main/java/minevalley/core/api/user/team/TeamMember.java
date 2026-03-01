@@ -1,6 +1,6 @@
-package minevalley.core.api.user;
+package minevalley.core.api.user.team;
 
-import minevalley.core.api.user.enums.TeamRank;
+import minevalley.core.api.user.ProxyUser;
 import net.kyori.adventure.text.Component;
 import org.jetbrains.annotations.Contract;
 

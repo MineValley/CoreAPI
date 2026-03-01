@@ -10,7 +10,7 @@ import minevalley.core.api.corporation.Group;
 import minevalley.core.api.server.ServerType;
 import minevalley.core.api.user.OnlineUser;
 import minevalley.core.api.user.enums.Fraction;
-import minevalley.core.api.user.enums.TeamRank;
+import minevalley.core.api.user.team.TeamRank;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.GameMode;
