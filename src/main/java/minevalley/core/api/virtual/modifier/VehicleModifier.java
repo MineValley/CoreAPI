@@ -1,4 +1,4 @@
-package minevalley.core.api.virtual.modifiers;
+package minevalley.core.api.virtual.modifier;
 
 import minevalley.core.api.virtual.riding.Vehicle;
 import org.bukkit.entity.Entity;

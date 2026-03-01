@@ -1,4 +1,4 @@
-package minevalley.core.api.virtual.modifiers;
+package minevalley.core.api.virtual.modifier;
 
 import org.bukkit.Location;
 import org.jetbrains.annotations.Contract;

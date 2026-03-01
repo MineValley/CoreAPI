@@ -1,6 +1,6 @@
 package minevalley.core.api.virtual;
 
-import minevalley.core.api.virtual.modifiers.VisibilityModifier;
+import minevalley.core.api.virtual.modifier.VisibilityModifier;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.jetbrains.annotations.Contract;
