@@ -16,8 +16,7 @@ public enum Fraction {
     private final String name;
 
     @SuppressWarnings("unused")
-    public static Fraction getFraction(int value) {
-        if (value >= values().length || value < 0) return null;
+    public static Fraction getFraction(int value) throws IndexOutOfBoundsException {
         return values()[value];
     }
 }
