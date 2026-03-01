@@ -1,6 +1,5 @@
 package minevalley.core.api.packet.modifiers;
 
-import minevalley.core.api.enums.InteractionType;
 import minevalley.core.api.users.OnlineUser;
 
 import javax.annotation.Nullable;
@@ -16,4 +15,25 @@ public interface InteractionModifier<T extends InteractionModifier<T>> {
      * @return this
      */
     T onClick(@Nullable BiConsumer<OnlineUser, InteractionType> consumer);
+
+    @SuppressWarnings("unused")
+    enum InteractionType {
+
+        LEFT_CLICK,
+        SHIFT_LEFT_CLICK,
+        RIGHT_CLICK,
+        SHIFT_RIGHT_CLICK;
+
+        public boolean isLeftClick() {
+            return this == LEFT_CLICK || this == SHIFT_LEFT_CLICK;
+        }
+
+        public boolean isRightClick() {
+            return this == RIGHT_CLICK || this == SHIFT_RIGHT_CLICK;
+        }
+
+        public boolean isShiftClick() {
+            return this == SHIFT_LEFT_CLICK || this == SHIFT_RIGHT_CLICK;
+        }
+    }
 }
