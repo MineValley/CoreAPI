@@ -1,4 +1,4 @@
-package minevalley.core.api.corporation.task.farmingtasks;
+package minevalley.core.api.corporation.task.farming;
 
 import minevalley.core.api.corporation.task.FarmingTask;
 

@@ -1,4 +1,4 @@
-package minevalley.core.api.corporation.task.materialtasks;
+package minevalley.core.api.corporation.task.material;
 
 import minevalley.core.api.corporation.task.MaterialTask;
 
