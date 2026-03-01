@@ -1,4 +1,4 @@
-package minevalley.core.api.npc;
+package minevalley.core.api.packet.npc;
 
 import lombok.AccessLevel;
 import lombok.Getter;

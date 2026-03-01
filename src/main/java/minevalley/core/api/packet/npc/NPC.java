@@ -1,4 +1,4 @@
-package minevalley.core.api.npc;
+package minevalley.core.api.packet.npc;
 
 import minevalley.core.api.messaging.MessageSender;
 import minevalley.core.api.modifiers.*;

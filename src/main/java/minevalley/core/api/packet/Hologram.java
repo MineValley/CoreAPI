@@ -1,4 +1,4 @@
-package minevalley.core.api.utils;
+package minevalley.core.api.packet;
 
 import minevalley.core.api.modifiers.LocationModifier;
 import minevalley.core.api.modifiers.VisibilityModifier;

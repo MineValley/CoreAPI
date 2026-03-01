@@ -1,4 +1,4 @@
-package minevalley.core.api.display;
+package minevalley.core.api.packet.display;
 
 import minevalley.core.api.modifiers.*;
 import minevalley.core.api.utils.Passenger;
