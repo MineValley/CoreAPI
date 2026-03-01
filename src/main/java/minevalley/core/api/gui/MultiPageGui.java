@@ -1,6 +1,6 @@
 package minevalley.core.api.gui;
 
-import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.registrant.OnlineUser;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;

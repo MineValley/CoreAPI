@@ -3,7 +3,7 @@ package minevalley.core.api.server;
 import minevalley.core.api.audio.SoundReceiver;
 import minevalley.core.api.database.DatabaseHolder;
 import minevalley.core.api.messaging.MessageReceiver;
-import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.registrant.OnlineUser;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;

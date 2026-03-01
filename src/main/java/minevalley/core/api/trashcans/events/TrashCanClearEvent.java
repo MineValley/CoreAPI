@@ -1,6 +1,6 @@
 package minevalley.core.api.trashcans.events;
 
-import minevalley.core.api.users.User;
+import minevalley.core.api.registrant.User;
 import org.bukkit.block.Block;
 
 /**

@@ -1,6 +1,6 @@
 package minevalley.core.api.messaging.clickable;
 
-import minevalley.core.api.users.ProxyUser;
+import minevalley.core.api.registrant.ProxyUser;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;

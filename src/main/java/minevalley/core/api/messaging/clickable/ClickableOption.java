@@ -1,7 +1,7 @@
 package minevalley.core.api.messaging.clickable;
 
 import minevalley.core.api.messaging.MessageReceiver;
-import minevalley.core.api.users.ProxyUser;
+import minevalley.core.api.registrant.ProxyUser;
 import net.kyori.adventure.text.ComponentLike;
 
 import javax.annotation.Nonnull;

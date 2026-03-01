@@ -2,7 +2,7 @@ package minevalley.core.api.server.events.item;
 
 import lombok.Getter;
 import minevalley.core.api.server.events.ProxyServerEvents;
-import minevalley.core.api.users.ProxyUser;
+import minevalley.core.api.registrant.ProxyUser;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;

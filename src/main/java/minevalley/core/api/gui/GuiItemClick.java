@@ -1,6 +1,6 @@
 package minevalley.core.api.gui;
 
-import minevalley.core.api.users.OnlineUser;
+import minevalley.core.api.registrant.OnlineUser;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryAction;
 

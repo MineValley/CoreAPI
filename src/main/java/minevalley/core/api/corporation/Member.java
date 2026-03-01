@@ -1,7 +1,7 @@
 package minevalley.core.api.corporation;
 
 import minevalley.core.api.corporation.task.Task;
-import minevalley.core.api.users.User;
+import minevalley.core.api.registrant.User;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
