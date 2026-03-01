@@ -1,8 +1,8 @@
 package minevalley.core.api.virtual;
 
 import minevalley.core.api.virtual.modifiers.*;
-import minevalley.core.api.utils.Passenger;
-import minevalley.core.api.utils.Vehicle;
+import minevalley.core.api.virtual.riding.Passenger;
+import minevalley.core.api.virtual.riding.Vehicle;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;

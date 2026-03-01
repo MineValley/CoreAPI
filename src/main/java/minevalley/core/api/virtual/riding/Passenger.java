@@ -1,12 +1,12 @@
-package minevalley.core.api.utils;
+package minevalley.core.api.virtual.riding;
 
 import org.jetbrains.annotations.Contract;
 
 /**
- * Represents an entity that can act as a vehicle for a {@link Passenger}.
+ * Represents an entity that can act as a passenger of a {@link Vehicle}.
  */
 @SuppressWarnings("unused")
-public interface Vehicle {
+public interface Passenger {
 
     /**
      * Returns the entity id of the passenger.

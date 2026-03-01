@@ -1,6 +1,6 @@
 package minevalley.core.api.virtual.modifiers;
 
-import minevalley.core.api.utils.Vehicle;
+import minevalley.core.api.virtual.riding.Vehicle;
 import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.Contract;
 
