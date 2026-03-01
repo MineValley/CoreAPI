@@ -1,6 +1,7 @@
 package minevalley.core.api.server;
 
 import minevalley.core.api.audio.SoundReceiver;
+import minevalley.core.api.database.DatabaseHolder;
 import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.users.OnlineUser;
 import org.jetbrains.annotations.Contract;
@@ -9,7 +10,7 @@ import javax.annotation.Nonnull;
 import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
-public interface Server extends MessageReceiver, SoundReceiver {
+public interface Server extends MessageReceiver, SoundReceiver, DatabaseHolder {
 
     /**
      * Get the server type.

@@ -209,33 +209,6 @@ public final class Core {
     }
 
     /**
-     * Create a {@link StatementBuilder} based on the given SQL code.
-     *
-     * @param sql SQL code to prepare
-     * @return a new {@link StatementBuilder} instance
-     * @throws SQLException if a database access error occurs
-     */
-    @Nonnull
-    @Contract("_ -> new")
-    public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql) throws SQLException {
-        return provider.prepareSQL(sql, false);
-    }
-
-    /**
-     * Create a {@link StatementBuilder} based on the given SQL code.
-     *
-     * @param sql                   SQL code to prepare
-     * @param retrieveGeneratedKeys whether to retrieve generated keys
-     * @return a new {@link StatementBuilder} instance
-     * @throws SQLException if a database access error occurs
-     */
-    @Nonnull
-    @Contract("_, _ -> new")
-    public static StatementBuilder prepareSQL(@Nonnull @Language("SQL") String sql, boolean retrieveGeneratedKeys) throws SQLException {
-        return provider.prepareSQL(sql, retrieveGeneratedKeys);
-    }
-
-    /**
      * Generate a random id based on the given length that was not used in the given column and table.
      *
      * @param table         table to check

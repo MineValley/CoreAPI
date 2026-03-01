@@ -1,5 +1,6 @@
 package minevalley.core.api;
 
+import minevalley.core.api.database.DatabaseHolder;
 import minevalley.core.api.users.ProxyUser;
 import org.jetbrains.annotations.Contract;
 
@@ -8,7 +9,7 @@ import java.util.UUID;
 import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
-public interface Proxy {
+public interface Proxy extends DatabaseHolder {
 
     /**
      * Gets a stream of all proxy users.
