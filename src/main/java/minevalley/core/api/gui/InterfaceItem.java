@@ -1,8 +1,9 @@
-package minevalley.core.api.item;
+package minevalley.core.api.gui;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.Core;
+import minevalley.core.api.item.ItemBuilder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
