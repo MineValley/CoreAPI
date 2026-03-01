@@ -1,6 +1,6 @@
 package minevalley.core.api.gui;
 
-import minevalley.core.api.enums.InterfaceItem;
+import minevalley.core.api.item.InterfaceItem;
 import minevalley.core.api.users.OnlineUser;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
