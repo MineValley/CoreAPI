@@ -8,10 +8,10 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-public interface FakeArmorStand extends
-        Passenger, Vehicle, MetadataModifier<FakeArmorStand>, PassengerModifier<FakeArmorStand>,
-        PoseModifier<FakeArmorStand>, EquipmentModifier<FakeArmorStand>, InteractionModifier<FakeArmorStand>,
-        LocationModifier<FakeArmorStand>, VehicleModifier<FakeArmorStand>, VisibilityModifier<FakeArmorStand> {
+public interface ArmorStandDisplay extends
+        Passenger, Vehicle, MetadataModifier<ArmorStandDisplay>, PassengerModifier<ArmorStandDisplay>,
+        PoseModifier<ArmorStandDisplay>, EquipmentModifier<ArmorStandDisplay>, InteractionModifier<ArmorStandDisplay>,
+        LocationModifier<ArmorStandDisplay>, VehicleModifier<ArmorStandDisplay>, VisibilityModifier<ArmorStandDisplay> {
 
     /**
      * Get the custom id from the armor stand
@@ -48,7 +48,7 @@ public interface FakeArmorStand extends
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setBasePlate(boolean basePlate);
+    ArmorStandDisplay setBasePlate(boolean basePlate);
 
     /**
      * Checks if the armor stand is small
@@ -76,7 +76,7 @@ public interface FakeArmorStand extends
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setSmall(boolean small);
+    ArmorStandDisplay setSmall(boolean small);
 
     /**
      * Checks if the armor stand has arms
@@ -104,7 +104,7 @@ public interface FakeArmorStand extends
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setArms(boolean arms);
+    ArmorStandDisplay setArms(boolean arms);
 
     /**
      * Checks if the armor stand is a marker
@@ -132,7 +132,7 @@ public interface FakeArmorStand extends
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setMarker(boolean marker);
+    ArmorStandDisplay setMarker(boolean marker);
 
     /**
      * Checks if the armor stand is on fire
@@ -162,7 +162,7 @@ public interface FakeArmorStand extends
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setOnFire(boolean onFire);
+    ArmorStandDisplay setOnFire(boolean onFire);
 
     /**
      * Checks if the armor stand is invisible
@@ -192,7 +192,7 @@ public interface FakeArmorStand extends
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setInvisible(boolean invisible);
+    ArmorStandDisplay setInvisible(boolean invisible);
 
     /**
      * Checks if the armor stand is glowing
@@ -220,7 +220,7 @@ public interface FakeArmorStand extends
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setGlowing(boolean glowing);
+    ArmorStandDisplay setGlowing(boolean glowing);
 
     /**
      * Gets the rotation of the armor stand in degrees
@@ -238,7 +238,7 @@ public interface FakeArmorStand extends
      */
     @Nonnull
     @Contract("_ -> this")
-    FakeArmorStand setRotation(float rotation);
+    ArmorStandDisplay setRotation(float rotation);
 
     /**
      * Updates the rotation of the armor stand
