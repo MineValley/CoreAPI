@@ -1,4 +1,4 @@
-package minevalley.core.api.command.resolvers;
+package minevalley.core.api.command.resolver;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import minevalley.core.api.command.Context;
