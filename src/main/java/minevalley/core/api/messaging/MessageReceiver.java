@@ -16,7 +16,8 @@ import java.time.Duration;
 
 /**
  * This interface is meant to simplify and standardize the way messages are sent to players.
- * It's extended by other interfaces representing one or a group of users. This way a lot of boilerplate code (e.g. for-loops, streams and if-clauses) is omitted.
+ * It's extended by other interfaces representing one or a group of users.
+ * This way, a lot of boilerplate code (e.g. for-loops, streams, and if-clauses) is omitted.
  * <p>
  * Using the {@link ComponentLike} object enables a lot of features given by the Adventure API as used in Paper.
  * While having a lot of features, most of the messages (that were formally sent as {@link String} objects) can be sent as a {@link TextComponent} via:
@@ -32,8 +33,9 @@ import java.time.Duration;
  *     <li>It can be sent without any additional information resulting in the user receiving a message in the chat containing the text specified in the instruction.</li>
  *     <li>It can also be added to other messages (see {@link #sendMessage(ComponentLike, Instruction)}). The instruction then shows up as a little question mark that prints the instruction text when clicked.</li>
  * </ul>
- * In both cases the user is able to hide the instruction by clicking a button that is added automatically.
- * Doing so, the instruction will not show up in any circumstance (neither as question mark nor as a message in the chat).
+ * In both cases, the user is able to hide the instruction by clicking a button that is added automatically.
+ * Doing so, the instruction will not show up in any circumstance
+ * (neither as a question mark nor as a message in the chat).
  * <p>
  * <b>Note:</b> The instruction id has to be unique (consider adding the feature- oder module name as a prefix to the id to prevent duplicates) and should not be changed afterward.
  * <p>
@@ -76,7 +78,7 @@ public interface MessageReceiver {
     /**
      * Displays the given message in the receivers action bar.
      * <p>
-     * <b>Note:</b> When using Strings no color is needed/allowed!
+     * <b>Note:</b> When using strings, no color is needed/allowed!
      * </p>
      *
      * @param type    the type of message (defines the prefix)
@@ -128,7 +130,7 @@ public interface MessageReceiver {
     /**
      * Sends a message to the receiver.
      * <p>
-     * <b>Note:</b> When using Strings no color is needed/allowed!
+     * <b>Note:</b> When using strings, no color is needed/allowed!
      * </p>
      *
      * @param type    the type of message
@@ -157,7 +159,7 @@ public interface MessageReceiver {
     /**
      * Sends a message to the receiver.
      * <p>
-     * <b>Note:</b> When using Strings no color is needed/allowed!
+     * <b>Note:</b> When using strings, no color is needed/allowed!
      * </p>
      *
      * @param type        the type of message
