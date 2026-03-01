@@ -142,6 +142,7 @@ public interface NPC extends MessageSender, Passenger, Vehicle, EquipmentModifie
      *
      * @return true if the NPC is sneaking, false otherwise
      */
+    @Contract(pure = true)
     boolean isSneaking();
 
     /**
