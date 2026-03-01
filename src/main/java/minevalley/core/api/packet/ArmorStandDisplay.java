@@ -1,6 +1,6 @@
 package minevalley.core.api.packet;
 
-import minevalley.core.api.modifiers.*;
+import minevalley.core.api.packet.modifiers.*;
 import minevalley.core.api.utils.Passenger;
 import minevalley.core.api.utils.Vehicle;
 import org.jetbrains.annotations.Contract;

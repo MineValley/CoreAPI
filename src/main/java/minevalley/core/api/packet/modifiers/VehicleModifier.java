@@ -1,4 +1,4 @@
-package minevalley.core.api.modifiers;
+package minevalley.core.api.packet.modifiers;
 
 import minevalley.core.api.utils.Vehicle;
 import org.bukkit.entity.Entity;

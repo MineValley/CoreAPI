@@ -1,4 +1,4 @@
-package minevalley.core.api.modifiers;
+package minevalley.core.api.packet.modifiers;
 
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;

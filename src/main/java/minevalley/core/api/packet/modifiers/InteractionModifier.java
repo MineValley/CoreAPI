@@ -1,4 +1,4 @@
-package minevalley.core.api.modifiers;
+package minevalley.core.api.packet.modifiers;
 
 import minevalley.core.api.enums.InteractionType;
 import minevalley.core.api.users.OnlineUser;
