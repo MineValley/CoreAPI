@@ -1,4 +1,4 @@
-package minevalley.core.api.messaging.type;
+package minevalley.core.api.messaging.types;
 
 import lombok.AccessLevel;
 import lombok.Getter;

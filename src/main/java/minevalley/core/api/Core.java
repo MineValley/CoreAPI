@@ -12,7 +12,7 @@ import minevalley.core.api.corporation.Group;
 import minevalley.core.api.corporation.company.*;
 import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
-import minevalley.core.api.messaging.type.DebugType;
+import minevalley.core.api.messaging.types.DebugType;
 import minevalley.core.api.gui.FillItem;
 import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
