@@ -1,4 +1,4 @@
-package minevalley.core.api.user.friends;
+package minevalley.core.api.user.social;
 
 import minevalley.core.api.user.User;
 import org.jetbrains.annotations.Contract;
