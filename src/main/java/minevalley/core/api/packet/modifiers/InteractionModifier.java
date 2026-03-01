@@ -1,7 +1,9 @@
 package minevalley.core.api.packet.modifiers;
 
 import minevalley.core.api.users.OnlineUser;
+import org.jetbrains.annotations.Contract;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.function.BiConsumer;
 
@@ -14,6 +16,8 @@ public interface InteractionModifier<T extends InteractionModifier<T>> {
      * @param consumer is called whenever a user interacts with this object
      * @return this
      */
+    @Nonnull
+    @Contract("_ -> this")
     T onClick(@Nullable BiConsumer<OnlineUser, InteractionType> consumer);
 
     @SuppressWarnings("unused")
@@ -24,14 +28,32 @@ public interface InteractionModifier<T extends InteractionModifier<T>> {
         RIGHT_CLICK,
         SHIFT_RIGHT_CLICK;
 
+        /**
+         * Checks if the interaction type is a left click.
+         *
+         * @return true if the interaction type is a left click, false otherwise.
+         */
+        @Contract(pure = true)
         public boolean isLeftClick() {
             return this == LEFT_CLICK || this == SHIFT_LEFT_CLICK;
         }
 
+        /**
+         * Checks if the interaction type is a right click.
+         *
+         * @return true if the interaction type is a right click, false otherwise.
+         */
+        @Contract(pure = true)
         public boolean isRightClick() {
             return this == RIGHT_CLICK || this == SHIFT_RIGHT_CLICK;
         }
 
+        /**
+         * Checks if the interaction type is a shift click.
+         *
+         * @return true if the interaction type is a shift click, false otherwise.
+         */
+        @Contract(pure = true)
         public boolean isShiftClick() {
             return this == SHIFT_LEFT_CLICK || this == SHIFT_RIGHT_CLICK;
         }
