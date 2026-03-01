@@ -1,4 +1,4 @@
-package minevalley.core.api.user.exceptions;
+package minevalley.core.api.user.exception;
 
 import lombok.Getter;
 import minevalley.core.api.user.User;
