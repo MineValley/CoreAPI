@@ -1,4 +1,4 @@
-package minevalley.core.api.messaging;
+package minevalley.core.api.messaging.glyphs;
 
 @SuppressWarnings("unused")
 public final class CustomCharacter {

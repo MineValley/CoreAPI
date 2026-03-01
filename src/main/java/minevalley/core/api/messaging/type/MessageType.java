@@ -3,15 +3,15 @@ package minevalley.core.api.messaging.type;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.messaging.CustomCharacter;
+import minevalley.core.api.messaging.glyphs.CustomCharacter;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.TextColor;
 
 import javax.annotation.Nonnull;
 
-import static minevalley.core.api.messaging.CustomCharacter.*;
-import static minevalley.core.api.messaging.colors.CustomColor.*;
+import static minevalley.core.api.messaging.glyphs.CustomCharacter.*;
+import static minevalley.core.api.messaging.glyphs.CustomColor.*;
 import static net.kyori.adventure.text.format.NamedTextColor.*;
 
 @Getter(onMethod_ = @Nonnull)

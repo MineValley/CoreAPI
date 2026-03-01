@@ -2,7 +2,7 @@ package minevalley.core.api.messaging;
 
 import minevalley.core.api.messaging.clickable.ChatMenu;
 import minevalley.core.api.messaging.clickable.ClickableOption;
-import minevalley.core.api.messaging.colors.CustomColor;
+import minevalley.core.api.messaging.glyphs.CustomColor;
 import minevalley.core.api.messaging.instruction.Instruction;
 import minevalley.core.api.messaging.type.ActionBarType;
 import minevalley.core.api.messaging.type.MessageType;

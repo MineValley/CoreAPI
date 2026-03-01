@@ -1,4 +1,4 @@
-package minevalley.core.api.messaging.colors;
+package minevalley.core.api.messaging.glyphs;
 
 import net.kyori.adventure.text.format.TextColor;
 
