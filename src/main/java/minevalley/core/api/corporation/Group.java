@@ -1,6 +1,6 @@
 package minevalley.core.api.corporation;
 
-import minevalley.core.api.user.Registrant;
+import minevalley.core.api.Registrant;
 import minevalley.core.api.banking.BankAccount;
 import minevalley.core.api.user.User;
 import org.jetbrains.annotations.Contract;

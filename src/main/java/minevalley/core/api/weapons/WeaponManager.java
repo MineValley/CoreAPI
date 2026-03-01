@@ -1,7 +1,7 @@
 package minevalley.core.api.weapons;
 
 import lombok.Setter;
-import minevalley.core.api.user.Registrant;
+import minevalley.core.api.Registrant;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;

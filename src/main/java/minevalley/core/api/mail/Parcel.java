@@ -1,6 +1,6 @@
 package minevalley.core.api.mail;
 
-import minevalley.core.api.user.Registrant;
+import minevalley.core.api.Registrant;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
 

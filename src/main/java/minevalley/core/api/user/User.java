@@ -1,6 +1,7 @@
 package minevalley.core.api.user;
 
 import minevalley.core.api.Depends;
+import minevalley.core.api.Registrant;
 import minevalley.core.api.corporation.Member;
 import minevalley.core.api.messaging.types.DebugType;
 import minevalley.core.api.phone.Telephone;
