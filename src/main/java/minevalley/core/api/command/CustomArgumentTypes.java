@@ -1,15 +1,14 @@
-package minevalley.core.api.commands;
+package minevalley.core.api.command;
 
 import com.mojang.brigadier.arguments.ArgumentType;
 import io.papermc.paper.command.brigadier.argument.ArgumentTypes;
 import lombok.Setter;
-import minevalley.core.api.commands.resolvers.BlockSelectorArgumentResolver;
-import minevalley.core.api.commands.resolvers.OnlineUsersSelectorArgumentResolver;
-import minevalley.core.api.commands.resolvers.UserSelectorArgumentResolver;
+import minevalley.core.api.command.resolvers.BlockSelectorArgumentResolver;
+import minevalley.core.api.command.resolvers.OnlineUsersSelectorArgumentResolver;
+import minevalley.core.api.command.resolvers.UserSelectorArgumentResolver;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.server.ServerType;
 import minevalley.core.api.users.OnlineUser;
-import minevalley.core.api.users.User;
 import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.TeamRank;
 import net.kyori.adventure.text.Component;

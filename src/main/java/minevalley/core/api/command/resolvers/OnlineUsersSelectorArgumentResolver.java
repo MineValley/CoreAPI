@@ -1,7 +1,7 @@
-package minevalley.core.api.commands.resolvers;
+package minevalley.core.api.command.resolvers;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import minevalley.core.api.commands.Context;
+import minevalley.core.api.command.Context;
 import minevalley.core.api.users.OnlineUser;
 
 import javax.annotation.Nonnull;
