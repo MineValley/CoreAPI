@@ -13,6 +13,7 @@ import javax.annotation.Nonnull;
  */
 public record Instruction(@Nonnull String id, @Nonnull String text) {
 
+    @SuppressWarnings("ConstantConditions")
     public Instruction {
         if (id == null) {
             throw new IllegalArgumentException("id must not be null");
