@@ -22,6 +22,7 @@ import java.util.function.Consumer;
 public record ClickableOption(@Nonnull ComponentLike text, @Nonnull String hoverText, boolean singleUse,
                               @Nonnull Consumer<ProxyUser> callback) {
 
+    @SuppressWarnings("ConstantValue")
     public ClickableOption {
         if (text == null) {
             throw new IllegalArgumentException("text must not be null");
