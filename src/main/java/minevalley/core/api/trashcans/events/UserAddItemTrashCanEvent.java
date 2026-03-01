@@ -2,7 +2,7 @@ package minevalley.core.api.trashcans.events;
 
 import lombok.Getter;
 import lombok.Setter;
-import minevalley.core.api.registrant.User;
+import minevalley.core.api.user.User;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 

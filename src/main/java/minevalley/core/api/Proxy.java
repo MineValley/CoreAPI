@@ -1,7 +1,7 @@
 package minevalley.core.api;
 
 import minevalley.core.api.database.DatabaseHolder;
-import minevalley.core.api.registrant.ProxyUser;
+import minevalley.core.api.user.ProxyUser;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;

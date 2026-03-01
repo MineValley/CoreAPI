@@ -1,6 +1,6 @@
 package minevalley.core.api.corporation.company;
 
-import minevalley.core.api.registrant.Registrant;
+import minevalley.core.api.user.Registrant;
 import minevalley.core.api.corporation.RealEstateGroup;
 import org.jetbrains.annotations.Contract;
 

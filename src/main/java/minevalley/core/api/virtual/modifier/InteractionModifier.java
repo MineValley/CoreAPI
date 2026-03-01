@@ -1,6 +1,6 @@
 package minevalley.core.api.virtual.modifier;
 
-import minevalley.core.api.registrant.OnlineUser;
+import minevalley.core.api.user.OnlineUser;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;

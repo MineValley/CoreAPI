@@ -1,6 +1,6 @@
 package minevalley.core.api.phone;
 
-import minevalley.core.api.registrant.Registrant;
+import minevalley.core.api.user.Registrant;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
