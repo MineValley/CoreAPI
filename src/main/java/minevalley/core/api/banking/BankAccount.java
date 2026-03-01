@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.Core;
-import minevalley.core.api.Registrant;
+import minevalley.core.api.registrant.Registrant;
 import minevalley.core.api.registrant.User;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;

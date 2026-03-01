@@ -1,6 +1,6 @@
 package minevalley.core.api.corporation;
 
-import minevalley.core.api.Registrant;
+import minevalley.core.api.registrant.Registrant;
 import minevalley.core.api.corporation.task.Task;
 import minevalley.core.api.registrant.User;
 import org.jetbrains.annotations.Contract;

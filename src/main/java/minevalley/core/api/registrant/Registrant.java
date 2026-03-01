@@ -1,4 +1,4 @@
-package minevalley.core.api;
+package minevalley.core.api.registrant;
 
 import minevalley.core.api.banking.AccountUser;
 import minevalley.core.api.banking.BankAccount;
@@ -6,8 +6,6 @@ import minevalley.core.api.corporation.company.Aktiengesellschaft;
 import minevalley.core.api.corporation.company.Kapitalgesellschaft;
 import minevalley.core.api.localization.Address;
 import minevalley.core.api.mail.Parcel;
-import minevalley.core.api.registrant.OnlineUser;
-import minevalley.core.api.registrant.User;
 import minevalley.core.api.weapons.Weapon;
 import org.jetbrains.annotations.Contract;
 
