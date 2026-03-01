@@ -1,7 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import minevalley.core.api.virtual.ArmorStandDisplay;
+import minevalley.core.api.virtual.FakeArmorStand;
 import minevalley.core.api.virtual.CarBarrier;
 import minevalley.core.api.virtual.FakeBlock;
 import minevalley.core.api.virtual.Hologram;
@@ -277,10 +277,10 @@ public interface CoreProvider {
     int convertHexToDecimalColor(@Nonnull String hex) throws IllegalArgumentException;
 
     @Nonnull
-    ArmorStandDisplay createFakeArmorStand(@Nonnull Location location) throws IllegalArgumentException;
+    FakeArmorStand createFakeArmorStand(@Nonnull Location location) throws IllegalArgumentException;
 
     @Nullable
-    ArmorStandDisplay getFakeArmorStand(int id);
+    FakeArmorStand getFakeArmorStand(int id);
 
     @Nullable
     String convertToTransparent(@Nullable String text) throws IllegalArgumentException;

@@ -1,7 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import minevalley.core.api.virtual.ArmorStandDisplay;
+import minevalley.core.api.virtual.FakeArmorStand;
 import minevalley.core.api.virtual.CarBarrier;
 import minevalley.core.api.virtual.FakeBlock;
 import minevalley.core.api.virtual.Hologram;
@@ -1148,7 +1148,7 @@ public final class Core {
      */
     @Nonnull
     @Contract("_ -> new")
-    public static ArmorStandDisplay createFakeArmorStand(@Nonnull Location location) throws IllegalArgumentException {
+    public static FakeArmorStand createFakeArmorStand(@Nonnull Location location) throws IllegalArgumentException {
         return provider.createFakeArmorStand(location);
     }
 
@@ -1159,7 +1159,7 @@ public final class Core {
      * @return ArmorStand instance
      */
     @Nullable
-    public static ArmorStandDisplay getFakeArmorStand(int id) {
+    public static FakeArmorStand getFakeArmorStand(int id) {
         return provider.getFakeArmorStand(id);
     }
 
