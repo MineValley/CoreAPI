@@ -9,11 +9,6 @@ import lombok.RequiredArgsConstructor;
 public enum TeamRank {
 
     /**
-     * Users without any team-rank (or team members who aren't in team service).
-     */
-    NONE(false),
-
-    /**
      * Members of the "Test-Support"-group.
      */
     T_SUPPORT(true),
