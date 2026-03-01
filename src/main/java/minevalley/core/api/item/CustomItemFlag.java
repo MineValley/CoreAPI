@@ -1,4 +1,4 @@
-package minevalley.core.api.utils;
+package minevalley.core.api.item;
 
 public enum CustomItemFlag {
 

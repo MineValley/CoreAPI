@@ -3,7 +3,7 @@ package minevalley.core.api.enums;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import minevalley.core.api.Core;
-import minevalley.core.api.utils.ItemBuilder;
+import minevalley.core.api.item.ItemBuilder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

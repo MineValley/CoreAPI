@@ -1,4 +1,4 @@
-package minevalley.core.api.utils;
+package minevalley.core.api.item;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
