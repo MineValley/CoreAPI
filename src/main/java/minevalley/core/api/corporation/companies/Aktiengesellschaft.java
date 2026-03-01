@@ -1,7 +1,7 @@
-package minevalley.core.api.corporations.companies;
+package minevalley.core.api.corporation.companies;
 
 import minevalley.core.api.Registrant;
-import minevalley.core.api.corporations.RealEstateGroup;
+import minevalley.core.api.corporation.RealEstateGroup;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnegative;

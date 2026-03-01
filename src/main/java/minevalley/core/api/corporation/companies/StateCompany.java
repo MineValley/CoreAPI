@@ -1,4 +1,4 @@
-package minevalley.core.api.corporations.companies;
+package minevalley.core.api.corporation.companies;
 
 import lombok.AccessLevel;
 import lombok.Getter;

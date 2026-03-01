@@ -6,7 +6,7 @@ import lombok.Setter;
 import minevalley.core.api.command.resolvers.BlockSelectorArgumentResolver;
 import minevalley.core.api.command.resolvers.OnlineUsersSelectorArgumentResolver;
 import minevalley.core.api.command.resolvers.UserSelectorArgumentResolver;
-import minevalley.core.api.corporations.Group;
+import minevalley.core.api.corporation.Group;
 import minevalley.core.api.server.ServerType;
 import minevalley.core.api.users.OnlineUser;
 import minevalley.core.api.users.enums.Fraction;

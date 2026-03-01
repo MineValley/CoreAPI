@@ -1,4 +1,4 @@
-package minevalley.core.api.corporations;
+package minevalley.core.api.corporation;
 
 import minevalley.core.api.Registrant;
 import minevalley.core.api.banking.BankAccount;

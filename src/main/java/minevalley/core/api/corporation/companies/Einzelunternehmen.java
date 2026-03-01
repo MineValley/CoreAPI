@@ -1,6 +1,6 @@
-package minevalley.core.api.corporations.companies;
+package minevalley.core.api.corporation.companies;
 
-import minevalley.core.api.corporations.Group;
+import minevalley.core.api.corporation.Group;
 import minevalley.core.api.users.User;
 import org.jetbrains.annotations.Contract;
 

@@ -1,4 +1,4 @@
-package minevalley.core.api.corporations;
+package minevalley.core.api.corporation;
 
 public enum DepartmentPermission {
 

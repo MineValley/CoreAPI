@@ -1,4 +1,4 @@
-package minevalley.core.api.corporations.tasks.materialtasks;
+package minevalley.core.api.corporation.tasks.materialtasks;
 
 @SuppressWarnings("unused")
 public interface DirtDigger extends MiningTask {

@@ -1,4 +1,4 @@
-package minevalley.core.api.corporations.tasks;
+package minevalley.core.api.corporation.tasks;
 
 import minevalley.core.api.users.User;
 import org.jetbrains.annotations.Contract;
