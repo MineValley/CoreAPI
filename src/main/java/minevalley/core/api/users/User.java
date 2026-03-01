@@ -3,7 +3,7 @@ package minevalley.core.api.users;
 import minevalley.core.api.Depends;
 import minevalley.core.api.Registrant;
 import minevalley.core.api.corporations.Member;
-import minevalley.core.api.enums.DebugType;
+import minevalley.core.api.messaging.DebugType;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.users.exceptions.UserNotOnlineException;
 import minevalley.core.api.users.exceptions.UserNotPermittedException;
