@@ -3,7 +3,7 @@ package minevalley.core.api.trashcans.events;
 import lombok.Getter;
 import lombok.Setter;
 import minevalley.core.api.user.User;
-import minevalley.core.api.user.events.UserEvent;
+import minevalley.core.api.user.event.UserEvent;
 import org.bukkit.block.Block;
 import org.bukkit.event.Cancellable;
 
