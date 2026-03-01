@@ -24,7 +24,8 @@ public interface ChatMenu {
     /**
      * Disables the menu. This prevents any further input from the user.
      * <p>
-     * <b>Note:</b> After disabling the menu, it is not possible to re-enable it. If menu is disabled, this method will do nothing.
+     * <b>Note:</b> After disabling the menu, it is not possible to re-enable it.
+     * If this menu is already disabled, this method will do nothing.
      *
      * @see #isEnabled()
      */
