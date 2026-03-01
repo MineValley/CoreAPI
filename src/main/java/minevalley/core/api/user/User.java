@@ -9,6 +9,7 @@ import minevalley.core.api.user.exception.UserNotOnlineException;
 import minevalley.core.api.user.exception.UserNotPermittedException;
 import minevalley.core.api.user.social.FriendRequest;
 import minevalley.core.api.user.social.Friendship;
+import minevalley.core.api.user.social.Marriage;
 import minevalley.core.api.user.statistics.Statistics;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
