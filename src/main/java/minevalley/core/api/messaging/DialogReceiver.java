@@ -4,7 +4,7 @@ import minevalley.core.api.messaging.clickable.ChatMenu;
 import minevalley.core.api.messaging.clickable.ClickableOption;
 import minevalley.core.api.messaging.colors.CustomColor;
 import minevalley.core.api.messaging.instruction.Instruction;
-import minevalley.core.api.messaging.types.MessageType;
+import minevalley.core.api.messaging.type.MessageType;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
 import org.jetbrains.annotations.Contract;
