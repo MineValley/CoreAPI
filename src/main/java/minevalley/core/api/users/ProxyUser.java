@@ -10,7 +10,7 @@ import minevalley.core.api.users.enums.Fraction;
 import minevalley.core.api.users.enums.McVersion;
 import minevalley.core.api.users.enums.TabListView;
 import minevalley.core.api.users.exceptions.UserNotPermittedException;
-import minevalley.core.api.utils.ClickableMessage;
+import minevalley.core.api.messaging.clickable.ClickableMessage;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
 

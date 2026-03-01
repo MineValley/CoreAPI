@@ -1,4 +1,4 @@
-package minevalley.core.api.utils;
+package minevalley.core.api.messaging.clickable;
 
 import minevalley.core.api.users.ProxyUser;
 import org.jetbrains.annotations.Contract;
