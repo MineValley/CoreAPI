@@ -1,4 +1,4 @@
-package minevalley.core.api.user.event.services.fractions;
+package minevalley.core.api.user.event.service.fraction;
 
 import minevalley.core.api.user.ProxyUser;
 import minevalley.core.api.user.enums.Fraction;

@@ -1,4 +1,4 @@
-package minevalley.core.api.user.event.services.support;
+package minevalley.core.api.user.event.service.support;
 
 import minevalley.core.api.user.ProxyUser;
 
