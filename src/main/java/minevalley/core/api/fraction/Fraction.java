@@ -1,4 +1,4 @@
-package minevalley.core.api.user.enums;
+package minevalley.core.api.fraction;
 
 import lombok.AccessLevel;
 import lombok.Getter;
