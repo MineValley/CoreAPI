@@ -14,6 +14,7 @@ public interface MetadataModifier<T extends MetadataModifier<T>> {
      *
      * @return true if the object is affected by gravity
      */
+    @Contract(pure = true)
     boolean hasGravity();
 
     /**
@@ -32,6 +33,7 @@ public interface MetadataModifier<T extends MetadataModifier<T>> {
      * @return custom name of the object
      */
     @Nullable
+    @Contract(pure = true)
     Component getCustomName();
 
     /**
@@ -49,6 +51,7 @@ public interface MetadataModifier<T extends MetadataModifier<T>> {
      *
      * @return true if the custom name is visible
      */
+    @Contract(pure = true)
     boolean isCustomNameVisible();
 
     /**
@@ -66,6 +69,7 @@ public interface MetadataModifier<T extends MetadataModifier<T>> {
      *
      * @return true if the armor stand is silent
      */
+    @Contract(pure = true)
     boolean isSilent();
 
     /**
