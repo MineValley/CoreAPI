@@ -10,7 +10,7 @@ import minevalley.core.api.virtual.Hologram;
 import minevalley.core.api.virtual.display.*;
 import minevalley.core.api.banking.BankAccount;
 import minevalley.core.api.corporation.Group;
-import minevalley.core.api.corporation.companies.*;
+import minevalley.core.api.corporation.company.*;
 import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
 import minevalley.core.api.messaging.DebugType;

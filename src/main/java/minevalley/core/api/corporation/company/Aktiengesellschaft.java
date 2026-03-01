@@ -1,4 +1,4 @@
-package minevalley.core.api.corporation.companies;
+package minevalley.core.api.corporation.company;
 
 import minevalley.core.api.Registrant;
 import minevalley.core.api.corporation.RealEstateGroup;
