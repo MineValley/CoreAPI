@@ -1,4 +1,4 @@
-package minevalley.core.api.events;
+package minevalley.core.api.event;
 
 import lombok.Getter;
 import org.bukkit.event.Event;
