@@ -11,6 +11,15 @@ import javax.annotation.Nullable;
 public interface VehicleModifier<T extends VehicleModifier<T>> {
 
     /**
+     * Get the current vehicle
+     *
+     * @return the vehicle or null if no vehicle is assigned
+     */
+    @Nullable
+    @Contract(pure = true)
+    Vehicle getVehicle();
+
+    /**
      * Set the vehicle of the object
      *
      * @param entity the entity to be set as vehicle
@@ -39,19 +48,11 @@ public interface VehicleModifier<T extends VehicleModifier<T>> {
      * @return this
      */
     @Nonnull
+    @Contract("-> this")
     T exitVehicle();
 
     /**
      * Update the vehicle
      */
     void updateVehicle();
-
-    /**
-     * Get the current vehicle
-     *
-     * @return the vehicle or null if no vehicle is assigned
-     */
-    @Nullable
-    @Contract(pure = true)
-    Vehicle getVehicle();
 }
