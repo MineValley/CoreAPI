@@ -1,4 +1,4 @@
-package minevalley.core.api.corporation.tasks;
+package minevalley.core.api.corporation.task;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

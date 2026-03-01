@@ -1,4 +1,4 @@
-package minevalley.core.api.corporation.tasks;
+package minevalley.core.api.corporation.task;
 
 public interface FarmingTask extends Task {
 
