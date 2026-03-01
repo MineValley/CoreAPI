@@ -1,76 +1,61 @@
 package minevalley.core.api.messaging;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
+@SuppressWarnings("unused")
+public final class CustomCharacter {
 
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public enum CustomCharacter {
+    public static final char EMOJI_HEART = '\ue000';
+    public static final char EMOJI_LAUGH = '\ue001';
+    public static final char EMOJI_SMILE = '\ue002';
+    public static final char EMOJI_GRIN = '\ue003';
+    public static final char EMOJI_WINK = '\ue004';
+    public static final char EMOJI_WINKING_WITH_TONGUE = '\ue005';
+    public static final char EMOJI_KISSES = '\ue006';
+    public static final char EMOJI_SHOCK = '\ue007';
+    public static final char EMOJI_BIG_SHOCK = '\ue008';
+    public static final char EMOJI_PAIN = '\ue009';
+    public static final char EMOJI_ANNOYED = '\ue010';
+    public static final char EMOJI_CRYING = '\ue011';
 
-    EMOJI_HEART('\ue000'),
-    EMOJI_LAUGH('\ue001'),
-    EMOJI_SMILE('\ue002'),
-    EMOJI_GRIN('\ue003'),
-    EMOJI_WINK('\ue004'),
-    EMOJI_WINKING_WITH_TONGUE('\ue005'),
-    EMOJI_KISSES('\ue006'),
-    EMOJI_SHOCK('\ue007'),
-    EMOJI_BIG_SHOCK('\ue008'),
-    EMOJI_PAIN('\ue009'),
-    EMOJI_ANNOYED('\ue010'),
-    EMOJI_CRYING('\ue011'),
+    public static final char RADIO = '\uea00';
+    public static final char SHOUT = '\uea01';
+    public static final char EXCLAMATION_MARK = '\uea02';
+    public static final char CROSS = '\uea03';
+    public static final char CHECKMARK = '\uea04';
+    public static final char LOG = '\uea05';
+    public static final char INPUT = '\uea06';
+    public static final char BUG = '\uea07';
+    public static final char EYE = '\uea08';
+    public static final char WRENCH = '\uea09';
+    public static final char CIRCLE = '\uea10';
+    public static final char HOUSE = '\uea11';
+    public static final char EURO_NOTES = '\uea12';
+    public static final char DRIFTING_CAR = '\uea13';
+    public static final char NPC = '\uea14';
 
-    RADIO('\uea00'),
-    SHOUT('\uea01'),
-    EXCLAMATION_MARK('\uea02'),
-    CROSS('\uea03'),
-    CHECKMARK('\uea04'),
-    LOG('\uea05'),
-    INPUT('\uea06'),
-    BUG('\uea07'),
-    EYE('\uea08'),
-    WRENCH('\uea09'),
-    CIRCLE('\uea10'),
-    HOUSE('\uea11'),
-    EURO_NOTES('\uea12'),
-    DRIFTING_CAR('\uea13'),
-    NPC('\uea14'),
+    public static final char BELL = '\ueb00';
+    public static final char PHONE = '\ueb01';
 
-    BELL('\ueb00'),
-    PHONE('\ueb01'),
+    public static final char MV = '\uec00';
+    public static final char MV_BW = '\uec01';
 
-    MV('\uec00'),
-    MV_BW('\uec01'),
+    public static final char HELP_QUESTION_MARK = '\ued00';
+    public static final char TEAM = '\ued01';
 
-    HELP_QUESTION_MARK('\ued00'),
-    TEAM('\ued01'),
+    public static final char MEDICS = '\uee00';
+    public static final char COPS = '\uee01';
+    public static final char MAIL = '\uee02';
+    public static final char DISPOSAL = '\uee03';
+    public static final char HANDCUFFS = '\uee04';
+    public static final char PREMIUM = '\uee05';
+    public static final char SUPPORT_QUESTION_MARK = '\uee06';
 
-    MEDICS('\uee00'),
-    COPS('\uee01'),
-    MAIL('\uee02'),
-    DISPOSAL('\uee03'),
-    HANDCUFFS('\uee04'),
-    PREMIUM('\uee05'),
-    SUPPORT_QUESTION_MARK('\uee06'),
+    public static final char MEDICS_TRANSPARENT = '\uef00';
+    public static final char COPS_TRANSPARENT = '\uef01';
+    public static final char MAIL_TRANSPARENT = '\uef02';
+    public static final char DISPOSAL_TRANSPARENT = '\uef03';
+    public static final char HANDCUFFS_TRANSPARENT = '\uef04';
+    public static final char PREMIUM_TRANSPARENT = '\uef05';
+    public static final char SUPPORT_QUESTION_MARK_TRANSPARENT = '\uef06';
 
-    MEDICS_TRANSPARENT('\uef00'),
-    COPS_TRANSPARENT('\uef01'),
-    MAIL_TRANSPARENT('\uef02'),
-    DISPOSAL_TRANSPARENT('\uef03'),
-    HANDCUFFS_TRANSPARENT('\uef04'),
-    PREMIUM_TRANSPARENT('\uef05'),
-    SUPPORT_QUESTION_MARK_TRANSPARENT('\uef06'),
-
-    SINGLE_WHITE_SPACE('\ueeee');
-
-    private final char c;
-
-    @SuppressWarnings("unused")
-    public char getChar() {
-        return c;
-    }
-
-    @Override
-    public String toString() {
-        return Character.toString(c);
-    }
+    public static final char SINGLE_WHITE_SPACE = '\ueeee';
 }
