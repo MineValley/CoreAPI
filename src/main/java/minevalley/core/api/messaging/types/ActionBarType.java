@@ -28,13 +28,13 @@ public enum ActionBarType {
      */
     SUCCESS(CHECKMARK, GREEN);
 
-    private final CustomCharacter symbol;
+    private final char symbol;
     private final NamedTextColor color;
 
     @SuppressWarnings("unused")
     public TextComponent getPrefix() {
         return Component.space()
-                .append(Component.text(symbol.getChar(), color))
+                .append(Component.text(symbol, color))
                 .append(Component.text(" ━ ", DARK_GRAY));
     }
 }
