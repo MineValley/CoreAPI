@@ -3,7 +3,6 @@ package minevalley.core.api.messaging.types;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.messaging.glyphs.CustomCharacter;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.TextColor;
@@ -43,13 +42,13 @@ public enum MessageType {
      */
     INFO_BW(MV_BW, WHITE, GRAY);
 
-    private final CustomCharacter symbol;
+    private final char symbol;
     private final TextColor prefixColor, messageColor;
 
     @SuppressWarnings("unused")
     public @Nonnull TextComponent getPrefix() {
         return Component.space()
-                .append(Component.text(symbol.getChar(), prefixColor))
+                .append(Component.text(symbol, prefixColor))
                 .append(Component.text(" ━ ", DARK_GRAY));
     }
 }
