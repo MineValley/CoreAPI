@@ -1,7 +1,7 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import minevalley.core.api.armorstand.ArmorStandDisplay;
+import minevalley.core.api.displays.ArmorStandDisplay;
 import minevalley.core.api.banking.BankAccount;
 import minevalley.core.api.corporations.Group;
 import minevalley.core.api.corporations.companies.*;

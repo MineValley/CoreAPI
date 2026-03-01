@@ -1,4 +1,4 @@
-package minevalley.core.api.armorstand;
+package minevalley.core.api.displays;
 
 import minevalley.core.api.modifiers.*;
 import minevalley.core.api.utils.Passenger;
