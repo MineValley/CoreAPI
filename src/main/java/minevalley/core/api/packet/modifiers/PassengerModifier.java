@@ -11,6 +11,15 @@ import java.util.List;
 public interface PassengerModifier<T extends PassengerModifier<T>> {
 
     /**
+     * Get the current passenger list
+     *
+     * @return a list with the current passengers
+     */
+    @Nonnull
+    @Contract(pure = true)
+    List<Passenger> getPassengers();
+
+    /**
      * Add a passenger to the object
      *
      * <P><strong>Note:</strong> Assigning a passenger via {@code Entity} is only reliable while the vehicle remains stationary</P>
@@ -53,19 +62,12 @@ public interface PassengerModifier<T extends PassengerModifier<T>> {
      * @return this
      * @throws IllegalArgumentException if the entity ID is invalid
      */
+    @Nonnull
+    @Contract("_ -> this")
     T removePassenger(@Nonnull Passenger passenger) throws IllegalArgumentException;
 
     /**
      * Update the passengers
      */
     void updatePassengers();
-
-    /**
-     * Get the current passenger list
-     *
-     * @return a list with the current passengers
-     */
-    @Nonnull
-    @Contract(pure = true)
-    List<Passenger> getPassengers();
 }
