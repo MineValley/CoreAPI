@@ -5,7 +5,7 @@ import org.jetbrains.annotations.Contract;
 
 /**
  * The {@code ChatMenu} is an interface that represents a chat menu that was sent to a {@link MessageReceiver}.
- * It is used to determine if the menu is still enabled or not and to disable it manually. Doing so prevents unwanted inputs and is therefor recommended when the menu is no longer needed.
+ * It is used to determine if the menu is still enabled or not and to disable it manually. Doing so prevents unwanted inputs and is therefore recommended when the menu is no longer needed.
  */
 @SuppressWarnings("unused")
 public interface ChatMenu {
