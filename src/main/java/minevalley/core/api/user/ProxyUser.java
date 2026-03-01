@@ -7,7 +7,7 @@ import minevalley.core.api.messaging.MessageReceiver;
 import minevalley.core.api.user.chat.ChatProvider;
 import minevalley.core.api.user.chat.ChatType;
 import minevalley.core.api.user.enums.Fraction;
-import minevalley.core.api.user.enums.McVersion;
+import minevalley.core.api.user.statistics.McVersion;
 import minevalley.core.api.user.enums.TabListView;
 import minevalley.core.api.user.exception.UserNotPermittedException;
 import minevalley.core.api.messaging.clickable.ClickableMessage;

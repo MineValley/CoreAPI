@@ -1,4 +1,4 @@
-package minevalley.core.api.user.enums;
+package minevalley.core.api.user.statistics;
 
 import lombok.AccessLevel;
 import lombok.Getter;
