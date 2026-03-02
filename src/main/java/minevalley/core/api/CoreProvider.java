@@ -1,24 +1,18 @@
 package minevalley.core.api;
 
 import com.google.gson.Gson;
-import minevalley.core.api.event.EventListener;
-import minevalley.core.api.item.ItemBuilder;
-import minevalley.core.api.virtual.FakeArmorStand;
-import minevalley.core.api.virtual.CarBarrier;
-import minevalley.core.api.virtual.FakeBlock;
-import minevalley.core.api.virtual.Hologram;
-import minevalley.core.api.virtual.display.*;
 import minevalley.core.api.banking.BankAccount;
 import minevalley.core.api.corporation.Group;
 import minevalley.core.api.corporation.company.*;
 import minevalley.core.api.discord.EmbeddedMessage;
 import minevalley.core.api.discord.Webhook;
-import minevalley.core.api.messaging.types.DebugType;
+import minevalley.core.api.event.EventListener;
 import minevalley.core.api.gui.FillItem;
 import minevalley.core.api.gui.InventoryGui;
 import minevalley.core.api.gui.MultiPageGui;
 import minevalley.core.api.interaction.InteractionTrigger;
-import minevalley.core.api.virtual.npc.NPC;
+import minevalley.core.api.item.ItemBuilder;
+import minevalley.core.api.messaging.types.DebugType;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.server.Server;
 import minevalley.core.api.team.Team;
@@ -27,6 +21,14 @@ import minevalley.core.api.timing.RepeatingTimer;
 import minevalley.core.api.timing.Timer;
 import minevalley.core.api.user.OnlineUser;
 import minevalley.core.api.user.User;
+import minevalley.core.api.virtual.CarBarrier;
+import minevalley.core.api.virtual.FakeArmorStand;
+import minevalley.core.api.virtual.FakeBlock;
+import minevalley.core.api.virtual.Hologram;
+import minevalley.core.api.virtual.display.BlockDisplay;
+import minevalley.core.api.virtual.display.ItemDisplay;
+import minevalley.core.api.virtual.display.TextDisplay;
+import minevalley.core.api.virtual.npc.NPC;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
 import org.bukkit.Location;
@@ -48,7 +50,6 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.net.URL;
-import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.UUID;
@@ -82,8 +83,6 @@ public interface CoreProvider {
 
     @Nonnull
     BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable runnable) throws IllegalArgumentException;
-
-    int generateUniqueId(@Nonnull String table, @Nonnull String column, int amountOfChars) throws IllegalArgumentException, SQLException;
 
     void registerListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener) throws IllegalArgumentException;
 
