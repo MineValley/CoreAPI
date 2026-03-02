@@ -31,7 +31,6 @@ public interface FakeArmorStand extends
      *
      * @return true if the armor stand has a baseplate
      */
-    @Deprecated
     @Contract(pure = true)
     boolean hasBasePlate();
 
