@@ -208,21 +208,6 @@ public final class Core {
     }
 
     /**
-     * Generate a random id based on the given length that was not used in the given column and table.
-     *
-     * @param table         table to check
-     * @param column        column to check
-     * @param amountOfChars the amount of chars the id should have
-     * @return a unique id
-     * @throws IllegalArgumentException if the table is null, column is null or the amount of chars is less than 1
-     * @throws SQLException             if a database access error occurs
-     */
-    @Contract("_, _, _ -> _")
-    public static int generateUniqueId(@Nonnull String table, @Nonnull String column, int amountOfChars) throws IllegalArgumentException, SQLException {
-        return provider.generateUniqueId(table, column, amountOfChars);
-    }
-
-    /**
      * Registers an event listener.
      *
      * @param cls      class of the event
