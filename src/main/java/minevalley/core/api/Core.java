@@ -786,30 +786,6 @@ public final class Core {
     }
 
     /**
-     * Converts an inventory that is converted to a string back into the usual inventory object.
-     *
-     * @param inventory string to convert to inventory
-     * @return inventory object
-     * @throws IllegalArgumentException if the inventory is null or invalid
-     */
-    @Nonnull
-    public static Inventory getInventoryFromString(@Nonnull String inventory) throws IllegalArgumentException {
-        return provider.getInventoryFromString(inventory);
-    }
-
-    /**
-     * Converts an inventory and its contents into a string. This method is used to save inventories to the database.
-     *
-     * @param inventory inventory to convert
-     * @return inventory from string
-     * @throws IllegalArgumentException if the inventory is null or invalid
-     */
-    @Nonnull
-    public static String getStringFromInventory(@Nonnull Inventory inventory) throws IllegalArgumentException {
-        return provider.getStringFromInventory(inventory);
-    }
-
-    /**
      * Gets the bank account with the specific iban.
      *
      * @param iban iban as string
