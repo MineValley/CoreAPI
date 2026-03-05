@@ -338,7 +338,7 @@ public final class Core {
      * @throws IllegalArgumentException if the type or message is null
      */
     public static void sendDebug(@Nonnull DebugType type, @Nonnull String message) throws IllegalArgumentException {
-        provider.sendDebug(type, removeColorCodes(message));
+        provider.sendDebug(type, message);
     }
 
     /**
