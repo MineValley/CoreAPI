@@ -39,7 +39,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
@@ -1174,9 +1173,9 @@ public final class Core {
      * @return transparent text
      * @throws IllegalArgumentException if the text contains characters that have no transparent representation
      */
-    @Nonnull
+    @Nullable
     @Contract("null -> null")
-    public static String convertToTransparent(@Nullable String text) throws IllegalArgumentException {
+    public static String convertToTransparent(@Nullable String text) {
         return provider.convertToTransparent(text);
     }
 

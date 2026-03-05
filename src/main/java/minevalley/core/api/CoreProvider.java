@@ -283,7 +283,7 @@ public interface CoreProvider {
     FakeArmorStand getFakeArmorStand(int id);
 
     @Nullable
-    String convertToTransparent(@Nullable String text) throws IllegalArgumentException;
+    String convertToTransparent(@Nullable String text);
 
     @Nonnull
     InteractionTrigger createInteractionTrigger(@Nonnull World world,
