@@ -852,6 +852,7 @@ public final class Core {
      * @return list of all groups
      */
     @Nonnull
+    @Contract(pure = true)
     public static List<Group> getGroups() {
         return provider.getGroups();
     }
@@ -863,6 +864,7 @@ public final class Core {
      * @return group with the specific name
      */
     @Nullable
+    @Contract(value = "null -> null", pure = true)
     public static Group getGroup(@Nullable String name) {
         return provider.getGroup(name);
     }
@@ -890,7 +892,6 @@ public final class Core {
      */
     @Nonnull
     @Contract("_, _ -> new")
-    @ApiStatus.Experimental
     public static Personengesellschaft createPersonengesellschaft(@Nonnull User owner, @Nonnull List<User> coOwners) throws IllegalArgumentException {
         return provider.createPersonengesellschaft(owner, coOwners);
     }
@@ -918,7 +919,6 @@ public final class Core {
      */
     @Nonnull
     @Contract("_, _ -> new")
-    @ApiStatus.Experimental
     public static StateCompany createStateCompany(int address, @Nonnull StateCompany.Sector sector) throws IllegalArgumentException {
         return provider.createStateCompany(address, sector);
     }
@@ -933,7 +933,6 @@ public final class Core {
      */
     @Nonnull
     @Contract("_, _ -> new")
-    @ApiStatus.Experimental
     public static Aktiengesellschaft createAktiengesellschaft(int address, int stocks) throws IllegalArgumentException {
         return provider.createAktiengesellschaft(address, stocks);
     }
@@ -944,6 +943,7 @@ public final class Core {
      * @return list of all state companies
      */
     @Nonnull
+    @Contract(pure = true)
     public static List<StateCompany> getStateCompanies() {
         return provider.getStateCompanies();
     }
@@ -998,7 +998,10 @@ public final class Core {
      * @return repeating timer with the specific parameters.
      * @throws IllegalArgumentException if the period is less than 1 or the callback is null
      */
-    public static RepeatingTimer startRepeatingTimer(int period, @Nonnull Runnable callback) throws IllegalArgumentException {
+    @Nonnull
+    @Contract("_, _ -> new")
+    public static RepeatingTimer startRepeatingTimer(int period, @Nonnull Runnable callback)
+            throws IllegalArgumentException {
         return provider.startRepeatingTimer(period, callback);
     }
 
@@ -1012,7 +1015,10 @@ public final class Core {
      * @return reminder with the specific parameters.
      * @throws IllegalArgumentException if the hours or minutes are invalid
      */
-    public static Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, DayOfWeek... weekdays) throws IllegalArgumentException {
+    @Nonnull
+    @Contract("_, _, _, _ -> new")
+    public static Reminder createReminder(int hours, int minutes, @Nonnull Runnable callback, DayOfWeek... weekdays)
+            throws IllegalArgumentException {
         return provider.createReminder(hours, minutes, callback, weekdays);
     }
 
@@ -1026,7 +1032,9 @@ public final class Core {
      * @throws IllegalArgumentException if the hours or minutes are invalid or the callback is null
      */
     @Nonnull
-    public static Reminder createReminder(@Nonnegative int hours, @Nonnegative int minutes, @Nonnull Runnable callback) throws IllegalArgumentException {
+    @Contract("_, _, _ -> new")
+    public static Reminder createReminder(@Nonnegative int hours, @Nonnegative int minutes, @Nonnull Runnable callback)
+            throws IllegalArgumentException {
         return provider.createReminder(hours, minutes, callback, DayOfWeek.values());
     }
 
@@ -1038,6 +1046,7 @@ public final class Core {
      * @throws IllegalArgumentException if the URL is null
      */
     @Nonnull
+    @Contract("_ -> new")
     public static Webhook createWebhook(@Nonnull URL url) throws IllegalArgumentException {
         return provider.createWebhook(url);
     }
@@ -1048,6 +1057,7 @@ public final class Core {
      * @return embedded message
      */
     @Nonnull
+    @Contract("-> new")
     public static EmbeddedMessage createEmbeddedMessage() {
         return provider.createEmbeddedMessage();
     }
@@ -1062,6 +1072,7 @@ public final class Core {
      * @throws IllegalArgumentException if one of the parameters is null
      */
     @Nonnull
+    @Contract("_, _, _ -> new")
     public static NPC createNPC(@Nonnull UUID skinUniqueId, @Nonnull String name, @Nonnull Location location)
             throws IllegalArgumentException {
         return provider.createNPC(skinUniqueId, name, location);
@@ -1078,6 +1089,7 @@ public final class Core {
      * @throws IllegalArgumentException if one of the parameters is null
      */
     @Nonnull
+    @Contract("_, _, _, _ -> new")
     public static NPC createNPC(@Nonnull String skinValue, @Nonnull String skinSignature,
                                 @Nonnull String name, @Nonnull Location location) throws IllegalArgumentException {
         return provider.createNPC(skinValue, skinSignature, name, location);
@@ -1094,7 +1106,8 @@ public final class Core {
      */
     @Nonnull
     @Contract("_, _, _ -> new")
-    public static CarBarrier createCarBarrier(@Nonnull Location loc, int rotation, @Nonnull List<Block> barrierBlocks) throws IllegalArgumentException {
+    public static CarBarrier createCarBarrier(@Nonnull Location loc, int rotation, @Nonnull List<Block> barrierBlocks)
+            throws IllegalArgumentException {
         while (rotation < 0) rotation += 360;
         rotation %= 360;
         return provider.createCarBarrier(loc, rotation, barrierBlocks);
@@ -1109,7 +1122,10 @@ public final class Core {
      * @return hologram with the specific parameters
      * @throws IllegalArgumentException if the location is null or the lines are empty
      */
-    public static Hologram createHologram(@Nonnull Location loc, boolean visibleToEveryone, @Nonnull String... lines) throws IllegalArgumentException {
+    @Nonnull
+    @Contract("_, _, _ -> new")
+    public static Hologram createHologram(@Nonnull Location loc, boolean visibleToEveryone, @Nonnull String... lines)
+            throws IllegalArgumentException {
         return provider.createHologram(loc, visibleToEveryone, lines);
     }
 
@@ -1121,6 +1137,7 @@ public final class Core {
      * @throws IllegalArgumentException if the itemstack is null
      */
     @Nonnull
+    @Contract(value = "_ -> new", pure = true)
     public static String itemStackToString(@Nonnull ItemStack itemStack) throws IllegalArgumentException {
         return provider.itemStackToString(itemStack);
     }
@@ -1132,7 +1149,7 @@ public final class Core {
      * @return itemstack of the string
      */
     @Nullable
-    @Contract("null -> null")
+    @Contract(value = "null -> null; !null -> new", pure = true)
     public static ItemStack itemStackFromString(@Nullable String itemStack) {
         return provider.itemStackFromString(itemStack);
     }
@@ -1144,6 +1161,7 @@ public final class Core {
      * @return decimal color code
      * @throws IllegalArgumentException if the hex color code is invalid or null
      */
+    @Contract(pure = true)
     public static int convertHexToDecimalColor(@Nonnull String hex) throws IllegalArgumentException {
         return provider.convertHexToDecimalColor(hex);
     }
@@ -1168,6 +1186,7 @@ public final class Core {
      * @return ArmorStand instance
      */
     @Nullable
+    @Contract(pure = true)
     public static FakeArmorStand getFakeArmorStand(int id) {
         return provider.getFakeArmorStand(id);
     }
@@ -1179,6 +1198,7 @@ public final class Core {
      * @return transparent text
      * @throws IllegalArgumentException if the text contains characters that have no transparent representation
      */
+    @Nonnull
     @Contract("null -> null")
     public static String convertToTransparent(@Nullable String text) throws IllegalArgumentException {
         return provider.convertToTransparent(text);
@@ -1199,6 +1219,8 @@ public final class Core {
      * @return interaction trigger with the specific parameters
      * @throws IllegalArgumentException if one of the parameters is null, the max values are smaller than the min values or the range is negative
      */
+    @Nonnull
+    @Contract("_, _, _, _, _, _, _, _, _ -> new")
     public static InteractionTrigger createInteractionTrigger(@Nonnull World world,
                                                               double minX, double minY, double minZ,
                                                               double maxX, double maxY, double maxZ,
