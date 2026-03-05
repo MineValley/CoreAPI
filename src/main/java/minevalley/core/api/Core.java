@@ -404,28 +404,6 @@ public final class Core {
     }
 
     /**
-     * Removes the color-codes from a given string
-     *
-     * @param text string which could contain color-codes
-     * @return string without any color-codes
-     */
-    @Contract("null -> null")
-    public static String removeColorCodes(@Nullable String text) {
-        return provider.removeColorCodes(text);
-    }
-
-    /**
-     * Converts chat-color-codes to normal color-codes (&amp; -> &sect;)
-     *
-     * @param text string which could contain chat-color-codes
-     * @return string with converted color-codes
-     */
-    @Contract("null -> null")
-    public static String convertColorCodes(@Nullable String text) {
-        return provider.convertColorCodes(text);
-    }
-
-    /**
      * Checks whether the given string contains a forbidden word.
      *
      * @param text text to check
