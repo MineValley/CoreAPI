@@ -39,7 +39,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
@@ -117,12 +116,6 @@ public interface CoreProvider {
 
     double getStatistic(@Nonnull String key) throws IllegalArgumentException;
 
-    @Contract("null -> null")
-    String removeColorCodes(@Nullable String text);
-
-    @Contract("null -> null")
-    String convertColorCodes(@Nullable String text);
-
     @Contract("null -> false")
     boolean containsForForbiddenWords(@Nullable String string);
 
@@ -193,12 +186,6 @@ public interface CoreProvider {
     @Nonnull
     @Contract("_ -> new")
     ItemBuilder createItem(String url) throws IllegalArgumentException;
-
-    @Nonnull
-    Inventory getInventoryFromString(@Nonnull String inventory) throws IllegalArgumentException;
-
-    @Nonnull
-    String getStringFromInventory(@Nonnull Inventory inventory) throws IllegalArgumentException;
 
     @Nullable
     BankAccount getBankAccount(@Nullable String iban);
