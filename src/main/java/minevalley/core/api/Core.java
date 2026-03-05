@@ -467,31 +467,65 @@ public final class Core {
      * @return amount as x.xxx.xxx,xx€
      */
     @Nonnull
+    @Contract(pure = true)
     public static String formatMoney(int amountInCents) {
         return provider.formatMoney(amountInCents);
     }
 
+    /**
+     * Formats the given time in a readable way.
+     *
+     * @param time time in milliseconds to format
+     * @return formatted time as dd. MMMM yyyy - HH:mm Uhr
+     */
     @Nonnull
+    @Contract(pure = true)
     public static String getFormattedDate(long time) {
         return new SimpleDateFormat("dd. MMMM yyyy - HH:mm", Locale.GERMANY).format(new Date(time)) + " Uhr";
     }
 
+    /**
+     * Formats the given time in a readable way, relative to the current time.
+     *
+     * @param timestamp time in milliseconds to format
+     * @return formatted time as "vor x Sekunden/Minuten/Stunden/Tagen" or "heute, HH:mm Uhr" or "gestern, HH:mm Uhr" or "dd. MMMM yyyy - HH:mm Uhr"
+     */
     @Nonnull
+    @Contract(pure = true)
     public static String formatRelativeTimestamp(long timestamp) {
         return provider.formatRelativeTimestamp(timestamp);
     }
 
+    /**
+     * Formats the current time in a readable way.
+     *
+     * @return current time formatted as dd. MMMM yyyy - HH:mm Uhr
+     */
     @Nonnull
+    @Contract(pure = true)
     public static String getCurrentTimeFormatted() {
         return getFormattedDate(System.currentTimeMillis());
     }
 
+    /**
+     * Formats the current day in a readable way, without the time.
+     *
+     * @return current day formatted as dd. MMMM yyyy
+     */
     @Nonnull
+    @Contract(pure = true)
     public static String getCurrentDayTimeFormatted() {
         return getFormattedTime(System.currentTimeMillis());
     }
 
+    /**
+     * Formats the given time in a readable way, without the date.
+     *
+     * @param time time in milliseconds to format
+     * @return formatted time as HH:mm Uhr
+     */
     @Nonnull
+    @Contract(pure = true)
     public static String getFormattedTime(long time) {
         return new SimpleDateFormat("HH:mm", Locale.GERMANY).format(new Date(time)) + " Uhr";
     }
@@ -534,6 +568,7 @@ public final class Core {
      * @return main world
      */
     @Nonnull
+    @Contract(pure = true)
     public static World getMainWorld() {
         return provider.getMainWorld();
     }
@@ -547,6 +582,7 @@ public final class Core {
      * @throws IllegalStateException if the method is called on any server but the main server
      */
     @Nonnull
+    @Contract(pure = true)
     public static World getBuildingWorld() throws IllegalStateException {
         return provider.getBuildingWorld();
     }
@@ -560,6 +596,7 @@ public final class Core {
      * @throws IllegalStateException if the method is called on any server but the main server
      */
     @Nonnull
+    @Contract(pure = true)
     public static World getPresetsWorld() throws IllegalStateException {
         return provider.getPresetsWorld();
     }
