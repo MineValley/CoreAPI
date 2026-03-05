@@ -5,9 +5,10 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import javax.annotation.Nonnull;
+import java.util.Date;
 
 @SuppressWarnings("unused")
-public record Education(@Nonnull Education.Subject subject, long graduationDate) {
+public record Education(@Nonnull Education.Subject subject, @Nonnull Date graduation) {
 
     @Getter
     @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
