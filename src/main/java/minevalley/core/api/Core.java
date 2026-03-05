@@ -319,6 +319,13 @@ public final class Core {
         return provider.getUniqueId(name);
     }
 
+    /**
+     * The team interface gives you access to all team-related features.
+     *
+     * @return team interface
+     */
+    @Nonnull
+    @Contract(pure = true)
     public static Team team() {
         return provider.team();
     }
@@ -328,8 +335,9 @@ public final class Core {
      *
      * @param type    type of the debug message
      * @param message message as string
+     * @throws IllegalArgumentException if the type or message is null
      */
-    public static void sendDebug(@Nonnull DebugType type, @Nonnull String message) {
+    public static void sendDebug(@Nonnull DebugType type, @Nonnull String message) throws IllegalArgumentException {
         provider.sendDebug(type, removeColorCodes(message));
     }
 
