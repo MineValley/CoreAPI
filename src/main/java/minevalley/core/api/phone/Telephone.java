@@ -1,11 +1,9 @@
 package minevalley.core.api.phone;
 
-import minevalley.core.api.Registrant;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.List;
 
 @SuppressWarnings("unused")
 public interface Telephone {
@@ -51,26 +49,6 @@ public interface Telephone {
     @Nonnull
     @Contract(pure = true)
     Telephone getIncomingCaller();
-
-    /**
-     * Gets the list of registrant, that are allowed to use this telephone.
-     * If this telephone is called, all of them are being informed,
-     * as long as their own phone is activated and is connected to the network.
-     *
-     * @return list of all permissioned registrant
-     */
-    @Nonnull
-    @Contract(pure = true)
-    List<Registrant> getPermissioned();
-
-    /**
-     * Gets this telephones owner
-     *
-     * @return owner as registrant
-     */
-    @Nonnull
-    @Contract(pure = true)
-    Registrant getOwner();
 
     /**
      * Accepts the incoming call.
