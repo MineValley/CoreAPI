@@ -19,15 +19,11 @@ public interface Marriage {
     Set<User> getUsers();
 
     /**
-     * Adds a user to this marriage.
-     *
-     * @param user user to be added
-     * @throws IllegalArgumentException if the user is null or already part of this marriage
-     */
-    void add(@Nonnull User user) throws IllegalArgumentException;
-
-    /**
      * Removes a user from this marriage.
+     * <p>
+     * <b>Note:</b> If the marriage has only two users,
+     * the marriage will be dissolved and the remaining user will be left without a partner.
+     * </p>
      *
      * @param user user to be removed
      * @throws IllegalArgumentException if the user is null or not part of this marriage
