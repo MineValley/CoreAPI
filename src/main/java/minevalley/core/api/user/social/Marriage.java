@@ -4,6 +4,7 @@ import minevalley.core.api.user.User;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import java.util.Date;
 import java.util.Set;
 
 @SuppressWarnings("unused")
@@ -31,10 +32,24 @@ public interface Marriage {
     void leave(@Nonnull User user) throws IllegalArgumentException;
 
     /**
-     * Gets the timestamp (in milliseconds since epoch) when this marriage was created.
+     * Gets the location where this marriage was created.
      *
-     * @return timestamp when the marriage was created
+     * @return location where the marriage was created
+     */
+    @Nonnull
+    @Contract(pure = true)
+    WeddingLocation getLocation();
+
+    /**
+     * Gets the date when this marriage was created.
+     *
+     * @return date of when the marriage was created
      */
     @Contract(pure = true)
-    long since();
+    Date since();
+
+    enum WeddingLocation {
+        OFFICE,
+        TOWN_HALL_GARDEN
+    }
 }
