@@ -34,6 +34,11 @@ public interface User extends Registrant {
     @Contract(pure = true)
     OnlineUser online() throws UserNotOnlineException;
 
+    /**
+     * Gets the statistics of this user.
+     *
+     * @return statistics of this user
+     */
     @Nonnull
     @Depends("UserStatistics")
     @Contract(value = "-> new", pure = true)
