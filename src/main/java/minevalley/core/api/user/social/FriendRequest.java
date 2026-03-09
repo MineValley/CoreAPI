@@ -4,6 +4,7 @@ import minevalley.core.api.user.User;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import java.util.Date;
 
 @SuppressWarnings("unused")
 public interface FriendRequest {
@@ -27,12 +28,13 @@ public interface FriendRequest {
     User getTarget();
 
     /**
-     * Gets the timestamp when the friend request was sent.
+     * Gets the date (including time) when the friend request was sent.
      *
-     * @return the sending timestamp in milliseconds since epoch
+     * @return the sending timestamp
      */
+    @Nonnull
     @Contract(pure = true)
-    long getSendingTimestamp();
+    Date getSendingTimestamp();
 
     /**
      * Accepts the friend request, establishing a friendship between the sender and the target.
