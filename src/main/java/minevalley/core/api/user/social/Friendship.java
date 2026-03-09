@@ -1,6 +1,7 @@
 package minevalley.core.api.user.social;
 
 import minevalley.core.api.user.User;
+import org.bukkit.Location;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -33,6 +34,15 @@ public interface Friendship {
      */
     @Contract(pure = true)
     long since();
+
+    /**
+     * Gets the location where this friendship was created.
+     *
+     * @return the location where this friendship was created
+     */
+    @Nonnull
+    @Contract(pure = true)
+    Location where();
 
     /**
      * Ends this friendship.
