@@ -29,7 +29,7 @@ public interface Friendship {
     User getFriend2();
 
     /**
-     * Gets the date of when this friendship was created.
+     * Gets the date (without time!) of when this friendship was created.
      *
      * @return the date of when this friendship was created
      */
