@@ -45,6 +45,7 @@ public interface Marriage {
      *
      * @return date of when the marriage was created
      */
+    @Nonnull
     @Contract(pure = true)
     Date since();
 
