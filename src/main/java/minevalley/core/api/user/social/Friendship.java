@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import java.util.Date;
 
 @SuppressWarnings("unused")
 public interface Friendship {
@@ -28,12 +29,13 @@ public interface Friendship {
     User getFriend2();
 
     /**
-     * Gets the timestamp (in milliseconds since epoch) of when this friendship was created.
+     * Gets the date of when this friendship was created.
      *
-     * @return the timestamp of when this friendship was created
+     * @return the date of when this friendship was created
      */
+    @Nonnull
     @Contract(pure = true)
-    long since();
+    Date since();
 
     /**
      * Gets the location where this friendship was created.
