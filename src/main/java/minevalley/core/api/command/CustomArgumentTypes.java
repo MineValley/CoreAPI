@@ -2,14 +2,14 @@ package minevalley.core.api.command;
 
 import com.mojang.brigadier.arguments.ArgumentType;
 import io.papermc.paper.command.brigadier.argument.ArgumentTypes;
+import io.papermc.paper.command.brigadier.argument.resolvers.BlockPositionResolver;
+import io.papermc.paper.command.brigadier.argument.resolvers.FinePositionResolver;
 import lombok.Setter;
-import minevalley.core.api.command.resolver.BlockSelectorArgumentResolver;
-import minevalley.core.api.command.resolver.OnlineUsersSelectorArgumentResolver;
-import minevalley.core.api.command.resolver.UserSelectorArgumentResolver;
 import minevalley.core.api.corporation.Group;
+import minevalley.core.api.fraction.Fraction;
 import minevalley.core.api.server.ServerType;
 import minevalley.core.api.user.OnlineUser;
-import minevalley.core.api.fraction.Fraction;
+import minevalley.core.api.user.User;
 import minevalley.core.api.user.team.TeamRank;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -19,6 +19,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import java.util.Set;
 
 @SuppressWarnings({"unused", "UnstableApiUsage"})
 public final class CustomArgumentTypes {
@@ -44,7 +45,7 @@ public final class CustomArgumentTypes {
      */
     @Nonnull
     @Contract(pure = true)
-    public static ArgumentType<OnlineUsersSelectorArgumentResolver> onlineUsers() {
+    public static ArgumentType<Set<OnlineUser>> onlineUsers() {
         return manager.onlineUsers();
     }
 
@@ -55,7 +56,7 @@ public final class CustomArgumentTypes {
      */
     @Nonnull
     @Contract(pure = true)
-    public static ArgumentType<UserSelectorArgumentResolver> user() {
+    public static ArgumentType<User> user() {
         return manager.user();
     }
 
@@ -101,17 +102,6 @@ public final class CustomArgumentTypes {
     @Contract(pure = true)
     public static ArgumentType<ServerType> server() {
         return manager.server();
-    }
-
-    /**
-     * Gets an argument type that resolves a block selector.
-     *
-     * @return the block selector argument type
-     */
-    @Nonnull
-    @Contract(pure = true)
-    public static ArgumentType<BlockSelectorArgumentResolver> block() {
-        return manager.block();
     }
 
     /**
@@ -192,11 +182,29 @@ public final class CustomArgumentTypes {
         return ArgumentTypes.time(minTime);
     }
 
-    public interface Manager {
+    /**
+     * Gets an argument type that resolves a block position.
+     *
+     * @return the block position argument type
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<BlockPositionResolver> blockPosition() {
+        return ArgumentTypes.blockPosition();
+    }
 
-        @Nonnull
-        @Contract(pure = true)
-        ArgumentType<BlockSelectorArgumentResolver> block();
+    /**
+     * Gets an argument type that resolves a fine position.
+     *
+     * @return the fine position argument type
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public static ArgumentType<FinePositionResolver> finePosition() {
+        return ArgumentTypes.finePosition();
+    }
+
+    public interface Manager {
 
         @Nonnull
         @Contract(pure = true)
@@ -208,11 +216,11 @@ public final class CustomArgumentTypes {
 
         @Nonnull
         @Contract(pure = true)
-        ArgumentType<OnlineUsersSelectorArgumentResolver> onlineUsers();
+        ArgumentType<Set<OnlineUser>> onlineUsers();
 
         @Nonnull
         @Contract(pure = true)
-        ArgumentType<UserSelectorArgumentResolver> user();
+        ArgumentType<User> user();
 
         @Nonnull
         @Contract(pure = true)
