@@ -1,6 +1,7 @@
 package minevalley.core.api.user.social;
 
 import minevalley.core.api.user.User;
+import org.bukkit.Location;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -35,6 +36,15 @@ public interface FriendRequest {
     @Nonnull
     @Contract(pure = true)
     Date getSendingTimestamp();
+
+    /**
+     * Gets the location where the sending user was standing when sending the request.
+     *
+     * @return the location where this friend request was sent
+     */
+    @Nonnull
+    @Contract(pure = true)
+    Location getLocation();
 
     /**
      * Accepts the friend request, establishing a friendship between the sender and the target.
