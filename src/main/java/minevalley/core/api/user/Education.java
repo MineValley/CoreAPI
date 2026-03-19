@@ -55,7 +55,7 @@ public record Education(@Nonnull Education.Subject subject, @Nonnull Date gradua
         MOTORCYCLE_LICENSE("Motorradführerschein", "Besitzer eines Motorradführerscheins", false),
 
         // Licenses - Firearms
-        BIG_FIREARM_LICENSE("Waffenschein", "Besitzer eines großen Waffenscheins", false),
+        BIG_FIREARM_LICENSE("Großer Waffenschein", "Besitzer eines großen Waffenscheins", false),
         SMALL_FIREARM_LICENSE("Kleiner Waffenschein", "Besitzer eines kleinen Waffenscheins", false),
 
         // Extracurricular
