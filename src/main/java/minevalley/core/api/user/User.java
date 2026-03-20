@@ -7,10 +7,10 @@ import minevalley.core.api.messaging.types.DebugType;
 import minevalley.core.api.phone.Telephone;
 import minevalley.core.api.user.exception.UserNotOnlineException;
 import minevalley.core.api.user.exception.UserNotPermittedException;
-import minevalley.core.api.user.social.FriendRequest;
 import minevalley.core.api.user.social.Friendship;
 import minevalley.core.api.user.social.Marriage;
 import minevalley.core.api.user.statistics.Statistics;
+import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
@@ -116,30 +116,13 @@ public interface User extends Registrant {
     Set<Friendship> getFriendships();
 
     /**
-     * Gets a set of the users received friend requests.
+     * Creates a friendship between this user and the specified friend.
      *
-     * @return set of the users received friend requests
+     * @param friend   user to be added as a friend
+     * @param location location where the users became friends
+     * @throws IllegalArgumentException if the friend or location is null, or if the user is already a friend
      */
-    @Nonnull
-    @Contract(pure = true)
-    Set<FriendRequest> getReceivedFriendRequests();
-
-    /**
-     * Gets a set of the users sent friend requests.
-     *
-     * @return set of the users sent friend requests
-     */
-    @Nonnull
-    @Contract(pure = true)
-    Set<FriendRequest> getPendingFriendRequests();
-
-    /**
-     * Adds a user to this users friend list and vice versa.
-     *
-     * @param user user to add to friend list
-     * @throws IllegalArgumentException if the user is null or already a friend
-     */
-    void addFriend(@Nonnull User user) throws IllegalArgumentException;
+    void createFriendship(@Nonnull User friend, @Nonnull Location location) throws IllegalArgumentException;
 
     /**
      * Gets a list of the unique ids of this user's spouses
