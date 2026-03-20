@@ -255,12 +255,6 @@ public interface CoreProvider {
     @Nonnull
     Hologram createHologram(@Nonnull Location loc, boolean visibleToEveryone, @Nonnull String... lines) throws IllegalArgumentException;
 
-    @Nonnull
-    String itemStackToString(@Nonnull ItemStack itemStack) throws IllegalArgumentException;
-
-    @Nullable
-    ItemStack itemStackFromString(@Nullable String itemStack);
-
     int convertHexToDecimalColor(@Nonnull String hex) throws IllegalArgumentException;
 
     @Nonnull

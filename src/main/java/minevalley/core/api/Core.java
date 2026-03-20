@@ -1105,31 +1105,6 @@ public final class Core {
     }
 
     /**
-     * Converts an itemstack to a string.
-     *
-     * @param itemStack itemstack to convert
-     * @return string of the itemstack
-     * @throws IllegalArgumentException if the itemstack is null
-     */
-    @Nonnull
-    @Contract(value = "_ -> new", pure = true)
-    public static String itemStackToString(@Nonnull ItemStack itemStack) throws IllegalArgumentException {
-        return provider.itemStackToString(itemStack);
-    }
-
-    /**
-     * Converts a string to an itemstack.
-     *
-     * @param itemStack string to convert
-     * @return itemstack of the string
-     */
-    @Nullable
-    @Contract(value = "null -> null; !null -> new", pure = true)
-    public static ItemStack itemStackFromString(@Nullable String itemStack) {
-        return provider.itemStackFromString(itemStack);
-    }
-
-    /**
      * Converts the given hex color code (with or without #) to a decimal color code.
      *
      * @param hex hex color code
