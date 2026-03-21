@@ -1,6 +1,6 @@
 package minevalley.core.api.database;
 
-import minevalley.core.api.Core;
+import minevalley.core.api.server.Server;
 import org.intellij.lang.annotations.Language;
 import org.jetbrains.annotations.Contract;
 
@@ -24,7 +24,7 @@ import java.sql.*;
  * }
  * </pre>
  *
- * @see Core#prepareSQL(String)
+ * @see Server#prepareSQL(String)
  * @see PreparedStatement
  * @see ResultSet
  */
