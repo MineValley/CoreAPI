@@ -114,6 +114,16 @@ public interface ItemBuilder {
     ItemBuilder setCustomModelData(@Nonnegative int customModelData) throws IllegalArgumentException;
 
     /**
+     * Sets the custom item model.
+     *
+     * @param itemModel the new model
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    ItemBuilder setItemModel(@Nullable NamespacedKey itemModel);
+
+    /**
      * Sets the item's amount.
      *
      * @param amount amount of the item as integer
