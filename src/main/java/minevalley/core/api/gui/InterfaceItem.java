@@ -6,6 +6,7 @@ import minevalley.core.api.Core;
 import minevalley.core.api.item.ItemBuilder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
@@ -17,218 +18,218 @@ public enum InterfaceItem {
     /**
      * Hides the selected slot.
      */
-    SPACER(1),
+    SPACER("gui/spacer"),
 
 
     /**
      * Hides the selected slot and the one above.
      */
-    DOUBLE_SPACER_UP(2),
+    DOUBLE_SPACER_UP("gui/double_spacer_up"),
 
     /**
      * Hides the selected slot and the one underneath.
      */
-    DOUBLE_SPACER_DOWN(3),
+    DOUBLE_SPACER_DOWN("gui/double_spacer_down"),
 
     /**
      * Hides the selected slot and the one to the left.
      */
-    DOUBLE_SPACER_LEFT(4),
+    DOUBLE_SPACER_LEFT("gui/double_spacer_left"),
 
     /**
      * Hides the selected slot and the one to the right.
      */
-    DOUBLE_SPACER_RIGHT(5),
+    DOUBLE_SPACER_RIGHT("gui/double_spacer_right"),
 
 
     /**
      * Hides the selected slot and highlights the item above.
      */
-    HIGHLIGHTER_UP(6),
+    HIGHLIGHTER_UP("gui/highlighter_up"),
 
     /**
      * Hides the selected slot and highlights the item underneath.
      */
-    HIGHLIGHTER_DOWN(7),
+    HIGHLIGHTER_DOWN("gui/highlighter_down"),
 
     /**
      * Hides the selected slot and highlights the item to the left.
      */
-    HIGHLIGHTER_LEFT(8),
+    HIGHLIGHTER_LEFT("gui/highlighter_left"),
 
     /**
      * Hides the selected slot and highlights the item to the right.
      */
-    HIGHLIGHTER_RIGHT(9),
+    HIGHLIGHTER_RIGHT("gui/highlighter_right"),
 
 
     /**
      * Hides the selected slot and the one above, but highlights the item above the selected slot.
      */
-    HIGHLIGHTED_DOUBLE_SPACER_UP(10),
+    HIGHLIGHTED_DOUBLE_SPACER_UP("gui/highlighted_double_spacer_up"),
 
     /**
      * Hides the selected slot and the one underneath, but highlights the item under the selected slot.
      */
-    HIGHLIGHTED_DOUBLE_SPACER_DOWN(11),
+    HIGHLIGHTED_DOUBLE_SPACER_DOWN("gui/highlighted_double_spacer_down"),
 
     /**
      * Hides the selected slot and the one to the left, but highlights the item to the left of the selected slot.
      */
-    HIGHLIGHTED_DOUBLE_SPACER_LEFT(12),
+    HIGHLIGHTED_DOUBLE_SPACER_LEFT("gui/highlighted_double_spacer_left"),
 
     /**
      * Hides the selected slot and the one to the right, but highlights the item to the right of the selected slot.
      */
-    HIGHLIGHTED_DOUBLE_SPACER_RIGHT(13),
+    HIGHLIGHTED_DOUBLE_SPACER_RIGHT("gui/highlighted_double_spacer_right"),
 
 
     /**
      * Hides the selected slot and displays a green hook.
      */
-    CHECKMARK(14),
+    CHECKMARK("gui/checkmark"),
 
     /**
      * Hides the selected slot and displays a red cross.
      */
-    CROSS(15),
+    CROSS("gui/cross"),
 
 
     /**
      * Hides the selected slot and displays a blue return arrow.
      */
-    RETURN(16),
+    RETURN("gui/return"),
 
 
     /**
      * Is used to scroll back a page in an inventory.
      */
-    PREVIOUS(17),
+    PREVIOUS("gui/previous"),
 
     /**
      * Is used to scroll forward a page in an inventory.
      */
-    NEXT(18),
+    NEXT("gui/next"),
 
     /**
      * Is used to scroll up in an inventory.
      */
-    UP(19),
+    UP("gui/up"),
 
     /**
      * Is used to scroll down in an inventory.
      */
-    DOWN(20),
+    DOWN("gui/down"),
 
     /**
      * Is used to scroll back a page in an inventory.
      */
-    PREVIOUS_CLICKED(21),
+    PREVIOUS_CLICKED("gui/previous_clicked"),
 
     /**
      * Is used to scroll forward a page in an inventory.
      */
-    NEXT_CLICKED(22),
+    NEXT_CLICKED("gui/next_clicked"),
 
     /**
      * Is used to scroll up in an inventory.
      */
-    UP_CLICKED(23),
+    UP_CLICKED("gui/up_clicked"),
 
     /**
      * Is used to scroll down in an inventory.
      */
-    DOWN_CLICKED(24),
+    DOWN_CLICKED("gui/down_clicked"),
 
 
     /**
      * Is used to signalize an empty power slot.
      */
-    INACTIVE_CELL(25),
+    INACTIVE_CELL("gui/inactive_cell"),
 
     /**
      * Is used to signalize a full power slot.
      */
-    ACTIVE_CELL(26),
+    ACTIVE_CELL("gui/active_cell"),
 
 
     /**
      * Hides the selected slot and displays an arrow on the slot above.
      */
-    BUTTON_UP(27),
+    BUTTON_UP("gui/button_up"),
 
     /**
      * Hides the selected slot and displays an arrow on the slot underneath.
      */
-    BUTTON_DOWN(28),
+    BUTTON_DOWN("gui/button_down"),
 
     /**
      * Hides the selected slot and displays an arrow on the slot to the left.
      */
-    BUTTON_LEFT(29),
+    BUTTON_LEFT("gui/button_left"),
 
     /**
      * Hides the selected slot and displays an arrow on the slot to the right.
      */
-    BUTTON_RIGHT(30),
+    BUTTON_RIGHT("gui/button_right"),
 
 
     /**
      * Is used to display the digit 0.
      */
-    DIGIT_0(31),
+    DIGIT_0("gui/digit_0"),
 
     /**
      * Is used to display the digit 1.
      */
-    DIGIT_1(32),
+    DIGIT_1("gui/digit_1"),
 
     /**
      * Is used to display the digit 2.
      */
-    DIGIT_2(33),
+    DIGIT_2("gui/digit_2"),
 
     /**
      * Is used to display the digit 3.
      */
-    DIGIT_3(34),
+    DIGIT_3("gui/digit_3"),
 
     /**
      * Is used to display the digit 4.
      */
-    DIGIT_4(35),
+    DIGIT_4("gui/digit_4"),
 
     /**
      * Is used to display the digit 5.
      */
-    DIGIT_5(36),
+    DIGIT_5("gui/digit_5"),
 
     /**
      * Is used to display the digit 6.
      */
-    DIGIT_6(37),
+    DIGIT_6("gui/digit_6"),
 
     /**
      * Is used to display the digit 7.
      */
-    DIGIT_7(38),
+    DIGIT_7("gui/digit_7"),
 
     /**
      * Is used to display the digit 8.
      */
-    DIGIT_8(39),
+    DIGIT_8("gui/digit_8"),
 
     /**
      * Is used to display the digit 9.
      */
-    DIGIT_9(40),
+    DIGIT_9("gui/digit_9"),
 
     /**
      * Is used to display a colon.
      */
-    COLON(41);
+    COLON("gui/colon");
 
-    private final int customModelData;
+    private final String itemModel;
 
     /**
      * Gets the interface-item as an item-builder.
@@ -236,8 +237,9 @@ public enum InterfaceItem {
      * @return interface-item as item-builder
      */
     public ItemBuilder getBuilder() {
-        return Core.createItem(Material.PAPER).setCustomModelData(customModelData).setHideToolTip(true)
-                .setDisplayName(Component.empty());
+        return Core.createItem(Material.GRAY_STAINED_GLASS_PANE)
+                .setItemModel(new NamespacedKey("minevalley", itemModel))
+                .setHideToolTip(true).setDisplayName(Component.empty());
     }
 
     @Nonnull
