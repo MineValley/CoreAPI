@@ -125,12 +125,12 @@ public enum InterfaceItem {
     /**
      * Is used to signalize an empty power slot.
      */
-    INACTIVE_CELL("gui/inactive_cell"),
+    INACTIVE_CELL("gui/cell_inactive"),
 
     /**
      * Is used to signalize a full power slot.
      */
-    ACTIVE_CELL("gui/active_cell"),
+    ACTIVE_CELL("gui/cell_active"),
 
 
     /**
