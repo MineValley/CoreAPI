@@ -104,42 +104,22 @@ public enum InterfaceItem {
     /**
      * Is used to scroll back a page in an inventory.
      */
-    PREVIOUS("gui/previous"),
+    PAGINATION_LEFT("gui/pagination_left"),
 
     /**
      * Is used to scroll forward a page in an inventory.
      */
-    NEXT("gui/next"),
+    PAGINATION_RIGHT("gui/pagination_right"),
 
     /**
      * Is used to scroll up in an inventory.
      */
-    UP("gui/up"),
+    PAGINATION_UP("gui/pagination_up"),
 
     /**
      * Is used to scroll down in an inventory.
      */
-    DOWN("gui/down"),
-
-    /**
-     * Is used to scroll back a page in an inventory.
-     */
-    PREVIOUS_CLICKED("gui/previous_clicked"),
-
-    /**
-     * Is used to scroll forward a page in an inventory.
-     */
-    NEXT_CLICKED("gui/next_clicked"),
-
-    /**
-     * Is used to scroll up in an inventory.
-     */
-    UP_CLICKED("gui/up_clicked"),
-
-    /**
-     * Is used to scroll down in an inventory.
-     */
-    DOWN_CLICKED("gui/down_clicked"),
+    PAGINATION_DOWN("gui/pagination_down"),
 
 
     /**
