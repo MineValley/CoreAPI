@@ -1,6 +1,6 @@
 package eu.minevalley.core.api.weapons;
 
-import eu.minevalley.core.api.Registrant;
+import eu.minevalley.proxima.api.Registrant;
 import lombok.Setter;
 import org.jetbrains.annotations.Contract;
 

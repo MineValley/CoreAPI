@@ -1,7 +1,7 @@
 package eu.minevalley.core.api.server.events.item;
 
 import eu.minevalley.core.api.server.events.ProxyServerEvents;
-import eu.minevalley.core.api.user.ProxyUser;
+import eu.minevalley.proxima.api.user.ProxyUser;
 import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 

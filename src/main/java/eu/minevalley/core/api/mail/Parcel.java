@@ -1,6 +1,6 @@
 package eu.minevalley.core.api.mail;
 
-import eu.minevalley.core.api.Registrant;
+import eu.minevalley.proxima.api.Registrant;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;
 

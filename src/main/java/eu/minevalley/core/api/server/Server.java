@@ -1,9 +1,10 @@
 package eu.minevalley.core.api.server;
 
-import eu.minevalley.core.api.audio.SoundReceiver;
-import eu.minevalley.core.api.database.DatabaseHolder;
-import eu.minevalley.core.api.messaging.MessageReceiver;
 import eu.minevalley.core.api.user.OnlineUser;
+import eu.minevalley.proxima.api.audio.SoundReceiver;
+import eu.minevalley.proxima.api.database.DatabaseHolder;
+import eu.minevalley.proxima.api.messaging.MessageReceiver;
+import eu.minevalley.proxima.api.server.ServerType;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;

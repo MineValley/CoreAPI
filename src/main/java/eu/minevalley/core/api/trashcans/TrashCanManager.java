@@ -1,6 +1,6 @@
 package eu.minevalley.core.api.trashcans;
 
-import eu.minevalley.core.api.Depends;
+import eu.minevalley.proxima.api.Depends;
 import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.block.Block;

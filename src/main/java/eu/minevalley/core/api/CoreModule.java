@@ -1,5 +1,6 @@
 package eu.minevalley.core.api;
 
+import eu.minevalley.proxima.api.Developer;
 import lombok.Getter;
 import org.jetbrains.annotations.Contract;
 

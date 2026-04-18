@@ -1,6 +1,6 @@
 package eu.minevalley.core.api;
 
-import eu.minevalley.core.api.server.ServerType;
+import eu.minevalley.proxima.api.server.ServerType;
 
 import javax.annotation.Nonnull;
 import java.lang.annotation.ElementType;

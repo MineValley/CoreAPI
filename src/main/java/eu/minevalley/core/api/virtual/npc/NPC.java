@@ -1,10 +1,10 @@
 package eu.minevalley.core.api.virtual.npc;
 
-import eu.minevalley.core.api.messaging.MessageSender;
 import eu.minevalley.core.api.user.OnlineUser;
 import eu.minevalley.core.api.virtual.modifier.*;
 import eu.minevalley.core.api.virtual.riding.Passenger;
 import eu.minevalley.core.api.virtual.riding.Vehicle;
+import eu.minevalley.proxima.api.messaging.MessageSender;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

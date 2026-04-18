@@ -1,7 +1,7 @@
 package eu.minevalley.core.api.trashcans.event;
 
-import eu.minevalley.core.api.user.User;
-import eu.minevalley.core.api.user.event.UserEvent;
+import eu.minevalley.proxima.api.user.User;
+import eu.minevalley.proxima.api.user.event.UserEvent;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.block.Block;

@@ -1,12 +1,16 @@
-package eu.minevalley.core.api.event;
+package eu.minevalley.core.api.user;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 import javax.annotation.Nonnull;
 
-public abstract class ProxyEvent extends Event {
+@RequiredArgsConstructor
+public abstract class OnlineUserEvent extends Event {
+
+    private final @Getter(onMethod_ = @Nonnull) OnlineUser user;
 
     private final static @Getter(onMethod_ = @Nonnull) HandlerList handlerList = new HandlerList();
 

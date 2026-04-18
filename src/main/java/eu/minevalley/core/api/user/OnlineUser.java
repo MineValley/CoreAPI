@@ -1,10 +1,16 @@
 package eu.minevalley.core.api.user;
 
-import eu.minevalley.core.api.audio.Ambient;
-import eu.minevalley.core.api.banking.AccountUser;
-import eu.minevalley.core.api.banking.BankAccount;
+import com.mojang.brigadier.arguments.ArgumentType;
+import eu.minevalley.core.api.Core;
+import eu.minevalley.proxima.api.banking.AccountUser;
+import eu.minevalley.proxima.api.banking.BankAccount;
+import eu.minevalley.proxima.api.item.ItemBuilder;
+import eu.minevalley.proxima.api.user.ProxyUser;
+import eu.minevalley.proxima.api.user.User;
+import eu.minevalley.proxima.api.user.exception.UserNotOnlineException;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Ambient;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Contract;
 
@@ -16,6 +22,17 @@ import java.util.function.Consumer;
 @SuppressWarnings("unused")
 public interface OnlineUser extends ProxyUser {
 
+    @Nonnull
+    @Contract(pure = true)
+    static OnlineUser of(@Nonnull User user) throws IllegalArgumentException, UserNotOnlineException {
+        if (user == null) throw new IllegalArgumentException("User cannot be null");
+        return Core.getOnlineUser(user.getUniqueId());
+    }
+
+    static ArgumentType<OnlineUser> argumentType() {
+        return Core.getOnlineUserArgumentType();
+    }
+
     /**
      * Gets the player object of this user.
      *
@@ -25,21 +42,16 @@ public interface OnlineUser extends ProxyUser {
     @Contract(pure = true)
     Player player();
 
+    @Nonnull
+    @Contract(pure = true)
+    ItemBuilder getHead();
+
     /**
      * Closes the inventory of this user.
      */
     default void closeInventory() {
         player().closeInventory();
     }
-
-    /**
-     * Update the list of commands sent to the client.
-     * <p>
-     * Generally useful to ensure the client has a complete list of commands
-     * after permission changes are done.
-     * </p>
-     */
-    void updateCommands();
 
     /**
      * Gets the ambient this user is currently hearing
