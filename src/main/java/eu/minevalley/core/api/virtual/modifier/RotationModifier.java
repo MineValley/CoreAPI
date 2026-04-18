@@ -1,0 +1,92 @@
+package eu.minevalley.core.api.virtual.modifier;
+
+import org.bukkit.util.Vector;
+import org.jetbrains.annotations.Contract;
+
+import javax.annotation.Nonnull;
+
+@SuppressWarnings("unused")
+public interface RotationModifier<T extends RotationModifier<T>> {
+
+    /**
+     * Set the rotation
+     *
+     * @param yaw   yaw rotation
+     * @param pitch pitch rotation
+     * @param roll  roll rotation
+     * @return this
+     */
+    @Nonnull
+    @Contract(pure = true)
+    T setRotation(float yaw, float pitch, float roll);
+
+    /**
+     * Set the rotation
+     *
+     * @param rotation rotation vector (yaw, pitch, roll)
+     * @return this
+     * @throws IllegalArgumentException if the vector is null
+     */
+    @Nonnull
+    @Contract(pure = true)
+    T setRotation(@Nonnull Vector rotation) throws IllegalArgumentException;
+
+    /**
+     * Get yaw
+     *
+     * @return yaw
+     */
+    @Contract(pure = true)
+    float getYaw();
+
+    /**
+     * Set yaw
+     *
+     * @param yaw the yaw to set
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    T setYaw(float yaw);
+
+    /**
+     * Get pitch
+     *
+     * @return pitch
+     */
+    @Contract(pure = true)
+    float getPitch();
+
+    /**
+     * Set pitch
+     *
+     * @param pitch the pitch to set
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    T setPitch(float pitch);
+
+    /**
+     * Get roll
+     *
+     * @return roll
+     */
+    @Contract(pure = true)
+    float getRoll();
+
+    /**
+     * Set roll
+     *
+     * @param roll the roll to set
+     * @return this
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    T setRoll(float roll);
+
+    /**
+     * Update the rotation
+     */
+    void updateRotation();
+}
