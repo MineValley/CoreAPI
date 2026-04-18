@@ -1,15 +1,15 @@
 package minevalley.core.api.user;
 
 import minevalley.core.api.audio.SoundReceiver;
+import minevalley.core.api.fraction.Fraction;
 import minevalley.core.api.localization.PlayerLocation;
 import minevalley.core.api.messaging.DialogReceiver;
 import minevalley.core.api.messaging.MessageReceiver;
+import minevalley.core.api.messaging.clickable.ClickableMessage;
 import minevalley.core.api.user.chat.ChatProvider;
 import minevalley.core.api.user.chat.ChatType;
-import minevalley.core.api.fraction.Fraction;
-import minevalley.core.api.user.statistics.McVersion;
 import minevalley.core.api.user.exception.UserNotPermittedException;
-import minevalley.core.api.messaging.clickable.ClickableMessage;
+import minevalley.core.api.user.statistics.McVersion;
 import minevalley.core.api.user.team.TeamMember;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Contract;

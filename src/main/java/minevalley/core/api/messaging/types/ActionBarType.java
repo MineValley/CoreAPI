@@ -3,7 +3,6 @@ package minevalley.core.api.messaging.types;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import minevalley.core.api.messaging.glyphs.CustomCharacter;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.NamedTextColor;

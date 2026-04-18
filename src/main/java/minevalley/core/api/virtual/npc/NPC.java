@@ -1,8 +1,8 @@
 package minevalley.core.api.virtual.npc;
 
 import minevalley.core.api.messaging.MessageSender;
-import minevalley.core.api.virtual.modifier.*;
 import minevalley.core.api.user.OnlineUser;
+import minevalley.core.api.virtual.modifier.*;
 import minevalley.core.api.virtual.riding.Passenger;
 import minevalley.core.api.virtual.riding.Vehicle;
 import org.bukkit.Location;
