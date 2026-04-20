@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up to JDK 1.8
+      - name: Set up to JDK 21
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -37,6 +37,8 @@ jobs:
 
       - name: Build with Maven
         run: mvn -B clean package
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to GitHub Packages # Repository is set in pom.xml
         run: mvn deploy
