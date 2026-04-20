@@ -90,13 +90,16 @@ it’s correct.</li>
 
 <strong>Can I choose the content of <code>&lt;id&gt;</code> freely?</strong>
 <ul>
-   <li>Yes, the content of <code>&lt;id&gt;</code> in both the <code>settings.xml</code> and <code>pom.xml</code> files can be freely chosen, but it must be identical
+   <li>Yes, the content of <code>&lt;id&gt;</code> in both the <code>settings.xml</code> and <code>pom.xml</code> can be freely chosen, but it must be the same
 in both files.</li>
 </ul>
 
-<strong>I followed all steps, but the dependency could not be found.</strong>
+<strong>I followed all steps, but the api (or a specific version of it) could not be found.</strong>
 <ol>
    <li>Click <strong>Maven</strong> in the right-hand sidebar.</li>
    <li>Press the <strong>Reload All Maven Projects</strong> button (top-left).</li>
    <li>If the problem persists, go to <strong>File</strong> → <strong>Invalidate Caches...</strong> → <strong>Invalidate and Restart</strong>.</li>
+   <li>If the problem persists, check whether the repository id and the id in your <code>settings.xml</code> is the same</li>
+   <li>If the problem persists, delete the repository in your .m2 folder and run <code>mvn package -U</code> in your project</li>
+   <li>If steps 1-5 didn't work or the problems appears regulary (e.g. when updating the core-api version), try to (re-)install the newest intelliJ version and <strong>uninstall old ones</strong></li>
 </ol>
