@@ -3,8 +3,8 @@
 The CoreAPI provides essential features and access to the internal server core of MineValleyEU, used in all modules.
 
 > [!NOTE]\
-> The documentation for this API is still a work in progress and does not yet cover the entire functionality. We are
-> working on adding more Javadoc to make the API easier to use.
+> To move more logic and data management to the proxy, many API features have been moved to the ProximaAPI.
+> Because the CoreAPI depends on the ProximaAPI, you can still access those features through the CoreAPI.
 
 ## Maven Integration
 
