@@ -26,12 +26,6 @@
         <repository>
             <id>github-proxima</id>
             <url>https://maven.pkg.github.com/MineValley/ProximaAPI</url>
-            <releases>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </repository>
     </repositories>
 
