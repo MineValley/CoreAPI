@@ -24,7 +24,7 @@
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
         <repository>
-            <id>github-proxima</id>
+            <id>github</id>
             <url>https://maven.pkg.github.com/MineValley/ProximaAPI</url>
         </repository>
     </repositories>
