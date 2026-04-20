@@ -20,9 +20,9 @@ Before proceeding, ensure you’ve added a token to your `settings.xml` file (de
 
 ```xml
 <dependency>
-    <groupId>minevalley.core</groupId>
-    <artifactId>api</artifactId>
-    <version>1.300.0</version>
+    <groupId>eu.minevalley</groupId>
+    <artifactId>core-api</artifactId>
+    <version>1.306.0</version>
     <scope>provided</scope>
 </dependency>
 ```
