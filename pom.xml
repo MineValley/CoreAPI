@@ -36,6 +36,7 @@
             <artifactId>proxima-api</artifactId>
             <version>1.1.0</version>
         </dependency>
+
         <!-- Paper -->
         <!--suppress VulnerableLibrariesLocal -->
         <dependency>
@@ -52,7 +53,6 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -95,7 +95,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.5.0</version>
+                <version>3.11.2</version>
                 <configuration>
                     <additionalJOptions>
                         <additionalJOption>-Xdoclint:none</additionalJOption>
