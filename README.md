@@ -12,7 +12,6 @@ To use the CoreAPI in your module, we provide a Maven repository hosted on GitHu
 Before proceeding, ensure you’ve added a token to your `settings.xml` file (details below).
 
 ```xml
-
 <repository>
     <id>core-api</id>
     <url>https://maven.pkg.github.com/MineValley/CoreAPI</url>
@@ -20,7 +19,6 @@ Before proceeding, ensure you’ve added a token to your `settings.xml` file (de
 ```
 
 ```xml
-
 <dependency>
     <groupId>minevalley.core</groupId>
     <artifactId>api</artifactId>
