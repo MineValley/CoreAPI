@@ -1,7 +1,7 @@
 package eu.minevalley.core.api.user;
 
 import com.mojang.brigadier.arguments.ArgumentType;
-import eu.minevalley.core.api.Core;
+import eu.minevalley.core.api.CoreLegacy;
 import eu.minevalley.proxima.api.banking.AccountUser;
 import eu.minevalley.proxima.api.banking.BankAccount;
 import eu.minevalley.proxima.api.item.ItemBuilder;
@@ -26,11 +26,11 @@ public interface OnlineUser extends ProxyUser {
     @Contract(pure = true)
     static OnlineUser of(@Nonnull User user) throws IllegalArgumentException, UserNotOnlineException {
         if (user == null) throw new IllegalArgumentException("User cannot be null");
-        return Core.getOnlineUser(user.getUniqueId());
+        return CoreLegacy.getOnlineUser(user.getUniqueId());
     }
 
     static ArgumentType<OnlineUser> argumentType() {
-        return Core.getOnlineUserArgumentType();
+        return CoreLegacy.getOnlineUserArgumentType();
     }
 
     /**

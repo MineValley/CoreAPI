@@ -1,41 +1,63 @@
 package eu.minevalley.core.api;
 
 import eu.minevalley.proxima.api.Developer;
-import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
-@Getter
 @SuppressWarnings("unused")
+@RequiredArgsConstructor
 public abstract class CoreModule {
 
-    private final Module moduleDescription;
+    private final @Nonnull Core core;
 
-    public CoreModule() {
-        final Class<? extends CoreModule> clazz = getClass();
-        if (!clazz.isAnnotationPresent(Module.class)) {
-            throw new IllegalArgumentException("Module annotation is missing in module '" + clazz.getSimpleName() + "'");
-        }
-        this.moduleDescription = clazz.getAnnotation(Module.class);
+    /**
+     * Gets this modules instance of the {@link Core}.
+     *
+     * @return this modules instance of the Core
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public final Core core() {
+        return core;
     }
 
     /**
      * Is called when the module is enabled.
      */
     public void onEnable() {
-        // do nothing
+        // override this method to add logic
     }
 
     /**
      * Is called when the module is disabled.
      */
     public void onDisable() {
-        // do nothing
+        // override this method to add logic
     }
 
+    /**
+     * Is called then the server starts with the cleanup flag.
+     */
     public void onCleanup() {
-        // do nothing
+        // override this method to add logic
+    }
+
+    /**
+     * Gets the @{@link Module}-Annotation of this module.
+     *
+     * @return the annotation if present
+     * @throws IllegalStateException if the class is missing its annotation.
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public final Module annotation() throws IllegalStateException {
+        final Class<? extends CoreModule> clazz = getClass();
+        if (!clazz.isAnnotationPresent(Module.class)) {
+            throw new IllegalStateException("Module annotation is missing in module '" + clazz.getSimpleName() + "'");
+        }
+        return clazz.getAnnotation(Module.class);
     }
 
     /**
@@ -45,13 +67,18 @@ public abstract class CoreModule {
      */
     @Nonnull
     @Contract(pure = true)
-    public String getVersion() {
-        return Core.getVersion(this);
+    public final String getVersion() {
+        return core.getVersion(this);
     }
 
+    /**
+     * Gets an array of this module's developers, as to find in the {@code pom.xml}.
+     *
+     * @return array of developers
+     */
     @Nonnull
     @Contract(pure = true)
-    public Developer[] getDevelopers() {
-        return Core.getDevelopers(this);
+    public final Developer[] getDevelopers() {
+        return core.getDevelopers(this);
     }
 }
