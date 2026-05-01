@@ -1,6 +1,5 @@
 package eu.minevalley.core.api.item;
 
-import eu.minevalley.proxima.api.item.CustomItemFlag;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;

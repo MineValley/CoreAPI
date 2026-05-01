@@ -1,9 +1,9 @@
 package eu.minevalley.core.api.user;
 
 import com.mojang.brigadier.arguments.ArgumentType;
+import eu.minevalley.core.api.item.ItemBuilder;
 import eu.minevalley.proxima.api.banking.AccountUser;
 import eu.minevalley.proxima.api.banking.BankAccount;
-import eu.minevalley.proxima.api.item.ItemBuilder;
 import eu.minevalley.proxima.api.user.ProxyUser;
 import eu.minevalley.proxima.api.user.User;
 import eu.minevalley.proxima.api.user.exception.UserNotOnlineException;

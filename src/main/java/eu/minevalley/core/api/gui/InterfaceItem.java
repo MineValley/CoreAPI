@@ -1,12 +1,13 @@
 package eu.minevalley.core.api.gui;
 
-import eu.minevalley.proxima.api.item.ItemBuilder;
+import eu.minevalley.core.api.item.ItemBuilder;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
@@ -211,6 +212,21 @@ public enum InterfaceItem {
     private final String itemModel;
 
     /**
+     * Gets the digit interface-item for the given digit.
+     *
+     * @param digit digit to get interface-item of
+     * @return interface-item
+     * @throws IllegalArgumentException if digit is less than 0 or greater than 9
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public static InterfaceItem getDigit(int digit) throws IllegalArgumentException {
+        if (digit < 0) throw new IllegalArgumentException("Digit must be greater than or equal to 0.");
+        if (digit > 9) throw new IllegalArgumentException("Digit must be less than or equal to 9.");
+        return values()[27 + digit];
+    }
+
+    /**
      * Gets the interface-item as an item-builder.
      *
      * @return interface-item as item-builder
@@ -219,13 +235,6 @@ public enum InterfaceItem {
         return ProximaLegacy.createItem(Material.GRAY_STAINED_GLASS_PANE)
                 .setItemModel(new NamespacedKey("minevalley", itemModel))
                 .setHideToolTip(true).setDisplayName(Component.empty());
-    }
-
-    @Nonnull
-    public static InterfaceItem getDigit(int digit) throws IllegalArgumentException {
-        if (digit < 0) throw new IllegalArgumentException("Digit must be greater than or equal to 0.");
-        if (digit > 9) throw new IllegalArgumentException("Digit must be less than or equal to 9.");
-        return values()[27 + digit];
     }
 
     /**

@@ -1,6 +1,5 @@
 package eu.minevalley.core.api.gui;
 
-import eu.minevalley.proxima.api.gui.GuiItemClick;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
