@@ -1,7 +1,5 @@
 package eu.minevalley.core.api.gui;
 
-import eu.minevalley.proxima.api.gui.GuiItemClick;
-import eu.minevalley.proxima.api.gui.InventoryGui;
 import eu.minevalley.proxima.api.user.ProxyUser;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
