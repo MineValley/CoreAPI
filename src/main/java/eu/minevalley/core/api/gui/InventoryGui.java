@@ -1,7 +1,5 @@
 package eu.minevalley.core.api.gui;
 
-import eu.minevalley.proxima.api.gui.GuiItemClick;
-import eu.minevalley.proxima.api.gui.InterfaceItem;
 import eu.minevalley.proxima.api.user.ProxyUser;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
@@ -51,7 +49,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_, _ -> this")
-    default InventoryGui setItem(@Nonnegative int slot, @Nonnull eu.minevalley.proxima.api.gui.InterfaceItem item)
+    default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item)
             throws IllegalArgumentException, IndexOutOfBoundsException {
         return setItem(slot, item.toItemStack());
     }
@@ -68,7 +66,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_, _, _ -> this")
-    InventoryGui setItem(@Nonnegative int slot, @Nonnull ItemStack item, @Nonnull Consumer<eu.minevalley.proxima.api.gui.GuiItemClick> onClick)
+    InventoryGui setItem(@Nonnegative int slot, @Nonnull ItemStack item, @Nonnull Consumer<GuiItemClick> onClick)
             throws IllegalArgumentException, IndexOutOfBoundsException;
 
     /**
@@ -83,8 +81,8 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_, _, _ -> this")
-    default InventoryGui setItem(@Nonnegative int slot, @Nonnull eu.minevalley.proxima.api.gui.InterfaceItem item,
-                                 @Nonnull Consumer<eu.minevalley.proxima.api.gui.GuiItemClick> onClick)
+    default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item,
+                                 @Nonnull Consumer<GuiItemClick> onClick)
             throws IllegalArgumentException, IndexOutOfBoundsException {
         return setItem(slot, item.toItemStack(), onClick);
     }
@@ -100,7 +98,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_, _ -> this")
-    InventoryGui setInterfaceItems(@Nonnull eu.minevalley.proxima.api.gui.InterfaceItem item, @Nonnegative int... slots)
+    InventoryGui setInterfaceItems(@Nonnull InterfaceItem item, @Nonnegative int... slots)
             throws IllegalArgumentException, IndexOutOfBoundsException;
 
     /**
@@ -115,7 +113,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_, _, _ -> this")
-    InventoryGui setInterfaceItemsInRange(@Nonnull eu.minevalley.proxima.api.gui.InterfaceItem item, @Nonnegative int from, @Nonnegative int to)
+    InventoryGui setInterfaceItemsInRange(@Nonnull InterfaceItem item, @Nonnegative int from, @Nonnegative int to)
             throws IllegalArgumentException, IndexOutOfBoundsException;
 
     /**
@@ -140,7 +138,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_ -> this")
-    default InventoryGui addItem(@Nonnull eu.minevalley.proxima.api.gui.InterfaceItem item) throws IllegalArgumentException, IllegalStateException {
+    default InventoryGui addItem(@Nonnull InterfaceItem item) throws IllegalArgumentException, IllegalStateException {
         return addItem(item.toItemStack());
     }
 
@@ -155,7 +153,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_, _ -> this")
-    InventoryGui addItem(@Nonnull ItemStack item, @Nonnull Consumer<eu.minevalley.proxima.api.gui.GuiItemClick> onClick)
+    InventoryGui addItem(@Nonnull ItemStack item, @Nonnull Consumer<GuiItemClick> onClick)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
@@ -169,7 +167,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_, _ -> this")
-    default InventoryGui addItem(@Nonnull InterfaceItem item, @Nonnull Consumer<eu.minevalley.proxima.api.gui.GuiItemClick> onClick)
+    default InventoryGui addItem(@Nonnull InterfaceItem item, @Nonnull Consumer<GuiItemClick> onClick)
             throws IllegalArgumentException, IllegalStateException {
         return addItem(item.toItemStack(), onClick);
     }
