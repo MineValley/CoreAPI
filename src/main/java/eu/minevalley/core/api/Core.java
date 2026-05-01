@@ -16,7 +16,7 @@ import eu.minevalley.core.api.virtual.display.BlockDisplay;
 import eu.minevalley.core.api.virtual.display.ItemDisplay;
 import eu.minevalley.core.api.virtual.display.TextDisplay;
 import eu.minevalley.core.api.virtual.npc.NPC;
-import eu.minevalley.proxima.api.ProximaProvider;
+import eu.minevalley.proxima.api.Proxima;
 import eu.minevalley.proxima.api.user.exception.UserNotOnlineException;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
@@ -43,7 +43,7 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 @SuppressWarnings({"unused", "UnusedReturnValue"})
-public interface Core extends ProximaProvider {
+public interface Core extends Proxima {
 
     /**
      * Get the JavaPlugin instance of CorePlugin.

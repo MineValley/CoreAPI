@@ -1,5 +1,6 @@
 package eu.minevalley.core.api;
 
+import eu.minevalley.proxima.api.AbstractModule;
 import eu.minevalley.proxima.api.Developer;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.Contract;
@@ -8,7 +9,7 @@ import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 @RequiredArgsConstructor
-public abstract class CoreModule {
+public abstract class CoreModule extends AbstractModule {
 
     private final @Nonnull Core core;
 
@@ -21,20 +22,6 @@ public abstract class CoreModule {
     @Contract(pure = true)
     public final Core core() {
         return core;
-    }
-
-    /**
-     * Is called when the module is enabled.
-     */
-    public void onEnable() {
-        // override this method to add logic
-    }
-
-    /**
-     * Is called when the module is disabled.
-     */
-    public void onDisable() {
-        // override this method to add logic
     }
 
     /**
