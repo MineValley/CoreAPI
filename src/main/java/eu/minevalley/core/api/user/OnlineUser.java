@@ -1,7 +1,6 @@
 package eu.minevalley.core.api.user;
 
 import com.mojang.brigadier.arguments.ArgumentType;
-import eu.minevalley.core.api.CoreLegacy;
 import eu.minevalley.proxima.api.banking.AccountUser;
 import eu.minevalley.proxima.api.banking.BankAccount;
 import eu.minevalley.proxima.api.item.ItemBuilder;
