@@ -1,7 +1,9 @@
 package eu.minevalley.core.api;
 
+import eu.minevalley.core.api.user.OnlineUser;
 import eu.minevalley.proxima.api.AbstractModule;
 import eu.minevalley.proxima.api.Developer;
+import eu.minevalley.proxima.api.command.Command;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.Contract;
 
@@ -12,6 +14,7 @@ import javax.annotation.Nonnull;
 public abstract class CoreModule extends AbstractModule {
 
     private final @Nonnull Core core;
+    private final @Nonnull Command<OnlineUser> command;
 
     /**
      * Gets this modules instance of the {@link Core}.
@@ -29,6 +32,18 @@ public abstract class CoreModule extends AbstractModule {
      */
     public void onCleanup() {
         // override this method to add logic
+    }
+
+    /**
+     * Gets this modules instance of the {@link Command} registry.
+     *
+     * @return this modules instance of the Commands registry
+     */
+    @Nonnull
+    @Contract(pure = true)
+    @Override
+    public final Command<OnlineUser> command() {
+        return command;
     }
 
     /**
