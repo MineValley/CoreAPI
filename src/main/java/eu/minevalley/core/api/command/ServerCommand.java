@@ -1,12 +1,12 @@
 package eu.minevalley.core.api.command;
 
+import eu.minevalley.core.api.user.OnlineUser;
 import eu.minevalley.proxima.api.command.Command;
-import eu.minevalley.proxima.api.user.ProxyUser;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
-public interface ServerCommand extends Command<ProxyUser> {
+public interface ServerCommand extends Command<OnlineUser> {
 
     /**
      * Gets the interface with all useful command arguments
