@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 import java.util.Set;
 
+@SuppressWarnings("unused")
 public interface ServerArgumentTypes extends ArgumentTypes {
 
     /**
