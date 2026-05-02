@@ -1,6 +1,5 @@
 package eu.minevalley.core.api;
 
-import com.mojang.brigadier.arguments.ArgumentType;
 import eu.minevalley.core.api.gui.FillItem;
 import eu.minevalley.core.api.gui.InventoryGui;
 import eu.minevalley.core.api.gui.MultiPageGui;
@@ -38,7 +37,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 import java.util.function.Consumer;
 

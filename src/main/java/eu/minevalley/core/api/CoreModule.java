@@ -1,7 +1,6 @@
 package eu.minevalley.core.api;
 
 import eu.minevalley.core.api.command.ServerCommand;
-import eu.minevalley.core.api.user.OnlineUser;
 import eu.minevalley.proxima.api.AbstractModule;
 import eu.minevalley.proxima.api.Developer;
 import eu.minevalley.proxima.api.command.Command;
