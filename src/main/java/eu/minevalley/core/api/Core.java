@@ -171,7 +171,8 @@ public interface Core extends Proxima {
      * @throws IllegalArgumentException if the player is null
      */
     @Nonnull
-    OnlineUser getOnlineUser(@Nonnull Player player);
+    @Contract(pure = true)
+    OnlineUser getOnlineUser(@Nonnull Player player) throws IllegalArgumentException;
 
     /**
      * Gets the user of this unique Id.
@@ -183,25 +184,8 @@ public interface Core extends Proxima {
      * @throws UserNotOnlineException if no online player matches the given unique id
      */
     @Nonnull
+    @Contract(pure = true)
     OnlineUser getOnlineUser(@Nonnull UUID uniqueId) throws UserNotOnlineException;
-
-    /**
-     * Gets an argument type that resolves a single online user.
-     *
-     * @return the online user argument type
-     */
-    @Nonnull
-    @Contract(pure = true)
-    ArgumentType<OnlineUser> getOnlineUserArgumentType();
-
-    /**
-     * Gets an argument type that resolves multiple online users based on a selector.
-     *
-     * @return the online users selector argument type
-     */
-    @Nonnull
-    @Contract(pure = true)
-    ArgumentType<Set<OnlineUser>> getOnlineUsersSetArgumentType();
 
     /**
      * Sets the setting with the given key.

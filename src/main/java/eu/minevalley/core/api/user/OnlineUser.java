@@ -28,10 +28,6 @@ public interface OnlineUser extends ProxyUser {
         return CoreLegacy.getOnlineUser(user.getUniqueId());
     }
 
-    static ArgumentType<OnlineUser> argumentType() {
-        return CoreLegacy.getOnlineUserArgumentType();
-    }
-
     /**
      * Gets the player object of this user.
      *

@@ -1,6 +1,6 @@
 package eu.minevalley.core.api.gui;
 
-import eu.minevalley.proxima.api.user.ProxyUser;
+import eu.minevalley.core.api.user.OnlineUser;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -237,7 +237,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_ -> this")
-    InventoryGui onClose(@Nullable Consumer<ProxyUser> callback);
+    InventoryGui onClose(@Nullable Consumer<OnlineUser> callback);
 
     /**
      * Adds a callback to be called when the close button is clicked.
@@ -247,7 +247,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_ -> this")
-    InventoryGui onCloseButton(@Nullable Consumer<ProxyUser> callback);
+    InventoryGui onCloseButton(@Nullable Consumer<OnlineUser> callback);
 
     /**
      * Places a return button on the slot before the close button (index 7).
@@ -258,7 +258,7 @@ public interface InventoryGui {
      */
     @Nonnull
     @Contract("_ -> this")
-    InventoryGui onReturn(@Nullable Consumer<ProxyUser> callback);
+    InventoryGui onReturn(@Nullable Consumer<OnlineUser> callback);
 
     /**
      * Locks the specified slot, preventing items from being placed or removed.
@@ -309,5 +309,5 @@ public interface InventoryGui {
      * @param user the user to open the GUI for
      * @throws IllegalArgumentException if the user is null
      */
-    void open(@Nonnull ProxyUser user) throws IllegalArgumentException;
+    void open(@Nonnull OnlineUser user) throws IllegalArgumentException;
 }

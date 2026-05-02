@@ -1,6 +1,6 @@
 package eu.minevalley.core.api.gui;
 
-import eu.minevalley.proxima.api.user.ProxyUser;
+import eu.minevalley.core.api.user.OnlineUser;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -15,6 +15,32 @@ import java.util.function.Function;
 
 @SuppressWarnings("unused")
 public interface MultiPageGui extends InventoryGui {
+
+    /**
+     * Gets a copy of the underlying inventory of this GUI.
+     * <br>
+     * <b>Note:</b> The inventory is created on the fly and is not cached.
+     *
+     * @return a copy of the underlying inventory of this GUI
+     */
+    @Override
+    @Contract("-> new")
+    default @Nonnull Inventory getInventory() {
+        return getInventory(0).getInventory();
+    }
+
+    /**
+     * Gets the inventory of the specified page.
+     * <br>
+     * <b>Note:</b> The inventory is created on the fly and is not cached.
+     *
+     * @param page the page to get the inventory of
+     * @return the inventory of the specified page
+     * @throws IllegalArgumentException if the page is out of bounds
+     */
+    @Nonnull
+    @Contract("_ -> new")
+    InventoryGui getInventory(@Nonnegative int page) throws IllegalArgumentException;
 
     /**
      * Gets the item in the specified slot.
@@ -96,17 +122,15 @@ public interface MultiPageGui extends InventoryGui {
     int getPageAmount();
 
     /**
-     * Gets the inventory of the specified page.
-     * <br>
-     * <b>Note:</b> The inventory is created on the fly and is not cached.
+     * Opens this GUI for the specified user on the first page.
      *
-     * @param page the page to get the inventory of
-     * @return the inventory of the specified page
-     * @throws IllegalArgumentException if the page is out of bounds
+     * @param user the user to open the GUI for
+     * @throws IllegalArgumentException if the user is null
      */
-    @Nonnull
-    @Contract("_ -> new")
-    InventoryGui getInventory(@Nonnegative int page) throws IllegalArgumentException;
+    @Override
+    default void open(@Nonnull OnlineUser user) {
+        open(user, 0);
+    }
 
     /**
      * Opens this GUI for the specified player on the specified page.
@@ -128,29 +152,5 @@ public interface MultiPageGui extends InventoryGui {
      * @param page the page to open the GUI on
      * @throws IllegalArgumentException if the user is null, or the page is out of bounds
      */
-    void open(@Nonnull ProxyUser user, @Nonnegative int page) throws IllegalArgumentException;
-
-    /**
-     * Gets a copy of the underlying inventory of this GUI.
-     * <br>
-     * <b>Note:</b> The inventory is created on the fly and is not cached.
-     *
-     * @return a copy of the underlying inventory of this GUI
-     */
-    @Override
-    @Contract("-> new")
-    default @Nonnull Inventory getInventory() {
-        return getInventory(0).getInventory();
-    }
-
-    /**
-     * Opens this GUI for the specified user on the first page.
-     *
-     * @param user the user to open the GUI for
-     * @throws IllegalArgumentException if the user is null
-     */
-    @Override
-    default void open(@Nonnull ProxyUser user) {
-        open(user, 0);
-    }
+    void open(@Nonnull OnlineUser user, @Nonnegative int page) throws IllegalArgumentException;
 }
