@@ -60,6 +60,7 @@ public interface Core extends Proxima {
      * @return Server object
      */
     @Nonnull
+    @Contract(pure = true)
     Server server();
 
     /**
