@@ -13,8 +13,8 @@ import javax.annotation.Nonnull;
 @RequiredArgsConstructor
 public abstract class CoreModule extends AbstractModule {
 
-    private final @Nonnull Core core;
-    private final @Nonnull ServerCommand command;
+    private static @Nonnull Core core;
+    private static @Nonnull ServerCommand command;
 
     /**
      * Gets this modules instance of the {@link Core}.
@@ -23,15 +23,8 @@ public abstract class CoreModule extends AbstractModule {
      */
     @Nonnull
     @Contract(pure = true)
-    public final Core core() {
+    public static Core core() {
         return core;
-    }
-
-    /**
-     * Is called then the server starts with the cleanup flag.
-     */
-    public void onCleanup() {
-        // override this method to add logic
     }
 
     /**
@@ -41,9 +34,15 @@ public abstract class CoreModule extends AbstractModule {
      */
     @Nonnull
     @Contract(pure = true)
-    @Override
-    public final ServerCommand command() {
+    public static ServerCommand command() {
         return command;
+    }
+
+    /**
+     * Is called then the server starts with the cleanup flag.
+     */
+    public void onCleanup() {
+        // override this method to add logic
     }
 
     /**
