@@ -161,32 +161,6 @@ public interface Core extends Proxima {
     void callEvent(@Nonnull Event event) throws IllegalArgumentException;
 
     /**
-     * Gets the user of this specific player.
-     * <br>
-     * <strong>Note:</strong> If no user is found, a new one is created based on the player.
-     *
-     * @param player player to get user from
-     * @return user object of the given player
-     * @throws IllegalArgumentException if the player is null
-     */
-    @Nonnull
-    @Contract(pure = true)
-    OnlineUser getOnlineUser(@Nonnull Player player) throws IllegalArgumentException;
-
-    /**
-     * Gets the user of this unique Id.
-     * <br>
-     * <strong>Note:</strong> If the given unique id matches no online player, a {@code UserNotOnlineException} is thrown.
-     *
-     * @param uniqueId player to get user from
-     * @return user object of the given player
-     * @throws UserNotOnlineException if no online player matches the given unique id
-     */
-    @Nonnull
-    @Contract(pure = true)
-    OnlineUser getOnlineUser(@Nonnull UUID uniqueId) throws UserNotOnlineException;
-
-    /**
      * Sets the setting with the given key.
      * <p>
      * <b>Note:</b> When using the settings-method, do never change the settings manually via database!

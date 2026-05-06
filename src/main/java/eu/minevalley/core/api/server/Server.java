@@ -5,9 +5,13 @@ import eu.minevalley.proxima.api.audio.SoundReceiver;
 import eu.minevalley.proxima.api.database.DatabaseHolder;
 import eu.minevalley.proxima.api.messaging.MessageReceiver;
 import eu.minevalley.proxima.api.server.ServerType;
+import eu.minevalley.proxima.api.user.User;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.UUID;
 import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
@@ -30,6 +34,39 @@ public interface Server extends MessageReceiver, SoundReceiver, DatabaseHolder {
     @Nonnull
     @Contract(pure = true)
     Stream<OnlineUser> getOnlineUsers();
+
+    /**
+     * Gets the online user of this specific player.
+     * <br>
+     * <strong>Note:</strong> If no user is found, a new one is created based on the player.
+     *
+     * @param player player to get the online user from
+     * @return online user object of the given player
+     * @throws IllegalArgumentException if the player is null
+     */
+    @Nonnull
+    @Contract(pure = true)
+    OnlineUser getOnlineUser(@Nonnull Player player) throws IllegalArgumentException;
+
+    /**
+     * Gets the user of this unique Id.
+     *
+     * @param uniqueId uuid to get user from
+     * @return online user of the user with the given uuid, if online, otherwise null
+     */
+    @Nullable
+    @Contract(pure = true)
+    OnlineUser getOnlineUser(@Nonnull UUID uniqueId);
+
+    /**
+     * Gets the user of this unique Id.
+     *
+     * @param user user to get the online user of
+     * @return online user of the given user, if online, otherwise null
+     */
+    @Nullable
+    @Contract(pure = true)
+    OnlineUser getOnlineUser(@Nonnull User user);
 
     /**
      * Gets whether the server is in development mode.
