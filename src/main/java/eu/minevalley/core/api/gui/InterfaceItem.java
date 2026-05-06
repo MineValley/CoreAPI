@@ -1,11 +1,12 @@
 package eu.minevalley.core.api.gui;
 
+import eu.minevalley.core.api.CoreModule;
+import eu.minevalley.core.api.item.ItemBuilder;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
@@ -226,6 +227,18 @@ public enum InterfaceItem {
     }
 
     /**
+     * Gets the item builder of the interface-item.
+     *
+     * @return interface-item as item builder
+     */
+    @Nonnull
+    @Contract(value = "-> new", pure = true)
+    public ItemBuilder getBuilder() {
+        return CoreModule.core().createItem(Material.GRAY_STAINED_GLASS_PANE).setItemModel(new NamespacedKey("minevalley", itemModel))
+                .setHideToolTip(true);
+    }
+
+    /**
      * Gets the itemstack of the interface-item.
      *
      * @return interface-item as itemstack
@@ -233,11 +246,6 @@ public enum InterfaceItem {
     @Nonnull
     @Contract(value = "-> new", pure = true)
     public ItemStack toItemStack() {
-        final ItemStack itemStack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
-        final ItemMeta itemMeta = itemStack.getItemMeta();
-        itemMeta.setItemModel(new NamespacedKey("minevalley", itemModel));
-        itemMeta.setHideTooltip(true);
-        itemStack.setItemMeta(itemMeta);
-        return itemStack;
+        return getBuilder().build();
     }
 }
