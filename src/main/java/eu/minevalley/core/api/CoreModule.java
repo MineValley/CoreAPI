@@ -1,8 +1,10 @@
 package eu.minevalley.core.api;
 
-import eu.minevalley.core.api.command.ServerCommand;
+import eu.minevalley.core.api.server.Server;
+import eu.minevalley.core.api.user.OnlineUser;
 import eu.minevalley.proxima.api.AbstractModule;
 import eu.minevalley.proxima.api.Developer;
+import eu.minevalley.proxima.api.Proxy;
 import eu.minevalley.proxima.api.command.Command;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.Contract;
@@ -14,7 +16,7 @@ import javax.annotation.Nonnull;
 public abstract class CoreModule extends AbstractModule {
 
     private static @Nonnull Core core;
-    private static @Nonnull ServerCommand command;
+    private static @Nonnull Command<OnlineUser> command;
 
     /**
      * Gets this modules instance of the {@link Core}.
@@ -28,13 +30,35 @@ public abstract class CoreModule extends AbstractModule {
     }
 
     /**
+     * Gets a shortcut to the proxy interface.
+     *
+     * @return shortcut to the proxy interface
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public static Proxy proxy() {
+        return core.proxy();
+    }
+
+    /**
+     * Gets a shortcut to the server interface.
+     *
+     * @return shortcut to the server interface
+     */
+    @Nonnull
+    @Contract(pure = true)
+    public static Server server() {
+        return core.server();
+    }
+
+    /**
      * Gets this modules instance of the {@link Command} registry.
      *
      * @return this modules instance of the Commands registry
      */
     @Nonnull
     @Contract(pure = true)
-    public static ServerCommand command() {
+    public static Command<OnlineUser> command() {
         return command;
     }
 

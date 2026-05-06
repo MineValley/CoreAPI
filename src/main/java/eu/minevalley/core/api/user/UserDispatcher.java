@@ -10,9 +10,7 @@ import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 @RequiredArgsConstructor
-public abstract class UserDispatcher {
-
-    private final @Nonnull User user;
+public class UserDispatcher {
 
     /**
      * Gets executed if the given player is on this server.
