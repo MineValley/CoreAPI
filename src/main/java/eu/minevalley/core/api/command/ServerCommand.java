@@ -1,7 +1,6 @@
 package eu.minevalley.core.api.command;
 
 import eu.minevalley.core.api.user.OnlineUser;
-import eu.minevalley.proxima.api.command.ArgumentBuilder;
 import eu.minevalley.proxima.api.command.ArgumentTypes;
 import eu.minevalley.proxima.api.command.Command;
 import org.jetbrains.annotations.Contract;
@@ -23,5 +22,5 @@ public interface ServerCommand extends Command<OnlineUser> {
     @Nonnull
     @Contract(pure = true)
     @Override
-    ArgumentBuilder<OnlineUser> argument();
+    ArgumentBuilder argument();
 }
