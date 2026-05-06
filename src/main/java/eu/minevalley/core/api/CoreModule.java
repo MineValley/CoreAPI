@@ -1,7 +1,7 @@
 package eu.minevalley.core.api;
 
+import eu.minevalley.core.api.command.ServerCommand;
 import eu.minevalley.core.api.server.Server;
-import eu.minevalley.core.api.user.OnlineUser;
 import eu.minevalley.proxima.api.AbstractModule;
 import eu.minevalley.proxima.api.Developer;
 import eu.minevalley.proxima.api.Proxy;
@@ -16,7 +16,7 @@ import javax.annotation.Nonnull;
 public abstract class CoreModule extends AbstractModule {
 
     private static @Nonnull Core core;
-    private static @Nonnull Command<OnlineUser> command;
+    private static @Nonnull ServerCommand command;
 
     /**
      * Gets this modules instance of the {@link Core}.
@@ -58,7 +58,7 @@ public abstract class CoreModule extends AbstractModule {
      */
     @Nonnull
     @Contract(pure = true)
-    public static Command<OnlineUser> command() {
+    public static ServerCommand command() {
         return command;
     }
 
