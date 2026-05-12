@@ -27,6 +27,14 @@ public interface OnlineUser extends ProxyUser {
     @Contract(pure = true)
     Player player();
 
+    /**
+     * Checks whether the user is really online.
+     *
+     * @return true, if the user is online
+     */
+    @Contract(pure = true)
+    boolean isOnline();
+
     @Nonnull
     @Contract(pure = true)
     ItemBuilder getHead();
