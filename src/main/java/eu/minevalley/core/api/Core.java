@@ -1,5 +1,6 @@
 package eu.minevalley.core.api;
 
+import eu.minevalley.core.api.event.EventListener;
 import eu.minevalley.core.api.gui.FillItem;
 import eu.minevalley.core.api.gui.InventoryGui;
 import eu.minevalley.core.api.gui.MultiPageGui;
@@ -141,6 +142,26 @@ public interface Core extends Proxima {
      */
     @Nonnull
     BukkitTask runAsyncTaskPeriodically(long delay, long period, @Nonnull Runnable task) throws IllegalArgumentException;
+
+    /**
+     * Registers an event listener.
+     *
+     * @param cls      class of the event
+     * @param listener listener to register
+     * @throws IllegalArgumentException if the event class or listener is null
+     */
+    void registerListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener)
+            throws IllegalArgumentException;
+
+    /**
+     * Unregisters an event listener.
+     *
+     * @param cls      class of the event
+     * @param listener listener to unregister
+     * @throws IllegalArgumentException if the event class or listener is null
+     */
+    void unregisterListener(@Nonnull Class<? extends Event> cls, @Nonnull EventListener<? extends Event> listener)
+            throws IllegalArgumentException;
 
     /**
      * Registers an event listener.
