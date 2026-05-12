@@ -22,9 +22,7 @@ public class UserDispatcher {
     };
 
     /**
-     * Gets executed if the given player is on this server.
-     * <p>
-     * <b>Note:</b> this callback is the last one that gets called
+     * Gets executed if the user is on this server.
      *
      * @param consumer callback to be called
      * @return this
@@ -39,9 +37,7 @@ public class UserDispatcher {
     }
 
     /**
-     * Gets executed if the given player is on the proxy, ignoring whether he is on the server.
-     * <p>
-     * <b>Note:</b> this callback is called after {@link #orElse(Consumer)}
+     * Gets executed if the user is connected to the proxy but not to the server.
      *
      * @param consumer callback to be called
      * @return this
@@ -55,9 +51,7 @@ public class UserDispatcher {
     }
 
     /**
-     * Gets called every time!
-     * <p>
-     * <b>Note:</b> this callback is called before all other callbacks.
+     * Gets executed if the user is not connected to the proxy.
      *
      * @param consumer callback to be called
      * @return this
