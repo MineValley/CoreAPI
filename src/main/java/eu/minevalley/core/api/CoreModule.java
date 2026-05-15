@@ -6,13 +6,11 @@ import eu.minevalley.proxima.api.AbstractModule;
 import eu.minevalley.proxima.api.Developer;
 import eu.minevalley.proxima.api.Proxy;
 import eu.minevalley.proxima.api.command.Command;
-import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
-@SuppressWarnings("unused")
-@RequiredArgsConstructor
+@SuppressWarnings({"unused", "NotNullFieldNotInitialized"})
 public abstract class CoreModule extends AbstractModule {
 
     private static @Nonnull Core core;
