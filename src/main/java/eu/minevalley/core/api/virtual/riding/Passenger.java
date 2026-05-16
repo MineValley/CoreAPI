@@ -2,6 +2,8 @@ package eu.minevalley.core.api.virtual.riding;
 
 import org.jetbrains.annotations.Contract;
 
+import javax.annotation.Nonnull;
+
 /**
  * Represents an entity that can act as a passenger of a {@link Vehicle}.
  */
@@ -9,7 +11,16 @@ import org.jetbrains.annotations.Contract;
 public interface Passenger {
 
     /**
-     * Returns the entity id of the passenger.
+     * Gets the name of the passenger.
+     *
+     * @return name of the passenger
+     */
+    @Nonnull
+    @Contract(pure = true)
+    String getName();
+
+    /**
+     * Gets the entity id of the passenger.
      *
      * @return the entity id of the passenger.
      */
