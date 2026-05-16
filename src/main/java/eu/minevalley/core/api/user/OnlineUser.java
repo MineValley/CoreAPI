@@ -1,6 +1,7 @@
 package eu.minevalley.core.api.user;
 
 import eu.minevalley.core.api.item.ItemBuilder;
+import eu.minevalley.core.api.virtual.riding.Passenger;
 import eu.minevalley.proxima.api.banking.AccountUser;
 import eu.minevalley.proxima.api.banking.BankAccount;
 import eu.minevalley.proxima.api.user.ProxyUser;
@@ -16,7 +17,7 @@ import javax.annotation.Nullable;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public interface OnlineUser extends ProxyUser {
+public interface OnlineUser extends ProxyUser, Passenger {
 
     /**
      * Gets the player object of this user.
