@@ -7,10 +7,7 @@ import eu.minevalley.core.api.gui.MultiPageGui;
 import eu.minevalley.core.api.interaction.InteractionTrigger;
 import eu.minevalley.core.api.item.ItemBuilder;
 import eu.minevalley.core.api.server.Server;
-import eu.minevalley.core.api.virtual.CarBarrier;
-import eu.minevalley.core.api.virtual.FakeArmorStand;
-import eu.minevalley.core.api.virtual.FakeBlock;
-import eu.minevalley.core.api.virtual.Hologram;
+import eu.minevalley.core.api.virtual.*;
 import eu.minevalley.core.api.virtual.display.BlockDisplay;
 import eu.minevalley.core.api.virtual.display.ItemDisplay;
 import eu.minevalley.core.api.virtual.display.TextDisplay;
@@ -448,6 +445,17 @@ public interface Core extends Proxima {
     @Nonnull
     @Contract("_, _ -> new")
     TextDisplay createTextDisplay(@Nonnull Location location, @Nonnull ComponentLike text) throws IllegalArgumentException;
+
+    /**
+     * Creates an interaction which is only usable for specific players.
+     *
+     * @param location location where the interaction is placed
+     * @return Interaction with the specific parameters
+     * @throws IllegalArgumentException if location is null
+     */
+    @Nonnull
+    @Contract("_ -> new")
+    Interaction createInteraction(@Nonnull Location location) throws IllegalArgumentException;
 
     /**
      * Creates a NPC with the specific parameters.
