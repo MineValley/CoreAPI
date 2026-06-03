@@ -8,6 +8,7 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
+@Deprecated
 public interface Hologram extends LocationModifier<Hologram>, VisibilityModifier<Hologram> {
 
     /**

@@ -502,6 +502,7 @@ public interface Core extends Proxima {
      */
     @Nonnull
     @Contract("_, _, _ -> new")
+    @Deprecated
     Hologram createHologram(@Nonnull Location loc, boolean visibleToEveryone, @Nonnull String... lines) throws IllegalArgumentException;
 
     /**
