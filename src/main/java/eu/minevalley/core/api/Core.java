@@ -16,6 +16,7 @@ import eu.minevalley.core.api.virtual.display.ItemDisplay;
 import eu.minevalley.core.api.virtual.display.TextDisplay;
 import eu.minevalley.core.api.virtual.npc.NPC;
 import eu.minevalley.proxima.api.Proxima;
+import eu.minevalley.proxima.api.Registrant;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
 import org.bukkit.Location;
@@ -310,6 +311,21 @@ public interface Core extends Proxima {
     @Nonnull
     @Contract("_ -> new")
     ItemBuilder createItem(@Nonnull UUID uniqueId) throws IllegalArgumentException;
+
+    /**
+     * Creates a new item-builder from this registrants head.
+     * <ul>
+     *     <li>If the registrant is a user, the player head is returned</li>
+     *     <li>If the registrant is a group or department, the selected icon (head) is returned</li>
+     * </ul>
+     *
+     * @param registrant registrant to get the head of
+     * @return new item-builder
+     * @throws IllegalArgumentException if the registrant is null
+     */
+    @Nonnull
+    @Contract("_ -> new")
+    ItemBuilder createItem(@Nonnull Registrant registrant) throws IllegalArgumentException;
 
     /**
      * Creates a new item-builder based on the given value and signature.
