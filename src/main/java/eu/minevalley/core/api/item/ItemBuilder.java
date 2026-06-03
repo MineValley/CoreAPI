@@ -3,6 +3,7 @@ package eu.minevalley.core.api.item;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import org.bukkit.Color;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Tag;
 import org.bukkit.damage.DamageType;
@@ -211,24 +212,33 @@ public interface ItemBuilder {
      *
      * @param hexColor color as hex string
      * @return this item-builder
-     * @throws IllegalArgumentException      if the hex color is invalid or null
-     * @throws UnsupportedOperationException if the item is not dyeable
+     * @throws IllegalArgumentException if the hex color is invalid or null
      */
     @Nonnull
     @Contract("_ -> this")
-    ItemBuilder setColor(@Nonnull String hexColor) throws IllegalArgumentException, UnsupportedOperationException;
+    ItemBuilder setColor(@Nonnull String hexColor) throws IllegalArgumentException;
 
     /**
      * Sets the item's color.
      *
-     * @param decimalColor color as decimal integer
+     * @param rgb color as rgb integer
      * @return this item-builder
-     * @throws IllegalArgumentException      if the decimal color is invalid
-     * @throws UnsupportedOperationException if the item is not dyeable
+     * @throws IllegalArgumentException if the rgb color is invalid
      */
     @Nonnull
     @Contract("_ -> this")
-    ItemBuilder setColor(@Nonnegative int decimalColor) throws IllegalArgumentException, UnsupportedOperationException;
+    ItemBuilder setColor(int rgb) throws IllegalArgumentException;
+
+    /**
+     * Sets the item's color.
+     *
+     * @param color color
+     * @return this item-builder
+     * @throws IllegalArgumentException if the color is null
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    ItemBuilder setColor(@Nonnull Color color) throws IllegalArgumentException;
 
     /**
      * Sets the max stack size of the item.
