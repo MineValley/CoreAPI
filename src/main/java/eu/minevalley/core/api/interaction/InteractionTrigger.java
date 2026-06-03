@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
+@Deprecated
 public interface InteractionTrigger {
 
     /**

@@ -542,6 +542,7 @@ public interface Core extends Proxima {
      */
     @Nonnull
     @Contract("_, _, _, _, _, _, _, _, _ -> new")
+    @Deprecated
     InteractionTrigger createInteractionTrigger(@Nonnull World world,
                                                 double minX, double minY, double minZ,
                                                 double maxX, double maxY, double maxZ,
