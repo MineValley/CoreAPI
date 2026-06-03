@@ -107,4 +107,13 @@ public interface Server extends MessageReceiver, SoundReceiver, DatabaseHolder {
      * Restarts the server and marks the cleaning routine to be executed on start up.
      */
     void restartWithCleaningRoutine();
+
+    /**
+     * Gets a human-readable string of the server name
+     *
+     * @return human-readable server name
+     */
+    @Nonnull
+    @Contract(value = "-> new", pure = true)
+    String toString();
 }
