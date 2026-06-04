@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
+@SuppressWarnings("unused")
 public interface Interaction extends InteractionModifier<Interaction>, LocationModifier<Interaction>,
         VisibilityModifier<Interaction> {
 
