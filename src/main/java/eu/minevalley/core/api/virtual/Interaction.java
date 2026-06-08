@@ -2,6 +2,7 @@ package eu.minevalley.core.api.virtual;
 
 import eu.minevalley.core.api.virtual.modifier.InteractionModifier;
 import eu.minevalley.core.api.virtual.modifier.LocationModifier;
+import eu.minevalley.core.api.virtual.modifier.PassengerModifier;
 import eu.minevalley.core.api.virtual.modifier.VisibilityModifier;
 import org.bukkit.Location;
 import org.jetbrains.annotations.Contract;
@@ -10,7 +11,7 @@ import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 public interface Interaction extends InteractionModifier<Interaction>, LocationModifier<Interaction>,
-        VisibilityModifier<Interaction> {
+        PassengerModifier<Interaction>, VisibilityModifier<Interaction> {
 
     /**
      * Get the width
