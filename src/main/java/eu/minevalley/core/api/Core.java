@@ -4,10 +4,12 @@ import eu.minevalley.core.api.event.EventListener;
 import eu.minevalley.core.api.gui.FillItem;
 import eu.minevalley.core.api.gui.InventoryGui;
 import eu.minevalley.core.api.gui.MultiPageGui;
-import eu.minevalley.core.api.interaction.InteractionTrigger;
 import eu.minevalley.core.api.item.ItemBuilder;
 import eu.minevalley.core.api.server.Server;
-import eu.minevalley.core.api.virtual.*;
+import eu.minevalley.core.api.virtual.CarBarrier;
+import eu.minevalley.core.api.virtual.FakeArmorStand;
+import eu.minevalley.core.api.virtual.FakeBlock;
+import eu.minevalley.core.api.virtual.Interaction;
 import eu.minevalley.core.api.virtual.display.BlockDisplay;
 import eu.minevalley.core.api.virtual.display.ItemDisplay;
 import eu.minevalley.core.api.virtual.display.TextDisplay;
@@ -23,7 +25,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
@@ -35,7 +36,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.function.Consumer;
 
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 public interface Core extends Proxima {
@@ -500,20 +500,6 @@ public interface Core extends Proxima {
     CarBarrier createCarBarrier(@Nonnull Location loc, int rotation, @Nonnull List<Block> barrierBlocks) throws IllegalArgumentException;
 
     /**
-     * Creates a hologram with the specific parameters.
-     *
-     * @param loc               location of the hologram
-     * @param visibleToEveryone if true, the hologram is visible to everyone
-     * @param lines             lines of the hologram
-     * @return hologram with the specific parameters
-     * @throws IllegalArgumentException if the location is null or the lines are empty
-     */
-    @Nonnull
-    @Contract("_, _, _ -> new")
-    @Deprecated
-    Hologram createHologram(@Nonnull Location loc, boolean visibleToEveryone, @Nonnull String... lines) throws IllegalArgumentException;
-
-    /**
      * Creates an armorstand with a consumer
      *
      * @param location location to spawn the armorstand at.
@@ -533,29 +519,4 @@ public interface Core extends Proxima {
     @Nullable
     @Contract(pure = true)
     FakeArmorStand getFakeArmorStand(int id);
-
-    /**
-     * Creates an interaction trigger with the specific parameters.
-     *
-     * @param world    world in which this trigger is located
-     * @param minX     minimum x value
-     * @param minY     minimum y value
-     * @param minZ     minimum z value
-     * @param maxX     maximum x value
-     * @param maxY     maximum y value
-     * @param maxZ     maximum z value
-     * @param callback callback that is called when a player interacts with this trigger
-     * @param range    range in which a player can interact with this trigger
-     * @return interaction trigger with the specific parameters
-     * @throws IllegalArgumentException if one of the parameters is null, the max values are smaller than the min values or the range is negative
-     */
-    @Nonnull
-    @Contract("_, _, _, _, _, _, _, _, _ -> new")
-    @Deprecated
-    InteractionTrigger createInteractionTrigger(@Nonnull World world,
-                                                double minX, double minY, double minZ,
-                                                double maxX, double maxY, double maxZ,
-                                                @Nonnull Consumer<PlayerInteractEvent> callback,
-                                                @Nonnegative double range)
-            throws IllegalArgumentException;
 }
