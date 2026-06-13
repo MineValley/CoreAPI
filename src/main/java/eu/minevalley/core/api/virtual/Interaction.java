@@ -28,7 +28,7 @@ public interface Interaction extends InteractionModifier<Interaction>, LocationM
      * @return this
      */
     @Nonnull
-    @Contract(pure = true)
+    @Contract("_ -> this")
     Interaction setWidth(float width);
 
     /**
@@ -46,7 +46,7 @@ public interface Interaction extends InteractionModifier<Interaction>, LocationM
      * @return this
      */
     @Nonnull
-    @Contract(pure = true)
+    @Contract("_ -> this")
     Interaction setHeight(float height);
 
     /**
