@@ -9,9 +9,9 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnull;
 
 public interface Display<T extends Display<T>> extends
-        Passenger, Vehicle, InteractionModifier<T>, LocationModifier<T>, MetadataModifier<T>,
-        PassengerModifier<T>, RotationModifier<T>, ScaleModifier<T>, TranslationModifier<T>,
-        VehicleModifier<T>, VisibilityModifier<T> {
+        Passenger, Vehicle, InteractionModifier<T>, InterpolationModifier<T>, LocationModifier<T>,
+        MetadataModifier<T>, PassengerModifier<T>, RotationModifier<T>, ScaleModifier<T>,
+        TranslationModifier<T>, VehicleModifier<T>, VisibilityModifier<T> {
 
     /**
      * Set the location of the display
