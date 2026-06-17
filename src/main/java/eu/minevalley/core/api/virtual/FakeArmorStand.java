@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 public interface FakeArmorStand extends
-        Passenger, Vehicle, MetadataModifier<FakeArmorStand>, PassengerModifier<FakeArmorStand>,
+        Passenger<FakeArmorStand>, Vehicle, MetadataModifier<FakeArmorStand>, PassengerModifier<FakeArmorStand>,
         PoseModifier<FakeArmorStand>, EquipmentModifier<FakeArmorStand>, InteractionModifier<FakeArmorStand>,
         LocationModifier<FakeArmorStand>, VehicleModifier<FakeArmorStand>, VisibilityModifier<FakeArmorStand> {
 

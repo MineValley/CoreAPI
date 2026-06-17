@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public interface NPC extends MessageSender, Passenger, Vehicle, EquipmentModifier<NPC>, InteractionModifier<NPC>, LocationModifier<NPC>,
+public interface NPC extends MessageSender, Passenger<NPC>, Vehicle, EquipmentModifier<NPC>, InteractionModifier<NPC>, LocationModifier<NPC>,
         PassengerModifier<NPC>, VehicleModifier<NPC>, VisibilityModifier<NPC> {
 
     /**
