@@ -39,22 +39,6 @@ public interface InventoryGui {
             throws IllegalArgumentException, IndexOutOfBoundsException;
 
     /**
-     * Sets the interface item in the specified slot.
-     *
-     * @param slot the slot to set the item in
-     * @param item the interface item to set
-     * @return this GUI
-     * @throws IllegalArgumentException  if the interface item is null
-     * @throws IndexOutOfBoundsException if the slot is out of bounds
-     */
-    @Nonnull
-    @Contract("_, _ -> this")
-    default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item)
-            throws IllegalArgumentException, IndexOutOfBoundsException {
-        return setItem(slot, item.toItemStack());
-    }
-
-    /**
      * Sets the item in the specified slot.
      *
      * @param slot    the slot to set the item in
@@ -70,53 +54,6 @@ public interface InventoryGui {
             throws IllegalArgumentException, IndexOutOfBoundsException;
 
     /**
-     * Sets the interface item in the specified slot.
-     *
-     * @param slot    the slot to set the interface item in
-     * @param item    the item to set
-     * @param onClick the consumer to run when the item is clicked
-     * @return this GUI
-     * @throws IllegalArgumentException  if the interface item or onClick is null
-     * @throws IndexOutOfBoundsException if the slot is out of bounds
-     */
-    @Nonnull
-    @Contract("_, _, _ -> this")
-    default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item,
-                                 @Nonnull Consumer<GuiItemClick> onClick)
-            throws IllegalArgumentException, IndexOutOfBoundsException {
-        return setItem(slot, item.toItemStack(), onClick);
-    }
-
-    /**
-     * Placed the specified interface item in the specified slots.
-     *
-     * @param item  the item to place
-     * @param slots the slots to place the item in
-     * @return this GUI
-     * @throws IllegalArgumentException  if the item is null
-     * @throws IndexOutOfBoundsException if any of the slots are out of bounds
-     */
-    @Nonnull
-    @Contract("_, _ -> this")
-    InventoryGui setInterfaceItems(@Nonnull InterfaceItem item, @Nonnegative int... slots)
-            throws IllegalArgumentException, IndexOutOfBoundsException;
-
-    /**
-     * Placed the specified interface item in the specified range of slots.
-     *
-     * @param item the item to place
-     * @param from the start of the range (inclusively)
-     * @param to   the end of the range (exclusively)
-     * @return this GUI
-     * @throws IllegalArgumentException  if the item is null
-     * @throws IndexOutOfBoundsException if any of the slots are out of bounds
-     */
-    @Nonnull
-    @Contract("_, _, _ -> this")
-    InventoryGui setInterfaceItemsInRange(@Nonnull InterfaceItem item, @Nonnegative int from, @Nonnegative int to)
-            throws IllegalArgumentException, IndexOutOfBoundsException;
-
-    /**
      * Adds the specified item to the first available slot.
      *
      * @param item the item to add
@@ -127,20 +64,6 @@ public interface InventoryGui {
     @Nonnull
     @Contract("_ -> this")
     InventoryGui addItem(@Nonnull ItemStack item) throws IllegalArgumentException, IllegalStateException;
-
-    /**
-     * Adds the specified interface item to the first available slot.
-     *
-     * @param item the item to add
-     * @return this GUI
-     * @throws IllegalArgumentException if the item is null
-     * @throws IllegalStateException    if the inventory is full
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    default InventoryGui addItem(@Nonnull InterfaceItem item) throws IllegalArgumentException, IllegalStateException {
-        return addItem(item.toItemStack());
-    }
 
     /**
      * Adds the specified item to the first available slot with a click handler.
@@ -157,24 +80,9 @@ public interface InventoryGui {
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * Adds the specified interface item to the first available slot with a click handler.
-     *
-     * @param item    the item to add
-     * @param onClick the consumer to run when the item is clicked
-     * @return this GUI
-     * @throws IllegalArgumentException if the item or onClick is null
-     * @throws IllegalStateException    if the inventory is full
-     */
-    @Nonnull
-    @Contract("_, _ -> this")
-    default InventoryGui addItem(@Nonnull InterfaceItem item, @Nonnull Consumer<GuiItemClick> onClick)
-            throws IllegalArgumentException, IllegalStateException {
-        return addItem(item.toItemStack(), onClick);
-    }
-
-    /**
-     * Places a closer item in the top right slot of the inventory (index 8).
-     * When this item is clicked, the GUI will be closed and the {@code onClose} and {@code onButtonClose} callback will be called.
+     * Places a closer item in the top right slot (index 8).
+     * The close-button graphic is rendered via the GUI font overlay.
+     * When this slot is clicked, the GUI will be closed and the {@code onClose} / {@code onCloseButton} callbacks are called.
      *
      * @return this GUI
      */
@@ -250,8 +158,9 @@ public interface InventoryGui {
     InventoryGui onCloseButton(@Nullable Consumer<OnlineUser> callback);
 
     /**
-     * Places a return button on the slot before the close button (index 7).
-     * <p><b>Note:</b> When the callback is null, the button vanishes.
+     * Places a return button at slot 7 via the GUI font overlay.
+     * The return-button graphic is rendered in the inventory title.
+     * <p><b>Note:</b> When the callback is null, the button overlay is removed.
      *
      * @param callback the callback to call when the return button is clicked
      * @return this GUI
@@ -262,8 +171,7 @@ public interface InventoryGui {
 
     /**
      * Locks the specified slot, preventing items from being placed or removed.
-     * <p>
-     * <b>Note:</b> By default, all slots are locked.
+     * <p><b>Note:</b> By default, all slots are locked.
      *
      * @param slot the slot to lock
      * @return this GUI
@@ -294,6 +202,31 @@ public interface InventoryGui {
     @Nonnull
     @Contract("_ -> this")
     InventoryGui updateTitle(@Nonnull Component title) throws IllegalArgumentException;
+
+    /**
+     * Renders the specified overlay at the given slot via the GUI font.
+     *
+     * @param slot    the slot index (0-based, max 53 for a 6-row chest)
+     * @param overlay the overlay type to render
+     * @return this GUI
+     * @throws IndexOutOfBoundsException if the slot is out of bounds
+     * @throws IllegalArgumentException  if the overlay is null
+     */
+    @Nonnull
+    @Contract("_, _ -> this")
+    InventoryGui setOverlay(@Nonnegative int slot, @Nonnull GuiOverlay overlay)
+            throws IndexOutOfBoundsException, IllegalArgumentException;
+
+    /**
+     * Renders a spacer overlay across all nine slots of the specified row via the GUI font.
+     *
+     * @param row the row to cover with the spacer
+     * @return this GUI
+     * @throws IllegalArgumentException if the row is null
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    InventoryGui setSpacer(@Nonnull GuiRow row) throws IllegalArgumentException;
 
     /**
      * Opens this GUI for the specified player.
