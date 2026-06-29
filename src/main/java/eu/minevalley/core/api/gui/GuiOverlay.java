@@ -5,19 +5,17 @@ public enum GuiOverlay {
 
     SPACER,
 
+    ARROW,
+    BUTTON,
+
     PAGINATION_NEXT,
     PAGINATION_PREVIOUS,
     PAGINATION_UP,
     PAGINATION_DOWN,
 
-    BUTTON,
+    CHECKMARK,
+    CROSS,
 
     CELL_ACTIVE,
-    CELL_INACTIVE,
-
-    ARROW_RIGHT,
-    ARROW_LEFT,
-
-    CHECKMARK,
-    CROSS
+    CELL_INACTIVE
 }
