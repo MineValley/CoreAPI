@@ -11,11 +11,6 @@ import org.jetbrains.annotations.Contract;
 
 import javax.annotation.Nonnull;
 
-/**
- * @deprecated replaced by {@link GuiOverlay}, which is rendered directly onto a slot via
- * {@link InventoryGui#setOverlay(int, GuiOverlay)} instead of being set as an item.
- */
-@Deprecated
 @SuppressWarnings("unused")
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public enum InterfaceItem {
@@ -23,69 +18,81 @@ public enum InterfaceItem {
     /**
      * Hides the selected slot.
      */
+    @Deprecated
     SPACER("gui/spacer"),
 
 
     /**
      * Hides the selected slot and the one above.
      */
+    @Deprecated
     DOUBLE_SPACER_UP("gui/double_spacer_up"),
 
     /**
      * Hides the selected slot and the one underneath.
      */
+    @Deprecated
     DOUBLE_SPACER_DOWN("gui/double_spacer_down"),
 
     /**
      * Hides the selected slot and the one to the left.
      */
+    @Deprecated
     DOUBLE_SPACER_LEFT("gui/double_spacer_left"),
 
     /**
      * Hides the selected slot and the one to the right.
      */
+    @Deprecated
     DOUBLE_SPACER_RIGHT("gui/double_spacer_right"),
 
 
     /**
      * Hides the selected slot and highlights the item above.
      */
+    @Deprecated
     HIGHLIGHTER_UP("gui/highlighter_up"),
 
     /**
      * Hides the selected slot and highlights the item underneath.
      */
+    @Deprecated
     HIGHLIGHTER_DOWN("gui/highlighter_down"),
 
     /**
      * Hides the selected slot and highlights the item to the left.
      */
+    @Deprecated
     HIGHLIGHTER_LEFT("gui/highlighter_left"),
 
     /**
      * Hides the selected slot and highlights the item to the right.
      */
+    @Deprecated
     HIGHLIGHTER_RIGHT("gui/highlighter_right"),
-
 
     /**
      * Hides the selected slot and the one above, but highlights the item above the selected slot.
      */
+    @Deprecated
     HIGHLIGHTED_DOUBLE_SPACER_UP("gui/highlighted_double_spacer_up"),
 
     /**
      * Hides the selected slot and the one underneath, but highlights the item under the selected slot.
      */
+    @Deprecated
     HIGHLIGHTED_DOUBLE_SPACER_DOWN("gui/highlighted_double_spacer_down"),
 
     /**
      * Hides the selected slot and the one to the left, but highlights the item to the left of the selected slot.
      */
+    @Deprecated
     HIGHLIGHTED_DOUBLE_SPACER_LEFT("gui/highlighted_double_spacer_left"),
 
     /**
      * Hides the selected slot and the one to the right, but highlights the item to the right of the selected slot.
      */
+    @Deprecated
     HIGHLIGHTED_DOUBLE_SPACER_RIGHT("gui/highlighted_double_spacer_right"),
 
 
@@ -98,7 +105,6 @@ public enum InterfaceItem {
      * Hides the selected slot and displays a red cross.
      */
     CROSS("gui/cross"),
-
 
     /**
      * Hides the selected slot and displays a blue return arrow.
@@ -141,21 +147,25 @@ public enum InterfaceItem {
     /**
      * Hides the selected slot and displays an arrow on the slot above.
      */
+    @Deprecated
     BUTTON_UP("gui/button_up"),
 
     /**
      * Hides the selected slot and displays an arrow on the slot underneath.
      */
+    @Deprecated
     BUTTON_DOWN("gui/button_down"),
 
     /**
      * Hides the selected slot and displays an arrow on the slot to the left.
      */
+    @Deprecated
     BUTTON_LEFT("gui/button_left"),
 
     /**
      * Hides the selected slot and displays an arrow on the slot to the right.
      */
+    @Deprecated
     BUTTON_RIGHT("gui/button_right"),
 
 

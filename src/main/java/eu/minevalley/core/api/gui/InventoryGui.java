@@ -46,9 +46,7 @@ public interface InventoryGui {
      * @return this GUI
      * @throws IllegalArgumentException  if the interface item is null
      * @throws IndexOutOfBoundsException if the slot is out of bounds
-     * @deprecated use {@link #setOverlay(int, GuiOverlay)} instead
      */
-    @Deprecated
     @Nonnull
     @Contract("_, _ -> this")
     default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item)
@@ -80,9 +78,7 @@ public interface InventoryGui {
      * @return this GUI
      * @throws IllegalArgumentException  if the interface item or onClick is null
      * @throws IndexOutOfBoundsException if the slot is out of bounds
-     * @deprecated use {@link #setOverlay(int, GuiOverlay)} instead
      */
-    @Deprecated
     @Nonnull
     @Contract("_, _, _ -> this")
     default InventoryGui setItem(@Nonnegative int slot, @Nonnull InterfaceItem item,
@@ -143,9 +139,7 @@ public interface InventoryGui {
      * @return this GUI
      * @throws IllegalArgumentException if the item is null
      * @throws IllegalStateException    if the inventory is full
-     * @deprecated use {@link #setOverlay(int, GuiOverlay)} instead
      */
-    @Deprecated
     @Nonnull
     @Contract("_ -> this")
     default InventoryGui addItem(@Nonnull InterfaceItem item) throws IllegalArgumentException, IllegalStateException {
@@ -174,9 +168,7 @@ public interface InventoryGui {
      * @return this GUI
      * @throws IllegalArgumentException if the item or onClick is null
      * @throws IllegalStateException    if the inventory is full
-     * @deprecated use {@link #setOverlay(int, GuiOverlay)} instead
      */
-    @Deprecated
     @Nonnull
     @Contract("_, _ -> this")
     default InventoryGui addItem(@Nonnull InterfaceItem item, @Nonnull Consumer<GuiItemClick> onClick)
@@ -309,29 +301,48 @@ public interface InventoryGui {
     InventoryGui updateTitle(@Nonnull Component title) throws IllegalArgumentException;
 
     /**
-     * Renders the specified overlay at the given slot via the GUI font.
+     * Renders the specified spacer at the given slot via the GUI font.
      *
-     * @param slot    the slot index (0-based, max 53 for a 6-row chest)
-     * @param overlay the overlay type to render
+     * @param slot the slot index (0-based, max 53 for a 6-row chest)
      * @return this GUI
      * @throws IndexOutOfBoundsException if the slot is out of bounds
-     * @throws IllegalArgumentException  if the overlay is null
-     */
-    @Nonnull
-    @Contract("_, _ -> this")
-    InventoryGui setOverlay(@Nonnegative int slot, @Nonnull GuiOverlay overlay)
-            throws IndexOutOfBoundsException, IllegalArgumentException;
-
-    /**
-     * Renders a spacer overlay across all nine slots of the specified row via the GUI font.
-     *
-     * @param row the row to cover with the spacer
-     * @return this GUI
-     * @throws IllegalArgumentException if the row is null
      */
     @Nonnull
     @Contract("_ -> this")
-    InventoryGui setSpacer(@Nonnull GuiRow row) throws IllegalArgumentException;
+    InventoryGui hideSlot(@Nonnegative int slot) throws IndexOutOfBoundsException;
+
+    /**
+     * Renders the specified spacer at the given slot via the GUI font.
+     *
+     * @param slot the slot index (0-based, max 53 for a 6-row chest)
+     * @return this GUI
+     * @throws IndexOutOfBoundsException if the slot is out of bounds
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    InventoryGui showSlot(@Nonnegative int slot) throws IndexOutOfBoundsException;
+
+    /**
+     * Renders the specified spacer at the given row via the GUI font.
+     *
+     * @param row the row index
+     * @return this GUI
+     * @throws IndexOutOfBoundsException if the row is out of bounds
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    InventoryGui hideRow(@Nonnegative int row) throws IndexOutOfBoundsException;
+
+    /**
+     * Renders the specified spacer at the given row via the GUI font.
+     *
+     * @param row the row index
+     * @return this GUI
+     * @throws IndexOutOfBoundsException if the row is out of bounds
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    InventoryGui showRow(@Nonnegative int row) throws IndexOutOfBoundsException;
 
     /**
      * Opens this GUI for the specified player.
