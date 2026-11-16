@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Contract;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.List;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -90,13 +90,35 @@ public interface MultiPageGui extends InventoryGui {
     MultiPageGui removeFillSlots(@Nonnegative int... slots) throws IllegalArgumentException;
 
     /**
+     * Adds the specified slots to the fill slots.
+     *
+     * @param rows the rows to add to the fill slots
+     * @return this GUI
+     * @throws IllegalArgumentException if any of the slots are out of bounds
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    MultiPageGui addFillSlotRows(@Nonnegative int... rows) throws IllegalArgumentException;
+
+    /**
+     * Removes the specified slots from the fill slots.
+     *
+     * @param rows the rows to remove from the fill slots
+     * @return this GUI
+     * @throws IllegalArgumentException if any of the slots are out of bounds
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    MultiPageGui removeFillSlotRows(@Nonnegative int... rows) throws IllegalArgumentException;
+
+    /**
      * Gets a copy of the fill slots list of this GUI.
      *
      * @return copy the fill slots list of this GUI
      */
     @Nonnull
     @Contract(pure = true)
-    List<Integer> getFillSlots();
+    Set<Integer> getFillSlots();
 
     /**
      * Places the specified page-dependant item on all pages of this GUI.
