@@ -88,39 +88,6 @@ public interface InventoryGui {
     }
 
     /**
-     * Placed the specified interface item in the specified slots.
-     *
-     * @param item  the item to place
-     * @param slots the slots to place the item in
-     * @return this GUI
-     * @throws IllegalArgumentException  if the item is null
-     * @throws IndexOutOfBoundsException if any of the slots are out of bounds
-     * @deprecated use {@link #setOverlay(int, GuiOverlay)} instead
-     */
-    @Deprecated
-    @Nonnull
-    @Contract("_, _ -> this")
-    InventoryGui setInterfaceItems(@Nonnull InterfaceItem item, @Nonnegative int... slots)
-            throws IllegalArgumentException, IndexOutOfBoundsException;
-
-    /**
-     * Placed the specified interface item in the specified range of slots.
-     *
-     * @param item the item to place
-     * @param from the start of the range (inclusively)
-     * @param to   the end of the range (exclusively)
-     * @return this GUI
-     * @throws IllegalArgumentException  if the item is null
-     * @throws IndexOutOfBoundsException if any of the slots are out of bounds
-     * @deprecated use {@link #setOverlay(int, GuiOverlay)} instead
-     */
-    @Deprecated
-    @Nonnull
-    @Contract("_, _, _ -> this")
-    InventoryGui setInterfaceItemsInRange(@Nonnull InterfaceItem item, @Nonnegative int from, @Nonnegative int to)
-            throws IllegalArgumentException, IndexOutOfBoundsException;
-
-    /**
      * Adds the specified item to the first available slot.
      *
      * @param item the item to add
