@@ -88,62 +88,6 @@ public interface InventoryGui {
     }
 
     /**
-     * Adds the specified item to the first available slot.
-     *
-     * @param item the item to add
-     * @return this GUI
-     * @throws IllegalArgumentException if the item is null
-     * @throws IllegalStateException    if the inventory is full
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    InventoryGui addItem(@Nonnull ItemStack item) throws IllegalArgumentException, IllegalStateException;
-
-    /**
-     * Adds the specified interface item to the first available slot.
-     *
-     * @param item the item to add
-     * @return this GUI
-     * @throws IllegalArgumentException if the item is null
-     * @throws IllegalStateException    if the inventory is full
-     */
-    @Nonnull
-    @Contract("_ -> this")
-    default InventoryGui addItem(@Nonnull InterfaceItem item) throws IllegalArgumentException, IllegalStateException {
-        return addItem(item.toItemStack());
-    }
-
-    /**
-     * Adds the specified item to the first available slot with a click handler.
-     *
-     * @param item    the item to add
-     * @param onClick the consumer to run when the item is clicked
-     * @return this GUI
-     * @throws IllegalArgumentException if the item or onClick is null
-     * @throws IllegalStateException    if the inventory is full
-     */
-    @Nonnull
-    @Contract("_, _ -> this")
-    InventoryGui addItem(@Nonnull ItemStack item, @Nonnull Consumer<GuiItemClick> onClick)
-            throws IllegalArgumentException, IllegalStateException;
-
-    /**
-     * Adds the specified interface item to the first available slot with a click handler.
-     *
-     * @param item    the item to add
-     * @param onClick the consumer to run when the item is clicked
-     * @return this GUI
-     * @throws IllegalArgumentException if the item or onClick is null
-     * @throws IllegalStateException    if the inventory is full
-     */
-    @Nonnull
-    @Contract("_, _ -> this")
-    default InventoryGui addItem(@Nonnull InterfaceItem item, @Nonnull Consumer<GuiItemClick> onClick)
-            throws IllegalArgumentException, IllegalStateException {
-        return addItem(item.toItemStack(), onClick);
-    }
-
-    /**
      * Places a closer item in the top right slot (index 8).
      * The close-button graphic is rendered via the GUI font overlay.
      * When this slot is clicked, the GUI will be closed and the {@code onClose} / {@code onCloseButton} callbacks are called.
