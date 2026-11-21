@@ -4,16 +4,43 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-@Getter
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public enum NPCAnimation {
+@SuppressWarnings("unused")
+public class NPCAnimation {
 
-    SWING_MAIN_HAND(0),
-    TAKE_DAMAGE(1),
-    LEAVE_BED(2),
-    SWING_OFF_HAND(3),
-    CRITICAL_EFFECT(4),
-    MAGIC_CRITICAL_EFFECT(5);
+    @Getter
+    @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+    public enum Type {
 
-    private final int id;
+        LEAVE_BED(0),
+        CRITICAL_EFFECT(1),
+        MAGIC_CRITICAL_EFFECT(2);
+
+        private final int id;
+    }
+
+    @Getter
+    @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class Swing {
+
+        @Getter
+        @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+        public enum Hand {
+
+            MAIN_HAND(0),
+            OFF_HAND(1);
+
+            private final int id;
+        }
+
+        @Getter
+        @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+        public enum Type {
+
+            NONE(0),
+            WHACK(1),
+            STAB(2);
+
+            private final int id;
+        }
+    }
 }

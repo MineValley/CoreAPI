@@ -101,7 +101,16 @@ public interface NPC extends MessageSender, Passenger, Vehicle, EquipmentModifie
      * @param animation the animation to play
      * @throws IllegalArgumentException if the animation is null
      */
-    void playAnimation(@Nonnull NPCAnimation animation) throws IllegalArgumentException;
+    void playAnimation(@Nonnull NPCAnimation.Type animation) throws IllegalArgumentException;
+
+    /**
+     * Plays the given swing animation on the NPC.
+     *
+     * @param hand the hand to swing
+     * @param type the type of swing to play
+     * @throws IllegalArgumentException if the hand or type are null
+     */
+    void playSwingAnimation(@Nonnull NPCAnimation.Swing.Hand hand, @Nonnull NPCAnimation.Swing.Type type) throws IllegalArgumentException;
 
     /**
      * Makes the NPC look at the given location.
