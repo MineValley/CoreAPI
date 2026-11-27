@@ -135,6 +135,26 @@ public interface MultiPageGui extends InventoryGui {
                                       @Nonnull Function<Integer, Consumer<GuiItemClick>> callbackProvider) throws IllegalArgumentException;
 
     /**
+     * Places the previous-page-arrow-button with page-dependant behavior on all pages.
+     *
+     * @param slot slot to place (default for 2 rows: 11, 3: 20, 4: 29, 5: 38, 6: 47)
+     * @return this GUI
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    MultiPageGui setPreviousPageItem(@Nonnegative int slot);
+
+    /**
+     * Places the next-page-arrow-button with page-dependant behavior on all pages.
+     *
+     * @param slot slot to place (default for 2 rows: 15, 3: 24, 4: 33, 5: 42, 6: 51)
+     * @return this GUI
+     */
+    @Nonnull
+    @Contract("_ -> this")
+    MultiPageGui setNextPageItem(@Nonnegative int slot);
+
+    /**
      * Get the amount of pages in this GUI.
      *
      * @return the amount of pages in this GUI
