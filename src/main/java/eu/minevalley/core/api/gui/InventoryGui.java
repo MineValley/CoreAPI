@@ -178,27 +178,29 @@ public interface InventoryGui {
     InventoryGui onReturn(@Nullable Consumer<OnlineUser> callback);
 
     /**
-     * Locks the specified slot, preventing items from being placed or removed.
+     * Locks the specified slots, preventing items from being placed or removed.
      * <p><b>Note:</b> By default, all slots are locked.
      *
-     * @param slot the slot to lock
+     * @param slot  the first slot to lock
+     * @param slots the additional slots to lock
      * @return this GUI
-     * @throws IndexOutOfBoundsException if the slot is out of bounds
+     * @throws IndexOutOfBoundsException if any slot is out of bounds
      */
     @Nonnull
-    @Contract("_ -> this")
-    InventoryGui lockSlot(@Nonnegative int slot) throws IndexOutOfBoundsException;
+    @Contract("_, _ -> this")
+    InventoryGui lockSlots(@Nonnegative int slot, @Nonnegative int... slots) throws IndexOutOfBoundsException;
 
     /**
-     * Unlocks the specified slot, allowing items to be placed or removed.
+     * Unlocks the specified slots, allowing items to be placed or removed.
      *
-     * @param slot the slot to unlock
+     * @param slot  the first slot to unlock
+     * @param slots the additional slots to unlock
      * @return this GUI
-     * @throws IndexOutOfBoundsException if the slot is out of bounds
+     * @throws IndexOutOfBoundsException if any slot is out of bounds
      */
     @Nonnull
-    @Contract("_ -> this")
-    InventoryGui unlockSlot(@Nonnegative int slot) throws IndexOutOfBoundsException;
+    @Contract("_, _ -> this")
+    InventoryGui unlockSlots(@Nonnegative int slot, @Nonnegative int... slots) throws IndexOutOfBoundsException;
 
     /**
      * Updates the title of this GUI.
@@ -212,48 +214,52 @@ public interface InventoryGui {
     InventoryGui updateTitle(@Nonnull Component title) throws IllegalArgumentException;
 
     /**
-     * Renders the specified spacer at the given slot via the GUI font.
+     * Renders the specified spacer at the given slots via the GUI font.
      *
-     * @param slot the slot index (0-based, max 53 for a 6-row chest)
+     * @param slot  the first slot index (0-based, max 53 for a 6-row chest)
+     * @param slots the additional slot indices
      * @return this GUI
-     * @throws IndexOutOfBoundsException if the slot is out of bounds
+     * @throws IndexOutOfBoundsException if any slot is out of bounds
      */
     @Nonnull
-    @Contract("_ -> this")
-    InventoryGui hideSlot(@Nonnegative int slot) throws IndexOutOfBoundsException;
+    @Contract("_, _ -> this")
+    InventoryGui hideSlots(@Nonnegative int slot, @Nonnegative int... slots) throws IndexOutOfBoundsException;
 
     /**
-     * Renders the specified spacer at the given slot via the GUI font.
+     * Removes the spacer at the given slots, rendering them normally again.
      *
-     * @param slot the slot index (0-based, max 53 for a 6-row chest)
+     * @param slot  the first slot index (0-based, max 53 for a 6-row chest)
+     * @param slots the additional slot indices
      * @return this GUI
-     * @throws IndexOutOfBoundsException if the slot is out of bounds
+     * @throws IndexOutOfBoundsException if any slot is out of bounds
      */
     @Nonnull
-    @Contract("_ -> this")
-    InventoryGui showSlot(@Nonnegative int slot) throws IndexOutOfBoundsException;
+    @Contract("_, _ -> this")
+    InventoryGui showSlots(@Nonnegative int slot, @Nonnegative int... slots) throws IndexOutOfBoundsException;
 
     /**
-     * Renders the specified spacer at the given row via the GUI font.
+     * Renders the specified spacer at the given rows via the GUI font.
      *
-     * @param row the row index
+     * @param row  the first row index
+     * @param rows the additional row indices
      * @return this GUI
-     * @throws IndexOutOfBoundsException if the row is out of bounds
+     * @throws IndexOutOfBoundsException if any row is out of bounds
      */
     @Nonnull
-    @Contract("_ -> this")
-    InventoryGui hideRow(@Nonnegative int row) throws IndexOutOfBoundsException;
+    @Contract("_, _ -> this")
+    InventoryGui hideRows(@Nonnegative int row, @Nonnegative int... rows) throws IndexOutOfBoundsException;
 
     /**
-     * Renders the specified spacer at the given row via the GUI font.
+     * Removes the spacer at the given rows, rendering their slots normally again.
      *
-     * @param row the row index
+     * @param row  the first row index
+     * @param rows the additional row indices
      * @return this GUI
-     * @throws IndexOutOfBoundsException if the row is out of bounds
+     * @throws IndexOutOfBoundsException if any row is out of bounds
      */
     @Nonnull
-    @Contract("_ -> this")
-    InventoryGui showRow(@Nonnegative int row) throws IndexOutOfBoundsException;
+    @Contract("_, _ -> this")
+    InventoryGui showRows(@Nonnegative int row, @Nonnegative int... rows) throws IndexOutOfBoundsException;
 
     /**
      * Opens this GUI for the specified player.
